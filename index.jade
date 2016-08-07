@@ -1,0 +1,35 @@
+- var cardTypesAmount = 4
+- var cardBonusAmount = 2
+- var cardTypes = ['flower','mushroom','star']
+- var cardBonus = ['1up','coin10','coin20']
+
+button.btn-sound.is-playing
+audio#theme-song(src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/smb3-theme.mp3" autoplay loop)
+
+.score
+  .turns Turns: <span>2</span>
+  .attempts Attempts: <span>0</span>
+  .wins Wins: <span>0</span>
+
+main
+   - for (var row = 0; row < cardTypesAmount; ++row)
+     - for (var i = 0; i < cardTypes.length; ++i)
+      .card(data-type='#{cardTypes[i]}' data-matched='false')
+        .front
+        .back
+   - for (var row = 0; row < cardBonusAmount; ++row)
+     - for (var i = 0; i < cardBonus.length; ++i)
+      .card(data-type='#{cardBonus[i]}' data-matched='false')
+        .front
+        .back
+
+.success
+  .success-icon(data-type='mushroom')
+    .front
+  h2.success-message Nice work!    
+  .score
+    .turns Turns <span>2</span>
+    .attempts Attempts <span>0</span>
+    .wins Wins <span>0</span>
+    .attempts-overall Attempts Overall <span>0</span>
+  button.btn-continue Continue

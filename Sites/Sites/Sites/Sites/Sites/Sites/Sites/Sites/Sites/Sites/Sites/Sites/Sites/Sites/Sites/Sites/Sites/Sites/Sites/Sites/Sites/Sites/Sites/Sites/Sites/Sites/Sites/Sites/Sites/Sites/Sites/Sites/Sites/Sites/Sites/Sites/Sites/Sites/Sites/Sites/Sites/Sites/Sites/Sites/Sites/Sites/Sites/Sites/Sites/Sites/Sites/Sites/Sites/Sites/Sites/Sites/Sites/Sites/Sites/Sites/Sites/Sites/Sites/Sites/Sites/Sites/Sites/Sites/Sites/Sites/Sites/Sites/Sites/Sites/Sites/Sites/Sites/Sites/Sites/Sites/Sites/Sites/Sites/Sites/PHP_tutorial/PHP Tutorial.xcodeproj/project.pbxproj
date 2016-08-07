@@ -1,0 +1,98 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXFileReference section */
+		C953A41A1D41F8EB00B2431C /* classUser.php */ = {isa = PBXFileReference; lastKnownFileType = text.script.php; path = classUser.php; sourceTree = "<group>"; };
+		C953A41B1D41FB5800B2431C /* magic_functions.php */ = {isa = PBXFileReference; lastKnownFileType = text.script.php; path = magic_functions.php; sourceTree = "<group>"; };
+		C953A41C1D45E1D500B2431C /* class_inheritance.php */ = {isa = PBXFileReference; lastKnownFileType = text.script.php; path = class_inheritance.php; sourceTree = "<group>"; };
+		C9574FE11D2E6F66009DB5BB /* s7 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = s7; sourceTree = "<group>"; };
+		C96AF7161D1E16FA00FA15B6 /* s3 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = s3; sourceTree = "<group>"; };
+		C9C818DF1D38BA3700D17CC9 /* index.php */ = {isa = PBXFileReference; lastKnownFileType = text.script.php; path = index.php; sourceTree = "<group>"; };
+		C9D8D4451D507DE300AFC991 /* static_props_methods.php */ = {isa = PBXFileReference; lastKnownFileType = text.script.php; path = static_props_methods.php; sourceTree = "<group>"; };
+		C9D8D4461D51C9B300AFC991 /* abstract_classes_methods.php */ = {isa = PBXFileReference; lastKnownFileType = text.script.php; path = abstract_classes_methods.php; sourceTree = "<group>"; };
+		C9D8D4471D53455A00AFC991 /* foo.php */ = {isa = PBXFileReference; lastKnownFileType = text.script.php; path = foo.php; sourceTree = "<group>"; };
+		C9D8D4481D53457500AFC991 /* bar.php */ = {isa = PBXFileReference; lastKnownFileType = text.script.php; path = bar.php; sourceTree = "<group>"; };
+		C9D8D4491D55E7DC00AFC991 /* obj_iteration.php */ = {isa = PBXFileReference; lastKnownFileType = text.script.php; path = obj_iteration.php; sourceTree = "<group>"; };
+		C9F517D61D2571CC00D239DA /* s4 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = s4; sourceTree = "<group>"; };
+		C9F517D71D25720300D239DA /* s5 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = s5; sourceTree = "<group>"; };
+		C9F517D81D27873D00D239DA /* s6 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = s6; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		C96AF70F1D1E167D00FA15B6 = {
+			isa = PBXGroup;
+			children = (
+				C9C818DF1D38BA3700D17CC9 /* index.php */,
+				C953A41C1D45E1D500B2431C /* class_inheritance.php */,
+				C9D8D4451D507DE300AFC991 /* static_props_methods.php */,
+				C9D8D4461D51C9B300AFC991 /* abstract_classes_methods.php */,
+				C9D8D4471D53455A00AFC991 /* foo.php */,
+				C9D8D4491D55E7DC00AFC991 /* obj_iteration.php */,
+				C9D8D4481D53457500AFC991 /* bar.php */,
+				C953A41B1D41FB5800B2431C /* magic_functions.php */,
+				C953A41A1D41F8EB00B2431C /* classUser.php */,
+				C9574FE11D2E6F66009DB5BB /* s7 */,
+				C9F517D81D27873D00D239DA /* s6 */,
+				C9F517D71D25720300D239DA /* s5 */,
+				C9F517D61D2571CC00D239DA /* s4 */,
+				C96AF7161D1E16FA00FA15B6 /* s3 */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		C96AF7101D1E167D00FA15B6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+			};
+			buildConfigurationList = C96AF7131D1E167D00FA15B6 /* Build configuration list for PBXProject "PHP Tutorial" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C96AF70F1D1E167D00FA15B6;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		C96AF7141D1E167D00FA15B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		C96AF7151D1E167D00FA15B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C96AF7131D1E167D00FA15B6 /* Build configuration list for PBXProject "PHP Tutorial" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C96AF7141D1E167D00FA15B6 /* Debug */,
+				C96AF7151D1E167D00FA15B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C96AF7101D1E167D00FA15B6 /* Project object */;
+}

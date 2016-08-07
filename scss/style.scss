@@ -1,0 +1,1943 @@
+@import url(https://fonts.googleapis.com/css?family=Bubblegum+Sans);
+
+$fontMain: 'Bubblegum Sans', sans-serif;
+$bpSmall: 400px;
+$bpMedium: 600px;
+$p: 6px;
+$cardPadding: $p * 2;
+$cardWidth: ($p*18) + $cardPadding;
+$cardHeight: $cardWidth + ($cardPadding*2.5);
+$tint: 8%;
+$transDuration: 0.4s;
+$transTimeFunc: ease-out;
+$assetsUrl: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/';
+$iconSoundOn: url(#{$assetsUrl}icon-sound-on.svg);
+
+$colors: (
+  body: #1A1A1A,
+  button: (
+    bg: #C9531D,
+    text: white
+  ),
+  card: (
+    back: white,
+    front: #DBB6AB
+  ),
+  chest: (
+    body: #FC993D,
+    dark: darken(#FC993D, 20%),
+    light: lighten(#FC993D, 15%),
+    text: white
+  ),
+  coin: (
+    body: #FC993D,
+    dark: darken(#FC993D, 20%),
+    light: lighten(#FC993D, 15%),
+  ),
+  flower: (
+    face: #EDD1AE,
+    petal: #4CBCFE,
+    stem: #64CA66
+  ),
+  knockout: white,
+  mushroom: (
+    head: #FE953A,
+    face: #FFC2CE,
+    spot: #C9531D
+  ),
+  outline: #270300,
+  score: (
+    current: #DBB6AB,
+    last: red
+  ),
+  star: (
+    body: #FFFAFC,
+    outline: #CA2625
+  ),
+  success: #1fc9fb
+);
+
+@function key($map, $key, $sub-key: null) {
+  @if map-has-key($map, $key) {
+    $val: map-get($map, $key);
+    @if $sub-key and map-has-key($val, $sub-key) {
+      $val: map-get($val, $sub-key);
+    }
+    @return $val;
+  }
+}
+
+@function color($key, $sub-key: null) {
+  @return key($colors, $key, $sub-key);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: color(body);
+  font-family: $fontMain;
+}
+
+// Sound control
+.btn-sound {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: $iconSoundOn;
+  background-size: 100%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  z-index: 999;
+  &:active {
+    transform: translateY(1px);
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0; left: -10%;
+    margin: auto;
+    width: 120%;
+    height: 1px;
+    background-color: white;
+    box-shadow: 0 0 0 2px black;
+    transform: rotate(35deg);
+  }
+  @media (min-width: $bpSmall) {
+    top: 4px;
+    right: 8px;
+    bottom: auto;
+  }
+  &.is-playing {
+    background-image: $iconSoundOn;
+    animation: shake 10s 0.6s 3;
+    &:before {
+      display: none;
+    }
+  }
+}
+
+// Score container
+.score {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  width: 100%;
+  font-size: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  background-color: rgba(color(body), 0.8);
+  z-index: 99;
+  > * {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 48px;
+    padding-top: 3px;
+    span {
+      position: absolute;
+      top: 0; left: 100%; bottom: 0;
+      margin-left: 6px;
+      font-size: 1.4em;
+      &.is-updating {
+        animation: bounce 1s;
+      }
+      color: color(score, current);
+      &.last-turn {
+        color: color(score, last);
+      }
+    }
+  }
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 950px;
+  margin: auto;
+  padding: 24px 0;
+}
+
+// Card
+.card,
+.success-icon {
+  position: relative;
+  margin: 1%;
+  padding-top: $cardPadding*3;
+  padding-left: $cardPadding;
+  width: $cardWidth;
+  height: $cardHeight;
+  cursor: pointer;
+  transform: translate3d(0,0,0);
+  transform-style: preserve-3d;
+  transition: transform $transDuration $transTimeFunc;
+  border-radius: 3px;
+  user-select: none;
+}
+
+// Actions
+.is-selected,
+[data-matched=true] {
+  transform: translate3d(0,0,0) rotateY(180deg);
+}
+[data-matched=true] {
+  animation: matchSuccess $transDuration $transTimeFunc 3;
+}
+
+// Success!
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: rgba(color(success), 0.96);
+  z-index: 999;
+  opacity: 0;
+  transform: translate3d(100%,0,0);
+  transition: 
+    opacity 0.2s ease-out,
+    transform 0s 0.2s;
+  &.is-visible {
+    opacity: 1;
+    transform: translate3d(0,0,100px);
+    transition: 
+      opacity 0.2s ease-out,
+      transform 0s;
+  }
+  .success-message {
+    color: white;
+    font-size: 2.5rem;
+    @media (min-width: $bpSmall) {
+      font-size: 4rem;
+    }
+  }
+  .score {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 6px;
+    background-color: transparent;
+    @media (min-width: $bpMedium) {
+      flex-direction: row;
+      margin-bottom: 12px;
+    }
+    > * {
+      margin: 2px;
+      padding: 8px 12px 4px;
+      color: black;
+      background-color: white;
+      border-radius: 3px;
+      overflow: hidden;
+      user-select: none;
+      @media (min-width: $bpSmall) {
+        margin: 6px;
+      }
+      span {
+        position: relative;
+        top: auto; bottom: auto; left: auto;
+        margin-left: 8px;
+        font-size: 1.5rem;
+        color: color(success);
+        z-index: 2;
+      }
+    }
+  }
+}
+
+// Success popup
+.success-icon {
+  position: relative;
+  transform: scale(1.5);
+  .front {
+    background-color: transparent;
+    box-shadow: none;
+    transform: rotateY(0);
+    opacity: 0;
+    transition: opacity 0.2s 0.4s;
+    .is-visible & {
+      opacity: 1;
+      animation: bounce 0.5s 0.4s ease-out forwards;
+    }
+  }
+}
+
+// Continue button
+.btn-continue {
+  position: relative;
+  margin-bottom: 12px;
+  padding: 6px 24px;
+  font-family: $fontMain;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: color(button, text);
+  background-color: color(button, bg);
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  box-shadow: 
+    0 1px 0 lighten(color(button, bg), 8%),
+    0 4px 0 darken(color(button, bg), 8%);
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0; right: 0; left: 0;
+    margin: auto;
+    width: 100%;
+    height: 50%;
+    background-color: rgba(white, 0.1);
+  }
+  &:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 darken(color(button, bg), 8%);
+  }
+}
+
+// Card sides
+.front,
+.back {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  box-shadow: -6px -6px 36px 2px rgba(black, 0.15) inset;
+  backface-visibility: hidden;
+  overflow: hidden;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: $cardPadding*3;
+    left: $cardPadding;
+    width: $p;
+    height: $p;
+  }
+}
+
+.front {
+  background-color: color(card, front);
+  transform: rotateY(180deg);
+}
+
+// Back of card
+.back {
+  background-color: color(card, back);
+  transform: rotateY(0);
+  &:before {
+    box-shadow: 
+      $p*8 $p color(outline),
+      $p*9 $p color(outline),
+
+      $p*7 $p*2 color(outline),
+      $p*8 $p*2 color(outline),
+      $p*9 $p*2 color(outline),
+      $p*10 $p*2 color(outline),
+
+      $p*6 $p*3 color(outline),
+      $p*7 $p*3 color(outline),
+      $p*8 $p*3 color(outline),
+      $p*9 $p*3 color(outline),
+      $p*10 $p*3 color(outline),
+      $p*11 $p*3 color(outline),
+
+      $p*5 $p*4 color(outline),
+      $p*6 $p*4 color(outline),
+      $p*7 $p*4 color(outline),
+      $p*8 $p*4 color(outline),
+      $p*9 $p*4 color(outline),
+      $p*10 $p*4 color(outline),
+      $p*11 $p*4 color(outline),
+      $p*12 $p*4 color(outline),
+
+      $p*4 $p*5 color(outline),
+      $p*6 $p*5 color(outline),
+      $p*5 $p*5 color(outline),
+      $p*6 $p*5 color(outline),
+      $p*7 $p*5 color(outline),
+      $p*8 $p*5 color(outline),
+      $p*9 $p*5 color(outline),
+      $p*10 $p*5 color(outline),
+      $p*11 $p*5 color(outline),
+      $p*12 $p*5 color(outline),
+      $p*13 $p*5 color(outline),
+
+      $p*4 $p*6 color(outline),
+      $p*5 $p*6 color(outline),
+      $p*6 $p*6 color(knockout),
+      $p*7 $p*6 color(knockout),
+      $p*8 $p*6 color(outline),
+      $p*9 $p*6 color(outline),
+      $p*10 $p*6 color(outline),
+      $p*11 $p*6 color(knockout),
+      $p*12 $p*6 color(outline),
+      $p*13 $p*6 color(outline),
+
+      $p*3 $p*7 color(outline),
+      $p*4 $p*7 color(outline),
+      $p*5 $p*7 color(outline),
+      $p*6 $p*7 color(knockout),
+      $p*7 $p*7 color(knockout),
+      $p*8 $p*7 color(knockout),
+      $p*9 $p*7 color(outline),
+      $p*10 $p*7 color(outline),
+      $p*11 $p*7 color(knockout),
+      $p*12 $p*7 color(outline),
+      $p*13 $p*7 color(outline),
+      $p*14 $p*7 color(outline),
+
+      $p*3 $p*8 color(outline),
+      $p*4 $p*8 color(outline),
+      $p*5 $p*8 color(outline),
+      $p*6 $p*8 color(knockout),
+      $p*7 $p*8 color(knockout),
+      $p*8 $p*8 color(knockout),
+      $p*9 $p*8 color(knockout),
+      $p*10 $p*8 color(outline),
+      $p*11 $p*8 color(knockout),
+      $p*12 $p*8 color(outline),
+      $p*13 $p*8 color(outline),
+      $p*14 $p*8 color(outline),
+
+      $p*2 $p*9 color(outline),
+      $p*3 $p*9 color(outline),
+      $p*4 $p*9 color(outline),
+      $p*5 $p*9 color(outline),
+      $p*6 $p*9 color(knockout),
+      $p*7 $p*9 color(knockout),
+      $p*8 $p*9 color(outline),
+      $p*9 $p*9 color(knockout),
+      $p*10 $p*9 color(knockout),
+      $p*11 $p*9 color(knockout),
+      $p*12 $p*9 color(outline),
+      $p*13 $p*9 color(outline),
+      $p*14 $p*9 color(outline),
+      $p*15 $p*9 color(outline),
+
+      $p*2 $p*10 color(outline),
+      $p*3 $p*10 color(outline),
+      $p*4 $p*10 color(outline),
+      $p*5 $p*10 color(outline),
+      $p*6 $p*10 color(knockout),
+      $p*7 $p*10 color(knockout),
+      $p*8 $p*10 color(outline),
+      $p*9 $p*10 color(outline),
+      $p*10 $p*10 color(knockout),
+      $p*11 $p*10 color(knockout),
+      $p*12 $p*10 color(outline),
+      $p*13 $p*10 color(outline),
+      $p*14 $p*10 color(outline),
+      $p*15 $p*10 color(outline),
+
+      $p*2 $p*11 color(outline),
+      $p*3 $p*11 color(outline),
+      $p*4 $p*11 color(outline),
+      $p*5 $p*11 color(outline),
+      $p*6 $p*11 color(knockout),
+      $p*7 $p*11 color(knockout),
+      $p*8 $p*11 color(outline),
+      $p*9 $p*11 color(outline),
+      $p*10 $p*11 color(outline),
+      $p*11 $p*11 color(knockout),
+      $p*12 $p*11 color(outline),
+      $p*13 $p*11 color(outline),
+      $p*14 $p*11 color(outline),
+      $p*15 $p*11 color(outline),
+
+      $p*2 $p*12 color(outline),
+      $p*3 $p*12 color(outline),
+      $p*4 $p*12 color(outline),
+      $p*5 $p*12 color(outline),
+      $p*6 $p*12 color(outline),
+      $p*7 $p*12 color(outline),
+      $p*8 $p*12 color(outline),
+      $p*9 $p*12 color(outline),
+      $p*10 $p*12 color(outline),
+      $p*11 $p*12 color(outline),
+      $p*12 $p*12 color(outline),
+      $p*13 $p*12 color(outline),
+      $p*14 $p*12 color(outline),
+      $p*15 $p*12 color(outline),
+
+      $p*3 $p*13 color(outline),
+      $p*4 $p*13 color(outline),
+      $p*5 $p*13 color(outline),
+      $p*6 $p*13 color(outline),
+      $p*7 $p*13 color(outline),
+      $p*8 $p*13 color(outline),
+      $p*9 $p*13 color(outline),
+      $p*10 $p*13 color(outline),
+      $p*11 $p*13 color(outline),
+      $p*12 $p*13 color(outline),
+      $p*13 $p*13 color(outline),
+      $p*14 $p*13 color(outline),
+
+      $p*7 $p*14 color(outline),
+      $p*8 $p*14 color(outline),
+      $p*9 $p*14 color(outline),
+      $p*10 $p*14 color(outline),
+
+      $p*7 $p*15 color(outline),
+      $p*8 $p*15 color(outline),
+      $p*9 $p*15 color(outline),
+      $p*10 $p*15 color(outline),
+
+      $p*5 $p*16 color(outline),
+      $p*6 $p*16 color(outline),
+      $p*7 $p*16 color(outline),
+      $p*8 $p*16 color(outline),
+      $p*9 $p*16 color(outline),
+      $p*10 $p*16 color(outline),
+      $p*11 $p*16 color(outline),
+      $p*12 $p*16 color(outline),
+
+  }
+}
+
+[data-type="mushroom"] .front:before {
+  box-shadow:
+    $p*6 $p color(outline),
+    $p*7 $p color(outline),
+    $p*8 $p color(outline),
+    $p*9 $p color(outline),
+    $p*10 $p color(outline),
+    $p*11 $p color(outline),
+
+    $p*4 $p*2 color(outline),
+    $p*5 $p*2 color(outline),
+    $p*6 $p*2 color(outline),
+    $p*7 $p*2 color(mushroom, spot),
+    $p*8 $p*2 color(mushroom, head),
+    $p*9 $p*2 color(mushroom, head),
+    $p*10 $p*2 color(mushroom, spot),
+    $p*11 $p*2 color(outline),
+    $p*12 $p*2 color(outline),
+    $p*13 $p*2 color(outline),
+
+    $p*3 $p*3 color(outline),
+    $p*4 $p*3 color(outline),
+    $p*5 $p*3 color(mushroom, spot),
+    $p*6 $p*3 color(mushroom, spot),
+    $p*7 $p*3 color(mushroom, spot),
+    $p*8 $p*3 color(mushroom, head),
+    $p*9 $p*3 color(mushroom, head),
+    $p*10 $p*3 color(mushroom, spot),
+    $p*11 $p*3 color(mushroom, spot),
+    $p*12 $p*3 color(mushroom, spot),
+    $p*13 $p*3 color(outline),
+    $p*14 $p*3 color(outline),
+
+    $p*2 $p*4 color(outline),
+    $p*3 $p*4 color(outline),
+    $p*4 $p*4 color(mushroom, head),
+    $p*5 $p*4 color(mushroom, spot),
+    $p*6 $p*4 color(mushroom, spot),
+    $p*7 $p*4 color(mushroom, head),
+    $p*8 $p*4 color(mushroom, head),
+    $p*9 $p*4 color(mushroom, head),
+    $p*10 $p*4 color(mushroom, head),
+    $p*11 $p*4 color(mushroom, spot),
+    $p*12 $p*4 color(mushroom, spot),
+    $p*13 $p*4 color(mushroom, head),
+    $p*14 $p*4 color(outline),
+    $p*15 $p*4 color(outline),
+
+    $p*2 $p*5 color(outline),
+    $p*3 $p*5 color(mushroom, head),
+    $p*4 $p*5 color(mushroom, head),
+    $p*5 $p*5 color(mushroom, head),
+    $p*6 $p*5 color(mushroom, head),
+    $p*7 $p*5 color(mushroom, head),
+    $p*8 $p*5 color(mushroom, head),
+    $p*9 $p*5 color(mushroom, head),
+    $p*10 $p*5 color(mushroom, head),
+    $p*11 $p*5 color(mushroom, head),
+    $p*12 $p*5 color(mushroom, head),
+    $p*13 $p*5 color(mushroom, head),
+    $p*14 $p*5 color(mushroom, head),
+    $p*15 $p*5 color(outline),
+
+    $p*1 $p*6 color(outline),
+    $p*2 $p*6 color(outline),
+    $p*3 $p*6 color(mushroom, head),
+    $p*4 $p*6 color(mushroom, head),
+    $p*5 $p*6 color(mushroom, head),
+    $p*6 $p*6 color(mushroom, head),
+    $p*7 $p*6 color(mushroom, spot),
+    $p*8 $p*6 color(mushroom, spot),
+    $p*9 $p*6 color(mushroom, spot),
+    $p*10 $p*6 color(mushroom, spot),
+    $p*11 $p*6 color(mushroom, head),
+    $p*12 $p*6 color(mushroom, head),
+    $p*13 $p*6 color(mushroom, head),
+    $p*14 $p*6 color(mushroom, head),
+    $p*15 $p*6 color(outline),
+    $p*16 $p*6 color(outline),
+
+    $p*1 $p*7 color(outline),
+    $p*2 $p*7 color(mushroom, spot),
+    $p*3 $p*7 color(mushroom, spot),
+    $p*4 $p*7 color(mushroom, head),
+    $p*5 $p*7 color(mushroom, head),
+    $p*6 $p*7 color(mushroom, spot),
+    $p*7 $p*7 color(mushroom, spot),
+    $p*8 $p*7 color(mushroom, spot),
+    $p*9 $p*7 color(mushroom, spot),
+    $p*10 $p*7 color(mushroom, spot),
+    $p*11 $p*7 color(mushroom, spot),
+    $p*12 $p*7 color(mushroom, head),
+    $p*13 $p*7 color(mushroom, head),
+    $p*14 $p*7 color(mushroom, spot),
+    $p*15 $p*7 color(mushroom, spot),
+    $p*16 $p*7 color(outline),
+
+    $p*1 $p*8 color(outline),
+    $p*2 $p*8 color(mushroom, spot),
+    $p*3 $p*8 color(mushroom, spot),
+    $p*4 $p*8 color(mushroom, head),
+    $p*5 $p*8 color(mushroom, head),
+    $p*6 $p*8 color(mushroom, spot),
+    $p*7 $p*8 color(mushroom, spot),
+    $p*8 $p*8 color(mushroom, spot),
+    $p*9 $p*8 color(mushroom, spot),
+    $p*10 $p*8 color(mushroom, spot),
+    $p*11 $p*8 color(mushroom, spot),
+    $p*12 $p*8 color(mushroom, head),
+    $p*13 $p*8 color(mushroom, head),
+    $p*14 $p*8 color(mushroom, spot),
+    $p*15 $p*8 color(mushroom, spot),
+    $p*16 $p*8 color(outline),
+
+    $p*1 $p*9 color(outline),
+    $p*2 $p*9 color(mushroom, spot),
+    $p*3 $p*9 color(mushroom, spot),
+    $p*4 $p*9 color(mushroom, head),
+    $p*5 $p*9 color(mushroom, head),
+    $p*6 $p*9 color(mushroom, spot),
+    $p*7 $p*9 color(mushroom, spot),
+    $p*8 $p*9 color(mushroom, spot),
+    $p*9 $p*9 color(mushroom, spot),
+    $p*10 $p*9 color(mushroom, spot),
+    $p*11 $p*9 color(mushroom, spot),
+    $p*12 $p*9 color(mushroom, head),
+    $p*13 $p*9 color(mushroom, head),
+    $p*14 $p*9 color(mushroom, spot),
+    $p*15 $p*9 color(mushroom, spot),
+    $p*16 $p*9 color(outline),
+
+    $p*1 $p*10 color(outline),
+    $p*2 $p*10 color(mushroom, spot),
+    $p*3 $p*10 color(mushroom, head),
+    $p*4 $p*10 color(mushroom, head),
+    $p*5 $p*10 color(mushroom, head),
+    $p*6 $p*10 color(mushroom, head),
+    $p*7 $p*10 color(mushroom, spot),
+    $p*8 $p*10 color(mushroom, spot),
+    $p*9 $p*10 color(mushroom, spot),
+    $p*10 $p*10 color(mushroom, spot),
+    $p*11 $p*10 color(mushroom, head),
+    $p*12 $p*10 color(mushroom, head),
+    $p*13 $p*10 color(mushroom, head),
+    $p*14 $p*10 color(mushroom, head),
+    $p*15 $p*10 color(mushroom, spot),
+    $p*16 $p*10 color(outline),
+
+    $p*1 $p*11 color(outline),
+    $p*2 $p*11 color(mushroom, head),
+    $p*3 $p*11 color(mushroom, head),
+    $p*4 $p*11 color(outline),
+    $p*5 $p*11 color(outline),
+    $p*6 $p*11 color(outline),
+    $p*7 $p*11 color(outline),
+    $p*8 $p*11 color(outline),
+    $p*9 $p*11 color(outline),
+    $p*10 $p*11 color(outline),
+    $p*11 $p*11 color(outline),
+    $p*12 $p*11 color(outline),
+    $p*13 $p*11 color(outline),
+    $p*14 $p*11 color(mushroom, head),
+    $p*15 $p*11 color(mushroom, head),
+    $p*16 $p*11 color(outline),
+
+    $p*1 $p*12 color(outline),
+    $p*2 $p*12 color(outline),
+    $p*3 $p*12 color(outline),
+    $p*4 $p*12 color(outline),
+    $p*5 $p*12 darken(color(mushroom, face), $tint),
+    $p*6 $p*12 darken(color(mushroom, face), $tint),
+    $p*7 $p*12 color(outline),
+    $p*8 $p*12 darken(color(mushroom, face), $tint),
+    $p*9 $p*12 darken(color(mushroom, face), $tint),
+    $p*10 $p*12 color(outline),
+    $p*11 $p*12 darken(color(mushroom, face), $tint),
+    $p*12 $p*12 darken(color(mushroom, face), $tint),
+    $p*13 $p*12 color(outline),
+    $p*14 $p*12 color(outline),
+    $p*15 $p*12 color(outline),
+    $p*16 $p*12 color(outline),
+
+    $p*2 $p*13 color(outline),
+    $p*3 $p*13 color(outline),
+    $p*4 $p*13 darken(color(mushroom, face), $tint),
+    $p*5 $p*13 color(mushroom, face),
+    $p*6 $p*13 color(mushroom, face),
+    $p*7 $p*13 color(outline),
+    $p*8 $p*13 color(mushroom, face),
+    $p*9 $p*13 color(mushroom, face),
+    $p*10 $p*13 color(outline),
+    $p*11 $p*13 color(mushroom, face),
+    $p*12 $p*13 color(mushroom, face),
+    $p*13 $p*13 darken(color(mushroom, face), $tint),
+    $p*14 $p*13 color(outline),
+    $p*15 $p*13 color(outline),
+
+    $p*3 $p*14 color(outline),
+    $p*4 $p*14 color(mushroom, face),
+    $p*5 $p*14 color(mushroom, face),
+    $p*6 $p*14 color(mushroom, face),
+    $p*7 $p*14 color(mushroom, face),
+    $p*8 $p*14 color(mushroom, face),
+    $p*9 $p*14 color(mushroom, face),
+    $p*10 $p*14 color(mushroom, face),
+    $p*11 $p*14 color(mushroom, face),
+    $p*12 $p*14 color(mushroom, face),
+    $p*13 $p*14 color(mushroom, face),
+    $p*14 $p*14 color(outline),
+
+    $p*3 $p*15 color(outline),
+    $p*4 $p*15 color(outline),
+    $p*5 $p*15 color(mushroom, face),
+    $p*6 $p*15 color(mushroom, face),
+    $p*7 $p*15 color(mushroom, face),
+    $p*8 $p*15 color(mushroom, face),
+    $p*9 $p*15 color(mushroom, face),
+    $p*10 $p*15 color(mushroom, face),
+    $p*11 $p*15 color(mushroom, face),
+    $p*12 $p*15 color(mushroom, face),
+    $p*13 $p*15 color(outline),
+    $p*14 $p*15 color(outline),
+
+    $p*4 $p*16 color(outline),
+    $p*5 $p*16 color(outline),
+    $p*6 $p*16 color(outline),
+    $p*7 $p*16 color(outline),
+    $p*8 $p*16 color(outline),
+    $p*9 $p*16 color(outline),
+    $p*10 $p*16 color(outline),
+    $p*11 $p*16 color(outline),
+    $p*12 $p*16 color(outline),
+    $p*13 $p*16 color(outline);
+}
+
+[data-type="flower"] .front:before {
+  box-shadow: 
+    $p*4 $p color(outline),
+    $p*5 $p color(outline),
+    $p*6 $p color(outline),
+    $p*7 $p color(outline),
+    $p*8 $p color(outline),
+    $p*9 $p color(outline),
+    $p*10 $p color(outline),
+    $p*11 $p color(outline),
+    $p*12 $p color(outline),
+    $p*13 $p color(outline),
+
+    $p*2 $p*2 color(outline),
+    $p*3 $p*2 color(outline),
+    $p*4 $p*2 color(outline),
+    $p*5 $p*2 color(flower, petal),
+    $p*6 $p*2 color(flower, petal),
+    $p*7 $p*2 color(flower, petal),
+    $p*8 $p*2 color(flower, petal),
+    $p*9 $p*2 color(flower, petal),
+    $p*10 $p*2 color(flower, petal),
+    $p*11 $p*2 color(flower, petal),
+    $p*12 $p*2 color(flower, petal),
+    $p*13 $p*2 color(outline),
+    $p*14 $p*2 color(outline),
+    $p*15 $p*2 color(outline),
+
+    $p*1 $p*3 color(outline),
+    $p*2 $p*3 color(outline),
+    $p*3 $p*3 color(flower, petal),
+    $p*4 $p*3 color(flower, petal),
+    $p*5 $p*3 color(flower, petal),
+    $p*6 $p*3 color(outline),
+    $p*7 $p*3 color(outline),
+    $p*8 $p*3 color(outline),
+    $p*9 $p*3 color(outline),
+    $p*10 $p*3 color(outline),
+    $p*11 $p*3 color(outline),
+    $p*12 $p*3 color(flower, petal),
+    $p*13 $p*3 color(flower, petal),
+    $p*14 $p*3 color(flower, petal),
+    $p*15 $p*3 color(outline),
+    $p*16 $p*3 color(outline),
+
+    $p*1 $p*4 color(outline),
+    $p*2 $p*4 color(flower, petal),
+    $p*3 $p*4 color(flower, petal),
+    $p*4 $p*4 color(outline),
+    $p*5 $p*4 color(outline),
+    $p*6 $p*4 color(outline),
+    $p*7 $p*4 color(flower, face),
+    $p*8 $p*4 color(flower, face),
+    $p*9 $p*4 color(flower, face),
+    $p*10 $p*4 color(flower, face),
+    $p*11 $p*4 color(outline),
+    $p*12 $p*4 color(outline),
+    $p*13 $p*4 color(outline),
+    $p*14 $p*4 color(flower, petal),
+    $p*15 $p*4 color(flower, petal),
+    $p*16 $p*4 color(outline),
+
+    $p*1 $p*5 color(outline),
+    $p*2 $p*5 color(flower, petal),
+    $p*3 $p*5 color(flower, petal),
+    $p*4 $p*5 color(outline),
+    $p*5 $p*5 color(flower, face),
+    $p*6 $p*5 color(flower, face),
+    $p*7 $p*5 color(outline),
+    $p*8 $p*5 color(outline),
+    $p*9 $p*5 color(outline),
+    $p*10 $p*5 color(outline),
+    $p*11 $p*5 color(flower, face),
+    $p*12 $p*5 color(flower, face),
+    $p*13 $p*5 color(outline),
+    $p*14 $p*5 color(flower, petal),
+    $p*15 $p*5 color(flower, petal),
+    $p*16 $p*5 color(outline),
+
+    $p*1 $p*6 color(outline),
+    $p*2 $p*6 color(flower, petal),
+    $p*3 $p*6 color(flower, petal),
+    $p*4 $p*6 color(outline),
+    $p*5 $p*6 color(outline),
+    $p*6 $p*6 color(outline),
+    $p*7 $p*6 color(flower, face),
+    $p*8 $p*6 color(flower, face),
+    $p*9 $p*6 color(flower, face),
+    $p*10 $p*6 color(flower, face),
+    $p*11 $p*6 color(outline),
+    $p*12 $p*6 color(outline),
+    $p*13 $p*6 color(outline),
+    $p*14 $p*6 color(flower, petal),
+    $p*15 $p*6 color(flower, petal),
+    $p*16 $p*6 color(outline),
+
+    $p*1 $p*7 color(outline),
+    $p*2 $p*7 color(outline),
+    $p*3 $p*7 color(flower, petal),
+    $p*4 $p*7 color(flower, petal),
+    $p*5 $p*7 color(flower, petal),
+    $p*6 $p*7 color(outline),
+    $p*7 $p*7 color(outline),
+    $p*8 $p*7 color(outline),
+    $p*9 $p*7 color(outline),
+    $p*10 $p*7 color(outline),
+    $p*11 $p*7 color(outline),
+    $p*12 $p*7 color(flower, petal),
+    $p*13 $p*7 color(flower, petal),
+    $p*14 $p*7 color(flower, petal),
+    $p*15 $p*7 color(outline),
+    $p*16 $p*7 color(outline),
+
+    $p*2 $p*8 color(outline),
+    $p*3 $p*8 color(outline),
+    $p*4 $p*8 color(outline),
+    $p*5 $p*8 color(flower, petal),
+    $p*6 $p*8 color(flower, petal),
+    $p*7 $p*8 color(flower, petal),
+    $p*8 $p*8 color(flower, petal),
+    $p*9 $p*8 color(flower, petal),
+    $p*10 $p*8 color(flower, petal),
+    $p*11 $p*8 color(flower, petal),
+    $p*12 $p*8 color(flower, petal),
+    $p*13 $p*8 color(outline),
+    $p*14 $p*8 color(outline),
+    $p*15 $p*8 color(outline),
+
+    $p*4 $p*9 color(outline),
+    $p*5 $p*9 color(outline),
+    $p*6 $p*9 color(outline),
+    $p*7 $p*9 color(outline),
+    $p*8 $p*9 color(outline),
+    $p*9 $p*9 color(outline),
+    $p*10 $p*9 color(outline),
+    $p*11 $p*9 color(outline),
+    $p*12 $p*9 color(outline),
+    $p*13 $p*9 color(outline),
+
+    $p*2 $p*10 color(outline),
+    $p*3 $p*10 color(outline),
+    $p*7 $p*10 color(outline),
+    $p*8 $p*10 color(flower, stem),
+    $p*9 $p*10 color(flower, stem),
+    $p*10 $p*10 color(outline),
+    $p*14 $p*10 color(outline),
+    $p*15 $p*10 color(outline),
+
+    $p*1 $p*11 color(outline),
+    $p*2 $p*11 color(flower, stem),
+    $p*3 $p*11 color(flower, stem),
+    $p*4 $p*11 color(outline),
+    $p*5 $p*11 color(outline),
+    $p*7 $p*11 color(outline),
+    $p*8 $p*11 color(flower, stem),
+    $p*9 $p*11 color(flower, stem),
+    $p*10 $p*11 color(outline),
+    $p*12 $p*11 color(outline),
+    $p*13 $p*11 color(outline),
+    $p*14 $p*11 color(flower, stem),
+    $p*15 $p*11 color(flower, stem),
+    $p*16 $p*11 color(outline),
+
+    $p*1 $p*12 color(outline),
+    $p*2 $p*12 color(flower, stem),
+    $p*3 $p*12 color(outline),
+    $p*4 $p*12 color(flower, stem),
+    $p*5 $p*12 color(flower, stem),
+    $p*6 $p*12 color(outline),
+    $p*7 $p*12 color(outline),
+    $p*8 $p*12 color(flower, stem),
+    $p*9 $p*12 color(flower, stem),
+    $p*10 $p*12 color(outline),
+    $p*11 $p*12 color(outline),
+    $p*12 $p*12 color(flower, stem),
+    $p*13 $p*12 color(flower, stem),
+    $p*14 $p*12 color(outline),
+    $p*15 $p*12 color(flower, stem),
+    $p*16 $p*12 color(outline),
+
+    $p*1 $p*13 color(outline),
+    $p*2 $p*13 color(flower, stem),
+    $p*3 $p*13 color(flower, stem),
+    $p*4 $p*13 color(outline),
+    $p*5 $p*13 color(flower, stem),
+    $p*6 $p*13 color(flower, stem),
+    $p*7 $p*13 color(outline),
+    $p*8 $p*13 color(flower, stem),
+    $p*9 $p*13 color(flower, stem),
+    $p*10 $p*13 color(outline),
+    $p*11 $p*13 color(flower, stem),
+    $p*12 $p*13 color(flower, stem),
+    $p*13 $p*13 color(outline),
+    $p*14 $p*13 color(flower, stem),
+    $p*15 $p*13 color(flower, stem),
+    $p*16 $p*13 color(outline),
+
+    $p*2 $p*14 color(outline),
+    $p*3 $p*14 color(flower, stem),
+    $p*4 $p*14 color(flower, stem),
+    $p*5 $p*14 color(outline),
+    $p*6 $p*14 color(flower, stem),
+    $p*7 $p*14 color(outline),
+    $p*8 $p*14 color(flower, stem),
+    $p*9 $p*14 color(flower, stem),
+    $p*10 $p*14 color(outline),
+    $p*11 $p*14 color(flower, stem),
+    $p*12 $p*14 color(outline),
+    $p*13 $p*14 color(flower, stem),
+    $p*14 $p*14 color(flower, stem),
+    $p*15 $p*14 color(outline),
+
+    $p*3 $p*15 color(outline),
+    $p*4 $p*15 color(flower, stem),
+    $p*5 $p*15 color(flower, stem),
+    $p*6 $p*15 color(outline),
+    $p*7 $p*15 color(flower, stem),
+    $p*8 $p*15 color(flower, stem),
+    $p*9 $p*15 color(flower, stem),
+    $p*10 $p*15 color(flower, stem),
+    $p*11 $p*15 color(outline),
+    $p*12 $p*15 color(flower, stem),
+    $p*13 $p*15 color(flower, stem),
+    $p*14 $p*15 color(outline),
+
+    $p*4 $p*16 color(outline),
+    $p*5 $p*16 color(outline),
+    $p*6 $p*16 color(outline),
+    $p*7 $p*16 color(outline),
+    $p*8 $p*16 color(outline),
+    $p*9 $p*16 color(outline),
+    $p*10 $p*16 color(outline),
+    $p*11 $p*16 color(outline),
+    $p*12 $p*16 color(outline),
+    $p*13 $p*16 color(outline);
+}
+
+[data-type="star"] .front:before {
+  box-shadow: 
+    $p*8 $p color(star, outline),
+    $p*9 $p color(star, outline),
+
+    $p*7 $p*2 color(star, outline),
+    $p*8 $p*2 color(star, body),
+    $p*9 $p*2 color(star, body),
+    $p*10 $p*2 color(star, outline),
+
+    $p*7 $p*3 color(star, outline),
+    $p*8 $p*3 color(star, body),
+    $p*9 $p*3 color(star, body),
+    $p*10 $p*3 color(star, outline),
+
+    $p*6 $p*4 color(star, outline),
+    $p*7 $p*4 color(star, body),
+    $p*8 $p*4 color(star, body),
+    $p*9 $p*4 color(star, body),
+    $p*10 $p*4 color(star, body),
+    $p*11 $p*4 color(star, outline),
+
+    $p*1 $p*5 color(star, outline),
+    $p*2 $p*5 color(star, outline),
+    $p*3 $p*5 color(star, outline),
+    $p*4 $p*5 color(star, outline),
+    $p*5 $p*5 color(star, outline),
+    $p*6 $p*5 color(star, outline),
+    $p*7 $p*5 color(star, body),
+    $p*8 $p*5 color(star, body),
+    $p*9 $p*5 color(star, body),
+    $p*10 $p*5 color(star, body),
+    $p*11 $p*5 color(star, outline),
+    $p*12 $p*5 color(star, outline),
+    $p*13 $p*5 color(star, outline),
+    $p*14 $p*5 color(star, outline),
+    $p*15 $p*5 color(star, outline),
+    $p*15 $p*5 color(star, outline),
+    $p*16 $p*5 color(star, outline),
+
+    $p*1 $p*6 color(star, outline),
+    $p*2 $p*6 color(star, body),
+    $p*3 $p*6 color(star, body),
+    $p*4 $p*6 color(star, body),
+    $p*5 $p*6 color(star, body),
+    $p*6 $p*6 color(star, body),
+    $p*7 $p*6 color(star, body),
+    $p*8 $p*6 color(star, body),
+    $p*9 $p*6 color(star, body),
+    $p*10 $p*6 color(star, body),
+    $p*11 $p*6 color(star, body),
+    $p*12 $p*6 color(star, body),
+    $p*13 $p*6 color(star, body),
+    $p*14 $p*6 color(star, body),
+    $p*15 $p*6 color(star, body),
+    $p*15 $p*6 color(star, body),
+    $p*16 $p*6 color(star, outline),
+
+    $p*2 $p*7 color(star, outline),
+    $p*3 $p*7 color(star, body),
+    $p*4 $p*7 color(star, body),
+    $p*5 $p*7 color(star, body),
+    $p*6 $p*7 color(star, body),
+    $p*7 $p*7 color(star, outline),
+    $p*8 $p*7 color(star, body),
+    $p*9 $p*7 color(star, body),
+    $p*10 $p*7 color(star, outline),
+    $p*11 $p*7 color(star, body),
+    $p*12 $p*7 color(star, body),
+    $p*13 $p*7 color(star, body),
+    $p*14 $p*7 color(star, body),
+    $p*15 $p*7 color(star, outline),
+
+    $p*3 $p*8 color(star, outline),
+    $p*4 $p*8 color(star, body),
+    $p*5 $p*8 color(star, body),
+    $p*6 $p*8 color(star, body),
+    $p*7 $p*8 color(star, outline),
+    $p*8 $p*8 color(star, body),
+    $p*9 $p*8 color(star, body),
+    $p*10 $p*8 color(star, outline),
+    $p*11 $p*8 color(star, body),
+    $p*12 $p*8 color(star, body),
+    $p*13 $p*8 color(star, body),
+    $p*14 $p*8 color(star, outline),
+
+    $p*4 $p*9 color(star, outline),
+    $p*5 $p*9 color(star, body),
+    $p*6 $p*9 color(star, body),
+    $p*7 $p*9 color(star, outline),
+    $p*8 $p*9 color(star, body),
+    $p*9 $p*9 color(star, body),
+    $p*10 $p*9 color(star, outline),
+    $p*11 $p*9 color(star, body),
+    $p*12 $p*9 color(star, body),
+    $p*13 $p*9 color(star, outline),
+
+    $p*4 $p*10 color(star, outline),
+    $p*5 $p*10 color(star, body),
+    $p*6 $p*10 color(star, body),
+    $p*7 $p*10 color(star, body),
+    $p*8 $p*10 color(star, body),
+    $p*9 $p*10 color(star, body),
+    $p*10 $p*10 color(star, body),
+    $p*11 $p*10 color(star, body),
+    $p*12 $p*10 color(star, body),
+    $p*13 $p*10 color(star, outline),
+
+    $p*3 $p*11 color(star, outline),
+    $p*4 $p*11 color(star, body),
+    $p*5 $p*11 color(star, body),
+    $p*6 $p*11 color(star, body),
+    $p*7 $p*11 color(star, body),
+    $p*8 $p*11 color(star, body),
+    $p*9 $p*11 color(star, body),
+    $p*10 $p*11 color(star, body),
+    $p*11 $p*11 color(star, body),
+    $p*12 $p*11 color(star, body),
+    $p*13 $p*11 color(star, body),
+    $p*14 $p*11 color(star, outline),
+
+    $p*3 $p*12 color(star, outline),
+    $p*4 $p*12 color(star, body),
+    $p*5 $p*12 color(star, body),
+    $p*6 $p*12 color(star, body),
+    $p*7 $p*12 color(star, body),
+    $p*8 $p*12 color(star, body),
+    $p*9 $p*12 color(star, body),
+    $p*10 $p*12 color(star, body),
+    $p*11 $p*12 color(star, body),
+    $p*12 $p*12 color(star, body),
+    $p*13 $p*12 color(star, body),
+    $p*14 $p*12 color(star, outline),
+
+    $p*2 $p*13 color(star, outline),
+    $p*3 $p*13 color(star, body),
+    $p*4 $p*13 color(star, body),
+    $p*5 $p*13 color(star, body),
+    $p*6 $p*13 color(star, body),
+    $p*7 $p*13 color(star, body),
+    $p*8 $p*13 color(star, outline),
+    $p*9 $p*13 color(star, outline),
+    $p*10 $p*13 color(star, body),
+    $p*11 $p*13 color(star, body),
+    $p*12 $p*13 color(star, body),
+    $p*13 $p*13 color(star, body),
+    $p*14 $p*13 color(star, body),
+    $p*15 $p*13 color(star, outline),
+
+    $p*2 $p*14 color(star, outline),
+    $p*3 $p*14 color(star, body),
+    $p*4 $p*14 color(star, body),
+    $p*5 $p*14 color(star, body),
+    $p*6 $p*14 color(star, outline),
+    $p*7 $p*14 color(star, outline),
+    $p*10 $p*14 color(star, outline),
+    $p*11 $p*14 color(star, outline),
+    $p*12 $p*14 color(star, body),
+    $p*13 $p*14 color(star, body),
+    $p*14 $p*14 color(star, body),
+    $p*15 $p*14 color(star, outline),
+
+    $p*1 $p*15 color(star, outline),
+    $p*2 $p*15 color(star, body),
+    $p*3 $p*15 color(star, body),
+    $p*4 $p*15 color(star, outline),
+    $p*5 $p*15 color(star, outline),
+    $p*12 $p*15 color(star, outline),
+    $p*13 $p*15 color(star, outline),
+    $p*14 $p*15 color(star, body),
+    $p*15 $p*15 color(star, body),
+    $p*16 $p*15 color(star, outline),
+
+    $p*1 $p*16 color(star, outline),
+    $p*2 $p*16 color(star, outline),
+    $p*3 $p*16 color(star, outline),
+    $p*14 $p*16 color(star, outline),
+    $p*15 $p*16 color(star, outline),
+    $p*16 $p*16 color(star, outline);
+}
+
+[data-type="coin10"] .front:before,
+[data-type="coin20"] .front:before {
+  box-shadow: 
+    $p*6 $p color(outline),
+    $p*7 $p color(outline),
+    $p*8 $p color(outline),
+    $p*9 $p color(outline),
+    $p*10 $p color(outline),
+    $p*11 $p color(outline),
+
+    $p*4 $p*2 color(outline),
+    $p*5 $p*2 color(outline),
+    $p*6 $p*2 color(outline),
+    $p*7 $p*2 color(coin, light),
+    $p*8 $p*2 color(coin, light),
+    $p*9 $p*2 color(coin, light),
+    $p*10 $p*2 color(coin, light),
+    $p*11 $p*2 color(outline),
+    $p*12 $p*2 color(outline),
+    $p*13 $p*2 color(outline),
+
+    $p*3 $p*3 color(outline),
+    $p*4 $p*3 color(outline),
+    $p*5 $p*3 color(coin, light),
+    $p*6 $p*3 color(coin, light),
+    $p*7 $p*3 color(coin, body),
+    $p*8 $p*3 color(coin, body),
+    $p*9 $p*3 color(coin, body),
+    $p*10 $p*3 color(coin, body),
+    $p*11 $p*3 color(coin, body),
+    $p*12 $p*3 color(coin, dark),
+    $p*13 $p*3 color(outline),
+    $p*14 $p*3 color(outline),
+
+    $p*3 $p*4 color(outline),
+    $p*4 $p*4 color(coin, light),
+    $p*5 $p*4 color(coin, body),
+    $p*6 $p*4 color(coin, body),
+    $p*7 $p*4 color(coin, light),
+    $p*8 $p*4 color(coin, light),
+    $p*9 $p*4 color(coin, light),
+    $p*10 $p*4 color(outline),
+    $p*11 $p*4 color(coin, body),
+    $p*12 $p*4 color(coin, body),
+    $p*13 $p*4 color(coin, dark),
+    $p*14 $p*4 color(outline),
+
+    $p*3 $p*5 color(outline),
+    $p*4 $p*5 color(coin, light),
+    $p*5 $p*5 color(coin, body),
+    $p*6 $p*5 color(coin, body),
+    $p*7 $p*5 color(coin, light),
+    $p*8 $p*5 color(coin, body),
+    $p*9 $p*5 color(coin, body),
+    $p*10 $p*5 color(outline),
+    $p*11 $p*5 color(coin, body),
+    $p*12 $p*5 color(coin, body),
+    $p*13 $p*5 color(coin, dark),
+    $p*14 $p*5 color(outline),
+
+    $p*2 $p*5 color(outline),
+    $p*3 $p*5 color(coin, light),
+    $p*4 $p*5 color(coin, body),
+    $p*5 $p*5 color(coin, body),
+    $p*6 $p*5 color(coin, body),
+    $p*7 $p*5 color(coin, light),
+    $p*8 $p*5 color(coin, body),
+    $p*9 $p*5 color(coin, body),
+    $p*10 $p*5 color(outline),
+    $p*11 $p*5 color(coin, body),
+    $p*12 $p*5 color(coin, body),
+    $p*13 $p*5 color(coin, body),
+    $p*14 $p*5 color(coin, dark),
+    $p*15 $p*5 color(outline),
+
+    $p*2 $p*6 color(outline),
+    $p*3 $p*6 color(coin, light),
+    $p*4 $p*6 color(coin, body),
+    $p*5 $p*6 color(coin, body),
+    $p*6 $p*6 color(coin, body),
+    $p*7 $p*6 color(coin, light),
+    $p*8 $p*6 color(coin, body),
+    $p*9 $p*6 color(coin, body),
+    $p*10 $p*6 color(outline),
+    $p*11 $p*6 color(coin, body),
+    $p*12 $p*6 color(coin, body),
+    $p*13 $p*6 color(coin, body),
+    $p*14 $p*6 color(coin, dark),
+    $p*15 $p*6 color(outline),
+
+    $p*2 $p*7 color(outline),
+    $p*3 $p*7 color(coin, light),
+    $p*4 $p*7 color(coin, body),
+    $p*5 $p*7 color(coin, body),
+    $p*6 $p*7 color(coin, body),
+    $p*7 $p*7 color(coin, light),
+    $p*8 $p*7 color(coin, body),
+    $p*9 $p*7 color(coin, body),
+    $p*10 $p*7 color(outline),
+    $p*11 $p*7 color(coin, body),
+    $p*12 $p*7 color(coin, body),
+    $p*13 $p*7 color(coin, body),
+    $p*14 $p*7 color(coin, dark),
+    $p*15 $p*7 color(outline),
+
+    $p*2 $p*8 color(outline),
+    $p*3 $p*8 color(coin, light),
+    $p*4 $p*8 color(coin, body),
+    $p*5 $p*8 color(coin, body),
+    $p*6 $p*8 color(coin, body),
+    $p*7 $p*8 color(coin, light),
+    $p*8 $p*8 color(coin, body),
+    $p*9 $p*8 color(coin, body),
+    $p*10 $p*8 color(outline),
+    $p*11 $p*8 color(coin, body),
+    $p*12 $p*8 color(coin, body),
+    $p*13 $p*8 color(coin, body),
+    $p*14 $p*8 color(coin, dark),
+    $p*15 $p*8 color(outline),
+
+    $p*2 $p*9 color(outline),
+    $p*3 $p*9 color(coin, light),
+    $p*4 $p*9 color(coin, body),
+    $p*5 $p*9 color(coin, body),
+    $p*6 $p*9 color(coin, body),
+    $p*7 $p*9 color(coin, light),
+    $p*8 $p*9 color(coin, body),
+    $p*9 $p*9 color(coin, body),
+    $p*10 $p*9 color(outline),
+    $p*11 $p*9 color(coin, body),
+    $p*12 $p*9 color(coin, body),
+    $p*13 $p*9 color(coin, body),
+    $p*14 $p*9 color(coin, dark),
+    $p*15 $p*9 color(outline),
+
+    $p*2 $p*10 color(outline),
+    $p*3 $p*10 color(coin, light),
+    $p*4 $p*10 color(coin, body),
+    $p*5 $p*10 color(coin, body),
+    $p*6 $p*10 color(coin, body),
+    $p*7 $p*10 color(coin, light),
+    $p*8 $p*10 color(coin, body),
+    $p*9 $p*10 color(coin, body),
+    $p*10 $p*10 color(outline),
+    $p*11 $p*10 color(coin, body),
+    $p*12 $p*10 color(coin, body),
+    $p*13 $p*10 color(coin, body),
+    $p*14 $p*10 color(coin, dark),
+    $p*15 $p*10 color(outline),
+
+    $p*2 $p*11 color(outline),
+    $p*3 $p*11 color(coin, light),
+    $p*4 $p*11 color(coin, body),
+    $p*5 $p*11 color(coin, body),
+    $p*6 $p*11 color(coin, body),
+    $p*7 $p*11 color(coin, light),
+    $p*8 $p*11 color(coin, body),
+    $p*9 $p*11 color(coin, body),
+    $p*10 $p*11 color(outline),
+    $p*11 $p*11 color(coin, body),
+    $p*12 $p*11 color(coin, body),
+    $p*13 $p*11 color(coin, body),
+    $p*14 $p*11 color(coin, dark),
+    $p*15 $p*11 color(outline),
+
+    $p*2 $p*12 color(outline),
+    $p*3 $p*12 color(outline),
+    $p*4 $p*12 color(coin, light),
+    $p*5 $p*12 color(coin, body),
+    $p*6 $p*12 color(coin, body),
+    $p*7 $p*12 color(coin, light),
+    $p*8 $p*12 color(coin, body),
+    $p*9 $p*12 color(coin, body),
+    $p*10 $p*12 color(outline),
+    $p*11 $p*12 color(coin, body),
+    $p*12 $p*12 color(coin, body),
+    $p*13 $p*12 color(coin, dark),
+    $p*14 $p*12 color(outline),
+    $p*15 $p*12 color(outline),
+
+    $p*3 $p*13 color(outline),
+    $p*4 $p*13 color(coin, light),
+    $p*5 $p*13 color(coin, body),
+    $p*6 $p*13 color(coin, body),
+    $p*7 $p*13 color(outline),
+    $p*8 $p*13 color(outline),
+    $p*9 $p*13 color(outline),
+    $p*10 $p*13 color(outline),
+    $p*11 $p*13 color(coin, body),
+    $p*12 $p*13 color(coin, body),
+    $p*13 $p*13 color(coin, dark),
+    $p*14 $p*13 color(outline),
+
+    $p*3 $p*14 color(outline),
+    $p*4 $p*14 color(outline),
+    $p*5 $p*14 color(coin, dark),
+    $p*6 $p*14 color(coin, body),
+    $p*7 $p*14 color(coin, body),
+    $p*8 $p*14 color(coin, body),
+    $p*9 $p*14 color(coin, body),
+    $p*10 $p*14 color(coin, body),
+    $p*11 $p*14 color(coin, dark),
+    $p*12 $p*14 color(coin, dark),
+    $p*13 $p*14 color(outline),
+    $p*14 $p*14 color(outline),
+
+    $p*4 $p*15 color(outline),
+    $p*5 $p*15 color(outline),
+    $p*6 $p*15 color(outline),
+    $p*7 $p*15 color(coin, dark),
+    $p*8 $p*15 color(coin, dark),
+    $p*9 $p*15 color(coin, dark),
+    $p*10 $p*15 color(coin, dark),
+    $p*11 $p*15 color(outline),
+    $p*12 $p*15 color(outline),
+    $p*13 $p*15 color(outline),
+
+    $p*6 $p*16 color(outline),
+    $p*7 $p*16 color(outline),
+    $p*8 $p*16 color(outline),
+    $p*9 $p*16 color(outline),
+    $p*10 $p*16 color(outline),
+    $p*11 $p*16 color(outline),
+}
+
+[data-type="coin10"] .front:after {
+  box-shadow:
+    $p*3 $p*18 color(outline),
+    $p*4 $p*18 color(outline),
+    $p*5 $p*18 color(outline),
+    $p*11 $p*18 color(outline),
+    $p*12 $p*18 color(outline),
+    $p*13 $p*18 color(outline),
+    $p*14 $p*18 color(outline),
+
+    $p*4 $p*19 color(outline),
+    $p*5 $p*19 color(outline),
+    $p*10 $p*19 color(outline),
+    $p*11 $p*19 color(outline),
+    $p*14 $p*19 color(outline),
+    $p*15 $p*19 color(outline),
+
+    $p*4 $p*20 color(outline),
+    $p*5 $p*20 color(outline),
+    $p*10 $p*20 color(outline),
+    $p*11 $p*20 color(outline),
+    $p*14 $p*20 color(outline),
+    $p*15 $p*20 color(outline),
+
+    $p*4 $p*21 color(outline),
+    $p*5 $p*21 color(outline),
+    $p*10 $p*21 color(outline),
+    $p*11 $p*21 color(outline),
+    $p*14 $p*21 color(outline),
+    $p*15 $p*21 color(outline),
+
+    $p*4 $p*22 color(outline),
+    $p*5 $p*22 color(outline),
+    $p*10 $p*22 color(outline),
+    $p*11 $p*22 color(outline),
+    $p*14 $p*22 color(outline),
+    $p*15 $p*22 color(outline),
+
+    $p*3 $p*23 color(outline),
+    $p*4 $p*23 color(outline),
+    $p*5 $p*23 color(outline),
+    $p*6 $p*23 color(outline),
+    $p*11 $p*23 color(outline),
+    $p*12 $p*23 color(outline),
+    $p*13 $p*23 color(outline),
+    $p*14 $p*23 color(outline);
+}
+
+[data-type="coin20"] .front:after {
+  box-shadow:
+    $p*3 $p*18 color(outline),
+    $p*4 $p*18 color(outline),
+    $p*5 $p*18 color(outline),
+    $p*6 $p*18 color(outline),
+    $p*11 $p*18 color(outline),
+    $p*12 $p*18 color(outline),
+    $p*13 $p*18 color(outline),
+    $p*14 $p*18 color(outline),
+
+    $p*2 $p*19 color(outline),
+    $p*3 $p*19 color(outline),
+    $p*6 $p*19 color(outline),
+    $p*7 $p*19 color(outline),
+    $p*10 $p*19 color(outline),
+    $p*11 $p*19 color(outline),
+    $p*14 $p*19 color(outline),
+    $p*15 $p*19 color(outline),
+
+    $p*6 $p*20 color(outline),
+    $p*7 $p*20 color(outline),
+    $p*10 $p*20 color(outline),
+    $p*11 $p*20 color(outline),
+    $p*14 $p*20 color(outline),
+    $p*15 $p*20 color(outline),
+
+    $p*3 $p*21 color(outline),
+    $p*4 $p*21 color(outline),
+    $p*5 $p*21 color(outline),
+    $p*6 $p*21 color(outline),
+    $p*10 $p*21 color(outline),
+    $p*11 $p*21 color(outline),
+    $p*14 $p*21 color(outline),
+    $p*15 $p*21 color(outline),
+
+    $p*2 $p*22 color(outline),
+    $p*3 $p*22 color(outline),
+    $p*10 $p*22 color(outline),
+    $p*11 $p*22 color(outline),
+    $p*14 $p*22 color(outline),
+    $p*15 $p*22 color(outline),
+
+    $p*2 $p*23 color(outline),
+    $p*3 $p*23 color(outline),
+    $p*4 $p*23 color(outline),
+    $p*5 $p*23 color(outline),
+    $p*6 $p*23 color(outline),
+    $p*7 $p*23 color(outline),
+    $p*11 $p*23 color(outline),
+    $p*12 $p*23 color(outline),
+    $p*13 $p*23 color(outline),
+    $p*14 $p*23 color(outline);
+}
+
+[data-type="1up"] .front:before,
+[data-type="chest"] .front:before {
+  box-shadow: 
+    $p*4 $p color(outline),
+    $p*5 $p color(outline),
+    $p*6 $p color(outline),
+    $p*7 $p color(outline),
+    $p*8 $p color(outline),
+    $p*9 $p color(outline),
+    $p*10 $p color(outline),
+    $p*11 $p color(outline),
+    $p*12 $p color(outline),
+    $p*13 $p color(outline),
+
+    $p*3 $p*2 color(outline),
+    $p*4 $p*2 color(chest, light),
+    $p*5 $p*2 color(chest, light),
+    $p*6 $p*2 color(chest, light),
+    $p*7 $p*2 color(chest, light),
+    $p*8 $p*2 color(chest, light),
+    $p*9 $p*2 color(chest, light),
+    $p*10 $p*2 color(chest, light),
+    $p*11 $p*2 color(outline),
+    $p*12 $p*2 color(chest, body),
+    $p*13 $p*2 color(chest, body),
+    $p*14 $p*2 color(outline),
+
+    $p*2 $p*3 color(outline),
+    $p*3 $p*3 color(chest, light),
+    $p*4 $p*3 color(chest, body),
+    $p*5 $p*3 color(chest, body),
+    $p*6 $p*3 color(chest, body),
+    $p*7 $p*3 color(chest, body),
+    $p*8 $p*3 color(chest, body),
+    $p*9 $p*3 color(chest, body),
+    $p*10 $p*3 color(outline),
+    $p*11 $p*3 color(chest, body),
+    $p*12 $p*3 color(chest, dark),
+    $p*13 $p*3 color(chest, dark),
+    $p*14 $p*3 color(chest, dark),
+    $p*15 $p*3 color(outline),
+
+    $p*2 $p*4 color(outline),
+    $p*3 $p*4 color(chest, light),
+    $p*4 $p*4 color(chest, body),
+    $p*5 $p*4 color(chest, body),
+    $p*6 $p*4 color(chest, body),
+    $p*7 $p*4 color(chest, body),
+    $p*8 $p*4 color(chest, body),
+    $p*9 $p*4 color(chest, body),
+    $p*10 $p*4 color(outline),
+    $p*11 $p*4 color(chest, body),
+    $p*12 $p*4 color(chest, dark),
+    $p*13 $p*4 color(chest, dark),
+    $p*14 $p*4 color(chest, dark),
+    $p*15 $p*4 color(outline),
+
+    $p*2 $p*4 color(outline),
+    $p*3 $p*4 color(chest, light),
+    $p*4 $p*4 color(chest, body),
+    $p*5 $p*4 color(chest, body),
+    $p*6 $p*4 color(chest, body),
+    $p*7 $p*4 color(chest, body),
+    $p*8 $p*4 color(chest, body),
+    $p*9 $p*4 color(chest, body),
+    $p*10 $p*4 color(outline),
+    $p*11 $p*4 color(chest, body),
+    $p*12 $p*4 color(chest, dark),
+    $p*13 $p*4 color(chest, dark),
+    $p*14 $p*4 color(chest, dark),
+    $p*15 $p*4 color(outline),
+
+    $p*1 $p*5 color(outline),
+    $p*2 $p*5 color(chest, light),
+    $p*3 $p*5 color(chest, body),
+    $p*4 $p*5 color(chest, body),
+    $p*5 $p*5 color(chest, body),
+    $p*6 $p*5 color(chest, body),
+    $p*7 $p*5 color(chest, body),
+    $p*8 $p*5 color(chest, body),
+    $p*9 $p*5 color(outline),
+    $p*10 $p*5 color(chest, body),
+    $p*11 $p*5 color(chest, dark),
+    $p*12 $p*5 color(chest, dark),
+    $p*13 $p*5 color(chest, dark),
+    $p*14 $p*5 color(chest, dark),
+    $p*15 $p*5 color(chest, dark),
+    $p*16 $p*5 color(outline),
+
+    $p*1 $p*6 color(outline),
+    $p*2 $p*6 color(chest, light),
+    $p*3 $p*6 color(chest, body),
+    $p*4 $p*6 color(chest, body),
+    $p*5 $p*6 color(chest, body),
+    $p*6 $p*6 color(chest, body),
+    $p*7 $p*6 color(chest, body),
+    $p*8 $p*6 color(chest, body),
+    $p*9 $p*6 color(outline),
+    $p*10 $p*6 color(chest, body),
+    $p*11 $p*6 color(chest, dark),
+    $p*12 $p*6 color(chest, dark),
+    $p*13 $p*6 color(chest, dark),
+    $p*14 $p*6 color(chest, dark),
+    $p*15 $p*6 color(chest, dark),
+    $p*16 $p*6 color(outline),
+
+    $p*1 $p*7 color(outline),
+    $p*2 $p*7 color(chest, light),
+    $p*3 $p*7 color(chest, body),
+    $p*4 $p*7 color(chest, body),
+    $p*5 $p*7 color(chest, body),
+    $p*6 $p*7 color(chest, body),
+    $p*7 $p*7 color(chest, body),
+    $p*8 $p*7 color(chest, body),
+    $p*9 $p*7 color(outline),
+    $p*10 $p*7 color(chest, body),
+    $p*11 $p*7 color(chest, dark),
+    $p*12 $p*7 color(chest, dark),
+    $p*13 $p*7 color(chest, dark),
+    $p*14 $p*7 color(chest, dark),
+    $p*15 $p*7 color(chest, dark),
+    $p*16 $p*7 color(outline),
+
+    $p*1 $p*8 color(outline),
+    $p*2 $p*8 color(chest, light),
+    $p*3 $p*8 color(chest, body),
+    $p*4 $p*8 color(outline),
+    $p*5 $p*8 color(outline),
+    $p*6 $p*8 color(outline),
+    $p*7 $p*8 color(chest, body),
+    $p*8 $p*8 color(chest, body),
+    $p*9 $p*8 color(outline),
+    $p*10 $p*8 color(chest, body),
+    $p*11 $p*8 color(chest, dark),
+    $p*12 $p*8 color(chest, dark),
+    $p*13 $p*8 color(chest, dark),
+    $p*14 $p*8 color(chest, dark),
+    $p*15 $p*8 color(chest, dark),
+    $p*16 $p*8 color(outline),
+
+    $p*1 $p*9 color(outline),
+    $p*2 $p*9 color(outline),
+    $p*3 $p*9 color(outline),
+    $p*4 $p*9 color(outline),
+    $p*5 $p*9 color(chest, light),
+    $p*6 $p*9 color(outline),
+    $p*7 $p*9 color(outline),
+    $p*8 $p*9 color(outline),
+    $p*9 $p*9 color(outline),
+    $p*10 $p*9 color(outline),
+    $p*11 $p*9 color(outline),
+    $p*12 $p*9 color(outline),
+    $p*13 $p*9 color(outline),
+    $p*14 $p*9 color(outline),
+    $p*15 $p*9 color(outline),
+    $p*16 $p*9 color(outline),
+
+    $p*1 $p*10 color(outline),
+    $p*2 $p*10 color(chest, light),
+    $p*3 $p*10 color(chest, light),
+    $p*4 $p*10 color(outline),
+    $p*5 $p*10 color(chest, light),
+    $p*6 $p*10 color(outline),
+    $p*7 $p*10 color(chest, light),
+    $p*8 $p*10 color(chest, light),
+    $p*9 $p*10 color(outline),
+    $p*10 $p*10 color(chest, body),
+    $p*11 $p*10 color(chest, body),
+    $p*12 $p*10 color(chest, body),
+    $p*13 $p*10 color(chest, body),
+    $p*14 $p*10 color(chest, body),
+    $p*15 $p*10 color(chest, body),
+    $p*16 $p*10 color(outline),
+
+    $p*1 $p*11 color(outline),
+    $p*2 $p*11 color(chest, light),
+    $p*3 $p*11 color(chest, body),
+    $p*4 $p*11 color(outline),
+    $p*5 $p*11 color(outline),
+    $p*6 $p*11 color(outline),
+    $p*7 $p*11 color(chest, body),
+    $p*8 $p*11 color(chest, body),
+    $p*9 $p*11 color(outline),
+    $p*10 $p*11 color(chest, body),
+    $p*11 $p*11 color(chest, dark),
+    $p*12 $p*11 color(chest, dark),
+    $p*13 $p*11 color(chest, dark),
+    $p*14 $p*11 color(chest, dark),
+    $p*15 $p*11 color(chest, dark),
+    $p*16 $p*11 color(outline),
+
+    $p*1 $p*12 color(outline),
+    $p*2 $p*12 color(chest, light),
+    $p*3 $p*12 color(chest, body),
+    $p*4 $p*12 color(chest, body),
+    $p*5 $p*12 color(chest, body),
+    $p*6 $p*12 color(chest, body),
+    $p*7 $p*12 color(chest, body),
+    $p*8 $p*12 color(chest, body),
+    $p*9 $p*12 color(outline),
+    $p*10 $p*12 color(chest, body),
+    $p*11 $p*12 color(chest, dark),
+    $p*12 $p*12 color(chest, dark),
+    $p*13 $p*12 color(chest, dark),
+    $p*14 $p*12 color(chest, dark),
+    $p*15 $p*12 color(chest, dark),
+    $p*16 $p*12 color(outline),
+
+    $p*1 $p*13 color(outline),
+    $p*2 $p*13 color(chest, light),
+    $p*3 $p*13 color(chest, body),
+    $p*4 $p*13 color(chest, body),
+    $p*5 $p*13 color(chest, body),
+    $p*6 $p*13 color(chest, body),
+    $p*7 $p*13 color(chest, body),
+    $p*8 $p*13 color(chest, body),
+    $p*9 $p*13 color(outline),
+    $p*10 $p*13 color(chest, body),
+    $p*11 $p*13 color(chest, dark),
+    $p*12 $p*13 color(chest, dark),
+    $p*13 $p*13 color(chest, dark),
+    $p*14 $p*13 color(chest, dark),
+    $p*15 $p*13 color(chest, dark),
+    $p*16 $p*13 color(outline),
+
+    $p*1 $p*14 color(outline),
+    $p*2 $p*14 color(chest, light),
+    $p*3 $p*14 color(chest, body),
+    $p*4 $p*14 color(chest, body),
+    $p*5 $p*14 color(chest, body),
+    $p*6 $p*14 color(chest, body),
+    $p*7 $p*14 color(chest, body),
+    $p*8 $p*14 color(chest, body),
+    $p*9 $p*14 color(outline),
+    $p*10 $p*14 color(chest, body),
+    $p*11 $p*14 color(chest, dark),
+    $p*12 $p*14 color(chest, dark),
+    $p*13 $p*14 color(chest, dark),
+    $p*14 $p*14 color(chest, dark),
+    $p*15 $p*14 color(chest, dark),
+    $p*16 $p*14 color(outline),
+
+    $p*1 $p*15 color(outline),
+    $p*2 $p*15 color(chest, light),
+    $p*3 $p*15 color(chest, body),
+    $p*4 $p*15 color(chest, body),
+    $p*5 $p*15 color(chest, body),
+    $p*6 $p*15 color(chest, body),
+    $p*7 $p*15 color(chest, body),
+    $p*8 $p*15 color(chest, body),
+    $p*9 $p*15 color(outline),
+    $p*10 $p*15 color(chest, body),
+    $p*11 $p*15 color(chest, dark),
+    $p*12 $p*15 color(chest, dark),
+    $p*13 $p*15 color(chest, dark),
+    $p*14 $p*15 color(chest, dark),
+    $p*15 $p*15 color(chest, dark),
+    $p*16 $p*15 color(outline),
+
+    $p*1 $p*16 color(outline),
+    $p*2 $p*16 color(outline),
+    $p*3 $p*16 color(outline),
+    $p*4 $p*16 color(outline),
+    $p*5 $p*16 color(outline),
+    $p*6 $p*16 color(outline),
+    $p*7 $p*16 color(outline),
+    $p*8 $p*16 color(outline),
+    $p*9 $p*16 color(outline),
+    $p*10 $p*16 color(outline),
+    $p*11 $p*16 color(outline),
+    $p*12 $p*16 color(outline),
+    $p*13 $p*16 color(outline),
+    $p*14 $p*16 color(outline),
+    $p*15 $p*16 color(outline),
+    $p*16 $p*16 color(outline),
+}
+
+[data-type="1up"] .front:after {
+  box-shadow:
+    $p*3 $p*17 color(outline),
+    $p*4 $p*17 color(outline),
+    $p*6 $p*17 color(outline),
+    $p*7 $p*17 color(outline),
+    $p*9 $p*17 color(outline),
+    $p*10 $p*17 color(outline),
+    $p*11 $p*17 color(outline),
+    $p*12 $p*17 color(outline),
+    $p*13 $p*17 color(outline),
+    $p*14 $p*17 color(outline),
+    $p*15 $p*17 color(outline),
+
+    $p*2 $p*18 color(outline),
+    $p*3 $p*18 color(chest, text),
+    $p*4 $p*18 color(chest, text),
+    $p*5 $p*18 color(outline),
+    $p*6 $p*18 color(chest, text),
+    $p*7 $p*18 color(chest, text),
+    $p*8 $p*18 color(outline),
+    $p*9 $p*18 color(chest, text),
+    $p*10 $p*18 color(outline),
+    $p*11 $p*18 color(chest, text),
+    $p*12 $p*18 color(chest, text),
+    $p*13 $p*18 color(chest, text),
+    $p*14 $p*18 color(chest, text),
+    $p*15 $p*18 color(outline),
+    $p*16 $p*18 color(outline),
+
+    $p*1 $p*19 color(outline),
+    $p*2 $p*19 color(chest, text),
+    $p*3 $p*19 color(chest, text),
+    $p*4 $p*19 color(chest, text),
+    $p*5 $p*19 color(outline),
+    $p*6 $p*19 color(chest, text),
+    $p*7 $p*19 color(chest, text),
+    $p*8 $p*19 color(outline),
+    $p*9 $p*19 color(chest, text),
+    $p*10 $p*19 color(outline),
+    $p*11 $p*19 color(chest, text),
+    $p*12 $p*19 color(chest, text),
+    $p*13 $p*19 color(outline),
+    $p*14 $p*19 color(chest, text),
+    $p*15 $p*19 color(chest, text),
+    $p*16 $p*19 color(outline),
+
+    $p*1 $p*20 color(outline),
+    $p*2 $p*20 color(outline),
+    $p*3 $p*20 color(chest, text),
+    $p*4 $p*20 color(chest, text),
+    $p*5 $p*20 color(outline),
+    $p*6 $p*20 color(chest, text),
+    $p*7 $p*20 color(chest, text),
+    $p*8 $p*20 color(outline),
+    $p*9 $p*20 color(chest, text),
+    $p*10 $p*20 color(outline),
+    $p*11 $p*20 color(chest, text),
+    $p*12 $p*20 color(chest, text),
+    $p*13 $p*20 color(outline),
+    $p*14 $p*20 color(chest, text),
+    $p*15 $p*20 color(chest, text),
+    $p*16 $p*20 color(outline),
+
+    $p*2 $p*21 color(outline),
+    $p*3 $p*21 color(chest, text),
+    $p*4 $p*21 color(chest, text),
+    $p*5 $p*21 color(outline),
+    $p*6 $p*21 color(chest, text),
+    $p*7 $p*21 color(chest, text),
+    $p*8 $p*21 color(outline),
+    $p*9 $p*21 color(chest, text),
+    $p*10 $p*21 color(outline),
+    $p*11 $p*21 color(chest, text),
+    $p*12 $p*21 color(chest, text),
+    $p*13 $p*21 color(chest, text),
+    $p*14 $p*21 color(chest, text),
+    $p*15 $p*21 color(outline),
+    $p*16 $p*21 color(outline),
+
+    $p*2 $p*22 color(outline),
+    $p*3 $p*22 color(chest, text),
+    $p*4 $p*22 color(chest, text),
+    $p*5 $p*22 color(outline),
+    $p*6 $p*22 color(chest, text),
+    $p*7 $p*22 color(chest, text),
+    $p*8 $p*22 color(chest, text),
+    $p*9 $p*22 color(chest, text),
+    $p*10 $p*22 color(outline),
+    $p*11 $p*22 color(chest, text),
+    $p*12 $p*22 color(chest, text),
+    $p*13 $p*22 color(outline),
+    $p*14 $p*22 color(outline),
+    $p*15 $p*22 color(outline),
+
+    $p*2 $p*23 color(outline),
+    $p*3 $p*23 color(chest, text),
+    $p*4 $p*23 color(chest, text),
+    $p*5 $p*23 color(outline),
+    $p*6 $p*23 color(outline),
+    $p*7 $p*23 color(chest, text),
+    $p*8 $p*23 color(chest, text),
+    $p*9 $p*23 color(outline),
+    $p*10 $p*23 color(outline),
+    $p*11 $p*23 color(chest, text),
+    $p*12 $p*23 color(chest, text),
+    $p*13 $p*23 color(outline),
+
+    $p*2 $p*24 color(outline),
+    $p*3 $p*24 color(outline),
+    $p*4 $p*24 color(outline),
+    $p*5 $p*24 color(outline),
+    $p*6 $p*24 color(outline),
+    $p*7 $p*24 color(outline),
+    $p*8 $p*24 color(outline),
+    $p*9 $p*24 color(outline),
+    $p*10 $p*24 color(outline),
+    $p*11 $p*24 color(outline),
+    $p*12 $p*24 color(outline),
+    $p*13 $p*24 color(outline),
+}
+
+@keyframes matchSuccess {
+  0% { transform: translate3d(0,0,0) rotateY(180deg) scale(1); }
+  50% { transform: translate3d(0,0,0) rotateY(180deg) scale(1.05); }
+  100% { transform: translate3d(0,0,0) rotateY(180deg) scale(1); }
+}
+
+@keyframes bounce {
+  0% { transform: scale(0.1); }
+  20% { transform: scale(1.4); }
+  40% { transform: scale(0.8); }
+  60% { transform: scale(1.1); }
+  80% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shake {
+  2% { transform: rotate(2deg); }
+  4% { transform: rotate(-2deg); }
+  6% { transform: rotate(5deg); }
+  8% { transform: rotate(-5deg); }
+  10% { transform: rotate(10deg); }
+  12% { transform: rotate(-10deg); }
+  14% { transform: rotate(5deg); }
+  16% { transform: rotate(-5deg); }
+  18% { transform: rotate(2deg); }
+  20% { transform: rotate(-2deg); }
+  22% { transform: rotate(0); }
+
+}
+
+// Cards on the go!
+.card {
+  @media (max-width: $bpMedium) {
+    padding-top: $cardPadding*3/2;
+    padding-left: $cardPadding/2;
+    width: $cardWidth/2;
+    height: $cardHeight/2;
+    .front:before,
+    .front:after,
+    .back:before,
+    .back:after{
+      top: $cardPadding*3/2;
+      left: $cardPadding/2;
+      transform: scale(0.5);
+    }
+  }
+}

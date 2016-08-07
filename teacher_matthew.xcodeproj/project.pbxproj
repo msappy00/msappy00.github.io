@@ -1,0 +1,98 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXFileReference section */
+		C909E8611C1E5C1600292DAC /* move.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = move.html; sourceTree = "<group>"; };
+		C91F8F181D28FBC700B91E45 /* speedReader.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = speedReader.html; sourceTree = "<group>"; };
+		C92EA8921B5CCA2500D678D6 /* BullsAndCows.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = BullsAndCows.html; sourceTree = "<group>"; };
+		C93A0A6C1CDDE8C800D21E2D /* processing_practice.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = processing_practice.html; sourceTree = "<group>"; };
+		C9817EA91C38AFF500E6459C /* video.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = video.html; sourceTree = "<group>"; };
+		C988F6141B57DDA4006654AA /* spotIt.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = spotIt.html; sourceTree = "<group>"; };
+		C99AC95B1B467E520044FA9A /* dice.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = dice.html; sourceTree = "<group>"; };
+		C9A377661B84642400E87542 /* LetterBall.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = LetterBall.html; sourceTree = "<group>"; };
+		C9B8A4F51AF4B36800BD29BC /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
+		C9B8A4F61AF4B36800BD29BC /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
+		C9B8A4F71AF4B50000BD29BC /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		C9D8D44C1D57144C00AFC991 /* matchingGame.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = matchingGame.html; sourceTree = "<group>"; };
+		C9EB3EAB1B5A4DBD00FDD192 /* craps.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = craps.html; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		C9B8A4EB1AF4B10700BD29BC = {
+			isa = PBXGroup;
+			children = (
+				C91F8F181D28FBC700B91E45 /* speedReader.html */,
+				C93A0A6C1CDDE8C800D21E2D /* processing_practice.html */,
+				C9817EA91C38AFF500E6459C /* video.html */,
+				C909E8611C1E5C1600292DAC /* move.html */,
+				C9B8A4F71AF4B50000BD29BC /* index.html */,
+				C9D8D44C1D57144C00AFC991 /* matchingGame.html */,
+				C99AC95B1B467E520044FA9A /* dice.html */,
+				C9EB3EAB1B5A4DBD00FDD192 /* craps.html */,
+				C9A377661B84642400E87542 /* LetterBall.html */,
+				C92EA8921B5CCA2500D678D6 /* BullsAndCows.html */,
+				C988F6141B57DDA4006654AA /* spotIt.html */,
+				C9B8A4F51AF4B36800BD29BC /* css */,
+				C9B8A4F61AF4B36800BD29BC /* js */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		C9B8A4EC1AF4B10700BD29BC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = C9B8A4EF1AF4B10700BD29BC /* Build configuration list for PBXProject "teacher_matthew" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C9B8A4EB1AF4B10700BD29BC;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		C9B8A4F01AF4B10700BD29BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		C9B8A4F11AF4B10700BD29BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C9B8A4EF1AF4B10700BD29BC /* Build configuration list for PBXProject "teacher_matthew" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9B8A4F01AF4B10700BD29BC /* Debug */,
+				C9B8A4F11AF4B10700BD29BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C9B8A4EC1AF4B10700BD29BC /* Project object */;
+}

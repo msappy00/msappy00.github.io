@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+	<title>Teacher Matthew</title>
+	<link href="css/cerulean.min.css" rel="stylesheet"/>
+	<style>
+	body {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    p, figcaption, input {
+        font-size:20px;
+    }
+    input:invalid { background-color: lightPink;}
+    input:valid { background-color: lightGreen;}
+    input:required {border: 2px solid red;}
+    input:optional {border: 2px solid green;}
+    #home {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+    #aText0, #aText1, #aText2, #aText3, #aText4, #aText5, #textInput0, #textInput1, #textInput2, #textInput3, #textInput4, #textInput5, #grammarInput, #grammarInput2 {
+        text-align:center;
+        font-size: 18px;
+        padding: 20px;
+        border: 5px;
+        outline: 2px;
+        width: 200px;
+        height: 20px;
+    }
+    #bTextInput0, #bTextInput1, #bTextInput2, #bTextInput3, #bTextInput4, #cTextInput0, #cTextInput1, #cTextInput2, #cTextInput3, #cTextInput4 {
+        background-color:transparent;
+        text-align:left;
+        font-size: 18px;
+        padding: 20px;
+        border: 1px;
+        outline: 0px;
+        width: 100%;
+        height: 40px;
+    }
+    button:focus {
+        outline:0;
+    }
+    #grammarButton0, #grammarButton1, #grammarButton2, #grammarButton3, #grammarButton4, #grammarButton5, #grammarButton6, #grammarButton7, #grammarButton8, #grammarButton9, #grammarButton10, #grammarButton11 {
+        border:0px;
+        border-radius:6px;
+        background-color:transparent;
+        box-shadow: 0px 0px 0px 0px #fff;
+        font-size:18px
+    }
+    #grammarInput, #grammarInput2 {
+        box-shadow: 0px 0px 0px 1px #000;
+        background-color:transparent;
+    }
+    #grammarInputA {
+        text-align:center;
+        font-size: 18px;
+        padding: 20px;
+        border: 5px;
+        outline: 2px;
+        width: 200px;
+        height: 20px;
+        box-shadow: 0px 0px 0px 1px #000;
+    }
+    .grayscale {
+        filter: grayscale(100%);
+        filter: gray; /* IE6-9 */
+        filter: grayscale(1); /* Firefox 35+ */
+        -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+    }
+    .tab-content {
+        height: 100%;
+    }
+    .form-control {
+        height: 100px;
+    }
+    .onlyprint {display: none;}
+    @media print {
+        .onlyprint {display: block;}
+    }
+    </style>
+    
+	<script>
+	<!--
+
+    var bookNumber
+    var level_id = "";
+    var classList = [];
+    var currentUnit = "";
+    
+    // Randomize array element order in-place
+    // Using Durstenfeld Shuffle algorithm:
+    
+     function shuffleArray(array) {
+         for (var i = array.length - 1; i > 0; i--) {
+             var j = Math.floor(Math.random() * (i + 1));
+             var temp = array[i];
+             array[i] = array[j];
+             array[j] = temp;
+         }
+         return array;
+     }
+
+    function setLevel(level) {
+        sessionStorage.setItem("sessionLevel", level);
+        level_id = level;
+        levelId.innerHTML = level;
+        currentUnit = "";
+        setVocab('');
+        setGrammar('');
+        setReview('');
+        setQuiz('');
+    }
+    
+    function clearLevel() {
+        sessionStorage.setItem("sessionLevel", "");
+        level_id = " ";
+        levelId.innerHTML = " ";
+        currentUnit = "";
+        setVocab(currentUnit);
+        setGrammar(currentUnit);
+        setReview(currentUnit);
+        setQuiz(currentUnit);
+    }
+    
+    function checkSessionStorage() {
+        levelId.innerHTML = sessionStorage.getItem("sessionLevel");
+        setLevel(levelId.innerHTML);
+    }
+
+var array_i = 0;
+var cArray_i = 0;
+var pArray_i = 0;
+var qArray_i = 0;
+
+function vArraySlide() {
+    if (spellCheck.value === spellCheck.pattern) {
+        spellCheck.value = "";
+        array_i++;
+        if (array_i > (array.length - 1)) {
+            array_i = 0;
+        }
+        current_vocab.innerHTML =  '<img src="'+level_id+'/images/'+array[array_i]+'.png" onclick="vArraySlide()" />';
+        if (level_id == "Starter") {
+            currentWord.innerHTML = '<table align="center"><tr><td align="right" style="font-size:xx-large; color:red">'+array[array_i].slice(0,1)+'</td><td align="right" style="font-size:xx-large; color:black">'+array[array_i].slice(1)+'</td></tr></table>';
+            spellCheck.pattern = array[array_i].slice(0,1);
+        } else {
+            spellCheck.pattern = array[array_i];
+        }
+        vocabAudio.innerHTML = '<audio controls autoplay><source src="'+level_id+'/audio/'+array[array_i]+'.mp3" type="audio/mp3" /></audio>';
+        spellCheck.focus();
+    }
+}
+    
+function playVideo() {
+    //var video = new Video('video/'+pArray[pArray_i].value+'.mp4');
+    video1.play();
+}
+    
+function pArraySlide() {
+    if (phonicsCheck.value === phonicsCheck.pattern) {
+        phonicsCheck.value = "";
+        pArray_i++;
+        if (pArray_i > (pArray.length - 1)) {
+            pArray_i = 0;
+        }
+        playVideo();
+        current_phoneme.innerHTML =  '<video width="420px" autoplay id="video1" source src="video/'+pArray[pArray_i].value+'.mp4" type="video/mp4" />';
+        phonicsCheck.pattern = pArray[pArray_i].pattern;
+        phonicsCheck.focus();
+    }
+}
+
+var letter0;
+var letter1;
+var letter2;
+var letter3;
+var letter4;
+var letter5;
+var letter6;
+var letter7;
+var pic;
+
+function checkLetter(x, i, letter) {
+    if (letter == document.getElementById(x+"Button"+i).value) {
+        document.getElementById("pic"+x).innerHTML = '<img src="Starter/images/'+letter+'.png" /></div>';
+    } else {
+        document.getElementById("pic"+x).innerHTML = '<img src="Starter/images/4Lines.png" /></div>';
+    }
+}
+    
+function checkGrammar(i, x) {
+    y = document.getElementById("cTextInput"+i).value;
+    if (x == y) {
+        document.getElementById("cTextInput"+i).style.backgroundColor = "lightgreen";
+    } else {
+        document.getElementById("cTextInput"+i).style.backgroundColor = "lightpink";
+    }
+}
+    
+function checkBGrammar(i, x) {
+    y = document.getElementById("bTextInput"+i).value;
+    if (x == y) {
+        document.getElementById("bTextInput"+i).style.backgroundColor = "lightgreen";
+    } else {
+        document.getElementById("bTextInput"+i).style.backgroundColor = "lightpink";
+    }
+}
+    
+function checkGrammar2(qInt, x, y) {
+    if (x == y) {
+        document.getElementById("grammarButton"+qInt).style.border = "4px solid black";
+        document.getElementById("grammarButton"+qInt).style.backgroundColor = "lightgreen";
+    } else {
+        document.getElementById("grammarButton"+qInt).style.textDecoration = "line-through";
+    }
+}
+
+function showGrammar() {
+    document.getElementById("g0r3d0").innerHTML = '<h3>'+sampleAnswer+'</h3>';
+}
+    
+function showGrammar1() {
+    document.getElementById("g0r2d0").innerHTML = '<h3>'+sampleAnswer1+'</h3>';
+}
+
+function showGrammar2() {
+    document.getElementById("g0r5d0").innerHTML = '<h3>'+sampleAnswer2+'</h3>';
+}
+    
+function radioCheck(q, v1, v2) {
+    if(v1 == document.getElementById("optRadio"+v2).value){
+        document.getElementById("radio"+q).style.backgroundColor = "lightgreen";
+    } else {
+        document.getElementById("radio"+q).style.backgroundColor = "lightpink";
+    }
+}
+    
+function showPic(r, d) {
+    idNumber = 'g0r'+r+'d'+d;
+    bombNumber = (Math.floor(Math.random() * 5)+1);
+    if (bombNumber == 5) {
+        document.getElementById(idNumber).innerHTML = '<img src="images/tnt.png" />';
+        setTimeout(boom, 2000);
+    } else {
+      document.getElementById(idNumber).innerHTML = "+"+(Math.floor(Math.random() * 5)+1);
+    }
+}
+
+var explosion = new Audio("audio/explosion.mp3");
+
+function boom() {
+   document.getElementById(idNumber).innerHTML = '<img src="images/tnt2.png" />';
+   explosion.play();
+}
+
+function toggleAnswerKey(element) {
+    if (element.checked) {
+        document.getElementById("AKey").innerHTML = '<p>1. '+tempArray[0]+' 2. '+tempArray[1]+' 3. '+tempArray[2]+' 4. '+tempArray[3]+' 5. '+tempArray[4]+' 6. '+tempArray[5]+' 7. '+tempArray[6]+' 8. '+tempArray[7]+'</p>';
+        document.getElementById("DKey").innerHTML = '<p>1. '+tempArray[0].value+' 2. '+tempArray[1].value+' 3. '+tempArray[2].value+' 4. '+tempArray[3].value+' 5. '+tempArray[4].value+' 6. '+tempArray[5].value+' 7. '+tempArray[6].value+' 8. '+tempArray[7].value+'</p>';
+    }
+    else {
+        document.getElementById("AKey").innerHTML = '';
+        document.getElementById("DKey").innerHTML = '';
+    }
+}
+
+-->
+	</script>
+</head>
+<body onload="checkSessionStorage()">
+    <noscript>JavaScript is disabled.</noscript>
+    <script src ="js/liveabc_grammar.js"></script>
+    <script src="js/liveabc_vocab.js"></script>
+    <script src="js/liveabc_grammar.js"></script>
+    <script src="js/liveabc_phonics.js"></script>
+    <script src="js/liveabc_vocabQ.js"></script>
+    <script src="js/liveabc_review.js"></script>
+    <nav class="navbar navbar-default navbar-fixed-top hidden-print">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="#home" class="navbar-brand"><img width="20" height="20" src="images/star-yellow.svg" alt="yellow star" /></a>
+            </div>
+            <div class="collapse navbar-collapse" id="hamburger-navigation" data-toggle="dropdown">
+                <ul class="nav navbar-nav" role="menu">
+                    <li><a href="#home" data-toggle="tab" onclick="clearLevel()">Home</a><span class="sr-only">home</span></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Games<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="http://teachermatthew.net76.net/dice.html" target="_blank">Dice</a></li>
+                            <li><a href="http://teachermatthew.net76.net/craps.html" target="_blank">Craps</a></li>
+                            <li><a href="http://teachermatthew.net76.net/spotIt.html" target="_blank">Spot It!</a></li>
+                            <li><a href="http://teachermatthew.net76.net/BullsAndCows.html" target="_blank">Bulls and Cows</a></li>
+                            <li><a href="http://teachermatthew.net76.net/move.html" target="_blank">Move!</a></li>
+                            <!-- <li><a href="LetterBall.html" target="_blank">Letter Ball</a></li>-->
+                            <li><a href="https://scratch.mit.edu/studios/954910/" target="_blank">Scratch Games</a></li>
+                            <li><a href="http://www.merriam-webster.com/word-games" target="_blank">Merriam-Webster Word Games</a></li>
+                            <li><a href="http://teachermatthew.net76.net/spriteWalking.html" target="_blank">Sprite Animation</a></li>
+                            
+                        </ul>
+                    </li><!-- /#Games dropdown-->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" role="button" data-toggle="dropdown">Level<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#home" data-toggle="tab" onclick="setLevel('Starter')">Starter</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="setLevel('Level 1')">Level 1</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="setLevel('Level 2')">Level 2</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="setLevel('Level 3')">Level 3</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="setLevel('Level 4')">Level 4</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="setLevel('Level 5')">Level 5</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="setLevel('Level 6')">Level 6</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="setLevel('Level 7')">Level 7</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="setLevel('Level 8')">Level 8</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="setLevel('Level 9')">Level 9</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="setLevel('Level 10')">Level 10</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="setLevel('Level 11')">Level 11</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="setLevel('Level 12')">Level 12</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="clearLevel()">Clear</a></li>
+                        </ul>
+                    </li><!-- /#Level dropdown-->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" role="button" data-toggle="dropdown">Vocab<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#vocab_tab" data-toggle="tab" onclick="setVocab('Unit 1')">Unit 1</a></li>
+                            <li><a href="#vocab_tab" data-toggle="tab" onclick="setVocab('Unit 2')">Unit 2</a></li>
+                            <li><a href="#vocab_tab" data-toggle="tab" onclick="setVocab('Unit 3')">Unit 3</a></li>
+                            <li><a href="#vocab_tab" data-toggle="tab" onclick="setVocab('Review 1')">Review 1</a></li>
+                            <li><a href="#vocab_tab" data-toggle="tab" onclick="setVocab('Unit 4')">Unit 4</a></li>
+                            <li><a href="#vocab_tab" data-toggle="tab" onclick="setVocab('Unit 5')">Unit 5</a></li>
+                            <li><a href="#vocab_tab" data-toggle="tab" onclick="setVocab('Unit 6')">Unit 6</a></li>
+                            <li><a href="#vocab_tab" data-toggle="tab" onclick="setVocab('Review 2')">Review 2</a></li>
+                            <li><a href="#vocab_tab" data-toggle="tab" onclick="setVocab('Unit 7')">Unit 7</a></li>
+                            <li><a href="#vocab_tab" data-toggle="tab" onclick="setVocab('Unit 8')">Unit 8</a></li>
+                            <li><a href="#vocab_tab" data-toggle="tab" onclick="setVocab('Unit 9')">Unit 9</a></li>
+                            <li><a href="#vocab_tab" data-toggle="tab" onclick="setVocab('Review 3')">Review 3</a></li>
+                            <li><a href="#vocab_tab" data-toggle="tab" onclick="setVocab('Final Review')">Final Review</a></li>
+                        </ul>
+                    </li><!-- /#Vocab dropdown-->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" role="button" data-toggle="dropdown">Grammar<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#grammar_tab" data-toggle="tab" onclick="setGrammar('Unit 1')">Unit 1</a></li>
+                            <li><a href="#grammar_tab" data-toggle="tab" onclick="setGrammar('Unit 2')">Unit 2</a></li>
+                            <li><a href="#grammar_tab" data-toggle="tab" onclick="setGrammar('Unit 3')">Unit 3</a></li>
+                            <li><a href="#grammar_tab" data-toggle="tab" onclick="setGrammar('Review 1')">Review 1</a></li>
+                            <li><a href="#grammar_tab" data-toggle="tab" onclick="setGrammar('Unit 4')">Unit 4</a></li>
+                            <li><a href="#grammar_tab" data-toggle="tab" onclick="setGrammar('Unit 5')">Unit 5</a></li>
+                            <li><a href="#grammar_tab" data-toggle="tab" onclick="setGrammar('Unit 6')">Unit 6</a></li>
+                            <li><a href="#grammar_tab" data-toggle="tab" onclick="setGrammar('Review 2')">Review 2</a></li>
+                            <li><a href="#grammar_tab" data-toggle="tab" onclick="setGrammar('Unit 7')">Unit 7</a></li>
+                            <li><a href="#grammar_tab" data-toggle="tab" onclick="setGrammar('Unit 8')">Unit 8</a></li>
+                            <li><a href="#grammar_tab" data-toggle="tab" onclick="setGrammar('Unit 9')">Unit 9</a></li>
+                            <li><a href="#grammar_tab" data-toggle="tab" onclick="setGrammar('Review 3')">Review 3</a></li>
+                            <li><a href="#grammar_tab" data-toggle="tab" onclick="setGrammar('Final Review')">Final Review</a></li>
+                        </ul>
+                    </li><!-- /#Grammar dropdown-->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" role="button" data-toggle="dropdown">Phonics<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#phonics_tab" data-toggle="tab" onclick="setPhonics('Unit 1')">Unit 1</a></li>
+                            <li><a href="#phonics_tab" data-toggle="tab" onclick="setPhonics('Unit 2')">Unit 2</a></li>
+                            <li><a href="#phonics_tab" data-toggle="tab" onclick="setPhonics('Unit 3')">Unit 3</a></li>
+                            <li><a href="#phonics_tab" data-toggle="tab" onclick="setPhonics('Review 1')">Review 1</a></li>
+                            <li><a href="#phonics_tab" data-toggle="tab" onclick="setPhonics('Unit 4')">Unit 4</a></li>
+                            <li><a href="#phonics_tab" data-toggle="tab" onclick="setPhonics('Unit 5')">Unit 5</a></li>
+                            <li><a href="#phonics_tab" data-toggle="tab" onclick="setPhonics('Unit 6')">Unit 6</a></li>
+                            <li><a href="#phonics_tab" data-toggle="tab" onclick="setPhonics('Review 2')">Review 2</a></li>
+                            <li><a href="#phonics_tab" data-toggle="tab" onclick="setPhonics('Unit 7')">Unit 7</a></li>
+                            <li><a href="#phonics_tab" data-toggle="tab" onclick="setPhonics('Unit 8')">Unit 8</a></li>
+                            <li><a href="#phonics_tab" data-toggle="tab" onclick="setPhonics('Unit 9')">Unit 9</a></li>
+                            <li><a href="#phonics_tab" data-toggle="tab" onclick="setPhonics('Review 3')">Review 3</a></li>
+                            <li><a href="#phonics_tab" data-toggle="tab" onclick="setPhonics('Final Review')">Final Review</a></li>
+                        </ul>
+                    </li><!-- /#Phonics dropdown-->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" role="button" data-toggle="dropdown">Vocab Quiz<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#quizMaker_tab" data-toggle="tab" onclick="setQuiz('Unit 1')">Unit 1</a></li>
+                            <li><a href="#quizMaker_tab" data-toggle="tab" onclick="setQuiz('Unit 2')">Unit 2</a></li>
+                            <li><a href="#quizMaker_tab" data-toggle="tab" onclick="setQuiz('Unit 3')">Unit 3</a></li>
+                            <li><a href="#quizMaker_tab" data-toggle="tab" onclick="setQuiz('Unit 4')">Unit 4</a></li>
+                            <li><a href="#quizMaker_tab" data-toggle="tab" onclick="setQuiz('Unit 5')">Unit 5</a></li>
+                            <li><a href="#quizMaker_tab" data-toggle="tab" onclick="setQuiz('Unit 6')">Unit 6</a></li>
+                            <li><a href="#quizMaker_tab" data-toggle="tab" onclick="setQuiz('Unit 7')">Unit 7</a></li>
+                            <li><a href="#quizMaker_tab" data-toggle="tab" onclick="setQuiz('Unit 8')">Unit 8</a></li>
+                            <li><a href="#quizMaker_tab" data-toggle="tab" onclick="setQuiz('Unit 9')">Unit 9</a></li>
+                            <li><a href="#quizMaker_tab" data-toggle="tab" onclick="clear_number()">Clear</a></li>
+                        </ul>
+                    </li><!-- /#quizMaker dropdown-->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" role="button" data-toggle="dropdown">Review<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#review_tab" data-toggle="tab" onclick="setReview('Unit 1')">Unit 1</a></li>
+                            <li><a href="#review_tab" data-toggle="tab" onclick="setReview('Unit 2')">Unit 2</a></li>
+                            <li><a href="#review_tab" data-toggle="tab" onclick="setReview('Unit 3')">Unit 3</a></li>
+                            <li><a href="#review_tab" data-toggle="tab" style="font-weight:bold" onclick="setReview('Review 1')">Test 1</a></li>
+                            <li><a href="#review_tab" data-toggle="tab" onclick="setReview('Unit 4')">Unit 4</a></li>
+                            <li><a href="#review_tab" data-toggle="tab" onclick="setReview('Unit 5')">Unit 5</a></li>
+                            <li><a href="#review_tab" data-toggle="tab" onclick="setReview('Unit 6')">Unit 6</a></li>
+                            <li><a href="#review_tab" data-toggle="tab" style="font-weight:bold" onclick="setReview('Review 2')">Test 2</a></li>
+                            <li><a href="#review_tab" data-toggle="tab" onclick="setReview('Unit 7')">Unit 7</a></li>
+                            <li><a href="#review_tab" data-toggle="tab" onclick="setReview('Unit 8')">Unit 8</a></li>
+                            <li><a href="#review_tab" data-toggle="tab" onclick="setReview('Unit 9')">Unit 9</a></li>
+                            <li><a href="#review_tab" data-toggle="tab" style="font-weight:bold" onclick="setReview('Review 3')">Test 3</a></li>
+                            <li><a href="#review_tab" data-toggle="tab" style="font-weight:bold" onclick="setReview('Final Review')">Final Test</a></li>
+                        </ul>
+                    </li><!-- /#Review dropdown-->
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" data-toggle="tab" id="day"></a><span class="sr-only">day</span></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- a dropdown menu for small and extra-small screens -->
+    <nav class="navbar navbar-default navbar-fixed-top visible-xs visible-sm hidden-print">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target="#menuItems">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#home" data-toggle="tab"><img width="20" height="20" src="images/star-yellow.svg" alt="yellow star"></a>
+            </div>
+            
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="menuItems">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle visible-xs visible-sm" data-toggle="dropdown" role="button" aria-expanded="false">Games<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="dice.html" data-target="#" aria-haspopup="true" target="_blank">Dice</a></li>
+                            <li data-toggle="collapse"><a href="#spotit_tab" data-toggle="tab" target="_blank">SpotIt!</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" role="button" data-toggle="dropdown">Level<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#home" data-toggle="tab" onclick="setLevel('Starter')">Starter</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="setLevel('Level 1')">Level 1</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="setLevel('Level 2')">Level 2</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="setLevel('Level 3')">Level 3</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="setLevel('Level 4')">Level 4</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="setLevel('Level 5')">Level 5</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="setLevel('Level 6')">Level 6</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="setLevel('Level 7')">Level 7</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="setLevel('Level 8')">Level 8</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="setLevel('Level 9')">Level 9</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="setLevel('Level 10')">Level 10</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="setLevel('Level 11')">Level 11</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="setLevel('Level 12')">Level 12</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="clearLevel()">Clear</a></li>
+                        </ul>
+                    </li><!-- /#Level dropdown-->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" role="button" data-toggle="dropdown">Vocab<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#vocab_tab" data-toggle="tab" onclick="setVocab('Unit 1')">Unit 1</a></li>
+                            <li><a href="#vocab_tab" data-toggle="tab" onclick="setVocab('Unit 2')">Unit 2</a></li>
+                            <li><a href="#vocab_tab" data-toggle="tab" onclick="setVocab('Unit 3')">Unit 3</a></li>
+                            <li><a href="#vocab_tab" data-toggle="tab" onclick="setVocab('Review 1')">Review 1</a></li>
+                            <li><a href="#vocab_tab" data-toggle="tab" onclick="setVocab('Unit 4')">Unit 4</a></li>
+                            <li><a href="#vocab_tab" data-toggle="tab" onclick="setVocab('Unit 5')">Unit 5</a></li>
+                            <li><a href="#vocab_tab" data-toggle="tab" onclick="setVocab('Unit 6')">Unit 6</a></li>
+                            <li><a href="#vocab_tab" data-toggle="tab" onclick="setVocab('Review 2')">Review 2</a></li>
+                            <li><a href="#vocab_tab" data-toggle="tab" onclick="setVocab('Unit 7')">Unit 7</a></li>
+                            <li><a href="#vocab_tab" data-toggle="tab" onclick="setVocab('Unit 8')">Unit 8</a></li>
+                            <li><a href="#vocab_tab" data-toggle="tab" onclick="setVocab('Unit 9')">Unit 9</a></li>
+                            <li><a href="#vocab_tab" data-toggle="tab" onclick="setVocab('Review 3')">Review 3</a></li>
+                            <li><a href="#vocab_tab" data-toggle="tab" onclick="setVocab('Final Review')">Final Review</a></li>
+                        </ul>
+                    </li><!-- /#Vocab dropdown-->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" role="button" data-toggle="dropdown">Grammar<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#grammar_tab" data-toggle="tab" onclick="setGrammar('Unit 1')">Unit 1</a></li>
+                            <li><a href="#grammar_tab" data-toggle="tab" onclick="setGrammar('Unit 2')">Unit 2</a></li>
+                            <li><a href="#grammar_tab" data-toggle="tab" onclick="setGrammar('Unit 3')">Unit 3</a></li>
+                            <li><a href="#grammar_tab" data-toggle="tab" onclick="setGrammar('Unit 4')">Unit 4</a></li>
+                            <li><a href="#grammar_tab" data-toggle="tab" onclick="setGrammar('Unit 5')">Unit 5</a></li>
+                            <li><a href="#grammar_tab" data-toggle="tab" onclick="setGrammar('Unit 6')">Unit 6</a></li>
+                            <li><a href="#grammar_tab" data-toggle="tab" onclick="setGrammar('Unit 7')">Unit 7</a></li>
+                            <li><a href="#grammar_tab" data-toggle="tab" onclick="setGrammar('Unit 8')">Unit 8</a></li>
+                            <li><a href="#grammar_tab" data-toggle="tab" onclick="setGrammar('Unit 9')">Unit 9</a></li>
+                        </ul>
+                    </li><!-- /#Grammar dropdown-->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" role="button" data-toggle="dropdown">Phonics<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#phonics_tab" data-toggle="tab" onclick="setPhonics('Unit 1')">Unit 1</a></li>
+                            <li><a href="#phonics_tab" data-toggle="tab" onclick="setPhonics('Unit 2')">Unit 2</a></li>
+                            <li><a href="#phonics_tab" data-toggle="tab" onclick="setPhonics('Unit 3')">Unit 3</a></li>
+                            <li><a href="#phonics_tab" data-toggle="tab" onclick="setPhonics('Review 1')">Review 1</a></li>
+                            <li><a href="#phonics_tab" data-toggle="tab" onclick="setPhonics('Unit 4')">Unit 4</a></li>
+                            <li><a href="#phonics_tab" data-toggle="tab" onclick="setPhonics('Unit 5')">Unit 5</a></li>
+                            <li><a href="#phonics_tab" data-toggle="tab" onclick="setPhonics('Unit 6')">Unit 6</a></li>
+                            <li><a href="#phonics_tab" data-toggle="tab" onclick="setPhonics('Review 2')">Review 2</a></li>
+                            <li><a href="#phonics_tab" data-toggle="tab" onclick="setPhonics('Unit 7')">Unit 7</a></li>
+                            <li><a href="#phonics_tab" data-toggle="tab" onclick="setPhonics('Unit 8')">Unit 8</a></li>
+                            <li><a href="#phonics_tab" data-toggle="tab" onclick="setPhonics('Unit 9')">Unit 9</a></li>
+                            <li><a href="#phonics_tab" data-toggle="tab" onclick="setPhonics('Review 3')">Review 3</a></li>
+                            <li><a href="#phonics_tab" data-toggle="tab" onclick="setPhonics('Final Review')">Final Review</a></li>
+                        </ul>
+                    </li><!-- /#Phonics dropdown-->
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="row hidden-print" style="padding-top:100px">
+        <div class="col-md-3 col-md-offset-3">
+            <h2 id="levelId"></h2>
+            <p></p>
+        </div>
+    </div>
+
+    <div id="myTabContent" class="tab-content">
+        
+        <div role="tabpanel" class="container tab-pane fade in active" id="home">
+            
+            <img class="img-responsive" id="logo" src="images/mega_minecraft.png" alt="mega">
+                <footer class="navbar-brand" id="foot01"></footer>
+        </div><!-- /#home_tab -->
+        
+        <div role="tabpanel" class="container tab-pane fade" id="vocab_tab">
+            <div class="col-md-6 col-md-offset-3" style="text-align:center;">
+                <figure id="figaudio1">
+                    <div id="current_vocab" style="min-height: 150px"></div>
+                    <figcaption id="currentWord"></figcaption>
+                    <div style="height:50px"></div>
+                    <div id="vocabAudio"></div>
+                </figure>
+                <div>
+                    <input type="text" class="form-control" id="spellCheck" autocomplete="off" autofocus size="50" maxlength="50" style="font-size: 50px" placeholder="Spell It!" required/>
+                </div>
+                <h3 id="vocab_links"></h3>
+                <div id="vocab_lesson"></div>
+            </div>
+        </div><!-- /#vocab_tab -->
+        
+        <div role="tabpanel" class="container tab-pane fade" id="grammar_tab">
+            <h3 id="gInstructions"></h3>
+            <div class="col-md-12" style="text-align:center; font-size:50px">
+                <table style="padding:50px" width=100%>
+                    <tr>
+                        <td id="g0r0d0"></td>
+                        <td id="g0r0d1"></td>
+                        <td id="g0r0d2"></td>
+                        <td id="g0r0d3"></td>
+                        <td id="g0r0d4"></td>
+                        <td rowspan="3" id="g0r0d5"></td>
+                    </tr>
+                    <tr>
+                        <td id="g0r1d0"></td>
+                        <td id="g0r1d1"></td>
+                        <td id="g0r1d2"></td>
+                        <td id="g0r1d3"></td>
+                        <td id="g0r1d4"></td>
+                        <td style="padding-left:20px"><button type="button" class="btn btn-primary btn-lg" onclick="setGrammar(currentUnit)">NEXT</button></td>
+                    </tr>
+                    <tr>
+                        <td id="g0r2d0"></td>
+                        <td id="g0r2d1"></td>
+                        <td id="g0r2d2"></td>
+                        <td id="g0r2d3"></td>
+                        <td id="g0r2d4"></td>
+                        <td style="padding-left:20px" id="showGrammarTD"></td>
+                    </tr>
+                    <tr>
+                        <td id="g0r3d0"></td>
+                        <td id="g0r3d1"></td>
+                        <td id="g0r3d2"></td>
+                        <td id="g0r3d3"></td>
+                        <td id="g0r3d4"></td>
+                    </tr>
+                    <tr>
+                        <td id="g0r4d0"></td>
+                        <td id="g0r4d1"></td>
+                        <td id="g0r4d2"></td>
+                        <td id="g0r4d3"></td>
+                        <td id="g0r4d4"></td>
+                    </tr>
+                    <tr>
+                        <td id="g0r5d0"></td>
+                        <td id="g0r5d1"></td>
+                        <td id="g0r5d2"></td>
+                        <td id="g0r5d3"></td>
+                        <td id="g0r5d4"></td>
+                    </tr>
+                </table>
+                <h3 id="grammar_links"></h3>
+                <div id="grammar_lesson"></div>
+            </div>
+        </div><!-- /#grammar_tab -->
+        
+        <div role="tabpanel" class="container tab-pane fade" id="phonics_tab">
+            <h3 id="pInstructions"></h3>
+            <div class="col-md-6 col-md-offset-3" style="text-align:center;">
+                    <div id="current_phoneme"></div>
+                    <div style="height:50px"></div>
+                <div  align="center">
+                    <table>
+                        <tr>
+                            <td style="padding-right:20px"><button type="button" class="btn btn-primary btn-lg" onclick="playVideo()">Again</button></td>
+                            <td><input type="text" class="form-control" id="phonicsCheck" autocomplete="off" autofocus maxlength="2" style="font-size:50px; width:160px; text-align:center" placeholder="__" required/></td>
+                            <td style="padding-left:20px"><button type="button" class="btn btn-primary btn-lg" onclick="pArraySlide()">NEXT</button></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div><!-- /#phonics_tab -->
+        
+        <div role="tabpanel" class="container tab-pane fade" id="quizMaker_tab">
+            <div style="height:100px"></div>
+            <div class="container">
+                <div class="col-md-10 col-md-offset-2">
+                    <h2>Vocab Quiz</h2>
+                </div>
+                <div style="height:50px"></div>
+                <table class="onlyprint">
+                    <tr>
+                        <th id="bookUnit" style="font-weight:bold"></th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td id="array0"></td>
+                        <td width="50px"></td>
+                        <td id="array5"></td>
+                    </tr>
+                    <tr>
+                        <td id="array1"></td>
+                        <td width="50px"></td>
+                        <td id="array6"></td>
+                    </tr>
+                    <tr>
+                        <td id="array2"></td>
+                        <td width="50px"></td>
+                        <td id="array7"></td>
+                    </tr>
+                    <tr>
+                        <td id="array3"></td>
+                        <td width="50px"></td>
+                        <td id="array8"></td>
+                    </tr>
+                    <tr>
+                        <td id="array4"></td>
+                        <td width="50px"></td>
+                        <td id="array9"></td>
+                    </tr>
+                </table>
+            </div>
+        </div><!-- /#quizMaker_tab  -->
+        
+        <div role="tabpanel" class="container tab-pane fade" id="review_tab">
+            <div style="height:10px"></div>
+            <div class="hidden-print" align="right">
+                <label class="checkbox-inline"><input id="answerKey" type="checkbox" onchange="toggleAnswerKey(this)">Answer Key</label>
+            </div>
+            <div class="container">
+                <table class="table table-bordered" style="width:700px; border: 1px solid black" align="center">
+                    <tr><td>
+                        <table class="table table-bordered" style="width:100%; border: 1px solid black; padding:0px; margin:0px">
+                            <tr style="vertical-align:center">
+                                <td style="border: 1px solid black; padding:2px; vertical-align:middle"><img class="center" src="images/liveabc_logo.png" style="width:278px; padding:0px; margin:0px" /></td>
+                                <td style="border: 1px solid black; vertical-align:middle"><h4 id="bookUnit2"><h4></td>
+                                <td style="border: 1px solid black; text-align:center; vertical-align:middle"><h4>Class: ___________<br><br>Name: ___________</h4></td>
+                                <td style="width:100px; border: 1px solid black"><h4>Score</h4><br></td>
+                            </tr>
+                        </table>
+                    </td></tr>
+                </table>
+                <h4 id="PartA">A. Vocabulary</h4>
+                <table style="width:100%">
+                    <tr>
+                        <td id="a0r0d0"></td>
+                        <td id="a0r0d1"></td>
+                        <td id="a0r0d2"></td>
+                        <td id="a0r0d3"></td>
+                    </tr>
+                    <tr>
+                        <td id="a0r1d0"></td>
+                        <td id="a0r1d1"></td>
+                        <td id="a0r1d2"></td>
+                        <td id="a0r1d3"></td>
+                    </tr>
+                    <tr>
+                        <td id="a0r2d0"></td>
+                        <td id="a0r2d1"></td>
+                        <td id="a0r2d2"></td>
+                        <td id="a0r2d3"></td>
+                    </tr>
+                    <tr>
+                        <td id="a0r3d0"></td>
+                        <td id="a0r3d1"></td>
+                        <td id="a0r3d2"></td>
+                        <td id="a0r3d3"></td>
+                    </tr>
+                    <tr style="height:40px"></tr>
+                </table>
+                <p id="AKey" class="onlyprint" style="font-weight:bold"></p>
+                <h4 id="PartB"></h4>
+                <table width=80%>
+                    <tr>
+                        <td id="b0r0d0"></td>
+                        <td id="b0r0d1"></td>
+                        <td id="b0r0d2"></td>
+                        <td id="b0r0d3"></td>
+                        <td id="b0r0d4"></td>
+                        <td id="b0r0d5"></td>
+                        <td rowspan="3" id="bVocabPic0" style="text-align:center"></td>
+                    </tr>
+                    <tr>
+                        <td id="b0r1d0"></td>
+                        <td id="b0r1d1"></td>
+                        <td id="b0r1d2"></td>
+                        <td id="b0r1d3"></td>
+                        <td id="b0r1d4"></td>
+                        <td id="b0r1d5"></td>
+                    </tr>
+                    <tr>
+                        <td id="b0r2d0"></td>
+                        <td id="b0r2d1"></td>
+                        <td id="b0r2d2"></td>
+                        <td id="b0r2d3"></td>
+                        <td id="b0r2d4"></td>
+                        <td id="b0r2d5"></td>
+                    </tr>
+                    <tr style="height:10px"></tr>
+                    <tr>
+                        <td id="b1r0d0"></td>
+                        <td id="b1r0d1"></td>
+                        <td id="b1r0d2"></td>
+                        <td id="b1r0d3"></td>
+                        <td id="b1r0d4"></td>
+                        <td id="b1r0d5"></td>
+                        <td rowspan="3" id="bVocabPic1" style="text-align:center"></td>
+                    </tr>
+                    <tr>
+                        <td id="b1r1d0"></td>
+                        <td id="b1r1d1"></td>
+                        <td id="b1r1d2"></td>
+                        <td id="b1r1d3"></td>
+                        <td id="b1r1d4"></td>
+                        <td id="b1r1d5"></td>
+                    </tr>
+                    <tr>
+                        <td id="b1r2d0"></td>
+                        <td id="b1r2d1"></td>
+                        <td id="b1r2d2"></td>
+                        <td id="b1r2d3"></td>
+                        <td id="b1r2d4"></td>
+                        <td id="b1r2d5"></td>
+                    </tr>
+                    <tr style="height:10px"></tr>
+                    <tr>
+                        <td id="b2r0d0"></td>
+                        <td id="b2r0d1"></td>
+                        <td id="b2r0d2"></td>
+                        <td id="b2r0d3"></td>
+                        <td id="b2r0d4"></td>
+                        <td id="b2r0d5"></td>
+                        <td rowspan="3" id="bVocabPic2" style="text-align:center"></td>
+                    </tr>
+                    <tr>
+                        <td id="b2r1d0"></td>
+                        <td id="b2r1d1"></td>
+                        <td id="b2r1d2"></td>
+                        <td id="b2r1d3"></td>
+                        <td id="b2r1d4"></td>
+                        <td id="b2r1d5"></td>
+                    </tr>
+                    <tr>
+                        <td id="b2r2d0"></td>
+                        <td id="b2r2d1"></td>
+                        <td id="b2r2d2"></td>
+                        <td id="b2r2d3"></td>
+                        <td id="b2r2d4"></td>
+                        <td id="b2r2d5"></td>
+                    </tr>
+                    <tr style="height:10px"></tr>
+                    <tr>
+                        <td id="b3r0d0"></td>
+                        <td id="b3r0d1"></td>
+                        <td id="b3r0d2"></td>
+                        <td id="b3r0d3"></td>
+                        <td id="b3r0d4"></td>
+                        <td id="b3r0d5"></td>
+                        <td rowspan="3" id="bVocabPic3" style="text-align:center"></td>
+                    </tr>
+                    <tr>
+                        <td id="b3r1d0"></td>
+                        <td id="b3r1d1"></td>
+                        <td id="b3r1d2"></td>
+                        <td id="b3r1d3"></td>
+                        <td id="b3r1d4"></td>
+                        <td id="b3r1d5"></td>
+                    </tr>
+                    <tr>
+                        <td id="b3r2d0"></td>
+                        <td id="b3r2d1"></td>
+                        <td id="b3r2d2"></td>
+                        <td id="b3r2d3"></td>
+                        <td id="b3r2d4"></td>
+                        <td id="b3r2d5"></td>
+                    </tr>
+                    <tr style="height:50px"></tr>
+                    <tr>
+                        <td id="b4r0d0"></td>
+                        <td id="b4r0d1"></td>
+                        <td id="b4r0d2"></td>
+                        <td id="b4r0d3"></td>
+                        <td id="b4r0d4"></td>
+                        <td id="b4r0d5"></td>
+                        <td rowspan="3" id="bVocabPic4" style="text-align:center"></td>
+                    </tr>
+                    <tr>
+                        <td id="b4r1d0"></td>
+                        <td id="b4r1d1"></td>
+                        <td id="b4r1d2"></td>
+                        <td id="b4r1d3"></td>
+                        <td id="b4r1d4"></td>
+                        <td id="b4r1d5"></td>
+                    </tr>
+                    <tr>
+                        <td id="b4r2d0"></td>
+                        <td id="b4r2d1"></td>
+                        <td id="b4r2d2"></td>
+                        <td id="b4r2d3"></td>
+                        <td id="b4r2d4"></td>
+                        <td id="b4r2d5"></td>
+                    </tr>
+                </table>
+                <h4 id="PartC"></h4>
+                <table class="col-md-12" style="padding:50px" width=100%>
+                    <tr>
+                        <td id="c0r0d0"><h4>1.</h4></td>
+                        <td id="c0r0d1"></td>
+                        <td id="c0r0d2"></td>
+                    </tr>
+                    <tr>
+                        <td id="c0r1d0"></td>
+                        <td id="c0r1d1"></td>
+                        <td id="c0r1d2"></td>
+                    </tr>
+                    <tr>
+                        <td id="c0r2d0"></td>
+                        <td id="c0r2d1"></td>
+                        <td id="c0r2d2"></td>
+                    </tr>
+                    <tr style="height:10px"></tr>
+                    <tr>
+                        <td id="c1r0d0"><h4>2.</h4></td>
+                        <td id="c1r0d1"></td>
+                        <td id="c1r0d2"></td>
+                    </tr>
+                    <tr>
+                        <td id="c1r1d0"></td>
+                        <td id="c1r1d1"></td>
+                        <td id="c1r1d2"></td>
+                    </tr>
+                    <tr>
+                        <td id="c1r2d0"></td>
+                        <td id="c1r2d1"></td>
+                        <td id="c1r2d2"></td>
+                    </tr>
+                    <tr style="height:10px"></tr>
+                    <tr>
+                        <td id="c2r0d0"><h4>3.</h4></td>
+                        <td id="c2r0d1"></td>
+                        <td id="c2r0d2"></td>
+                    <tr>
+                        <td id="c2r1d0"></td>
+                        <td id="c2r1d1"></td>
+                        <td id="c2r1d2"></td>
+                    </tr>
+                    <tr>
+                        <td id="c2r2d0"></td>
+                        <td id="c2r2d1"></td>
+                        <td id="c2r2d2"></td>
+                    </tr>
+                    <tr style="height:10px"></tr>
+                    <tr>
+                        <td id="c3r0d0"><h4>4.</h4></td>
+                        <td id="c3r0d1"></td>
+                        <td id="c3r0d2"></td>
+                    </tr>
+                    <tr>
+                        <td id="c3r1d0"></td>
+                        <td id="c3r1d1"></td>
+                        <td id="c3r1d2"></td>
+                    </tr>
+                    <tr>
+                        <td id="c3r2d0"></td>
+                        <td id="c3r2d1"></td>
+                        <td id="c3r2d2"></td>
+                    </tr>
+                    <tr style="height:10px"></tr>
+                    <tr>
+                        <td id="c4r0d0"><h4>5.</h4></td>
+                        <td id="c4r0d1"></td>
+                        <td id="c4r0d2"></td>
+                    </tr>
+                    <tr>
+                        <td id="c4r1d0"></td>
+                        <td id="c4r1d1"></td>
+                        <td id="c4r1d2"></td>
+                    </tr>
+                    <tr>
+                        <td id="c4r2d0"></td>
+                        <td id="c4r2d1"></td>
+                        <td id="c4r2d2"></td>
+                    </tr>
+                    <tr style="height:50px"></tr>
+                </table>
+                <h4 id="PartD"></h4>
+                <table align="center">
+                    <tr>
+                        <td id="d0r0d0"></td>
+                        <td id="d0r0d1"></td>
+                        <td id="d0r0d2"></td>
+                        <td id="d0r0d3"></td>
+                    </tr>
+                    <tr>
+                        <td id="d0r1d0"></td>
+                        <td id="d0r1d1"></td>
+                        <td id="d0r1d2"></td>
+                        <td id="d0r1d3"></td>
+                    </tr>
+                    <tr>
+                        <td id="d0r2d0"></td>
+                        <td id="d0r2d1"></td>
+                        <td id="d0r2d2"></td>
+                        <td id="d0r2d3"></td>
+                    </tr>
+                    <tr>
+                        <td id="d0r3d0"></td>
+                        <td id="d0r3d1"></td>
+                        <td id="d0r3d2"></td>
+                        <td id="d0r3d3"></td>
+                    </tr>
+                    <tr>
+                        <td id="d0r4d0"></td>
+                        <td id="d0r4d1"></td>
+                        <td id="d0r4d2"></td>
+                        <td id="d0r4d3"></td>
+                    </tr>
+                    <tr>
+                        <td id="d0r5d0"></td>
+                        <td id="d0r5d1"></td>
+                        <td id="d0r5d2"></td>
+                        <td id="d0r5d3"></td>
+                    </tr>
+                </table>
+                <p id="DKey" class="onlyprint" style="font-weight:bold"></p>
+            </div>
+
+        </div><!-- /#review_tab -->
+    </div>
+    <script>
+        <!--
+        document.getElementById("foot01").innerHTML = "<p>&copy; " + new Date().getFullYear() + " Teacher Matthew</p>";
+        var day = new Date().getDay();
+        switch(day) {
+            case 0:
+                day = "Sunday ";
+                break;
+            case 1:
+                day = "Monday ";
+                break;
+            case 2:
+                day = "Tuesday ";
+                break;
+            case 3:
+                day = "Wednesday ";
+                break;
+            case 4:
+                day = "Thursday ";
+                break;
+            case 5:
+                day = "Friday ";
+                break;
+            case 6:
+                day = "Saturday ";
+                break;
+        }
+        document.getElementById("day").innerHTML = day;
+        -->
+    </script>
+	<script src="http://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+	<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

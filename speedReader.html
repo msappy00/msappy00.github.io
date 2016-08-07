@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Speed Reader</title>
+        <link href="css/cerulean.min.css" rel="stylesheet"/>
+        <style>
+            canvas {
+                border: 1px solid black;
+                padding: 0;
+                margin: auto;
+                display: block;
+                max-width: 100%;
+            }
+        html, body {
+            margin: 0px;
+            border: 0;
+        }
+        </style>
+        
+        <audio id="pop" src="alphabet/audio/pop.mp3"></audio>
+        <audio id="buzzer" src="alphabet/audio/buzzer.mp3"></audio>
+    </head>
+        <nav class="navbar navbar-default navbar-fixed-top hidden-print">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="#" class="navbar-brand"><img width="20px" height="20px" src="images/star-yellow.svg"></img></a>
+                </div>
+                <ul class="nav navbar-nav hidden-xs hidden-sm" role="menu">
+                    <li><a href="#" data-toggle="tab">Speed Reader</a><span class="sr-only">Speed Reader</span></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right hidden-xs hidden-sm">
+                    <li><a href="#" data-toggle="tab" id="day"></a><span class="sr-only">day</span></li>
+                </ul>
+            </div>
+        </nav>
+        <div style="height:50px"></div>
+        <h3 style="text-align:center"></h3>
+        <body onload="init();">
+            <script src="js/speedReader.js"></script>
+            <canvas class="hidden-xs; img-responsive" id="myCanvas" width="600px" height="600px">   </canvas>
+            <div style="height:20px"></div>
+            <div id="letterAudio" style="text-align:center"></div>
+        </body>
+</html>

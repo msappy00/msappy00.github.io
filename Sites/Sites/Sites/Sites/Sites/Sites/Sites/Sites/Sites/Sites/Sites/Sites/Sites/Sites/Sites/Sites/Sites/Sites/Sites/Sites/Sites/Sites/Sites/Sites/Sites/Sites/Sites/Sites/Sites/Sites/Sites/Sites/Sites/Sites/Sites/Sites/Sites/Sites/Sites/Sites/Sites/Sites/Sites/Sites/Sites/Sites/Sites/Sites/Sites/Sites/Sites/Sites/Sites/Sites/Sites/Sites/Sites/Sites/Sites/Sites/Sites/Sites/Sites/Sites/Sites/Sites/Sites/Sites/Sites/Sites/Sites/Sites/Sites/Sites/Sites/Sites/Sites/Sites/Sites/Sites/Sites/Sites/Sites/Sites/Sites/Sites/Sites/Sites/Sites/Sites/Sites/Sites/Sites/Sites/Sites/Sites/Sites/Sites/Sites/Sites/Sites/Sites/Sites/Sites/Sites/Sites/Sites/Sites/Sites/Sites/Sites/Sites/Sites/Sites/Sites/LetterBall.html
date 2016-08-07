@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+	<title>Letter Ball</title>
+	<link href="css/cerulean.min.css" rel="stylesheet"/>
+	<style>
+	body {
+        padding-top: 100px;
+    }
+    canvas{
+        display: block;
+        max-width: 100%;
+    }
+    </style>
+    
+    <audio id="impact" src="audio/impact.mp3"></audio>
+
+	<noscript>JavaScript is disabled.</noscript>
+	
+</head>
+<body onload="init();">
+    
+    <script src="js/LetterBall.js"></script>
+    <nav class="navbar navbar-default navbar-fixed-top hidden-print">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand"><img width="20px" height="20px" src="images/star-yellow.svg"></img></a>
+            </div>
+            <ul class="nav navbar-nav hidden-xs hidden-sm" role="menu">
+                <li><a href="#" data-toggle="tab">Letter Ball</a><span class="sr-only">letter ball</span></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right hidden-xs hidden-sm">
+                <li><a href="#" data-toggle="tab" id="day"></a><span class="sr-only">day</span></li>
+            </ul>
+        </div>
+    </nav>
+
+        <div class="col-md-8 col-md-offset-2">
+            <canvas id="myCanvas" width="1280" height="720" onclick="animationLoop();">
+                Your browser doesn't support the HTML5 canvas element.
+            </canvas>
+        </div>
+       
+    <script>
+        // shows the day of the week in the nav bar
+        var day = new Date().getDay();
+        switch(day) {
+            case 0:
+            day = "Sunday ";
+            break;
+            case 1:
+            day = "Monday ";
+            break;
+            case 2:
+            day = "Tuesday ";
+            break;
+            case 3:
+            day = "Wednesday ";
+            break;
+            case 4:
+            day = "Thursday ";
+            break;
+            case 5:
+            day = "Friday ";
+            break;
+            case 6:
+            day = "Saturday ";
+            break;
+        }
+    document.getElementById("day").innerHTML = day;
+    </script>
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
