@@ -1095,7 +1095,7 @@ function setGrammar(userInput){
         } else if (userInput == "Unit 7") {
             freqArray = [" once ", " twice ", " three times "];
             shuffleArray(freqArray);
-            timeArray = ["a week.", "month.", "year."];
+            timeArray = ["a week.", "a month.", "a year."];
             shuffleArray(timeArray);
             pronounArray = ["I", "you", "he", "she", "we", "they"];
             shuffleArray(pronounArray);
