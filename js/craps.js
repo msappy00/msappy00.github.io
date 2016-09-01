@@ -255,12 +255,3 @@ function drawDice2(number) {
     ctx.restore();
     dice_roll.play();
 }
-
-function start() {
-    requestId = requestAnimationFrame(animationLoop);
-}
-function stop() {
-    if (requestId) {
-        cancelAnimationFrame(requestId);
-    }
-}
