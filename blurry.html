@@ -73,7 +73,7 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle" role="button" data-toggle="dropdown">Vocab Sets<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#home" data-toggle="tab" onclick="setVoc('clothes')">Clothes</a></li>
+                            <li><a href="#home" data-toggle="tab" onclick="setVoc('Clothes')">Clothes</a></li>
                         </ul>
                     </li><!-- /#Vocab Set dropdown-->
                     
@@ -85,11 +85,6 @@
         </div>
     </nav>
 
-    <div class="col-md-3 col-md-offset-3">
-        <h2 id="vocSet"></h2>
-        <p></p>
-    </div>
-
     <div class="container">
         <div class="row">
             <div class="col-md-8 vcenter">
@@ -98,6 +93,7 @@
                 </canvas>
             </div>
             <div class="col-md-2 vcenter">
+                <h2 id="vocSet"></h2><br />
                 <button onClick="drawToCv()" id="focusButton">Focus</button><br />
                 <h2 id="points"></h2><br />
                 <button onClick="vArraySlide()" id="focusButton">Next</button>

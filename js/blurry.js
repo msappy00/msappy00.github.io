@@ -32,7 +32,7 @@ function setVoc(vocSet){
     
     document.getElementById("vocSet").innerHTML = vocSet;
     
-    if (vocSet == "clothes") {
+    if (vocSet == "Clothes") {
         vocArray = ["socks", "shoes", "boots", "pants", "jeans", "shorts", "gloves", "earrings", "glasses"];
     } else {
         vocArray = [""];
