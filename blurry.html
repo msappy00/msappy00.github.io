@@ -20,35 +20,88 @@
     </style>
     
     <noscript>JavaScript is disabled.</noscript>
+    
+    <script>
+        <!--
+        
+        var vocSet = "";
+        
+        // Randomize array element order in-place
+        // Using Durstenfeld Shuffle algorithm:
+        
+        function shuffleArray(vocArray) {
+            for (var i = vocArray.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = vocArray[i];
+                vocArray[i] = vocArray[j];
+                vocArray[j] = temp;
+            }
+            return vocArray;
+        }
+    
+    function clearVoc() {
+        vocSet.innerHTML = "";
+    }
+    
+    var array_i = 0;
+    
+    function vArraySlide() {
+        p = 5,
+        q = 5,
+        points = 6;
+        array_i++;
+        if (array_i > (vocArray.length - 1)) {
+            array_i = 0;
+        }
+        drawToCv();
+    }
+    
+    </script>
 	
 </head>
-<body onload="init();">
+<body onload="init()">
     
     <script src="js/blurry.js"></script>
     <nav class="navbar navbar-default navbar-fixed-top hidden-print">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a href="#" class="navbar-brand"><img width="20px" height="20px" src="images/star-yellow.svg"></img></a>
+                <a href="#home" class="navbar-brand"><img width="20" height="20" src="images/star-yellow.svg" alt="yellow star" /></a>
             </div>
-            <ul class="nav navbar-nav hidden-xs hidden-sm" role="menu">
-                <li><a href="#" data-toggle="tab">Blurry</a><span class="sr-only">blurry</span></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right hidden-xs hidden-sm">
-                <li><a href="#" data-toggle="tab" id="day"></a><span class="sr-only">day</span></li>
-            </ul>
+            <div class="collapse navbar-collapse" id="hamburger-navigation" data-toggle="dropdown">
+                <ul class="nav navbar-nav" role="menu">
+                    <li><a href="#home" data-toggle="tab" onclick="clearLevel()">Home</a><span class="sr-only">home</span></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" role="button" data-toggle="dropdown">Vocab Sets<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#home" data-toggle="tab" onclick="setVoc('clothes')">Clothes</a></li>
+                        </ul>
+                    </li><!-- /#Vocab Set dropdown-->
+                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" data-toggle="tab" id="day"></a><span class="sr-only">day</span></li>
+                </ul>
+            </div>
         </div>
     </nav>
+
+    <div class="col-md-3 col-md-offset-3">
+        <h2 id="vocSet"></h2>
+        <p></p>
+    </div>
 
     <div class="container">
         <div class="row">
             <div class="col-md-8 vcenter">
-                <canvas class="hidden-xs; img-responsive vcenter" src="images/1000x750.png" id="cv" width="1000" height="750" style="outline:none">
+                <canvas class="hidden-xs; img-responsive vcenter" id="cv" width="1000" height="750" style="outline:none">
                     Your browser does not support the canvas tag or JavaScript is not enabled.
                 </canvas>
             </div>
             <div class="col-md-2 vcenter">
                 <button onClick="drawToCv()" id="focusButton">Focus</button><br />
-                <h2 id="points"></h2>
+                <h2 id="points"></h2><br />
+                <button onClick="vArraySlide()" id="focusButton">Next</button>
+                
             </div>
         </div>
     </div>

@@ -1,24 +1,50 @@
 /* displays a blurry image and allows the user to increase the resolution of the image */
 
-var canvas, ctx, cv;
-var image = new Image();
-image.src = "mes-flashcards/socks.png";
+var vocArray = [""];
 
 // sets the variables 'w * h are original, p * q are affected by user
 var w = 1000,
 h = 750,
-p,
-q,
+p = 5,
+q = 5,
 points = 6;
+
+
+function clearArray(){
+    vocArray = [""];
+    return vocArray;
+}
 
 // preps the canvas and displays original image with variable resolution
 function init() {
     canvas = document.getElementById('cv');
     ctx = canvas.getContext('2d');
+}
+
+function setVoc(vocSet){
+    
+    // sets the variables 'w * h are original, p * q are affected by user
+    var w = 1000,
+    h = 750,
+    p = 5,
+    q = 5,
+    points = 6;
+    
+    document.getElementById("vocSet").innerHTML = vocSet;
+    
+    if (vocSet == "clothes") {
+        vocArray = ["socks", "shoes", "boots", "pants", "jeans", "shorts", "gloves", "earrings", "glasses"];
+    } else {
+        vocArray = [""];
+    }
+    shuffleArray(vocArray);
     drawToCv();
 }
 
 function drawToCv(){
+    var image = new Image();
+    image.src = "mes-flashcards/" + vocArray[array_i] + ".png";
+    
     if(points == 6){
         points -= 1;
         p = 5;
@@ -41,13 +67,4 @@ function drawToCv(){
     ctx.drawImage(image, 0, 0, p, q);
     document.getElementById("points").innerHTML = "Points: " + points;
     ctx.restore();
-}
-
-function start() {
-    requestId = requestAnimationFrame(animationLoop);
-}
-function stop() {
-    if (requestId) {
-        cancelAnimationFrame(requestId);
-    }
 }
