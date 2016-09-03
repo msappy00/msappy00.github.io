@@ -230,7 +230,7 @@ function setVocab(userInput){
             vocabLesson = "";
         } else if (userInput == "Unit 7") {
             array = array.slice(64,74);
-            links = [''];
+            links = ["<a href='blurry.html' target='_blank'>Blurry Game: Sports</a>"];
             vocabLesson = "";
         } else if (userInput == "Unit 8") {
             array = array.slice(74,86);
@@ -354,7 +354,7 @@ function setVocab(userInput){
             vocabLesson = "";
         } else if (userInput == "Unit 8") {
             array = array.slice(64,73);
-            links = [''];
+            links = ["<a href='blurry.html' target='_blank'>Blurry Game: Clothes</a>"];
             vocabLesson = "";
         } else if (userInput == "Unit 9") {
             array = array.slice(-11);

@@ -5,8 +5,8 @@ var vocArray = [""];
 // sets the variables 'w * h are original, p * q are affected by user
 var w = 1000,
 h = 750,
-p = 5,
-q = 5,
+p,
+q,
 points = 6;
 
 
@@ -23,19 +23,18 @@ function init() {
 
 function setVoc(vocSet){
     
-    // sets the variables 'w * h are original, p * q are affected by user
-    var w = 1000,
-    h = 750,
-    p = 5,
-    q = 5,
-    points = 6;
-    
     document.getElementById("vocSet").innerHTML = vocSet;
     
-    if (vocSet == "Clothes") {
-        vocArray = ["socks", "shoes", "boots", "pants", "jeans", "shorts", "gloves", "earrings", "glasses"];
-    } else {
-        vocArray = [""];
+    switch(vocSet) {
+        case "Clothes":
+            vocArray = ["socks", "shoes", "boots", "pants", "jeans", "shorts", "gloves", "earrings", "glasses"];
+            break;
+        case "Sports":
+            vocArray = ["soccer", "baseball", "football", "golf", "basketball", "volleyball", "badminton", "ping-pong", "tennis"];
+            break;
+        default:
+            vocArray = [""];
+            break;
     }
     shuffleArray(vocArray);
     drawToCv();
@@ -47,8 +46,8 @@ function drawToCv(){
     
     if(points == 6){
         points -= 1;
-        p = 5;
-        q = 5;
+        p = 10;
+        q = 10;
     } else if(points > 1 && points < 6){
         points -= 1;
         p += 10;
