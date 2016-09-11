@@ -7,8 +7,8 @@ var w = 1000,
 h = 750,
 p,
 q,
-points = 6;
-
+points,
+image
 
 function clearArray(){
     vocArray = [""];
@@ -23,14 +23,22 @@ function init() {
 
 function setVoc(vocSet){
     
-    document.getElementById("vocSet").innerHTML = vocSet;
+    points = 6,
+    p = 10,
+    q = 10
     
     switch(vocSet) {
-        case "Clothes":
-            vocArray = ["socks", "shoes", "boots", "pants", "jeans", "shorts", "gloves", "earrings", "glasses"];
+        case "AnimalsB2U9":
+            vocArray = ["tiger", "lion", "monkey", "bear", "zebra", "goat", "elephant", "hippo", "snake", "parrot"];
+            document.getElementById("vocSet").innerHTML = "Animals";
             break;
-        case "Sports":
+        case "ClothesB5U8":
+            vocArray = ["socks", "shoes", "boots", "pants", "jeans", "shorts", "gloves", "earrings", "glasses"];
+            document.getElementById("vocSet").innerHTML = "Clothes";
+            break;
+        case "SportsB3U7":
             vocArray = ["soccer", "baseball", "football", "golf", "basketball", "volleyball", "badminton", "ping-pong", "tennis"];
+            document.getElementById("vocSet").innerHTML = "Sports";
             break;
         default:
             vocArray = [""];
@@ -41,9 +49,6 @@ function setVoc(vocSet){
 }
 
 function drawToCv(){
-    var image = new Image();
-    image.src = "mes-flashcards/" + vocArray[array_i] + ".png";
-    
     if(points == 6){
         points -= 1;
         p = 10;
@@ -57,13 +62,17 @@ function drawToCv(){
         p = 1000;
         q = 750;
     }
-    ctx.save();
-    cv = $("#cv").get(0);
-    cv.width = p;
-    cv.height = q;
-    cv.style.width = w + "px";
-    cv.style.height = h + "px";
-    ctx.drawImage(image, 0, 0, p, q);
-    document.getElementById("points").innerHTML = "Points: " + points;
-    ctx.restore();
+    var img = new Image();
+    img.onload = function() {
+        ctx.save();
+        cv = $("#cv").get(0);
+        cv.width = p;
+        cv.height = q;
+        cv.style.width = w + "px";
+        cv.style.height = h + "px";
+        ctx.drawImage(img, 0, 0, p, q);
+        document.getElementById("points").innerHTML = "Points: " + points;
+        ctx.restore();
+    }
+    img.src = "mes-flashcards/" + vocArray[array_i] + ".png";
 }
