@@ -178,7 +178,7 @@ function setVocab(userInput){
             vocabLesson = "";
         } else if (userInput == "Unit 9") {
             array = array.slice(-10);
-            links = ["<a href='https://scratch.mit.edu/projects/30392356/' target='_blank'>Scratch: Book 2 Vocab</a>"];
+            links = ["<a href='blurry.html' target='_blank'>Blurry Game: Animals</a>"];
             vocabLesson = "";
         } else if (userInput == "Review 3") {
             array = array.slice(55);

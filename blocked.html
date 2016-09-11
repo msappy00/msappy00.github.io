@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-	<title>Blurry</title>
+	<title>Blocked</title>
 	<link href="css/cerulean.min.css" rel="stylesheet"/>
 	<style>
 	body {
@@ -46,14 +46,14 @@
     var array_i = 0;
     
     function vArraySlide() {
-        points = 6;
-        p = 10;
-        q = 10;
+        shuffleArray(blockArray);
         array_i++;
         if (array_i > (vocArray.length - 1)) {
             array_i = 0;
         }
-        drawToCv();
+        points = 5;
+        blockCount = blockArray.length;
+        unBlock();
     }
     
     </script>
@@ -61,7 +61,7 @@
 </head>
 <body onload="init()">
     
-    <script src="js/blurry.js"></script>
+    <script src="js/blocked.js"></script>
     <nav class="navbar navbar-default navbar-fixed-top hidden-print">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -97,10 +97,9 @@
             </div>
             <div class="col-md-2 vcenter">
                 <h2 id="vocSet"></h2><br />
-                <button onClick="drawToCv()" id="focusButton">Focus</button><br />
+                <button onClick="unBlock()" id="unBlockButton">Unblock</button><br />
                 <h2 id="points"></h2><br />
                 <button onClick="vArraySlide()" id="nextButton">Next</button>
-                
             </div>
         </div>
     </div>
