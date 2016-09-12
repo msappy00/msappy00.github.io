@@ -25,7 +25,7 @@ function init() {
 
 function setVoc(vocSet){
     points = 5;
-    blockCount = blockArray.length;
+    blockCount = 25;
     switch(vocSet) {
         case "AnimalsB2U9":
             vocArray = ["tiger", "lion", "monkey", "bear", "zebra", "goat", "elephant", "hippo", "snake", "parrot"];
@@ -43,32 +43,31 @@ function setVoc(vocSet){
             vocArray = [""];
             break;
     }
-    shuffleArray(blockArray);
+    shuffleArray(blockArray);    
     unBlock();
 }
 
 function unBlock(){
     document.getElementById("points").innerHTML = "Points: " + points;
     var img = new Image();
-    img.onload = function() {
-        ctx.save();
+    img.src = "mes-flashcards/" + vocArray[array_i] + ".png";
+    img.onload = function(){
         ctx.drawImage(img, 0, 0, 1000, 750);
-        blockCount = points * 5;
-        if (points > 0){
-            points -= 1;
-        }
         // block the image
         for(i = 0; i < blockCount; i++){
+            ctx.save();
             ctx.beginPath();
-            var x1 = blockArray[i][0];
-            var y1 = blockArray[i][1];
-            var x2 = blockArray[i][2];
-            var y2 = blockArray[i][3];
-            ctx.rect(x1, y1, x2, y2);
+            ctx.rect(blockArray[i][0], blockArray[i][1], blockArray[i][2], blockArray[i][3]);
             ctx.fillStyle = "black";
             ctx.fill();
+            ctx.restore();
         }
-        ctx.restore();
+        if (points > 0){
+            points -= 1;
+            blockCount -= 5;
+        } else {
+            points = 0;
+            blockCount = 0;
+        }
     }
-    img.src = "mes-flashcards/" + vocArray[array_i] + ".png";
 }
