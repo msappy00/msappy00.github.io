@@ -27,17 +27,9 @@ function setVoc(vocSet){
     points = 5;
     blockCount = 25;
     switch(vocSet) {
-        case "AnimalsB2U9":
-            vocArray = ["tiger", "lion", "monkey", "bear", "zebra", "goat", "elephant", "hippo", "snake", "parrot"];
+        case "AnimalsB3U1":
+            vocArray = ["bird", "kitten", "puppy", "bunny", "turtle", "spider", "frog", "fish"];
             document.getElementById("vocSet").innerHTML = "Animals";
-            break;
-        case "ClothesB5U8":
-            vocArray = ["socks", "shoes", "boots", "pants", "jeans", "shorts", "gloves", "earrings", "glasses"];
-            document.getElementById("vocSet").innerHTML = "Clothes";
-            break;
-        case "SportsB3U7":
-            vocArray = ["soccer", "baseball", "football", "golf", "basketball", "volleyball", "badminton", "ping-pong", "tennis"];
-            document.getElementById("vocSet").innerHTML = "Sports";
             break;
         default:
             vocArray = [""];
