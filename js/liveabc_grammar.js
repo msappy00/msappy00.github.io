@@ -1184,7 +1184,7 @@ function setGrammar(userInput){
             shuffleArray(vocArray);
             numberArray1 = [({text: 'one', num:'1'}), ({text:'two', num:'2'}), ({text:'three', num:'3'}), ({text:'four', num:'4'}), ({text:'five', num:'5'}), ({text:'six', num:'6'}), ({text:'seven', num:'7'}), ({text:'eight', num:'8'}), ({text:'nine', num:'9'})];
             shuffleArray(numberArray1);
-            numberArray2 = [({text:'ten', num:'10'}), ({text: 'twenty', num:'20'}), ({text:'thirty', num:'30'}), ({text:'forty', num:'40'}), ({text:'fifty', num:'50'}), ({text:'sixty', num:'60'}), ({text:'seventy', num:'70'}), ({text:'eighty', num:'80'}), ({text:'ninety', num:'90'})];
+            numberArray2 = [({text: 'twenty', num:'20'}), ({text:'thirty', num:'30'}), ({text:'forty', num:'40'}), ({text:'fifty', num:'50'}), ({text:'sixty', num:'60'}), ({text:'seventy', num:'70'}), ({text:'eighty', num:'80'}), ({text:'ninety', num:'90'})];
             shuffleArray(numberArray2);
             q3Array = [" hundred", " thousand", "dollars."];
             shuffleArray(q3Array);
