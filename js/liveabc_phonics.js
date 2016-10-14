@@ -249,6 +249,6 @@ function setPhonics(userInput){
     }
 
     shuffleArray(pArray);
-    document.getElementById("current_phoneme").innerHTML = '<video width="420px" autoplay id="video1" src="phonics/'+pArray[pArray_i].value+'.mp4"></video>';
+    document.getElementById("current_phoneme").innerHTML = '<video width="420px" autoplay id="video1" src="video/'+pArray[pArray_i].value+'.mp4"></video>';
     document.getElementById("phonicsCheck").pattern = pArray[pArray_i].pattern;
 }
