@@ -14,7 +14,7 @@ function setPhonics(userInput){
     if (level_id == "Starter") {
         document.getElementById("pInstructions").innerHTML = "Type the first letter of the word.";
         if (userInput == "Unit 1") {
-            pArray = [({pattern:'a', value:'apple'}), ({pattern:'a', value:'ant'}), ({pattern:'b', value:'ball'}), ({pattern:'b', value:'boy'}), ({pattern:'c', value:'cat'}), ({pattern:'c', value:'car'}), ({pattern:'d', value:'dog'}), ({pattern:'d', value:'desk'})];
+            pArray = [([pattern:'a', value:'add'}), ({pattern:'a', value:'apple'}), ({pattern:'a', value:'ant'}), ({pattern:'b', value:'ball'}), ({pattern:'b', value:'boy'}), ({pattern:'c', value:'cat'}), ({pattern:'c', value:'car'}), ({pattern:'d', value:'dog'}), ({pattern:'d', value:'desk'})];
         } else if (userInput == "Unit 2") {
             pArray = [({pattern:'e', value:'egg'}), ({pattern:'e', value:'elephant'}), ({pattern:'f', value:'fish'}), ({pattern:'f', value:'frog'}), ({pattern:'g', value:'goat'}), ({pattern:'g', value:'girl'}), ({pattern:'h', value:'hat'}), ({pattern:'h', value:'house'})];
         } else if (userInput == "Unit 3") {
