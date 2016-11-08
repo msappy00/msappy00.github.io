@@ -1,0 +1,131 @@
+<html>
+    <head>
+        <title> Melon Drop </title>
+        <link href="css/cerulean.min.css" rel="stylesheet"/>
+        <style>
+            body {
+                padding-top: 100px;
+            }
+        canvas{
+            display: block;
+            max-width: 100%;
+        }
+        .vcenter {
+            display: inline-block;
+            vertical-align: middle;
+            float: none;
+        }
+
+        </style>
+    </head>
+    
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-4 vcenter">
+                    <canvas class="vcenter" id="myCanvas" width=443 height=332 style="background:url('/images/boardwalk.png'); background-size: cover">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+        <script>
+            
+            var ctx = myCanvas.getContext("2d");
+            
+            
+            var bug_x = 0;
+            var bug_y = 0;
+            var BugImg = new Image();
+            BugImg.src = "/images/ladybug.png";         // The bug
+            
+            var melon_x = 0;
+            var melon_y = 0;
+            var MelonImg = new Image();
+            MelonImg.src = "/images/watermelon2.png";  // The melon
+            
+            var score = 0;
+            var melon_speed = 3;
+            var FPS = 40;                        // How many frames per second
+            var time_remaining = 20;
+            
+            
+            function restart_game() {
+                // This gets called when the 'S' key is pressed and just sets
+                // some important variables back to the start.
+                //
+                // Alternatively they could just reload the page
+                time_remaining = 20;
+                score = 0;
+                melon_speed = 3;
+            }
+        
+        function ImagesTouching(x1, y1, img1, x2, y2, img2) {
+            //
+            // This function detects whether two images are touching - very useful function
+            //
+            if (x1 >= x2+img2.width || x1+img1.width <= x2) return false;   // too far to the side
+            if (y1 >= y2+img2.height || y1+img1.height <= y2) return false; // too far above/below
+            return true;                                                    // otherwise, overlap
+        }
+        
+        
+        function Do_a_Frame () {
+            ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);                 // clear the background
+            
+            ctx.fillStyle= "purple";
+            ctx.font = "20px Arial";
+            ctx.fillText("Score: " + score, 0, 20);                               // display the score
+            
+            
+            bug_y = myCanvas.height - BugImg.height;                              // ensure bug always at bottom of canvas
+            ctx.drawImage(BugImg, bug_x, bug_y);                                  // and draw it
+            
+            ctx.fillText("Time Remaining: " + Math.round(time_remaining), 0, 45); // display time remaining
+            
+            if (time_remaining <= 0) {                                            // if the time has run out
+                ctx.fillStyle= "red";
+                ctx.font = "bold 50px Arial";                                   // say so
+                ctx.textAlign="center";
+                ctx.fillText("Game Over", myCanvas.width / 2, myCanvas.height / 2);
+                ctx.font = "bold 20px Arial";
+                ctx.fillText("Press S to play again", myCanvas.width / 2, (myCanvas.height / 2)+50);
+                ctx.textAlign="left";
+            }
+            else {
+                time_remaining = time_remaining - 1/FPS;                        // otherwise tick the time down
+                
+                melon_y = melon_y + melon_speed;                                // move the melon down the screen
+                
+                if (melon_y > myCanvas.height) {                                // if it's gone past the bottom
+                    melon_y= 0;                                                 // move it back to the top
+                    melon_x= Math.random() * (myCanvas.width - MelonImg.width); // pick a random x-position, always fully visible
+                }
+            }
+            
+            ctx.drawImage(MelonImg, melon_x, melon_y);                            // draw the melon
+            
+            if (ImagesTouching(bug_x, bug_y, BugImg, melon_x, melon_y, MelonImg)) {  // check for touching
+                score= score + 1;                                                    // add one to score
+                melon_speed = melon_speed + 0.5;                                     // and make it fall a bit faster
+                melon_x= -MelonImg.width;                                            // hide the melon so the score doesn't rocket
+            }
+        }
+        
+        setInterval(Do_a_Frame, 1000/FPS);                                          // Call our frame renderer every this many milliseconds
+        
+        
+        function MyKeyDownHandler (MyEvent) { 
+            if (MyEvent.keyCode == 37 && bug_x > 0) {bug_x = bug_x - 10;}                          // left
+            if (MyEvent.keyCode == 39 && bug_x+BugImg.width < myCanvas.width) {bug_x = bug_x+10;}  // right
+            if (MyEvent.keyCode == 83) restart_game();                                             // S to restart 
+            MyEvent.preventDefault();
+        }
+        
+        addEventListener("keydown", MyKeyDownHandler);                      // listen for keystrokes  
+        
+        //myCanvas.width = window.innerWidth - 20;                            // fill the entire browser width
+        //myCanvas.height = window.innerHeight - 20;                          // fill the entire browser height
+        
+            </script>
+    </body>
+</html>

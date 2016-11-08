@@ -186,8 +186,8 @@ function setVocab(userInput){
             vocabLesson = "";
         } else if (userInput == "Final Review") {
             array = array;
-            links = [''];
-            vocabLesson = "<iframe allowtransparency='true' width='485' height='402' src='//scratch.mit.edu/projects/embed/30392356/?autostart=false' frameborder='0' allowfullscreen></iframe>";
+            links = ["<a href='https://scratch.mit.edu/projects/30392356/' target='_blank'>Scratch: Book 2 Vocab</a>"];
+            vocabLesson = "";
         } else {
             array = ["blank", "blank"];
             links = [''];
