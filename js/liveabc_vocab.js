@@ -375,7 +375,7 @@ function setVocab(userInput){
         }
     }
     else if (level_id == "Level 6") {
-        array = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", "tie", "scarf", "necklace", "sneakers", "raincoat", "uniform", "slippers", "watch", "glue", "scissors", "crayons", "markers", "pencil case", "tape", "pencil sharpener", "notebook", "paper", "correction tape", "excited", "bored", "sick", "scared", "early", "late", "yesterday", "weekend", "beach", "airport", "farm", "concert", "mountain", "amusement park", "playground", "port", "classroom", "field", "teachers office", "nurses office", "restroom", "snack bar", "gym", "hallway", "hour", "minute", "second", "fixed the bike", "cleaned the room", "visited", "painted the wall", "washed my hair", "jumped rope", "used the computer", "played a video game", "studied", "fried an egg", "copied", "chatted", "planned", "stopped", "put", "cut", "read", "a bag of chips", "a bottle of water", "a can of soda", "a piece of cake", "a slice of bread", "a cup of tea", "a glass of juice", "a box of crackers", "a bar of chocolate"];
+        array = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", "tie", "scarf", "necklace", "sneakers", "raincoat", "uniform", "slippers", "watch", "glue", "scissors", "crayons", "markers", "pencil case", "tape", "pencil sharpener", "notebook", "paper", "correction tape", "excited", "bored", "sick", "scared", "early", "late", "yesterday", "weekend", "beach", "airport", "farm", "concert", "mountain", "amusement park", "playground", "port", "classroom", "field", "teacher's office", "nurse's office", "restroom", "snack bar", "gym", "hallway", "hour", "minute", "second", "fixed the bike", "cleaned the room", "visited", "painted the wall", "washed my hair", "jumped rope", "used the computer", "played a video game", "studied", "fried an egg", "copied", "chatted", "planned", "stopped", "put", "cut", "read", "a bag of chips", "a bottle of water", "a can of soda", "a piece of cake", "a slice of bread", "a cup of tea", "a glass of juice", "a box of crackers", "a bar of chocolate"];
         if (userInput == "Unit 1") {
             array = array.slice(0,12);
             links = [''];
@@ -397,11 +397,11 @@ function setVocab(userInput){
             links = [''];
             vocabLesson = "";
         } else if (userInput == "Unit 5") {
-            array = array.slice(38,47);
+            array = array.slice(38,46);
             links = [''];
             vocabLesson = "";
         } else if (userInput == "Unit 6") {
-            array = array.slice(47,57);
+            array = array.slice(46,57);
             links = [''];
             vocabLesson = "";
         } else if (userInput == "Review 2") {
