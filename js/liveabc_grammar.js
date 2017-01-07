@@ -69,19 +69,19 @@ function setGrammar(userInput){
             gLinks = ['<a href="http://www.eslgamesplus.com/verb-to-be-auxiliary-verb-am-is-are-esl-grammar-activity/" target="_newtab">ESL Games+: Be Verbs</a>'];
             grammarLesson = "";
         } else if (userInput == "Unit 4") {
-            q1Array = q1Array.slice(25,31);
+            q1Array = q1Array.slice(25,30);
             gLinks = ['<a href="http://www.eslgamesplus.com/verb-to-be-auxiliary-verb-am-is-are-esl-grammar-activity/" target="_newtab">ESL Games+: Be Verbs</a>'];
             grammarLesson = "";
         } else if (userInput == "Unit 5") {
-            q1Array = q1Array.slice(31,36);
+            q1Array = q1Array.slice(30,35);
             gLinks = ['<a href="http://www.eslgamesplus.com/verb-to-be-auxiliary-verb-am-is-are-esl-grammar-activity/" target="_newtab">ESL Games+: Be Verbs</a>'];
             grammarLesson = "";
         } else if (userInput == "Unit 6") {
-            q1Array = q1Array.slice(36,47);
+            q1Array = q1Array.slice(35,46);
             gLinks = ['<a href="http://www.eslgamesplus.com/verb-to-be-auxiliary-verb-am-is-are-esl-grammar-activity/" target="_newtab">ESL Games+: Be Verbs</a>'];
             grammarLesson = "";
         } else if (userInput == "Review 2") {
-            q1Array = q1Array.slice(25,52);
+            q1Array = q1Array.slice(25,46);
             gLinks = ['<a href="http://www.eslgamesplus.com/verb-to-be-auxiliary-verb-am-is-are-esl-grammar-activity/" target="_newtab">ESL Games+: Be Verbs</a>'];
             grammarLesson = "";
         } else if (userInput == "Unit 7") {
