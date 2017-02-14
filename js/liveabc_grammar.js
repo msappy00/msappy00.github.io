@@ -886,18 +886,18 @@ function setGrammar(userInput){
             q1Array = ["police station", "fire station", "MRT station", "bus stop", "bank", "bookstore", "convenience store", "department store"];
             q2Array = ["Where are you going?"];
             gLinks = [''];
-            grammarLesson = "<img src='L4/images/city_buildings.png' />";
+            grammarLesson = "<img src='Level 4/images/city_buildings.png' />";
         } else if (userInput == "Unit 8") {
             q1Array = ["museum", "post office", "restaurant", "movie theater", "bakery", "hospital", "library", "clinic", "gas station", "toy store"];
             q2Array = ["Is there a ... near the ...?"];
             gLinks = [''];
-            grammarLesson = "<img src='L4/images/city2.png' />";
+            grammarLesson = "<img src='Level 4/images/city2.png' />";
         } else if (userInput == "Unit 9") {
             q1Array = [""];
             q2Array = [""];
             q3Array = [""];
             gLinks = [''];
-            grammarLesson = "<img src='L4/images/city3.png' />";
+            grammarLesson = "<img src='Level 4/images/city3.png' />";
         } else if (userInput == "Review 3") {
             q1Array = ["Unit 7", "Unit 8", "Unit 9"];
             shuffleArray(q1Array);
