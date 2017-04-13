@@ -118,22 +118,21 @@ function setGrammar(userInput){
         if (userInput == "Unit 1") {
             pronounArray = (["I", "you"]);
             shuffleArray(pronounArray);
-            choiceArrayInt = 0;
             document.getElementById("gInstructions").innerHTML = "Write 'am' or 'are' and circle.";
             q1Array = [({value:'boy.', pic:'<img src="Level 1/images/boy.png" />'}), ({value:'girl.', pic:'<img src="Level 1/images/girl.png" />'}), ({value:'woman.', pic:'<img src="Level 1/images/woman.png" />'}), ({value:'man.', pic:'<img src="Level 1/images/man.png" />'}), ({value:'student.', pic:'<img src="Level 1/images/student.png" />'}), ({value:'teacher.', pic:'<img src="Level 1/images/teacher.png" />'})];
-            document.getElementById("g0r0d5").innerHTML = q1Array[0].pic;
+            //document.getElementById("g0r0d5").innerHTML = q1Array[0].pic;
             document.getElementById("g0r1d0").innerHTML =  '<p>' + pronounArray[0].charAt(0).toUpperCase() + pronounArray[0].slice(1) + '</p>';
             document.getElementById("g0r1d1").align = "center";
             document.getElementById("g0r1d1").innerHTML = '<input type="text" id="grammarInputA" class="form-control" autocomplete="off" autofocus placeholder="_____________________________" required />';
             document.getElementById("g0r1d2").align = "center";
             document.getElementById("g0r1d2").innerHTML =  '<p style="text-align:left">' + "a" + '</p>';
-            answerArray = [q1Array[0], q1Array[1]];
+            answerArray = (q1Array);
             shuffleArray(answerArray);
-            grammarAnswer0 = q1Array[0].value;
-            while(choiceArrayInt == 0) {choiceArrayInt = Math.floor(Math.random() * 6)};
-            choiceArray = [q1Array[0], q1Array[choiceArrayInt]];
+            grammarAnswer0 = answerArray[0].value;
+            choiceArray = ([answerArray[0], answerArray[1]]);
             shuffleArray(choiceArray);
             grammarChoice0 = choiceArray[0].value;
+            document.getElementById("g0r0d5").innerHTML = answerArray[0].pic;
             grammarChoice1 = choiceArray[1].value;
             document.getElementById("g0r0d4").innerHTML = '<button id="grammarButton10" onclick="checkGrammar2(10, grammarAnswer0, grammarChoice0)" required>'+choiceArray[0].value+'</button>';
             document.getElementById("g0r2d4").innerHTML = '<button id="grammarButton11" onclick="checkGrammar2(11, grammarAnswer0, grammarChoice1)" required>'+choiceArray[1].value+'</button>';
