@@ -1307,10 +1307,34 @@ function setGrammar(userInput){
     }
     else if (level_id == "Level 7") {
         if (userInput == "Unit 1") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
+            pronounArray = ["I", "you", "we", "they", "he", "she"];
+            verbArray = [({verb:'made a card', pic:'<img src="Level 7/images/made.png" />'}), ({verb:'took a picture', pic:'<img src="Level 7/images/took.png" />'}), ({verb:'saw a turtle', pic:'<img src="Level 7/images/saw.png" />'}), ({verb:'got a gift', place:' the classroom', pic:'<img src="Level 7/images/got.png" />'}), ({verb:'sat on a chair', pic:'<img src="Level 7/images/sat.png" />'}),  ({verb:'sang a song', pic:'<img src="Level 7/images/sang.png" />'}), ({verb:'gave a gift', pic:'<img src="Level 7/images/gave.png" />'}), ({verb:'swam in the pool', pic:'<img src="Level 7/images/swam.png" />'})];
+            destinationArray = ["park", "supermarket", "city", "countryside", "beach", "airport", "farm", "concert", "classroom", "amusement park", "playground", "port", "police station", "fire station", "MRT station", "bus stop", "bank", "bookstore", "convenience store", "department store","museum", "post office", "restaurant", "movie theater", "bakery", "hospital", "library", "clinic", "gas station", "toy store"];
+            q3Array = [" last week", " last weekend", " yesterday", " yesterday afternoon", " this morning", " last Sunday", " last Monday", " last Tuesday", " last Wednesday", " last Thursday", " last Friday", " last Saturday"];
+            shuffleArray(pronounArray);
+            shuffleArray(verbArray);
+            shuffleArray(destinationArray);
+            shuffleArray(q3Array);
+            document.getElementById("g0r0d0").innerHTML = "Where did " + pronounArray[0] + " go " + q3Array[0] + "?";
+            document.getElementById("g0r0d5").innerHTML = verbArray[0].pic;
+            document.getElementById("g0r3d0").innerHTML = "What did " + pronounArray[0] + " do there?";
+            if (pronounArray[0] == "you"){
+                pronounArray[0] = "I";
+            } else if (pronounArray[0] == "I" || pronounArray[0] == "we"){
+                pronounArray[0] = "you";
+            }
+            var capitalized = pronounArray[0].charAt(0).toUpperCase() + pronounArray[0].slice(1);
+            sampleAnswer1 = capitalized + " went to the " + destinationArray[0] + q3Array[0] + ".";
+            sampleAnswer2 = capitalized + " " + verbArray[0].verb + ".";
+            document.getElementById("g0r1d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" />';
+            document.getElementById("g0r1d1").align = "left";
+            document.getElementById("g0r1d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar1()">Example</button>';
+            document.getElementById("g0r4d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput2" />';
+            document.getElementById("g0r4d1").align = "left";
+            document.getElementById("g0r4d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar2()">Example</button>';
+        
+            //went, came, took, made, saw, got, sat, sang, gave, swam
+            //"beach", "airport", "farm", "concert", "classroom", "amusement park", "playground", "port", "police station", "fire station", "MRT station", "bus stop", "bank", "bookstore", "convenience store", "department store", "next to", "across from", "museum", "post office", "restaurant", "movie theater", "bakery", "hospital", "library", "clinic", "gas station", "toy store"
             grammarLesson = "";
         } else if (userInput == "Unit 2") {
             q1Array = [""];
