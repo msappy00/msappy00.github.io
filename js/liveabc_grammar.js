@@ -120,7 +120,6 @@ function setGrammar(userInput){
             shuffleArray(pronounArray);
             document.getElementById("gInstructions").innerHTML = "Write 'am' or 'are' and circle.";
             q1Array = [({value:'boy.', pic:'<img src="Level 1/images/boy.png" />'}), ({value:'girl.', pic:'<img src="Level 1/images/girl.png" />'}), ({value:'woman.', pic:'<img src="Level 1/images/woman.png" />'}), ({value:'man.', pic:'<img src="Level 1/images/man.png" />'}), ({value:'student.', pic:'<img src="Level 1/images/student.png" />'}), ({value:'teacher.', pic:'<img src="Level 1/images/teacher.png" />'})];
-            //document.getElementById("g0r0d5").innerHTML = q1Array[0].pic;
             document.getElementById("g0r1d0").innerHTML =  '<p>' + pronounArray[0].charAt(0).toUpperCase() + pronounArray[0].slice(1) + '</p>';
             document.getElementById("g0r1d1").align = "center";
             document.getElementById("g0r1d1").innerHTML = '<input type="text" id="grammarInputA" class="form-control" autocomplete="off" autofocus placeholder="_____________________________" required />';
@@ -1335,7 +1334,6 @@ function setGrammar(userInput){
             grammarLesson = "";
         } else if (userInput == "Unit 2") {
             pronounArray = ["I", "you", "we", "they", "he", "she"];
-            //rode, drove, wrote, had, sent, bought, taught, brought, caught, found
             verbArray = [({verb:'wrote a letter', pic:'<img src="Level 7/images/wrote.png" />'}), ({verb:'had a snack', pic:'<img src="Level 7/images/had.png" />'}), ({verb:'sent a postcard', pic:'<img src="Level 7/images/sent.png" />'}), ({verb:'bought a gift', pic:'<img src="Level 7/images/bought.png" />'}), ({verb:'taught a lesson', pic:'<img src="Level 7/images/taught.png" />'}),  ({verb:'brought a gift', pic:'<img src="Level 7/images/brought.png" />'}), ({verb:'caught a fish', pic:'<img src="Level 7/images/caught.png" />'}), ({verb:'found a shell', pic:'<img src="Level 7/images/found.png" />'})];
             destinationArray = ["park", "supermarket", "city", "countryside", "beach", "airport", "farm", "concert", "classroom", "amusement park", "playground", "port", "police station", "fire station", "MRT station", "bus stop", "bank", "bookstore", "convenience store", "department store", "museum", "post office", "restaurant", "movie theater", "bakery", "hospital", "library", "clinic", "gas station", "toy store"];
             q3Array = [" last week", " last weekend", " yesterday", " yesterday afternoon", " this morning", " last Sunday", " last Monday", " last Tuesday", " last Wednesday", " last Thursday", " last Friday", " last Saturday"];
@@ -1365,9 +1363,28 @@ function setGrammar(userInput){
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 3") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
+            //bake a cake, cook a meal, make a sandwich, draw a picture, vacuum the floor, make a call, answer the phone, try on a shirt
+            verbArray = [({contVerb:'baking a cake', pastVerb:'baked a cake', pic:'<img src="Level 7/images/bake a cake.png" />'}), ({contVerb:'cooking a meal', pastVerb:'cooked a meal', pic:'<img src="Level 7/images/cook a meal.png" />'}), ({contVerb:'making a sandwich', pastVerb:'made a sandwich', pic:'<img src="Level 7/images/make a sandwich.png" />'}), ({contVerb:'drawing a picture', pastVerb:'drew a picture', pic:'<img src="Level 7/images/draw a picture.png" />'}), ({contVerb:'vacuuming the floor', pastVerb:'vacuumed the floor', pic:'<img src="Level 7/images/vacuum the floor.png" />'}),  ({contVerb:'making a call', pastVerb:'made a call', pic:'<img src="Level 7/images/make a call.png" />'}), ({contVerb:'answering the phone', pastVerb:'answered the phone', pic:'<img src="Level 7/images/answer the phone.png" />'}), ({contVerb:'trying on a shirt', pastVerb:'tried on a shirt', pic:'<img src="Level 7/images/try on a shirt.png" />'})];
+            timeArray = ["at one o'clock", "at ten o'clock", "at six o'clock", "at twelve o'clock", "at two-thirty", "at nine forty-five", "at seven oh-five", "five minutes ago", "twenty minutes ago", "one hour ago"];
+            shuffleArray(verbArray);
+            shuffleArray(timeArray);
+            answerInt = Math.floor(Math.random() * 3);
+            if (answerInt == 2){
+                document.getElementById("g0r0d0").innerHTML = "What were you doing " + timeArray[0] + "?";
+            } else {
+                document.getElementById("g0r0d0").innerHTML = "Make a past tense sentence using 'while'.";
+            }
+            document.getElementById("g0r0d5").innerHTML = verbArray[0].pic;
+            sampleAnswer = answerInt;
+            if (answerInt == 0){
+                sampleAnswer = "Addison " + verbArray[0].pastVerb + " while Hayden was " + verbArray[1].contVerb +".";
+            } else if (answerInt == 1){
+                sampleAnswer = "While Hayden was " + verbArray[1].contVerb + ", Addison " + verbArray[0].pastVerb +".";
+            } else {
+                sampleAnswer = "I was " + verbArray[0].contVerb + " " + timeArray[0] + ".";
+            }
+            document.getElementById("g0r1d1").align = "left";
+            document.getElementById("g0r1d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Review 1") {

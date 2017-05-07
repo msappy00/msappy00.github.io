@@ -114,7 +114,7 @@ function setQuiz(userInput){
     } else if (currentInput == "Level 5Unit 1") {
         array = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "eleventh", "twelfth"];
     } else if (currentInput == "Level 5Unit 2") {
-        array = ["doctor", "nurse", "driver", "police officer", "firefighter", "pilot", "office worker", "housekeeper", "mail carrier"];
+        array = ["doctor", "nurse", "driver", "police officer", "firefighter", "pilot", "office worker", "housekeeper", "mail carrier", "clerk"];
     } else if (currentInput == "Level 5Unit 3") {
         array = ["Chinese", "English", "math", "science", "social studies", "music", "art", "P. E."];
     } else if (currentInput == "Level 5Unit 4") {
