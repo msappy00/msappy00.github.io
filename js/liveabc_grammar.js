@@ -1368,20 +1368,23 @@ function setGrammar(userInput){
             timeArray = ["at one o'clock", "at ten o'clock", "at six o'clock", "at twelve o'clock", "at two-thirty", "at nine forty-five", "at seven oh-five", "five minutes ago", "twenty minutes ago", "one hour ago"];
             shuffleArray(verbArray);
             shuffleArray(timeArray);
-            answerInt = Math.floor(Math.random() * 3);
-            if (answerInt == 2){
+            answerInt = Math.floor(Math.random() * 4);
+            if (answerInt == 0){
                 document.getElementById("g0r0d0").innerHTML = "What were you doing " + timeArray[0] + "?";
+            } else if (answerInt == 1){
+                document.getElementById("g0r0d0").innerHTML = "What did Addison do while Hayden was " + verbArray[1].contVerb + "?";
             } else {
                 document.getElementById("g0r0d0").innerHTML = "Make a past tense sentence using 'while'.";
             }
             document.getElementById("g0r0d5").innerHTML = verbArray[0].pic;
-            sampleAnswer = answerInt;
             if (answerInt == 0){
-                sampleAnswer = "Addison " + verbArray[0].pastVerb + " while Hayden was " + verbArray[1].contVerb +".";
-            } else if (answerInt == 1){
-                sampleAnswer = "While Hayden was " + verbArray[1].contVerb + ", Addison " + verbArray[0].pastVerb +".";
-            } else {
                 sampleAnswer = "I was " + verbArray[0].contVerb + " " + timeArray[0] + ".";
+            } else if (answerInt == 1){
+                sampleAnswer = "Addison " + verbArray[0].pastVerb + " while Hayden was "+ verbArray[1].contVerb + ".";
+            } else if (answerInt == 2){
+                sampleAnswer = "Addison " + verbArray[0].pastVerb + " while Hayden was " + verbArray[1].contVerb +".";
+            } else {
+                sampleAnswer = "While Hayden was " + verbArray[1].contVerb + ", Addison " + verbArray[0].pastVerb +".";
             }
             document.getElementById("g0r1d1").align = "left";
             document.getElementById("g0r1d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
