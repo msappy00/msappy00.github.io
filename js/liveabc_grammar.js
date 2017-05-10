@@ -922,15 +922,93 @@ function setGrammar(userInput){
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 2") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
+            vocArray = [({voc:'a doctor', pic:'<img src="Level 5/images/doctor.png" />'}), ({voc:'a nurse', pic:'<img src="Level 5/images/nurse.png" />'}), ({voc:'a driver', pic:'<img src="Level 5/images/driver.png" />'}), ({voc:'a police officer', pic:'<img src="Level 5/images/police officer.png" />'}),({voc:'a firefighter', pic:'<img src="Level 5/images/firefighter.png" />'}),({voc:'a pilot', pic:'<img src="Level 5/images/pilot.png" />'}),({voc:'an office worker', pic:'<img src="Level 5/images/office worker.png" />'}), ({voc:'a housekeeper', pic:'<img src="Level 5/images/housekeeper.png" />'}), ({voc:'a mail carrier', pic:'<img src="Level 5/images/mail carrier.png" />'})];
+            shuffleArray(vocArray);
+            document.getElementById("g0r0d5").innerHTML = vocArray[0].pic;
+            pronounArray = ["I", "you", "he", "she"];
+            shuffleArray(pronounArray);
+            if (pronounArray[0] == "I") {
+                var pronoun = "you";
+            } else if (pronounArray[0] == "you") {
+                var pronoun = "I";
+            } else {
+                var pronoun = pronounArray[0];
+            }
+            choiceArrayInt = 0;
+            while(choiceArrayInt == 0) {choiceArrayInt = Math.floor(Math.random() * 3)};
+            if (choiceArrayInt == 1){
+                if (pronounArray[0] == "he" || pronounArray[0] == "she") {
+                    document.getElementById("g0r0d0").innerHTML = "What does " + pronounArray[0] + " do?";
+                    sampleAnswer = pronoun.toUpperCase().charAt(0).toUpperCase() + pronoun.slice(1) + " is " + vocArray[0].voc + ".";
+                } else {
+                    document.getElementById("g0r0d0").innerHTML = "What do " + pronounArray[0] + " do?";
+                    if (pronounArray[0] == "I"){
+                        sampleAnswer = "You are " + vocArray[0].voc + ".";
+                    } else {
+                        sampleAnswer = "I am " + vocArray[0].voc + ".";
+                    }
+                }
+            } else {
+                if (pronounArray[0] == "I"){
+                    document.getElementById("g0r0d0").innerHTML = "Am I " + vocArray[0].voc + "?";
+                }
+                else if (pronounArray[0] == "he" || pronounArray[0] == "she") {
+                    document.getElementById("g0r0d0").innerHTML = "Is " + pronounArray[0] + " " + vocArray[0].voc + "?";
+                } else {
+                    document.getElementById("g0r0d0").innerHTML = "Are you " + vocArray[0].voc + "?";
+                }
+                q2Array = [vocArray[0], vocArray[1]];
+                shuffleArray(q2Array);
+                if (q2Array[0] == vocArray[0]) {
+                    document.getElementById("g0r0d5").innerHTML = q2Array[0].pic;
+                    if (pronounArray[0] == "I"){
+                        sampleAnswer = "Yes, you are.";
+                    } else if (pronounArray[0] == "he" || pronounArray[0] == "she") {
+                        sampleAnswer = "Yes, " + pronoun + " is.";
+                    } else {
+                        sampleAnswer = "Yes, I am.";
+                    }
+                } else {
+                    document.getElementById("g0r0d5").innerHTML = q2Array[0].pic;
+                    if (pronounArray[0] == "I"){
+                        sampleAnswer = "No, you aren't.";
+                    } else if (pronounArray[0] == "he" || pronounArray[0] == "she") {
+                        sampleAnswer = "No, " + pronoun + " isn't.";
+                    } else {
+                        sampleAnswer = "No, I am not.";
+                    }
+                }
+            }
+            document.getElementById("g0r2d0").colspan = "3";
+            document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
+            document.getElementById("g0r3d0").colspan = "3";
+            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 3") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
+            vocArray = [({voc:'Chinese', pic:'<img src="Level 5/images/Chinese.png" />'}), ({voc:'English', pic:'<img src="Level 5/images/English.png" />'}), ({voc:'math', pic:'<img src="Level 5/images/math.png" />'}), ({voc:'science', pic:'<img src="Level 5/images/science.png" />'}), ({voc:'social studies', pic:'<img src="Level 5/images/social studies.png" />'}), ({voc:'music', pic:'<img src="Level 5/images/music.png" />'}), ({voc:'art', pic:'<img src="Level 5/images/art.png" />'}), ({voc:'P.E.', pic:'<img src="Level 5/images/PE.png" />'})];
+            shuffleArray(vocArray);
+            document.getElementById("g0r0d5").innerHTML = vocArray[0].pic;
+            pronounArray = ["I", "you", "he", "she", "we", "they"];
+            shuffleArray(pronounArray);
+            if (pronounArray[0] == "I") {
+                var pronoun = "you";
+            } else if (pronounArray[0] == "you") {
+                var pronoun = "I";
+            } else {
+                var pronoun = pronounArray[0];
+            }
+            if (pronounArray[0] == "he" || pronounArray[0] == "she") {
+                document.getElementById("g0r0d0").innerHTML = "What subjects does " + pronounArray[0] + " have today?";
+                sampleAnswer = pronoun.toUpperCase().charAt(0).toUpperCase() + pronoun.slice(1) + " has " + vocArray[0].voc + " class today.";
+            } else {
+                document.getElementById("g0r0d0").innerHTML = "What subjects do " + pronounArray[0] + " have today?";
+                sampleAnswer = pronoun.toUpperCase().charAt(0).toUpperCase() + pronoun.slice(1) + " have " + vocArray[0].voc + " class today.";
+            }
+            document.getElementById("g0r2d0").colspan = "3";
+            document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
+            document.getElementById("g0r3d0").colspan = "3";
+            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Review 1") {
@@ -1170,7 +1248,6 @@ function setGrammar(userInput){
                     }
                 }
             }
-            
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
@@ -1363,7 +1440,6 @@ function setGrammar(userInput){
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 3") {
-            //bake a cake, cook a meal, make a sandwich, draw a picture, vacuum the floor, make a call, answer the phone, try on a shirt
             verbArray = [({contVerb:'baking a cake', pastVerb:'baked a cake', pic:'<img src="Level 7/images/bake a cake.png" />'}), ({contVerb:'cooking a meal', pastVerb:'cooked a meal', pic:'<img src="Level 7/images/cook a meal.png" />'}), ({contVerb:'making a sandwich', pastVerb:'made a sandwich', pic:'<img src="Level 7/images/make a sandwich.png" />'}), ({contVerb:'drawing a picture', pastVerb:'drew a picture', pic:'<img src="Level 7/images/draw a picture.png" />'}), ({contVerb:'vacuuming the floor', pastVerb:'vacuumed the floor', pic:'<img src="Level 7/images/vacuum the floor.png" />'}),  ({contVerb:'making a call', pastVerb:'made a call', pic:'<img src="Level 7/images/make a call.png" />'}), ({contVerb:'answering the phone', pastVerb:'answered the phone', pic:'<img src="Level 7/images/answer the phone.png" />'}), ({contVerb:'trying on a shirt', pastVerb:'tried on a shirt', pic:'<img src="Level 7/images/try on a shirt.png" />'})];
             timeArray = ["at one o'clock", "at ten o'clock", "at six o'clock", "at twelve o'clock", "at two-thirty", "at nine forty-five", "at seven oh-five", "five minutes ago", "twenty minutes ago", "one hour ago"];
             shuffleArray(verbArray);
