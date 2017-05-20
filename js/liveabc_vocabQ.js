@@ -266,15 +266,15 @@ function setQuiz(userInput){
             array[i] = "";
         }
         
-        document.getElementById("array0").innerHTML = "1. " + array[0];
-        document.getElementById("array1").innerHTML = "2. " + array[1];
-        document.getElementById("array2").innerHTML = "3. " + array[2];
-        document.getElementById("array3").innerHTML = "4. " + array[3];
-        document.getElementById("array4").innerHTML = "5. " + array[4];
-        document.getElementById("array5").innerHTML = "&nbsp;6.&nbsp;&nbsp;" + array[5];
-        document.getElementById("array6").innerHTML = "&nbsp;7.&nbsp;&nbsp;" + array[6];
-        document.getElementById("array7").innerHTML = "&nbsp;8.&nbsp;&nbsp;" + array[7];
-        document.getElementById("array8").innerHTML = "&nbsp;9.&nbsp;&nbsp;" + array[8];
+        document.getElementById("array0").innerHTML = "1.&nbsp;&nbsp;" + array[0];
+        document.getElementById("array1").innerHTML = "2.&nbsp;&nbsp;" + array[1];
+        document.getElementById("array2").innerHTML = "3.&nbsp;&nbsp;" + array[2];
+        document.getElementById("array3").innerHTML = "4.&nbsp;&nbsp;" + array[3];
+        document.getElementById("array4").innerHTML = "5.&nbsp;&nbsp;" + array[4];
+        document.getElementById("array5").innerHTML = "6.&nbsp;&nbsp;" + array[5];
+        document.getElementById("array6").innerHTML = "7.&nbsp;&nbsp;" + array[6];
+        document.getElementById("array7").innerHTML = "8.&nbsp;&nbsp;" + array[7];
+        document.getElementById("array8").innerHTML = "9.&nbsp;&nbsp;" + array[8];
         document.getElementById("array9").innerHTML = "10.&nbsp;" + array[9];
     }
 }
