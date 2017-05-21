@@ -916,10 +916,66 @@ function setGrammar(userInput){
     }
     else if (level_id == "Level 5") {
         if (userInput == "Unit 1") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
+            vocArray = [({voc:'first', pic:'<img src="Level 5/images/second.png" />'}), ({voc:'third', pic:'<img src="Level 5/images/third.png" />'}), ({voc:'fourth', pic:'<img src="Level 5/images/fourth.png" />'}), ({voc:'fifth', pic:'<img src="Level 5/images/fifth.png" />'}),({voc:'sixth', pic:'<img src="Level 5/images/sixth.png" />'}),({voc:'seventh', pic:'<img src="Level 5/images/seventh.png" />'}),({voc:'eighth', pic:'<img src="Level 5/images/eighth.png" />'}), ({voc:'ninth', pic:'<img src="Level 5/images/ninth.png" />'}), ({voc:'tenth', pic:'<img src="Level 5/images/tenth.png" />'}), ({voc:'eleventh', pic:'<img src="Level 5/images/eleventh.png" />'}), ({voc:'twelfth', pic:'<img src="Level 5/images/twelfth.png" />'})];
+            shuffleArray(vocArray);
+            document.getElementById("g0r0d5").innerHTML = vocArray[0].pic;
+            pronounArray = ["I", "you", "he", "she"];
+            shuffleArray(pronounArray);
+            if (pronounArray[0] == "I") {
+                var pronoun = "you";
+            } else if (pronounArray[0] == "you") {
+                var pronoun = "I";
+            } else {
+                var pronoun = pronounArray[0];
+            }
+            choiceArrayInt = 0;
+            while(choiceArrayInt == 0) {choiceArrayInt = Math.floor(Math.random() * 3)};
+            if (choiceArrayInt == 1){
+                if (pronounArray[0] == "he" || pronounArray[0] == "she") {
+                    document.getElementById("g0r0d0").innerHTML = "What grade is " + pronounArray[0] + " in?";
+                    sampleAnswer = pronoun.toUpperCase().charAt(0).toUpperCase() + pronoun.slice(1) + " is in the " + vocArray[0].voc + " grade.";
+                } else if (pronounArray[0] == "I"){
+                    document.getElementById("g0r0d0").innerHTML = "What grade am " + pronounArray[0] + " in?";
+                    sampleAnswer = "You are in the " + vocArray[0].voc + " grade.";
+                } else {
+                    document.getElementById("g0r0d0").innerHTML = "What grade are " + pronounArray[0] + " in?";
+                    sampleAnswer = "I am in the " + vocArray[0].voc + " grade.";
+                }
+            } else {
+                if (pronounArray[0] == "I"){
+                    document.getElementById("g0r0d0").innerHTML = "Am I in the " + vocArray[0].voc + " grade?";
+                }
+                else if (pronounArray[0] == "he" || pronounArray[0] == "she") {
+                    document.getElementById("g0r0d0").innerHTML = "Is " + pronounArray[0] + " in the " + vocArray[0].voc + " grade?";
+                } else {
+                    document.getElementById("g0r0d0").innerHTML = "Are you in the " + vocArray[0].voc + " grade?";
+                }
+                q2Array = [vocArray[0], vocArray[1]];
+                shuffleArray(q2Array);
+                if (q2Array[0] == vocArray[0]) {
+                    document.getElementById("g0r0d5").innerHTML = q2Array[0].pic;
+                    if (pronounArray[0] == "I"){
+                        sampleAnswer = "Yes, you are.";
+                    } else if (pronounArray[0] == "he" || pronounArray[0] == "she") {
+                        sampleAnswer = "Yes, " + pronoun + " is.";
+                    } else {
+                        sampleAnswer = "Yes, I am.";
+                    }
+                } else {
+                    document.getElementById("g0r0d5").innerHTML = q2Array[0].pic;
+                    if (pronounArray[0] == "I"){
+                        sampleAnswer = "No, you aren't.";
+                    } else if (pronounArray[0] == "he" || pronounArray[0] == "she") {
+                        sampleAnswer = "No, " + pronoun + " isn't.";
+                    } else {
+                        sampleAnswer = "No, I am not.";
+                    }
+                }
+            }
+            document.getElementById("g0r2d0").colspan = "3";
+            document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
+            document.getElementById("g0r3d0").colspan = "3";
+            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
             grammarLesson = "";
         } else if (userInput == "Unit 2") {
             vocArray = [({voc:'a doctor', pic:'<img src="Level 5/images/doctor.png" />'}), ({voc:'a nurse', pic:'<img src="Level 5/images/nurse.png" />'}), ({voc:'a driver', pic:'<img src="Level 5/images/driver.png" />'}), ({voc:'a police officer', pic:'<img src="Level 5/images/police officer.png" />'}),({voc:'a firefighter', pic:'<img src="Level 5/images/firefighter.png" />'}),({voc:'a pilot', pic:'<img src="Level 5/images/pilot.png" />'}),({voc:'an office worker', pic:'<img src="Level 5/images/office worker.png" />'}), ({voc:'a housekeeper', pic:'<img src="Level 5/images/housekeeper.png" />'}), ({voc:'a mail carrier', pic:'<img src="Level 5/images/mail carrier.png" />'})];
