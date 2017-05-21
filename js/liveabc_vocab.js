@@ -75,45 +75,45 @@ function setVocab(userInput){
         }
     }
     else if (level_id == "Level 1") {
-        array = ["boy", "girl", "man", "woman", "student", "teacher", "grandfather", "grandmother", "father", "mother", "uncle", "aunt", "cousin", "brother", "sister", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "chubby", "thin", "tall", "short", "sad", "happy", "old", "young", "cute", "pencil", "eraser", "ruler", "pen", "desk", "chair", "school bag", "book", "pencil case", "red", "yellow", "green", "blue", "pink", "black", "white", "brown", "orange", "purple", "hat", "cap", "coat", "jacket", "dress", "skirt", "shirt", "T-shirt", "dog", "cat", "rat", "rabbit", "cow", "horse", "sheep", "pig", "chicken", "duck", "hungry", "thirsty", "angry", "lazy", "noisy", "quiet", "sleepy", "tired"];
+        array = ["boy", "girl", "man", "woman", "student", "teacher", "grandfather", "grandmother", "father", "mother", "uncle", "aunt", "cousin", "cousins", "brother", "sister", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "chubby", "thin", "tall", "short", "sad", "happy", "old", "young", "cute", "pencil", "eraser", "ruler", "pen", "desk", "chair", "school bag", "book", "pencil case", "red", "yellow", "green", "blue", "pink", "black", "white", "brown", "orange", "purple", "hat", "cap", "coat", "jacket", "dress", "skirt", "shirt", "T-shirt", "dog", "cat", "rat", "rabbit", "cow", "horse", "sheep", "pig", "chicken", "duck", "hungry", "thirsty", "angry", "lazy", "noisy", "quiet", "sleepy", "tired"];
         if (userInput =="Unit 1") {
             array = array.slice(0,6);
             links = ["<a href='https://scratch.mit.edu/projects/40754064/' target='_blank'>Scratch: Phonics Shooter</a>"];
             vocabLesson = "";
         } else if (userInput == "Unit 2") {
-            array = array.slice(6,15);
+            array = array.slice(6,16);
             links = ["<a href='https://scratch.mit.edu/projects/40754064/' target='_blank'>Scratch: Phonics Shooter</a>"];
             vocabLesson = "";
         } else if (userInput == "Unit 3") {
-            array = array.slice(15,25);
+            array = array.slice(16,26);
             links = ["<a href='https://scratch.mit.edu/projects/40754064/' target='_blank'>Scratch: Phonics Shooter</a>"];
             vocabLesson = "";
         } else if (userInput == "Review 1") {
-            array = array.slice(0,25);
+            array = array.slice(0,26);
             links = ["<a href='https://scratch.mit.edu/projects/40754064/' target='_blank'>Scratch: Phonics Shooter</a>"];
             vocabLesson = "";
         } else if (userInput == "Unit 4") {
-            array = array.slice(25,34);
+            array = array.slice(26,35);
             links = ["<a href='https://scratch.mit.edu/projects/40754064/' target='_blank'>Scratch: Phonics Shooter</a>"];
             vocabLesson = "";
         } else if (userInput == "Unit 5") {
-            array = array.slice(34,43);
+            array = array.slice(35,44);
             links = ["<a href='https://scratch.mit.edu/projects/40754064/' target='_blank'>Scratch: Phonics Shooter</a>"];
             vocabLesson = "";
         } else if (userInput == "Unit 6") {
-            array = array.slice(43,53);
+            array = array.slice(44,54);
             links = ["<a href='https://scratch.mit.edu/projects/40754064/' target='_blank'>Scratch: Phonics Shooter</a>"];
             vocabLesson = "";
         } else if (userInput == "Review 2") {
-            array = array.slice(25,53);
+            array = array.slice(26,54);
             links = ["<a href='https://scratch.mit.edu/projects/40754064/' target='blank'>Scratch: Phonics Shooter</a>"];
             vocabLesson = "<iframe allowtransparency='true' width='485' height='402' src='//scratch.mit.edu/projects/embed/14115998/?autostart=false' frameborder='0' allowfullscreen></iframe>";
         } else if (userInput == "Unit 7") {
-            array = array.slice(53,61);
+            array = array.slice(54,62);
             links = ["<a href='https://scratch.mit.edu/projects/40754064/' target='_blank'>Scratch: Phonics Shooter</a>"];
             vocabLesson = "";
         } else if (userInput == "Unit 8") {
-            array = array.slice(61,71);
+            array = array.slice(62,72);
             links = ["<a href='https://scratch.mit.edu/projects/40754064/' target='_blank'>Scratch: Phonics Shooter</a>"];
             vocabLesson = "";
         } else if (userInput == "Unit 9") {
@@ -121,7 +121,7 @@ function setVocab(userInput){
             links = ["<a href='https://scratch.mit.edu/projects/40754064/' target='_blank'>Scratch: Phonics Shooter</a>"];
             vocabLesson = "";
         } else if (userInput == "Review 3") {
-            array = array.slice(53);
+            array = array.slice(54);
             links = ["<a href='https://scratch.mit.edu/projects/40754064/' target='_blank'>Scratch: Phonics Shooter</a>"];
             vocabLesson = "";
         } else if (userInput == "Final Review") {
