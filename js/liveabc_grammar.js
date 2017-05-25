@@ -39,7 +39,6 @@ function setGrammar(userInput){
     document.getElementById("g0r5d2").innerHTML = "";
     document.getElementById("g0r5d3").innerHTML = "";
     document.getElementById("g0r5d4").innerHTML = "";
-    document.getElementById("showGrammarTD").innerHTML = "";
     
     var q1Array = [""];
     var q2Array = [""];
@@ -644,9 +643,38 @@ function setGrammar(userInput){
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 9") {
-            q1Array = ["go shopping", "go swimming", "go hiking", "go fishing", "go skateboarding", "go jogging"];
-            q2Array = ["What do you like to do on sunny days?", "What do they like to do on rainy days?", "What does she like to do on cloudy days?", "What does he like to do on windy days?", "What do they like to do on snowy days?", "What do you like to do on rainy days?", "What do they like to do on cloudy days?", "What does she like to do on windy days?", "What does he like to do on snowy days?", "What do they like to do on rainy days?"];
-            gLinks = [''];
+            pronounArray = ["I", "you", "we", "they", "he", "she"];
+            weatherArray = [({weather:'sunny', pic:'<img src="Level 3/images/sunny.png" />'}), ({weather:'rainy', pic:'<img src="Level 3/images/rainy.png" />'}), ({weather:'cloudy', pic:'<img src="Level 3/images/cloudy.png" />'}), ({weather:'windy', pic:'<img src="Level 3/images/windy.png" />'}), ({weather:'snowy', pic:'<img src="Level 3/images/snowy.png" />'})];
+            verbArray = [({verb:'shopping', pic:'<img src="Level 3/images/go shopping.png" />'}), ({verb:'swimming', pic:'<img src="Level 3/images/go swimming.png" />'}), ({verb:'hiking', pic:'<img src="Level 3/images/go hiking.png" />'}), ({verb:'fishing', pic:'<img src="Level 3/images/go fishing.png" />'}), ({verb:'skateboarding', pic:'<img src="Level 3/images/go skateboarding.png" />'}), ({verb:'jogging', pic:'<img src="Level 3/images/go jogging.png" />'})];
+            shuffleArray(pronounArray);
+            shuffleArray(weatherArray);
+            shuffleArray(verbArray);
+            document.getElementById("g0r0d0").innerHTML = "How's the weather?";
+            document.getElementById("g0r0d5").innerHTML = weatherArray[0].pic;
+            sampleAnswer1 = "It's " + weatherArray[0].weather + ".";
+            if (pronounArray[0] == "he" || pronounArray[0] == "she"){
+                document.getElementById("g0r3d0").innerHTML = "What does " + pronounArray[0] + " like to do on " + weatherArray[0].weather + " days?";
+            } else {
+                document.getElementById("g0r3d0").innerHTML = "What do " + pronounArray[0] + " like to do on " + weatherArray[0].weather + " days?";
+            }
+            var capitalized = pronounArray[0].charAt(0).toUpperCase() + pronounArray[0].slice(1);
+            if (pronounArray[0] == "he" || pronounArray[0] == "she"){
+                sampleAnswer2 = capitalized + " likes to go " + verbArray[0].verb + " on " + weatherArray[0].weather + " days.";
+            } else {
+                if (capitalized == "You"){
+                    capitalized = "I";
+                } else if (capitalized == "I" || capitalized == "We"){
+                    capitalized = "You";
+                }
+                sampleAnswer2 = capitalized + " like to go " + verbArray[0].verb + " on " + weatherArray[0].weather + " days.";
+            }
+            
+            document.getElementById("g0r1d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" />';
+            document.getElementById("g0r1d1").align = "left";
+            document.getElementById("g0r1d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar1()">Example</button>';
+            document.getElementById("g0r4d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput2" />';
+            document.getElementById("g0r4d1").align = "left";
+            document.getElementById("g0r4d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar2()">Example</button>';
             grammarLesson = "";
         } else if (userInput == "Review 3") {
             q1Array = ["Unit 7", "Unit 8", "Unit 9"];
