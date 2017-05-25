@@ -1449,7 +1449,7 @@ function setGrammar(userInput){
             shuffleArray(q3Array);
             document.getElementById("g0r0d0").innerHTML = "Where did " + pronounArray[0] + " go " + q3Array[0] + "?";
             document.getElementById("g0r0d5").innerHTML = verbArray[0].pic;
-            document.getElementById("g0r3d0").innerHTML = "How did " + pronounArray[0] + " get there?";
+            document.getElementById("g0r3d0").innerHTML = "What did " + pronounArray[0] + " do there?";
             if (pronounArray[0] == "you"){
                 pronounArray[0] = "I";
             } else if (pronounArray[0] == "I" || pronounArray[0] == "we"){
@@ -1518,6 +1518,7 @@ function setGrammar(userInput){
             } else {
                 sampleAnswer = "While Hayden was " + verbArray[1].contVerb + ", Addison " + verbArray[0].pastVerb +".";
             }
+            document.getElementById("g0r1d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" />';
             document.getElementById("g0r1d1").align = "left";
             document.getElementById("g0r1d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
             gLinks = [''];
