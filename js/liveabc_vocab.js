@@ -263,7 +263,7 @@ function setVocab(userInput){
         } else if (userInput == "Unit 2") {
             array = array.slice(10,20);
             links = [''];
-            vocabLesson = "<iframe allowtransparency='true' width='485' height='402' src='//scratch.mit.edu/projects/embed/66810966/?autostart=false' frameborder='0' allowfullscreen></iframe>";
+            vocabLesson = "<a href ='http://scratch.mit.edu/projects/embed/66810966/?autostart=false' target='_blank'>Scratch: U2 Vocab</a>";
         } else if (userInput == "Unit 3") {
             array = array.slice(20,31);
             links = [''];
