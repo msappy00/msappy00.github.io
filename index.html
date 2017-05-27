@@ -12,6 +12,7 @@
     p, figcaption, input {
         font-size:20px;
     }
+
     input:invalid { background-color: lightPink;}
     input:valid { background-color: lightGreen;}
     input:required {border: 2px solid red;}
@@ -76,8 +77,10 @@
         height: 100px;
     }
     .onlyprint {display: none;}
+    
     @media print {
         .onlyprint {display: block;}
+        footer {page-break-after: always;}
     }
     </style>
     
