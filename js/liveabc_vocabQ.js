@@ -256,7 +256,7 @@ function setQuiz(userInput){
     } else if (currentInput == "Level 12Unit 9") {
         array = ["inventor", "invent", "magical", "pill", "wing", "incredible", "cape", "invisible", "continue", "owner", "shop", "mint", "cranberry", "flavor", "imagine", "customer"];
     } else {
-        array = [];
+        array = ["blank", "blank"];
     }
     
     shuffleArray(array);

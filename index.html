@@ -158,7 +158,7 @@ function vArraySlide() {
     
 function playVideo() {
     //var video = new Video('video/'+pArray[pArray_i].value+'.mp4');
-    video1.play();
+    media1.play();
 }
     
 function pArraySlide() {
@@ -169,7 +169,11 @@ function pArraySlide() {
             pArray_i = 0;
         }
         playVideo();
-        current_phoneme.innerHTML =  '<video width="420px" autoplay id="video1" source src="video/'+pArray[pArray_i].value+'.mp4" type="video/mp4" />';
+        if (level_id == "Starter" || level_id == "Unit 1"){
+            current_phoneme.innerHTML =  '<video width="420px" autoplay id="media1" source src="video/'+pArray[pArray_i].value+'.mp4" type="video/mp4" />';
+        } else {
+            current_phoneme.innerHTML =  '<audio autoplay id="media1" source src="phonics/'+pArray[pArray_i].value+'.mp3" type="audio/mp3" />';
+        }
         phonicsCheck.pattern = pArray[pArray_i].pattern;
         phonicsCheck.focus();
     }

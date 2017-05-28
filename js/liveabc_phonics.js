@@ -43,6 +43,9 @@ function setPhonics(userInput){
         } else {
             pArray = [({pattern:'blank', value:'blank'})];
         }
+        shuffleArray(pArray);
+        document.getElementById("phonicsCheck").pattern = pArray[pArray_i].pattern;
+        document.getElementById("current_phoneme").innerHTML = '<video width="420px" autoplay id="media1" src="video/'+pArray[pArray_i].value+'.mp4"></video>';
     }
     else if (level_id == "Level 1") {
         document.getElementById("pInstructions").innerHTML = "Type the first letter of the word.";
@@ -80,38 +83,44 @@ function setPhonics(userInput){
         } else {
             pArray = [({pattern:'blank', value:'blank'})];
         }
+        shuffleArray(pArray);
+        document.getElementById("phonicsCheck").pattern = pArray[pArray_i].pattern;
+        document.getElementById("current_phoneme").innerHTML = '<video width="420px" autoplay id="media1" src="video/'+pArray[pArray_i].value+'.mp4"></video>';
     }
     else if (level_id == "Level 2") {
-        pArray = ["door", "window", "table", "blackboard", "trash can", "fan", "television", "DVD player", "whiteboard", "telephone", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty", "yo-yo", "robot", "doll", "teddy bear", "ball", "blocks", "video game", "board game", "bananas", "lemons", "wax apples", "pears", "papayas", "watermelons", "guavas", "grapes", "sweet", "sour", "tomatoes", "mangoes",  "strawberries", "cherries", "peaches", "oranges", "kiwis", "coconuts", "sing", "dance", "run", "swim", "read", "write", "type", "jump", "draw", "in", "on", "under", "next to", "between", "behind", "in front of", "near", "living room", "dining room", "bedroom", "bathroom", "kitchen", "backyard", "garden", "basement", "tiger", "lion", "monkey", "bear", "zebra", "goat", "elephant", "hippo", "snake", "parrot"];
+        document.getElementById("pInstructions").innerHTML = "Type the first letter of the word.";
         if (userInput == "Unit 1") {
-            pArray = pArray.slice(0,10);
+            pArray = [{pattern:'b', value:'balloon'}, {pattern:'b', value:'bear'}, {pattern:'b', value:'bike'}, , {pattern:'b', value:'bubbles'}, {pattern:'p', value:'panda'}, {pattern:'p', value:'penguin'}, {pattern:'p', value:'pond'}];
         } else if (userInput == "Unit 2") {
-            pArray = pArray.slice(10,20);
+            pArray = [{pattern:'d', value:'dark'}, {pattern:'d', value:'dice'}, {pattern:'d', value:'dig'}, {pattern:'d', value:'dinosaur'}, {pattern:'t', value:'tea'}, {pattern:'t', value:'toad'}, {pattern:'t', value:'tower'}, {pattern:'t', value:'turtle'}];
         } else if (userInput == "Unit 3") {
-            pArray = pArray.slice(20,28);
+            pArray = [{pattern:'g', value:'garden'}, {pattern:'g', value:'goldfish'}, {pattern:'g', value:'golf'}, {pattern:'g', value:'gorilla'}, {pattern:'k', value:'king'}, {pattern:'k', value:'kiss'}, {pattern:'k', value:'kiwi'}, {pattern:'k', value:'koala'}];
         } else if (userInput == "Review 1") {
-            pArray = pArray.slice(0,28);
+            pArray = [{pattern:'b', value:'balloon'}, {pattern:'b', value:'bear'}, {pattern:'b', value:'bike'}, , {pattern:'b', value:'bubbles'}, {pattern:'p', value:'panda'}, {pattern:'p', value:'penguin'}, {pattern:'p', value:'pond'}, {pattern:'d', value:'dark'}, {pattern:'d', value:'dice'}, {pattern:'d', value:'dig'}, {pattern:'d', value:'dinosaur'}, {pattern:'t', value:'tea'}, {pattern:'t', value:'toad'}, {pattern:'t', value:'tower'}, {pattern:'t', value:'turtle'}, {pattern:'g', value:'garden'}, {pattern:'g', value:'goldfish'}, {pattern:'g', value:'golf'}, {pattern:'g', value:'gorilla'}, {pattern:'k', value:'king'}, {pattern:'k', value:'kiss'}, {pattern:'k', value:'kiwi'}, {pattern:'k', value:'koala'}];
         } else if (userInput == "Unit 4") {
-            pArray = pArray.slice(28,38);
+            pArray = [];
         } else if (userInput == "Unit 5") {
-            pArray = pArray.slice(38,46);
+            pArray = [];
         } else if (userInput == "Unit 6") {
-            pArray = pArray.slice(46,55);
+            pArray = [];
         } else if (userInput == "Review 2") {
-            pArray = pArray.slice(28,55);
+            pArray = [];
         } else if (userInput == "Unit 7") {
-            pArray = pArray.slice(55,63);
+            pArray = [];
         } else if (userInput == "Unit 8") {
-            pArray = pArray.slice(63,71);
+            pArray = [];
         } else if (userInput == "Unit 9") {
-            pArray = pArray.slice(-10);
+            pArray = [];
         } else if (userInput == "Review 3") {
-            pArray = pArray.slice(55);
+            pArray = [];
         } else if (userInput == "Final Review") {
-            pArray = pArray;
+            pArray = [];
         } else {
             pArray = ["blank", "blank"];
         }
+        shuffleArray(pArray);
+        document.getElementById("phonicsCheck").pattern = pArray[pArray_i].pattern;
+        document.getElementById("current_phoneme").innerHTML = '<audio autoplay id="media1" src="phonics/'+pArray[pArray_i].value+'.mp3"></audio>';
     }
     else if (level_id == "Level 3") {
         pArray = ["bird", "kitten", "puppy", "bunny", "turtle", "spider", "frog", "fish", "hamster", "beetle", "hamburger", "pizza", "hot dog", "French fries", "onion rings", "chicken nuggets", "cola", "soda", "salad", "fried chicken", "milk", "juice", "tea", "coffee", "ice cream", "cake", "bread", "cookies", "potato chips", "popcorn", "kite", "puzzle", "jump rope", "model car", "bicycle", "CD player", "computer", "computer game", "stuffed animal", "action figure", "eyes", "ears", "nose", "mouth", "teeth", "tooth", "hands", "feet", "foot", "arms", "legs", "head", "face", "hair", "long", "short", "curly", "straight", "braided", "blond", "dark", "red hair", "brown hair", "black hair", "baseball", "basketball", "soccer", "badminton", "ping-pong", "dodgeball", "volleyball", "tennis", "golf", "football", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "fly a kite", "read a book", "listen to music", "watch TV", "ride a bike", "weather", "sunny", "rainy", "cloudy", "windy", "snowy", "go shopping", "go swimming", "go hiking", "go fishing", "go skateboarding", "go jogging"];
@@ -247,8 +256,4 @@ function setPhonics(userInput){
         document.getElementById("pInstructions").innerHTML = "There are no phonics words for this level.";
         pArray = ["blank", "blank"];
     }
-
-    shuffleArray(pArray);
-    document.getElementById("current_phoneme").innerHTML = '<video width="420px" autoplay id="video1" src="video/'+pArray[pArray_i].value+'.mp4"></video>';
-    document.getElementById("phonicsCheck").pattern = pArray[pArray_i].pattern;
 }
