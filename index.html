@@ -540,17 +540,19 @@ function toggleAnswerKey(element) {
         </div><!-- /#home_tab -->
         
         <div role="tabpanel" class="container tab-pane fade" id="vocab_tab">
-            <div class="col-md-6 col-md-offset-3" style="text-align:center;">
+            <div class="col-md-12" style="text-align:center;">
+                <table><tr><td>
                 <figure id="figaudio1">
                     <div id="current_vocab"></div>
                     <figcaption id="currentWord"></figcaption>
                     <div id="vocabAudio"></div>
                 </figure>
-                <div>
-                    <input type="text" class="form-control" id="spellCheck" autocomplete="off" autofocus size="50" maxlength="50" style="font-size: 50px" placeholder="Spell It!" required/>
-                </div>
+                </td><td>
+                <input type="text" class="form-control" id="spellCheck" autocomplete="off" autofocus size="50" maxlength="50" style="font-size: 50px" placeholder="Spell It!" required/>
+            </div>
                 <h3 id="vocab_links"></h3>
                 <div id="vocab_lesson"></div>
+                </td></tr></table>
             </div>
         </div><!-- /#vocab_tab -->
         
@@ -610,19 +612,17 @@ function toggleAnswerKey(element) {
         
         <div role="tabpanel" class="container tab-pane fade" id="phonics_tab">
             <h3 id="pInstructions"></h3>
-            <div class="col-md-6 col-md-offset-3" style="text-align:center;">
-                    <div id="current_phoneme"></div>
-                    <div style="height:50px"></div>
-                <div  align="center">
-                    <table>
-                        <tr>
-                            <td style="padding-right:20px"><button type="button" class="btn btn-primary btn-lg" onclick="playVideo()">Again</button></td>
-                            <td><input type="text" class="form-control" id="phonicsCheck" autocomplete="off" autofocus maxlength="2" style="font-size:50px; width:160px; text-align:center" placeholder="__" required/></td>
-                            <td style="padding-left:20px"><button type="button" class="btn btn-primary btn-lg" onclick="pArraySlide()">NEXT</button></td>
-                        </tr>
-                    </table>
-                </div>
+            <div style="height:50px"></div>
+            <div class="col-md-12" style="text-align:center;">
+                <table><tr>
+                    <td><div id="current_phoneme"></div></td>
+                    <td style="width:50px"></td>
+                    <td style="padding-right:20px"><button type="button" class="btn btn-primary btn-lg" onclick="playVideo()">Again</button></td>
+                    <td><input type="text" class="form-control" id="phonicsCheck" autocomplete="off" autofocus maxlength="2" style="font-size:50px; width:160px; text-align:center" placeholder="__" required/></td>
+                    <td style="padding-left:20px"><button type="button" class="btn btn-primary btn-lg" onclick="pArraySlide()">NEXT</button></td>
+                </tr></table>
             </div>
+        </div>
         </div><!-- /#phonics_tab -->
         
         <div role="tabpanel" class="container tab-pane fade" id="quizMaker_tab">
