@@ -10,6 +10,7 @@ function setPhonics(userInput){
     
     document.getElementById("levelId").innerHTML = level_id + " " + userInput;
     document.getElementById("phonicsCheck").value = "";
+
     
     if (level_id == "Starter") {
         document.getElementById("pInstructions").innerHTML = "Type the first letter of the word.";
@@ -98,13 +99,15 @@ function setPhonics(userInput){
         } else if (userInput == "Review 1") {
             pArray = [{pattern:'b', value:'balloon'}, {pattern:'b', value:'bear'}, {pattern:'b', value:'bike'}, , {pattern:'b', value:'bubbles'}, {pattern:'p', value:'panda'}, {pattern:'p', value:'penguin'}, {pattern:'p', value:'pond'}, {pattern:'d', value:'dark'}, {pattern:'d', value:'dice'}, {pattern:'d', value:'dig'}, {pattern:'d', value:'dinosaur'}, {pattern:'t', value:'tea'}, {pattern:'t', value:'toad'}, {pattern:'t', value:'tower'}, {pattern:'t', value:'turtle'}, {pattern:'g', value:'garden'}, {pattern:'g', value:'goldfish'}, {pattern:'g', value:'golf'}, {pattern:'g', value:'gorilla'}, {pattern:'k', value:'king'}, {pattern:'k', value:'kiss'}, {pattern:'k', value:'kiwi'}, {pattern:'k', value:'koala'}];
         } else if (userInput == "Unit 4") {
-            pArray = [];
+            pArray = [{pattern:'f', value:'farm'}, {pattern:'f', value:'farmer'}, {pattern:'f', value:'fix'}, , {pattern:'f', value:'four'}, {pattern:'v', value:'van'}, {pattern:'v', value:'vase'}, {pattern:'v', value:'vegetables'}, {pattern:'v', value:'vest'}];
         } else if (userInput == "Unit 5") {
-            pArray = [];
+            document.getElementById("pInstructions").innerHTML = "Type 's' or 'z'.";
+            pArray = [{pattern:'s', value:'seahorse'}, {pattern:'s', value:'seal'}, {pattern:'s', value:'sunglasses'}, , {pattern:'s', value:'swing'}, {pattern:'z', value:'crazy'}, {pattern:'z', value:'zebra'}, {pattern:'z', value:'zero'}, {pattern:'z', value:'zipper'}];
         } else if (userInput == "Unit 6") {
-            pArray = [];
+            document.getElementById("pInstructions").innerHTML = "Type 'c' or 'x'.";
+            pArray = [{pattern:'c', value:'cut'}, {pattern:'c', value:'cake'}, {pattern:'c', value:'carpet'}, , {pattern:'c', value:'crab'}, {pattern:'x', value:'ax'}, {pattern:'x', value:'fix'}, {pattern:'x', value:'sax'}, {pattern:'x', value:'taxi'}];
         } else if (userInput == "Review 2") {
-            pArray = [];
+            pArray = [{pattern:'c', value:'cut'}, {pattern:'c', value:'cake'}, {pattern:'c', value:'carpet'}, , {pattern:'c', value:'crab'}, {pattern:'f', value:'farm'}, {pattern:'f', value:'farmer'}, {pattern:'f', value:'fix'}, , {pattern:'f', value:'four'}, {pattern:'s', value:'seahorse'}, {pattern:'s', value:'seal'}, {pattern:'s', value:'sunglasses'}, , {pattern:'s', value:'swing'}, {pattern:'v', value:'van'}, {pattern:'v', value:'vase'}, {pattern:'v', value:'vegetables'}, {pattern:'v', value:'vest'}, {pattern:'x', value:'ax'}, {pattern:'x', value:'fix'}, {pattern:'x', value:'sax'}, {pattern:'x', value:'taxi'}, {pattern:'z', value:'crazy'}, {pattern:'z', value:'zebra'}, {pattern:'z', value:'zero'}, {pattern:'z', value:'zipper'}];
         } else if (userInput == "Unit 7") {
             pArray = [];
         } else if (userInput == "Unit 8") {
