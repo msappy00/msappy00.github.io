@@ -32,7 +32,7 @@ function setQuiz(userInput){
     } else if (currentInput == "StarterUnit 5") {
         array = ["queen", "quilt", "rabbit", "rat", "snake", "sun", "tiger", "toe"];
     } else if (currentInput == "StarterUnit 6") {
-        array = ["umbrella", "under", "vampire", "vase", "window", "watermelon", "X-ray", "box"];
+        array = ["umbrella", "under", "vampire", "vase", "window", "watermelon", "x-ray", "box"];
     } else if (currentInput == "StarterUnit 7") {
         array = ["yo-yo", "yellow", "zebra", "zoo"];
     } else if (currentInput == "StarterUnit 8") {
@@ -266,15 +266,15 @@ function setQuiz(userInput){
             array[i] = "";
         }
         
-        document.getElementById("array0").innerHTML = "1.&nbsp;&nbsp;" + array[0];
-        document.getElementById("array1").innerHTML = "2.&nbsp;&nbsp;" + array[1];
-        document.getElementById("array2").innerHTML = "3.&nbsp;&nbsp;" + array[2];
-        document.getElementById("array3").innerHTML = "4.&nbsp;&nbsp;" + array[3];
-        document.getElementById("array4").innerHTML = "5.&nbsp;&nbsp;" + array[4];
-        document.getElementById("array5").innerHTML = "6.&nbsp;&nbsp;" + array[5];
-        document.getElementById("array6").innerHTML = "7.&nbsp;&nbsp;" + array[6];
-        document.getElementById("array7").innerHTML = "8.&nbsp;&nbsp;" + array[7];
-        document.getElementById("array8").innerHTML = "9.&nbsp;&nbsp;" + array[8];
-        document.getElementById("array9").innerHTML = "10.&nbsp;" + array[9];
+        document.getElementById("array0").innerHTML = array[0];
+        document.getElementById("array1").innerHTML = array[1];
+        document.getElementById("array2").innerHTML = array[2];
+        document.getElementById("array3").innerHTML = array[3];
+        document.getElementById("array4").innerHTML = array[4];
+        document.getElementById("array5").innerHTML = array[5];
+        document.getElementById("array6").innerHTML = array[6];
+        document.getElementById("array7").innerHTML = array[7];
+        document.getElementById("array8").innerHTML = array[8];
+        document.getElementById("array9").innerHTML = array[9];
     }
 }
