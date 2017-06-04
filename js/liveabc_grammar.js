@@ -524,17 +524,18 @@ function setGrammar(userInput){
             grammarLesson = "";
         } else if (userInput == "Unit 6") {
             verbArray = ["sing", "dance", "run", "swim", "read", "write", "type", "jump", "draw"];
+            pronounArray = [({q:'I', a:'you'}), ({q:'you', a:'I'}), ({q:'they', a:'they'}), ({q:'he', a:'he'}), ({q:'she', a:'she'}), ({q:'we', a:'we'})];
             shuffleArray(verbArray);
-            pronounArray(({q:'I', a:'you'}), ({q:'you',a:'I'}), ({q:'they',a: 'they'}), ({q:'he', a:'she'}), ({q:'we', a:'we'}));
-            document.getElementById("g0r0d0").innerHTML = "Can " + pronoun + " " + verbArray[0] + "?";
+            shuffleArray(pronounArray);
+            document.getElementById("g0r0d0").innerHTML = "Can " + pronounArray[0].q + " " + verbArray[0] + "?";
             choiceArrayInt = 0;
             while(choiceArrayInt == 0) {choiceArrayInt = Math.floor(Math.random() * 3)};
             if (choiceArrayInt == 1) {
                 document.getElementById("g0r0d5").innerHTML = '<h1 style="font-size:100px">&#x2705;</h1>';
-                sampleAnswer = "Yes, " + pronoun + " can.";
+                sampleAnswer = "Yes, " + pronounArray[0].a + " can.";
             } else {
                 document.getElementById("g0r0d5").innerHTML = '<h1 style="font-size:100px">&#x274C;</h1>';
-                sampleAnswer = "No, " + pronoun + " can't.";
+                sampleAnswer = "No, " + pronounArray[0].a + " can't.";
             }
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
