@@ -926,9 +926,44 @@ function setGrammar(userInput){
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 6") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
+            q1Array = [({verb:'washing', obj:'face', pic:'<img src="Level 4/images/wash my face.png" />'}), ({verb:'brushing', obj:'teeth', pic:'<img src="Level 4/images/brush my teeth.png" />'}), ({verb:'combing', obj:'hair', pic:'<img src="Level 4/images/comb my hair.png" />'}), ({verb:'making', obj:'bed', pic:'<img src="Level 4/images/make my bed.png" />'}), ({verb:'eating', obj:' breakfast', pic:'<img src="Level 4/images/eat breakfast.png" />'}), ({verb:'eating', obj:' lunch', pic:'<img src="Level 4/images/eat lunch.png" />'}), ({verb:'eating', obj:' dinner', pic:'<img src="Level 4/images/eat dinner.png" />'}), ({verb:'washing', obj:' the dishes', pic:'<img src="Level 4/images/wash the dishes.png" />'})];
+            pronounArray = [({pro:'you ', poss:' your '}), ({pro:'they ', poss:' their '}), ({pro:'he ', poss:' his '}), ({pro:'she ', poss:' her '})];
+            answerArray = ["Yes", "No"];
+            shuffleArray(q1Array);
+            shuffleArray(pronounArray);
+            shuffleArray(answerArray);
+            if (q1Array[0].verb == "eating" || q1Array[0].obj == " the dishes") {
+                pronounArray[0].poss = '';
+            }
+            if (pronounArray[0].pro == "you " || pronounArray[0].pro == "they ") {
+                document.getElementById("g0r0d0").innerHTML = "Are " + pronounArray[0].pro + q1Array[0].verb + pronounArray[0].poss + q1Array[0].obj + "?";
+            } else {
+                document.getElementById("g0r0d0").innerHTML = "Is " + pronounArray[0].pro + q1Array[0].verb + pronounArray[0].poss + q1Array[0].obj + "?";
+            }
+            if (answerArray[0] == "Yes") {
+                document.getElementById("g0r0d5").innerHTML = q1Array[0].pic;
+                if (pronounArray[0].pro == "you ") {
+                    sampleAnswer = "Yes, I am.";
+                } else if (pronounArray[0].pro == "they ") {
+                    sampleAnswer = "Yes, they are.";
+                } else {
+                    sampleAnswer = "Yes, " + pronounArray[0].pro + "is.";
+                }
+            } else {
+                document.getElementById("g0r0d5").innerHTML = q1Array[1].pic;
+                if (pronounArray[0].pro == "you ") {
+                    sampleAnswer = "No, I am not.";
+                } else if (pronounArray[0].pro == "they ") {
+                    sampleAnswer = "No, they aren't.";
+                } else {
+                    sampleAnswer = "No, " + pronounArray[0].pro + "isn't.";
+                }
+            }
+            
+            document.getElementById("g0r2d0").colspan = "3";
+            document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
+            document.getElementById("g0r3d0").colspan = "3";
+            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Review 2") {
