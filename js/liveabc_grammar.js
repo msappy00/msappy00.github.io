@@ -582,15 +582,117 @@ function setGrammar(userInput){
             gLinks = ['<a href="http://www.eslgamesplus.com/prepositions-of-place-esl-fun-game-online-grammar-practice/" target="_newtab">ESL Games+: Prepositions of Place</a>'];
             grammarLesson = "";
         } else if (userInput == "Unit 8") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
+            pronounArray = ['you', 'they', 'he', 'she'];
+            locArray = [({voc:'living room', pic:'<img src="Level 2/images/living room.png" />'}), ({voc:'dining room', pic:'<img src="Level 2/images/dining room.png" />'}), ({voc:'bedroom', pic:'<img src="Level 2/images/bedroom.png" />'}), ({voc:'bathroom', pic:'<img src="Level 2/images/bathroom.png" />'}), ({voc:'kitchen', pic:'<img src="Level 2/images/kitchen.png" />'}), ({voc:'backyard', pic:'<img src="Level 2/images/backyard.png" />'}), ({voc:'garden', pic:'<img src="Level 2/images/garden.png" />'}), ({voc:'basement', pic:'<img src="Level 2/images/basement.png" />'})];
+            shuffleArray(pronounArray);
+            shuffleArray(locArray);
+            choiceArrayInt = Math.floor(Math.random() * 2);
+            if (choiceArrayInt == 1) {
+                if (pronounArray[0] == "he" || pronounArray[0] == "she"){
+                    document.getElementById("g0r0d0").innerHTML = "Where is " + pronounArray[0] + "?";
+                } else {
+                    document.getElementById("g0r0d0").innerHTML = "Where are " + pronounArray[0] + "?";
+                }
+                var capitalized = pronounArray[0].charAt(0).toUpperCase() + pronounArray[0].slice(1);
+                if (pronounArray[0] == "he" || pronounArray[0] == "she"){
+                    sampleAnswer = capitalized + " is in the " + locArray[0].voc + ".";
+                } else {
+                    if (capitalized == "You"){
+                        sampleAnswer = "I am in the " + locArray[0].voc + ".";
+                    } else {
+                        sampleAnswer = "They are in the " + locArray[0].voc + ".";
+                    }
+                }
+            } else {
+                answerInt = Math.floor(Math.random() * 2);
+                if (pronounArray[0] == "he" || pronounArray[0] == "she"){
+                    if (answerInt == 0) {
+                        document.getElementById("g0r0d0").innerHTML = "Is " + pronounArray[0] + " in the " + locArray[1].voc + "?";
+                        sampleAnswer = "No, " + pronounArray[0] + " is not.";
+                    } else {
+                        document.getElementById("g0r0d0").innerHTML = "Is " + pronounArray[0] + " in the " + locArray[0].voc + "?";
+                        sampleAnswer = "Yes, " + pronounArray[0] + " is.";
+                    }
+                } else if (pronounArray[0] = "you"){
+                    if (answerInt == 0) {
+                        document.getElementById("g0r0d0").innerHTML = "Are you in the " + locArray[1].voc + "?";
+                        sampleAnswer = "No, I am not.";
+                    } else {
+                        document.getElementById("g0r0d0").innerHTML = "Are you in the " + locArray[0].voc + "?";
+                        sampleAnswer = "Yes, I am.";
+                    }
+                } else {
+                    if (answerInt == 0) {
+                        document.getElementById("g0r0d0").innerHTML = "Are they in the " + locArray[1].voc + "?";
+                        sampleAnswer = "No, they are not.";
+                    } else {
+                        document.getElementById("g0r0d0").innerHTML = "Are they in the " + locArray[0].voc + "?";
+                        sampleAnswer = "Yes, they are.";
+                    }
+                }
+            }
+            document.getElementById("g0r0d5").innerHTML = locArray[0].pic;
+            document.getElementById("g0r2d0").colspan = "3";
+            document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
+            document.getElementById("g0r3d0").colspan = "3";
+            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 9") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
+            pronounArray = ['you', 'they', 'he', 'she'];
+            animalArray = [({voc:'tigers', pic:'<img src="Level 2/images/tiger.png" />'}), ({voc:'lions', pic:'<img src="Level 2/images/lion.png" />'}), ({voc:'monkeys', pic:'<img src="Level 2/images/monkey.png" />'}), ({voc:'bears', pic:'<img src="Level 2/images/bear.png" />'}), ({voc:'zebras', pic:'<img src="Level 2/images/zebra.png" />'}), ({voc:'goats', pic:'<img src="Level 2/images/goat.png" />'}), ({voc:'elephants', pic:'<img src="Level 2/images/elephant.png" />'}), ({voc:'hippos', pic:'<img src="Level 2/images/hippo.png" />'}), ({voc:'snakes', pic:'<img src="Level 2/images/snake.png" />'}), ({voc:'parrots', pic:'<img src="Level 2/images/parrot.png" />'})];
+            shuffleArray(pronounArray);
+            shuffleArray(animalArray);
+            choiceArrayInt = Math.floor(Math.random() * 2);
+            if (choiceArrayInt == 1) {
+                if (pronounArray[0] == "he" || pronounArray[0] == "she"){
+                    document.getElementById("g0r0d0").innerHTML = "What does " + pronounArray[0] + " like?";
+                } else {
+                    document.getElementById("g0r0d0").innerHTML = "What do " + pronounArray[0] + " like?";
+                }
+                var capitalized = pronounArray[0].charAt(0).toUpperCase() + pronounArray[0].slice(1);
+                if (pronounArray[0] == "he" || pronounArray[0] == "she"){
+                    sampleAnswer = capitalized + " likes " + animalArray[0].voc + ".";
+                } else {
+                    if (capitalized == "You"){
+                        sampleAnswer = "I like " + animalArray[0].voc + ".";
+                    } else {
+                        sampleAnswer = "They like " + animalArray[0].voc + ".";
+                    }
+                }
+            } else {
+                answerInt = Math.floor(Math.random() * 2);
+                if (pronounArray[0] == "he" || pronounArray[0] == "she"){
+                    if (answerInt == 0) {
+                        document.getElementById("g0r0d0").innerHTML = "Does " + pronounArray[0] + " like " + animalArray[1].voc + "?";
+                        sampleAnswer = "No, " + pronounArray[0] + " doesn't.";
+                    } else {
+                        document.getElementById("g0r0d0").innerHTML = "Does " + pronounArray[0] + " like " + animalArray[0].voc + "?";
+                        sampleAnswer = "Yes, " + pronounArray[0] + " does.";
+                    }
+                } else if (pronounArray[0] = "you"){
+                    if (answerInt == 0) {
+                        document.getElementById("g0r0d0").innerHTML = "Do you like " + animalArray[1].voc + "?";
+                        sampleAnswer = "No, I don't.";
+                    } else {
+                        document.getElementById("g0r0d0").innerHTML = "Do you like " + animalArray[0].voc + "?";
+                        sampleAnswer = "Yes, I do.";
+                    }
+                } else {
+                    if (answerInt == 0) {
+                        document.getElementById("g0r0d0").innerHTML = "Do they like " + animalArray[1].voc + "?";
+                        sampleAnswer = "No, they don't.";
+                    } else {
+                        document.getElementById("g0r0d0").innerHTML = "Do they like " + animalArray[0].voc + "?";
+                        sampleAnswer = "Yes, they do.";
+                    }
+                }
+            }
+            document.getElementById("g0r0d5").innerHTML = animalArray[0].pic;
+            document.getElementById("g0r2d0").colspan = "3";
+            document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
+            document.getElementById("g0r3d0").colspan = "3";
+            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Review 3") {
