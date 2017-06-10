@@ -395,14 +395,12 @@ function setGrammar(userInput){
         if (userInput == "Unit 1") {
             q1Array = [({value:'blackboard', pic:'<img src="Level 2/images/no_blackboard.png" />'}), ({value:'DVD player', pic:'<img src="Level 2/images/no_dvd player.png" />'}), ({value:'door', pic:'<img src="Level 2/images/no_door.png" />'}), ({value:'fan', pic:'<img src="Level 2/images/no_fan.png" />'}), ({value:'television', pic:'<img src="Level 2/images/no_television.png" />'}), ({value:'table', pic:'<img src="Level 2/images/no_table.png" />'}), ({value:'trash can', pic:'<img src="Level 2/images/no_trash can.png" />'}), ({value:'window', pic:'<img src="Level 2/images/no_window.png" />'}), ({value:'telephone', pic:'<img src="Level 2/images/no_telephone.png" />'})];
             shuffleArray(q1Array);
-            q2Array = [""];
-            q3Array = [""];
             document.getElementById("g0r0d0").innerHTML = q1Array[0].pic;
             document.getElementById("g0r0d1").innerHTML = '<div style = "font-size:30px">&nbsp;&nbsp;&nbsp;'+q1Array[1].value+'<br>&nbsp;&nbsp;&nbsp;'+q1Array[0].value+'</div>';
             sampleAnswer1 = 'There is a '+q1Array[1].value+'.';
             document.getElementById("g0r1d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" autofocus placeholder="There is a ___." />&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary btn-md" onclick="showGrammar1()">Example</button>';
             sampleAnswer2 = 'There is not a '+q1Array[0].value+'.';
-            document.getElementById("g0r4d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" autofocus placeholder="There is not a ___." />&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary btn-md" onclick="showGrammar2()">Example</button>';
+            document.getElementById("g0r4d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" placeholder="There is not a ___." />&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary btn-md" onclick="showGrammar2()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 2") {
@@ -464,21 +462,20 @@ function setGrammar(userInput){
         } else if (userInput == "Unit 4") {
             vocArray = [({voc:'bananas', pic:'<img src="Level 2/images/bananas.png" />'}), ({voc:'lemons', pic:'<img src="Level 2/images/lemons.png" />'}), ({voc:'wax apples', pic:'<img src="Level 2/images/wax apples.png" />'}), ({voc:'pears', pic:'<img src="Level 2/images/pears.png" />'}), ({voc:'papayas', pic:'<img src="Level 2/images/papayas.png" />'}), ({voc:'watermelons', pic:'<img src="Level 2/images/watermelons.png" />'}), ({voc:'guavas', pic:'<img src="Level 2/images/guavas.png" />'}), ({voc:'grapes', pic:'<img src="Level 2/images/grapes.png" />'})];
             shuffleArray(vocArray);
-            choiceArrayInt = 0;
             document.getElementById("g0r0d5").innerHTML = vocArray[0].pic;
-            while(choiceArrayInt == 0) {choiceArrayInt = Math.floor(Math.random() * 3)};
+            choiceArrayInt = Math.floor(Math.random() * 2);
             if (choiceArrayInt == 1) {
                 document.getElementById("g0r0d0").innerHTML = "What are these?";
                 sampleAnswer1 = 'These are ' + vocArray[0].voc + '.';
                 document.getElementById("g0r1d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" autofocus placeholder="These are ___." />&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary btn-md" onclick="showGrammar1()">Example</button>';
                 sampleAnswer2 = 'These are not ' + vocArray[1].voc +'.';
-                document.getElementById("g0r4d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" autofocus placeholder="These are not ___." />&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary btn-md" onclick="showGrammar2()">Example</button>';
+                document.getElementById("g0r4d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" placeholder="These are not ___." />&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary btn-md" onclick="showGrammar2()">Example</button>';
             } else {
                 document.getElementById("g0r0d0").innerHTML = "What are those?";
                 sampleAnswer1 = 'Those are ' + vocArray[0].voc + '.';
                 document.getElementById("g0r1d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" autofocus placeholder="Those are ___." />&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary btn-md" onclick="showGrammar1()">Example</button>';
                 sampleAnswer2 = 'Those are not ' + vocArray[1].voc +'.';
-                document.getElementById("g0r4d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" autofocus placeholder="Those are not ___." />&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary btn-md" onclick="showGrammar2()">Example</button>';
+                document.getElementById("g0r4d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" placeholder="Those are not ___." />&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary btn-md" onclick="showGrammar2()">Example</button>';
             }
             grammarLesson = "";
         } else if (userInput == "Unit 5") {
@@ -1698,7 +1695,9 @@ function setGrammar(userInput){
                 document.getElementById("g0r0d0").innerHTML = "What were you doing " + timeArray[0] + "?";
             } else if (answerInt == 1){
                 document.getElementById("g0r0d0").innerHTML = "What did Addison do while Hayden was " + verbArray[1].contVerb + "?";
-            } else {
+            } else if (answerInt == 2){
+                document.getElementById("g0r0d0").innerHTML = "What did Hayden do while Allison was " + verbArray[1].contVerb + "?";
+            }else {
                 document.getElementById("g0r0d0").innerHTML = "Make a past tense sentence using 'while'.";
             }
             document.getElementById("g0r0d5").innerHTML = verbArray[0].pic;
@@ -1707,7 +1706,7 @@ function setGrammar(userInput){
             } else if (answerInt == 1){
                 sampleAnswer = "Addison " + verbArray[0].pastVerb + " while Hayden was "+ verbArray[1].contVerb + ".";
             } else if (answerInt == 2){
-                sampleAnswer = "Addison " + verbArray[0].pastVerb + " while Hayden was " + verbArray[1].contVerb +".";
+                sampleAnswer = "Hayden " + verbArray[0].pastVerb + " while Addison was " + verbArray[1].contVerb +".";
             } else {
                 sampleAnswer = "While Hayden was " + verbArray[1].contVerb + ", Addison " + verbArray[0].pastVerb +".";
             }
@@ -1723,9 +1722,33 @@ function setGrammar(userInput){
             currentUnit = "Review 1";
             grammarLesson = "";
         } else if (userInput == "Unit 4") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
+            verbArray = [({contVerb:'watching the news', pastVerb:'watched the news', pic:'<img src="Level 7/images/watch the news.png" />'}), ({contVerb:'reading a magazine', pastVerb:'read a magazine', pic:'<img src="Level 7/images/read a magazine.png" />'}), ({contVerb:'listening to the radio', pastVerb:'listened to the radio', pic:'<img src="Level 7/images/listen to the radio.png" />'}), ({contVerb:'building a model', pastVerb:'built a model', pic:'<img src="Level 7/images/build a model.png" />'}), ({contVerb:'doing puzzles', pastVerb:'did puzzles', pic:'<img src="Level 7/images/do puzzles.png" />'}), ({contVerb:'taking a message', pastVerb:'took a message', pic:'<img src="Level 7/images/take a message.png" />'}), ({contVerb:'leaving a message', pastVerb:'left a message', pic:'<img src="Level 7/images/leave a message.png" />'})];
+            timeArray = ["at one o'clock", "at ten o'clock", "at six o'clock", "at twelve o'clock", "at two-thirty", "at nine forty-five", "at seven oh-five", "five minutes ago", "twenty minutes ago", "one hour ago"];
+            shuffleArray(verbArray);
+            shuffleArray(timeArray);
+            answerInt = Math.floor(Math.random() * 4);
+            if (answerInt == 0){
+                document.getElementById("g0r0d0").innerHTML = "What did you do " + timeArray[0] + "?";
+            } else if (answerInt == 1){
+                document.getElementById("g0r0d0").innerHTML = "What was Skyler doing when Dakota " + verbArray[1].pastVerb + "?";
+            } else if (answerInt == 2){
+                document.getElementById("g0r0d0").innerHTML = "What was Dakota doing when Skyler " + verbArray[1].pastVerb + "?";
+            }else {
+                document.getElementById("g0r0d0").innerHTML = "Make a past tense sentence using 'when'.";
+            }
+            document.getElementById("g0r0d5").innerHTML = verbArray[0].pic;
+            if (answerInt == 0){
+                sampleAnswer = "I " + verbArray[0].pastVerb + " " + timeArray[0] + ".";
+            } else if (answerInt == 1){
+                sampleAnswer = "Skyler was " + verbArray[0].contVerb + " when Dakota " + verbArray[1].pastVerb + ".";
+            } else if (answerInt == 2){
+                sampleAnswer = "Dakota was " + verbArray[0].contVerb + " when Skyler " + verbArray[1].pastVerb + ".";
+            } else {
+                sampleAnswer = "When Skyler " + verbArray[0].pastVerb + ", Dakota was " + verbArray[1].contVerb + ".";
+            }
+            document.getElementById("g0r1d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" />';
+            document.getElementById("g0r1d1").align = "left";
+            document.getElementById("g0r1d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
             gLinks = ['<a href="http://scratch.mit.edu/projects/38942726/" target="_newtab">Scratch: B7U4 Grammar</a><br><a href="http://scratch.mit.edu/projects/37565016/" target="_newtab">Scratch: B7U4 Q&A</a>'];
             grammarLesson = "";
         } else if (userInput == "Unit 5") {
@@ -2014,354 +2037,7 @@ function setGrammar(userInput){
             grammarLesson = "";
         }
     }
-    else if (level_id == "Level 9") {
-        if (userInput == "Unit 1"){
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 2") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 3") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Review 3") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks=[''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 4") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 5") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = ['<a href="http://www.grammar.cl/Games/So_Neither_Either.htm" target="_newtab">Woodward English: So Either Neither</a><a href="http://www.perfect-english-grammar.com/so-too-neither-either-exercise-1.html" target="_newtab">Perfect English Grammar: So Too Either Neither</a>'];
-            grammarLesson = "";
-        } else if (userInput == "Unit 6") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Review 2") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks=[''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 7") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 8") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 9") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Review 3") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks=[''];
-            grammarLesson = "";
-        } else if (userInput == "Final Review") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        }
-    }
-    else if (level_id == "Level 10") {
-        if (userInput == "Unit 1") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 2") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 3") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Review 1") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks=[''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 4") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 5") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 6") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Review 3") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks=[''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 7") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 8") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 9") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Review 3") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks=[''];
-            grammarLesson = "";
-        } else if (userInput == "Final Review") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        }
-    }
-    else if (level_id == "Level 11") {
-        if (userInput == "Unit 1") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 2") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 3") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Review 1") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks=[''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 4") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 5") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 6") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Review 3") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks=[''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 7") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 8") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 9") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Review 3") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks=[''];
-            grammarLesson = "";
-        } else if (userInput == "Final Review") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        }
-    }
-    else if (level_id == "Level 12") {
-        if (userInput == "Unit 1") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 2") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 3") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Review 1") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks=[''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 4") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 5") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 6") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Review 3") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks=[''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 7") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 8") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Unit 9") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else if (userInput == "Review 3") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks=[''];
-            grammarLesson = "";
-        } else if (userInput == "Final Review") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        } else {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
-            grammarLesson = "";
-        }
-    }
+    
     else {
         q1Array = ["", ""];
         q2Array = [""];
