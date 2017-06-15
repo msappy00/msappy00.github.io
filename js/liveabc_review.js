@@ -252,203 +252,6 @@ function setReview(userInput){
             document.getElementById("c3r0d1").innerHTML = '<table><tr><td><p>7.&nbsp;&nbsp;&nbsp;</p></td><td width="100px"><p style="font-size:30px">'+array[6]+'</p></td><td><img class="onlyprint" src="Starter/images/4Lines.png" style="width:200px; height:80px" /></td><td><p style="width:50px"></p></td><td><input class="hidden-print" type="text" style="width:200px; height:80px; text-align:center; font-size:30px" class="form-control" autocomplete="off" placeholder="_____________________________"  pattern='+array[6]+' required /></td></tr></table>';
             document.getElementById("c3r0d2").innerHTML = '<table><tr><td><p>8.&nbsp;&nbsp;&nbsp;</p></td><td width="100px"><p style="font-size:30px">'+array[7]+'</p></td><td><img class="onlyprint" src="Starter/images/4Lines.png" style="width:200px; height:80px" /></td><td><p style="width:50px"></p></td><td><input class="hidden-print" type="text" style="width:200px; height:80px; text-align:center; font-size:30px" class="form-control" autocomplete="off" placeholder="_____________________________"  pattern='+array[7]+' required /></td></tr></table>';
             document.getElementById("c4r0d0").innerHTML = '';
-            // for Part D
-            document.getElementById("PartD").innerHTML = "D. Matching";
-            dA = [({key:"A", line:"Hi, my name is Annie."}), ({key:"B", line:"Hi, I am Bill."}), ({key:"C", line:"Hello, my name is Cathy."}), ({key:"D", line:"Nice to meet you."})];
-            dB = [({key:"A", line:"Hi, my name is Doug."}), ({key:"B", line:"Hi, I am Eve."}), ({key:"C", line:"Hello, my name is Fred."}), ({key:"D", line:"Nice to meet you, too."})];
-            shuffleArray(dA);
-            shuffleArray(dB);
-            document.getElementById("d0r0d0").innerHTML = '<canvas id="lineCanvas" width="800" height="300"></canvas>';
-            document.getElementById("d0r0d1").innerHTML = '<button type="button" class="btn btn-primary btn-md hidden-print" id="clear">Clear</button>';
-            // Inits
-            function init() {
-                var game = new GF();
-                game.start();
-            };
-            
-            // GAME FRAMEWORK STARTS HERE
-            var GF = function(){
-                // Vars relative to the canvas
-                var canvas, ctx, w, h;
-                
-                // vars for handling inputs
-                var inputStates = {};
-                var tempPoint = [0, 0];
-                var startPoint = [({x:0, y:0}), ({x:0, y:0}), ({x:0, y:0}), ({x:0, y:0})];
-                var endPoint = [({x:0, y:0}), ({x:0, y:0}), ({x:0, y:0}), ({x:0, y:0})];
-                var tempMatchL;
-                var tempMatchR;
-                var i = 0;
-                
-                
-                // clears the canvas content
-                function clearCanvas() {
-                    ctx.clearRect(0, 0, w, h);
-                }
-                
-                // Functions for drawing the monster and maybe other objects
-                function drawDialogue() {
-                    
-                    ctx.font = "20px Arial";
-                    ctx.textAlign = "right";
-                    ctx.fillText(dA[0].line, 300, 50);
-                    ctx.fillText(dA[1].line, 300, 100);
-                    ctx.fillText(dA[2].line, 300, 150);
-                    ctx.fillText(dA[3].line, 300, 200);
-                    ctx.textAlign = "left";
-                    ctx.fillText(dB[0].line, 500, 50);
-                    ctx.fillText(dB[1].line, 500, 100);
-                    ctx.fillText(dB[2].line, 500, 150);
-                    ctx.fillText(dB[3].line, 500, 200);
-                    
-                    ctx.beginPath();
-                    ctx.arc(310, 43, 6, 0, 2*Math.PI, false);
-                    ctx.fill();
-                    ctx.beginPath();
-                    ctx.arc(310, 93, 6, 0, 2*Math.PI, false);
-                    ctx.fill();
-                    ctx.beginPath();
-                    ctx.arc(310, 143, 6, 0, 2*Math.PI, false);
-                    ctx.fill();
-                    ctx.beginPath();
-                    ctx.arc(310, 193, 6, 0, 2*Math.PI, false);
-                    ctx.fill();
-                    ctx.beginPath();
-                    ctx.arc(490, 43, 6, 0, 2*Math.PI, false);
-                    ctx.fill();
-                    ctx.beginPath();
-                    ctx.arc(490, 93, 6, 0, 2*Math.PI, false);
-                    ctx.fill();
-                    ctx.beginPath();
-                    ctx.arc(490, 143, 6, 0, 2*Math.PI, false);
-                    ctx.fill();
-                    ctx.beginPath();
-                    ctx.arc(490, 193, 6, 0, 2*Math.PI, false);
-                    ctx.fill();
-                }
-                
-                var mainLoop = function(){
-                    
-                    // Clear the canvas
-                    clearCanvas();
-                    
-                    // draw the dialogue
-                    drawDialogue();
-                    
-                    // check inputStates
-                    
-                    //if (inputStates.mousePos) {
-                        //ctx.fillText("x = " + inputStates.mousePos.x + " y = " + inputStates.mousePos.y, 5, 20);
-                    //}
-                    
-                    canvas.addEventListener("click", function (evt) {
-                        if (inputStates.mousePos.x <= 320 && inputStates.mousePos.x >= 300 && inputStates.mousePos.y <= 53 && inputStates.mousePos.y >= 33) {
-                            tempPoint = [310, 43];
-                            tempMatchL = dA[0].key;
-                        } else if (inputStates.mousePos.x <= 320 && inputStates.mousePos.x >= 300 && inputStates.mousePos.y <= 103 && inputStates.mousePos.y >= 83) {
-                            tempPoint = [310, 93];
-                            tempMatchL = dA[1].key;
-                        } else if (inputStates.mousePos.x <= 320 && inputStates.mousePos.x >= 300 && inputStates.mousePos.y <= 153 && inputStates.mousePos.y >= 133) {
-                            tempPoint = [310, 143];
-                            tempMatchL = dA[2].key;
-                        } else if (inputStates.mousePos.x <= 320 && inputStates.mousePos.x >= 300 && inputStates.mousePos.y <= 203 && inputStates.mousePos.y >= 183) {
-                            tempPoint = [310, 193];
-                            tempMatchL = dA[3].key;
-                        } else if (inputStates.mousePos.x <= 500 && inputStates.mousePos.x >= 480 && inputStates.mousePos.y <= 53 && inputStates.mousePos.y >= 33) {
-                            tempPoint = [490, 43];
-                            tempMatchR = dB[0].key;
-                        } else if (inputStates.mousePos.x <= 500 && inputStates.mousePos.x >= 480 && inputStates.mousePos.y <= 103 && inputStates.mousePos.y >= 83) {
-                            tempPoint = [490, 93];
-                            tempMatchR = dB[1].key;
-                        } else if (inputStates.mousePos.x <= 500 && inputStates.mousePos.x >= 480 && inputStates.mousePos.y <= 153 && inputStates.mousePos.y >= 133) {
-                            tempPoint = [490, 143];
-                            tempMatchR = dB[2].key;
-                        } else if (inputStates.mousePos.x <= 500 && inputStates.mousePos.x >= 480 && inputStates.mousePos.y <= 203 && inputStates.mousePos.y >= 183) {
-                            tempPoint = [490, 193];
-                            tempMatchR = dB[3].key;
-                        }
-                    }, false);
-                    if (startPoint[i].x == 0 && endPoint[i].x == 0) {
-                        startPoint[i].x = tempPoint[0];
-                        startPoint[i].y = tempPoint[1];
-                        endPoint[i].x = startPoint[i].x;
-                        endPoint[i].y = startPoint[i].y;
-                    } else {
-                        if(tempMatchL == tempMatchR) {
-                            endPoint[i].x = tempPoint[0];
-                            endPoint[i].y = tempPoint[1];
-                            if (i <= 2) {
-                                i++;
-                                tempPoint = [0, 0];
-                            }
-                            tempMatchL = undefined;
-                            tempMatchR = undefined;
-                        }
-                    };
-                    
-                    for (j = 0; j < 4; j++) {
-                        ctx.beginPath();
-                        ctx.moveTo(startPoint[j].x, startPoint[j].y);
-                        ctx.lineTo(endPoint[j].x, endPoint[j].y);
-                        ctx.strokeStyle = '#000000';
-                        ctx.lineWidth = 3;
-                        ctx.stroke();
-                    }
-                    
-                    // call the animation loop every 1/60th of second
-                    requestAnimationFrame(mainLoop);
-                };
-                
-                // bind event handler to clear button
-                document.getElementById('clear').addEventListener('click', function() {
-                    startPoint = [({x:0, y:0}), ({x:0, y:0}), ({x:0, y:0}), ({x:0, y:0})];
-                    endPoint = [({x:0, y:0}), ({x:0, y:0}), ({x:0, y:0}), ({x:0, y:0})];
-                    tempPoint = [0, 0];
-                    tempMatchL = undefined;
-                    tempMatchR = undefined;
-                    i = 0;
-                }, false);
-                
-                
-                function getMousePos(evt) {
-                    // necessary to take into account CSS boudaries
-                    var rect = canvas.getBoundingClientRect();
-                    return {
-                    x: Math.floor(evt.clientX - rect.left),
-                    y: Math.floor(evt.clientY - rect.top)
-                    };
-                }
-                
-                var start = function(){
-                    
-                    // Canvas, context etc.
-                    canvas = document.querySelector("#lineCanvas");
-                    
-                    // often useful
-                    w = canvas.width;
-                    h = canvas.height;
-                    
-                    // important, we will draw with this object
-                    ctx = canvas.getContext('2d');
-                    // default police for text
-                    ctx.font="20px Arial";
-                    
-                    // Mouse event listeners
-                    canvas.addEventListener('mousemove', function (evt) {
-                        inputStates.mousePos = getMousePos(evt);
-                    }, false);
-                    
-                                        // start the animation
-                    requestAnimationFrame(mainLoop);
-                };
-                
-                //our GameFramework returns a public API visible from outside its scope
-                return {
-                start: start
-                };
-            };
-            
-            init();
         
         } else if (userInput == "Unit 2") {
             array = array.slice(8,16);
@@ -477,15 +280,15 @@ function setReview(userInput){
         } else if (userInput == "Unit 7") {
             array = array.slice(-4);
         } else if (userInput == "Unit 8") {
-            array = ["blank", "blank"];
+            array = ["blank", "blank", "blank", "blank", "blank", "blank"];
         } else if (userInput == "Unit 9") {
-            array = ["blank", "blank"];
+            array = ["blank", "blank", "blank", "blank", "blank", "blank"];
         } else if (userInput == "Review 3") {
             array = array.slice(-4);
         } else if (userInput == "Final Review") {
             array = array;
         } else {
-            array = ["blank", "blank"];
+            array = ["blank", "blank", "blank", "blank", "blank", "blank"];
         }
         } else if (level_id == "Level 1") {
         array = ["boy", "girl", "man", "woman", "student", "teacher", "grandfather", "grandmother", "father", "mother", "uncle", "aunt", "cousin", "brother", "sister", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "chubby", "thin", "tall", "short", "sad", "happy", "old", "young", "cute", "pencil", "eraser", "ruler", "pen", "desk", "chair", "school bag", "book", "pencil case", "red", "yellow", "green", "blue", "pink", "black", "white", "brown", "orange", "purple", "hat", "cap", "coat", "jacket", "dress", "skirt", "shirt", "T-shirt", "dog", "cat", "rat", "rabbit", "cow", "horse", "sheep", "pig", "chicken", "duck", "hungry", "thirsty", "angry", "lazy", "noisy", "quiet", "sleepy", "tired"];
@@ -875,7 +678,7 @@ function setReview(userInput){
             shuffleArray(array);
             AVocab2(array);
         } else {
-            array = ["blank", "blank"];
+            array = ["blank", "blank", "blank", "blank", "blank", "blank"];
             BInstructions = "B.";
         }
     }
@@ -934,7 +737,7 @@ function setReview(userInput){
             links = [''];
             vocabLesson = "<iframe allowtransparency='true' width='485' height='402' src='//scratch.mit.edu/projects/embed/30392356/?autostart=false' frameborder='0' allowfullscreen></iframe>";
         } else {
-            array = ["blank", "blank"];
+            array = ["blank", "blank", "blank", "blank", "blank", "blank"];
             links = [''];
             vocabLesson = "";
         }
@@ -996,7 +799,7 @@ function setReview(userInput){
             links = [''];
             vocabLesson = "";
         } else {
-            array = ["blank", "blank"];
+            array = ["blank", "blank", "blank", "blank", "blank", "blank"];
             links = [''];
             vocabLesson = "";
         }
@@ -1057,7 +860,7 @@ function setReview(userInput){
             links = [''];
             vocabLesson = "";
         } else {
-            array = ["blank", "blank"];
+            array = ["blank", "blank", "blank", "blank", "blank", "blank"];
             links = [''];
             vocabLesson = "";
         }
@@ -1119,7 +922,7 @@ function setReview(userInput){
             links = [''];
             vocabLesson = "";
         } else {
-            array = ["blank", "blank"];
+            array = ["blank", "blank", "blank", "blank", "blank", "blank"];
             links = [''];
             vocabLesson = "";
         }
@@ -1178,7 +981,7 @@ function setReview(userInput){
             links = [''];
             vocabLesson = "";
         } else {
-            array = ["blank", "blank"];
+            array = ["blank", "blank", "blank", "blank", "blank", "blank"];
             links = [''];
             vocabLesson = "";
         }
@@ -1240,7 +1043,7 @@ function setReview(userInput){
             links = [''];
             vocabLesson = "";
         } else {
-            array = ["blank", "blank"];
+            array = ["blank", "blank", "blank", "blank", "blank", "blank"];
             links = [''];
             vocabLesson = "";
         }
@@ -1303,7 +1106,7 @@ function setReview(userInput){
             links = [''];
             vocabLesson = "";
         } else {
-            array = ["blank", "blank"];
+            array = ["blank", "blank", "blank", "blank", "blank", "blank"];
             links = [''];
             vocabLesson = "";
         }
@@ -1311,7 +1114,7 @@ function setReview(userInput){
         AVocab2(array);
     }
     else {
-        array = ["blank", "blank"];
+        array = ["blank", "blank", "blank", "blank", "blank", "blank"];
         links = [''];
         vocabLesson = "";
     }
