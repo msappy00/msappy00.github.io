@@ -1817,14 +1817,14 @@ function setGrammar(userInput){
                 q1Array = ["Who brought the ", "Who gave the "];
                 shuffleArray(q1Array);
                 
-                if (q1Array[0] == "Who brought the\ ") {
+                if (q1Array[0] == "Who brought the ") {
                     q3Array[0] = " for you?";
-                    sampleAnswer = "My "+picArray[0].value+" brought the "+q2Array[0]+" for me.";
+                    sampleAnswer = "My " + picArray[0].value + " brought the "+q2Array[0]+" for me.";
                 } else {
                     q3Array[0] = " to you?";
-                    sampleAnswer = "My "+picArray[0].value+" gave the "+q2Array[0]+" to me.";
+                    sampleAnswer = "My " + picArray[0].value + " gave the "+q2Array[0]+" to me.";
                 }
-                document.getElementById("g0r1d0").style= "width:300px";
+                document.getElementById("g0r1d0").style="width:300px";
                 document.getElementById("g0r1d0").innerHTML = q1Array[0] + q2Array[0] + q3Array[0];
                 
             } else {
