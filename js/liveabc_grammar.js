@@ -1282,7 +1282,7 @@ function setGrammar(userInput){
                         }
                         break;
                     case "have":
-                        if (pronounArray[0] == "he" || pronounArray[0] == "he") {
+                        if (pronounArray[0] == "he" || pronounArray[0] == "she") {
                             sampleAnswer = pronounArray[0].charAt(0).toUpperCase() + pronounArray[0].slice(1) + " " + q1Array[0].value + " has a snack.";
                         } else {
                             sampleAnswer = pronounArray[0].charAt(0).toUpperCase() + pronounArray[0].slice(1) + " " + q1Array[0].value + " have a snack.";
