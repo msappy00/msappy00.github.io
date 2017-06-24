@@ -137,6 +137,7 @@ function setPhonics(userInput){
             document.getElementById("pInstructions").innerHTML = "Type 'i' or 'i e'.";
             pArray = [{pattern:'i', value:'bib'}, {pattern:'i', value:'drink'}, {pattern:'i', value:'milk'}, {pattern:'i', value:'wink'}, {pattern:'i e', value:'mice'}, {pattern:'i e', value:'rice'}, {pattern:'i e', value:'dime'}, {pattern:'i e', value:'hide'}];
         } else if (userInput == "Review 1") {
+            document.getElementById("pInstructions").innerHTML = "";
             pArray = ["blank", "blank"];
         } else if (userInput == "Unit 4") {
             document.getElementById("pInstructions").innerHTML = "Type 'o' or 'o e'.";
@@ -148,12 +149,14 @@ function setPhonics(userInput){
             document.getElementById("pInstructions").innerHTML = "Type 'u', 'ue' or 'ui'.";
             pArray = [{pattern:'u', value:'put'}, {pattern:'u', value:'bush'}, {pattern:'u', value:'push'}, {pattern:'u', value:'cushion'}, {pattern:'ue', value:'blue'}, {pattern:'ui', value:'suit'}, {pattern:'ui', value:'cruise'}, {pattern:'ui', value:'fruit'}];
         } else if (userInput == "Review 2") {
+            document.getElementById("pInstructions").innerHTML = "";
             pArray = ["blank", "blank"];
         } else if (userInput == "Unit 7") {
             pArray = [{pattern:'oo', value:'book'}, {pattern:'oo', value:'cook'}, {pattern:'oo', value:'foot'}, {pattern:'oo', value:'hook'}, {pattern:'oo', value:'moon'}, {pattern:'oo', value:'pool'}, {pattern:'oo', value:'roof'}, {pattern:'oo', value:'boot'}];
         } else if (userInput == "Unit 8") {
             pArray = [{pattern:'y', value:'happy'}, {pattern:'y', value:'hungry'}, {pattern:'y', value:'yummy'}, {pattern:'y', value:'yucky'}, {pattern:'y', value:'cry'}, {pattern:'y', value:'dry'}, {pattern:'y', value:'fly'}, {pattern:'y', value:'sky'}];
         } else {
+            document.getElementById("pInstructions").innerHTML = "";
             pArray = ["blank", "blank"];
         }
         shuffleArray(pArray);
