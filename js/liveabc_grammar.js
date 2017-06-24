@@ -1752,9 +1752,23 @@ function setGrammar(userInput){
             gLinks = ['<a href="http://scratch.mit.edu/projects/38942726/" target="_newtab">Scratch: B7U4 Grammar</a><br><a href="http://scratch.mit.edu/projects/37565016/" target="_newtab">Scratch: B7U4 Q&A</a>'];
             grammarLesson = "";
         } else if (userInput == "Unit 5") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
+            q1Array = ["before", "after"];
+            shuffleArray(q1Array);
+            document.getElementById("gInstructions").innerHTML = "Make a sentence using '" + q1Array[0] + "'.";
+            verbArray = [({firstVerb:'wake up', secondVerb:'take a shower', pic1:'<img src="Level 7/images/wake up.png" />', pic2:'<img src="Level 7/images/take a shower.png" />'}), ({firstVerb:'take a shower', secondVerb:'get dressed', pic1:'<img src="Level 7/images/take a shower.png" />', pic2:'<img src="Level 7/images/get dressed.png" />'}), ({firstVerb:'take a shower', secondVerb:'shave your face', pic1:'<img src="Level 7/images/take a shower.png" />', pic2:'<img src="Level 7/images/shave my face.png" />'}), ({firstVerb:'take a shower', secondVerb:'put on makeup', pic1:'<img src="Level 7/images/take a shower.png" />', pic2:'<img src="Level 7/images/put on makeup.png" />'}), ({firstVerb:'set the table', secondVerb:'eat dinner', pic1:'<img src="Level 7/images/set the table.png" />', pic2:'<img src="Level 4/images/eat dinner.png" />'}), ({firstVerb:'feed the dog', secondVerb:'go to school', pic1:'<img src="Level 7/images/feed the dog.png" />', pic2:'<img src="Level 4/images/go to school.png" />'})];
+            shuffleArray(verbArray);
+            if (q1Array[0] == "before"){
+                document.getElementById("g0r0d5").innerHTML = verbArray[0].pic1;
+                var capitalized = verbArray[0].firstVerb.charAt(0).toUpperCase() + verbArray[0].firstVerb.slice(1);
+                sampleAnswer = capitalized + " before you " + verbArray[0].secondVerb + ".";
+            } else {
+                document.getElementById("g0r0d5").innerHTML = verbArray[0].pic2;
+                var capitalized = verbArray[0].secondVerb.charAt(0).toUpperCase() + verbArray[0].secondVerb.slice(1);
+                sampleAnswer = capitalized + " after you " + verbArray[0].firstVerb + ".";
+                }
+            document.getElementById("g0r1d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" />';
+            document.getElementById("g0r1d1").align = "left";
+            document.getElementById("g0r1d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 6") {
