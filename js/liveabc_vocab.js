@@ -35,7 +35,7 @@ function setVocab(userInput){
         } else if (userInput == "Unit 4") {
             array = array.slice(24,32);
             links = ["<a href='http://www.starfall.com/n/level-k/index/load.htm' target='_newtab'>Starfall: Alphabet</a>"];
-            vocabLesson = "<iframe src='https://docs.google.com/presentation/d/1NkEUq_pdARO8tn13x08e1wuraF5fOzL7FsbNnw0PL48/embed?start=false&loop=false&delayms=15000' frameborder='0' width='529' height='426' allowfullscreen></iframe>";
+            vocabLesson = "<a href='https://scratch.mit.edu/projects/21801556/' target='_newtab'>Scratch: random letters (A~Z)</a>";
         } else if (userInput == "Unit 5") {
             array = array.slice(32,40);
             links = ["<a href='http://www.starfall.com/n/level-k/index/load.htm' target='_newtab'>Starfall: Alphabet</a>"];
