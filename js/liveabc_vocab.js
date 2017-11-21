@@ -19,15 +19,15 @@ function setVocab(userInput){
         if (userInput == "Unit 1") {
             array = array.slice(0,8);
             links = ["<a href='http://www.starfall.com/n/level-k/index/load.htm' target='_newtab'>Starfall: Alphabet</a>"];
-            vocabLesson = "<iframe allowtransparency='true' width='485' height='402' src='//scratch.mit.edu/projects/embed/21801556/?autostart=false' frameborder='0' allowfullscreen></iframe>";
+            vocabLesson = "<a href='https://scratch.mit.edu/projects/21801556/' target='_newtab'>Scratch: random letters (A~Z)</a>";
         } else if (userInput == "Unit 2") {
             array = array.slice(8,16);
             links = ["<a href='http://www.starfall.com/n/level-k/index/load.htm' target='_newtab'>Starfall: Alphabet</a>"];
-            vocabLesson = "<iframe allowtransparency='true' width='485' height='402' src='//scratch.mit.edu/projects/embed/21801556/?autostart=false' frameborder='0' allowfullscreen></iframe>";
+            vocabLesson = "<a href='https://scratch.mit.edu/projects/21801556/' target='_newtab'>Scratch: random letters (A~Z)</a>";
         } else if (userInput == "Unit 3") {
             array = array.slice(16,24);
             links = ["<a href='http://www.starfall.com/n/level-k/index/load.htm' target='_newtab'>Starfall: Alphabet</a>"];
-            vocabLesson = "<iframe allowtransparency='true' width='485' height='402' src='//scratch.mit.edu/projects/embed/21801556/?autostart=false' frameborder='0' allowfullscreen></iframe>";
+            vocabLesson = "<a href='https://scratch.mit.edu/projects/21801556/' target='_newtab'>Scratch: random letters (A~Z)</a>";
         } else if (userInput == "Review 1") {
             array = array.slice(0,24);
             links = ["<a href='http://www.starfall.com/n/level-k/index/load.htm' target='_newtab'>Starfall: Alphabet</a>"];
@@ -39,11 +39,11 @@ function setVocab(userInput){
         } else if (userInput == "Unit 5") {
             array = array.slice(32,40);
             links = ["<a href='http://www.starfall.com/n/level-k/index/load.htm' target='_newtab'>Starfall: Alphabet</a>"];
-            vocabLesson = "<iframe allowtransparency='true' width='485' height='402' src='//scratch.mit.edu/projects/embed/21801556/?autostart=false' frameborder='0' allowfullscreen></iframe>";
+            vocabLesson = "<a href='https://scratch.mit.edu/projects/21801556/' target='_newtab'>Scratch: random letters (A~Z)</a>";
         } else if (userInput == "Unit 6") {
             array = array.slice(40,48);
             links = ["<a href='http://www.starfall.com/n/level-k/index/load.htm' target='_newtab'>Starfall: Alphabet</a>"];
-            vocabLesson = "<iframe allowtransparency='true' width='485' height='402' src='//scratch.mit.edu/projects/embed/21801556/?autostart=false' frameborder='0' allowfullscreen></iframe>";
+            vocabLesson = "<a href='https://scratch.mit.edu/projects/21801556/' target='_newtab'>Scratch: random letters (A~Z)</a>";
         } else if (userInput == "Review 2") {
             array = array.slice(24,48);
             links = ["<a href='http://www.starfall.com/n/level-k/index/load.htm' target='_newtab'>Starfall: Alphabet</a>"];
@@ -51,15 +51,15 @@ function setVocab(userInput){
         } else if (userInput == "Unit 7") {
             array = array.slice(-4);
             links = ["<a href='http://www.starfall.com/n/level-k/index/load.htm' target='_newtab'>Starfall: Alphabet</a>"];
-            vocabLesson = "<iframe allowtransparency='true' width='485' height='402' src='//scratch.mit.edu/projects/embed/21801556/?autostart=false' frameborder='0' allowfullscreen></iframe>";
+            vocabLesson = "<a href='https://scratch.mit.edu/projects/21801556/' target='_newtab'>Scratch: random letters (A~Z)</a>";
         } else if (userInput == "Unit 8") {
             array = ["blank", "blank"];
             links = ["<a href='http://www.starfall.com/n/level-k/index/load.htm' target='_newtab'>Starfall: Alphabet</a>"];
-            vocabLesson = "<iframe allowtransparency='true' width='485' height='402' src='//scratch.mit.edu/projects/embed/21801556/?autostart=false' frameborder='0' allowfullscreen></iframe>";
+            vocabLesson = "<a href='https://scratch.mit.edu/projects/21801556/' target='_newtab'>Scratch: random letters (A~Z)</a>";
         } else if (userInput == "Unit 9") {
             array = ["blank", "blank"];
             links = ["<a href='http://www.starfall.com/n/level-k/index/load.htm' target='_newtab'>Starfall: Alphabet</a>"];
-            vocabLesson = "<iframe allowtransparency='true' width='485' height='402' src='//scratch.mit.edu/projects/embed/21801556/?autostart=false' frameborder='0' allowfullscreen></iframe>";
+            vocabLesson = "<a href='https://scratch.mit.edu/projects/21801556/' target='_newtab'>Scratch: random letters (A~Z)</a>";
         } else if (userInput == "Review 3") {
             array = array.slice(-4);
             links = ["<a href='http://www.starfall.com/n/level-k/index/load.htm' target='_newtab'>Starfall: Alphabet</a>"];
