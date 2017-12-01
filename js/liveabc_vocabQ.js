@@ -218,7 +218,7 @@ function setQuiz(userInput){
     } else if (currentInput == "Level 10Unit 8") {
         array = ["as soon as", "only", "thoughtful", "asleep", "move", "pull", "sleeve", "save", "become", "die", "believe", "true"];
     } else if (currentInput == "Level 10Unit 9") {
-        array = ["place", "faint", "breathe", "dump", "happen", "master", "faint", "ground", "mend", "clay", "unique"];
+        array = ["place", "dump", "happen", "owner", "faint", "ground", "mend", "clay", "unique"];
     } else if (currentInput == "Level 11Unit 1") {
         array = ["village", "grow", "neighbor", "life", "beginning", "crowded", "apartment", "start", "elevator", "stairway", "familiar", "peaceful", "decide"];
     } else if (currentInput == "Level 11Unit 2") {
