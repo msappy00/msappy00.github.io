@@ -278,8 +278,10 @@ function setCss(tabName, userInput){
         x[i].style.display = "none";
     }
     document.getElementById(tabName).style.display = "block";
-    switch (tabName)
-    {
+    switch (tabName){
+        case 'home':
+            clearLevel();
+            break;
         case 'vocab_tab':
             setVocab(userInput);
             break;
@@ -302,7 +304,7 @@ function setCss(tabName, userInput){
     <!--#nav bar-->
     <div class="w3-bar w3-blue">
         <a href="#home" class="w3-bar-item w3-button"><img width="20" height="20" src="images/star-yellow.svg" alt="yellow star" /></a>
-        <a href="#home" class="w3-bar-item w3-button" onclick="clearLevel()">Home</a>
+        <a href="#home" class="w3-bar-item w3-button" onclick="setCss('home', 'null')">Home</a>
         <div class="w3-dropdown-hover">
             <button class="w3-button">Games</button>
             <div class="w3-dropdown-content w3-bar-block w3-card-4">
