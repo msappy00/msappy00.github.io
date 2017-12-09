@@ -9,9 +9,7 @@ function setPhonics(userInput){
     currentUnit = userInput;
     
     document.getElementById("levelId").innerHTML = level_id + " " + userInput;
-    document.getElementById("phonicsCheck").value = "";
-    
-    
+
     if (level_id == "Starter") {
         document.getElementById("pInstructions").innerHTML = "Type the first letter of the word.";
         if (userInput == "Unit 1") {
@@ -44,9 +42,6 @@ function setPhonics(userInput){
         } else {
             pArray = [({pattern:'blank', value:'blank'})];
         }
-        shuffleArray(pArray);
-        document.getElementById("phonicsCheck").pattern = pArray[pArray_i].pattern;
-        document.getElementById("current_phoneme").innerHTML = '<video width="420px" autoplay id="media1" src="video/'+pArray[pArray_i].value+'.mp4"></video>';
     }
     else if (level_id == "Level 1") {
         document.getElementById("pInstructions").innerHTML = "Type the first letter of the word.";
@@ -84,9 +79,6 @@ function setPhonics(userInput){
         } else {
             pArray = [({pattern:'blank', value:'blank'})];
         }
-        shuffleArray(pArray);
-        document.getElementById("phonicsCheck").pattern = pArray[pArray_i].pattern;
-        document.getElementById("current_phoneme").innerHTML = '<video width="420px" autoplay id="media1" src="video/'+pArray[pArray_i].value+'.mp4"></video>';
     }
     else if (level_id == "Level 2") {
         document.getElementById("pInstructions").innerHTML = "Type the first letter of the word.";
@@ -122,9 +114,6 @@ function setPhonics(userInput){
         } else {
             pArray = ["blank", "blank"];
         }
-        shuffleArray(pArray);
-        document.getElementById("phonicsCheck").pattern = pArray[pArray_i].pattern;
-        document.getElementById("current_phoneme").innerHTML = '<audio autoplay id="media1" src="phonics/'+pArray[pArray_i].value+'.mp3"></audio>';
     }
     else if (level_id == "Level 3") {
         if (userInput == "Unit 1") {
@@ -159,9 +148,6 @@ function setPhonics(userInput){
             document.getElementById("pInstructions").innerHTML = "";
             pArray = ["blank", "blank"];
         }
-        shuffleArray(pArray);
-        document.getElementById("phonicsCheck").pattern = pArray[pArray_i].pattern;
-        document.getElementById("current_phoneme").innerHTML = '<audio autoplay id="media1" src="phonics/'+pArray[pArray_i].value+'.mp3"></audio>';
     }
     else if (level_id == "Level 4") {
         document.getElementById("pInstructions").innerHTML = "Listen and write.";
@@ -262,7 +248,10 @@ function setPhonics(userInput){
             pArray = ["blank", "blank"];
         }
     } else {
-        document.getElementById("pInstructions").innerHTML = "There are no phonics words for this level.";
-        pArray = ["blank", "blank"];
+    document.getElementById("pInstructions").innerHTML = "There are no phonics words for this level.";
+    pArray = ["blank", "blank"];
     }
+    shuffleArray(pArray);
+    document.getElementById("phonicsAudio").innerHTML = '<audio controls autoplay><source src="phonics/'+pArray[pArray_i].value+'.mp3" type="audio/mp3" /></audio>';
+    document.getElementById("phonicsCheck").pattern = pArray[pArray_i].pattern;
 }
