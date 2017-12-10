@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
 	<title>Spot It!</title>
-	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/w3.css"/>
 	<style>
     body {
         padding-top: 100px;
@@ -18,35 +18,30 @@
 	
 </head>
 <body onload="init();">
-    
     <script src="js/spotit.js"></script>
 
-    <nav class="navbar navbar-default navbar-fixed-top hidden-print">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a href="#" class="navbar-brand"><img width="20px" height="20px" src="images/star-yellow.svg"></img></a>
-            </div>
-            <ul class="nav navbar-nav navbar-left hidden-xs hidden-sm">
-                <li><a href="" data-toggle="tab">Spot It!</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right hidden-xs hidden-sm">
-                <li><a href="#" data-toggle="tab" id="day"></a><span class="sr-only">day</span></li>
-            </ul>
-        </div>
-    </nav>
+<!--#nav bar-->
+<div class="w3-top">
+    <div class="w3-bar w3-blue">
+        <a href="#home" class="w3-bar-item w3-button"><img width="20" height="20" src="images/star-yellow.svg" alt="yellow star" /></a>
+        <a href="#home" class="w3-bar-item w3-button">Spot It!</a>
+        <a href="#" class="w3-bar-item w3-button w3-right" id="day">day</a>
+    </div>
+</div><!--/#nav bar-->
 
-    <div class="container">
-        <div class="col-md-8; col-md-offset-2">
+<div class="w3-row">
+    <div class="w3-col w3-container" style="width:30%"><p></p></div>
+    <div class="w3-col w3-container" style="width:40%">
             <canvas class="img-responsive; hidden-xs" id="spot_it" width="800" height="400" style="outline:none">
                 Your browser does not support the canvas tag or JavaScript is not enabled.
             </canvas>
             <canvas class="img-responsive; visible-xs" id="spot_it2" width="400" height="800" style="outline:none">
                 Your browser does not support the canvas tag or JavaScript is not enabled.
             </canvas>
-        </div>
     </div>
+    <div class="w3-col w3-container" style="width:30%"><p></p></div>
+</div>
 
-    
     <script>
         // shows the day of the week in the nav bar
         var day = new Date().getDay();
@@ -75,8 +70,5 @@
         }
     document.getElementById("day").innerHTML = day;
     </script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
 </body>
 </html>

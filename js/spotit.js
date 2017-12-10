@@ -104,10 +104,6 @@ function animationLoop() {
     circleAngle1 += incrementAngle;
     drawCircle2();
     circleAngle2 -= incrementAngle;
-    drawCircle3();
-    circleAngle1 += incrementAngle;
-    drawCircle4();
-    circleAngle2 -= incrementAngle;
     requestAnimationFrame(animationLoop);
 }
 
@@ -165,62 +161,6 @@ function drawCircle2(){
     ctx.fillText(shown[13], 130, 210);
     ctx.stroke();
     ctx.restore();
-}
-
-function drawCircle3(){
-    ctx2.save();
-    ctx2.font = "80px Arial";
-    ctx2.translate(200, 200);
-    ctx2.rotate(circleAngle1);
-    ctx2.translate(-100, -100);
-    ctx2.lineWidth = 1;
-    ctx2.beginPath();
-    ctx2.arc(100, 100, 175, 0, 2*Math.PI, false);
-    ctx2.fillStyle=availableColors[0];
-    ctx2.fillText(shown[0], 0, 35);
-    ctx2.fillStyle=availableColors[1];
-    ctx2.fillText(shown[1], 130, 35);
-    ctx2.fillStyle=availableColors[2];
-    ctx2.fillText(shown[2], -30, 125);
-    ctx2.fillStyle=availableColors[3];
-    ctx2.fillText(shown[3], 70, 125);
-    ctx2.fillStyle=availableColors[4];
-    ctx2.fillText(shown[4], 170, 125);
-    ctx2.fillStyle=availableColors[5];
-    ctx2.fillText(shown[5], 0, 210);
-    ctx2.fillStyle=availableColors[6];
-    ctx2.fillText(shown[6], 130, 210);
-    ctx2.stroke();
-    ctx2.restore();
-}
-
-function drawCircle4(){
-    
-    // puts characters in the second circle and rotates them
-    ctx2.save();
-    ctx2.font = "80px Arial";
-    ctx2.translate(200, 600);
-    ctx2.rotate(circleAngle2);
-    ctx2.translate(-100, -100);
-    ctx2.lineWidth = 1;
-    ctx2.beginPath();
-    ctx2.arc(100, 100, 175, 0, 2*Math.PI, false);
-    ctx2.fillStyle=availableColors[7];
-    ctx2.fillText(shown[7], 0, 35);
-    ctx2.fillStyle=availableColors[8];
-    ctx2.fillText(shown[8], 130, 35);
-    ctx2.fillStyle=availableColors[9];
-    ctx2.fillText(shown[9], -30, 125);
-    ctx2.fillStyle=availableColors[10];
-    ctx2.fillText(shown[10], 70, 125);
-    ctx2.fillStyle=availableColors[11];
-    ctx2.fillText(shown[11], 170, 125);
-    ctx2.fillStyle=availableColors[12];
-    ctx2.fillText(shown[12], 0, 210);
-    ctx2.fillStyle=availableColors[13];
-    ctx2.fillText(shown[13], 130, 210);
-    ctx2.stroke();
-    ctx2.restore();
 }
 
 function start() {
