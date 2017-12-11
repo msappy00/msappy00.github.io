@@ -3,8 +3,8 @@
 var vocArray = [""];
 
 // sets the variables 'w * h are original, p * q are affected by user
-var w = 1000,
-h = 750,
+var w = 800,
+h = 600,
 p,
 q,
 points,

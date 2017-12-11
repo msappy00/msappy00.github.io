@@ -1,5 +1,5 @@
 // Inits
-window.onload = function init() {
+function init() {
     var letterArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     var game = new GF();
     
@@ -16,8 +16,7 @@ window.onload = function init() {
     
     shuffleLetterArray(letterArray);
     game.start();
-};
-
+}
 
 // GAME FRAMEWORK STARTS HERE
 var GF = function(){
@@ -36,7 +35,7 @@ var GF = function(){
     var gameStates = {
     gameRunning: 0,
     gameOver: 1
-    };
+    }
     
     var currentGameState = gameStates.gameRunning;
     
@@ -53,10 +52,9 @@ var GF = function(){
             document.getElementById("letterAudio").innerHTML = '<audio controls autoplay><source src="alphabet/audio/'+targetLetter+'.mp3" type="audio/mp3" /></audio>';
             return letterArray;
         }
-    };
+    }
     
     shuffleLetterArray(letterArray);
-    
     
     // vars for handling inputs
     var inputStates = {};
@@ -73,7 +71,7 @@ var GF = function(){
     x:w/2 - 50,
     y:h/2 - 50,
     boundingCircleRadius: 75
-    };
+    }
     
     // clears the canvas content
     function clearCanvas() {
@@ -134,7 +132,7 @@ var GF = function(){
             ctx.arc(this.x, this.y, this.boundingCircleRadius, 0, 2*Math.PI);
             ctx.fill();
             ctx.stroke();
-        };
+        }
         
         targetArray[0] = new target(220, 140);
         targetArray[1] = new target(400, 90);
@@ -158,7 +156,7 @@ var GF = function(){
         ctx.fillText(letterArray[7], 580, 495);
         
         ctx.restore();
-    };
+    }
     
     var mainLoop = function(){
         
@@ -192,7 +190,7 @@ var GF = function(){
                         if (currentScore < 10 && currentScore > -3) {
                             shuffleLetterArray(letterArray);}
                     }
-                };
+                }
                 
                 // draw text
                 drawLetters();
@@ -222,7 +220,7 @@ var GF = function(){
                 }
                 break;
         }
-    };
+    }
     
     function displayScore() {
         ctx.save();
@@ -314,10 +312,10 @@ var GF = function(){
         
         // start the animation
         requestAnimationFrame(mainLoop);
-    };
+    }
     
     //our GameFramework returns a public API visible from outside its scope
     return {
     start: start
-    };
-};
+    }
+}
