@@ -3,27 +3,21 @@
 <head>
     <meta charset="utf-8"/>
 	<title>Blocked</title>
-	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/w3.css"/>
 	<style>
 	body {
         padding-top: 100px;
     }
-    canvas{
-        display: block;
-        max-width: 100%;
-    }
-    .vcenter {
-        display: inline-block;
-        vertical-align: middle;
-        float: none;
+    canvas {
+        position:relative;
+        left:0px;
+        top:0px;
     }
     </style>
     
     <noscript>JavaScript is disabled.</noscript>
     
     <script>
-        <!--
-        
         var vocSet = "";
         
         // Randomize array element order in-place
@@ -46,59 +40,50 @@
     var array_i = 0;
     
     function vArraySlide() {
+        points = 6;
+        blockCount = 26;
         shuffleArray(blockArray);
         array_i++;
         if (array_i > (vocArray.length - 1)) {
             array_i = 0;
         }
-        points = 5;
-        blockCount = 25;
+        document.getElementById("points").innerHTML = "Points: " + points;
         unBlock();
     }
     
     </script>
 	
 </head>
-<body onload="init()">
-    
+<body onload="init();">
     <script src="js/blocked.js"></script>
-    <nav class="navbar navbar-default navbar-fixed-top hidden-print">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a href="#home" class="navbar-brand"><img width="20" height="20" src="images/star-yellow.svg" alt="yellow star" /></a>
+    
+    <!--#nav bar-->
+    <div class="w3-top">
+        <div class="w3-bar w3-blue">
+            <a href="#home" class="w3-bar-item w3-button"><img width="20" height="20" src="images/star-yellow.svg" alt="yellow star" /></a>
+            <a href="#home" class="w3-bar-item w3-button">Blocked</a>
+            <div class="w3-dropdown-hover">
+                <button class="w3-button">Level</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <button class="w3-bar-item w3-button" onclick="setVoc('AnimalsB3U1')">Animals (B3U1)</button>
+                    <button class="w3-bar-item w3-button" onclick="setVoc('PlacesB6U5')">Places (B6U5)</button>
+                </div>
             </div>
-            <div class="collapse navbar-collapse" id="hamburger-navigation" data-toggle="dropdown">
-                <ul class="nav navbar-nav" role="menu">
-                    <li><a href="#home" data-toggle="tab" onclick="clearLevel()">Home</a><span class="sr-only">home</span></li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" role="button" data-toggle="dropdown">Vocab Sets<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#home" data-toggle="tab" onclick="setVoc('AnimalsB3U1')">Animals (B3U1)</a></li>
-                            
-                        </ul>
-                    </li><!-- /#Vocab Set dropdown-->
-                    
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" data-toggle="tab" id="day"></a><span class="sr-only">day</span></li>
-                </ul>
+            <div><a href="#" class="w3-bar-item w3-button w3-right" id="day">day</a></div>
+        </div>
+    </div><!--/#nav bar-->
+
+    <div class="w3-row">
+        <div class="w3-col w3-container" style="width:75%">
+            <div id="canvasesdiv">
+                <canvas id="cv" width="1000" height="750"></canvas>
             </div>
         </div>
-    </nav>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 vcenter">
-                <canvas class="hidden-xs; img-responsive vcenter" id="cv" width="1000" height="750" style="outline:none">
-                    Your browser does not support the canvas tag or JavaScript is not enabled.
-                </canvas>
-            </div>
-            <div class="col-md-2 vcenter">
-                <h2 id="vocSet"></h2><br />
-                <button onClick="unBlock()" id="unBlockButton">Unblock</button><br />
-                <h2 id="points"></h2><br />
-                <button onClick="vArraySlide()" id="nextButton">Next</button>
-            </div>
+        <div class="w3-col w3-container w3-left" style="width:25%">
+            <h2 id="vocSet"></h2><br />
+            <button class="w3-button w3-blue w3-round" onClick="unBlock();" id="unBlockButton">Unblock</button><br />
+            <h2 id="points"></h2><br />
+            <button class="w3-button w3-blue w3-round" onClick="vArraySlide();" id="nextButton">Next</button>
         </div>
     </div>
         
@@ -130,8 +115,6 @@
         }
     document.getElementById("day").innerHTML = day;
     </script>
-    <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
 </body>
 </html>
