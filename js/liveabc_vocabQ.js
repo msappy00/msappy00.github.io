@@ -1,6 +1,5 @@
 function clear_number() {
     array = [];
-    document.getElementById("bookUnit").innerHTML = " ";
     document.getElementById("array0").innerHTML = " ";
     document.getElementById("array1").innerHTML = " ";
     document.getElementById("array2").innerHTML = " ";
@@ -17,7 +16,6 @@ function setQuiz(userInput){
     
     currentUnit = userInput;
     
-    document.getElementById("bookUnit").innerHTML = level_id + " " + currentUnit; //adds the table heading book number & unit number.
     document.getElementById("levelId").innerHTML = level_id + " " + userInput;
     var currentInput = level_id + userInput;
     
