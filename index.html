@@ -441,21 +441,19 @@ function setCss(tabName, userInput){
     </div><!-- /#home_tab -->
     
     <div id="vocab_tab" class="w3-container tab-content" style="display:none">
-        <div class="w3-row">
-            <div class="w3-container w3-cell">
-                <figure id="figaudio1">
-                    <div id="current_vocab"></div>
-                    <figcaption id="currentWord"></figcaption>
-                    <div class="w3-center">
-                        <button class="w3-button w3-blue w3-round" onClick="speak(array[array_i]);" id="focusButton" class="w3-center">&#9658;</button>
-                    </div>
-                </figure>
-            </div>
-            <div class="w3-container w3-cell w3-cell-middle">
-                <input class="w3-input w3-border w3-round" type="text" id="spellCheck" autocomplete="off" autofocus style="font-size: 50px" placeholder="Spell It!" required/>
-                <h3 id="vocab_links"></h3>
-                <div id="vocab_lesson"></div>
-            </div>
+        <div class="w3-row w3-container w3-cell w3-half w3-center">
+            <figure id="figaudio1">
+                <div id="current_vocab"></div>
+                <figcaption id="currentWord"></figcaption>
+                <div>
+                    <button class="w3-button w3-blue w3-round" onClick="speak(array[array_i]);" id="focusButton">&#9658;</button>
+                </div>
+            </figure>
+        </div>
+        <div class="w3-row w3-container w3-cell w3-half">
+            <input class="w3-input w3-border w3-round" type="text" id="spellCheck" autocomplete="off" autofocus style="font-size: 50px" placeholder="Spell It!" required/>
+            <h3 id="vocab_links"></h3>
+            <div id="vocab_lesson"></div>
         </div>
     </div><!-- /#vocab_tab -->
         
