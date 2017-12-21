@@ -551,7 +551,66 @@ function setVocab(userInput){
             vocabLesson = "";
         }
     }
-    
+    else if (level_id == "Level 9") {
+        array = ["biscuit", "cupboard", "lemonade", "sweets", "ketchup", "butter", "peanut butter", "cheese", "boiling", "over", "shiny", "gold", "horizon", "postcard", "plum", "juicy", "air", "fresh", "kind", "deep", "breath", "fantastic", "feel", "look", "friendly", "sound", "night market", "try", "delicious", "taste", "salty", "spicy", "interesting", "sweet", "stinky", "famous", "terrible", "inside", "horror", "furry", "move", "fool", "eyeshade", "strange", "disgusting", "joke", "sour", "bitter", "answer", "durian", "idea", "comedy", "relaxed", "horror movie", "hate", "bloody", "scary", "nightmare", "romantic movie", "actor", "actress", "adventure movie", "search", "animated movie", "wonderland", "ticket", "starving", "whatever", "pork", "beef", "seafood", "allergic", "troublesome", "pasta", "order", "curry", "rice", "iced", "black tea", "sugar", "dessert", "twins", "elementary school", "pajama", "kimchi", "character", "different", "fitting room", "trick", "clerk", "praise", "adorable", "giggle", "talent", "contest", "musical instrument", "recorder", "tambourine", "triangle", "champion", "second place", "third place", "first place", "excellent", "area", "ride", "shout", "scream", "if", "challenge", "choice", "brave", "pony", "food court", "cafeteria", "fast food", "still", "join", "notice", "sale", "dozen", "congratulations", "draw", "lucky", "wonderful", "squeeze", "refrigerator", "find out", "already"];
+        if (userInput == "Unit 1") {
+            array = array.slice(0,8);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 2") {
+            array = array.slice(8,21);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 3") {
+            array = array.slice(21,37);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Review 1") {
+            array = array.slice(0,37);
+            links=[''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 4") {
+            array = array.slice(37,53);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 5") {
+            array = array.slice(53,68);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 6") {
+            array = array.slice(68,80);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Review 3") {
+            array = array.slice(37,80);
+            links=[''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 7") {
+            array = array.slice(80,91);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 8") {
+            array = array.slice(91,105);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 9") {
+            array = array.slice(-11);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Review 3") {
+            array = array.slice(80);
+            links=[''];
+            vocabLesson = "";
+        } else if (userInput == "Final Review") {
+            array = array;
+            links = [''];
+            vocabLesson = "";
+        } else {
+            array = ["blank", "blank"];
+            links = [''];
+            vocabLesson = "";
+        }
+    }
     else {
         array = ["blank", "blank"];
         links = [''];
@@ -561,8 +620,7 @@ function setVocab(userInput){
     shuffleArray(array);
     document.getElementById("vocab_links").innerHTML = links;
     document.getElementById("vocab_lesson").innerHTML = vocabLesson;
-    document.getElementById("current_vocab").innerHTML =  '<img src="'+level_id+'/images/'+array[array_i]+'.png" onClick="vArraySlide()" />';
-    document.getElementById("vocabAudio").innerHTML = '<audio controls autoplay><source src="'+level_id+'/audio/'+array[array_i]+'.mp3" type="audio/mp3" /></audio>';
+    document.getElementById("current_vocab").innerHTML =  '<img src="'+level_id+'/images/'+array[array_i]+'.png" onClick="vArraySlide()" class="w3-image" />';
     if (level_id == "Starter") {
         document.getElementById("currentWord").innerHTML = '<table align="center"><tr><td align="right" style="font-size:xx-large; color:red">'+array[array_i].slice(0,1)+'</td><td align="right" style="font-size:xx-large; color:black">'+array[array_i].slice(1)+'</td></tr></table>';
         document.getElementById("spellCheck").pattern = array[array_i].slice(0,1);

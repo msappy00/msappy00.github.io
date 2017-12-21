@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<script>
+ speechSynthesis.onvoiceschanged = function () {
+     // get the voice
+     var voices = speechSynthesis.getVoices();
+     var derangedVoice = voices.filter(function (voice) {
+                                       return voice.name == 'Deranged';
+    })[0];
+
+    // create the uttrance
+    var u = new SpeechSynthesisUtterance();
+    u.voice = derangedVoice;
+    u.text = 'Jon likes Iced Tea!';
+
+    // utter the utterance
+    speechSynthesis.speak(u);
+ }
+
+// say a message
+function speak(text, callback) {
+    var u = new SpeechSynthesisUtterance();
+    u.text = text;
+    u.lang = 'en-US';
+    
+    u.onend = function () {
+        if (callback) {
+            callback();
+        }
+    };
+    
+    u.onerror = function (e) {
+        if (callback) {
+            callback(e);
+        }
+    };
+    
+    speechSynthesis.speak(u);
+}
+
+speechSynthesis.onvoiceschanged();
+
+</script>
+<body>
+<p>Jon likes Iced Tea!</p>
+</html>

@@ -141,6 +141,27 @@ var cArray_i = 0;
 var pArray_i = 0;
 var qArray_i = 0;
 
+// say a message
+function speak(text, callback) {
+    var u = new SpeechSynthesisUtterance();
+    u.text = text;
+    u.lang = 'en-US';
+    
+    u.onend = function () {
+        if (callback) {
+            callback();
+        }
+    };
+    
+    u.onerror = function (e) {
+        if (callback) {
+            callback(e);
+        }
+    };
+    
+    speechSynthesis.speak(u);
+}
+
 function vArraySlide() {
     if (spellCheck.value === spellCheck.pattern) {
         spellCheck.value = "";
@@ -148,14 +169,15 @@ function vArraySlide() {
         if (array_i > (array.length - 1)) {
             array_i = 0;
         }
-        current_vocab.innerHTML =  '<img src="'+level_id+'/images/'+array[array_i]+'.png" onclick="vArraySlide()" />';
+        current_vocab.innerHTML =  '<img src="'+level_id+'/images/'+array[array_i]+'.png" onclick="vArraySlide()" class="w3-image" />';
         if (level_id == "Starter") {
             currentWord.innerHTML = '<table align="center"><tr><td align="right" style="font-size:xx-large; color:red">'+array[array_i].slice(0,1)+'</td><td align="right" style="font-size:xx-large; color:black">'+array[array_i].slice(1)+'</td></tr></table>';
             spellCheck.pattern = array[array_i].slice(0,1);
         } else {
             spellCheck.pattern = array[array_i];
         }
-        vocabAudio.innerHTML = '<audio controls autoplay><source src="'+level_id+'/audio/'+array[array_i]+'.mp3" type="audio/mp3" /></audio>';
+        speak(array[array_i]);
+        //vocabAudio.innerHTML = '<audio controls autoplay><source src="'+level_id+'/audio/'+array[array_i]+'.mp3" type="audio/mp3" /></audio>';
         spellCheck.focus();
     }
 }
@@ -298,10 +320,10 @@ function setCss(tabName, userInput){
     <!--#nav bar-->
     <div class="w3-top">
         <div class="w3-bar w3-blue">
-            <a href="#home" class="w3-bar-item w3-button"><img width="20" height="20" src="images/star-yellow.svg" alt="yellow star" /></a>
+            <a href="#home" class="w3-bar-item w3-button w3-hide-small w3-hide-medium"><img width="20" height="20" src="images/star-yellow.svg" alt="yellow star" /></a>
             <a href="#home" class="w3-bar-item w3-button" onclick="setCss('home', 'null')">Home</a>
             <div class="w3-dropdown-hover">
-                <button class="w3-button">Games</button>
+                <button class="w3-button w3-hide-small w3-hide-medium">Games</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
                     <a href="dice.html" target="_blank" class="w3-bar-item w3-button">Dice</a>
                     <a href="craps.html" target="_blank" class="w3-bar-item w3-button">Craps</a>
@@ -320,78 +342,78 @@ function setCss(tabName, userInput){
             <div class="w3-dropdown-hover">
                 <button class="w3-button">Level</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <button class="w3-bar-item w3-button" onclick="setLevel('Starter')">Starter</button>
-                    <button class="w3-bar-item w3-button" onclick="setLevel('Level 1')">Level 1</button>
-                    <button class="w3-bar-item w3-button" onclick="setLevel('Level 2')">Level 2</button>
-                    <button class="w3-bar-item w3-button" onclick="setLevel('Level 3')">Level 3</button>
-                    <button class="w3-bar-item w3-button" onclick="setLevel('Level 4')">Level 4</button>
-                    <button class="w3-bar-item w3-button" onclick="setLevel('Level 5')">Level 5</button>
-                    <button class="w3-bar-item w3-button" onclick="setLevel('Level 6')">Level 6</button>
-                    <button class="w3-bar-item w3-button" onclick="setLevel('Level 7')">Level 7</button>
-                    <button class="w3-bar-item w3-button" onclick="setLevel('Level 8')">Level 8</button>
-                    <button class="w3-bar-item w3-button" onclick="setLevel('Level 9')">Level 9</button>
-                    <button class="w3-bar-item w3-button" onclick="setLevel('Level 10')">Level 10</button>
-                    <button class="w3-bar-item w3-button" onclick="setLevel('Level 11')">Level 11</button>
-                    <button class="w3-bar-item w3-button" onclick="setLevel('Level 12')">Level 12</button>
-                    <button class="w3-bar-item w3-button" onclick="clearLevel()">Clear</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setLevel('Starter')">Starter</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setLevel('Level 1')">Level 1</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setLevel('Level 2')">Level 2</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setLevel('Level 3')">Level 3</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setLevel('Level 4')">Level 4</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setLevel('Level 5')">Level 5</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setLevel('Level 6')">Level 6</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setLevel('Level 7')">Level 7</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setLevel('Level 8')">Level 8</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setLevel('Level 9')">Level 9</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setLevel('Level 10')">Level 10</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setLevel('Level 11')">Level 11</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setLevel('Level 12')">Level 12</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="clearLevel()">Clear</button>
                 </div>
             </div>
             <div class="w3-dropdown-hover">
                 <button class="w3-button">Vocab</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <button class="w3-bar-item w3-button" onclick="setCss('vocab_tab', 'Unit 1')">Unit 1</button>
-                    <button class="w3-bar-item w3-button" onclick="setCss('vocab_tab', 'Unit 2')">Unit 2</button>
-                    <button class="w3-bar-item w3-button" onclick="setCss('vocab_tab', 'Unit 3')">Unit 3</button>
-                    <button class="w3-bar-item w3-button" onclick="setCss('vocab_tab', 'Review 1')">Review 1</button>
-                    <button class="w3-bar-item w3-button" onclick="setCss('vocab_tab', 'Unit 4')">Unit 4</button>
-                    <button class="w3-bar-item w3-button" onclick="setCss('vocab_tab', 'Unit 5')">Unit 5</button>
-                    <button class="w3-bar-item w3-button" onclick="setCss('vocab_tab', 'Unit 6')">Unit 6</button>
-                    <button class="w3-bar-item w3-button" onclick="setCss('vocab_tab', 'Review 2')">Review 2</button>
-                    <button class="w3-bar-item w3-button" onclick="setCss('vocab_tab', 'Unit 7')">Unit 7</button>
-                    <button class="w3-bar-item w3-button" onclick="setCss('vocab_tab', 'Unit 8')">Unit 8</button>
-                    <button class="w3-bar-item w3-button" onclick="setCss('vocab_tab', 'Unit 9')">Unit 9</button>
-                    <button class="w3-bar-item w3-button" onclick="setCss('vocab_tab', 'Review 3')">Review 3</button>
-                    <button class="w3-bar-item w3-button" onclick="setCss('vocab_tab', 'Final Review')">Final Review</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setCss('vocab_tab', 'Unit 1')">Unit 1</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setCss('vocab_tab', 'Unit 2')">Unit 2</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setCss('vocab_tab', 'Unit 3')">Unit 3</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setCss('vocab_tab', 'Review 1')">Review 1</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setCss('vocab_tab', 'Unit 4')">Unit 4</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setCss('vocab_tab', 'Unit 5')">Unit 5</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setCss('vocab_tab', 'Unit 6')">Unit 6</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setCss('vocab_tab', 'Review 2')">Review 2</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setCss('vocab_tab', 'Unit 7')">Unit 7</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setCss('vocab_tab', 'Unit 8')">Unit 8</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setCss('vocab_tab', 'Unit 9')">Unit 9</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setCss('vocab_tab', 'Review 3')">Review 3</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setCss('vocab_tab', 'Final Review')">Final Review</button>
                 </div>
             </div>
             <div class="w3-dropdown-hover">
                 <button class="w3-button">Grammar</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="#grammar_tab" class="w3-bar-item w3-button" onclick="setCss('grammar_tab', 'Unit 1')">Unit 1</a>
-                    <a href="#grammar_tab" class="w3-bar-item w3-button" onclick="setCss('grammar_tab', 'Unit 2')">Unit 2</a>
-                    <a href="#grammar_tab" class="w3-bar-item w3-button" onclick="setCss('grammar_tab', 'Unit 3')">Unit 3</a>
-                    <a href="#grammar_tab" class="w3-bar-item w3-button" onclick="setCss('grammar_tab', 'Review 1')">Review 1</a>
-                    <a href="#grammar_tab" class="w3-bar-item w3-button" onclick="setCss('grammar_tab', 'Unit 4')">Unit 4</a>
-                    <a href="#grammar_tab" class="w3-bar-item w3-button" onclick="setCss('grammar_tab', 'Unit 5')">Unit 5</a>
-                    <a href="#grammar_tab" class="w3-bar-item w3-button" onclick="setCss('grammar_tab', 'Unit 6')">Unit 6</a>
-                    <a href="#grammar_tab" class="w3-bar-item w3-button" onclick="setCss('grammar_tab', 'Review 2')">Review 2</a>
-                    <a href="#grammar_tab" class="w3-bar-item w3-button" onclick="setCss('grammar_tab', 'Unit 7')">Unit 7</a>
-                    <a href="#grammar_tab" class="w3-bar-item w3-button" onclick="setCss('grammar_tab', 'Unit 8')">Unit 8</a>
-                    <a href="#grammar_tab" class="w3-bar-item w3-button" onclick="setCss('grammar_tab', 'Unit 9')">Unit 9</a>
-                    <a href="#grammar_tab" class="w3-bar-item w3-button" onclick="setCss('grammar_tab', 'Review 3')">Review 3</a>
-                    <a href="#grammar_tab" class="w3-bar-item w3-button" onclick="setCss('grammar_tab', 'Final Review')">Final Review</a>
+                    <a href="#grammar_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('grammar_tab', 'Unit 1')">Unit 1</a>
+                    <a href="#grammar_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('grammar_tab', 'Unit 2')">Unit 2</a>
+                    <a href="#grammar_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('grammar_tab', 'Unit 3')">Unit 3</a>
+                    <a href="#grammar_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('grammar_tab', 'Review 1')">Review 1</a>
+                    <a href="#grammar_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('grammar_tab', 'Unit 4')">Unit 4</a>
+                    <a href="#grammar_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('grammar_tab', 'Unit 5')">Unit 5</a>
+                    <a href="#grammar_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('grammar_tab', 'Unit 6')">Unit 6</a>
+                    <a href="#grammar_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('grammar_tab', 'Review 2')">Review 2</a>
+                    <a href="#grammar_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('grammar_tab', 'Unit 7')">Unit 7</a>
+                    <a href="#grammar_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('grammar_tab', 'Unit 8')">Unit 8</a>
+                    <a href="#grammar_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('grammar_tab', 'Unit 9')">Unit 9</a>
+                    <a href="#grammar_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('grammar_tab', 'Review 3')">Review 3</a>
+                    <a href="#grammar_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('grammar_tab', 'Final Review')">Final Review</a>
                 </div>
             </div>
             <div class="w3-dropdown-hover">
                 <button class="w3-button">Phonics</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="#phonics_tab" class="w3-bar-item w3-button" onclick="setCss('phonics_tab', 'Unit 1')">Unit 1</a>
-                    <a href="#phonics_tab" class="w3-bar-item w3-button" onclick="setCss('phonics_tab', 'Unit 2')">Unit 2</a>
-                    <a href="#phonics_tab" class="w3-bar-item w3-button" onclick="setCss('phonics_tab', 'Unit 3')">Unit 3</a>
-                    <a href="#phonics_tab" class="w3-bar-item w3-button" onclick="setCss('phonics_tab', 'Review 1')">Review 1</a>
-                    <a href="#phonics_tab" class="w3-bar-item w3-button" onclick="setCss('phonics_tab', 'Unit 4')">Unit 4</a>
-                    <a href="#phonics_tab" class="w3-bar-item w3-button" onclick="setCss('phonics_tab', 'Unit 5')">Unit 5</a>
-                    <a href="#phonics_tab" class="w3-bar-item w3-button" onclick="setCss('phonics_tab', 'Unit 6')">Unit 6</a>
-                    <a href="#phonics_tab" class="w3-bar-item w3-button" onclick="setCss('phonics_tab', 'Review 2')">Review 2</a>
-                    <a href="#phonics_tab" class="w3-bar-item w3-button" onclick="setCss('phonics_tab', 'Unit 7')">Unit 7</a>
-                    <a href="#phonics_tab" class="w3-bar-item w3-button" onclick="setCss('phonics_tab', 'Unit 8')">Unit 8</a>
-                    <a href="#phonics_tab" class="w3-bar-item w3-button" onclick="setCss('phonics_tab', 'Unit 9')">Unit 9</a>
-                    <a href="#phonics_tab" class="w3-bar-item w3-button" onclick="setCss('phonics_tab', 'Review 3')">Review 3</a>
-                    <a href="#phonics_tab" class="w3-bar-item w3-button" onclick="setCss('phonics_tab', 'Final Review')">Final Review</a>
+                    <a href="#phonics_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('phonics_tab', 'Unit 1')">Unit 1</a>
+                    <a href="#phonics_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('phonics_tab', 'Unit 2')">Unit 2</a>
+                    <a href="#phonics_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('phonics_tab', 'Unit 3')">Unit 3</a>
+                    <a href="#phonics_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('phonics_tab', 'Review 1')">Review 1</a>
+                    <a href="#phonics_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('phonics_tab', 'Unit 4')">Unit 4</a>
+                    <a href="#phonics_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('phonics_tab', 'Unit 5')">Unit 5</a>
+                    <a href="#phonics_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('phonics_tab', 'Unit 6')">Unit 6</a>
+                    <a href="#phonics_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('phonics_tab', 'Review 2')">Review 2</a>
+                    <a href="#phonics_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('phonics_tab', 'Unit 7')">Unit 7</a>
+                    <a href="#phonics_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('phonics_tab', 'Unit 8')">Unit 8</a>
+                    <a href="#phonics_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('phonics_tab', 'Unit 9')">Unit 9</a>
+                    <a href="#phonics_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('phonics_tab', 'Review 3')">Review 3</a>
+                    <a href="#phonics_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('phonics_tab', 'Final Review')">Final Review</a>
                 </div>
             </div>
             <div class="w3-dropdown-hover">
-                <button class="w3-button">Vocab Quiz</button>
+                <button class="w3-button w3-hide-small w3-hide-medium">Vocab Quiz</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
                     <a href="#quizMaker_tab" class="w3-bar-item w3-button" onclick="setCss('quizMaker_tab', 'Unit 1')">Unit 1</a>
                     <a href="#quizMaker_tab" class="w3-bar-item w3-button" onclick="setCss('quizMaker_tab', 'Unit 2')">Unit 2</a>
@@ -405,7 +427,7 @@ function setCss(tabName, userInput){
                     <a href="#quizMaker_tab" class="w3-bar-item w3-button" onclick="clear_number()">Clear</a>
                 </div>
             </div>
-                <a href="#" class="w3-bar-item w3-button w3-right" id="day">day</a>
+                <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-right" id="day">day</a>
         </div>
     </div><!--/#nav bar-->
     
@@ -419,17 +441,21 @@ function setCss(tabName, userInput){
     </div><!-- /#home_tab -->
     
     <div id="vocab_tab" class="w3-container tab-content" style="display:none">
-        <div class="w3-container w3-cell">
-            <figure id="figaudio1">
-                <div id="current_vocab"></div>
-                <figcaption id="currentWord"></figcaption>
-                <div id="vocabAudio" class="w3-center"></div>
-            </figure>
-        </div>
-        <div class="w3-container w3-cell w3-cell-middle">
-            <input class="w3-input w3-border w3-round" type="text" id="spellCheck" autocomplete="off" autofocus style="font-size: 50px" placeholder="Spell It!" required/>
-            <h3 id="vocab_links"></h3>
-            <div id="vocab_lesson"></div>
+        <div class="w3-row">
+            <div class="w3-container w3-cell">
+                <figure id="figaudio1">
+                    <div id="current_vocab"></div>
+                    <figcaption id="currentWord"></figcaption>
+                    <div class="w3-center">
+                        <button class="w3-button w3-blue w3-round" onClick="speak(array[array_i]);" id="focusButton" class="w3-center">&#9658;</button>
+                    </div>
+                </figure>
+            </div>
+            <div class="w3-container w3-cell w3-cell-middle">
+                <input class="w3-input w3-border w3-round" type="text" id="spellCheck" autocomplete="off" autofocus style="font-size: 50px" placeholder="Spell It!" required/>
+                <h3 id="vocab_links"></h3>
+                <div id="vocab_lesson"></div>
+            </div>
         </div>
     </div><!-- /#vocab_tab -->
         
