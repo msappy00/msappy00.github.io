@@ -1,7 +1,11 @@
-<html>
+<!doctype html>
+<html lang="en">
     <head>
         <title> Melon Drop </title>
-        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                <link rel="stylesheet" href="css/w3.css"/>
         <style>
             body {
                 padding-top: 100px;
@@ -20,14 +24,11 @@
     </head>
     
     <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-4 vcenter">
-                    <canvas class="vcenter" id="myCanvas" width=443 height=332 style="background:url('/images/boardwalk.png'); background-size: cover">
-                    </canvas>
-                </div>
+        <body>
+            <div class="w3-container w3-row w3-center">
+                <canvas class="vcenter" id="myCanvas" width=443 height=332 style="background:url('/images/boardwalk.png'); background-size: cover">
+                </canvas>
             </div>
-        </div>
         <script>
             
             var ctx = myCanvas.getContext("2d");
