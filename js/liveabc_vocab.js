@@ -611,6 +611,186 @@ function setVocab(userInput){
             vocabLesson = "";
         }
     }
+    else if (level_id == "Level 10") {
+        array = ["dizzy", "headache", "sore throat", "fever", "cough", "sneeze", "runny nose", "flu", "serious", "stomachache", "diarrhea", "vomit", "Japanese", "sushi", "sashimi", "newborn", "hold", "even", "care", "family", "lonely", "upset", "of course", "spend", "take care of", "tickle", "together", "weight", "lose", "enough", "need", "tiring", "boring", "interesting", "interested", "exciting", "sport", "surprising", "surprised", "favorite", "news", "hit", "get on", "wait for", "hurt", "get out of", "run after", "police", "look for", "get into", "get off", "look after", "look up", "word", "dictionary", "take off", "put on", "turn on", "flashlight", "take out", "turn off", "put down", "pick up", "put away", "clean up", "have", "dusty", "let", "housework", "make", "sweater", "messy", "iron", "knock", "turn into", "prince", "national", "quickly", "information staff", "rule", "traditional", "clearly", "loudly", "area", "softly", "run into", "repeat", "important", "well", "as soon as", "only", "thoughtful", "asleep", "move", "pull", "sleeve", "save", "become", "die", "believe", "true", "place", "dump", "happen", "owner", "faint", "ground", "mend", "clay", "unique"];
+        if (userInput == "Unit 1") {
+            array = array.slice(0,15);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 2") {
+            array = array.slice(15,27);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 3") {
+            array = array.slice(27,40);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Review 1") {
+            array = array.slice(0,40);
+            links=[''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 4") {
+            array = array.slice(40,52);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 5") {
+            array = array.slice(52,65);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 6") {
+            array = array.slice(65,76);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Review 3") {
+            array = array.slice(40,76);
+            links=[''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 7") {
+            array = array.slice(76,89);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 8") {
+            array = array.slice(89,101);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 9") {
+            array = array.slice(-9);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Review 3") {
+            array = array.slice(76);
+            links=[''];
+            vocabLesson = "";
+        } else if (userInput == "Final Review") {
+            array = array;
+            links = [''];
+            vocabLesson = "";
+        } else {
+            array = ["blank", "blank"];
+            links = [''];
+            vocabLesson = "";
+        }
+    }
+    else if (level_id == "Level 11") {
+        array = ["village", "grow", "neighbor", "life", "beginning", "crowded", "apartment", "start", "elevator", "stairway", "familiar", "peaceful", "decide", "seesaw", "slide", "swing", "monkey bars", "practice", "tremble", "jungle gym", "borrow", "return", "hope", "finish", "bother", "across", "skywalk", "crosswalk", "sidewalk", "pedestrian", "helmet", "unforgivable", "buckle", "seat belt", "shortcut", "illegal", "calm", "exhibition", "discount", "yet", "author", "sign", "arrive", "signature", "also", "subscribe", "weekly", "semester", "receive", "package", "instant noodles", "homesick", "homesickness", "relieve", "New York", "college", "whenever", "born", "maid", "response", "examine", "cure", "deaf", "blind", "ill-tempered", "smash", "monster", "fork", "punish", "led", "lifelong", "burnt", "frozen", "put out", "wounded", "fried", "boiled", "homeless", "secondhand", "used", "buyer", "satisfied", "spoiled", "faucet", "leak", "spend", "introduce", "neighborhood", "drop", "repair", "stew", "hide", "cupboard", "handmade", "antique", "budget", "jewelry box", "flea market", "stuff", "frame", "perfect"];
+        if (userInput == "Unit 1") {
+            array = array.slice(0,13);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 2") {
+            array = array.slice(13,25);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 3") {
+            array = array.slice(25,37);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Review 1") {
+            array = array.slice(0,37);
+            links=[''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 4") {
+            array = array.slice(37,47);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 5") {
+            array = array.slice(47,57);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 6") {
+            array = array.slice(57,71);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Review 3") {
+            array = array.slice(37,71);
+            links=[''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 7") {
+            array = array.slice(71,83);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 8") {
+            array = array.slice(83,92);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 9") {
+            array = array.slice(-9);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Review 3") {
+            array = array.slice(83);
+            links=[''];
+            vocabLesson = "";
+        } else if (userInput == "Final Review") {
+            array = array;
+            links = [''];
+            vocabLesson = "";
+        } else {
+            array = ["blank", "blank"];
+            links = [''];
+            vocabLesson = "";
+        }
+    }
+    else if (level_id == "Level 12") {
+        array = ["yourself", "myself", "classmates", "ourselves", "themselves", "trust", "yourselves", "himself", "herself", "carry", "almost", "blood type", "article", "personality", "stupid", "confident", "outgoing", "leader", "group", "correct", "patient", "responsible", "creative", "flexible", "calm", "fair", "consider", "faithful", "inconvenient", "besides", "guide", "train", "priest", "successfully", "helper", "rare", "disturb", "feed", "provide", "environment", "partner", "desktop", "monitor", "mouse", "keyboard", "assemble", "professional", "switch", "power", "button", "plug", "socket", "genius", "planetarium", "display", "free", "space", "shuttle", "astronaut", "search", "accident", "protect", "danger", "earthquake", "occur", "building", "squat", "firm", "furniture", "cover", "crawl", "exit", "trap", "emergency", "arm", "burn", "flush", "soak", "job", "toilsome", "high heels", "salary", "difference", "service", "passenger", "complain", "cram school", "lesson", "senior high school", "necessary", "high jump", "light", "diet", "healthy", "habit", "grateful", "cockroach", "wiper", "wipe", "broom", "dustpan", "mood", "inventor", "invent", "magical", "pill", "wing", "incredible", "cape", "invisible", "continue", "owner", "shop", "mint", "cranberry", "flavor", "imagine", "customer"];
+        if (userInput == "Unit 1") {
+            array = array.slice(0,11);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 2") {
+            array = array.slice(11,26);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 3") {
+            array = array.slice(26,41);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Review 1") {
+            array = array.slice(0,41);
+            links=[''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 4") {
+            array = array.slice(41,53);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 5") {
+            array = array.slice(53,60);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 6") {
+            array = array.slice(60,78);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Review 3") {
+            array = array.slice(41,78);
+            links=[''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 7") {
+            array = array.slice(78,90);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 8") {
+            array = array.slice(89,102);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Unit 9") {
+            array = array.slice(-16);
+            links = [''];
+            vocabLesson = "";
+        } else if (userInput == "Review 3") {
+            array = array.slice(78);
+            links=[''];
+            vocabLesson = "";
+        } else if (userInput == "Final Review") {
+            array = array;
+            links = [''];
+            vocabLesson = "";
+        } else {
+            array = ["blank", "blank"];
+            links = [''];
+            vocabLesson = "";
+        }
+    }
     else {
         array = ["blank", "blank"];
         links = [''];
@@ -620,7 +800,10 @@ function setVocab(userInput){
     shuffleArray(array);
     document.getElementById("vocab_links").innerHTML = links;
     document.getElementById("vocab_lesson").innerHTML = vocabLesson;
-    document.getElementById("current_vocab").innerHTML =  '<img src="'+level_id+'/images/'+array[array_i]+'.png" onClick="vArraySlide()" class="w3-image" />';
+    if (level_id == "Level 9" || level_id == "Level 10" || level_id == "Level 11" || level_id == "Level 12") {
+        document.getElementById("current_vocab").innerHTML = '<button class="w3-button w3-white w3-round" onClick="vArraySlide()" class="w3-image">NEXT</button>';
+    }
+    else document.getElementById("current_vocab").innerHTML =  '<img src="'+level_id+'/images/'+array[array_i]+'.png" onClick="vArraySlide()" class="w3-image" />';
     if (level_id == "Starter") {
         document.getElementById("currentWord").innerHTML = '<table align="center"><tr><td align="right" style="font-size:xx-large; color:red">'+array[array_i].slice(0,1)+'</td><td align="right" style="font-size:xx-large; color:black">'+array[array_i].slice(1)+'</td></tr></table>';
         document.getElementById("spellCheck").pattern = array[array_i].slice(0,1);

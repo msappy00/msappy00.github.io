@@ -234,13 +234,13 @@ function setQuiz(userInput){
     } else if (currentInput == "Level 11Unit 8") {
         array = ["faucet", "leak", "spend", "introduce", "neighborhood", "drop", "repair", "stew", "hide"];
     } else if (currentInput == "Level 11Unit 9") {
-        array = ["cupboard", "handmade", "antique, budget", "jewelry box", "flea market", "stuff", "frame", "perfect"];
+        array = ["cupboard", "handmade", "antique", "budget", "jewelry box", "flea market", "stuff", "frame", "perfect"];
     } else if (currentInput == "Level 12Unit 1") {
         array = ["yourself", "myself", "classmates", "ourselves", "themselves", "trust", "yourselves", "himself", "herself", "carry", "almost"];
     } else if (currentInput == "Level 12Unit 2") {
         array = ["blood type", "article", "personality", "stupid", "confident", "outgoing", "leader", "group", "correct", "patient", "responsible", "creative", "flexible", "calm", "fair"];
     } else if (currentInput == "Level 12Unit 3") {
-        array = ["consider", "faithful", "", "inconvenient", "besides", "guide", "train", "priest", "successfully", "helper", "", "rare", "disturb", "feed", "provide", "environment", "partner"];
+        array = ["consider", "faithful", "inconvenient", "besides", "guide", "train", "priest", "successfully", "helper", "rare", "disturb", "feed", "provide", "environment", "partner"];
     } else if (currentInput == "Level 12Unit 4") {
         array = ["desktop", "monitor", "mouse", "keyboard", "assemble", "professional", "switch", "power", "button", "plug", "socket", "genius"];
     } else if (currentInput == "Level 12Unit 5") {

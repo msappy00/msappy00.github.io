@@ -6,11 +6,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="css/w3.css"/>
-        <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
     <style>
-        html, body, h1, h2, h3, h4, h5, h6 {
-            font-family: 'Gloria Hallelujah', cursive;
-        }
         body {
             margin: 0 !important;
             padding: 0 !important;
@@ -169,7 +165,10 @@ function vArraySlide() {
         if (array_i > (array.length - 1)) {
             array_i = 0;
         }
-        current_vocab.innerHTML =  '<img src="'+level_id+'/images/'+array[array_i]+'.png" onclick="vArraySlide()" class="w3-image" />';
+        if (level_id == "Level 9" || level_id == "Level 10" || level_id == "Level 11" || level_id == "Level 12") {
+            document.getElementById("current_vocab").innerHTML = '<button class="w3-button w3-white w3-round" onClick="vArraySlide()" class="w3-image">NEXT</button>';
+        }
+        else document.getElementById("current_vocab").innerHTML =  '<img src="'+level_id+'/images/'+array[array_i]+'.png" onClick="vArraySlide()" class="w3-image" />';
         if (level_id == "Starter") {
             currentWord.innerHTML = '<table align="center"><tr><td align="right" style="font-size:xx-large; color:red">'+array[array_i].slice(0,1)+'</td><td align="right" style="font-size:xx-large; color:black">'+array[array_i].slice(1)+'</td></tr></table>';
             spellCheck.pattern = array[array_i].slice(0,1);
@@ -377,7 +376,7 @@ function setCss(tabName, userInput){
                 </div>
             </div>
             <div class="w3-dropdown-hover">
-                <button class="w3-button">Grammar</button>
+                <button class="w3-button w3-hide-small w3-hide-medium">Grammar</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
                     <a href="#grammar_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('grammar_tab', 'Unit 1')">Unit 1</a>
                     <a href="#grammar_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('grammar_tab', 'Unit 2')">Unit 2</a>
@@ -395,7 +394,7 @@ function setCss(tabName, userInput){
                 </div>
             </div>
             <div class="w3-dropdown-hover">
-                <button class="w3-button">Phonics</button>
+                <button class="w3-button w3-hide-small w3-hide-medium">Phonics</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
                     <a href="#phonics_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('phonics_tab', 'Unit 1')">Unit 1</a>
                     <a href="#phonics_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('phonics_tab', 'Unit 2')">Unit 2</a>
@@ -435,8 +434,8 @@ function setCss(tabName, userInput){
         <h2 id="levelId" class="w3-cell"></h2>
     </div>
 
-    <div id="home" class="w3-container tab-content" style="display:block">
-        <img id="logo" src="images/mega_tree.png" alt="mega">
+    <div id="home" class="w3-container w3-row tab-content" style="display:block">
+        <img id="logo" src="images/mega_tree.png" alt="mega" class="w3-image">
             <footer id="foot01"></footer>
     </div><!-- /#home_tab -->
     
