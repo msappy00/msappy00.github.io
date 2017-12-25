@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import sys, vlc, random
+import sys, os, vlc, random
 from os import system
 
 def review(vocabList):
@@ -8,15 +8,24 @@ def review(vocabList):
     i = 0
     userInput = ''
     while(len(vocabList)>0):
-        sys.stdout.write('\n'*100)
+        os.system('clear')
         p = vlc.MediaPlayer("Level " + level + "/audio/" + vocabList[0] + ".mp3")
         p.play()
-        progress(i, vocabLen, prefix='progess')
+        progress(i, vocabLen, prefix='Unit ' + unit)
         userInput = sys.stdin.readline().strip()
         if(userInput == vocabList[0]):
             vocabList.pop(0)
             i += 1
-    sys.stdout.write('\n'*100)
+
+    os.system('clear')
+    progress(i, vocabLen, prefix='Again?')
+    sys.stdout.write('(Y/n) ')
+    again = sys.stdin.readline().strip()
+    if (again == "y" or again == ""):
+        genList(level, unit)
+    else:         
+       quit()
+
 
 def progress(count, total, prefix=''):
     bar_len = 60
@@ -265,14 +274,10 @@ def genList(level, unit):
         vocabList = []
     review(vocabList)
 
+os.system('clear')
 sys.stdout.write('Which level?')
 level = sys.stdin.readline().strip()
 sys.stdout.write('Which unit?')
-unit = sys.stdin.readline().strip()    
+unit = sys.stdin.readline().strip()
 genList(level, unit)
-sys.stdout.write('Again? (Y/n) ')
-again = sys.stdin.readline().strip()
-if (again == "y" or again == ""):
-    genList(level, unit)
-else:         
-    sys.stdout.write('\n')
+
