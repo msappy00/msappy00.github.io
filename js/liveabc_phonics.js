@@ -157,7 +157,8 @@ function setPhonics(userInput){
             document.getElementById("pInstructions").innerHTML = "Listen and write 'ch' or 'sh'.";
             pArray = [({pattern:'ch', value:'bench'}), ({pattern:'ch', value:'cheese'}), ({pattern:'ch', value:'chess'}), ({pattern:'ch', value:'church'}), ({pattern:'sh', value:'shore'}), ({pattern:'sh', value:'shell'}), ({pattern:'sh', value:'shrimp', ({pattern:'sh', value:'shy'})];
         } else if (userInput == "Unit 2") {
-            pArray = ["blank", "blank"];
+            document.getElementById("pInstructions").innerHTML = "Listen and write 'soft' or 'hard'.";
+            pArray = [({pattern:'soft', value:'wreath'}), ({pattern:'soft', value:'thumb'}), ({pattern:'soft', value:'breath'}), ({pattern:'soft', value:'Earth'}), ({pattern:'hard', value:'leather'}), ({pattern:'hard', value:'feather'}), ({pattern:'hard', value:'gather'}), ({pattern:'hard', value:'father'})];
         } else if (userInput == "Unit 3") {
             pArray = ["blank", "blank"];
         } else if (userInput == "Review 1") {
