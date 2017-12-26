@@ -446,11 +446,11 @@ function setCss(tabName, userInput){
         <div class="w3-row w3-container w3-cell w3-half w3-center">
             <progress id="vocProg" value=(array_i/array.length*100) max="100"></progress>
             <figure id="figaudio1">
-                <div id="current_vocab"></div>
-                <figcaption id="currentWord"></figcaption>
-                <div>
+                <div id="current_vocab" class="w3-container w3-cell"></div>
+                <div class="w3-container w3-cell w3-cell-top">
                     <button class="w3-button w3-blue w3-round" onClick="speak(array[array_i]);" id="focusButton">&#9658;</button>
                 </div>
+                <figcaption id="currentWord"></figcaption>
             </figure>
         </div>
         <div class="w3-row w3-container w3-cell w3-half">
@@ -517,6 +517,9 @@ function setCss(tabName, userInput){
     <div id="phonics_tab" class="w3-container tab-content" style="display:none">
         <div class="w3-container w3-cell w3-cell-middle">
             <h3 id="pInstructions"></h3>
+        </div>
+        <div class="w3-container w3-cell w3-cell-middle">
+            <button class="w3-button w3-blue w3-round" onClick="speak(pArray[pArray_i].value);" id="focusButton">&#9658;</button>
         </div>
         <div class="w3-container w3-cell">
             <input class="w3-input w3-border w3-round" id="phonicsCheck" autocomplete="off" autofocus maxlength="3" style="font-size:50px" required/>

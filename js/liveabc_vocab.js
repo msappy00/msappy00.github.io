@@ -9,6 +9,7 @@ function clearUnit(){
 function setVocab(userInput){
     
     currentUnit = userInput;
+    array_i = 0;
     
     document.getElementById("levelId").innerHTML = level_id + " " + userInput;
     document.getElementById("spellCheck").value = "";
@@ -809,5 +810,9 @@ function setVocab(userInput){
         document.getElementById("spellCheck").pattern = array[array_i].slice(0,1);
     } else {
         document.getElementById("spellCheck").pattern = array[array_i];
+    }
+    document.getElementById("vocProg").value = array_i/array.length*100;
+    if (array[array_i] != "blank"){
+        speak(array[array_i]);
     }
 }
