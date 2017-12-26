@@ -160,7 +160,8 @@ function setPhonics(userInput){
             document.getElementById("pInstructions").innerHTML = "Listen and write 'soft' or 'hard'.";
             pArray = [({pattern:'soft', value:'wreath'}), ({pattern:'soft', value:'thumb'}), ({pattern:'soft', value:'breath'}), ({pattern:'soft', value:'Earth'}), ({pattern:'hard', value:'leather'}), ({pattern:'hard', value:'feather'}), ({pattern:'hard', value:'gather'}), ({pattern:'hard', value:'father'})];
         } else if (userInput == "Unit 3") {
-            pArray = ["blank", "blank"];
+            document.getElementById("pInstructions").innerHTML = "Listen and write 'gh' or 'ph'.";
+            pArray = [({pattern:'gh', value:'cough'}), ({pattern:'gh', value:'rough'}), ({pattern:'gh', value:'laugh'}), ({pattern:'gh', value:'tough'}), ({pattern:'ph', value:'phone'}), ({pattern:'ph', value:'photo'}), ({pattern:'ph', value:'pharmacy'}), ({pattern:'ph', value:'typhoon'})];
         } else if (userInput == "Review 1") {
             pArray = ["blank", "blank"];
         } else if (userInput == "Unit 4") {
