@@ -154,7 +154,8 @@ function setPhonics(userInput){
         links = [""];
         phonicsLesson = "";
         if (userInput == "Unit 1") {
-            pArray = ["blank", "blank"];
+            document.getElementById("pInstructions").innerHTML = "Listen and write 'ch' or 'sh'.";
+            pArray = [({pattern:'ch', value:'bench'}), ({pattern:'ch', value:'cheese'}), ({pattern:'ch', value:'chess'}), ({pattern:'ch', value:'church'}), ({pattern:'sh', value:'shore'}), ({pattern:'sh', value:'shell'}), ({pattern:'sh', value:'shrimp', ({pattern:'sh', value:'shy'})];
         } else if (userInput == "Unit 2") {
             pArray = ["blank", "blank"];
         } else if (userInput == "Unit 3") {
