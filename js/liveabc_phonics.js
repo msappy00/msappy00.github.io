@@ -170,7 +170,7 @@ function setPhonics(userInput){
             document.getElementById("pInstructions").innerHTML = "Listen and write 'sw' or 'wh'.";
             pArray = [({pattern:'wh', value:'whale'}), ({pattern:'wh', value:'whip'}), ({pattern:'wh', value:'wheel'}), ({pattern:'wh', value:'wheat'}), ({pattern:'sw', value:'swan'}), ({pattern:'sw', value:'sweater'}), ({pattern:'sw', value:'sweat'}), ({pattern:'sw', value:'sweep'})];
         } else if (userInput == "Unit 5") {
-            pArray = ["blank", "blank"];
+            pArray = [({pattern:'st', value:'stamp'}), ({pattern:'st', value:'stickers'}), ({pattern:'st', value:'stairs'}), ({pattern:'st', value:'stapler'}), ({pattern:'sp', value:'sparrow'}), ({pattern:'sp', value:'sweater'}), ({pattern:'sp', value:'sweat'}), ({pattern:'sp', value:'sweep'})];
         } else if (userInput == "Unit 6") {
             pArray = ["blank", "blank"];
         } else if (userInput == "Review 2") {
