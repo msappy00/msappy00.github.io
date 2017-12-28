@@ -179,7 +179,7 @@ function setPhonics(userInput){
         } else if (userInput == "Unit 7") {
             pArray = [({pattern:'sc', value:'scared'}), ({pattern:'sc', value:'scooter'}), ({pattern:'sc', value:'scar'}), ({pattern:'sc', value:'scamper'}), ({pattern:'scr', value:'screen'}), ({pattern:'scr', value:'scratch'}), ({pattern:'scr', value:'scream'}), ({pattern:'scr', value:'scroll'})];
         } else if (userInput == "Unit 8") {
-            pArray = ["blank", "blank"];
+            pArray = [({pattern:'ng', value:'morning'}), ({pattern:'ng', value:'ring'}), ({pattern:'ng', value:'hang'}), ({pattern:'ng', value:'painting'}), ({pattern:'nk', value:'junk'}), ({pattern:'nk', value:'trunk'}), ({pattern:'nk', value:'skunk'}), ({pattern:'nk', value:'sink'})];
         } else if (userInput == "Unit 9") {
             pArray = ["blank", "blank"];
         } else if (userInput == "Review 3") {
