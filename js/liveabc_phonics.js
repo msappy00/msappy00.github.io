@@ -173,7 +173,7 @@ function setPhonics(userInput){
             document.getElementById("pInstructions").innerHTML = "Listen and write 'st' or 'sp'.";
             pArray = [({pattern:'st', value:'stamp'}), ({pattern:'st', value:'stickers'}), ({pattern:'st', value:'stairs'}), ({pattern:'st', value:'stapler'}), ({pattern:'sp', value:'sparrow'}), ({pattern:'sp', value:'spade'}), ({pattern:'sp', value:'spot'}), ({pattern:'sp', value:'spoon'})];
         } else if (userInput == "Unit 6") {
-            pArray = ["blank", "blank"];
+            pArray = [({pattern:'tr', value:'treasure'}), ({pattern:'tr', value:'tree'}), ({pattern:'tr', value:'triangle'}), ({pattern:'tr', value:'tray'}), ({pattern:'dr', value:'drum'}), ({pattern:'dr', value:'dream'}), ({pattern:'dr', value:'drawer'}), ({pattern:'dr', value:'draw'})];
         } else if (userInput == "Review 2") {
             pArray = ["blank", "blank"];
         } else if (userInput == "Unit 7") {
