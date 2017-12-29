@@ -202,7 +202,7 @@ function setPhonics(userInput){
             pArray = [({pattern:'au', value:'sausage'}), ({pattern:'au', value:'sauce'}), ({pattern:'au', value:'autumn'}), ({pattern:'aw', value:'straw'}), ({pattern:'aw', value:'lawn'}), ({pattern:'aw', value:'seesaw'})];
         } else if (userInput == "Unit 3") {
             document.getElementById("pInstructions").innerHTML = "Listen and write 'long' or 'short'.";
-            pArray = [({pattern:'long', value:''}), ({pattern:'long', value:''}), ({pattern:'long', value:''}), ({pattern:'long', value:''}), ({pattern:'long', value:''}), ({pattern:'short', value:''}), ({pattern:'short', value:''}), ({pattern:'short', value:''}), ({pattern:'short', value:''}), ({pattern:'short', value:''}), ({pattern:'short', value:''})];
+            pArray = [({pattern:'long', value:'heavy'}), ({pattern:'long', value:'bear'}), ({pattern:'long', value:'wears'}), ({pattern:'long', value:'ready'}), ({pattern:'long', value:'jealous'}), ({pattern:'short', value:'feast'}), ({pattern:'short', value:'please'}), ({pattern:'short', value:'seat'}), ({pattern:'short', value:'meat'}), ({pattern:'short', value:'beans'}), ({pattern:'short', value:'eat'})];
         } else if (userInput == "Review 1") {
             pArray = ["blank", "blank"];
         } else if (userInput == "Unit 4") {
