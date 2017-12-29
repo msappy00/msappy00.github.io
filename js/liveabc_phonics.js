@@ -199,7 +199,7 @@ function setPhonics(userInput){
             pArray = [({pattern:'au', value:'sausage'}), ({pattern:'au', value:'sauce'}), ({pattern:'au', value:'autumn'}), ({pattern:'aw', value:'straw'}), ({pattern:'aw', value:'lawn'}), ({pattern:'aw', value:'seesaw'})];
         } else if (userInput == "Unit 3") {
             document.getElementById("pInstructions").innerHTML = "Listen and write .";
-            pArray = [({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''})];
+            pArray = [({pattern:'long', value:''}), ({pattern:'long', value:''}), ({pattern:'long', value:''}), ({pattern:'long', value:''}), ({pattern:'long', value:''}), ({pattern:'short', value:''}), ({pattern:'short', value:''}), ({pattern:'short', value:''}), ({pattern:'short', value:''}), ({pattern:'short', value:''}), ({pattern:'short', value:''})];
         } else if (userInput == "Review 1") {
             pArray = ["blank", "blank"];
         } else if (userInput == "Unit 4") {
