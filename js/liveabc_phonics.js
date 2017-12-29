@@ -196,7 +196,7 @@ function setPhonics(userInput){
             pArray = [({pattern:'ai', value:'snails'}), ({pattern:'ai', value:'rain'}), ({pattern:'ai', value:'rails'}), ({pattern:'ai', value:'jail'}), ({pattern:'ai', value:'pail'}), ({pattern:'ai', value:'train'}), ({pattern:'ay', value:'ray'}), ({pattern:'ay', value:'may'}), ({pattern:'ay', value:'play'}), ({pattern:'ay', value:'day'}), ({pattern:'ay', value:'tray'}), ({pattern:'ay', value:'away'}), ({pattern:'ay', value:'lay'}), ({pattern:'ay', value:'hay'})];
         } else if (userInput == "Unit 2") {
             document.getElementById("pInstructions").innerHTML = "Listen and write .";
-            pArray = [({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''})];
+            pArray = [({pattern:'au', value:'sausage'}), ({pattern:'au', value:'sauce'}), ({pattern:'au', value:'autumn'}), ({pattern:'aw', value:'straw'}), ({pattern:'aw', value:'lawn'}), ({pattern:'aw', value:'seesaw'})];
         } else if (userInput == "Unit 3") {
             document.getElementById("pInstructions").innerHTML = "Listen and write .";
             pArray = [({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''})];
