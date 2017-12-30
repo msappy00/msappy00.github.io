@@ -161,7 +161,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 3") {
@@ -192,7 +192,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Review 1") {
@@ -232,7 +232,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
             
@@ -258,7 +258,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = ['<a href="http://scratch.mit.edu/projects/14219598/" target="_newtab">Scratch: B1U5 Grammar</a>'];
             grammarLesson = "";
         } else if (userInput == "Unit 6") {
@@ -281,7 +281,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = ['<a href="http://scratch.mit.edu/projects/14493429/" target="_newtab">Scratch: Guess Book Color</a>'];
             grammarLesson = "";
         } else if (userInput == "Review 2") {
@@ -338,7 +338,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = ['<a href="http://scratch.mit.edu/projects/15196988/" target="_newtab">Scratch: Animal Sounds</a>'];
             grammarLesson = "";
         } else if (userInput == "Unit 9") {
@@ -356,7 +356,7 @@ function setGrammar(userInput){
             document.getElementById("g0r1d0").align = "center";
             document.getElementById("g0r1d0").innerHTML =  '<h2>Are'+pronounArray[0]+choiceArray[0]+'?</h2>';
             document.getElementById("g0r2d0").align = "center";
-            document.getElementById("g0r2d0").innerHTML = '<input type="text" id="grammarInput" class="form-control" autocomplete="off" autofocus placeholder="____________." /><button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r2d0").innerHTML = '<input type="text" id="grammarInput" class="form-control" autocomplete="off" autofocus placeholder="____________." /><button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             if (pronounArray[0] == " you ") {
                 pronoun = " we ";
             } else {
@@ -398,9 +398,9 @@ function setGrammar(userInput){
             document.getElementById("g0r0d0").innerHTML = q1Array[0].pic;
             document.getElementById("g0r0d1").innerHTML = '<div style = "font-size:30px">&nbsp;&nbsp;&nbsp;'+q1Array[1].value+'<br>&nbsp;&nbsp;&nbsp;'+q1Array[0].value+'</div>';
             sampleAnswer1 = 'There is a '+q1Array[1].value+'.';
-            document.getElementById("g0r1d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" autofocus placeholder="There is a ___." />&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary btn-md" onclick="showGrammar1()">Example</button>';
+            document.getElementById("g0r1d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" autofocus placeholder="There is a ___." />&nbsp;&nbsp;&nbsp;<button class="w3-button w3-blue w3-round" onclick="showGrammar1()">Example</button>';
             sampleAnswer2 = 'There is not a '+q1Array[0].value+'.';
-            document.getElementById("g0r4d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" placeholder="There is not a ___." />&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary btn-md" onclick="showGrammar2()">Example</button>';
+            document.getElementById("g0r4d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" placeholder="There is not a ___." />&nbsp;&nbsp;&nbsp;<button class="w3-button w3-blue w3-round" onclick="showGrammar2()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 2") {
@@ -431,7 +431,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             grammarLesson = "";
         } else if (userInput == "Unit 3") {
             vocArray = [({sing:'yo-yo', plur:'yo-yos'}), ({sing:'robot', plur:'robots'}), ({sing:'doll', plur:'dolls'}), ({sing:'teddy bear', plur:'teddy bears'}), ({sing:'ball', plur:'balls'}), ({sing:'block', plur:'blocks'}), ({sing:'video game', plur:'video games'}), ({sing:'board game', plur:'board games'})];
@@ -451,7 +451,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             grammarLesson = "";
         } else if (userInput == "Review 1") {
             q1Array = ["Unit 1", "Unit 2", "Unit 3"];
@@ -467,15 +467,15 @@ function setGrammar(userInput){
             if (choiceArrayInt == 1) {
                 document.getElementById("g0r0d0").innerHTML = "What are these?";
                 sampleAnswer1 = 'These are ' + vocArray[0].voc + '.';
-                document.getElementById("g0r1d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" autofocus placeholder="These are ___." />&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary btn-md" onclick="showGrammar1()">Example</button>';
+                document.getElementById("g0r1d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" autofocus placeholder="These are ___." />&nbsp;&nbsp;&nbsp;<button class="w3-button w3-blue w3-round" onclick="showGrammar1()">Example</button>';
                 sampleAnswer2 = 'These are not ' + vocArray[1].voc +'.';
-                document.getElementById("g0r4d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" placeholder="These are not ___." />&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary btn-md" onclick="showGrammar2()">Example</button>';
+                document.getElementById("g0r4d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" placeholder="These are not ___." />&nbsp;&nbsp;&nbsp;<button class="w3-button w3-blue w3-round" onclick="showGrammar2()">Example</button>';
             } else {
                 document.getElementById("g0r0d0").innerHTML = "What are those?";
                 sampleAnswer1 = 'Those are ' + vocArray[0].voc + '.';
-                document.getElementById("g0r1d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" autofocus placeholder="Those are ___." />&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary btn-md" onclick="showGrammar1()">Example</button>';
+                document.getElementById("g0r1d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" autofocus placeholder="Those are ___." />&nbsp;&nbsp;&nbsp;<button class="w3-button w3-blue w3-round" onclick="showGrammar1()">Example</button>';
                 sampleAnswer2 = 'Those are not ' + vocArray[1].voc +'.';
-                document.getElementById("g0r4d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" placeholder="Those are not ___." />&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-primary btn-md" onclick="showGrammar2()">Example</button>';
+                document.getElementById("g0r4d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" placeholder="Those are not ___." />&nbsp;&nbsp;&nbsp;<button class="w3-button w3-blue w3-round" onclick="showGrammar2()">Example</button>';
             }
             grammarLesson = "";
         } else if (userInput == "Unit 5") {
@@ -516,7 +516,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 6") {
@@ -537,7 +537,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = ['<a href="http://scratch.mit.edu/projects/36595088/" target="_newtab">Scratch: Can he ___?</a>'];
             grammarLesson = "";
         } else if (userInput == "Review 2") {
@@ -575,7 +575,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = ['<a href="http://www.eslgamesplus.com/prepositions-of-place-esl-fun-game-online-grammar-practice/" target="_newtab">ESL Games+: Prepositions of Place</a>'];
             grammarLesson = "";
         } else if (userInput == "Unit 8") {
@@ -632,7 +632,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 9") {
@@ -689,7 +689,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Review 3") {
@@ -798,10 +798,10 @@ function setGrammar(userInput){
             
             document.getElementById("g0r1d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" />';
             document.getElementById("g0r1d1").align = "left";
-            document.getElementById("g0r1d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar1()">Example</button>';
+            document.getElementById("g0r1d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar1()">Example</button>';
             document.getElementById("g0r4d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput2" />';
             document.getElementById("g0r4d1").align = "left";
-            document.getElementById("g0r4d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar2()">Example</button>';
+            document.getElementById("g0r4d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar2()">Example</button>';
             grammarLesson = "";
         } else if (userInput == "Review 3") {
             q1Array = ["Unit 7", "Unit 8", "Unit 9"];
@@ -958,10 +958,10 @@ function setGrammar(userInput){
             }
             document.getElementById("g0r1d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" />';
             document.getElementById("g0r1d1").align = "left";
-            document.getElementById("g0r1d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar1()">Example</button>';
+            document.getElementById("g0r1d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar1()">Example</button>';
             document.getElementById("g0r4d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput2" />';
             document.getElementById("g0r4d1").align = "left";
-            document.getElementById("g0r4d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar2()">Example</button>';
+            document.getElementById("g0r4d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar2()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Review 1") {
@@ -997,7 +997,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 5") {
@@ -1021,7 +1021,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 6") {
@@ -1062,7 +1062,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Review 2") {
@@ -1165,7 +1165,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             grammarLesson = "";
         } else if (userInput == "Unit 2") {
             vocArray = [({voc:'a doctor', pic:'<img src="Level 5/images/doctor.png" />'}), ({voc:'a nurse', pic:'<img src="Level 5/images/nurse.png" />'}), ({voc:'a driver', pic:'<img src="Level 5/images/driver.png" />'}), ({voc:'a police officer', pic:'<img src="Level 5/images/police officer.png" />'}),({voc:'a firefighter', pic:'<img src="Level 5/images/firefighter.png" />'}),({voc:'a pilot', pic:'<img src="Level 5/images/pilot.png" />'}),({voc:'an office worker', pic:'<img src="Level 5/images/office worker.png" />'}), ({voc:'a housekeeper', pic:'<img src="Level 5/images/housekeeper.png" />'}), ({voc:'a mail carrier', pic:'<img src="Level 5/images/mail carrier.png" />'})];
@@ -1228,7 +1228,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 3") {
@@ -1254,7 +1254,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Review 1") {
@@ -1321,7 +1321,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 5") {
@@ -1349,7 +1349,7 @@ function setGrammar(userInput){
             }
             document.getElementById("g0r1d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" />';
             document.getElementById("g0r1d1").align = "left";
-            document.getElementById("g0r1d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r1d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 6") {
@@ -1407,7 +1407,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             grammarLesson = "";
         } else if (userInput == "Review 2") {
             q1Array = ["Unit 4", "Unit 5", "Unit 6"];
@@ -1444,7 +1444,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 8") {
@@ -1497,7 +1497,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 9") {
@@ -1523,7 +1523,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = ['<a href="http://scratch.mit.edu/projects/20076362/" target="_newtab">Scratch: B5U9 "How Much Is It?"</a>'];
             grammarLesson = "";
         } else if (userInput == "Review 3") {
@@ -1581,10 +1581,47 @@ function setGrammar(userInput){
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 6") {
-            q1Array = [""];
-            q2Array = [""];
-            q3Array = [""];
-            gLinks = [''];
+            pronounArray = ["you", "he", "she", "they"];
+            shuffleArray(pronounArray);
+            answerArray = ["Yes", "No"];
+            shuffleArray(answerArray);
+            timeArray1 = ["two", "five", "ten"];
+            shuffleArray(timeArray1);
+            timeArray2 = ["hours ago", "minutes ago", "seconds ago"];
+            shuffleArray(timeArray2);
+            placeArray = ["in the classroom", "on the field", "in the teacher's office", "in the nurse's office", "in the restroom", "at the snack bar", "in the gym", "in the hallway"];
+            shuffleArray(placeArray);
+            question = placeArray[0] + " " + timeArray1[0] + " " + timeArray2[0];
+            if (pronounArray[0] == "you") {
+                document.getElementById("g0r0d0").innerHTML = "Were you " + question + "?";
+            } else if (pronounArray[0] == "he" || pronounArray[0] == "she") {
+                document.getElementById("g0r0d0").innerHTML = "Was " + pronounArray[0] + " " + question + "?";
+            } else {
+                document.getElementById("g0r0d0").innerHTML = "Were they " + question + "?";
+            }
+            if (answerArray[0] == "Yes") {
+                document.getElementById("g0r0d5").innerHTML = '<h1 style="font-size:100px">&#x2705;</h1>';
+                if (pronounArray[0] == "you") {
+                    sampleAnswer = "Yes, I was " + question + ".";
+                } else if (pronounArray[0] == "he" || pronounArray[0] == "she") {
+                    sampleAnswer = "Yes, " + pronounArray[0] + " was " + question + ".";
+                } else {
+                    sampleAnswer = "Yes, they were " + question + ".";
+                }
+            } else {
+                document.getElementById("g0r0d5").innerHTML = '<h1 style="font-size:100px">&#x274C;</h1>';
+                if (pronounArray[0] == "you") {
+                    sampleAnswer = "No, I was not " + question + ".";
+                } else if (pronounArray[0] == "he" || pronounArray[0] == "she") {
+                    sampleAnswer = "No, " + pronounArray[0] + " was not " + question + ".";
+                } else {
+                    sampleAnswer = "No, they were not " + question + ".";
+                }
+            }
+            document.getElementById("g0r2d0").colspan = "3";
+            document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
+            document.getElementById("g0r3d0").colspan = "3";
+            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             grammarLesson = "";
         } else if (userInput == "Review 2") {
             q1Array = ["Unit 4", "Unit 5", "Unit 6"];
@@ -1650,10 +1687,10 @@ function setGrammar(userInput){
             sampleAnswer2 = capitalized + " " + verbArray[0].verb + ".";
             document.getElementById("g0r1d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" />';
             document.getElementById("g0r1d1").align = "left";
-            document.getElementById("g0r1d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar1()">Example</button>';
+            document.getElementById("g0r1d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar1()">Example</button>';
             document.getElementById("g0r4d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput2" />';
             document.getElementById("g0r4d1").align = "left";
-            document.getElementById("g0r4d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar2()">Example</button>';
+            document.getElementById("g0r4d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar2()">Example</button>';
             grammarLesson = "";
         } else if (userInput == "Unit 2") {
             pronounArray = ["I", "you", "we", "they", "he", "she"];
@@ -1679,10 +1716,10 @@ function setGrammar(userInput){
             sampleAnswer2 = capitalized + " " + q4Array[0] + " to the " + destinationArray[0] + ".";
             document.getElementById("g0r1d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" />';
             document.getElementById("g0r1d1").align = "left";
-            document.getElementById("g0r1d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar1()">Example</button>';
+            document.getElementById("g0r1d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar1()">Example</button>';
             document.getElementById("g0r4d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput2" />';
             document.getElementById("g0r4d1").align = "left";
-            document.getElementById("g0r4d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar2()">Example</button>';
+            document.getElementById("g0r4d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar2()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 3") {
@@ -1712,7 +1749,7 @@ function setGrammar(userInput){
             }
             document.getElementById("g0r1d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" />';
             document.getElementById("g0r1d1").align = "left";
-            document.getElementById("g0r1d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r1d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Review 1") {
@@ -1748,7 +1785,7 @@ function setGrammar(userInput){
             }
             document.getElementById("g0r1d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" />';
             document.getElementById("g0r1d1").align = "left";
-            document.getElementById("g0r1d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r1d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = ['<a href="http://scratch.mit.edu/projects/38942726/" target="_newtab">Scratch: B7U4 Grammar</a><br><a href="http://scratch.mit.edu/projects/37565016/" target="_newtab">Scratch: B7U4 Q&A</a>'];
             grammarLesson = "";
         } else if (userInput == "Unit 5") {
@@ -1768,7 +1805,7 @@ function setGrammar(userInput){
             }
             document.getElementById("g0r1d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" />';
             document.getElementById("g0r1d1").align = "left";
-            document.getElementById("g0r1d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r1d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 6") {
@@ -1855,7 +1892,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r2d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r2d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 2") {
@@ -1881,7 +1918,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r2d1").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r2d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 3") {
@@ -1932,7 +1969,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r2d2").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r2d2").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Review 1") {
@@ -2001,7 +2038,7 @@ function setGrammar(userInput){
             document.getElementById("g0r2d0").colspan = "3";
             document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
             document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r2d2").innerHTML = '<button type="button" class="btn btn-primary btn-md" onclick="showGrammar()">Example</button>';
+            document.getElementById("g0r2d2").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 6") {
