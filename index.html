@@ -6,6 +6,19 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="css/w3.css"/>
+        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyCcIOz7_hDxJsyN3fKl0S5_UHiTulVX_LU",
+                authDomain: "teachermatthew-1039.firebaseapp.com",
+                databaseURL: "https://teachermatthew-1039.firebaseio.com",
+                projectId: "teachermatthew-1039",
+                storageBucket: "teachermatthew-1039.appspot.com",
+                messagingSenderId: "276692310045"
+            };
+        firebase.initializeApp(config);
+        </script>
     <style>
         body {
             margin: 0 !important;
@@ -84,6 +97,63 @@
             .onlyprint {display: block;}
             .w3-bar {display: none;}
             footer {page-break-after: always;}
+        }
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px;
+            color: #000;
+        }
+        
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5px auto; /* 15% from the top and centered */
+            border: 1px solid #888;
+            width: 30%; /* Could be more or less, depending on screen size */
+        }
+        
+        /* The Close Button */
+        .close {
+            /* Position it in the top right corner outside of the modal */
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+        }
+        
+        /* Close button on hover */
+        .close:hover,
+        .close:focus {
+            color: red;
+            cursor: pointer;
+        }
+        
+        /* Add Zoom Animation */
+        .animate {
+            -webkit-animation: animatezoom 0.6s;
+            animation: animatezoom 0.6s
+        }
+        
+        @-webkit-keyframes animatezoom {
+            from {-webkit-transform: scale(0)}
+            to {-webkit-transform: scale(1)}
+        }
+        
+        @keyframes animatezoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
         }
     </style>
     
@@ -310,6 +380,96 @@ function setCss(tabName, userInput){
     }
 }
 	</script>
+    <script type="text/javascript">
+        /**
+         * Handles the sign in button press.
+         */
+    function toggleSignIn() {
+        if (firebase.auth().currentUser) {
+            // [START signout]
+            firebase.auth().signOut();
+            // [END signout]
+        } else {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            if (email.length < 4) {
+                alert('Please enter an email address.');
+                return;
+            }
+            if (password.length < 4) {
+                alert('Please enter a password.');
+                return;
+            }
+            // Sign in with email and pass.
+            // [START authwithemail]
+            firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+                                                                              // Handle Errors here.
+                                                                              var errorCode = error.code;
+                                                                              var errorMessage = error.message;
+                                                                              // [START_EXCLUDE]
+                                                                              if (errorCode === 'auth/wrong-password') {
+                                                                              alert('Wrong password.');
+                                                                              } else {
+                                                                              alert(errorMessage);
+                                                                              }
+                                                                              console.log(error);
+                                                                              // [END_EXCLUDE]
+                                                                              });
+                                                                              // [END authwithemail]
+        }
+    }
+    
+    function sendPasswordReset() {
+        var email = document.getElementById('email').value;
+        // [START sendpasswordemail]
+        firebase.auth().sendPasswordResetEmail(email).then(function() {
+                                                           // Password Reset Email Sent!
+                                                           // [START_EXCLUDE]
+                                                           alert('Password Reset Email Sent!');
+                                                           // [END_EXCLUDE]
+                                                           }).catch(function(error) {
+                                                                    // Handle Errors here.
+                                                                    var errorCode = error.code;
+                                                                    var errorMessage = error.message;
+                                                                    // [START_EXCLUDE]
+                                                                    if (errorCode == 'auth/invalid-email') {
+                                                                    alert(errorMessage);
+                                                                    } else if (errorCode == 'auth/user-not-found') {
+                                                                    alert(errorMessage);
+                                                                    }
+                                                                    console.log(error);
+                                                                    // [END_EXCLUDE]
+                                                                    });
+                                                                    // [END sendpasswordemail];
+    }
+    /**
+     * initApp handles setting up UI event listeners and registering Firebase auth listeners:
+     *  - firebase.auth().onAuthStateChanged: This listener is called when the user is signed in or
+     *    out, and that is where we update the UI.
+     */
+    function initApp() {
+        // Listening for auth state changes.
+        // [START authstatelistener]
+        firebase.auth().onAuthStateChanged(function(user) {
+               if (user) {
+               // User is signed in.
+               var displayName = user.displayName;
+               var email = user.email;
+               var emailVerified = user.emailVerified;
+               var photoURL = user.photoURL;
+               var isAnonymous = user.isAnonymous;
+               var uid = user.uid;
+               var providerData = user.providerData;
+
+               } else {
+               // User is signed out.
+               }
+            });
+        }
+    window.onload = function() {
+        initApp();
+    };
+    </script>
 </head>
 <body onload="checkSessionStorage()">
     <noscript>JavaScript is disabled.</noscript>
@@ -429,7 +589,44 @@ function setCss(tabName, userInput){
                     <a href="#quizMaker_tab" class="w3-bar-item w3-button" onclick="clear_number()">Clear</a>
                 </div>
             </div>
-                <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-right" id="day">day</a>
+            <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-right" id="day">day</a>
+            <!-- Button to open the modal login form -->
+            <button class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-right" onclick="document.getElementById('id01').style.display='block'">Login</button>
+            
+                <!-- Login Modal -->
+                <div id="id01" class="modal">
+                    <span onclick="document.getElementById('id01').style.display='none'"
+                        class="close" title="Close Modal">&times;</span>
+                    
+                    <!-- Modal Content -->
+                    <form class="modal-content animate">
+                        <div class="imgcontainer w3-container w3-center">
+                            <img src="images/star-yellow.svg" alt="star avatar" class="avatar">
+                                <p></p>
+                                </div>
+                        <div class="w3-container w3-center">
+                            <label><b>Email</b></label>
+                            <input type="text" placeholder="Enter Email Address" id="email" required>
+                                <p></p>
+                                </div>
+                        <div class="w3-container w3-center">
+                            <label><b>Password</b></label>
+                            <input type="password" placeholder="Enter Password" id="password" required>
+                                <p></p>
+                                </div>
+                        <div class="w3-container w3-center">
+                            <button type="submit" id="sign-in" onclick=toggleSignIn()>Login</button>
+                        </div>
+                        <div class="w3-container w3-center">
+                            <input type="checkbox" /> Remember me
+                            <p></p>
+                        </div>
+                        <div class="w3-container w3-center" style="background-color:#f1f1f1">
+                            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                            <span class="psw">Forgot <a onclick=sendPasswordReset()>password?</a></span>
+                        </div>
+                    </form>
+                </div>
         </div>
     </div><!--/#nav bar-->
     
