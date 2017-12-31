@@ -212,8 +212,8 @@ function setPhonics(userInput){
             document.getElementById("pInstructions").innerHTML = "Listen and write 'ou' or 'ow'.";
             pArray = [({pattern:'ou', value:'sound'}), ({pattern:'ou', value:'loud'}), ({pattern:'ou', value:'shout'}), ({pattern:'ou', value:'couch'}), ({pattern:'ou', value:'blouse'}), ({pattern:'ou', value:'flour'}), ({pattern:'ow', value:'owl'}), ({pattern:'ow', value:'clown'}), ({pattern:'ow', value:'bow'}), ({pattern:'ow', value:'crowd'}), ({pattern:'ow', value:'flowers'})];
         } else if (userInput == "Unit 6") {
-            document.getElementById("pInstructions").innerHTML = "Listen and write .";
-            pArray = [({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''})];
+            document.getElementById("pInstructions").innerHTML = "Listen and write 'oi' or 'oy'.";
+            pArray = [({pattern:'oi', value:'coin'}), ({pattern:'oi', value:'boiling'}), ({pattern:'oi', value:'oil'}), ({pattern:'oi', value:'soil'}), ({pattern:'oi', value:'toilet'}), ({pattern:'oi', value:'noise'}), ({pattern:'oy', value:'Roy'}), ({pattern:'oy', value:'loyal'}), ({pattern:'oy', value:'oyster'}), ({pattern:'oy', value:'Joy'}), ({pattern:'oy', value:'toy'})];
         } else if (userInput == "Review 2") {
             pArray = ["blank", "blank"];
         } else if (userInput == "Unit 7") {
