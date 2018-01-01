@@ -376,6 +376,7 @@ function setCss(tabName, userInput){
         if (firebase.auth().currentUser) {
             // [START signout]
             firebase.auth().signOut();
+            document.getElementById("sign-in-btn").value = "Login";
             // [END signout]
         } else {
             var email = document.getElementById('email').value;
@@ -405,6 +406,7 @@ function setCss(tabName, userInput){
               });
               // [END authwithemail]
               document.getElementById('id01').style.display='none';
+              document.getElementById("sign-in-btn").value = "OK";
         }
     }
     
