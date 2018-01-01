@@ -376,6 +376,7 @@ function setCss(tabName, userInput){
     function SignIn() {
         if (displayName == "Logout") {
             displayName = "Login";
+            document.getElementById("sign-in-btn").innerHTML = displayName;
             if (firebase.auth().currentUser) {
                 // [START signout]
                 firebase.auth().signOut();
@@ -408,10 +409,10 @@ function setCss(tabName, userInput){
               // [END_EXCLUDE]
               });
               // [END authwithemail]
+              displayName = "Logout";
+              document.getElementById("sign-in-btn").innerHTML = displayName;
               document.getElementById('id01').style.display='none';
         }
-        displayName = "Logout";
-        document.getElementById("sign-in-btn").innerHTML = displayName;
     }
     
     function sendPasswordReset() {
@@ -448,7 +449,7 @@ function setCss(tabName, userInput){
         firebase.auth().onAuthStateChanged(function(user) {
                if (user) {
                    // User is signed in.
-                   var displayName = user.displayName;
+                   // var displayName = user.displayName;
                    var email = user.email;
                    var emailVerified = user.emailVerified;
                    var photoURL = user.photoURL;
