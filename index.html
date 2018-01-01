@@ -374,14 +374,12 @@ function setCss(tabName, userInput){
     }
     var displayName;
     function SignIn() {
-        if (displayName == "Logout") {
+        if (firebase.auth().currentUser) {
+            // [START signout]
             displayName = "Login";
             document.getElementById("sign-in-btn").innerHTML = displayName;
-            if (firebase.auth().currentUser) {
-                // [START signout]
-                firebase.auth().signOut();
-                // [END signout]
-            }
+            firebase.auth().signOut();
+            // [END signout]
         } else {
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
