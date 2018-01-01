@@ -388,6 +388,7 @@ function setCss(tabName, userInput){
         if (firebase.auth().currentUser) {
             // [START signout]
             firebase.auth().signOut();
+            document.getElementById("sign-in").innerHTML = "Login";
             // [END signout]
         } else {
             var email = document.getElementById('email').value;
@@ -403,19 +404,22 @@ function setCss(tabName, userInput){
             // Sign in with email and pass.
             // [START authwithemail]
             firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-                                                                              // Handle Errors here.
-                                                                              var errorCode = error.code;
-                                                                              var errorMessage = error.message;
-                                                                              // [START_EXCLUDE]
-                                                                              if (errorCode === 'auth/wrong-password') {
-                                                                              alert('Wrong password.');
-                                                                              } else {
-                                                                              alert(errorMessage);
-                                                                              }
-                                                                              console.log(error);
-                                                                              // [END_EXCLUDE]
-                                                                              });
-                                                                              // [END authwithemail]
+              // Handle Errors here.
+              var errorCode = error.code;
+              var errorMessage = error.message;
+              // [START_EXCLUDE]
+              if (errorCode === 'auth/wrong-password') {
+              alert('Wrong password.');
+              } else {
+              alert(errorMessage);
+              }
+              console.log(error);
+              // [END_EXCLUDE]
+              });
+              // [END authwithemail]
+        }
+        if (firebase.auth().currentUser) {
+            document.getElementById("sign-in").innerHTML = "Logout";
         }
     }
     
@@ -423,24 +427,24 @@ function setCss(tabName, userInput){
         var email = document.getElementById('email').value;
         // [START sendpasswordemail]
         firebase.auth().sendPasswordResetEmail(email).then(function() {
-                                                           // Password Reset Email Sent!
-                                                           // [START_EXCLUDE]
-                                                           alert('Password Reset Email Sent!');
-                                                           // [END_EXCLUDE]
-                                                           }).catch(function(error) {
-                                                                    // Handle Errors here.
-                                                                    var errorCode = error.code;
-                                                                    var errorMessage = error.message;
-                                                                    // [START_EXCLUDE]
-                                                                    if (errorCode == 'auth/invalid-email') {
-                                                                    alert(errorMessage);
-                                                                    } else if (errorCode == 'auth/user-not-found') {
-                                                                    alert(errorMessage);
-                                                                    }
-                                                                    console.log(error);
-                                                                    // [END_EXCLUDE]
-                                                                    });
-                                                                    // [END sendpasswordemail];
+           // Password Reset Email Sent!
+           // [START_EXCLUDE]
+           alert('Password Reset Email Sent!');
+           // [END_EXCLUDE]
+           }).catch(function(error) {
+                    // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    // [START_EXCLUDE]
+                    if (errorCode == 'auth/invalid-email') {
+                    alert(errorMessage);
+                    } else if (errorCode == 'auth/user-not-found') {
+                    alert(errorMessage);
+                    }
+                    console.log(error);
+                    // [END_EXCLUDE]
+                    });
+                    // [END sendpasswordemail];
     }
     /**
      * initApp handles setting up UI event listeners and registering Firebase auth listeners:
@@ -606,7 +610,7 @@ function setCss(tabName, userInput){
                                 </div>
                         <div class="w3-container w3-center">
                             <label><b>Email</b></label>
-                            <input type="text" placeholder="Enter Email Address" id="email" required>
+                            <input type="email" placeholder="Enter Email Address" id="email" required>
                                 <p></p>
                                 </div>
                         <div class="w3-container w3-center">
@@ -615,14 +619,14 @@ function setCss(tabName, userInput){
                                 <p></p>
                                 </div>
                         <div class="w3-container w3-center">
-                            <button type="submit" id="sign-in" onclick=toggleSignIn()>Login</button>
+                            <button class="w3-button w3-blue w3-round" type="submit" id="sign-in" onclick=toggleSignIn()>Login</button>
                         </div>
                         <div class="w3-container w3-center">
                             <input type="checkbox" /> Remember me
                             <p></p>
                         </div>
                         <div class="w3-container w3-center" style="background-color:#f1f1f1">
-                            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                            <button  class="w3-button w3-blue w3-round" type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
                             <span class="psw">Forgot <a onclick=sendPasswordReset()>password?</a></span>
                         </div>
                     </form>
