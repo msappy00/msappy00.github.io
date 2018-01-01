@@ -455,7 +455,7 @@ function setCss(tabName, userInput){
                    // User is signed in.
                    var displayName = user.displayName;
                    var email = user.email;
-                   document.getElementById("sign-in").innerHTML = email;
+                   document.getElementById("sign-in-btn").innerHTML = email;
                    var emailVerified = user.emailVerified;
                    var photoURL = user.photoURL;
                    var isAnonymous = user.isAnonymous;
@@ -463,7 +463,7 @@ function setCss(tabName, userInput){
                    var providerData = user.providerData;
                } else {
                    // User is signed out.
-                   document.getElementById("sign-in").innerHTML = "Login";
+                   document.getElementById("sign-in-btn").innerHTML = "Login";
                }
             });
         }
@@ -592,7 +592,7 @@ function setCss(tabName, userInput){
             </div>
             <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-right" id="day">day</a>
             <!-- Button to open the modal login form -->
-            <button class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-right" id="sign-in"  onclick="document.getElementById('id01').style.display='block'">Login</button>
+            <button class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-right" id="sign-in-btn" onclick="document.getElementById('id01').style.display='block'">Login</button>
             
                 <!-- Login Modal -->
                 <div id="id01" class="modal">
@@ -616,7 +616,7 @@ function setCss(tabName, userInput){
                                 <p></p>
                                 </div>
                         <div class="w3-container w3-center">
-                            <button class="w3-button w3-blue w3-round" type="submit" onclick=toggleSignIn()>Login</button>
+                            <button class="w3-button w3-blue w3-round" type="submit" id="sign-in" onclick=toggleSignIn()>Login</button>
                         </div>
                         <div class="w3-container w3-center">
                             <input type="checkbox" /> Remember me
