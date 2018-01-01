@@ -376,7 +376,6 @@ function setCss(tabName, userInput){
     function SignIn() {
         if (displayName == "Logout") {
             displayName = "Login";
-            document.getElementById("sign-in-btn").innerHTML = displayName;
             if (firebase.auth().currentUser) {
                 // [START signout]
                 firebase.auth().signOut();
@@ -411,8 +410,8 @@ function setCss(tabName, userInput){
               // [END authwithemail]
               document.getElementById('id01').style.display='none';
               displayName = "Logout";
-              document.getElementById("sign-in-btn").innerHTML = displayName;
         }
+        document.getElementById("sign-in-btn").innerHTML = displayName;
     }
     
     function sendPasswordReset() {
