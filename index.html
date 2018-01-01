@@ -457,6 +457,7 @@ function setCss(tabName, userInput){
     };
     
     var userId = firebase.auth().currentUser.uid; // Basic read operation EXAMPLE
+    var PLearned
     function readUserData() {
     return firebase.database().ref('/Ss/' + 'Ss1').once('value').then(function(snapshot) {
                                                                       var PLearned = (snapshot.val() && snapshot.val().PLearned) || 'Anonymous';
@@ -465,9 +466,7 @@ function setCss(tabName, userInput){
     }
                                                                           
     function writeUserData(PLearned) { // Basic write operation EXAMPLE
-        firebase.database().ref('Ss/' + 'Ss1').set({
-                                                   PLearned: 0.25
-                                                       });
+        firebase.database().ref('Ss/' + 'Ss1').set({PLearned: 0.25});
     }
 
     </script>
