@@ -366,7 +366,7 @@ function setCss(tabName, userInput){
     function toggleSignIn() {
         if (firebase.auth().currentUser) {
             // [START signout]
-            document.getElementById("sign-in-btn").innerHTML = "Logout";
+            document.getElementById("sign-in-btn").innerHTML = "Login";
             firebase.auth().signOut();
             // [END signout]
         } else {
