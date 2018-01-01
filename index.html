@@ -404,7 +404,6 @@ function setCss(tabName, userInput){
               // [END_EXCLUDE]
               });
               // [END authwithemail]
-              document.getElementById("sign-in-btn").innerHTML = "OK";
               document.getElementById('id01').style.display='none';
         }
     }
@@ -450,6 +449,7 @@ function setCss(tabName, userInput){
                    var isAnonymous = user.isAnonymous;
                    var uid = user.uid;
                    var providerData = user.providerData;
+                   document.getElementById("sign-in-btn").innerHTML = "OK";
                } else {
                    // User is signed out.
                    document.getElementById("sign-in-btn").innerHTML = "Login";
@@ -605,7 +605,7 @@ function setCss(tabName, userInput){
                                 <p></p>
                                 </div>
                         <div class="w3-container w3-center">
-                            <button class="w3-button w3-blue w3-round" type="submit" id="sign-in" onclick=SignIn()>Login</button>
+                            <button class="w3-button w3-blue w3-round" type="submit" id="sign-in" onclick=SignIn()>Submit</button>
                         </div>
                         <div class="w3-container w3-center">
                             <input type="checkbox" /> Remember me
