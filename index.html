@@ -377,11 +377,11 @@ function setCss(tabName, userInput){
         if (displayName != "Login") {
             displayName = "Login";
             document.getElementById("sign-in-btn").innerHTML = displayName;
-        }
-        if (firebase.auth().currentUser) {
-            // [START signout]
-            firebase.auth().signOut();
-            // [END signout]
+            if (firebase.auth().currentUser) {
+                // [START signout]
+                firebase.auth().signOut();
+                // [END signout]
+            }
         } else {
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
