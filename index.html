@@ -376,7 +376,7 @@ function setCss(tabName, userInput){
         if (firebase.auth().currentUser) {
             // [START signout]
             firebase.auth().signOut();
-            document.getElementById("sign-in-btn").value = "Login";
+            document.getElementById("sign-in-btn").innerHTML = "Login";
             // [END signout]
         } else {
             var email = document.getElementById('email').value;
@@ -406,7 +406,7 @@ function setCss(tabName, userInput){
               });
               // [END authwithemail]
               document.getElementById('id01').style.display='none';
-              document.getElementById("sign-in-btn").value = "OK";
+              document.getElementById("sign-in-btn").innerHTML = "OK";
         }
     }
     
@@ -451,10 +451,8 @@ function setCss(tabName, userInput){
                    var isAnonymous = user.isAnonymous;
                    var uid = user.uid;
                    var providerData = user.providerData;
-                   document.getElementById("sign-in-btn").innerHTML = "OK";
                } else {
                    // User is signed out.
-                   document.getElementById("sign-in-btn").innerHTML = "Login";
                }
             });
         }
