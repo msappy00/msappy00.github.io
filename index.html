@@ -466,7 +466,9 @@ function setCss(tabName, userInput){
     }
                                                                           
     function writeUserData(userId, PLearned) { // Basic write operation EXAMPLE
-        firebase.database().ref('Ss/' + userId).set({sName: 'Ss1', PLearned: 0.25});
+        firebase.database().ref('Ss/' + userId).set({
+                                                    "Ss1": "0.25"
+                                                    });
     }
 
     </script>
