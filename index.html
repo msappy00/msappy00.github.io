@@ -404,6 +404,7 @@ function setCss(tabName, userInput){
               // [END_EXCLUDE]
               });
               // [END authwithemail]
+              document.getElementById("sign-in-btn").innerHTML = "OK";
               document.getElementById('id01').style.display='none';
         }
     }
@@ -444,7 +445,6 @@ function setCss(tabName, userInput){
                    // User is signed in.
                    var displayName = user.displayName;
                    var email = user.email;
-                   document.getElementById("sign-in-btn").innerHTML = "OK";
                    var emailVerified = user.emailVerified;
                    var photoURL = user.photoURL;
                    var isAnonymous = user.isAnonymous;
