@@ -372,11 +372,13 @@ function setCss(tabName, userInput){
             document.getElementById('id01').style.display='block';
         }
     }
+    var displayName;
     function SignIn() {
         if (firebase.auth().currentUser) {
             // [START signout]
+            displayName = "Login";
             firebase.auth().signOut();
-            document.getElementById("sign-in-btn").innerHTML = "Login";
+            document.getElementById("sign-in-btn").innerHTML = displayName;
             // [END signout]
         } else {
             var email = document.getElementById('email').value;
@@ -406,7 +408,8 @@ function setCss(tabName, userInput){
               });
               // [END authwithemail]
               document.getElementById('id01').style.display='none';
-              document.getElementById("sign-in-btn").innerHTML = "OK";
+              displayName = "Logout";\
+              document.getElementById("sign-in-btn").innerHTML = displayName;
         }
     }
     
