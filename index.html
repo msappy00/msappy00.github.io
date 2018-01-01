@@ -377,6 +377,7 @@ function setCss(tabName, userInput){
         if (firebase.auth().currentUser) {
             // [START signout]
             firebase.auth().signOut();
+            reload();
             // [END signout]
         } else {
             var email = document.getElementById('email').value;
