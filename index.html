@@ -377,7 +377,7 @@ function setCss(tabName, userInput){
         if (firebase.auth().currentUser) {
             // [START signout]
             displayName = "Login";
-            document.getElementById("sign-in-btn").innerHTML = displayName;
+            document.getElementById("sign-in-btn").innerHTML = "Login";
             firebase.auth().signOut();
             // [END signout]
         } else {
