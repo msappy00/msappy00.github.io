@@ -374,10 +374,12 @@ function setCss(tabName, userInput){
     }
     var displayName;
     function SignIn() {
-        if (firebase.auth().currentUser) {
-            // [START signout]
+        if (displayName != "Login") {
             displayName = "Login";
             document.getElementById("sign-in-btn").innerHTML = displayName;
+        }
+        if (firebase.auth().currentUser) {
+            // [START signout]
             firebase.auth().signOut();
             // [END signout]
         } else {
