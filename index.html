@@ -388,7 +388,6 @@ function setCss(tabName, userInput){
         if (firebase.auth().currentUser) {
             // [START signout]
             firebase.auth().signOut();
-            document.getElementById("sign-in").innerHTML = "Login";
             // [END signout]
         } else {
             var email = document.getElementById('email').value;
@@ -417,9 +416,6 @@ function setCss(tabName, userInput){
               // [END_EXCLUDE]
               });
               // [END authwithemail]
-        }
-        if (firebase.auth().currentUser) {
-            document.getElementById("sign-in").innerHTML = "Logout";
         }
     }
     
@@ -456,17 +452,18 @@ function setCss(tabName, userInput){
         // [START authstatelistener]
         firebase.auth().onAuthStateChanged(function(user) {
                if (user) {
-               // User is signed in.
-               var displayName = user.displayName;
-               var email = user.email;
-               var emailVerified = user.emailVerified;
-               var photoURL = user.photoURL;
-               var isAnonymous = user.isAnonymous;
-               var uid = user.uid;
-               var providerData = user.providerData;
-
+                   // User is signed in.
+                   var displayName = user.displayName;
+                   var email = user.email;
+                   document.getElementById("sign-in").innerHTML = email;
+                   var emailVerified = user.emailVerified;
+                   var photoURL = user.photoURL;
+                   var isAnonymous = user.isAnonymous;
+                   var uid = user.uid;
+                   var providerData = user.providerData;
                } else {
-               // User is signed out.
+                   // User is signed out.
+                   document.getElementById("sign-in").innerHTML = "Login";
                }
             });
         }
@@ -595,7 +592,7 @@ function setCss(tabName, userInput){
             </div>
             <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-right" id="day">day</a>
             <!-- Button to open the modal login form -->
-            <button class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-right" onclick="document.getElementById('id01').style.display='block'">Login</button>
+            <button class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-right" id="sign-in"  onclick="document.getElementById('id01').style.display='block'">Login</button>
             
                 <!-- Login Modal -->
                 <div id="id01" class="modal">
@@ -619,7 +616,7 @@ function setCss(tabName, userInput){
                                 <p></p>
                                 </div>
                         <div class="w3-container w3-center">
-                            <button class="w3-button w3-blue w3-round" type="submit" id="sign-in" onclick=toggleSignIn()>Login</button>
+                            <button class="w3-button w3-blue w3-round" type="submit" onclick=toggleSignIn()>Login</button>
                         </div>
                         <div class="w3-container w3-center">
                             <input type="checkbox" /> Remember me
