@@ -457,10 +457,12 @@ function setCss(tabName, userInput){
     };
     
     var userId = firebase.auth().currentUser.uid; // Basic read operation EXAMPLE
+    function readUserData() {
     return firebase.database().ref('/Ss/' + 'Ss1').once('value').then(function(snapshot) {
                                                                       var PLearned = (snapshot.val() && snapshot.val().PLearned) || 'Anonymous';
                                                                           // ...
                                                                           });
+    }
                                                                           
     function writeUserData(PLearned) { // Basic write operation EXAMPLE
         firebase.database().ref('Ss/' + 'Ss1').set({
