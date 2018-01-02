@@ -360,7 +360,6 @@ function setCss(tabName, userInput){
 }
 	</script>
     <script type="text/javascript">
-        var userId = ""
         /**
          * Handles the sign in button press.
          */
@@ -369,7 +368,6 @@ function setCss(tabName, userInput){
             // [START signout]
             document.getElementById("sign-in-btn").innerHTML = "Login";
             firebase.auth().signOut();
-            userId = "";
             // [END signout]
         } else {
             document.getElementById('id01').style.display='block';
@@ -405,7 +403,6 @@ function setCss(tabName, userInput){
           // [END authwithemail]
           document.getElementById("sign-in-btn").innerHTML = "Logout";
           document.getElementById('id01').style.display='none';
-          userId = firebase.auth().currentUser.uid;
     }
     
     
@@ -462,14 +459,14 @@ function setCss(tabName, userInput){
     var sName
     var PLearned
     function readUserData() { // Basic read operation EXAMPLE
-    return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+    return firebase.database().ref('/users/' + uid).once('value').then(function(snapshot) {
                                                                       var PLearned = (snapshot.val() && snapshot.val().PLearned) || 'Anonymous';
                                                                           // ...
                                                                           });
     }
                                                                           
-    function writeUserData(userId, sName, PLearned) {
-      firebase.database().ref('sName/' + userId).set({
+    function writeUserData(uid, sName, PLearned) {
+      firebase.database().ref('sName/' + uid).set({
                                                      "sName": sName,
                                                      "PLearned": PLearned
                                                      });
@@ -660,7 +657,7 @@ function setCss(tabName, userInput){
             <input class="w3-input w3-border w3-round" type="text" id="spellCheck" autocomplete="off" autofocus style="font-size: 50px" placeholder="Spell It!" required/>
             <h3 id="vocab_links"></h3>
             <div id="vocab_lesson"></div>
-            <button class="w3-button w3-blue w3-round" onClick="writeUserData(userId, 'Ss1', '0.25');">Write Data</button>
+            <button class="w3-button w3-blue w3-round" onClick="writeUserData(uid, 'Ss1', '0.25');">Write Data</button>
         </div>
     </div><!-- /#vocab_tab -->
         
