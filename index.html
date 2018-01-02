@@ -403,7 +403,6 @@ function setCss(tabName, userInput){
           // [END authwithemail]
           document.getElementById("sign-in-btn").innerHTML = "Logout";
           document.getElementById('id01').style.display='none';
-          var user = firebase.auth().currentUser;
           console.log(user.uid);
           var name, email, photoUrl, uid, emailVerified;
           
