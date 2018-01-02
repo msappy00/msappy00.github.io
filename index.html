@@ -459,8 +459,6 @@ function setCss(tabName, userInput){
     var userId = firebase.auth().currentUser.uid;
     var sName
     var PLearned
-    var ref = firebase.app().database().ref();
-    var usersRef = ref.child('users/' + userId);
     function readUserData() { // Basic read operation EXAMPLE
     return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
                                                                       var PLearned = (snapshot.val() && snapshot.val().PLearned) || 'Anonymous';
