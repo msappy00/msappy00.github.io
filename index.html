@@ -457,6 +457,7 @@ function setCss(tabName, userInput){
     };
     
     var userId = firebase.auth().currentUser.uid; // Basic read operation EXAMPLE
+    var sName
     var PLearned
     function readUserData() {
     return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
