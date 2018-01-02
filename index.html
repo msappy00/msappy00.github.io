@@ -404,7 +404,7 @@ function setCss(tabName, userInput){
           document.getElementById("sign-in-btn").innerHTML = "Logout";
           document.getElementById('id01').style.display='none';
           var user = firebase.auth().currentUser;
-          console.log(user);
+          console.log(user.uid);
           var name, email, photoUrl, uid, emailVerified;
           
           if (user != null) {
@@ -460,19 +460,12 @@ function setCss(tabName, userInput){
         // Listening for auth state changes.
         // [START authstatelistener]
         firebase.auth().onAuthStateChanged(function(user) {
-               if (user) {
-                   // User is signed in.
-                   // var displayName = user.displayName;
-                   var email = user.email;
-                   var emailVerified = user.emailVerified;
-                   var photoURL = user.photoURL;
-                   var isAnonymous = user.isAnonymous;
-                   var providerData = user.providerData;
-                   document.getElementById("sign-in-btn").innerHTML = "Logout";
-               } else {
-                   // User is signed out.
-               }
-            });
+                                           if (user) {
+                                           user.getIdToken().then(function(data) {
+                                                                  console.log(data)
+                                                                  });
+                                           }
+                                           });
         }
     window.onload = function() {
         initApp();
