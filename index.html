@@ -360,6 +360,7 @@ function setCss(tabName, userInput){
 }
 	</script>
     <script type="text/javascript">
+        var userId
         /**
          * Handles the sign in button press.
          */
@@ -368,6 +369,7 @@ function setCss(tabName, userInput){
             // [START signout]
             document.getElementById("sign-in-btn").innerHTML = "Login";
             firebase.auth().signOut();
+            userId = "";
             // [END signout]
         } else {
             document.getElementById('id01').style.display='block';
@@ -403,6 +405,7 @@ function setCss(tabName, userInput){
           // [END authwithemail]
           document.getElementById("sign-in-btn").innerHTML = "Logout";
           document.getElementById('id01').style.display='none';
+          userId = firebase.auth().currentUser.uid;
     }
     
     
@@ -456,7 +459,6 @@ function setCss(tabName, userInput){
         initApp();
     };
     
-    var userId = firebase.auth().currentUser.uid;
     var sName
     var PLearned
     function readUserData() { // Basic read operation EXAMPLE
