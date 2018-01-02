@@ -468,9 +468,11 @@ function setCss(tabName, userInput){
                                                                           });
     }
                                                                           
-    function writeUserData(userId) { // Basic write operation EXAMPLE
-        usersRef.child('sName').set("Ss1");
-        usersRef.child('PLearned').set("0.25");
+    function writeUserData(userId, sName, PLearned) {
+      firebase.database().ref('users/' + userId).set({
+                                                     sName: sName,
+                                                     PLearned: PLearned
+                                                     });
     }
 
     </script>
@@ -658,7 +660,7 @@ function setCss(tabName, userInput){
             <input class="w3-input w3-border w3-round" type="text" id="spellCheck" autocomplete="off" autofocus style="font-size: 50px" placeholder="Spell It!" required/>
             <h3 id="vocab_links"></h3>
             <div id="vocab_lesson"></div>
-            <button class="w3-button w3-blue w3-round" onClick="writeUserData(PLearned)">Write Data</button>
+            <button class="w3-button w3-blue w3-round" onClick="writeUserData(userId, "Ss1", "0.25")">Write Data</button>
         </div>
     </div><!-- /#vocab_tab -->
         
