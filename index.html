@@ -463,6 +463,7 @@ function setCss(tabName, userInput){
                                            user.getIdToken().then(function(data) {
                                                                   console.log(data)
                                                                   });
+                                           document.getElementById("sign-in-btn").innerHTML = "Logout";
                                            }
                                            });
         }
