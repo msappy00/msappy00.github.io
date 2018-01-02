@@ -401,7 +401,6 @@ function setCss(tabName, userInput){
           // [END_EXCLUDE]
           });
           // [END authwithemail]
-          var userId = firebase.auth().currentUser.uid;
           alert(currentUser.uid);
           document.getElementById("sign-in-btn").innerHTML = "Logout";
           document.getElementById('id01').style.display='none';
@@ -447,7 +446,6 @@ function setCss(tabName, userInput){
                    var emailVerified = user.emailVerified;
                    var photoURL = user.photoURL;
                    var isAnonymous = user.isAnonymous;
-                   var userId = user.uid;
                    var providerData = user.providerData;
                    document.getElementById("sign-in-btn").innerHTML = "Logout";
                } else {
@@ -459,8 +457,9 @@ function setCss(tabName, userInput){
         initApp();
     };
     
-    var sName
-    var PLearned
+    var sName;
+    var PLearned;
+    var userId = firebase.auth().currentUser.uid;
     function readUserData() { // Basic read operation EXAMPLE
     return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
                                                                       var PLearned = (snapshot.val() && snapshot.val().PLearned) || 'Anonymous';
