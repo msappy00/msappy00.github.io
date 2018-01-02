@@ -405,7 +405,7 @@ function setCss(tabName, userInput){
           // [END_EXCLUDE]
           });
           // [END authwithemail]
-          firebase.auth().currentUser.getToken().then(data => console.log(data));
+          firebase.auth().currentUser.getIdToken().then(data => console.log(data));
           document.getElementById('id01').style.display='none';
     }
     
