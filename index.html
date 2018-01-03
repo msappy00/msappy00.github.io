@@ -175,7 +175,7 @@
              array[j] = temp;
          }
          return array;
-     }
+     };
 
     function setLevel(level) {
         sessionStorage.setItem("sessionLevel", level);
@@ -185,7 +185,7 @@
         setVocab('');
         setGrammar('');
         setQuiz('');
-    }
+    };
     
     function clearLevel() {
         sessionStorage.setItem("sessionLevel", "");
@@ -195,7 +195,7 @@
         setVocab(currentUnit);
         setGrammar(currentUnit);
         setQuiz(currentUnit);
-    }
+    };
     
     function checkSessionStorage() {
         levelId.innerHTML = sessionStorage.getItem("sessionLevel");
@@ -203,7 +203,7 @@
         if (firebase.auth().currentUser) {
             document.getElementById("sign-in-btn").innerHTML = "Logout";
         }
-    }
+    };
 
 var array_i = 0;
 var cArray_i = 0;
@@ -229,7 +229,7 @@ function speak(text, callback) {
     };
     
     speechSynthesis.speak(u);
-}
+};
 
 function vArraySlide() {
     if (spellCheck.value === spellCheck.pattern) {
@@ -254,7 +254,7 @@ function vArraySlide() {
         //vocabAudio.innerHTML = '<audio controls autoplay><source src="'+level_id+'/audio/'+array[array_i]+'.mp3" type="audio/mp3" /></audio>';
         spellCheck.focus();
     }
-}
+};
     
 function pArraySlide() {
     if (phonicsCheck.value === phonicsCheck.pattern) {
@@ -267,7 +267,7 @@ function pArraySlide() {
         phonicsAudio.innerHTML = '<audio controls autoplay><source src="phonics/'+pArray[pArray_i].value+'.mp3" type="audio/mp3" /></audio>';
         phonicsCheck.focus();
     }
-}
+};
 
 var letter0;
 var letter1;
@@ -285,7 +285,7 @@ function checkLetter(x, i, letter) {
     } else {
         document.getElementById("pic"+x).innerHTML = '<img src="Starter/images/4Lines.png" /></div>';
     }
-}
+};
     
 function checkGrammar(i, x) {
     y = document.getElementById("cTextInput"+i).value;
@@ -294,7 +294,7 @@ function checkGrammar(i, x) {
     } else {
         document.getElementById("cTextInput"+i).style.backgroundColor = "lightpink";
     }
-}
+};
     
 function checkBGrammar(i, x) {
     y = document.getElementById("bTextInput"+i).value;
@@ -303,7 +303,7 @@ function checkBGrammar(i, x) {
     } else {
         document.getElementById("bTextInput"+i).style.backgroundColor = "lightpink";
     }
-}
+};
     
 function checkGrammar2(qInt, x, y) {
     if (x == y) {
@@ -312,19 +312,19 @@ function checkGrammar2(qInt, x, y) {
     } else {
         document.getElementById("grammarButton"+qInt).style.textDecoration = "line-through";
     }
-}
+};
 
 function showGrammar() {
     document.getElementById("g0r3d0").innerHTML = '<h3>'+sampleAnswer+'</h3>';
-}
+};
     
 function showGrammar1() {
     document.getElementById("g0r2d0").innerHTML = '<h3>'+sampleAnswer1+'</h3>';
-}
+};
 
 function showGrammar2() {
     document.getElementById("g0r5d0").innerHTML = '<h3>'+sampleAnswer2+'</h3>';
-}
+};
     
 function radioCheck(q, v1, v2) {
     if(v1 == document.getElementById("optRadio"+v2).value){
@@ -332,7 +332,7 @@ function radioCheck(q, v1, v2) {
     } else {
         document.getElementById("radio"+q).style.backgroundColor = "lightpink";
     }
-}
+};
 
 function setCss(tabName, userInput){
     var i;
@@ -360,7 +360,7 @@ function setCss(tabName, userInput){
         default:
             break;
     }
-}
+};
 	</script>
     <script type="text/javascript">
         /**
@@ -376,7 +376,7 @@ function setCss(tabName, userInput){
         } else {
             document.getElementById('id01').style.display='block';
         }
-    }
+    };
     
     function SignIn() {
         var email = document.getElementById('email').value;
@@ -407,8 +407,7 @@ function setCss(tabName, userInput){
           // [END authwithemail]
           console.log(firebase.auth().currentUser.uid);
           document.getElementById('id01').style.display='none';
-          document.getElementById("sign-in-btn").innerHTML = "Logout";
-    }
+    };
     
     
     function sendPasswordReset() {
@@ -433,22 +432,59 @@ function setCss(tabName, userInput){
                     // [END_EXCLUDE]
                     });
                     // [END sendpasswordemail];
-    }
+    };
     
     function readUserData() { // Basic read operation EXAMPLE
     return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
                                                                       var PLearned = (snapshot.val() && snapshot.val().PLearned) || 'Anonymous';
                                                                           // ...
                                                                           });
-    }
+    };
                                                                           
     function writeUserData(sName, PLearned) {
-        var userId = firebase.auth().currentUser.uid;
+        var userId = firebase.auth().currentUser;
       firebase.database().ref('sName/' + userId).set({
                                                      "sName": sName,
                                                      "PLearned": PLearned
                                                      });
-    }
+    };
+    
+    initApp = function() {
+        firebase.auth().onAuthStateChanged(function(user) {
+       if (user) {
+       // User is signed in.
+       var displayName = user.displayName;
+       var email = user.email;
+       var emailVerified = user.emailVerified;
+       var photoURL = user.photoURL;
+       var uid = user.uid;
+       var phoneNumber = user.phoneNumber;
+       var providerData = user.providerData;
+       user.getIdToken().then(function(accessToken) {
+          document.getElementById('sign-in-btn').textContent = 'Logout';
+          console.log('account-details').textContent = JSON.stringify({
+              displayName: displayName,
+              email: email,
+              emailVerified: emailVerified,
+              phoneNumber: phoneNumber,
+              photoURL: photoURL,
+              uid: uid,
+              accessToken: accessToken,
+              providerData: providerData
+              }, null, '  ');
+          });
+       } else {
+       // User is signed out.
+       document.getElementById('sign-in-btn').textContent = 'Login';
+       }
+       }, function(error) {
+       console.log(error);
+       });
+    };
+    
+    window.addEventListener('load', function() {
+        initApp()
+    });
 
     </script>
 </head>
