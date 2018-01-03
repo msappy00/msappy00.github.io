@@ -223,8 +223,8 @@ function setPhonics(userInput){
             document.getElementById("pInstructions").innerHTML = "Listen and write 'ir' or 'ur'.";
             pArray = [({pattern:'ir', value:'birds'}), ({pattern:'ir', value:'circle'}), ({pattern:'ir', value:'dirt'}), ({pattern:'ir', value:'dirty'}), ({pattern:'ur', value:'furry'}), ({pattern:'ur', value:'purple'}), ({pattern:'ur', value:'purse'}), ({pattern:'ur', value:'burning'})];
         } else if (userInput == "Unit 9") {
-            document.getElementById("pInstructions").innerHTML = "Listen and write .";
-            pArray = [({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''})];
+            document.getElementById("pInstructions").innerHTML = "Listen and write 'or' or 'er'.";
+            pArray = [({pattern:'or', value:'sailor'}), ({pattern:'or', value:'vendor'}), ({pattern:'or', value:'mirror'}), ({pattern:'or', value:'harbor'}), ({pattern:'er', value:'crackers'}), ({pattern:'er', value:'butter'}), ({pattern:'er', value:'brother'}), ({pattern:'er', value:'slippers'}), ({pattern:'er', value:'sister'}), ({pattern:'er', value:'fingers'}), ({pattern:'er', value:'mother'})];
         } else if (userInput == "Review 3") {
             pArray = ["blank", "blank"];
         } else if (userInput == "Final Review") {
