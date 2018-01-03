@@ -440,13 +440,10 @@ function setCss(tabName, userInput){
                                                                           // ...
                                                                           });
     };
-    var sName = 'Ss1';
-    var PLearned = '25';
     function writeUserData(sName, PLearned) {
         var userId = firebase.auth().currentUser;
         firebase.database().ref('/' + userId).set({
-            sName: sName,
-            PLearned: PLearned
+            sName: PLearned
         });
     };
     
