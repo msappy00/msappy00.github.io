@@ -371,7 +371,6 @@ function setCss(tabName, userInput){
             // [START signout]
             document.getElementById("sign-in-btn").innerHTML = "Login";
             firebase.auth().signOut();
-            console.log(firebase.auth().currentUser.uid);
             // [END signout]
         } else {
             document.getElementById('id01').style.display='block';
@@ -405,7 +404,6 @@ function setCss(tabName, userInput){
           // [END_EXCLUDE]
           });
           // [END authwithemail]
-          console.log(firebase.auth().currentUser.uid);
           document.getElementById('id01').style.display='none';
     };
     
@@ -442,15 +440,9 @@ function setCss(tabName, userInput){
     };
 
     function writeUserData() {
-        var usersRef = firebase.database().ref("server/saving-data/fireblog").child("users").set({
-                     alanisawesome: {
-                     date_of_birth: "June 23, 1912",
-                     full_name: "Alan Turing"
-                     },
-                     gracehop: {
-                     date_of_birth: "December 9, 1906",
-                     full_name: "Grace Hopper"
-                     }
+        var usersRef = firebase.database().ref("users").child("sName").set({
+                                                                           sName: sName,
+                                                                           PLearned: PLearned
                      });
     };
     
@@ -663,7 +655,7 @@ function setCss(tabName, userInput){
             <input class="w3-input w3-border w3-round" type="text" id="spellCheck" autocomplete="off" autofocus style="font-size: 50px" placeholder="Spell It!" required/>
             <h3 id="vocab_links"></h3>
             <div id="vocab_lesson"></div>
-            <button class="w3-button w3-blue w3-round" onClick="writeUserData();">Write Data</button>
+            <button class="w3-button w3-blue w3-round" onClick="writeUserData('Ss1', '25');">Write Data</button>
         </div>
     </div><!-- /#vocab_tab -->
         
