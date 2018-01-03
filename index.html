@@ -371,7 +371,7 @@ function setCss(tabName, userInput){
             // [START signout]
             document.getElementById("sign-in-btn").innerHTML = "Login";
             firebase.auth().signOut();
-            console.log(uid);
+            console.log(firebase.auth().currentUser);
             // [END signout]
         } else {
             document.getElementById('id01').style.display='block';
