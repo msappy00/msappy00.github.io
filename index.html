@@ -440,15 +440,9 @@ function setCss(tabName, userInput){
                                                                           // ...
                                                                           });
     };
-    // Import Admin SDK
-    var admin = require("firebase-admin");
-    
-    // Get a database reference to our blog
-    var db = admin.database();
-    var ref = db.ref("server/saving-data/fireblog");
+
     function writeUserData() {
-        var usersRef = ref.child("users");
-        usersRef.set({
+        var usersRef = firebase.database().ref("server/saving-data/fireblog").child("users").set({
                      alanisawesome: {
                      date_of_birth: "June 23, 1912",
                      full_name: "Alan Turing"
