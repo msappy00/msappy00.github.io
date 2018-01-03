@@ -443,43 +443,30 @@ function setCss(tabName, userInput){
                                                                           
     function writeUserData(sName, PLearned) {
         var userId = firebase.auth().currentUser;
-      firebase.database().ref('sName/' + userId).set({
-                                                     "sName": sName,
-                                                     "PLearned": PLearned
-                                                     });
+        firebase.database().ref('users/' + userId).set({
+            "sName": sName,
+            "PLearned": PLearned
+        });
     };
     
     initApp = function() {
         firebase.auth().onAuthStateChanged(function(user) {
        if (user) {
-       // User is signed in.
-       var displayName = user.displayName;
-       var email = user.email;
-       var emailVerified = user.emailVerified;
-       var photoURL = user.photoURL;
-       var uid = user.uid;
-       var phoneNumber = user.phoneNumber;
-       var providerData = user.providerData;
-       user.getIdToken().then(function(accessToken) {
-          document.getElementById('sign-in-btn').textContent = 'Logout';
-          console.log('account-details').textContent = JSON.stringify({
-              displayName: displayName,
-              email: email,
-              emailVerified: emailVerified,
-              phoneNumber: phoneNumber,
-              photoURL: photoURL,
-              uid: uid,
-              accessToken: accessToken,
-              providerData: providerData
-              }, null, '  ');
-          });
+           // User is signed in.
+           var displayName = user.displayName;
+           var email = user.email;
+           var emailVerified = user.emailVerified;
+           var photoURL = user.photoURL;
+           var uid = user.uid;
+           var phoneNumber = user.phoneNumber;
+           var providerData = user.providerData;
+           user.getIdToken().then(function(accessToken) {
+              document.getElementById('sign-in-btn').textContent = 'Logout';});
        } else {
-       // User is signed out.
-       document.getElementById('sign-in-btn').textContent = 'Login';
+           // User is signed out.
+           document.getElementById('sign-in-btn').textContent = 'Login';
        }
-       }, function(error) {
-       console.log(error);
-       });
+       }, function(error) {console.log(error);});
     };
     
     window.addEventListener('load', function() {
