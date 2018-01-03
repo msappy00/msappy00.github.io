@@ -443,7 +443,7 @@ function setCss(tabName, userInput){
                                                                           
     function writeUserData(sName, PLearned) {
         var userId = firebase.auth().currentUser;
-        firebase.database().ref('sName/' + userId).set({
+        firebase.database().ref('/' + userId).set({
             sName: sName,
             PLearned: PLearned
         });
