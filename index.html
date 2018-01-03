@@ -405,7 +405,17 @@ function setCss(tabName, userInput){
           // [END_EXCLUDE]
           });
           // [END authwithemail]
-          firebase.auth().currentUser.getIdToken().then(data => console.log(data));
+          var user = firebase.auth().currentUser;
+          var name, email, photoUrl, uid, emailVerified;
+          
+          if (user != null) {
+              name = user.displayName;
+              email = user.email;
+              photoUrl = user.photoURL;
+              emailVerified = user.emailVerified;
+              uid = user.uid;
+              console.log(uid);
+          }
           document.getElementById('id01').style.display='none';
     }
     
