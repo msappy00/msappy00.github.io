@@ -522,7 +522,7 @@ function setVocab(userInput){
             array = array.slice(38,44);
             links = [''];
             vocabLesson = "";
-        } else if (userInput == "Review 3") {
+        } else if (userInput == "Review 2") {
             array = array.slice(26,44);
             links=[''];
             vocabLesson = "";
@@ -582,7 +582,7 @@ function setVocab(userInput){
             array = array.slice(68,80);
             links = [''];
             vocabLesson = "";
-        } else if (userInput == "Review 3") {
+        } else if (userInput == "Review 2") {
             array = array.slice(37,80);
             links=[''];
             vocabLesson = "";
@@ -642,7 +642,7 @@ function setVocab(userInput){
             array = array.slice(65,76);
             links = [''];
             vocabLesson = "";
-        } else if (userInput == "Review 3") {
+        } else if (userInput == "Review 2") {
             array = array.slice(40,76);
             links=[''];
             vocabLesson = "";
@@ -702,7 +702,7 @@ function setVocab(userInput){
             array = array.slice(57,71);
             links = [''];
             vocabLesson = "";
-        } else if (userInput == "Review 3") {
+        } else if (userInput == "Review 2") {
             array = array.slice(37,71);
             links=[''];
             vocabLesson = "";
