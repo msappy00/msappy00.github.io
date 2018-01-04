@@ -242,29 +242,29 @@ function setPhonics(userInput){
             document.getElementById("pInstructions").innerHTML = "Listen and write 'br' or 'bl'.";
             pArray = [({pattern:'br', value:'brave'}), ({pattern:'br', value:'Bruce'}), ({pattern:'br', value:'branches'}), ({pattern:'br', value:'broken'}), ({pattern:'br', value:'Brian'}), ({pattern:'br', value:'bridge'}), ({pattern:'br', value:'brush'}), ({pattern:'bl', value:'blanket'}), ({pattern:'bl', value:'blank'}), ({pattern:'bl', value:'blamed'}), ({pattern:'bl', value:'black'}), ({pattern:'bl', value:'blots'})];
         } else if (userInput == "Unit 3") {
-            document.getElementById("pInstructions").innerHTML = "Listen and write .";
-            pArray = [({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''})];
+            document.getElementById("pInstructions").innerHTML = "Listen and write 'cr' or 'cl'.";
+            pArray = [({pattern:'cr', value:''}), ({pattern:'cr', value:''}), ({pattern:'cr', value:''}), ({pattern:'cr', value:''}), ({pattern:'cr', value:''}), ({pattern:'cr', value:''}), ({pattern:'cl', value:''}), ({pattern:'cl', value:''}), ({pattern:'cl', value:''}), ({pattern:'cl', value:''}), ({pattern:'cl', value:''}), ({pattern:'cl', value:''})];
         } else if (userInput == "Review 1") {
             pArray = ["blank", "blank"];
         } else if (userInput == "Unit 4") {
-            document.getElementById("pInstructions").innerHTML = "Listen and write .";
+            document.getElementById("pInstructions").innerHTML = "Listen and write 'gr' or 'gl'.";
             pArray = [({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''})];
         } else if (userInput == "Unit 5") {
-            document.getElementById("pInstructions").innerHTML = "Listen and write .";
+            document.getElementById("pInstructions").innerHTML = "Listen and write 'fr' or 'fl'.";
             pArray = [({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''})];
         } else if (userInput == "Unit 6") {
-            document.getElementById("pInstructions").innerHTML = "Listen and write .";
+            document.getElementById("pInstructions").innerHTML = "Listen and write 'sl', 'sm' or 'sn'.";
             pArray = [({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''})];
         } else if (userInput == "Review 2") {
             pArray = ["blank", "blank"];
         } else if (userInput == "Unit 7") {
-            document.getElementById("pInstructions").innerHTML = "Listen and write .";
+            document.getElementById("pInstructions").innerHTML = "Listen and write 'str', 'scr' or 'spr'.";
             pArray = [({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''})];
         } else if (userInput == "Unit 8") {
-            document.getElementById("pInstructions").innerHTML = "Listen and write .";
+            document.getElementById("pInstructions").innerHTML = "Listen and write 'wr', 'kn' or 'mb'.";
             pArray = [({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''})];
         } else if (userInput == "Unit 9") {
-            document.getElementById("pInstructions").innerHTML = "Listen and write .";
+            document.getElementById("pInstructions").innerHTML = "Listen and write 'ce', 'ci', 'cy', 'ge', 'gi' or 'gy'.";
             pArray = [({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''})];
         } else if (userInput == "Review 3") {
             pArray = ["blank", "blank"];
