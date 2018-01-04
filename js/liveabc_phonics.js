@@ -236,8 +236,8 @@ function setPhonics(userInput){
     else if (level_id == "Level 6") {
         phonicsLesson = "";
         if (userInput == "Unit 1") {
-            document.getElementById("pInstructions").innerHTML = "Listen and write .";
-            pArray = [({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''})];
+            document.getElementById("pInstructions").innerHTML = "Listen and write 'pr' or 'pl'.";
+            pArray = [({pattern:'pr', value:'practice'}), ({pattern:'pr', value:'principal'}), ({pattern:'pr', value:'prize'}), ({pattern:'pr', value:'proud'}), ({pattern:'pl', value:'plus'}), ({pattern:'pl', value:'plums'}), ({pattern:'pl', value:'plain'}), ({pattern:'pl', value:'plate'}), ({pattern:'pl', value:'plan'}), ({pattern:'pl', value:'platform'})];
         } else if (userInput == "Unit 2") {
             document.getElementById("pInstructions").innerHTML = "Listen and write .";
             pArray = [({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''})];
