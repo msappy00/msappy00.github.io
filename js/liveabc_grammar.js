@@ -1982,25 +1982,25 @@ function setGrammar(userInput){
             shuffleArray(q1Array);
             q2Array = [""];
             q3Array = [""];
-            document.getElementById("g0r0d0").innerHTML = '<p style="font-size:50px" onclick="showPic(0, 0)">'+q1Array[0]+'</p>';
-            document.getElementById("g0r0d1").innerHTML = '<p style="font-size:50px" onclick="showPic(0, 1)">'+q1Array[1]+'</p>';
-            document.getElementById("g0r0d2").innerHTML = '<p style="font-size:50px" onclick="showPic(0, 2)">'+q1Array[2]+'</p>';
-            document.getElementById("g0r0d3").innerHTML = '<p style="font-size:50px" onclick="showPic(0, 3)">'+q1Array[3]+'</p>';
+            document.getElementById("g0r0d0").innerHTML = '<p style="font-size:50px">'+q1Array[0]+'</p>';
+            document.getElementById("g0r0d1").innerHTML = '<p style="font-size:50px">'+q1Array[1]+'</p>';
+            document.getElementById("g0r0d2").innerHTML = '<p style="font-size:50px">'+q1Array[2]+'</p>';
+            document.getElementById("g0r0d3").innerHTML = '<p style="font-size:50px">'+q1Array[3]+'</p>';
             
-            document.getElementById("g0r1d0").innerHTML = '<p style="font-size:50px" onclick="showPic(1, 0)">'+q1Array[4]+'</p>';
-            document.getElementById("g0r1d1").innerHTML = '<p style="font-size:50px" onclick="showPic(1, 1)">'+q1Array[5]+'</p>';
-            document.getElementById("g0r1d2").innerHTML = '<p style="font-size:50px" onclick="showPic(1, 2)">'+q1Array[6]+'</p>';
-            document.getElementById("g0r1d3").innerHTML = '<p style="font-size:50px" onclick="showPic(1, 3)">'+q1Array[7]+'</p>';
+            document.getElementById("g0r1d0").innerHTML = '<p style="font-size:50px">'+q1Array[4]+'</p>';
+            document.getElementById("g0r1d1").innerHTML = '<p style="font-size:50px">'+q1Array[5]+'</p>';
+            document.getElementById("g0r1d2").innerHTML = '<p style="font-size:50px">'+q1Array[6]+'</p>';
+            document.getElementById("g0r1d3").innerHTML = '<p style="font-size:50px">'+q1Array[7]+'</p>';
             
-            document.getElementById("g0r2d0").innerHTML = '<p style="font-size:50px" onclick="showPic(2, 0)">'+q1Array[8]+'</p>';
-            document.getElementById("g0r2d1").innerHTML = '<p style="font-size:50px" onclick="showPic(2, 1)">'+q1Array[9]+'</p>';
-            document.getElementById("g0r2d2").innerHTML = '<p style="font-size:50px" onclick="showPic(2, 2)">'+q1Array[10]+'</p>';
-            document.getElementById("g0r2d3").innerHTML = '<p style="font-size:50px" onclick="showPic(2, 3)">'+q1Array[11]+'</p>';
+            document.getElementById("g0r2d0").innerHTML = '<p style="font-size:50px">'+q1Array[8]+'</p>';
+            document.getElementById("g0r2d1").innerHTML = '<p style="font-size:50px">'+q1Array[9]+'</p>';
+            document.getElementById("g0r2d2").innerHTML = '<p style="font-size:50px">'+q1Array[10]+'</p>';
+            document.getElementById("g0r2d3").innerHTML = '<p style="font-size:50px">'+q1Array[11]+'</p>';
             
-            document.getElementById("g0r3d0").innerHTML = '<p style="font-size:50px" onclick="showPic(3, 0)">'+q1Array[12]+'</p>';
-            document.getElementById("g0r3d1").innerHTML = '<p style="font-size:50px" onclick="showPic(3, 1)">'+q1Array[13]+'</p>';
-            document.getElementById("g0r3d2").innerHTML = '<p style="font-size:50px" onclick="showPic(3, 2)">'+q1Array[14]+'</p>';
-            document.getElementById("g0r3d3").innerHTML = '<p style="font-size:50px" onclick="showPic(3, 3)">'+q1Array[15]+'</p>';
+            document.getElementById("g0r3d0").innerHTML = '<p style="font-size:50px">'+q1Array[12]+'</p>';
+            document.getElementById("g0r3d1").innerHTML = '<p style="font-size:50px">'+q1Array[13]+'</p>';
+            document.getElementById("g0r3d2").innerHTML = '<p style="font-size:50px">'+q1Array[14]+'</p>';
+            document.getElementById("g0r3d3").innerHTML = '<p style="font-size:50px">'+q1Array[15]+'</p>';
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 5") {
