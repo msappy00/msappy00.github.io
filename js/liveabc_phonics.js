@@ -251,7 +251,7 @@ function setPhonics(userInput){
             pArray = [({pattern:'gr', value:'Grace'}), ({pattern:'gr', value:'grandmother'}), ({pattern:'gr', value:'greeted'}), ({pattern:'gr', value:'grapes'}), ({pattern:'gr', value:'green'}), ({pattern:'gr', value:'grass'}), ({pattern:'gl', value:'Gloria'}), ({pattern:'gl', value:'glasses'}), ({pattern:'gl', value:'gloves'}), ({pattern:'gl', value:'glue'}), ({pattern:'gl', value:'globe'}), ({pattern:'gl', value:'glad'})];
         } else if (userInput == "Unit 5") {
             document.getElementById("pInstructions").innerHTML = "Listen and write 'fr' or 'fl'.";
-            pArray = [({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''})];
+            pArray = [({pattern:'fr', value:''}), ({pattern:'fr', value:''}), ({pattern:'fr', value:''}), ({pattern:'fr', value:''}), ({pattern:'fr', value:''}), ({pattern:'fr', value:''}), ({pattern:'fl', value:''}), ({pattern:'fl', value:''}), ({pattern:'fl', value:''}), ({pattern:'fl', value:''}), ({pattern:'fl', value:''})];
         } else if (userInput == "Unit 6") {
             document.getElementById("pInstructions").innerHTML = "Listen and write 'sl', 'sm' or 'sn'.";
             pArray = [({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''})];
