@@ -239,8 +239,8 @@ function setPhonics(userInput){
             document.getElementById("pInstructions").innerHTML = "Listen and write 'pr' or 'pl'.";
             pArray = [({pattern:'pr', value:'practice'}), ({pattern:'pr', value:'principal'}), ({pattern:'pr', value:'prize'}), ({pattern:'pr', value:'proud'}), ({pattern:'pl', value:'plus'}), ({pattern:'pl', value:'plums'}), ({pattern:'pl', value:'plain'}), ({pattern:'pl', value:'plate'}), ({pattern:'pl', value:'plan'}), ({pattern:'pl', value:'platform'})];
         } else if (userInput == "Unit 2") {
-            document.getElementById("pInstructions").innerHTML = "Listen and write .";
-            pArray = [({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''})];
+            document.getElementById("pInstructions").innerHTML = "Listen and write 'br' or 'bl'.";
+            pArray = [({pattern:'br', value:'brave'}), ({pattern:'br', value:'Bruce'}), ({pattern:'br', value:'branches'}), ({pattern:'br', value:'broken'}), ({pattern:'br', value:'Brian'}), ({pattern:'br', value:'bridge'}), ({pattern:'br', value:'brush'}), ({pattern:'bl', value:'blanket'}), ({pattern:'bl', value:'blank'}), ({pattern:'bl', value:'blamed'}), ({pattern:'bl', value:'black'}), ({pattern:'bl', value:'blots'})];
         } else if (userInput == "Unit 3") {
             document.getElementById("pInstructions").innerHTML = "Listen and write .";
             pArray = [({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''})];
