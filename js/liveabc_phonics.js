@@ -254,7 +254,7 @@ function setPhonics(userInput){
             pArray = [({pattern:'fr', value:'Frank'}), ({pattern:'fr', value:'frisbee'}), ({pattern:'fr', value:'friends'}), ({pattern:'fr', value:'fresh fruit'}), ({pattern:'fr', value:'fried'}), ({pattern:'fr', value:'french fries'}), ({pattern:'fl', value:'Flora'}), ({pattern:'fl', value:'florist'}), ({pattern:'fl', value:'flood'}), ({pattern:'fl', value:'flowing'}), ({pattern:'fl', value:'flower'})];
         } else if (userInput == "Unit 6") {
             document.getElementById("pInstructions").innerHTML = "Listen and write 'sl', 'sm' or 'sn'.";
-            pArray = [({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''})];
+            pArray = [({pattern:'sl', value:'slipping'}), ({pattern:'sl', value:'slim'}), ({pattern:'sl', value:'slide'}), ({pattern:'sm', value:'Smith'}), ({pattern:'sm', value:'smells'}), ({pattern:'sm', value:'smart'}), ({pattern:'sm', value:'smile'}), ({pattern:'sn', value:'snowing'}), ({pattern:'sn', value:'snores'}), ({pattern:'sn', value:'sniff'}), ({pattern:'sn', value:'sneeze'})];
         } else if (userInput == "Review 2") {
             pArray = ["blank", "blank"];
         } else if (userInput == "Unit 7") {
