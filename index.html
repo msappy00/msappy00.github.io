@@ -440,7 +440,8 @@ function setCss(tabName, userInput){
     };
 
     function writeUserData(sName, PLearned) {
-        var usersRef = firebase.database().ref("/sName" + user).set({
+        var userId = firebase.auth().currentUser;
+        var usersRef = firebase.database().ref("/sName" + userId).set({
            sName: sName,
            PLearned: PLearned
          });
