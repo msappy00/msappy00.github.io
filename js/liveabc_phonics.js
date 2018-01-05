@@ -262,10 +262,10 @@ function setPhonics(userInput){
             pArray = [({pattern:'str', value:'strong'}), ({pattern:'str', value:'stretches'}), ({pattern:'str', value:'street'}), ({pattern:'str', value:'strange'}), ({pattern:'str', value:'stream'}), ({pattern:'scr', value:'screams'}), ({pattern:'scr', value:'scratch'}), ({pattern:'scr', value:'screw'}), ({pattern:'spr', value:'spreads'}), ({pattern:'spr', value:'spring'}), ({pattern:'spr', value:'sprouts'})];
         } else if (userInput == "Unit 8") {
             document.getElementById("pInstructions").innerHTML = "Listen and write 'wr', 'kn' or 'mb'.";
-            pArray = [({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''})];
+            pArray = [({pattern:'wr', value:'writing'}), ({pattern:'wr', value:'wrapping'}), ({pattern:'wr', value:'wrench'}), ({pattern:'wr', value:'wrinkling'}), ({pattern:'wr', value:'wrist'}), ({pattern:'kn', value:'know'}), ({pattern:'kn', value:'kneeling'}), ({pattern:'kn', value:'knights'}), ({pattern:'kn', value:'knee'}), ({pattern:'mb', value:'bomb'}), ({pattern:'mb', value:'dumb'})];
         } else if (userInput == "Unit 9") {
-            document.getElementById("pInstructions").innerHTML = "Listen and write 'ce', 'ci', 'cy', 'ge', 'gi' or 'gy'.";
-            pArray = [({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''}), ({pattern:'', value:''})];
+            document.getElementById("pInstructions").innerHTML = "Listen and write 'ci', 'ce', 'cy', 'gi', 'ge' or 'gy'.";
+            pArray = [({pattern:'ci', value:'cinema'}), ({pattern:'ci', value:'city'}), ({pattern:'ce', value:'celebrates'}), ({pattern:'ce', value:'center'}), ({pattern:'ce', value:'cereal'}), ({pattern:'cy', value:'Nancy'}), ({pattern:'gi', value:'giraffe'}), ({pattern:'ge', value:'George'}), ({pattern:'ge', value:'German'}), ({pattern:'ge', value:'gently'}), ({pattern:'gy', value:'gym'}), ({pattern:'gy', value:'gypsum'})];
         } else if (userInput == "Review 3") {
             pArray = ["blank", "blank"];
         } else if (userInput == "Final Review") {
