@@ -433,7 +433,7 @@ function setCss(tabName, userInput){
     };
     
     function readUserData() { // Basic read operation EXAMPLE
-    return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+    return firebase.database().ref('/Ss/' + userId).once('value').then(function(snapshot) {
                                                                       var PLearned = (snapshot.val() && snapshot.val().PLearned) || 'Anonymous';
                                                                           // ...
                                                                           });
