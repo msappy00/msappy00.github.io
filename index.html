@@ -434,10 +434,10 @@ function setCss(tabName, userInput){
                     });
                     // [END sendpasswordemail];
     };
-    
+    var PrevL
     function readUserData(sName) {
     return firebase.database().ref("/" + sName).once("value").then(function(snapshot) {
-                                                                        var PrevL = (snapshot.val().PLearned);
+                                                                        PrevL = (snapshot.val().PLearned);
                                                                         document.getElementById('readData').textContent = PrevL;
                                                                       })
     };
