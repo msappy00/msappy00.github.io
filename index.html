@@ -200,9 +200,7 @@
     function checkSessionStorage() {
         levelId.innerHTML = sessionStorage.getItem("sessionLevel");
         setLevel(levelId.innerHTML);
-        if (firebase.auth().currentUser) {
-            document.getElementById("sign-in-btn").innerHTML = "Logout";
-        }
+        readUserData(Ss1);
     };
 
 var array_i = 0;
@@ -660,8 +658,6 @@ function setCss(tabName, userInput){
             <div id="vocab_lesson"></div>
             <input class="w3-input w3-border w3-round" type="text" id="studentId" />
             <input class="w3-input w3-border w3-round" type="number" step="0.01" id="Pscore" />
-            <button class="w3-button w3-blue w3-round" onClick="writeUserData(studentId, Pscore);">Write Data</button>
-            <button class="w3-button w3-blue w3-round" onClick="readUserData('Ss1');">Read Data</button>
             <div id="readData"></div>
         </div>
     </div><!-- /#vocab_tab -->
