@@ -460,7 +460,10 @@ function setCss(tabName, userInput){
            var phoneNumber = user.phoneNumber;
            var providerData = user.providerData;
            user.getIdToken().then(function(accessToken) {
-              document.getElementById('sign-in-btn').textContent = 'Logout';});
+              document.getElementById('sign-in-btn').textContent = 'Logout';
+                                  console.log(uid, email);
+                                  });
+
        } else {
            // User is signed out.
            document.getElementById('sign-in-btn').textContent = 'Login';
