@@ -7,8 +7,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="css/w3.css"/>
         <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-database.js"></script>
         <script>
             // Initialize Firebase
             var config = {
@@ -461,7 +459,7 @@ function setCss(tabName, userInput){
            var providerData = user.providerData;
            user.getIdToken().then(function(accessToken) {
               document.getElementById('sign-in-btn').textContent = 'Logout';
-                                  console.log(uid, email);
+                                  console.log(providerData);
                                   });
 
        } else {
