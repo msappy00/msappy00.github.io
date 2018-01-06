@@ -256,6 +256,7 @@ function vArraySlide() {
         spellCheck.focus();
     }
     PrevL = PrevL + 0.25 * (1-PrevL);
+    PrevL = parseFloat(Math.round(PrevL * 100) / 100).toFixed(2);
     writeUserData("Ss1", PrevL);
 };
     
