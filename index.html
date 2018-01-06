@@ -440,6 +440,8 @@ function setCss(tabName, userInput){
     };
 
     function writeUserData(sName, PLearned) {
+        var sName = studentId.value;
+        var PLearned = Pscore.value;
         var userId = firebase.auth().currentUser;
         var usersRef = firebase.database().ref("/" + sName).set({
                                                                 PLearned: PLearned
@@ -458,9 +460,7 @@ function setCss(tabName, userInput){
            var phoneNumber = user.phoneNumber;
            var providerData = user.providerData;
            user.getIdToken().then(function(accessToken) {
-              document.getElementById('sign-in-btn').textContent = 'Logout';
-                                  console.log(uid);
-                                  });
+              document.getElementById('sign-in-btn').textContent = 'Logout';});
 
        } else {
            // User is signed out.
@@ -658,7 +658,9 @@ function setCss(tabName, userInput){
             <input class="w3-input w3-border w3-round" type="text" id="spellCheck" autocomplete="off" autofocus style="font-size: 50px" placeholder="Spell It!" required/>
             <h3 id="vocab_links"></h3>
             <div id="vocab_lesson"></div>
-            <button class="w3-button w3-blue w3-round" onClick="writeUserData('Ss1', 0.25);">Write Data</button>
+            <input class="w3-input w3-border w3-round" type="text" id="studentId" />
+            <input class="w3-input w3-border w3-round" type="text" id="Pscore" />
+            <button class="w3-button w3-blue w3-round" onClick="writeUserData(studentId, Pscore);">Write Data</button>
             <button class="w3-button w3-blue w3-round" onClick="readUserData('Ss1');">Read Data</button>
             <div id="readData"></div>
         </div>
