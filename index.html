@@ -230,7 +230,10 @@ function speak(text, callback) {
 };
 
 function vArraySlide() {
-    if (spellCheck.value === spellCheck.pattern) {
+    if (spellCheck.value != spellCheck.pattern){
+        PrevL = (PrevL * 0.25) / (PrevL * 0.25 + (1-PrevL) * 0.75);
+    } else if (spellCheck.value === spellCheck.pattern) {
+        PrevL = (PrevL * 0.75) / (PrevL * 0.75 + (1-PrevL) * 0.25);
         spellCheck.value = "";
         array_i++;
         if (array_i > (array.length - 1)) {
@@ -252,6 +255,8 @@ function vArraySlide() {
         //vocabAudio.innerHTML = '<audio controls autoplay><source src="'+level_id+'/audio/'+array[array_i]+'.mp3" type="audio/mp3" /></audio>';
         spellCheck.focus();
     }
+    PrevL = PrevL + 0.25 * (1-PrevL);
+    writeUserData("Ss1", PrevL);
 };
     
 function pArraySlide() {
@@ -444,6 +449,7 @@ function setCss(tabName, userInput){
         var usersRef = firebase.database().ref("/" + sName).set({
                                                                 PLearned: PLearned
         });
+        document.getElementById('readData').textContent = PLearned;
     };
     
     initApp = function() {
