@@ -435,7 +435,7 @@ function setCss(tabName, userInput){
     function readUserData(sName) { // Basic read operation EXAMPLE
     return firebase.database().ref("/" + sName).once("value").then(function(snapshot) {
                                                                         var PrevL = (snapshot.val().PLearned);
-                                                                      });
+                                                                      })
                                                                       console.log("PrevL: " + PrevL);
     };
 
