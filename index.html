@@ -443,8 +443,6 @@ function setCss(tabName, userInput){
     };
 
     function writeUserData(sName, PLearned) {
-        var sName = studentId.value;
-        var PLearned = Pscore.value;
         var userId = firebase.auth().currentUser;
         var usersRef = firebase.database().ref("/" + sName).set({
                                                                 PLearned: PLearned
