@@ -433,10 +433,10 @@ function setCss(tabName, userInput){
     };
     
     function readUserData(sName) { // Basic read operation EXAMPLE
-    return firebase.database().ref("/" + sName).once('PLearned').then(function(snapshot) {
+    return firebase.database().ref("/" + sName).once("value").then(function(snapshot) {
                                                                         var PrevL = (snapshot.val().PLearned);
                                                                       });
-        document.getElementById('readData').textContent = PrevL;
+                                                                      console.log("PrevL: " + PrevL);
     };
 
     function writeUserData(sName, PLearned) {
