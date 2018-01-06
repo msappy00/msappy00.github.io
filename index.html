@@ -432,11 +432,10 @@ function setCss(tabName, userInput){
                     // [END sendpasswordemail];
     };
     
-    function readUserData(sName) { // Basic read operation EXAMPLE
+    function readUserData(sName) {
     return firebase.database().ref("/" + sName).once("value").then(function(snapshot) {
-                                                                        var PrevL = (snapshot.val().PLearned);
+                                                                        console.log("PrevL: " + (snapshot.val().PLearned));
                                                                       })
-                                                                      console.log("PrevL: " + PrevL);
     };
 
     function writeUserData(sName, PLearned) {
