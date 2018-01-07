@@ -28,13 +28,43 @@
             font-size:20px;
         }
 
-        input:invalid { background-color: lightPink;}
-        input:valid { background-color: lightGreen;}
+        input:invalid { background-color: white;}
+        input:valid { background-color: white;}
         input:required {border: 2px solid red;}
         input:optional {border: 2px solid green;}
+        
         #home {
             max-width: 960px;
             margin: 0 auto;
+        }
+        #myProgress {
+            width: 100%;
+            background-color: white;
+        }
+        .PBar {
+            height: 30px;
+            background-color: lightpink;
+            text-align: center; /* To center it horizontally (if you want) */
+            line-height: 30px; /* To center it vertically */
+            color: gray;
+        }
+        #P1Bar {
+            width: P1Now;
+        }
+        #P2Bar {
+            width: P2Now;
+        }
+        #P3Bar {
+            width: P3Now;
+        }
+        #P4Bar {
+            width: P4Now;
+        }
+        #P5Bar {
+            width: P5Now;
+        }
+        #P6Bar {
+            width: P6Now;
         }
         #aText0, #aText1, #aText2, #aText3, #aText4, #aText5, #textInput0, #textInput1, #textInput2, #textInput3, #textInput4, #textInput5, #grammarInput, #grammarInput2 {
             text-align:center;
@@ -160,9 +190,13 @@
 	<script>
 
     var bookNumber
+    var className
     var level_id = "";
-    var classList = [];
+    var classList = [({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''})];
+    var classList2 = [];
     var currentUnit = "";
+    var PNow = 0.25;
+    var PrevL = 0.25;
     
     // Randomize array element order in-place
     // Using Durstenfeld Shuffle algorithm:
@@ -176,11 +210,55 @@
          }
          return array;
      };
+    
+    function setClass(className) {
+        classList = [];
+        classList2 = [];
+        sessionStorage.setItem("className", className);
+        document.getElementById("className").textContent = className;
+        if (className == "Scorpion Class") {
+            classList = [({sName: '', displayName: 'Carrie '}), ({sName: '', displayName: 'Edgar '}), ({sName: '', displayName: 'Icco '}), ({sName: '', displayName: 'Jerry '}), ({sName: '', displayName: 'Kristy '}), ({sName: '', displayName: 'Sophie '})];
+        } else if (className == "Sheep Class") {
+            classList = [({sName: '', displayName: 'Eric '}), ({sName: '', displayName: 'Fusion '}), ({sName: '', displayName: 'Kiki '}), ({sName: '', displayName: 'Justin '}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''})];
+        } else {
+            classList = [({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''})];
+        }
+        document.getElementById("Ss1").textContent = classList[0].displayName;
+        document.getElementById("Ss2").textContent = classList[1].displayName;
+        document.getElementById("Ss3").textContent = classList[2].displayName;
+        document.getElementById("Ss4").textContent = classList[3].displayName;
+        document.getElementById("Ss5").textContent = classList[4].displayName;
+        document.getElementById("Ss6").textContent = classList[5].displayName;
+        for (student in classList) {
+            sNum = Number(student) + 1;
+            if (classList[student].displayName != ''){
+                classList2.push(classList[student]);
+                sessionStorage.setItem("P" + sNum + "Now", 0.25);
+                sessionStorage.setItem("Prev" + sNum + "L", 0.25);
+                document.getElementById("P" + sNum + "Bar").style.width = (25 + '%');
+                document.getElementById("P" + sNum + "Bar").textContent = '25%';
+            } else {
+                sessionStorage.setItem("P" + sNum + "Now", 0.00);
+                sessionStorage.setItem("Prev" + sNum + "L", 0.00);
+                document.getElementById("P" + sNum + "Bar").style.width = (0 + '%');
+                document.getElementById("P" + sNum + "Bar").textContent = '';
+            }
+        };
+        document.getElementById("displayName").textContent = classList2[0].displayName;
+    };
+    
+    function clearClass() {
+        sessionStorage.setItem("className", "");
+        document.getElementById("className").textContent = "";
+        className = " ";
+        classList = [];
+        document.getElementById("SsTable").textContent = "";
+    };
 
     function setLevel(level) {
         sessionStorage.setItem("sessionLevel", level);
         level_id = level;
-        levelId.innerHTML = level;
+        levelId.textContent = level;
         currentUnit = "";
         setVocab('');
         setGrammar('');
@@ -190,7 +268,7 @@
     function clearLevel() {
         sessionStorage.setItem("sessionLevel", "");
         level_id = " ";
-        levelId.innerHTML = " ";
+        levelId.textContent = " ";
         currentUnit = "";
         setVocab(currentUnit);
         setGrammar(currentUnit);
@@ -198,9 +276,17 @@
     };
     
     function checkSessionStorage() {
-        levelId.innerHTML = sessionStorage.getItem("sessionLevel");
-        setLevel(levelId.innerHTML);
-        readUserData("Ss1");
+        levelId.textContent = sessionStorage.getItem("sessionLevel");
+        className = sessionStorage.getItem("className");
+        P1Now = sessionStorage.getItem("P1Now");
+        P2Now = sessionStorage.getItem("P2Now");
+        P3Now = sessionStorage.getItem("P3Now");
+        P4Now = sessionStorage.getItem("P4Now");
+        P5Now = sessionStorage.getItem("P5Now");
+        P6Now = sessionStorage.getItem("P6Now");
+        setLevel(levelId.textContent);
+        setClass(className);
+        //readUserData("Ss1");
     };
 
 var array_i = 0;
@@ -230,10 +316,14 @@ function speak(text, callback) {
 };
 
 function vArraySlide() {
+    sNum = cArray_i + 1;
+    PNow = sessionStorage.getItem("P" + sNum + "Now");
+    PrevL = sessionStorage.getItem("Prev" + sNum + "L");
+    PBar = "P" + sNum + "Bar";
     if (spellCheck.value != spellCheck.pattern){
-        PrevL = (PrevL * 0.25) / (PrevL * 0.25 + (1-PrevL) * 0.75);
+        PrevL = (PrevL * 0.25) / ((PrevL * 0.25) + ((1-PrevL) * 0.75));
     } else if (spellCheck.value === spellCheck.pattern) {
-        PrevL = (PrevL * 0.75) / (PrevL * 0.75 + (1-PrevL) * 0.25);
+        PrevL = (PrevL * 0.75) / ((PrevL * 0.75) + ((1-PrevL) * 0.25));
         spellCheck.value = "";
         array_i++;
         if (array_i > (array.length - 1)) {
@@ -255,9 +345,21 @@ function vArraySlide() {
         //vocabAudio.innerHTML = '<audio controls autoplay><source src="'+level_id+'/audio/'+array[array_i]+'.mp3" type="audio/mp3" /></audio>';
         spellCheck.focus();
     }
-    PrevL = PrevL + 0.25 * (1-PrevL);
-    PrevL = parseFloat(Math.round(PrevL * 100) / 100).toFixed(2);
-    writeUserData("Ss1", PrevL);
+    PNow = PrevL + (0.25 * (1-PrevL));
+    PNow = PNow.toFixed(2);
+    document.getElementById(PBar).textContent = (PNow*100+"%");
+    if (PNow <= 0.50){
+        document.getElementById(PBar).style.backgroundColor = "lightpink";
+    } else if (PNow >= 0.80){
+        document.getElementById(PBar).style.backgroundColor = "lightgreen";
+    } else {
+        document.getElementById(PBar).style.backgroundColor = "yellow";
+    }
+    sessionStorage.setItem("P" + sNum + "Now", PNow);
+    sessionStorage.setItem("Prev" + sNum + "L", PrevL);
+    cArraySlide();
+    move();
+    //writeUserData("Ss1", PNow);
 };
     
 function pArraySlide() {
@@ -272,15 +374,17 @@ function pArraySlide() {
         phonicsCheck.focus();
     }
 };
+                          
+function cArraySlide() {
+    cArray_i++;
+    if (cArray_i > (classList2.length - 1)) {
+        cArray_i = 0;
+    }
+    sName = classList2[cArray_i].sName;
+    displayName = classList2[cArray_i].displayName;
+    document.getElementById("displayName").textContent = displayName;
+};
 
-var letter0;
-var letter1;
-var letter2;
-var letter3;
-var letter4;
-var letter5;
-var letter6;
-var letter7;
 var pic;
 
 function checkLetter(x, i, letter) {
@@ -435,10 +539,9 @@ function setCss(tabName, userInput){
                     });
                     // [END sendpasswordemail];
     };
-    var PrevL
     function readUserData(sName) {
     return firebase.database().ref("/" + sName).once("value").then(function(snapshot) {
-                                                                        PrevL = (snapshot.val().PLearned);
+                                                                        var PrevL = (snapshot.val().PLearned);
                                                                         document.getElementById('readData').textContent = PrevL;
                                                                       })
     };
@@ -475,7 +578,22 @@ function setCss(tabName, userInput){
     window.addEventListener('load', function() {
         initApp()
     });
-
+    
+    function move() { //Progress Bar
+        var elem = document.getElementById("P" + sNum + "Bar");
+        var width = (PNow*100);
+        var id = setInterval(frame, 10);
+        function frame() {
+            if (width >= 100) {
+                clearInterval(id);
+            } else {
+                width++;
+                elem.style.width = PNow * 100 + '%';
+                elem.innerHTML = PNow * 100 + '%';
+            }
+        }
+        document.getElementById("P"+ sNum + "Bar").textContent = (PNow+"%");
+    }
     </script>
 </head>
 <body onload="checkSessionStorage()">
@@ -490,6 +608,7 @@ function setCss(tabName, userInput){
         <div class="w3-bar w3-blue">
             <a href="#home" class="w3-bar-item w3-button w3-hide-small w3-hide-medium"><img width="20" height="20" src="images/star-yellow.svg" alt="yellow star" /></a>
             <a href="#home" class="w3-bar-item w3-button" onclick="setCss('home', 'null')">Home</a>
+            <a href="dice.html" target="_blank" class="w3-bar-item w3-button w3-hide-large">Dice</a>
             <div class="w3-dropdown-hover">
                 <button class="w3-button w3-hide-small w3-hide-medium">Games</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
@@ -509,7 +628,15 @@ function setCss(tabName, userInput){
                 </div>
             </div>
             <div class="w3-dropdown-hover">
-                <button class="w3-button">Level</button>
+                <button class="w3-button w3-hide-small w3-hide-medium">Class</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setClass('Scorpion Class')">Scorpion Class</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setClass('Sheep Class')">Sheep Class</button>
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="clearClass()">Clear</button>
+                </div>
+            </div>
+            <div class="w3-dropdown-hover">
+                <button class="w3-button w3-hide-small w3-hide-medium">Level</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
                     <button class="w3-bar-item w3-button w3-mobile" onclick="setLevel('Starter')">Starter</button>
                     <button class="w3-bar-item w3-button w3-mobile" onclick="setLevel('Level 1')">Level 1</button>
@@ -528,7 +655,7 @@ function setCss(tabName, userInput){
                 </div>
             </div>
             <div class="w3-dropdown-hover">
-                <button class="w3-button">Vocab</button>
+                <button class="w3-button w3-hide-small w3-hide-medium">Vocab</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
                     <button class="w3-bar-item w3-button w3-mobile" onclick="setCss('vocab_tab', 'Unit 1')">Unit 1</button>
                     <button class="w3-bar-item w3-button w3-mobile" onclick="setCss('vocab_tab', 'Unit 2')">Unit 2</button>
@@ -597,9 +724,9 @@ function setCss(tabName, userInput){
                 </div>
             </div>
             <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-right" id="day">day</a>
-            <!-- Button to open the modal login form -->
+            <!-- Button to open the modal login form
             <button class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-right" onclick=toggleSignIn() id="sign-in-btn">Login</button>
-            
+            -->
                 <!-- Login Modal -->
                 <div id="id01" class="modal">
                     <span onclick="document.getElementById('id01').style.display='none'"
@@ -638,9 +765,9 @@ function setCss(tabName, userInput){
     </div><!--/#nav bar-->
     
     <div class="w3-container" style="padding-top:50px">
-        <h2 id="levelId" class="w3-cell"></h2>
+        <div><h2 class="w3-cell" id="className"></h2></div>
+        <div><h2 class="w3-cell" id="levelId"></h2></div>
     </div>
-
     <div id="home" class="w3-container w3-row tab-content" style="display:block">
         <img id="logo" src="images/mega_tree.png" alt="mega" class="w3-image">
             <footer id="foot01"></footer>
@@ -661,7 +788,15 @@ function setCss(tabName, userInput){
             <input class="w3-input w3-border w3-round" type="text" id="spellCheck" autocomplete="off" autofocus style="font-size: 50px" placeholder="Spell It!" required/>
             <h3 id="vocab_links"></h3>
             <div id="vocab_lesson"></div>
-            <div id="readData"></div>
+            <div class="w3-cell"><p id="displayName" style="font-size: 20px; font-weight: bold"></p></div>
+            <table class="w3-table" style="padding:50px" id="SsTable">
+                <tr><td id="Ss1"></td><td id="myProgress"><div class="PBar" id="P1Bar"></div></td></tr>
+                <tr><td id="Ss2"></td><td id="myProgress"><div class="PBar" id="P2Bar"></div></td></tr>
+                <tr><td id="Ss3"></td><td id="myProgress"><div class="PBar" id="P3Bar"></div></td></tr>
+                <tr><td id="Ss4"></td><td id="myProgress"><div class="PBar" id="P4Bar"></div></td></tr>
+                <tr><td id="Ss5"></td><td id="myProgress"><div class="PBar" id="P5Bar"></div></td></tr>
+                <tr><td id="Ss6"></td><td id="myProgress"><div class="PBar" id="P6Bar"></div></td></tr>
+            </table>
         </div>
     </div><!-- /#vocab_tab -->
         

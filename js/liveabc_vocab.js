@@ -108,7 +108,7 @@ function setVocab(userInput){
         } else if (userInput == "Review 2") {
             array = array.slice(26,54);
             links = ["<a href='https://scratch.mit.edu/projects/40754064/' target='blank'>Scratch: Phonics Shooter</a>"];
-            vocabLesson = "<iframe allowtransparency='true' width='485' height='402' src='//scratch.mit.edu/projects/embed/14115998/?autostart=false' frameborder='0' allowfullscreen></iframe>";
+            vocabLesson = "<a href='https://scratch.mit.edu/projects/14115998/' target='_blank'>Scratch: B1U5 Vocab</a>";
         } else if (userInput == "Unit 7") {
             array = array.slice(54,62);
             links = ["<a href='https://scratch.mit.edu/projects/40754064/' target='_blank'>Scratch: Phonics Shooter</a>"];
@@ -216,7 +216,7 @@ function setVocab(userInput){
         } else if (userInput == "Unit 4") {
             array = array.slice(30,40);
             links = [''];
-            vocabLesson = "<iframe allowtransparency='true' width='485' height='402' src='//scratch.mit.edu/projects/embed/49848852/?autostart=false' frameborder='0' allowfullscreen></iframe>";
+            vocabLesson = "<a href='https://scratch.mit.edu/projects/49848852/' target='_blank'>Scratch: B3U4 Vocab</a>";
         } else if (userInput == "Unit 5") {
             array = array.slice(40,53);
             links = [''];
@@ -529,7 +529,7 @@ function setVocab(userInput){
         } else if (userInput == "Unit 7") {
             array = array.slice(44,50);
             links = [''];
-            vocabLesson = "<iframe allowtransparency='true' width='485' height='402' src='//scratch.mit.edu/projects/embed/14544607/?autostart=false' frameborder='0' allowfullscreen></iframe>";
+            vocabLesson = "<a href='https://scratch.mit.edu/projects/14544607/' target='_newtab'>Scratch: high low guessing game</a>";
         } else if (userInput == "Unit 8") {
             array = array.slice(50,62);
             links = [''];
