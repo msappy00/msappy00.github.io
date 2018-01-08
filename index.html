@@ -355,7 +355,7 @@ function vArraySlide() {
     }
     PNow = PrevL + (0.25 * (1-PrevL));
     PNow = Math.round(PNow*100);
-    document.getElementById(PBar).textContent = (PNow*100+"%");
+    document.getElementById(PBar).textContent = (PNow + "%");
     if (PNow <= 50){
         document.getElementById(PBar).style.backgroundColor = "lightpink";
     } else if (PNow >= 80){
@@ -589,15 +589,15 @@ function setCss(tabName, userInput){
     
     function move() { //Progress Bar
         var elem = document.getElementById("P" + sNum + "Bar");
-        var width = (PNow*100);
+        var width = (PNow);
         var id = setInterval(frame, 10);
         function frame() {
             if (width >= 100) {
                 clearInterval(id);
             } else {
                 width++;
-                elem.style.width = PNow * 100 + '%';
-                elem.innerHTML = PNow * 100 + '%';
+                elem.style.width = PNow + '%';
+                elem.innerHTML = PNow + '%';
             }
         }
         document.getElementById("P"+ sNum + "Bar").textContent = (PNow+"%");
