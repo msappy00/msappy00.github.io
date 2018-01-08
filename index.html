@@ -197,6 +197,8 @@
     var currentUnit = "";
     var PNow = 0.25;
     var PrevL = 0.25;
+    var success = new Audio('/audio/success.mp3');
+    var fail = new Audio('/audio/fail.mp3');
     
     // Randomize array element order in-place
     // Using Durstenfeld Shuffle algorithm:
@@ -244,7 +246,9 @@
                 document.getElementById("P" + sNum + "Bar").textContent = '';
             }
         };
-        document.getElementById("displayName").textContent = classList2[0].displayName;
+        if (classList2[0].displayName != ''){
+            document.getElementById("displayName").textContent = classList2[0].displayName;
+            }
     };
     
     function clearClass() {
@@ -321,8 +325,10 @@ function vArraySlide() {
     PrevL = sessionStorage.getItem("Prev" + sNum + "L");
     PBar = "P" + sNum + "Bar";
     if (spellCheck.value != spellCheck.pattern){
+        fail.play();
         PrevL = (PrevL * 0.25) / ((PrevL * 0.25) + ((1-PrevL) * 0.75));
     } else if (spellCheck.value === spellCheck.pattern) {
+        success.play();
         PrevL = (PrevL * 0.75) / ((PrevL * 0.75) + ((1-PrevL) * 0.25));
         spellCheck.value = "";
         array_i++;
@@ -330,7 +336,7 @@ function vArraySlide() {
             array_i = 0;
             shuffleArray(array);
         }
-    document.getElementById("vocProg").value = array_i/array.length*100;
+        document.getElementById("vocProg").value = array_i/array.length*100;
         if (level_id == "Level 9" || level_id == "Level 10" || level_id == "Level 11" || level_id == "Level 12") {
             document.getElementById("current_vocab").innerHTML = '<button class="w3-button w3-white w3-round" onClick="vArraySlide()" class="w3-image">NEXT</button>';
         }
@@ -341,7 +347,9 @@ function vArraySlide() {
         } else {
             spellCheck.pattern = array[array_i];
         }
-        speak(array[array_i]);
+        setTimeout(function(){
+                   speak(array[array_i]);
+                   }, 2000);
         //vocabAudio.innerHTML = '<audio controls autoplay><source src="'+level_id+'/audio/'+array[array_i]+'.mp3" type="audio/mp3" /></audio>';
         spellCheck.focus();
     }
@@ -575,9 +583,9 @@ function setCss(tabName, userInput){
        }, function(error) {console.log(error);});
     };
     
-    window.addEventListener('load', function() {
-        initApp()
-    });
+    //window.addEventListener('load', function() {
+        //initApp()
+    //});
     
     function move() { //Progress Bar
         var elem = document.getElementById("P" + sNum + "Bar");
