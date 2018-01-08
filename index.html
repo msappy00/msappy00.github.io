@@ -354,7 +354,7 @@ function vArraySlide() {
         spellCheck.focus();
     }
     PNow = PrevL + (0.25 * (1-PrevL));
-    PNow = PNow.toFixed(2);
+    PNow = Math.round(PNow);
     document.getElementById(PBar).textContent = (PNow*100+"%");
     if (PNow <= 0.50){
         document.getElementById(PBar).style.backgroundColor = "lightpink";
