@@ -354,11 +354,11 @@ function vArraySlide() {
         spellCheck.focus();
     }
     PNow = PrevL + (0.25 * (1-PrevL));
-    PNow = Math.round(PNow);
+    PNow = Math.round(PNow*100);
     document.getElementById(PBar).textContent = (PNow*100+"%");
-    if (PNow <= 0.50){
+    if (PNow <= 50){
         document.getElementById(PBar).style.backgroundColor = "lightpink";
-    } else if (PNow >= 0.80){
+    } else if (PNow >= 80){
         document.getElementById(PBar).style.backgroundColor = "lightgreen";
     } else {
         document.getElementById(PBar).style.backgroundColor = "yellow";
