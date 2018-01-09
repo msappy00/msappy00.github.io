@@ -28,8 +28,6 @@
             font-size:20px;
         }
 
-        input:invalid { background-color: white;}
-        input:valid { background-color: white;}
         input:required {border: 2px solid red;}
         input:optional {border: 2px solid green;}
         
@@ -190,7 +188,7 @@
 	<script>
 
     var bookNumber
-    var className
+    var className = "";
     var level_id = "";
     var classList = [({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''})];
     var classList2 = [];
@@ -224,6 +222,7 @@
             classList = [({sName: '', displayName: 'Eric '}), ({sName: '', displayName: 'Fusion '}), ({sName: '', displayName: 'Kiki '}), ({sName: '', displayName: 'Justin '}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''})];
         } else {
             classList = [({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''})];
+            classList2 = [({sName: '', displayName: ''})];
         }
         document.getElementById("Ss1").textContent = classList[0].displayName;
         document.getElementById("Ss2").textContent = classList[1].displayName;
@@ -329,9 +328,13 @@ function vArraySlide() {
     if (spellCheck.value != spellCheck.pattern){
         fail.play();
         PrevL = (PrevL * 0.25) / ((PrevL * 0.25) + ((1-PrevL) * 0.75));
+        document.getElementById("spellCheck").style.backgroundColor = "lightpink";
+        document.getElementById("spellCheck").placeholder = "Oops!";
     } else if (spellCheck.value === spellCheck.pattern) {
         success.play();
         PrevL = (PrevL * 0.75) / ((PrevL * 0.75) + ((1-PrevL) * 0.25));
+        document.getElementById("spellCheck").style.backgroundColor = "lightgreen";
+        document.getElementById("spellCheck").placeholder = "Correct!";
         spellCheck.value = "";
         array_i++;
         if (array_i > (array.length - 1)) {
@@ -351,19 +354,23 @@ function vArraySlide() {
         }
         setTimeout(function(){
                    speak(array[array_i]);
+                   document.getElementById("spellCheck").style.backgroundColor = "white";
+                   document.getElementById("spellCheck").placeholder = "Spell It!";
                    }, 2000);
         //vocabAudio.innerHTML = '<audio controls autoplay><source src="'+level_id+'/audio/'+array[array_i]+'.mp3" type="audio/mp3" /></audio>';
         spellCheck.focus();
     }
     PNow = PrevL + (0.25 * (1-PrevL));
     PNow = Math.round(PNow*100);
-    document.getElementById(PBar).textContent = (PNow + "%");
-    if (PNow <= 50){
-        document.getElementById(PBar).style.backgroundColor = "lightpink";
-    } else if (PNow >= 80){
-        document.getElementById(PBar).style.backgroundColor = "lightgreen";
-    } else {
-        document.getElementById(PBar).style.backgroundColor = "yellow";
+    if (displayName != "") {
+        document.getElementById(PBar).textContent = (PNow + "%");
+        if (PNow <= 50){
+            document.getElementById(PBar).style.backgroundColor = "lightpink";
+        } else if (PNow >= 80){
+            document.getElementById(PBar).style.backgroundColor = "lightgreen";
+        } else {
+            document.getElementById(PBar).style.backgroundColor = "yellow";
+        }
     }
     sessionStorage.setItem("P" + sNum + "Now", PNow);
     sessionStorage.setItem("Prev" + sNum + "L", PrevL);
@@ -796,7 +803,7 @@ function setCss(tabName, userInput){
             </figure>
         </div>
         <div class="w3-row w3-container w3-cell w3-half">
-            <input class="w3-input w3-border w3-round" type="text" id="spellCheck" autocomplete="off" autofocus style="font-size: 50px" placeholder="Spell It!" required/>
+            <input class="w3-input w3-border w3-round" type="text" id="spellCheck" autocomplete="off" autofocus style="font-size: 50px" placeholder="Spell It!" />
             <h3 id="vocab_links"></h3>
             <div id="vocab_lesson"></div>
             <div class="w3-cell"><p id="displayName" style="font-size: 20px; font-weight: bold"></p></div>
