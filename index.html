@@ -362,20 +362,20 @@ function vArraySlide() {
     }
     PNow = PrevL + (0.25 * (1-PrevL));
     PNow = Math.round(PNow*100);
-    if (displayName != "") {
-        document.getElementById(PBar).textContent = (PNow + "%");
-        if (PNow <= 50){
-            document.getElementById(PBar).style.backgroundColor = "lightpink";
-        } else if (PNow >= 80){
-            document.getElementById(PBar).style.backgroundColor = "lightgreen";
-        } else {
-            document.getElementById(PBar).style.backgroundColor = "yellow";
-        }
+    if (PNow <= 50){
+        document.getElementById(PBar).style.backgroundColor = "lightpink";
+    } else if (PNow >= 80){
+        document.getElementById(PBar).style.backgroundColor = "lightgreen";
+    } else {
+        document.getElementById(PBar).style.backgroundColor = "yellow";
     }
     sessionStorage.setItem("P" + sNum + "Now", PNow);
     sessionStorage.setItem("Prev" + sNum + "L", PrevL);
     cArraySlide();
-    move();
+    if (displayName != ""){
+        move();
+        document.getElementById(PBar).textContent = (PNow + "%");
+    };
     //writeUserData("Ss1", PNow);
 };
     
