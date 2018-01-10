@@ -290,7 +290,6 @@
         P5Now = sessionStorage.getItem("P5Now");
         P6Now = sessionStorage.getItem("P6Now");
         setLevel(levelId.textContent);
-        setClass(className);
         //readUserData("Ss1");
     };
 
@@ -378,7 +377,7 @@ function vArraySlide() {
     };
     //writeUserData("Ss1", PNow);
 };
-    
+
 function pArraySlide() {
     if (phonicsCheck.value === phonicsCheck.pattern) {
         phonicsCheck.value = "";
@@ -611,6 +610,15 @@ function setCss(tabName, userInput){
         }
         document.getElementById("P"+ sNum + "Bar").textContent = (PNow+"%");
     }
+    
+    function aniDrop() {
+        var x = document.getElementById("Demo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
     </script>
 </head>
 <body onload="checkSessionStorage()">
@@ -786,7 +794,7 @@ function setCss(tabName, userInput){
             <div><h2 class="w3-cell" id="levelId"></h2></div>
         </div>
         <div id="home" class="w3-container w3-col l10 tab-content" style="display:block; padding-top:50px">
-            <img id="logo" src="images/mega_tree.png" alt="mega" class="w3-image">
+            <img id="logo" src="images/mega_metal.png" alt="mega" class="w3-image">
                 <footer id="foot01"></footer>
         </div><!-- /#home_tab -->
     </div>
@@ -886,7 +894,7 @@ function setCss(tabName, userInput){
             </figure>
         </div>
         <div class="w3-container w3-cell w3-cell-middle">
-            <button class="w3-button w3-blue w3-round" onclick="pArraySlide()">NEXT</button>
+            <button class="w3-button w3-blue w3-round">NEXT</button>
         </div>
     </div><!-- /#phonics_tab -->
         
