@@ -32,7 +32,7 @@
         input:optional {border: 2px solid green;}
         
         #home {
-            max-width: 960px;
+            max-width: 1000px;
             margin: 0 auto;
         }
         #myProgress {
@@ -211,14 +211,16 @@
          return array;
      };
     
-    function setClass(className) {
+    function setClass(classN) {
         classList = [];
         classList2 = [];
-        sessionStorage.setItem("className", className);
-        document.getElementById("className").textContent = className;
-        if (className == "Scorpion Class") {
+        sessionStorage.setItem("className", classN);
+        document.getElementById("className").textContent = classN;
+        if (classN == "Gold Class") {
+            classList = [({sName: '', displayName: 'Binjin'}), ({sName: '', displayName: 'Chris'}), ({sName: '', displayName: 'Jenny'}), ({sName: '', displayName: 'Paul'}), ({sName: '', displayName: 'Ryan'}), ({sName: '', displayName: ''})];
+        } else if (classN == "Scorpion Class"){
             classList = [({sName: '', displayName: 'Carrie '}), ({sName: '', displayName: 'Edgar '}), ({sName: '', displayName: 'Icco '}), ({sName: '', displayName: 'Jerry '}), ({sName: '', displayName: 'Kristy '}), ({sName: '', displayName: 'Sophie '})];
-        } else if (className == "Sheep Class") {
+        } else if (classN == "Sheep Class") {
             classList = [({sName: '', displayName: 'Eric '}), ({sName: '', displayName: 'Fusion '}), ({sName: '', displayName: 'Kiki '}), ({sName: '', displayName: 'Justin '}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''})];
         } else {
             classList = [({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''})];
@@ -233,6 +235,7 @@
         for (student in classList) {
             sNum = Number(student) + 1;
             if (classList[student].displayName != ''){
+                document.getElementById("SR"+sNum+"-btn").innerHTML = '<input class="w3-check" type="checkbox" checked id="SR'+sNum+'">';
                 classList2.push(classList[student]);
                 sessionStorage.setItem("P" + sNum + "Now", 0.25);
                 sessionStorage.setItem("Prev" + sNum + "L", 0.25);
@@ -282,7 +285,7 @@
     
     function checkSessionStorage() {
         levelId.textContent = sessionStorage.getItem("sessionLevel");
-        className = sessionStorage.getItem("className");
+        document.getElementById("className").textContent = sessionStorage.getItem("className");
         P1Now = sessionStorage.getItem("P1Now");
         P2Now = sessionStorage.getItem("P2Now");
         P3Now = sessionStorage.getItem("P3Now");
@@ -290,6 +293,7 @@
         P5Now = sessionStorage.getItem("P5Now");
         P6Now = sessionStorage.getItem("P6Now");
         setLevel(levelId.textContent);
+        setClass(sessionStorage.getItem("className"));
         //readUserData("Ss1");
     };
 
@@ -396,9 +400,13 @@ function cArraySlide() {
     if (cArray_i > (classList2.length - 1)) {
         cArray_i = 0;
     }
-    sName = classList2[cArray_i].sName;
-    displayName = classList2[cArray_i].displayName;
-    document.getElementById("displayName").textContent = displayName;
+    if (document.getElementById("SR" + (cArray_i + 1)).checked){
+        sName = classList2[cArray_i].sName;
+        displayName = classList2[cArray_i].displayName;
+        document.getElementById("displayName").textContent = displayName;
+    } else {
+        cArraySlide();
+    }
 };
 
 var pic;
@@ -655,6 +663,7 @@ function setCss(tabName, userInput){
             <div class="w3-dropdown-hover">
                 <button class="w3-button w3-hide-small w3-hide-medium">Class</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <button class="w3-bar-item w3-button w3-mobile" onclick="setClass('Gold Class')">Gold Class</button>
                     <button class="w3-bar-item w3-button w3-mobile" onclick="setClass('Scorpion Class')">Scorpion Class</button>
                     <button class="w3-bar-item w3-button w3-mobile" onclick="setClass('Sheep Class')">Sheep Class</button>
                     <button class="w3-bar-item w3-button w3-mobile" onclick="clearClass()">Clear</button>
@@ -814,14 +823,14 @@ function setCss(tabName, userInput){
             <input class="w3-input w3-border w3-round" type="text" id="spellCheck" autocomplete="off" autofocus style="font-size: 50px" placeholder="Spell It!" />
             <h3 id="vocab_links"></h3>
             <div id="vocab_lesson"></div>
-            <div class="w3-cell"><p id="displayName" style="font-size: 20px; font-weight: bold"></p></div>
-            <table class="w3-table" style="padding:50px" id="SsTable">
-                <tr><td id="Ss1"></td><td id="myProgress"><div class="PBar" id="P1Bar"></div></td></tr>
-                <tr><td id="Ss2"></td><td id="myProgress"><div class="PBar" id="P2Bar"></div></td></tr>
-                <tr><td id="Ss3"></td><td id="myProgress"><div class="PBar" id="P3Bar"></div></td></tr>
-                <tr><td id="Ss4"></td><td id="myProgress"><div class="PBar" id="P4Bar"></div></td></tr>
-                <tr><td id="Ss5"></td><td id="myProgress"><div class="PBar" id="P5Bar"></div></td></tr>
-                <tr><td id="Ss6"></td><td id="myProgress"><div class="PBar" id="P6Bar"></div></td></tr>
+            <div class="w3-row"><p id="displayName" style="font-size: 20px; font-weight: bold"></p></div>
+            <table class="w3-table" style="padding:20px" id="SsTable">
+                <tr><td style="width:5%" id="SR1-btn"></td><td style="width:15%" id="Ss1"></td><td style="width:80%" id="myProgress"><div class="PBar" id="P1Bar"></div></td></tr>
+                <tr><td style="width:5%" id="SR2-btn"></td><td style="width:15%" id="Ss2"></td><td style="width:80%" id="myProgress"><div class="PBar" id="P2Bar"></div></td></tr>
+                <tr><td style="width:5%" id="SR3-btn"></td><td style="width:15%" id="Ss3"></td><td style="width:80%" id="myProgress"><div class="PBar" id="P3Bar"></div></td></tr>
+                <tr><td style="width:5%" id="SR4-btn"></td><td style="width:15%" id="Ss4"></td><td style="width:80%" id="myProgress"><div class="PBar" id="P4Bar"></div></td></tr>
+                <tr><td style="width:5%" id="SR5-btn"></td><td style="width:15%" id="Ss5"></td><td style="width:80%" id="myProgress"><div class="PBar" id="P5Bar"></div></td></tr>
+                <tr><td style="width:5%" id="SR6-btn"></td><td style="width:15%" id="Ss6"></td><td style="width:80%" id="myProgress"><div class="PBar" id="P6Bar"></div></td></tr>
             </table>
         </div>
     </div><!-- /#vocab_tab -->
