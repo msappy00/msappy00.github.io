@@ -35,35 +35,6 @@
             max-width: 1000px;
             margin: 0 auto;
         }
-        #myProgress {
-            width: 100%;
-            background-color: white;
-        }
-        .PBar {
-            height: 30px;
-            background-color: lightpink;
-            text-align: center; /* To center it horizontally (if you want) */
-            line-height: 30px; /* To center it vertically */
-            color: gray;
-        }
-        #P1Bar {
-            width: P1Now;
-        }
-        #P2Bar {
-            width: P2Now;
-        }
-        #P3Bar {
-            width: P3Now;
-        }
-        #P4Bar {
-            width: P4Now;
-        }
-        #P5Bar {
-            width: P5Now;
-        }
-        #P6Bar {
-            width: P6Now;
-        }
         #aText0, #aText1, #aText2, #aText3, #aText4, #aText5, #textInput0, #textInput1, #textInput2, #textInput3, #textInput4, #textInput5, #grammarInput, #grammarInput2 {
             text-align:center;
             font-size: 18px;
@@ -190,11 +161,9 @@
     var bookNumber
     var className = "";
     var level_id = "";
-    var classList = [({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''})];
+    var classList = [({sName: '', displayName: '', score: 100}), ({sName: '', displayName: '', score: 100}), ({sName: '', displayName: '', score: 100}), ({sName: '', displayName: '', score: 100}), ({sName: '', displayName: '', score: 100}), ({sName: '', displayName: '', score: 100})];
     var classList2 = [];
     var currentUnit = "";
-    var PNow = 0.25;
-    var PrevL = 0.25;
     var success = new Audio('/audio/success.mp3');
     var fail = new Audio('/audio/fail.mp3');
     
@@ -217,14 +186,14 @@
         sessionStorage.setItem("className", classN);
         document.getElementById("className").textContent = classN;
         if (classN == "Gold Class") {
-            classList = [({sName: '', displayName: 'Binjin'}), ({sName: '', displayName: 'Chris'}), ({sName: '', displayName: 'Jenny'}), ({sName: '', displayName: 'Paul'}), ({sName: '', displayName: 'Ryan'}), ({sName: '', displayName: ''})];
+            classList = [({sName: '', displayName: 'Binjin', score: 100}), ({sName: '', displayName: 'Chris', score: 100}), ({sName: '', displayName: 'Jenny', score: 100}), ({sName: '', displayName: 'Paul', score: 100}), ({sName: '', displayName: 'Ryan', score: 100}), ({sName: '', displayName: '', score: 100})];
         } else if (classN == "Scorpion Class"){
-            classList = [({sName: '', displayName: 'Carrie '}), ({sName: '', displayName: 'Edgar '}), ({sName: '', displayName: 'Icco '}), ({sName: '', displayName: 'Jerry '}), ({sName: '', displayName: 'Kristy '}), ({sName: '', displayName: 'Sophie '})];
+            classList = [({sName: '', displayName: 'Carrie', score: 100}), ({sName: '', displayName: 'Edgar', score: 100}), ({sName: '', displayName: 'Icco', score: 100}), ({sName: '', displayName: 'Jerry', score: 100}), ({sName: '', displayName: 'Kristy', score: 100}), ({sName: '', displayName: 'Sophie', score: 100})];
         } else if (classN == "Sheep Class") {
-            classList = [({sName: '', displayName: 'Eric '}), ({sName: '', displayName: 'Fusion '}), ({sName: '', displayName: 'Kiki '}), ({sName: '', displayName: 'Justin '}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''})];
+            classList = [({sName: '', displayName: 'Eric', score: 100}), ({sName: '', displayName: 'Fusion', score: 100}), ({sName: '', displayName: 'Kiki', score: 100}), ({sName: '', displayName: 'Justin', score: 100}), ({sName: '', displayName: '', score: 100}), ({sName: '', displayName: '', score: 100})];
         } else {
-            classList = [({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''}), ({sName: '', displayName: ''})];
-            classList2 = [({sName: '', displayName: ''})];
+            classList = [({sName: '', displayName: '', score: 100}), ({sName: '', displayName: '', score: 100}), ({sName: '', displayName: '', score: 100}), ({sName: '', displayName: '', score: 100}), ({sName: '', displayName: '', score: 100}), ({sName: '', displayName: '', score: 100})];
+            classList2 = [({sName: '', displayName: '', score: 100})];
         }
         document.getElementById("Ss1").textContent = classList[0].displayName;
         document.getElementById("Ss2").textContent = classList[1].displayName;
@@ -236,16 +205,11 @@
             sNum = Number(student) + 1;
             if (classList[student].displayName != ''){
                 document.getElementById("SR"+sNum+"-btn").innerHTML = '<input class="w3-check" type="checkbox" checked id="SR'+sNum+'">';
+                document.getElementById("SP"+sNum).textContent = classList[student].score+"%";
                 classList2.push(classList[student]);
-                sessionStorage.setItem("P" + sNum + "Now", 0.25);
-                sessionStorage.setItem("Prev" + sNum + "L", 0.25);
-                document.getElementById("P" + sNum + "Bar").style.width = (25 + '%');
-                document.getElementById("P" + sNum + "Bar").textContent = '25%';
             } else {
-                sessionStorage.setItem("P" + sNum + "Now", 0.00);
-                sessionStorage.setItem("Prev" + sNum + "L", 0.00);
-                document.getElementById("P" + sNum + "Bar").style.width = (0 + '%');
-                document.getElementById("P" + sNum + "Bar").textContent = '';
+                document.getElementById("SR"+sNum+"-btn").innerHTML = '';
+                document.getElementById("SP"+sNum).textContent = "";
             }
         };
         if (classList2[0].displayName != ''){
@@ -256,10 +220,7 @@
     function clearClass() {
         sessionStorage.setItem("className", "");
         document.getElementById("className").textContent = "";
-        className = " ";
-        classList = [];
-        classList2 = [];
-        document.getElementById("SsTable").textContent = "";
+        setClass("");
         document.getElementById("displayName").textContent = "";
     };
 
@@ -325,19 +286,19 @@ function speak(text, callback) {
 
 function vArraySlide() {
     sNum = cArray_i + 1;
-    PNow = sessionStorage.getItem("P" + sNum + "Now");
-    PrevL = sessionStorage.getItem("Prev" + sNum + "L");
-    PBar = "P" + sNum + "Bar";
+    var score = classList[cArray_i].score;
     if (spellCheck.value != spellCheck.pattern){
         fail.play();
-        PrevL = (PrevL * 0.25) / ((PrevL * 0.25) + ((1-PrevL) * 0.75));
         document.getElementById("spellCheck").style.backgroundColor = "lightpink";
         document.getElementById("spellCheck").placeholder = "Oops!";
+        score = score - 5;
     } else if (spellCheck.value === spellCheck.pattern) {
         success.play();
-        PrevL = (PrevL * 0.75) / ((PrevL * 0.75) + ((1-PrevL) * 0.25));
         document.getElementById("spellCheck").style.backgroundColor = "lightgreen";
         document.getElementById("spellCheck").placeholder = "Correct!";
+        if (score < 100){
+            score = score + 5;
+        }
         spellCheck.value = "";
         array_i++;
         if (array_i > (array.length - 1)) {
@@ -363,36 +324,42 @@ function vArraySlide() {
         //vocabAudio.innerHTML = '<audio controls autoplay><source src="'+level_id+'/audio/'+array[array_i]+'.mp3" type="audio/mp3" /></audio>';
         spellCheck.focus();
     }
-    PNow = PrevL + (0.25 * (1-PrevL));
-    PNow = Math.round(PNow*100);
-    if (PNow <= 50){
-        document.getElementById(PBar).style.backgroundColor = "lightpink";
-    } else if (PNow >= 80){
-        document.getElementById(PBar).style.backgroundColor = "lightgreen";
-    } else {
-        document.getElementById(PBar).style.backgroundColor = "yellow";
-    }
-    sessionStorage.setItem("P" + sNum + "Now", PNow);
-    sessionStorage.setItem("Prev" + sNum + "L", PrevL);
+    document.getElementById("SP"+sNum).textContent = score+"%";
+    classList[cArray_i].score = score;
     cArraySlide();
-    if (displayName != ""){
-        move();
-        document.getElementById(PBar).textContent = (PNow + "%");
-    };
     //writeUserData("Ss1", PNow);
 };
 
 function pArraySlide() {
-    if (phonicsCheck.value === phonicsCheck.pattern) {
+    sNum = cArray_i + 1;
+    var score = classList[cArray_i].score;
+    if (phonicsCheck.value == phonicsCheck.pattern) {
         phonicsCheck.value = "";
+        success.play();
+        document.getElementById("phonicsCheck").style.backgroundColor = "lightgreen";
+        if (score < 100){
+            score = score + 5;
+        }
         pArray_i++;
         if (pArray_i > (pArray.length - 1)) {
             pArray_i = 0;
         }
         phonicsCheck.pattern = pArray[pArray_i].pattern;
-        phonicsAudio.innerHTML = '<audio controls autoplay><source src="phonics/'+pArray[pArray_i].value+'.mp3" type="audio/mp3" /></audio>';
-        phonicsCheck.focus();
+        
+    } else {
+        fail.play();
+        score = score - 5;
+        document.getElementById("phonicsCheck").style.backgroundColor = "lightpink";
     }
+    setTimeout(function(){
+       phonicsAudio.innerHTML = '<audio controls autoplay><source src="phonics/'+pArray[pArray_i].value+'.mp3" type="audio/mp3" /></audio>';
+       document.getElementById("phonicsCheck").style.backgroundColor = "white";
+       document.getElementById("phonicsCheck").textContent = "";
+    }, 2000);
+    phonicsCheck.focus();
+    document.getElementById("SP"+sNum).textContent = score+"%";
+    classList[cArray_i].score = score;
+    cArraySlide();
 };
                           
 function cArraySlide() {
@@ -603,22 +570,6 @@ function setCss(tabName, userInput){
         //initApp()
     //});
     
-    function move() { //Progress Bar
-        var elem = document.getElementById("P" + sNum + "Bar");
-        var width = (PNow);
-        var id = setInterval(frame, 10);
-        function frame() {
-            if (width >= 100) {
-                clearInterval(id);
-            } else {
-                width++;
-                elem.style.width = PNow + '%';
-                elem.innerHTML = PNow + '%';
-            }
-        }
-        document.getElementById("P"+ sNum + "Bar").textContent = (PNow+"%");
-    }
-    
     function aniDrop() {
         var x = document.getElementById("Demo");
         if (x.className.indexOf("w3-show") == -1) {
@@ -797,136 +748,131 @@ function setCss(tabName, userInput){
                 </div>
         </div>
     </div><!--/#nav bar-->
-    <div class="w3-row">
-        <div class="w3-col l2" style="padding-top:50px; padding-left: 20px">
-            <div><h2 class="w3-cell" id="className"></h2></div>
-            <div><h2 class="w3-cell" id="levelId"></h2></div>
-        </div>
+    <div class="w3-container w3-cell w3-cell-top">
+        <h2 id="className" style="padding-top: 50px"></h2>
+        <h3 id="levelId"></h3>
+        <table class="w3-table" id="SsTable">
+            <tr><h3 id="displayName" style="font-weight: bold"></h3></tr>
+            <tr><td><div id="SR1-btn"></td><td><h4 id="Ss1"></h4></td><td><h4 id="SP1"></h4></td></tr>
+            <tr><td><div id="SR2-btn"></td><td><h4 id="Ss2"></h4></td><td><h4 id="SP2"></h4></td></tr>
+            <tr><td><div id="SR3-btn"></td><td><h4 id="Ss3"></h4></td><td><h4 id="SP3"></h4></td></tr>
+            <tr><td><div id="SR4-btn"></td><td><h4 id="Ss4"></h4></td><td><h4 id="SP4"></h4></td></tr>
+            <tr><td><div id="SR5-btn"></td><td><h4 id="Ss5"></h4></td><td><h4 id="SP5"></h4></td></tr>
+            <tr><td><div id="SR6-btn"></td><td><h4 id="Ss6"></h4></td><td><h4 id="SP6"></h4></td></tr>
+        </table>
+    </div>
+    <div class="w3-container w3-cell">
         <div id="home" class="w3-container w3-col l10 tab-content" style="display:block; padding-top:50px">
             <img id="logo" src="images/mega_metal.png" alt="mega" class="w3-image">
                 <footer id="foot01"></footer>
         </div><!-- /#home_tab -->
+    
+        <div id="vocab_tab" class="w3-container tab-content" style="display:none">
+            <div class="w3-row" style="height: 100px"></div>
+            <div class="w3-row w3-container w3-cell w3-center">
+                <progress id="vocProg" value=(array_i/array.length*100) max="100"></progress>
+                <figure id="figaudio1">
+                    <div id="current_vocab" class="w3-container w3-cell"></div>
+                    <div class="w3-container w3-cell w3-cell-middle">
+                        <button class="w3-button w3-blue w3-round" onClick="speak(array[array_i]);" id="focusButton">&#128264;</button>
+                    </div>
+                    <figcaption id="currentWord"></figcaption>
+                </figure>
+            </div>
+            <div class="w3-row w3-container w3-cell w3-cell-middle">
+                <input class="w3-input w3-border w3-round" type="text" id="spellCheck" autocomplete="off" autofocus style="font-size: 50px" placeholder="Spell It!" />
+                <h3 id="vocab_links"></h3>
+                <div id="vocab_lesson"></div>
+            </div>
+        </div><!-- /#vocab_tab -->
+        
+        <div id="grammar_tab" class="w3-container tab-content" style="display:none">
+            <div class="w3-row" style="height: 100px"></div>
+            <h3 id="gInstructions"></h3>
+            <div class="w3-col w3-center" style="font-size:50px">
+                <table class="w3-table" style="padding:50px">
+                    <tr>
+                        <td id="g0r0d0"></td>
+                        <td id="g0r0d1"></td>
+                        <td id="g0r0d2"></td>
+                        <td id="g0r0d3"></td>
+                        <td id="g0r0d4"></td>
+                        <td rowspan="6" id="g0r0d5"></td>
+                    </tr>
+                    <tr>
+                        <td id="g0r1d0"></td>
+                        <td id="g0r1d1"></td>
+                        <td id="g0r1d2"></td>
+                        <td id="g0r1d3"></td>
+                        <td id="g0r1d4"></td>
+                        <td style="padding-left:20px"><button class="w3-button w3-blue w3-round" onclick="setGrammar(currentUnit)">next</button></td>
+                    </tr>
+                    <tr>
+                        <td id="g0r2d0"></td>
+                        <td id="g0r2d1"></td>
+                        <td id="g0r2d2"></td>
+                        <td id="g0r2d3"></td>
+                        <td id="g0r2d4"></td>
+                    </tr>
+                    <tr>
+                        <td id="g0r3d0"></td>
+                        <td id="g0r3d1"></td>
+                        <td id="g0r3d2"></td>
+                        <td id="g0r3d3"></td>
+                        <td id="g0r3d4"></td>
+                    </tr>
+                    <tr>
+                        <td id="g0r4d0"></td>
+                        <td id="g0r4d1"></td>
+                        <td id="g0r4d2"></td>
+                        <td id="g0r4d3"></td>
+                        <td id="g0r4d4"></td>
+                    </tr>
+                    <tr>
+                        <td id="g0r5d0"></td>
+                        <td id="g0r5d1"></td>
+                        <td id="g0r5d2"></td>
+                        <td id="g0r5d3"></td>
+                        <td id="g0r5d4"></td>
+                    </tr>
+                </table>
+                <h3 id="grammar_links"></h3>
+                <div id="grammar_lesson"></div>
+            </div>
+        </div><!-- /#grammar_tab -->
+        
+        <div id="phonics_tab" class="w3-container w3-cell-middle tab-content">
+            <div class="w3-row" style="height: 100px"></div>
+            <div class="w3-container w3-cell w3-center">
+                <h3 id="pInstructions" style="padding-top: 100px"></h3>
+                <input class="w3-input w3-border w3-round" id="phonicsCheck" autocomplete="off" autofocus maxlength="3" style="font-size:50px" required/>
+                <table class="w3-table"><tr class="w3-row w3-center">
+                    <td class="w3-cell" style="padding-top:15px" id="phonicsAudio"></td>
+                    <td><button class="w3-button w3-blue w3-round w3-cell" onclick="pArraySlide();">NEXT</button></td>
+                </tr></table>
+            </div>
+        </div><!-- /#phonics_tab -->
+        
+        <div id="quizMaker_tab" class="w3-container tab-content" style="display:none">
+            <div class="w3-row">
+                <div class="w3-col" style="width:150px"></div>
+                <h2>Vocab Quiz</h2>
+                <table class="onlyprint" style="font-size:14px">
+                    <th rowspan="11"></th>
+                    <tr><td width="50px">1.</td><td id="array0"></td></tr>
+                    <tr><td>2.</td><td id="array1"></td></tr>
+                    <tr><td>3.</td><td id="array2"></td></tr>
+                    <tr><td>4.</td><td id="array3"></td></tr>
+                    <tr><td>5.</td><td id="array4"></td></tr>
+                    <tr><td>6.</td><td id="array5"></td></tr>
+                    <tr><td>7.</td><td id="array6"></td></tr>
+                    <tr><td>8.</td><td id="array7"></td></tr>
+                    <tr><td>9.</td><td id="array8"></td></tr>
+                    <tr><td>10.</td><td id="array9"></td></tr>
+                </table>
+            </div>
+        </div><!-- /#quizMaker_tab  -->
     </div>
-    
-    <div id="vocab_tab" class="w3-container tab-content" style="display:none">
-        <div class="w3-row w3-container w3-cell w3-half w3-center">
-            <progress id="vocProg" value=(array_i/array.length*100) max="100"></progress>
-            <figure id="figaudio1">
-                <div id="current_vocab" class="w3-container w3-cell"></div>
-                <div class="w3-container w3-cell w3-cell-top">
-                    <button class="w3-button w3-blue w3-round" onClick="speak(array[array_i]);" id="focusButton">&#9658;</button>
-                </div>
-                <figcaption id="currentWord"></figcaption>
-            </figure>
-        </div>
-        <div class="w3-row w3-container w3-cell w3-half">
-            <input class="w3-input w3-border w3-round" type="text" id="spellCheck" autocomplete="off" autofocus style="font-size: 50px" placeholder="Spell It!" />
-            <h3 id="vocab_links"></h3>
-            <div id="vocab_lesson"></div>
-            <div class="w3-row"><p id="displayName" style="font-size: 20px; font-weight: bold"></p></div>
-            <table class="w3-table" style="padding:20px" id="SsTable">
-                <tr><td style="width:5%" id="SR1-btn"></td><td style="width:15%" id="Ss1"></td><td style="width:80%" id="myProgress"><div class="PBar" id="P1Bar"></div></td></tr>
-                <tr><td style="width:5%" id="SR2-btn"></td><td style="width:15%" id="Ss2"></td><td style="width:80%" id="myProgress"><div class="PBar" id="P2Bar"></div></td></tr>
-                <tr><td style="width:5%" id="SR3-btn"></td><td style="width:15%" id="Ss3"></td><td style="width:80%" id="myProgress"><div class="PBar" id="P3Bar"></div></td></tr>
-                <tr><td style="width:5%" id="SR4-btn"></td><td style="width:15%" id="Ss4"></td><td style="width:80%" id="myProgress"><div class="PBar" id="P4Bar"></div></td></tr>
-                <tr><td style="width:5%" id="SR5-btn"></td><td style="width:15%" id="Ss5"></td><td style="width:80%" id="myProgress"><div class="PBar" id="P5Bar"></div></td></tr>
-                <tr><td style="width:5%" id="SR6-btn"></td><td style="width:15%" id="Ss6"></td><td style="width:80%" id="myProgress"><div class="PBar" id="P6Bar"></div></td></tr>
-            </table>
-        </div>
-    </div><!-- /#vocab_tab -->
-        
-    <div id="grammar_tab" class="w3-container tab-content" style="display:none">
-        <h3 id="gInstructions"></h3>
-        <div class="w3-col w3-center" style="font-size:50px">
-            <table class="w3-table" style="padding:50px">
-                <tr>
-                    <td id="g0r0d0"></td>
-                    <td id="g0r0d1"></td>
-                    <td id="g0r0d2"></td>
-                    <td id="g0r0d3"></td>
-                    <td id="g0r0d4"></td>
-                    <td rowspan="6" id="g0r0d5"></td>
-                </tr>
-                <tr>
-                    <td id="g0r1d0"></td>
-                    <td id="g0r1d1"></td>
-                    <td id="g0r1d2"></td>
-                    <td id="g0r1d3"></td>
-                    <td id="g0r1d4"></td>
-                    <td style="padding-left:20px"><button class="w3-button w3-blue w3-round" onclick="setGrammar(currentUnit)">next</button></td>
-                </tr>
-                <tr>
-                    <td id="g0r2d0"></td>
-                    <td id="g0r2d1"></td>
-                    <td id="g0r2d2"></td>
-                    <td id="g0r2d3"></td>
-                    <td id="g0r2d4"></td>
-                </tr>
-                <tr>
-                    <td id="g0r3d0"></td>
-                    <td id="g0r3d1"></td>
-                    <td id="g0r3d2"></td>
-                    <td id="g0r3d3"></td>
-                    <td id="g0r3d4"></td>
-                </tr>
-                <tr>
-                    <td id="g0r4d0"></td>
-                    <td id="g0r4d1"></td>
-                    <td id="g0r4d2"></td>
-                    <td id="g0r4d3"></td>
-                    <td id="g0r4d4"></td>
-                </tr>
-                <tr>
-                    <td id="g0r5d0"></td>
-                    <td id="g0r5d1"></td>
-                    <td id="g0r5d2"></td>
-                    <td id="g0r5d3"></td>
-                    <td id="g0r5d4"></td>
-                </tr>
-            </table>
-            <h3 id="grammar_links"></h3>
-            <div id="grammar_lesson"></div>
-        </div>
-    </div><!-- /#grammar_tab -->
-        
-    <div id="phonics_tab" class="w3-container tab-content" style="display:none">
-        <div class="w3-container w3-cell w3-cell-middle">
-            <h3 id="pInstructions"></h3>
-        </div>
-        <div class="w3-container w3-cell w3-cell-middle">
-            <button class="w3-button w3-blue w3-round" onClick="speak(pArray[pArray_i].value);" id="focusButton">&#9658;</button>
-        </div>
-        <div class="w3-container w3-cell">
-            <input class="w3-input w3-border w3-round" id="phonicsCheck" autocomplete="off" autofocus maxlength="3" style="font-size:50px" required/>
-            <figure>
-                <div id="phonicsAudio" class="w3-center"></div>
-            </figure>
-        </div>
-        <div class="w3-container w3-cell w3-cell-middle">
-            <button class="w3-button w3-blue w3-round">NEXT</button>
-        </div>
-    </div><!-- /#phonics_tab -->
-        
-    <div id="quizMaker_tab" class="w3-container tab-content" style="display:none">
-        <div class="w3-row">
-            <div class="w3-col" style="width:150px"></div>
-            <h2>Vocab Quiz</h2>
-            <table class="onlyprint" style="font-size:14px">
-                <th rowspan="11"></th>
-                <tr><td width="50px">1.</td><td id="array0"></td></tr>
-                <tr><td>2.</td><td id="array1"></td></tr>
-                <tr><td>3.</td><td id="array2"></td></tr>
-                <tr><td>4.</td><td id="array3"></td></tr>
-                <tr><td>5.</td><td id="array4"></td></tr>
-                <tr><td>6.</td><td id="array5"></td></tr>
-                <tr><td>7.</td><td id="array6"></td></tr>
-                <tr><td>8.</td><td id="array7"></td></tr>
-                <tr><td>9.</td><td id="array8"></td></tr>
-                <tr><td>10.</td><td id="array9"></td></tr>
-            </table>
-        </div>
-    </div><!-- /#quizMaker_tab  -->
-    
     <script>
         <!--
         document.getElementById("foot01").innerHTML = "<p>&copy; " + new Date().getFullYear() + " Teacher Matthew</p>";
