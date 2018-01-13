@@ -161,7 +161,8 @@
     var bookNumber
     var className = "";
     var level_id = "";
-    var classList = [({sName: '', displayName: '', score: 100}), ({sName: '', displayName: '', score: 100}), ({sName: '', displayName: '', score: 100}), ({sName: '', displayName: '', score: 100}), ({sName: '', displayName: '', score: 100}), ({sName: '', displayName: '', score: 100})];
+    var blank = {displayName: '', correct: 10, attempted: 10};
+    var classList = [blank, blank, blank, blank, blank, blank];
     var classList2 = [];
     var currentUnit = "";
     var success = new Audio('/audio/success.mp3');
@@ -182,18 +183,33 @@
     
     function setClass(classN) {
         classList = [];
-        classList2 = [];
+        classList2 = [blank];
         sessionStorage.setItem("className", classN);
         document.getElementById("className").textContent = classN;
         if (classN == "Gold Class") {
-            classList = [({sName: '', displayName: 'Binjin', score: 100}), ({sName: '', displayName: 'Chris', score: 100}), ({sName: '', displayName: 'Jenny', score: 100}), ({sName: '', displayName: 'Paul', score: 100}), ({sName: '', displayName: 'Ryan', score: 100}), ({sName: '', displayName: '', score: 100})];
+            var binjin0929 = {displayName: 'Binjin', correct: 10, attempted: 10};
+            var chris1012 = {displayName: 'Chris', correct: 10, attempted: 10};
+            var jenny0726 = {displayName: 'Jenny', correct: 10, attempted: 10};
+            var paul0720 = {displayName: 'Paul', correct: 10, attempted: 10};
+            var ryan0319 = {displayName: 'Ryan', correct: 10, attempted: 10};
+            classList = [binjin0929, chris1012, jenny0726, paul0720, ryan0319, blank];
         } else if (classN == "Scorpion Class"){
-            classList = [({sName: '', displayName: 'Carrie', score: 100}), ({sName: '', displayName: 'Edgar', score: 100}), ({sName: '', displayName: 'Icco', score: 100}), ({sName: '', displayName: 'Jerry', score: 100}), ({sName: '', displayName: 'Kristy', score: 100}), ({sName: '', displayName: 'Sophie', score: 100})];
+            var Carrie1103 = {displayName: 'Carrie', correct: 10, attempted: 10};
+            var Edgar0830 = {displayName: 'Edgar', correct: 10, attempted: 10};
+            var icco0830 = {displayName: 'Icco', correct: 10, attempted: 10};
+            var Jerry0623 = {displayName: 'Jerry', correct: 10, attempted: 10};
+            var kristy0505 = {displayName: 'Kristy', correct: 10, attempted: 10};
+            var Sophie1101 = {displayName: 'Sophie', correct: 10, attempted: 10};
+            classList = [Carrie1103, Edgar0830, icco0830, Jerry0623, kristy0505, Sophie1101];
         } else if (classN == "Sheep Class") {
-            classList = [({sName: '', displayName: 'Eric', score: 100}), ({sName: '', displayName: 'Fusion', score: 100}), ({sName: '', displayName: 'Kiki', score: 100}), ({sName: '', displayName: 'Justin', score: 100}), ({sName: '', displayName: '', score: 100}), ({sName: '', displayName: '', score: 100})];
+            var Eric1019 = {displayName: 'Eric', correct: 10, attempted: 10};
+            var fusion = {displayName: 'Fusion', correct: 10, attempted: 10};
+            var kiki0901 = {displayName: 'Kiki', correct: 10, attempted: 10};
+            var Justin1001 = {displayName: 'Justin', correct: 10, attempted: 10};
+            classList = [Eric1019, fusion, kiki0901, Justin1001, blank, blank];
         } else {
-            classList = [({sName: '', displayName: '', score: 100}), ({sName: '', displayName: '', score: 100}), ({sName: '', displayName: '', score: 100}), ({sName: '', displayName: '', score: 100}), ({sName: '', displayName: '', score: 100}), ({sName: '', displayName: '', score: 100})];
-            classList2 = [({sName: '', displayName: '', score: 100})];
+            classList = [blank, blank, blank, blank, blank, blank];
+            document.getElementById("displayName").textContent = "";
         }
         document.getElementById("Ss1").textContent = classList[0].displayName;
         document.getElementById("Ss2").textContent = classList[1].displayName;
@@ -201,27 +217,31 @@
         document.getElementById("Ss4").textContent = classList[3].displayName;
         document.getElementById("Ss5").textContent = classList[4].displayName;
         document.getElementById("Ss6").textContent = classList[5].displayName;
+        var jsData = JSON.stringify(classList);
+        window.sessionStorage.setItem("classList", jsData);
         for (student in classList) {
             sNum = Number(student) + 1;
             if (classList[student].displayName != ''){
                 document.getElementById("SR"+sNum+"-btn").innerHTML = '<input class="w3-check" type="checkbox" checked id="SR'+sNum+'">';
-                document.getElementById("SP"+sNum).textContent = classList[student].score+"%";
+                var score = classList[student].correct / classList[student].attempted * 100;
+                score = Math.round(score);
+                document.getElementById("SP"+sNum).textContent = score+"%";
                 classList2.push(classList[student]);
             } else {
                 document.getElementById("SR"+sNum+"-btn").innerHTML = '';
                 document.getElementById("SP"+sNum).textContent = "";
             }
         };
-        if (classList2[0].displayName != ''){
+        if (classList2[0].displayName){
             document.getElementById("displayName").textContent = classList2[0].displayName;
-            }
+        }
     };
     
     function clearClass() {
+        classList = [];
+        classList2 = [];
         sessionStorage.setItem("className", "");
-        document.getElementById("className").textContent = "";
         setClass("");
-        document.getElementById("displayName").textContent = "";
     };
 
     function setLevel(level) {
@@ -247,219 +267,241 @@
     function checkSessionStorage() {
         levelId.textContent = sessionStorage.getItem("sessionLevel");
         document.getElementById("className").textContent = sessionStorage.getItem("className");
-        P1Now = sessionStorage.getItem("P1Now");
-        P2Now = sessionStorage.getItem("P2Now");
-        P3Now = sessionStorage.getItem("P3Now");
-        P4Now = sessionStorage.getItem("P4Now");
-        P5Now = sessionStorage.getItem("P5Now");
-        P6Now = sessionStorage.getItem("P6Now");
         setLevel(levelId.textContent);
-        setClass(sessionStorage.getItem("className"));
+        document.getElementById("className").textContent = sessionStorage.getItem("className");
+        var jsData = window.sessionStorage.getItem("classList");
+        classList = JSON.parse(jsData);
+        document.getElementById("Ss1").textContent = classList[0].displayName;
+        document.getElementById("Ss2").textContent = classList[1].displayName;
+        document.getElementById("Ss3").textContent = classList[2].displayName;
+        document.getElementById("Ss4").textContent = classList[3].displayName;
+        document.getElementById("Ss5").textContent = classList[4].displayName;
+        document.getElementById("Ss6").textContent = classList[5].displayName;
+        classList2 = [blank];
+        for (student in classList) {
+            sNum = Number(student) + 1;
+            if (classList[student].displayName != ''){
+                document.getElementById("SR"+sNum+"-btn").innerHTML = '<input class="w3-check" type="checkbox" checked id="SR'+sNum+'">';
+                var score = classList[student].correct / classList[student].attempted * 100;
+                score = Math.round(score);
+                document.getElementById("SP"+sNum).textContent = score+"%";
+                classList2.push(classList[student]);
+            } else {
+                document.getElementById("SR"+sNum+"-btn").innerHTML = '';
+                document.getElementById("SP"+sNum).textContent = "";
+            }
+            if (classList2[0].displayName){
+                document.getElementById("displayName").textContent = classList2[0].displayName;
+            }
+        }
         //readUserData("Ss1");
     };
 
-var array_i = 0;
-var cArray_i = 0;
-var pArray_i = 0;
-var qArray_i = 0;
+    var array_i = 0;
+    var cArray_i = 0;
+    var pArray_i = 0;
+    var qArray_i = 0;
 
-// say a message
-function speak(text, callback) {
-    var u = new SpeechSynthesisUtterance();
-    u.text = text;
-    u.lang = 'en-US';
-    
-    u.onend = function () {
-        if (callback) {
-            callback();
-        }
+    // say a message
+    function speak(text, callback) {
+        var u = new SpeechSynthesisUtterance();
+        u.text = text;
+        u.lang = 'en-US';
+        
+        u.onend = function () {
+            if (callback) {
+                callback();
+            }
+        };
+        
+        u.onerror = function (e) {
+            if (callback) {
+                callback(e);
+            }
+        };
+        
+        speechSynthesis.speak(u);
     };
-    
-    u.onerror = function (e) {
-        if (callback) {
-            callback(e);
-        }
-    };
-    
-    speechSynthesis.speak(u);
-};
 
-function vArraySlide() {
-    sNum = cArray_i + 1;
-    var score = classList[cArray_i].score;
-    if (spellCheck.value != spellCheck.pattern){
-        fail.play();
-        document.getElementById("spellCheck").style.backgroundColor = "lightpink";
-        document.getElementById("spellCheck").placeholder = "Oops!";
-        score = score - 5;
-    } else if (spellCheck.value === spellCheck.pattern) {
-        success.play();
-        document.getElementById("spellCheck").style.backgroundColor = "lightgreen";
-        document.getElementById("spellCheck").placeholder = "Correct!";
-        if (score < 100){
-            score = score + 5;
-        }
-        spellCheck.value = "";
-        array_i++;
-        if (array_i > (array.length - 1)) {
-            array_i = 0;
-            shuffleArray(array);
-        }
-        document.getElementById("vocProg").value = array_i/array.length*100;
-        if (level_id == "Level 9" || level_id == "Level 10" || level_id == "Level 11" || level_id == "Level 12") {
-            document.getElementById("current_vocab").innerHTML = '<button class="w3-button w3-white w3-round" onClick="vArraySlide()" class="w3-image">NEXT</button>';
-        }
-        else document.getElementById("current_vocab").innerHTML =  '<img src="'+level_id+'/images/'+array[array_i]+'.png" onClick="vArraySlide()" class="w3-image" />';
-        if (level_id == "Starter") {
-            currentWord.innerHTML = '<table align="center"><tr><td align="right" style="font-size:xx-large; color:red">'+array[array_i].slice(0,1)+'</td><td align="right" style="font-size:xx-large; color:black">'+array[array_i].slice(1)+'</td></tr></table>';
-            spellCheck.pattern = array[array_i].slice(0,1);
+    function vArraySlide() {
+        sNum = cArray_i + 1;
+        sName = classList2[cArray_i];
+        if (spellCheck.value != spellCheck.pattern){
+            fail.play();
+            document.getElementById("spellCheck").style.backgroundColor = "lightpink";
+            document.getElementById("spellCheck").placeholder = "Oops!";
         } else {
-            spellCheck.pattern = array[array_i];
+            success.play();
+            document.getElementById("spellCheck").style.backgroundColor = "lightgreen";
+            document.getElementById("spellCheck").placeholder = "Correct!";
+            classList[cArray_i].correct += 1;
+            spellCheck.value = "";
+            array_i++;
+            if (array_i > (array.length - 1)) {
+                array_i = 0;
+                shuffleArray(array);
+            }
+            document.getElementById("vocProg").value = array_i/array.length*100;
+            if (level_id == "Level 9" || level_id == "Level 10" || level_id == "Level 11" || level_id == "Level 12") {
+                document.getElementById("current_vocab").innerHTML = '<button class="w3-button w3-white w3-round" onClick="vArraySlide()" class="w3-image">NEXT</button>';
+            }
+            else document.getElementById("current_vocab").innerHTML =  '<img src="'+level_id+'/images/'+array[array_i]+'.png" onClick="vArraySlide()" class="w3-image" />';
+            if (level_id == "Starter") {
+                currentWord.innerHTML = '<table align="center"><tr><td align="right" style="font-size:xx-large; color:red">'+array[array_i].slice(0,1)+'</td><td align="right" style="font-size:xx-large; color:black">'+array[array_i].slice(1)+'</td></tr></table>';
+                spellCheck.pattern = array[array_i].slice(0,1);
+            } else {
+                spellCheck.pattern = array[array_i];
+            }
+            setTimeout(function(){
+                       speak(array[array_i]);
+                       document.getElementById("spellCheck").style.backgroundColor = "white";
+                       document.getElementById("spellCheck").placeholder = "Spell It!";
+                       }, 2000);
+            //vocabAudio.innerHTML = '<audio controls autoplay><source src="'+level_id+'/audio/'+array[array_i]+'.mp3" type="audio/mp3" /></audio>';
+            spellCheck.focus();
+        }
+        scoreChange();
+        cArraySlide();
+        //writeUserData("Ss1", PNow);
+    };
+
+    function pArraySlide() {
+        sNum = cArray_i + 1;
+        var score = classList[cArray_i].score;
+        if (phonicsCheck.value != phonicsCheck.pattern) {
+            fail.play();
+            document.getElementById("phonicsCheck").style.backgroundColor = "lightpink";
+        }
+        else {
+            phonicsCheck.value = "";
+            success.play();
+            document.getElementById("phonicsCheck").style.backgroundColor = "lightgreen";
+            classList[cArray_i].correct += 1;
+            pArray_i++;
+            if (pArray_i > (pArray.length - 1)) {
+                pArray_i = 0;
+            }
+            phonicsCheck.pattern = pArray[pArray_i].pattern;
+            
         }
         setTimeout(function(){
-                   speak(array[array_i]);
-                   document.getElementById("spellCheck").style.backgroundColor = "white";
-                   document.getElementById("spellCheck").placeholder = "Spell It!";
-                   }, 2000);
-        //vocabAudio.innerHTML = '<audio controls autoplay><source src="'+level_id+'/audio/'+array[array_i]+'.mp3" type="audio/mp3" /></audio>';
-        spellCheck.focus();
-    }
-    document.getElementById("SP"+sNum).textContent = score+"%";
-    classList[cArray_i].score = score;
-    cArraySlide();
-    //writeUserData("Ss1", PNow);
-};
-
-function pArraySlide() {
-    sNum = cArray_i + 1;
-    var score = classList[cArray_i].score;
-    if (phonicsCheck.value == phonicsCheck.pattern) {
-        phonicsCheck.value = "";
-        success.play();
-        document.getElementById("phonicsCheck").style.backgroundColor = "lightgreen";
-        if (score < 100){
-            score = score + 5;
-        }
-        pArray_i++;
-        if (pArray_i > (pArray.length - 1)) {
-            pArray_i = 0;
-        }
-        phonicsCheck.pattern = pArray[pArray_i].pattern;
-        
-    } else {
-        fail.play();
-        score = score - 5;
-        document.getElementById("phonicsCheck").style.backgroundColor = "lightpink";
-    }
-    setTimeout(function(){
-       phonicsAudio.innerHTML = '<audio controls autoplay><source src="phonics/'+pArray[pArray_i].value+'.mp3" type="audio/mp3" /></audio>';
-       document.getElementById("phonicsCheck").style.backgroundColor = "white";
-       document.getElementById("phonicsCheck").textContent = "";
-    }, 2000);
-    phonicsCheck.focus();
-    document.getElementById("SP"+sNum).textContent = score+"%";
-    classList[cArray_i].score = score;
-    cArraySlide();
-};
-                          
-function cArraySlide() {
-    cArray_i++;
-    if (cArray_i > (classList2.length - 1)) {
-        cArray_i = 0;
-    }
-    if (document.getElementById("SR" + (cArray_i + 1)).checked){
-        sName = classList2[cArray_i].sName;
-        displayName = classList2[cArray_i].displayName;
-        document.getElementById("displayName").textContent = displayName;
-    } else {
+           phonicsAudio.innerHTML = '<audio controls autoplay><source src="phonics/'+pArray[pArray_i].value+'.mp3" type="audio/mp3" /></audio>';
+           document.getElementById("phonicsCheck").style.backgroundColor = "white";
+           phonicsCheck.value = "";
+        }, 2000);
+        phonicsCheck.focus();
+        scoreChange();
         cArraySlide();
-    }
-};
+    };
 
-var pic;
+    function scoreChange() {
+        sNum = cArray_i + 1;
+        classList[cArray_i].attempted += 1;
+        score = classList[cArray_i].correct / classList[cArray_i].attempted * 100;
+        score = Math.round(score);
+        document.getElementById("SP"+sNum).textContent = score+"%";
+        var jsData = JSON.stringify(classList);
+        window.sessionStorage.setItem("classList", jsData);
+    };
 
-function checkLetter(x, i, letter) {
-    if (letter == document.getElementById(x+"Button"+i).value) {
-        document.getElementById("pic"+x).innerHTML = '<img src="Starter/images/'+letter+'.png" /></div>';
-    } else {
-        document.getElementById("pic"+x).innerHTML = '<img src="Starter/images/4Lines.png" /></div>';
-    }
-};
-    
-function checkGrammar(i, x) {
-    y = document.getElementById("cTextInput"+i).value;
-    if (x == y) {
-        document.getElementById("cTextInput"+i).style.backgroundColor = "lightgreen";
-    } else {
-        document.getElementById("cTextInput"+i).style.backgroundColor = "lightpink";
-    }
-};
-    
-function checkBGrammar(i, x) {
-    y = document.getElementById("bTextInput"+i).value;
-    if (x == y) {
-        document.getElementById("bTextInput"+i).style.backgroundColor = "lightgreen";
-    } else {
-        document.getElementById("bTextInput"+i).style.backgroundColor = "lightpink";
-    }
-};
-    
-function checkGrammar2(qInt, x, y) {
-    if (x == y) {
-        document.getElementById("grammarButton"+qInt).style.border = "4px solid black";
-        document.getElementById("grammarButton"+qInt).style.backgroundColor = "lightgreen";
-    } else {
-        document.getElementById("grammarButton"+qInt).style.textDecoration = "line-through";
-    }
-};
+    function cArraySlide() {
+        cArray_i++;
+        if (cArray_i > (classList2.length - 1)) {
+            cArray_i = 0;
+        }
+        if (document.getElementById("SR" + (cArray_i + 1)).checked){
+            sName = classList2[cArray_i].sName;
+            displayName = classList2[cArray_i].displayName;
+            document.getElementById("displayName").textContent = displayName;
+        } else {
+            cArraySlide();
+        }
+    };
 
-function showGrammar() {
-    document.getElementById("g0r3d0").innerHTML = '<h3>'+sampleAnswer+'</h3>';
-};
-    
-function showGrammar1() {
-    document.getElementById("g0r2d0").innerHTML = '<h3>'+sampleAnswer1+'</h3>';
-};
+    var pic;
 
-function showGrammar2() {
-    document.getElementById("g0r5d0").innerHTML = '<h3>'+sampleAnswer2+'</h3>';
-};
+    function checkLetter(x, i, letter) {
+        if (letter == document.getElementById(x+"Button"+i).value) {
+            document.getElementById("pic"+x).innerHTML = '<img src="Starter/images/'+letter+'.png" /></div>';
+        } else {
+            document.getElementById("pic"+x).innerHTML = '<img src="Starter/images/4Lines.png" /></div>';
+        }
+    };
     
-function radioCheck(q, v1, v2) {
-    if(v1 == document.getElementById("optRadio"+v2).value){
-        document.getElementById("radio"+q).style.backgroundColor = "lightgreen";
-    } else {
-        document.getElementById("radio"+q).style.backgroundColor = "lightpink";
-    }
-};
+    function checkGrammar(i, x) {
+        y = document.getElementById("cTextInput"+i).value;
+        if (x == y) {
+            document.getElementById("cTextInput"+i).style.backgroundColor = "lightgreen";
+        } else {
+            document.getElementById("cTextInput"+i).style.backgroundColor = "lightpink";
+        }
+    };
+    
+    function checkBGrammar(i, x) {
+        y = document.getElementById("bTextInput"+i).value;
+        if (x == y) {
+            document.getElementById("bTextInput"+i).style.backgroundColor = "lightgreen";
+        } else {
+            document.getElementById("bTextInput"+i).style.backgroundColor = "lightpink";
+        }
+    };
+    
+    function checkGrammar2(qInt, x, y) {
+        if (x == y) {
+            document.getElementById("grammarButton"+qInt).style.border = "4px solid black";
+            document.getElementById("grammarButton"+qInt).style.backgroundColor = "lightgreen";
+        } else {
+            document.getElementById("grammarButton"+qInt).style.textDecoration = "line-through";
+        }
+    };
 
-function setCss(tabName, userInput){
-    var i;
-    var x = document.getElementsByClassName("tab-content");
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-    }
-    document.getElementById(tabName).style.display = "block";
-    switch (tabName){
-        case 'home':
-            clearLevel();
-            break;
-        case 'vocab_tab':
-            setVocab(userInput);
-            break;
-        case 'grammar_tab':
-            setGrammar(userInput);
-            break;
-        case 'phonics_tab':
-            setPhonics(userInput);
-            break;
-        case 'quizMaker_tab':
-            setQuiz(userInput);
-            break;
-        default:
-            break;
-    }
-};
+    function showGrammar() {
+        document.getElementById("g0r3d0").innerHTML = '<h3>'+sampleAnswer+'</h3>';
+    };
+    
+    function showGrammar1() {
+        document.getElementById("g0r2d0").innerHTML = '<h3>'+sampleAnswer1+'</h3>';
+    };
+
+    function showGrammar2() {
+        document.getElementById("g0r5d0").innerHTML = '<h3>'+sampleAnswer2+'</h3>';
+    };
+    
+    function radioCheck(q, v1, v2) {
+        if(v1 == document.getElementById("optRadio"+v2).value){
+            document.getElementById("radio"+q).style.backgroundColor = "lightgreen";
+        } else {
+            document.getElementById("radio"+q).style.backgroundColor = "lightpink";
+        }
+    };
+
+    function setCss(tabName, userInput){
+        var i;
+        var x = document.getElementsByClassName("tab-content");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+        switch (tabName){
+            case 'home':
+                clearLevel();
+                break;
+            case 'vocab_tab':
+                setVocab(userInput);
+                break;
+            case 'grammar_tab':
+                setGrammar(userInput);
+                break;
+            case 'phonics_tab':
+                setPhonics(userInput);
+                break;
+            case 'quizMaker_tab':
+                setQuiz(userInput);
+                break;
+            default:
+                break;
+        }
+    };
 	</script>
     <script type="text/javascript">
         /**
@@ -841,13 +883,13 @@ function setCss(tabName, userInput){
             </div>
         </div><!-- /#grammar_tab -->
         
-        <div id="phonics_tab" class="w3-container w3-cell-middle tab-content">
+        <div id="phonics_tab" class="w3-container w3-cell-middle tab-content" style="display:none">
             <div class="w3-row" style="height: 100px"></div>
             <div class="w3-container w3-cell w3-center">
                 <h3 id="pInstructions" style="padding-top: 100px"></h3>
                 <input class="w3-input w3-border w3-round" id="phonicsCheck" autocomplete="off" autofocus maxlength="3" style="font-size:50px" required/>
                 <table class="w3-table"><tr class="w3-row w3-center">
-                    <td class="w3-cell" style="padding-top:15px" id="phonicsAudio"></td>
+                <tr><td class="w3-cell" style="padding-top:15px" id="phonicsAudio"></td>
                     <td><button class="w3-button w3-blue w3-round w3-cell" onclick="pArraySlide();">NEXT</button></td>
                 </tr></table>
             </div>
