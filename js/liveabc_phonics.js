@@ -113,7 +113,7 @@ function setPhonics(userInput){
         } else if (userInput == "Final Review") {
             pArray = [];
         } else {
-            pArray = ["blank", "blank"];
+            pArray = [({pattern:'blank', value:''})];
         }
     }
     else if (level_id == "Level 3") {
@@ -128,7 +128,7 @@ function setPhonics(userInput){
             pArray = [{pattern:'i', value:'bib'}, {pattern:'i', value:'drink'}, {pattern:'i', value:'milk'}, {pattern:'i', value:'wink'}, {pattern:'i e', value:'mice'}, {pattern:'i e', value:'rice'}, {pattern:'i e', value:'dime'}, {pattern:'i e', value:'hide'}];
         } else if (userInput == "Review 1") {
             document.getElementById("pInstructions").innerHTML = "";
-            pArray = ["blank", "blank"];
+            pArray = [({pattern:'blank', value:''})];
         } else if (userInput == "Unit 4") {
             document.getElementById("pInstructions").innerHTML = "Type 'o' or 'o e'.";
             pArray = [{pattern:'o', value:'fox'}, {pattern:'o', value:'frog'}, {pattern:'o', value:'clock'}, {pattern:'o', value:'blocks'}, {pattern:'o e', value:'home'}, {pattern:'o e', value:'hole'}, {pattern:'o e', value:'mole'}, {pattern:'o e', value:'cone'}];
@@ -140,7 +140,7 @@ function setPhonics(userInput){
             pArray = [{pattern:'u', value:'put'}, {pattern:'u', value:'bush'}, {pattern:'u', value:'push'}, {pattern:'u', value:'cushion'}, {pattern:'ue', value:'blue'}, {pattern:'ui', value:'suit'}, {pattern:'ui', value:'cruise'}, {pattern:'ui', value:'fruit'}];
         } else if (userInput == "Review 2") {
             document.getElementById("pInstructions").innerHTML = "";
-            pArray = ["blank", "blank"];
+            pArray = [({pattern:'blank', value:''})];
         } else if (userInput == "Unit 7") {
             document.getElementById("pInstructions").innerHTML = "";
             pArray = [{pattern:'oo', value:'book'}, {pattern:'oo', value:'cook'}, {pattern:'oo', value:'foot'}, {pattern:'oo', value:'hook'}, {pattern:'oo', value:'moon'}, {pattern:'oo', value:'pool'}, {pattern:'oo', value:'roof'}, {pattern:'oo', value:'boot'}];
@@ -152,7 +152,7 @@ function setPhonics(userInput){
             pArray = [{pattern:'a', value:'can'}, {pattern:'a', value:'pan'}, {pattern:'a', value:'mad'}, {pattern:'a', value:'dad'}, {pattern:'a e', value:'cane'}, {pattern:'a e', value:'lace'}, {pattern:'a e', value:'jade'}, {pattern:'a e', value:'gaze'}, {pattern:'e', value:'web'}, {pattern:'e', value:'net'}, {pattern:'e', value:'vet'}, {pattern:'e', value:'pet'}, {pattern:'ee', value:'teenager'}, {pattern:'ee', value:'jeep'}, {pattern:'ee', value:'bee'}, {pattern:'ee', value:'reed'}, {pattern:'i', value:'bib'}, {pattern:'i', value:'drink'}, {pattern:'i', value:'milk'}, {pattern:'i', value:'wink'}, {pattern:'i e', value:'mice'}, {pattern:'i e', value:'rice'}, {pattern:'i e', value:'dime'}, {pattern:'i e', value:'hide'}, {pattern:'o', value:'fox'}, {pattern:'o', value:'frog'}, {pattern:'o', value:'clock'}, {pattern:'o', value:'blocks'}, {pattern:'o e', value:'home'}, {pattern:'o e', value:'hole'}, {pattern:'o e', value:'mole'}, {pattern:'o e', value:'cone'}, {pattern:'u', value:'hug'}, {pattern:'u', value:'cub'}, {pattern:'u', value:'nut'}, {pattern:'u', value:'bus'}, {pattern:'u e', value:'duke'}, {pattern:'u e', value:'huge'}, {pattern:'u e', value:'cube'}, {pattern:'u e', value:'tune'}, {pattern:'u', value:'put'}, {pattern:'u', value:'bush'}, {pattern:'u', value:'push'}, {pattern:'u', value:'cushion'}, {pattern:'ue', value:'blue'}, {pattern:'ui', value:'suit'}, {pattern:'ui', value:'cruise'}, {pattern:'ui', value:'fruit'}, {pattern:'oo', value:'book'}, {pattern:'oo', value:'cook'}, {pattern:'oo', value:'foot'}, {pattern:'oo', value:'hook'}, {pattern:'oo', value:'moon'}, {pattern:'oo', value:'pool'}, {pattern:'oo', value:'roof'}, {pattern:'oo', value:'boot'}, {pattern:'y', value:'happy'}, {pattern:'y', value:'hungry'}, {pattern:'y', value:'yummy'}, {pattern:'y', value:'yucky'}, {pattern:'y', value:'cry'}, {pattern:'y', value:'dry'}, {pattern:'y', value:'fly'}, {pattern:'y', value:'sky'}];
         } else {
             document.getElementById("pInstructions").innerHTML = "";
-            pArray = ["blank", "blank"];
+            pArray = [({pattern:'blank', value:''})];
         }
     }
     else if (level_id == "Level 4") {
@@ -167,7 +167,7 @@ function setPhonics(userInput){
             document.getElementById("pInstructions").innerHTML = "Listen and write 'gh' or 'ph'.";
             pArray = [({pattern:'gh', value:'cough'}), ({pattern:'gh', value:'rough'}), ({pattern:'gh', value:'laugh'}), ({pattern:'gh', value:'tough'}), ({pattern:'ph', value:'phone'}), ({pattern:'ph', value:'photo'}), ({pattern:'ph', value:'pharmacy'}), ({pattern:'ph', value:'typhoon'})];
         } else if (userInput == "Review 1") {
-            pArray = ["blank", "blank"];
+            pArray = [({pattern:'blank', value:''})];
         } else if (userInput == "Unit 4") {
             document.getElementById("pInstructions").innerHTML = "Listen and write 'sw' or 'wh'.";
             pArray = [({pattern:'wh', value:'whale'}), ({pattern:'wh', value:'whip'}), ({pattern:'wh', value:'wheel'}), ({pattern:'wh', value:'wheat'}), ({pattern:'sw', value:'swan'}), ({pattern:'sw', value:'sweater'}), ({pattern:'sw', value:'sweat'}), ({pattern:'sw', value:'sweep'})];
@@ -178,7 +178,7 @@ function setPhonics(userInput){
             document.getElementById("pInstructions").innerHTML = "Listen and write 'tr' or 'dr'.";
             pArray = [({pattern:'tr', value:'treasure'}), ({pattern:'tr', value:'tree'}), ({pattern:'tr', value:'triangle'}), ({pattern:'tr', value:'tray'}), ({pattern:'dr', value:'drum'}), ({pattern:'dr', value:'dream'}), ({pattern:'dr', value:'drawer'}), ({pattern:'dr', value:'draw'})];
         } else if (userInput == "Review 2") {
-            pArray = ["blank", "blank"];
+            pArray = [({pattern:'blank', value:''})];
         } else if (userInput == "Unit 7") {
             document.getElementById("pInstructions").innerHTML = "Listen and write 'sc' or 'scr'.";
             pArray = [({pattern:'sc', value:'scared'}), ({pattern:'sc', value:'scooter'}), ({pattern:'sc', value:'scar'}), ({pattern:'sc', value:'scamper'}), ({pattern:'scr', value:'screen'}), ({pattern:'scr', value:'scratch'}), ({pattern:'scr', value:'scream'}), ({pattern:'scr', value:'scroll'})];
@@ -188,11 +188,11 @@ function setPhonics(userInput){
         } else if (userInput == "Unit 9") {
             pArray = [({pattern:'ch', value:'bench'}), ({pattern:'ch', value:'cheese'}), ({pattern:'ch', value:'chess'}), ({pattern:'ch', value:'church'}), ({pattern:'sh', value:'shore'}), ({pattern:'sh', value:'shell'}), ({pattern:'sh', value:'shrimp'}), ({pattern:'sh', value:'shy'}), ({pattern:'soft', value:'wreath'}), ({pattern:'soft', value:'thumb'}), ({pattern:'soft', value:'breath'}), ({pattern:'soft', value:'Earth'}), ({pattern:'hard', value:'leather'}), ({pattern:'hard', value:'feather'}), ({pattern:'hard', value:'gather'}), ({pattern:'hard', value:'father'}), ({pattern:'gh', value:'cough'}), ({pattern:'gh', value:'rough'}), ({pattern:'gh', value:'laugh'}), ({pattern:'gh', value:'tough'}), ({pattern:'ph', value:'phone'}), ({pattern:'ph', value:'photo'}), ({pattern:'ph', value:'pharmacy'}), ({pattern:'ph', value:'typhoon'}), ({pattern:'wh', value:'whale'}), ({pattern:'wh', value:'whip'}), ({pattern:'wh', value:'wheel'}), ({pattern:'wh', value:'wheat'}), ({pattern:'sw', value:'swan'}), ({pattern:'sw', value:'sweater'}), ({pattern:'sw', value:'sweat'}), ({pattern:'sw', value:'sweep'}), ({pattern:'st', value:'stamp'}), ({pattern:'st', value:'stickers'}), ({pattern:'st', value:'stairs'}), ({pattern:'st', value:'stapler'}), ({pattern:'sp', value:'sparrow'}), ({pattern:'sp', value:'spade'}), ({pattern:'sp', value:'spot'}), ({pattern:'sp', value:'spoon'}), ({pattern:'tr', value:'treasure'}), ({pattern:'tr', value:'tree'}), ({pattern:'tr', value:'triangle'}), ({pattern:'tr', value:'tray'}), ({pattern:'dr', value:'drum'}), ({pattern:'dr', value:'dream'}), ({pattern:'dr', value:'drawer'}), ({pattern:'dr', value:'draw'}), ({pattern:'sc', value:'scared'}), ({pattern:'sc', value:'scooter'}), ({pattern:'sc', value:'scar'}), ({pattern:'sc', value:'scamper'}), ({pattern:'scr', value:'screen'}), ({pattern:'scr', value:'scratch'}), ({pattern:'scr', value:'scream'}), ({pattern:'scr', value:'scroll'}), ({pattern:'ng', value:'morning'}), ({pattern:'ng', value:'ring'}), ({pattern:'ng', value:'hang'}), ({pattern:'ng', value:'painting'}), ({pattern:'nk', value:'junk'}), ({pattern:'nk', value:'trunk'}), ({pattern:'nk', value:'skunk'}), ({pattern:'nk', value:'sink'})];
         } else if (userInput == "Review 3") {
-            pArray = ["blank", "blank"];
+            pArray = [({pattern:'blank', value:''})];
         } else if (userInput == "Final Review") {
-            pArray = ["blank", "blank"];
+            pArray = [({pattern:'blank', value:''})];
         } else {
-            pArray = ["blank", "blank"];
+            pArray = [({pattern:'blank', value:''})];
         }
     }
     else if (level_id == "Level 5") {
@@ -207,7 +207,7 @@ function setPhonics(userInput){
             document.getElementById("pInstructions").innerHTML = "Listen and write 'long' or 'short'.";
             pArray = [({pattern:'long', value:'heavy'}), ({pattern:'long', value:'bear'}), ({pattern:'long', value:'wears'}), ({pattern:'long', value:'ready'}), ({pattern:'long', value:'jealous'}), ({pattern:'short', value:'feast'}), ({pattern:'short', value:'please'}), ({pattern:'short', value:'seat'}), ({pattern:'short', value:'meat'}), ({pattern:'short', value:'beans'}), ({pattern:'short', value:'eat'})];
         } else if (userInput == "Review 1") {
-            pArray = ["blank", "blank"];
+            pArray = [({pattern:'blank', value:''})];
         } else if (userInput == "Unit 4") {
             document.getElementById("pInstructions").innerHTML = "Listen and write 'oe' or 'oa'.";
             pArray = [({pattern:'oe', value:'Moe'}), ({pattern:'oe', value:'Joe'}), ({pattern:'oe', value:'toe'}), ({pattern:'oe', value:'hoe'}), ({pattern:'oa', value:'Joan'}), ({pattern:'oa', value:'coach'}), ({pattern:'oa', value:'toasting'}), ({pattern:'oa', value:'loaf'}), ({pattern:'oa', value:'soap'})];
@@ -218,7 +218,7 @@ function setPhonics(userInput){
             document.getElementById("pInstructions").innerHTML = "Listen and write 'oi' or 'oy'.";
             pArray = [({pattern:'oi', value:'coin'}), ({pattern:'oi', value:'boiling'}), ({pattern:'oi', value:'oil'}), ({pattern:'oi', value:'soil'}), ({pattern:'oi', value:'toilet'}), ({pattern:'oi', value:'noise'}), ({pattern:'oy', value:'Roy'}), ({pattern:'oy', value:'loyal'}), ({pattern:'oy', value:'oyster'}), ({pattern:'oy', value:'Joy'}), ({pattern:'oy', value:'toy'})];
         } else if (userInput == "Review 2") {
-            pArray = ["blank", "blank"];
+            pArray = [({pattern:'blank', value:''})];
         } else if (userInput == "Unit 7") {
             document.getElementById("pInstructions").innerHTML = "Listen and write 'ar' or 'or'.";
             pArray = [({pattern:'ar', value:'harp'}), ({pattern:'ar', value:'farm'}), ({pattern:'ar', value:'scarf'}), ({pattern:'ar', value:'arms'}), ({pattern:'or', value:'Morgan'}), ({pattern:'or', value:'north'}), ({pattern:'or', value:'horn'}), ({pattern:'or', value:'corn'}), ({pattern:'or', value:'short'}), ({pattern:'or', value:'fork'})];
@@ -229,11 +229,11 @@ function setPhonics(userInput){
             document.getElementById("pInstructions").innerHTML = "Listen and write 'or' or 'er'.";
             pArray = [({pattern:'or', value:'sailor'}), ({pattern:'or', value:'vendor'}), ({pattern:'or', value:'mirror'}), ({pattern:'or', value:'harbor'}), ({pattern:'er', value:'crackers'}), ({pattern:'er', value:'butter'}), ({pattern:'er', value:'brother'}), ({pattern:'er', value:'slippers'}), ({pattern:'er', value:'sister'}), ({pattern:'er', value:'fingers'}), ({pattern:'er', value:'mother'})];
         } else if (userInput == "Review 3") {
-            pArray = ["blank", "blank"];
+            pArray = [({pattern:'blank', value:''})];
         } else if (userInput == "Final Review") {
-            pArray = ["blank", "blank"];
+            pArray = [({pattern:'blank', value:''})];
         } else {
-            pArray = ["blank", "blank"];
+            pArray = [({pattern:'blank', value:''})];
         }
     }
     else if (level_id == "Level 6") {
@@ -246,9 +246,10 @@ function setPhonics(userInput){
             pArray = [({pattern:'br', value:'brave'}), ({pattern:'br', value:'Bruce'}), ({pattern:'br', value:'branches'}), ({pattern:'br', value:'broken'}), ({pattern:'br', value:'Brian'}), ({pattern:'br', value:'bridge'}), ({pattern:'br', value:'brush'}), ({pattern:'bl', value:'blanket'}), ({pattern:'bl', value:'blank'}), ({pattern:'bl', value:'blamed'}), ({pattern:'bl', value:'black'}), ({pattern:'bl', value:'blots'})];
         } else if (userInput == "Unit 3") {
             document.getElementById("pInstructions").innerHTML = "Listen and write 'cr' or 'cl'.";
-            pArray = [({pattern:'cr', value:''}), ({pattern:'cr', value:''}), ({pattern:'cr', value:''}), ({pattern:'cr', value:''}), ({pattern:'cr', value:''}), ({pattern:'cr', value:''}), ({pattern:'cl', value:''}), ({pattern:'cl', value:''}), ({pattern:'cl', value:''}), ({pattern:'cl', value:''}), ({pattern:'cl', value:''}), ({pattern:'cl', value:''})];
+            pArray = [({pattern:'cr', value:'crow'}), ({pattern:'cr', value:'crown'}), ({pattern:'cr', value:'crab'}), ({pattern:'cr', value:'cricket'}), ({pattern:'cr', value:'cream'}), ({pattern:'cr', value:'crazy'}), ({pattern:'cl', value:'clever'}), ({pattern:'cl', value:'clay'}), ({pattern:'cl', value:'clock'}), ({pattern:'cl', value:'clam'}), ({pattern:'cl', value:'clarinet'}), ({pattern:'cl', value:'clap'})];
         } else if (userInput == "Review 1") {
-            pArray = ["blank", "blank"];
+            document.getElementById("pInstructions").innerHTML = "";
+            pArray = [({pattern:'pr', value:'practice'}), ({pattern:'pr', value:'principal'}), ({pattern:'pr', value:'prize'}), ({pattern:'pr', value:'proud'}), ({pattern:'pl', value:'plus'}), ({pattern:'pl', value:'plums'}), ({pattern:'pl', value:'plain'}), ({pattern:'pl', value:'plate'}), ({pattern:'pl', value:'plan'}), ({pattern:'pl', value:'platform'}), ({pattern:'br', value:'brave'}), ({pattern:'br', value:'Bruce'}), ({pattern:'br', value:'branches'}), ({pattern:'br', value:'broken'}), ({pattern:'br', value:'Brian'}), ({pattern:'br', value:'bridge'}), ({pattern:'br', value:'brush'}), ({pattern:'bl', value:'blanket'}), ({pattern:'bl', value:'blank'}), ({pattern:'bl', value:'blamed'}), ({pattern:'bl', value:'black'}), ({pattern:'bl', value:'blots'}), ({pattern:'cr', value:'crow'}), ({pattern:'cr', value:'crown'}), ({pattern:'cr', value:'crab'}), ({pattern:'cr', value:'cricket'}), ({pattern:'cr', value:'cream'}), ({pattern:'cr', value:'crazy'}), ({pattern:'cl', value:'clever'}), ({pattern:'cl', value:'clay'}), ({pattern:'cl', value:'clock'}), ({pattern:'cl', value:'clam'}), ({pattern:'cl', value:'clarinet'}), ({pattern:'cl', value:'clap'})];
         } else if (userInput == "Unit 4") {
             document.getElementById("pInstructions").innerHTML = "Listen and write 'gr' or 'gl'.";
             pArray = [({pattern:'gr', value:'Grace'}), ({pattern:'gr', value:'grandmother'}), ({pattern:'gr', value:'greeted'}), ({pattern:'gr', value:'grapes'}), ({pattern:'gr', value:'green'}), ({pattern:'gr', value:'grass'}), ({pattern:'gl', value:'Gloria'}), ({pattern:'gl', value:'glasses'}), ({pattern:'gl', value:'gloves'}), ({pattern:'gl', value:'glue'}), ({pattern:'gl', value:'globe'}), ({pattern:'gl', value:'glad'})];
@@ -259,7 +260,8 @@ function setPhonics(userInput){
             document.getElementById("pInstructions").innerHTML = "Listen and write 'sl', 'sm' or 'sn'.";
             pArray = [({pattern:'sl', value:'slipping'}), ({pattern:'sl', value:'slim'}), ({pattern:'sl', value:'slide'}), ({pattern:'sm', value:'Smith'}), ({pattern:'sm', value:'smells'}), ({pattern:'sm', value:'smart'}), ({pattern:'sm', value:'smile'}), ({pattern:'sn', value:'snowing'}), ({pattern:'sn', value:'snores'}), ({pattern:'sn', value:'sniff'}), ({pattern:'sn', value:'sneeze'})];
         } else if (userInput == "Review 2") {
-            pArray = ["blank", "blank"];
+            document.getElementById("pInstructions").innerHTML = "";
+            pArray = [({pattern:'gr', value:'Grace'}), ({pattern:'gr', value:'grandmother'}), ({pattern:'gr', value:'greeted'}), ({pattern:'gr', value:'grapes'}), ({pattern:'gr', value:'green'}), ({pattern:'gr', value:'grass'}), ({pattern:'gl', value:'Gloria'}), ({pattern:'gl', value:'glasses'}), ({pattern:'gl', value:'gloves'}), ({pattern:'gl', value:'glue'}), ({pattern:'gl', value:'globe'}), ({pattern:'gl', value:'glad'}), ({pattern:'fr', value:'Frank'}), ({pattern:'fr', value:'frisbee'}), ({pattern:'fr', value:'friends'}), ({pattern:'fr', value:'fresh fruit'}), ({pattern:'fr', value:'fried'}), ({pattern:'fr', value:'french fries'}), ({pattern:'fl', value:'Flora'}), ({pattern:'fl', value:'florist'}), ({pattern:'fl', value:'flood'}), ({pattern:'fl', value:'flowing'}), ({pattern:'fl', value:'flower'}), ({pattern:'sl', value:'slipping'}), ({pattern:'sl', value:'slim'}), ({pattern:'sl', value:'slide'}), ({pattern:'sm', value:'Smith'}), ({pattern:'sm', value:'smells'}), ({pattern:'sm', value:'smart'}), ({pattern:'sm', value:'smile'}), ({pattern:'sn', value:'snowing'}), ({pattern:'sn', value:'snores'}), ({pattern:'sn', value:'sniff'}), ({pattern:'sn', value:'sneeze'})];
         } else if (userInput == "Unit 7") {
             document.getElementById("pInstructions").innerHTML = "Listen and write 'str', 'scr' or 'spr'.";
             pArray = [({pattern:'str', value:'strong'}), ({pattern:'str', value:'stretches'}), ({pattern:'str', value:'street'}), ({pattern:'str', value:'strange'}), ({pattern:'str', value:'stream'}), ({pattern:'scr', value:'screams'}), ({pattern:'scr', value:'scratch'}), ({pattern:'scr', value:'screw'}), ({pattern:'spr', value:'spreads'}), ({pattern:'spr', value:'spring'}), ({pattern:'spr', value:'sprouts'})];
@@ -270,15 +272,18 @@ function setPhonics(userInput){
             document.getElementById("pInstructions").innerHTML = "Listen and write 'ci', 'ce', 'cy', 'gi', 'ge' or 'gy'.";
             pArray = [({pattern:'ci', value:'cinema'}), ({pattern:'ci', value:'city'}), ({pattern:'ce', value:'celebrates'}), ({pattern:'ce', value:'center'}), ({pattern:'ce', value:'cereal'}), ({pattern:'cy', value:'Nancy'}), ({pattern:'gi', value:'giraffe'}), ({pattern:'ge', value:'George'}), ({pattern:'ge', value:'German'}), ({pattern:'ge', value:'gently'}), ({pattern:'gy', value:'gym'}), ({pattern:'gy', value:'gypsum'})];
         } else if (userInput == "Review 3") {
-            pArray = ["blank", "blank"];
+            document.getElementById("pInstructions").innerHTML = "";
+            pArray = [({pattern:'str', value:'strong'}), ({pattern:'str', value:'stretches'}), ({pattern:'str', value:'street'}), ({pattern:'str', value:'strange'}), ({pattern:'str', value:'stream'}), ({pattern:'scr', value:'screams'}), ({pattern:'scr', value:'scratch'}), ({pattern:'scr', value:'screw'}), ({pattern:'spr', value:'spreads'}), ({pattern:'spr', value:'spring'}), ({pattern:'spr', value:'sprouts'}), ({pattern:'wr', value:'writing'}), ({pattern:'wr', value:'wrapping'}), ({pattern:'wr', value:'wrench'}), ({pattern:'wr', value:'wrinkling'}), ({pattern:'wr', value:'wrist'}), ({pattern:'kn', value:'know'}), ({pattern:'kn', value:'kneeling'}), ({pattern:'kn', value:'knights'}), ({pattern:'kn', value:'knee'}), ({pattern:'mb', value:'bomb'}), ({pattern:'mb', value:'dumb'}), ({pattern:'ci', value:'cinema'}), ({pattern:'ci', value:'city'}), ({pattern:'ce', value:'celebrates'}), ({pattern:'ce', value:'center'}), ({pattern:'ce', value:'cereal'}), ({pattern:'cy', value:'Nancy'}), ({pattern:'gi', value:'giraffe'}), ({pattern:'ge', value:'George'}), ({pattern:'ge', value:'German'}), ({pattern:'ge', value:'gently'}), ({pattern:'gy', value:'gym'}), ({pattern:'gy', value:'gypsum'})];
         } else if (userInput == "Final Review") {
-            pArray = ["blank", "blank"];
+            document.getElementById("pInstructions").innerHTML = "";
+            pArray = [({pattern:'blank', value:''})];
         } else {
-            pArray = ["blank", "blank"];
+            document.getElementById("pInstructions").innerHTML = "";
+            pArray = [({pattern:'blank', value:''})];
         }
     } else {
     document.getElementById("pInstructions").innerHTML = "There are no phonics words for this level.";
-    pArray = ["blank", "blank"];
+    pArray = [({pattern:'blank', value:''})];
     }
     shuffleArray(pArray);
     document.getElementById("phonicsAudio").innerHTML = '<audio controls autoplay><source src="phonics/'+pArray[pArray_i].value+'.mp3" type="audio/mp3" /></audio>';
