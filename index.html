@@ -163,8 +163,11 @@
     var level_id = "";
     var blank = {displayName: '', correct: 10, attempted: 10};
     var classList = [blank, blank, blank, blank, blank, blank];
-    var classList2 = [];
     var currentUnit = "";
+    var array_i = 0;
+    var cArray_i = 0;
+    var pArray_i = 0;
+    var qArray_i = 0;
     var success = new Audio('/audio/success.mp3');
     var fail = new Audio('/audio/fail.mp3');
     
@@ -183,7 +186,6 @@
     
     function setClass(classN) {
         classList = [];
-        classList2 = [blank];
         sessionStorage.setItem("className", classN);
         document.getElementById("className").textContent = classN;
         if (classN == "Gold Class") {
@@ -209,7 +211,6 @@
             classList = [Eric1019, fusion, kiki0901, Justin1001, blank, blank];
         } else {
             classList = [blank, blank, blank, blank, blank, blank];
-            document.getElementById("displayName").textContent = "";
         }
         document.getElementById("Ss1").textContent = classList[0].displayName;
         document.getElementById("Ss2").textContent = classList[1].displayName;
@@ -226,20 +227,16 @@
                 var score = classList[student].correct / classList[student].attempted * 100;
                 score = Math.round(score);
                 document.getElementById("SP"+sNum).textContent = score+"%";
-                classList2.push(classList[student]);
             } else {
                 document.getElementById("SR"+sNum+"-btn").innerHTML = '';
                 document.getElementById("SP"+sNum).textContent = "";
             }
-        };
-        if (classList2[0].displayName){
-            document.getElementById("displayName").textContent = classList2[0].displayName;
         }
+        document.getElementById("displayName").textContent = classList[0].displayName;
     };
     
     function clearClass() {
         classList = [];
-        classList2 = [];
         sessionStorage.setItem("className", "");
         setClass("");
     };
@@ -268,39 +265,13 @@
         levelId.textContent = sessionStorage.getItem("sessionLevel");
         document.getElementById("className").textContent = sessionStorage.getItem("className");
         setLevel(levelId.textContent);
-        document.getElementById("className").textContent = sessionStorage.getItem("className");
+        className = sessionStorage.getItem("className");
+        document.getElementById("className").textContent = className;
         var jsData = window.sessionStorage.getItem("classList");
         classList = JSON.parse(jsData);
-        document.getElementById("Ss1").textContent = classList[0].displayName;
-        document.getElementById("Ss2").textContent = classList[1].displayName;
-        document.getElementById("Ss3").textContent = classList[2].displayName;
-        document.getElementById("Ss4").textContent = classList[3].displayName;
-        document.getElementById("Ss5").textContent = classList[4].displayName;
-        document.getElementById("Ss6").textContent = classList[5].displayName;
-        classList2 = [blank];
-        for (student in classList) {
-            sNum = Number(student) + 1;
-            if (classList[student].displayName != ''){
-                document.getElementById("SR"+sNum+"-btn").innerHTML = '<input class="w3-check" type="checkbox" checked id="SR'+sNum+'">';
-                var score = classList[student].correct / classList[student].attempted * 100;
-                score = Math.round(score);
-                document.getElementById("SP"+sNum).textContent = score+"%";
-                classList2.push(classList[student]);
-            } else {
-                document.getElementById("SR"+sNum+"-btn").innerHTML = '';
-                document.getElementById("SP"+sNum).textContent = "";
-            }
-            if (classList2[0].displayName){
-                document.getElementById("displayName").textContent = classList2[0].displayName;
-            }
-        }
+        setClass(className);
         //readUserData("Ss1");
     };
-
-    var array_i = 0;
-    var cArray_i = 0;
-    var pArray_i = 0;
-    var qArray_i = 0;
 
     // say a message
     function speak(text, callback) {
@@ -325,7 +296,7 @@
 
     function vArraySlide() {
         sNum = cArray_i + 1;
-        sName = classList2[cArray_i];
+        sName = classList[cArray_i];
         if (spellCheck.value != spellCheck.pattern){
             fail.play();
             document.getElementById("spellCheck").style.backgroundColor = "lightpink";
@@ -364,6 +335,18 @@
         cArraySlide();
         //writeUserData("Ss1", PNow);
     };
+    
+    function gArraySlide() {
+        sNum = cArray_i + 1;
+        var score = classList[cArray_i].score;
+        success.play();
+        shuffleArray(q1Array);
+        document.getElementById("g0r1d0").textContent = q1Array[0];
+        document.getElementById("g0r1d2").textContent = q1Array[1];
+        document.getElementById("g0r3d0").textContent = q1Array[2];
+        document.getElementById("g0r3d2").textContent = q1Array[3];
+        speak(q1Array[0]);
+    }
 
     function pArraySlide() {
         sNum = cArray_i + 1;
@@ -405,44 +388,18 @@
     };
 
     function cArraySlide() {
-        cArray_i++;
-        if (cArray_i > (classList2.length - 1)) {
+        cArray_i += 1;
+        if (cArray_i > 5) {
             cArray_i = 0;
         }
-        if (document.getElementById("SR" + (cArray_i + 1)).checked){
-            sName = classList2[cArray_i].sName;
-            displayName = classList2[cArray_i].displayName;
-            document.getElementById("displayName").textContent = displayName;
+        if (classList[cArray_i].displayName != ''){
+            if (document.getElementById("SR" + (cArray_i + 1)).checked){
+                sName = classList[cArray_i];
+                displayName = classList[cArray_i].displayName;
+                document.getElementById("displayName").textContent = displayName;
+            }
         } else {
             cArraySlide();
-        }
-    };
-
-    var pic;
-
-    function checkLetter(x, i, letter) {
-        if (letter == document.getElementById(x+"Button"+i).value) {
-            document.getElementById("pic"+x).innerHTML = '<img src="Starter/images/'+letter+'.png" /></div>';
-        } else {
-            document.getElementById("pic"+x).innerHTML = '<img src="Starter/images/4Lines.png" /></div>';
-        }
-    };
-    
-    function checkGrammar(i, x) {
-        y = document.getElementById("cTextInput"+i).value;
-        if (x == y) {
-            document.getElementById("cTextInput"+i).style.backgroundColor = "lightgreen";
-        } else {
-            document.getElementById("cTextInput"+i).style.backgroundColor = "lightpink";
-        }
-    };
-    
-    function checkBGrammar(i, x) {
-        y = document.getElementById("bTextInput"+i).value;
-        if (x == y) {
-            document.getElementById("bTextInput"+i).style.backgroundColor = "lightgreen";
-        } else {
-            document.getElementById("bTextInput"+i).style.backgroundColor = "lightpink";
         }
     };
     
@@ -465,14 +422,6 @@
 
     function showGrammar2() {
         document.getElementById("g0r5d0").innerHTML = '<h3>'+sampleAnswer2+'</h3>';
-    };
-    
-    function radioCheck(q, v1, v2) {
-        if(v1 == document.getElementById("optRadio"+v2).value){
-            document.getElementById("radio"+q).style.backgroundColor = "lightgreen";
-        } else {
-            document.getElementById("radio"+q).style.backgroundColor = "lightpink";
-        }
     };
 
     function setCss(tabName, userInput){
@@ -793,8 +742,8 @@
     <div class="w3-container w3-cell w3-cell-top">
         <h2 id="className" style="padding-top: 50px"></h2>
         <h3 id="levelId"></h3>
+        <h3 id="displayName" style="font-weight: bold"></h3>
         <table class="w3-table" id="SsTable">
-            <tr><h3 id="displayName" style="font-weight: bold"></h3></tr>
             <tr><td><div id="SR1-btn"></td><td><h4 id="Ss1"></h4></td><td><h4 id="SP1"></h4></td></tr>
             <tr><td><div id="SR2-btn"></td><td><h4 id="Ss2"></h4></td><td><h4 id="SP2"></h4></td></tr>
             <tr><td><div id="SR3-btn"></td><td><h4 id="Ss3"></h4></td><td><h4 id="SP3"></h4></td></tr>
@@ -804,7 +753,7 @@
         </table>
     </div>
     <div class="w3-container w3-cell">
-        <div id="home" class="w3-container w3-col l10 tab-content" style="display:block; padding-top:50px">
+        <div id="home" class="w3-container w3-col l10 tab-content" style="display:block; padding-top:50px; text-align:right">
             <img id="logo" src="images/mega_metal.png" alt="mega" class="w3-image">
                 <footer id="foot01"></footer>
         </div><!-- /#home_tab -->
@@ -831,10 +780,11 @@
         <div id="grammar_tab" class="w3-container tab-content" style="display:none">
             <div class="w3-row" style="height: 100px"></div>
             <h3 id="gInstructions"></h3>
-            <div class="w3-col w3-center" style="font-size:50px">
-                <table class="w3-table" style="padding:50px">
+            <div class="w3-col w3-center" style="font-size:30px">
+                <table class="w3-table w3-center" style="padding:50px">
+                    <tr class="w3-row" style="height: 50px"></tr>
                     <tr>
-                        <td id="g0r0d0"></td>
+                        <td id="g0r0d0"><button class="w3-button w3-blue w3-round" onClick="speak(q1Array[0]);" id="focusButton">&#128264;</button></td>
                         <td id="g0r0d1"></td>
                         <td id="g0r0d2"></td>
                         <td id="g0r0d3"></td>
@@ -842,9 +792,9 @@
                         <td rowspan="6" id="g0r0d5"></td>
                     </tr>
                     <tr>
-                        <td id="g0r1d0"></td>
+                        <td id="g0r1d0" class="w3-cell w3-red" style="border: 2px solid black" onclick="gArraySlide()"></td>
                         <td id="g0r1d1"></td>
-                        <td id="g0r1d2"></td>
+                        <td id="g0r1d2" class="w3-cell w3-green" style="border: 2px solid black" onclick="gArraySlide()"></td>
                         <td id="g0r1d3"></td>
                         <td id="g0r1d4"></td>
                         <td style="padding-left:20px"><button class="w3-button w3-blue w3-round" onclick="setGrammar(currentUnit)">next</button></td>
@@ -857,9 +807,9 @@
                         <td id="g0r2d4"></td>
                     </tr>
                     <tr>
-                        <td id="g0r3d0"></td>
+                        <td id="g0r3d0" class="w3-cell w3-blue" style="border: 2px solid black" onclick="gArraySlide()"></td>
                         <td id="g0r3d1"></td>
-                        <td id="g0r3d2"></td>
+                        <td id="g0r3d2" class="w3-cell w3-yellow" style="border: 2px solid black" onclick="gArraySlide()"></td>
                         <td id="g0r3d3"></td>
                         <td id="g0r3d4"></td>
                     </tr>

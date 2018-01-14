@@ -111,7 +111,11 @@ function setGrammar(userInput){
             grammarLesson = "";
         }
         shuffleArray(q1Array);
-        document.getElementById("g0r1d0").innerHTML =  q1Array[0];
+        document.getElementById("g0r1d0").textContent = q1Array[0];
+        document.getElementById("g0r1d2").textContent = q1Array[1];
+        document.getElementById("g0r3d0").textContent = q1Array[2];
+        document.getElementById("g0r3d2").textContent = q1Array[3];
+        speak(q1Array[0]);
     }
     else if (level_id == "Level 1") {
         if (userInput == "Unit 1") {
@@ -2087,8 +2091,7 @@ function setGrammar(userInput){
             gLinks = [''];
             grammarLesson = "";
         }
-    }
-    
+    }    
     else {
         q1Array = ["", ""];
         q2Array = [""];
@@ -2097,7 +2100,6 @@ function setGrammar(userInput){
         gLinks = [''];
         grammarLesson = "";
     }
-    
     document.getElementById("grammar_links").innerHTML = gLinks;
     document.getElementById("grammar_lesson").innerHTML = grammarLesson;
-}
+};
