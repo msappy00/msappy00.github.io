@@ -158,7 +158,7 @@
     
 	<script>
 
-    var bookNumber
+    var bookNumber;
     var className = "";
     var level_id = "";
     var blank = {displayName: '', correct: 10, attempted: 10};
@@ -185,9 +185,7 @@
      };
     
     function setClass(classN) {
-        classList = [];
         sessionStorage.setItem("className", classN);
-        document.getElementById("className").textContent = classN;
         if (classN == "Gold Class") {
             var binjin0929 = {displayName: 'Binjin', correct: 10, attempted: 10};
             var chris1012 = {displayName: 'Chris', correct: 10, attempted: 10};
@@ -263,7 +261,6 @@
     
     function checkSessionStorage() {
         levelId.textContent = sessionStorage.getItem("sessionLevel");
-        document.getElementById("className").textContent = sessionStorage.getItem("className");
         setLevel(levelId.textContent);
         className = sessionStorage.getItem("className");
         document.getElementById("className").textContent = className;
@@ -336,17 +333,21 @@
         //writeUserData("Ss1", PNow);
     };
     
-    function gArraySlide() {
+    function gArraySlide(tdId) {
         sNum = cArray_i + 1;
         var score = classList[cArray_i].score;
-        success.play();
-        shuffleArray(q1Array);
-        document.getElementById("g0r1d0").textContent = q1Array[0];
-        document.getElementById("g0r1d2").textContent = q1Array[1];
-        document.getElementById("g0r3d0").textContent = q1Array[2];
-        document.getElementById("g0r3d2").textContent = q1Array[3];
-        speak(q1Array[0]);
-    }
+        if (grammarCheck.value != document.getElementById(tdId).textContent){
+            fail.play();
+            setTimeout(function(){speak(grammarCheck.value);
+                       }, 1000);
+        } else {
+            success.play();
+            classList[cArray_i].correct += 1;
+            setGrammar(currentUnit);
+        }
+        scoreChange();
+        cArraySlide();
+    };
 
     function pArraySlide() {
         sNum = cArray_i + 1;
@@ -378,13 +379,15 @@
     };
 
     function scoreChange() {
-        sNum = cArray_i + 1;
-        classList[cArray_i].attempted += 1;
-        score = classList[cArray_i].correct / classList[cArray_i].attempted * 100;
-        score = Math.round(score);
-        document.getElementById("SP"+sNum).textContent = score+"%";
-        var jsData = JSON.stringify(classList);
-        window.sessionStorage.setItem("classList", jsData);
+        if (classList[cArray_i].displayName != ''){
+            sNum = cArray_i + 1;
+            classList[cArray_i].attempted += 1;
+            score = classList[cArray_i].correct / classList[cArray_i].attempted * 100;
+            score = Math.round(score);
+            document.getElementById("SP"+sNum).textContent = score+"%";
+            var jsData = JSON.stringify(classList);
+            window.sessionStorage.setItem("classList", jsData);
+        }
     };
 
     function cArraySlide() {
@@ -398,9 +401,7 @@
                 displayName = classList[cArray_i].displayName;
                 document.getElementById("displayName").textContent = displayName;
             }
-        } else {
-            cArraySlide();
-        }
+        } 
     };
     
     function checkGrammar2(qInt, x, y) {
@@ -781,51 +782,29 @@
             <div class="w3-row" style="height: 100px"></div>
             <h3 id="gInstructions"></h3>
             <div class="w3-col w3-center" style="font-size:30px">
+                <input type="hidden" id="grammarCheck" />
                 <table class="w3-table w3-center" style="padding:50px">
                     <tr class="w3-row" style="height: 50px"></tr>
                     <tr>
-                        <td id="g0r0d0"><button class="w3-button w3-blue w3-round" onClick="speak(q1Array[0]);" id="focusButton">&#128264;</button></td>
-                        <td id="g0r0d1"></td>
-                        <td id="g0r0d2"></td>
-                        <td id="g0r0d3"></td>
-                        <td id="g0r0d4"></td>
-                        <td rowspan="6" id="g0r0d5"></td>
+                        <td><div class="w3-container w3-cell">
+                            <button class="w3-button w3-blue w3-round" onClick="speak(grammarCheck.value);">&#128264;</button>
+                            </div></td>
                     </tr>
+                    <tr class="w3-row" style="height: 20px"></tr>
                     <tr>
-                        <td id="g0r1d0" class="w3-cell w3-red" style="border: 2px solid black" onclick="gArraySlide()"></td>
+                        <td id="g0r1d0" class="w3-cell w3-red" style="border: 2px solid black" onclick="gArraySlide('g0r1d0')"></td>
                         <td id="g0r1d1"></td>
-                        <td id="g0r1d2" class="w3-cell w3-green" style="border: 2px solid black" onclick="gArraySlide()"></td>
+                        <td id="g0r1d2" class="w3-cell w3-green" style="border: 2px solid black" onclick="gArraySlide('g0r1d2')"></td>
                         <td id="g0r1d3"></td>
                         <td id="g0r1d4"></td>
-                        <td style="padding-left:20px"><button class="w3-button w3-blue w3-round" onclick="setGrammar(currentUnit)">next</button></td>
                     </tr>
+                    <tr class="w3-row" style="height: 20px"></tr>
                     <tr>
-                        <td id="g0r2d0"></td>
+                        <td id="g0r2d0" class="w3-cell w3-blue" style="border: 2px solid black" onclick="gArraySlide('g0r2d0')"></td>
                         <td id="g0r2d1"></td>
-                        <td id="g0r2d2"></td>
+                        <td id="g0r2d2" class="w3-cell w3-yellow" style="border: 2px solid black" onclick="gArraySlide('g0r2d2')"></td>
                         <td id="g0r2d3"></td>
                         <td id="g0r2d4"></td>
-                    </tr>
-                    <tr>
-                        <td id="g0r3d0" class="w3-cell w3-blue" style="border: 2px solid black" onclick="gArraySlide()"></td>
-                        <td id="g0r3d1"></td>
-                        <td id="g0r3d2" class="w3-cell w3-yellow" style="border: 2px solid black" onclick="gArraySlide()"></td>
-                        <td id="g0r3d3"></td>
-                        <td id="g0r3d4"></td>
-                    </tr>
-                    <tr>
-                        <td id="g0r4d0"></td>
-                        <td id="g0r4d1"></td>
-                        <td id="g0r4d2"></td>
-                        <td id="g0r4d3"></td>
-                        <td id="g0r4d4"></td>
-                    </tr>
-                    <tr>
-                        <td id="g0r5d0"></td>
-                        <td id="g0r5d1"></td>
-                        <td id="g0r5d2"></td>
-                        <td id="g0r5d3"></td>
-                        <td id="g0r5d4"></td>
                     </tr>
                 </table>
                 <h3 id="grammar_links"></h3>

@@ -8,12 +8,6 @@ function setGrammar(userInput){
     
     //clears the grammar table on the page
     document.getElementById("gInstructions").innerHTML = "";
-    document.getElementById("g0r0d0").innerHTML = "";
-    document.getElementById("g0r0d1").innerHTML = "";
-    document.getElementById("g0r0d2").innerHTML = "";
-    document.getElementById("g0r0d3").innerHTML = "";
-    document.getElementById("g0r0d4").innerHTML = "";
-    document.getElementById("g0r0d5").innerHTML = "";
     document.getElementById("g0r1d0").innerHTML = "";
     document.getElementById("g0r1d1").innerHTML = "";
     document.getElementById("g0r1d2").innerHTML = "";
@@ -24,21 +18,6 @@ function setGrammar(userInput){
     document.getElementById("g0r2d2").innerHTML = "";
     document.getElementById("g0r2d3").innerHTML = "";
     document.getElementById("g0r2d4").innerHTML = "";
-    document.getElementById("g0r3d0").innerHTML = "";
-    document.getElementById("g0r3d1").innerHTML = "";
-    document.getElementById("g0r3d2").innerHTML = "";
-    document.getElementById("g0r3d3").innerHTML = "";
-    document.getElementById("g0r3d4").innerHTML = "";
-    document.getElementById("g0r4d0").innerHTML = "";
-    document.getElementById("g0r4d1").innerHTML = "";
-    document.getElementById("g0r4d2").innerHTML = "";
-    document.getElementById("g0r4d3").innerHTML = "";
-    document.getElementById("g0r4d4").innerHTML = "";
-    document.getElementById("g0r5d0").innerHTML = "";
-    document.getElementById("g0r5d1").innerHTML = "";
-    document.getElementById("g0r5d2").innerHTML = "";
-    document.getElementById("g0r5d3").innerHTML = "";
-    document.getElementById("g0r5d4").innerHTML = "";
     
     var q1Array = [""];
     var q2Array = [""];
@@ -113,9 +92,13 @@ function setGrammar(userInput){
         shuffleArray(q1Array);
         document.getElementById("g0r1d0").textContent = q1Array[0];
         document.getElementById("g0r1d2").textContent = q1Array[1];
-        document.getElementById("g0r3d0").textContent = q1Array[2];
-        document.getElementById("g0r3d2").textContent = q1Array[3];
-        speak(q1Array[0]);
+        document.getElementById("g0r2d0").textContent = q1Array[2];
+        document.getElementById("g0r2d2").textContent = q1Array[3];
+        var randomG = Math.floor(Math.random() * 4);
+        document.getElementById("grammarCheck").value = q1Array[randomG];
+        if (q1Array[randomG]){
+            setTimeout(function(){speak(q1Array[randomG])}, 2000);
+        }
     }
     else if (level_id == "Level 1") {
         if (userInput == "Unit 1") {
