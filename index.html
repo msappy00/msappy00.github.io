@@ -186,36 +186,38 @@
     
     function setClass(classN) {
         sessionStorage.setItem("className", classN);
+        document.getElementById("className").textContent = classN;
+        className = classN;
         if (classN == "Carnation Class") {
             var Alex0610 = {displayName: 'Alex'};
             var Herry0103 = {displayName: 'Herry'};
             classList = [Alex0610, Herry0103, blank, blank, blank, blank];
         } else if (classN == "Delta Class") {
-            var eddie1122 = {displayName: 'Eddie', correct: 10, attempted: 10};
-            var sam0220 = {displayName: 'Sam', correct: 10, attempted: 10};
-            var Ian1212 = {displayName: 'Ian', correct: 10, attempted: 10};
-            var johnson0108 = {displayName: 'Johnson', correct: 10, attempted: 10};
+            var eddie1122 = {displayName: 'Eddie'};
+            var sam0220 = {displayName: 'Sam'};
+            var Ian1212 = {displayName: 'Ian'};
+            var johnson0108 = {displayName: 'Johnson'};
             classList = [eddie1122, sam0220, Ian1212, johnson0108, blank, blank];
         } else if (classN == "Gold Class") {
-            var binjin0929 = {displayName: 'Binjin', correct: 10, attempted: 10};
-            var chris1012 = {displayName: 'Chris', correct: 10, attempted: 10};
-            var jenny0726 = {displayName: 'Jenny', correct: 10, attempted: 10};
-            var paul0720 = {displayName: 'Paul', correct: 10, attempted: 10};
-            var ryan0319 = {displayName: 'Ryan', correct: 10, attempted: 10};
+            var binjin0929 = {displayName: 'Binjin'};
+            var chris1012 = {displayName: 'Chris'};
+            var jenny0726 = {displayName: 'Jenny'};
+            var paul0720 = {displayName: 'Paul'};
+            var ryan0319 = {displayName: 'Ryan'};
             classList = [binjin0929, chris1012, jenny0726, paul0720, ryan0319, blank];
         } else if (classN == "Scorpion Class"){
-            var Carrie1103 = {displayName: 'Carrie', correct: 10, attempted: 10};
-            var Edgar0830 = {displayName: 'Edgar', correct: 10, attempted: 10};
-            var icco0830 = {displayName: 'Icco', correct: 10, attempted: 10};
-            var Jerry0623 = {displayName: 'Jerry', correct: 10, attempted: 10};
-            var kristy0505 = {displayName: 'Kristy', correct: 10, attempted: 10};
-            var Sophie1101 = {displayName: 'Sophie', correct: 10, attempted: 10};
+            var Carrie1103 = {displayName: 'Carrie'};
+            var Edgar0830 = {displayName: 'Edgar'};
+            var icco0830 = {displayName: 'Icco'};
+            var Jerry0623 = {displayName: 'Jerry'};
+            var kristy0505 = {displayName: 'Kristy'};
+            var Sophie1101 = {displayName: 'Sophie'};
             classList = [Carrie1103, Edgar0830, icco0830, Jerry0623, kristy0505, Sophie1101];
         } else if (classN == "Sheep Class") {
-            var Eric1019 = {displayName: 'Eric', correct: 10, attempted: 10};
-            var fusion = {displayName: 'Fusion', correct: 10, attempted: 10};
-            var kiki0901 = {displayName: 'Kiki', correct: 10, attempted: 10};
-            var Justin1001 = {displayName: 'Justin', correct: 10, attempted: 10};
+            var Eric1019 = {displayName: 'Eric'};
+            var fusion = {displayName: 'Fusion'};
+            var kiki0901 = {displayName: 'Kiki'};
+            var Justin1001 = {displayName: 'Justin'};
             classList = [Eric1019, fusion, kiki0901, Justin1001, blank, blank];
         } else {
             classList = [blank, blank, blank, blank, blank, blank];
@@ -249,6 +251,7 @@
     function clearClass() {
         classList = [];
         sessionStorage.setItem("className", "");
+        document.getElementById("className").textContent = "";
         setClass("");
     };
 
@@ -805,7 +808,7 @@
                 </div>
         </div>
     </div><!--/#nav bar-->
-    <div class="w3-container w3-cell w3-cell-top">
+    <div class="w3-container w3-col l2 w3-cell-top">
         <h2 id="className" style="padding-top: 50px"></h2>
         <h3 id="levelId"></h3>
         <h3 id="displayName" style="font-weight: bold"></h3>
