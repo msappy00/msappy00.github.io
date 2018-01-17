@@ -280,26 +280,28 @@
         setLevel(levelId.textContent);
         className = sessionStorage.getItem("className");
         document.getElementById("className").textContent = className;
-        var jsData = window.sessionStorage.getItem("classList");
-        classList = JSON.parse(jsData);
-        document.getElementById("Ss1").textContent = classList[0].displayName;
-        document.getElementById("Ss2").textContent = classList[1].displayName;
-        document.getElementById("Ss3").textContent = classList[2].displayName;
-        document.getElementById("Ss4").textContent = classList[3].displayName;
-        document.getElementById("Ss5").textContent = classList[4].displayName;
-        document.getElementById("Ss6").textContent = classList[5].displayName;
-        for (student in classList) {
-            sNum = Number(student) + 1;
-            if (classList[student].displayName != ''){
-                document.getElementById("SR"+sNum+"-btn").innerHTML = '<input class="w3-check" type="checkbox" checked id="SR'+sNum+'">';
-                if (classList[student].attempted){
-                    var score = classList[student].correct / classList[student].attempted * 100;
-                    score = Math.round(score);
-                    document.getElementById("SP"+sNum).textContent = score+"%";
+        if (sessionStorage.getItem("classList")) {
+            var jsData = window.sessionStorage.getItem("classList");
+            classList = JSON.parse(jsData);
+            document.getElementById("Ss1").textContent = classList[0].displayName;
+            document.getElementById("Ss2").textContent = classList[1].displayName;
+            document.getElementById("Ss3").textContent = classList[2].displayName;
+            document.getElementById("Ss4").textContent = classList[3].displayName;
+            document.getElementById("Ss5").textContent = classList[4].displayName;
+            document.getElementById("Ss6").textContent = classList[5].displayName;
+            for (student in classList) {
+                sNum = Number(student) + 1;
+                if (classList[student].displayName != ''){
+                    document.getElementById("SR"+sNum+"-btn").innerHTML = '<input class="w3-check" type="checkbox" checked id="SR'+sNum+'">';
+                    if (classList[student].attempted){
+                        var score = classList[student].correct / classList[student].attempted * 100;
+                        score = Math.round(score);
+                        document.getElementById("SP"+sNum).textContent = score+"%";
+                    }
+                } else {
+                    document.getElementById("SR"+sNum+"-btn").innerHTML = '';
+                    document.getElementById("SP"+sNum).textContent = "";
                 }
-            } else {
-                document.getElementById("SR"+sNum+"-btn").innerHTML = '';
-                document.getElementById("SP"+sNum).textContent = "";
             }
         }
         cArray_i = 0;
