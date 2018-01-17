@@ -161,7 +161,7 @@
     var bookNumber;
     var className = "";
     var level_id = "";
-    var blank = {displayName: ''};
+    var blank = {displayName: '', correct: 0, attempted: 0};
     var classList = [blank, blank, blank, blank, blank, blank];
     var currentUnit = "";
     var array_i = 0;
@@ -848,35 +848,39 @@
         
         <div id="grammar_tab" class="w3-container tab-content" style="display:none">
             <div class="w3-row" style="height: 100px"></div>
-            <h3 id="gInstructions"></h3>
-            <div class="w3-col w3-center" style="font-size:30px">
+            <div class="w3-container w3-col l8 w3-center w3-middle" style="font-size:30px">
+                <div class="w3-row"><h3 class="w3-cell" id="gInstructions"></h3><button class="w3-cell w3-button w3-blue w3-round" onClick="speak(grammarCheck.value);">&#128264;</button></div>
                 <input type="hidden" id="grammarCheck" />
                 <table class="w3-table w3-center" style="padding:50px">
                     <tr class="w3-row" style="height: 50px"></tr>
-                    <tr>
-                        <td><div class="w3-container w3-cell">
-                            <button class="w3-button w3-blue w3-round" onClick="speak(grammarCheck.value);">&#128264;</button>
-                            </div></td>
-                    </tr>
                     <tr class="w3-row" style="height: 20px"></tr>
                     <tr>
-                        <td id="g0r1d0" class="w3-cell w3-red" style="border: 2px solid black" onclick="gArraySlide('g0r1d0')"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    <tr>
+                        <td id="g0r1d0" class="w3-cell w3-red" style="border: 2px solid black; text-align: center" onclick="gArraySlide('g0r1d0')"></td>
                         <td id="g0r1d1"></td>
-                        <td id="g0r1d2" class="w3-cell w3-green" style="border: 2px solid black" onclick="gArraySlide('g0r1d2')"></td>
+                        <td id="g0r1d2" class="w3-cell w3-green" style="border: 2px solid black; text-align: center" onclick="gArraySlide('g0r1d2')"></td>
                         <td id="g0r1d3"></td>
                         <td id="g0r1d4"></td>
                     </tr>
                     <tr class="w3-row" style="height: 20px"></tr>
                     <tr>
-                        <td id="g0r2d0" class="w3-cell w3-blue" style="border: 2px solid black" onclick="gArraySlide('g0r2d0')"></td>
+                        <td id="g0r2d0"><div class="w3-cell w3-blue" style="border: 2px solid black; text-align: center" onclick="gArraySlide('g0r2d0')"></div></td>
                         <td id="g0r2d1"></td>
-                        <td id="g0r2d2" class="w3-cell w3-yellow" style="border: 2px solid black" onclick="gArraySlide('g0r2d2')"></td>
+                        <td id="g0r2d2"><div class="w3-cell w3-yellow" style="border: 2px solid black; text-align: center" onclick="gArraySlide('g0r2d2')"></div></td>
                         <td id="g0r2d3"></td>
                         <td id="g0r2d4"></td>
                     </tr>
                 </table>
                 <h3 id="grammar_links"></h3>
                 <div id="grammar_lesson"></div>
+            </div>
+            <div class="w3-container w3-col l2 w3-right">
+                <div id="gPic"></div>
             </div>
         </div><!-- /#grammar_tab -->
         
