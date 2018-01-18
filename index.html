@@ -459,16 +459,18 @@
         if (cArray_i > 5) {
             cArray_i = 0;
         }
-        if (classList[cArray_i].displayName){
-            if (document.getElementById("SR" + (cArray_i)).checked){
-                sName = classList[cArray_i];
+        if (classList[cArray_i].displayName != "") {
+            if (document.getElementById("SR" + (cArray_i + 1)).checked) {
                 document.getElementById("displayName").textContent = classList[cArray_i].displayName;
+            } else if (classList[cArray_i + 1].displayName != ""){
+                cArraySlide();
             } else {
+                cArray_i = 5;
                 cArraySlide();
             }
-        } else {
-            cArray_i = 0;
-            document.getElementById("displayName").textContent = classList[cArray_i].displayName;
+        } else if (classList[sNum].displayName == "") {
+            cArray_i = 5;
+            cArraySlide();
         }
     };
     
