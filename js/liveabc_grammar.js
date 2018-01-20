@@ -119,8 +119,8 @@ function setGrammar(userInput){
             var randomG = Math.floor(Math.random() * 2);
             document.getElementById("g0r1d0").textContent = answerArray[0];
             document.getElementById("g0r1d2").textContent = answerArray[1];
-            document.getElementById("g0r2d0").innerHTML = "";
-            document.getElementById("g0r2d2").innerHTML = "";
+            document.getElementById("g0r2d0").textContent = "";
+            document.getElementById("g0r2d2").textContent = "";
             if (sentence){
                 sentence2 = pronounArray[0] + " " + document.getElementById("grammarCheck").value + " a " + q1Array[0].value;
                 setTimeout(function(){speak(sentence2)}, 2000);
@@ -132,20 +132,26 @@ function setGrammar(userInput){
             heArray = [({value:'grandfather', pic:'<img src="Level 1/images/grandfather.png" />'}), ({value:'father', pic:'<img src="Level 1/images/father.png" />'}), ({value:'uncle', pic:'<img src="Level 1/images/uncle.png" />'}), ({value:'brother', pic:'<img src="Level 1/images/brother.png" />'})];
             sheArray = [({value:'grandmother', pic:'<img src="Level 1/images/grandmother.png" />'}), ({value:'mother', pic:'<img src="Level 1/images/mother.png" />'}), ({value:'aunt', pic:'<img src="Level 1/images/aunt.png" />'}), ({value:'cousin', pic:'<img src="Level 1/images/cousin.png" />'}), ({value:'sister', pic:'<img src="Level 1/images/sister.png" />'})];
             shuffleArray(q1Array);
+            var randomG = Math.floor(Math.random() * 4);
             if (q1Array[0] == "Who is he?") {
+                q2Array = heArray;
                 shuffleArray(heArray);
-                document.getElementById("g0r0d5").innerHTML = heArray[0].pic;
-                sampleAnswer = "He is my " + heArray[0].value + ".";
+                document.getElementById("grammarCheck").value = "He is my " + heArray[randomG].value + ".";
+                document.getElementById("gPic").innerHTML = heArray[randomG].pic;
+                document.getElementById("g0r1d0").textContent = "He is my " + heArray[0].value + ".";
+                document.getElementById("g0r1d2").textContent = "He is my " + heArray[1].value + ".";
+                document.getElementById("g0r2d0").textContent = "He is my " + heArray[2].value + ".";
+                document.getElementById("g0r2d2").textContent = "He is my " + heArray[3].value + ".";
             } else {
                 shuffleArray(sheArray);
-                document.getElementById("g0r0d5").innerHTML = sheArray[0].pic;
-                sampleAnswer = "She is my " + sheArray[0].value + ".";
+                document.getElementById("grammarCheck").value = "She is my " + sheArray[randomG].value + ".";
+                document.getElementById("gPic").innerHTML = sheArray[randomG].pic;
+                document.getElementById("g0r1d0").textContent = "She is my " + sheArray[0].value + ".";
+                document.getElementById("g0r1d2").textContent = "She is my " + sheArray[1].value + ".";
+                document.getElementById("g0r2d0").textContent = "She is my " + sheArray[2].value + ".";
+                document.getElementById("g0r2d2").textContent = "She is my " + sheArray[3].value + ".";
             }
-            document.getElementById("g0r0d0").innerHTML = q1Array[0];
-            document.getElementById("g0r2d0").colspan = "3";
-            document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
-            document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
+            setTimeout(function(){speak(q1Array[0])}, 2000);
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 3") {
