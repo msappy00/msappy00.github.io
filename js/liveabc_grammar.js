@@ -106,7 +106,7 @@ function setGrammar(userInput){
             shuffleArray(pronounArray);
             q1Array = [({value:'boy.', pic:'<img src="Level 1/images/boy.png" />'}), ({value:'girl.', pic:'<img src="Level 1/images/girl.png" />'}), ({value:'woman.', pic:'<img src="Level 1/images/woman.png" />'}), ({value:'man.', pic:'<img src="Level 1/images/man.png" />'}), ({value:'student.', pic:'<img src="Level 1/images/student.png" />'}), ({value:'teacher.', pic:'<img src="Level 1/images/teacher.png" />'})];
             shuffleArray(q1Array);
-            answerArray = (["am", "are"]);
+            answerArray = (["am", "are", "", ""]);
             shuffleArray(answerArray);
             document.getElementById("gPic").innerHTML = q1Array[0].pic;
             var sentence = pronounArray[0] + " ______ a " + q1Array[0].value;
@@ -116,11 +116,10 @@ function setGrammar(userInput){
             } else {
                 document.getElementById("grammarCheck").value = "are";
             }
-            var randomG = Math.floor(Math.random() * 2);
             document.getElementById("g0r1d0").textContent = answerArray[0];
             document.getElementById("g0r1d2").textContent = answerArray[1];
-            document.getElementById("g0r2d0").textContent = "";
-            document.getElementById("g0r2d2").textContent = "";
+            document.getElementById("g0r2d0").textContent = answerArray[2];
+            document.getElementById("g0r2d2").textContent = answerArray[3];
             if (sentence){
                 sentence2 = pronounArray[0] + " " + document.getElementById("grammarCheck").value + " a " + q1Array[0].value;
                 setTimeout(function(){speak(sentence2)}, 2000);
