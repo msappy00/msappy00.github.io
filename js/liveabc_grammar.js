@@ -160,7 +160,7 @@ function setGrammar(userInput){
             } else {
                 var age = " years old.";
             }
-            pronounArray = ([{value: "I", verb: " am ", qp: "you", qv: " are "}, {value: "you", verb: " are ", qp: "I", qv: " am "},{value: "they", verb: " are ", qp: "they", qv: " are "}, {value: "he", verb: " is ", qp: "he", qv: " is "}, {value: "she", verb: " is ", qp: "she", qv: " is "}]);
+            pronounArray = ([{value: "I", verb: " am ", qp: "you", qv: " are "}, {value: "you", verb: " are ", qp: "I", qv: " am "}, {value: "they", verb: " are ", qp: "they", qv: " are "}, {value: "he", verb: " is ", qp: "he", qv: " is "}, {value: "she", verb: " is ", qp: "she", qv: " is "}]);
             shuffleArray(pronounArray);
             pronounArray.pop();
             var sentence = "How old" + pronounArray[randomG].qv + pronounArray[randomG].qp + "?";
@@ -183,41 +183,31 @@ function setGrammar(userInput){
             setGrammar(q1Array[0]);
             currentUnit = "Review 1";
         } else if (userInput == "Unit 4") {
-            pronounArray = ["you", "he", "she"];
+            pronounArray = ([{value: "I", verb: " am", qp: "you ", qv: "Are "}, {value: "you", verb: " are", qp: "I ", qv: "Am "}, {value: "he", verb: " is", qp: "he ", qv: "Is "}, {value: "she", verb: " is", qp: "she ", qv: "Is "}]);
             shuffleArray(pronounArray);
-            answerArray = ["Yes", "No"];
+            answerArray = ["Yes, ", "No, "];
             shuffleArray(answerArray);
-            feelingArray = ["happy", "sad", "chubby", "thin", "tall", "short", "cute", "old", "young"];
+            feelingArray = [{value: "happy", pic:'<img src = "Level 1/images/happy.png" />'}, {value: "sad", pic:'<img src = "Level 1/images/sad.png" />'}, {value: "chubby", pic:'<img src = "Level 1/images/chubby.png" />'}, {value: "thin", pic:'<img src = "Level 1/images/thin.png" />'}, {value: "tall", pic:'<img src = "Level 1/images/tall.png" />'}, {value: "short", pic:'<img src = "Level 1/images/short.png" />'}, {value: "cute", pic:'<img src = "Level 1/images/cute.png" />'}, {value: "old", pic:'<img src = "Level 1/images/old.png" />'}, {value: "young", pic:'<img src = "Level 1/images/young.png" />'}];
             shuffleArray(feelingArray);
-            if (pronounArray[0] == "you") {
-                document.getElementById("g0r0d0").innerHTML = "Are you " + feelingArray[0] + "?";
-            } else if (pronounArray[0] == "he") {
-                document.getElementById("g0r0d0").innerHTML = "Is he " + feelingArray[0] + "?";
+            var sentence = pronounArray[randomG].qv + pronounArray[randomG].qp + feelingArray[0].value + "?";
+            if (answerArray[0] == "Yes, ") {
+                document.getElementById("grammarCheck").value = answerArray[0] + pronounArray[randomG].value + pronounArray[randomG].verb + ".";
+                document.getElementById("gPic").innerHTML = feelingArray[0].pic;
+                document.getElementById("g0r1d0").textContent = answerArray[0] + pronounArray[0].value + pronounArray[0].verb + ".";
+                document.getElementById("g0r1d2").textContent = answerArray[0] + pronounArray[1].value + pronounArray[1].verb + ".";
+                document.getElementById("g0r2d0").textContent = answerArray[0] + pronounArray[2].value + pronounArray[2].verb + ".";
+                document.getElementById("g0r2d2").textContent = answerArray[0] + pronounArray[3].value + pronounArray[3].verb + ".";
             } else {
-                document.getElementById("g0r0d0").innerHTML = "Is she " + feelingArray[0] + "?";
+                document.getElementById("grammarCheck").value = answerArray[0] + pronounArray[randomG].value + pronounArray[randomG].verb + " not.";
+                document.getElementById("gPic").innerHTML = feelingArray[1].pic;
+                document.getElementById("g0r1d0").textContent = answerArray[0] + pronounArray[0].value + pronounArray[0].verb + " not.";
+                document.getElementById("g0r1d2").textContent = answerArray[0] + pronounArray[1].value + pronounArray[1].verb + " not.";
+                document.getElementById("g0r2d0").textContent = answerArray[0] + pronounArray[2].value + pronounArray[2].verb + " not.";
+                document.getElementById("g0r2d2").textContent = answerArray[0] + pronounArray[3].value + pronounArray[3].verb + " not.";
             }
-            if (answerArray[0] == "Yes") {
-                document.getElementById("g0r0d5").innerHTML = '<h1 style="font-size:100px">&#x2705;</h1>';
-                if (pronounArray[0] == "you") {
-                    sampleAnswer = "Yes, I am."
-                } else {
-                    sampleAnswer = "Yes, " + pronounArray[0] + " is.";
-                }
-            } else {
-                document.getElementById("g0r0d5").innerHTML = '<h1 style="font-size:100px">&#x274C;</h1>';
-                if (pronounArray[0] == "you") {
-                    sampleAnswer = "No, I am not."
-                } else {
-                    sampleAnswer = "No, " + pronounArray[0] + " is not.";
-                }
-            }
-            document.getElementById("g0r2d0").colspan = "3";
-            document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
-            document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
+            setTimeout(function(){speak(sentence)}, 2000);
             gLinks = [''];
             grammarLesson = "";
-            
         } else if (userInput == "Unit 5") {
             vocArray = [({voc:'pencil', article:'a', pic:'<img src = "Level 1/images/pencil.png" />'}), ({voc:'eraser', article:'an', pic:'<img src = "Level 1/images/eraser.png" />'}), ({voc:'ruler', article:'a', pic:'<img src = "Level 1/images/ruler.png" />'}), ({voc:'pen', article:'a', pic:'<img src = "Level 1/images/pen.png" />'}), ({voc:'desk', article:'a', pic:'<img src = "Level 1/images/desk.png" />'}), ({voc:'chair', article:'a', pic:'<img src = "Level 1/images/chair.png" />'}), ({voc:'school bag', article:'a', pic:'<img src = "Level 1/images/school bag.png" />'}), ({voc:'book', article:'a', pic:'<img src = "Level 1/images/book.png" />'}), ({voc:'pencil case', article:'a', pic:'<img src = "Level 1/images/pencil case.png" />'})];
             shuffleArray(vocArray);
