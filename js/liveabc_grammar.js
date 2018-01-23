@@ -23,6 +23,7 @@ function setGrammar(userInput){
     var q2Array = [""];
     var q3Array = [""];
     var answerArray = [""];
+    var randomG = Math.floor(Math.random() * 4);
     
     if (level_id == "Starter") {
         q1Array = ["Hi, my name is Jack.", "Hello, my name is Annie.", "Nice to meet you.", "Raise your hand.", "Take out your book.", "Open your book.", "Put away your book.", "Good morning.", "Good afternoon.", "Good evening.", "Good night.", "Goodbye.", "How are you?", "Come here.", "Go back.", "Turn around.", "Look at me.", "What is your name?", "My name is Annie.", "Who is he?", "Who is she?", "Listen to me.", "Repeat after me.", "Point and say.", "Hold up your book.", "What is it?", "May I borrow your pencil?", "May I drink some water?", "May I ask a question?", "May I go?", "Thank you.", "I know.", "I am done.", "Sorry, I am late.", "Please help me.", "I am a boy.", "I am a girl.", "Let’s dance.", "Let’s sing.", "Let’s clap.", "Let’s go.", "Let’s line up.", "It’s my turn.", "One more time.", "Teacher, choose me!", "Is this right?", "How do you feel today?", "I can do it.", "I don’t understand.", "Please say it again.", "I forgot my book."];
@@ -83,9 +84,9 @@ function setGrammar(userInput){
             gLinks = ['<a href="http://www.eslgamesplus.com/verb-to-be-auxiliary-verb-am-is-are-esl-grammar-activity/" target="_newtab">ESL Games+: Be Verbs</a>'];
             grammarLesson = "";
         } else {
-            q1Array = [""];
-            q1Array = [""];
-            q3Array = [""];
+            q1Array = [];
+            q2Array = [];
+            q3Array = [];
             gLinks = [''];
             grammarLesson = "";
         }
@@ -94,7 +95,6 @@ function setGrammar(userInput){
         document.getElementById("g0r1d2").textContent = q1Array[1];
         document.getElementById("g0r2d0").textContent = q1Array[2];
         document.getElementById("g0r2d2").textContent = q1Array[3];
-        var randomG = Math.floor(Math.random() * 4);
         document.getElementById("grammarCheck").value = q1Array[randomG];
         if (q1Array[randomG]){
             setTimeout(function(){speak(q1Array[randomG])}, 2000);
@@ -131,7 +131,6 @@ function setGrammar(userInput){
             heArray = [({value:'grandfather', pic:'<img src="Level 1/images/grandfather.png" />'}), ({value:'father', pic:'<img src="Level 1/images/father.png" />'}), ({value:'uncle', pic:'<img src="Level 1/images/uncle.png" />'}), ({value:'brother', pic:'<img src="Level 1/images/brother.png" />'})];
             sheArray = [({value:'grandmother', pic:'<img src="Level 1/images/grandmother.png" />'}), ({value:'mother', pic:'<img src="Level 1/images/mother.png" />'}), ({value:'aunt', pic:'<img src="Level 1/images/aunt.png" />'}), ({value:'cousin', pic:'<img src="Level 1/images/cousin.png" />'}), ({value:'sister', pic:'<img src="Level 1/images/sister.png" />'})];
             shuffleArray(q1Array);
-            var randomG = Math.floor(Math.random() * 4);
             if (q1Array[0] == "Who is he?") {
                 q2Array = heArray;
                 shuffleArray(heArray);
@@ -161,27 +160,21 @@ function setGrammar(userInput){
             } else {
                 var age = " years old.";
             }
-            pronounArray = (["I", "you", "they", "he", "she"]);
+            pronounArray = ([{value: "I", verb: " am ", qp: "you", qv: " are "}, {value: "you", verb: " are ", qp: "I", qv: " am "},{value: "they", verb: " are ", qp: "they", qv: " are "}, {value: "he", verb: " is ", qp: "he", qv: " is "}, {value: "she", verb: " is ", qp: "she", qv: " is "}]);
             shuffleArray(pronounArray);
-            if (pronounArray[0] == "I") {
-                document.getElementById("g0r0d0").innerHTML = "How old am I?";
-                sampleAnswer = "You are " + q1Array[0].spelling + age;
-            } else if (pronounArray[0] == "you") {
-                document.getElementById("g0r0d0").innerHTML = "How old are you?";
-                sampleAnswer = "I am " + q1Array[0].spelling + age;
-            } else if (pronounArray[0] == "they") {
-                document.getElementById("g0r0d0").innerHTML = "How old are they?";
-                sampleAnswer = "They are " + q1Array[0].spelling + age;
-            }
-            else {
-                document.getElementById("g0r0d0").innerHTML = "How old is " + pronounArray[0] + "?";
-                sampleAnswer = pronounArray[0].charAt(0).toUpperCase() + pronounArray[0].slice(1) + " is " + q1Array[0].spelling + age;
-            }
-            document.getElementById("g0r1d0").innerHTML = q1Array[0].number;
-            document.getElementById("g0r2d0").colspan = "3";
-            document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
-            document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
+            pronounArray.pop();
+            var sentence = "How old" + pronounArray[randomG].qv + pronounArray[randomG].qp + "?";
+            q2Array[0] = pronounArray[0].value.charAt(0).toUpperCase() + pronounArray[0].value.slice(1) + pronounArray[0].verb + q1Array[0].spelling + age;
+            q2Array[1] = pronounArray[1].value.charAt(0).toUpperCase() + pronounArray[1].value.slice(1) + pronounArray[1].verb + q1Array[0].spelling + age;
+            q2Array[2] = pronounArray[2].value.charAt(0).toUpperCase() + pronounArray[2].value.slice(1) + pronounArray[2].verb + q1Array[0].spelling + age;
+            q2Array[3] = pronounArray[3].value.charAt(0).toUpperCase() + pronounArray[3].value.slice(1) + pronounArray[3].verb + q1Array[0].spelling + age;
+            document.getElementById("grammarCheck").value = q2Array[randomG];
+            document.getElementById("gPic").innerHTML = '';
+            document.getElementById("g0r1d0").textContent = q2Array[0];
+            document.getElementById("g0r1d2").textContent = q2Array[1];
+            document.getElementById("g0r2d0").textContent = q2Array[2];
+            document.getElementById("g0r2d2").textContent = q2Array[3];
+            setTimeout(function(){speak(sentence)}, 2000);
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Review 1") {

@@ -278,7 +278,9 @@
     function checkSessionStorage() {
         levelId.textContent = sessionStorage.getItem("sessionLevel");
         setLevel(levelId.textContent);
-        className = sessionStorage.getItem("className");
+        if (sessionStorage.getItem("className")){
+            className = sessionStorage.getItem("className");
+        }
         document.getElementById("className").textContent = className;
         if (sessionStorage.getItem("classList")) {
             var jsData = window.sessionStorage.getItem("classList");
@@ -303,6 +305,9 @@
                     document.getElementById("SP"+sNum).textContent = "";
                 }
             }
+        }
+        else {
+            classList = [blank, blank, blank, blank, blank, blank];
         }
         cArray_i = 0;
         document.getElementById("displayName").textContent = classList[cArray_i].displayName;
@@ -455,22 +460,21 @@
     };
 
     function cArraySlide() {
-        cArray_i += 1;
-        if (cArray_i > 5) {
-            cArray_i = 0;
-        }
-        if (classList[cArray_i].displayName != "") {
-            if (document.getElementById("SR" + (cArray_i + 1)).checked) {
-                document.getElementById("displayName").textContent = classList[cArray_i].displayName;
-            } else if (classList[cArray_i + 1].displayName != ""){
-                cArraySlide();
+        if (className != "") {
+            cArray_i += 1;
+            if (cArray_i > 5) {
+                cArray_i = 0;
+            }
+            if (classList[cArray_i].displayName != "") {
+                if (document.getElementById("SR" + (cArray_i + 1)).checked) {
+                    document.getElementById("displayName").textContent = classList[cArray_i].displayName;
+                } else {
+                    cArraySlide();
+                }
             } else {
                 cArray_i = 5;
                 cArraySlide();
             }
-        } else if (classList[sNum].displayName == "") {
-            cArray_i = 5;
-            cArraySlide();
         }
     };
     
@@ -857,19 +861,18 @@
                 <input type="hidden" id="grammarCheck" />
                 <table class="w3-table w3-center" style="padding:50px">
                     <tr class="w3-row" style="height: 50px"></tr>
-                    <tr class="w3-row" style="height: 20px"></tr>
                     <tr class="w3-row">
-                        <td id="r1d0" class="w3-cell"><div id="g0r1d0" class="w3-red" style="border: 2px solid black; text-align: center; height: 50px" onclick="gArraySlide('g0r1d0')"></div></td>
+                        <td id="r1d0" class="w3-cell"><div id="g0r1d0" class="w3-red" style="border: 2px solid black; text-align: center; min-height: 50px" onclick="gArraySlide('g0r1d0')"></div></td>
                         <td id="g0r1d1"></td>
-                        <td id ="r1d2" class="w3-cell"><div id="g0r1d2" class="w3-green" style="border: 2px solid black; text-align: center; height: 50px" onclick="gArraySlide('g0r1d2')"></div></td>
+                        <td id ="r1d2" class="w3-cell"><div id="g0r1d2" class="w3-green" style="border: 2px solid black; text-align: center; min-height: 50px" onclick="gArraySlide('g0r1d2')"></div></td>
                         <td id="g0r1d3"></td>
                         <td id="g0r1d4"></td>
                     </tr>
                     <tr class="w3-row" style="height: 20px"></tr>
                     <tr class="w3-row">
-                        <td id="r2d0" class="w3-cell"><div id="g0r2d0" class="w3-blue" style="border: 2px solid black; text-align: center; height: 50px" onclick="gArraySlide('g0r2d0')"></div></td>
+                        <td id="r2d0" class="w3-cell"><div id="g0r2d0" class="w3-blue" style="border: 2px solid black; text-align: center; min-height: 50px" onclick="gArraySlide('g0r2d0')"></div></td>
                         <td id="g0r2d1"></td>
-                        <td id ="r2d2" class="w3-cell"><div id="g0r2d2" class="w3-yellow" style="border: 2px solid black; text-align: center; height: 50px" onclick="gArraySlide('g0r2d2')"></div></td>
+                        <td id ="r2d2" class="w3-cell"><div id="g0r2d2" class="w3-yellow" style="border: 2px solid black; text-align: center; min-height: 50px" onclick="gArraySlide('g0r2d2')"></div></td>
                         <td id="g0r2d3"></td>
                         <td id="g0r2d4"></td>
                     </tr>
