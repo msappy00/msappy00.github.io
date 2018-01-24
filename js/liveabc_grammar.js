@@ -195,7 +195,7 @@ function setGrammar(userInput){
                 document.getElementById("g0r2d0").textContent = answerArray[0] + pronounArray[2].value + " " + pronounArray[2].verb + ".";
                 document.getElementById("g0r2d2").textContent = answerArray[0] + pronounArray[3].value + " " + pronounArray[3].verb + ".";
             } else {
-                document.getElementById("grammarCheck").value = answerArray[0] + pronounArray[randomG].value + pronounArray[randomG].verb + " not.";
+                document.getElementById("grammarCheck").value = answerArray[0] + pronounArray[randomG].value + " " + pronounArray[randomG].verb + " not.";
                 document.getElementById("gPic").innerHTML = feelingArray[1].pic;
                 document.getElementById("g0r1d0").textContent = answerArray[0] + pronounArray[0].value + " " + pronounArray[0].verb + " not.";
                 document.getElementById("g0r1d2").textContent = answerArray[0] + pronounArray[1].value + " " + pronounArray[1].verb + " not.";
