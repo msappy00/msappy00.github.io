@@ -208,26 +208,38 @@ function setGrammar(userInput){
         } else if (userInput == "Unit 5") {
             vocArray = [({voc:'pencil', article:'a', pic:'<img src = "Level 1/images/pencil.png" />'}), ({voc:'eraser', article:'an', pic:'<img src = "Level 1/images/eraser.png" />'}), ({voc:'ruler', article:'a', pic:'<img src = "Level 1/images/ruler.png" />'}), ({voc:'pen', article:'a', pic:'<img src = "Level 1/images/pen.png" />'}), ({voc:'desk', article:'a', pic:'<img src = "Level 1/images/desk.png" />'}), ({voc:'chair', article:'a', pic:'<img src = "Level 1/images/chair.png" />'}), ({voc:'school bag', article:'a', pic:'<img src = "Level 1/images/school bag.png" />'}), ({voc:'book', article:'a', pic:'<img src = "Level 1/images/book.png" />'}), ({voc:'pencil case', article:'a', pic:'<img src = "Level 1/images/pencil case.png" />'})];
             shuffleArray(vocArray);
-            choiceArrayInt = 0;
-            while(choiceArrayInt == 0) {choiceArrayInt = Math.floor(Math.random() * 3)};
-            if (choiceArrayInt == 1){
-                document.getElementById("g0r0d0").innerHTML = "What is it?";
-                sampleAnswer = "It is " + vocArray[0].article + " " + vocArray[0].voc + ".";
+            if (randomG >= 2){
+                sentence = "What is it?";
+                document.getElementById("grammarCheck").value = "It is " + vocArray[randomG].article + " " + vocArray[randomG].voc + ".";
+                document.getElementById("gPic").innerHTML = vocArray[randomG].pic;
+                document.getElementById("g0r1d0").textContent = "It is " + vocArray[0].article + " " + vocArray[0].voc + ".";
+                document.getElementById("g0r1d2").textContent = "It is " + vocArray[1].article + " " + vocArray[1].voc + ".";
+                document.getElementById("g0r2d0").textContent = "It is " + vocArray[2].article + " " + vocArray[2].voc + ".";
+                document.getElementById("g0r2d2").textContent = "It is " + vocArray[3].article + " " + vocArray[3].voc + ".";
             } else {
-                q2Array = [vocArray[0], vocArray[1]];
-                shuffleArray(q2Array);
-                document.getElementById("g0r0d0").innerHTML = "Is it " + q2Array[0].article + " " + q2Array[0].voc + "?";
-                if (q2Array[0].voc == vocArray[0].voc) {
-                    sampleAnswer = "Yes, it is.";
+                answerArray = ["Yes, ", "No, "];
+                shuffleArray(answerArray);
+                if (answerArray[0] == "Yes, ") {
+                    sentence = "Is it " + vocArray[randomG].article + " " + vocArray[randomG].voc + "?";
+                    document.getElementById("grammarCheck").value = answerArray[0] + "it is " + vocArray[randomG].article + " " + vocArray[randomG].voc + ".";
+                    document.getElementById("gPic").innerHTML = vocArray[randomG].pic;
+                    document.getElementById("g0r1d0").textContent = answerArray[0] + "it is " + vocArray[0].article + " " + vocArray[0].voc + ".";
+                    document.getElementById("g0r1d2").textContent = answerArray[0] + "it is " + vocArray[1].article + " " + vocArray[1].voc + ".";
+                    document.getElementById("g0r2d0").textContent = answerArray[0] + "it is " + vocArray[2].article + " " + vocArray[2].voc + ".";
+                    document.getElementById("g0r2d2").textContent = answerArray[0] + "it is " + vocArray[3].article + " " + vocArray[3].voc + ".";
                 } else {
-                    sampleAnswer = "No, it is not.";
+                    sentence = "Is it " + vocArray[0].article + " " + vocArray[0].voc + "?";
+                    document.getElementById("grammarCheck").value = answerArray[0] + "it is not " + vocArray[0].article + " " + vocArray[0].voc + ".";
+                    document.getElementById("gPic").innerHTML = vocArray[1].pic;
+                    q2Array = [vocArray[0], vocArray[1], vocArray[2], vocArray[3]];
+                    shuffleArray(q2Array);
+                    document.getElementById("g0r1d0").textContent = answerArray[0] + "it is not " + q2Array[0].article + " " + q2Array[0].voc + ".";
+                    document.getElementById("g0r1d2").textContent = answerArray[0] + "it is not " + q2Array[1].article + " " + q2Array[1].voc + ".";
+                    document.getElementById("g0r2d0").textContent = answerArray[0] + "it is not " + q2Array[2].article + " " + q2Array[2].voc + ".";
+                    document.getElementById("g0r2d2").textContent = answerArray[0] + "it is not " + q2Array[3].article + " " + q2Array[3].voc + ".";
                 }
             }
-            document.getElementById("g0r0d5").innerHTML = vocArray[0].pic;
-            document.getElementById("g0r2d0").colspan = "3";
-            document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
-            document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
+            setTimeout(function(){speak(sentence)}, 2000);
             gLinks = ['<a href="http://scratch.mit.edu/projects/14219598/" target="_newtab">Scratch: B1U5 Grammar</a>'];
             grammarLesson = "";
         } else if (userInput == "Unit 6") {
