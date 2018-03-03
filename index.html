@@ -194,10 +194,9 @@
             classList = [Alex0610, Herry0103, blank, blank, blank, blank];
         } else if (classN == "Delta Class") {
             var eddie1122 = {displayName: 'Eddie'};
-            var sam0220 = {displayName: 'Sam'};
             var Ian1212 = {displayName: 'Ian'};
             var johnson0108 = {displayName: 'Johnson'};
-            classList = [eddie1122, sam0220, Ian1212, johnson0108, blank, blank];
+            classList = [eddie1122, Ian1212, johnson0108, blank, blank, blank];
         } else if (classN == "Gold Class") {
             var binjin0929 = {displayName: 'Binjin'};
             var chris1012 = {displayName: 'Chris'};
@@ -831,7 +830,6 @@
     <div class="w3-container w3-cell">
         <div id="home" class="w3-container w3-col l10 tab-content" style="display:block; padding-top:50px; text-align:right">
             <img id="logo" src="images/mega_blocks.png" alt="mega" class="w3-image">
-                <footer id="foot01"></footer>
         </div><!-- /#home_tab -->
     
         <div id="vocab_tab" class="w3-container tab-content" style="display:none">
@@ -946,5 +944,11 @@
         document.getElementById("day").innerHTML = day;
         -->
     </script>
+    <footer id='foot01'>
+        <script>
+            document.getElementById("foot01").innerHTML = "<p>&copy; " + new Date().getFullYear() + " Teacher Matthew</p>";
+            </script>
+        <a href="privacy.html">Privacy Policy</a>
+    </footer>
 </body>
 </html>
