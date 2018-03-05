@@ -160,7 +160,7 @@ function setGrammar(userInput){
             pronounArray = ([{value: "I", verb: "am", qp: "you", qv: "are"}, {value: "you", verb: "are", qp: "I", qv: "am"}, {value: "they", verb: "are", qp: "they", qv: "are"}, {value: "he", verb: "is", qp: "he", qv: "is"}, {value: "she", verb: "is", qp: "she", qv: "is"}]);
             shuffleArray(pronounArray);
             pronounArray.pop();
-            var sentence = "How old " + pronounArray[randomG].qv +  + " " + pronounArray[randomG].qp + "?";
+            var sentence = "How old " + pronounArray[randomG].qv + " " + pronounArray[randomG].qp + "?";
             q2Array[0] = pronounArray[0].value.charAt(0).toUpperCase() + pronounArray[0].value.slice(1) + " " + pronounArray[0].verb + " " + q1Array[0].spelling + age;
             q2Array[1] = pronounArray[1].value.charAt(0).toUpperCase() + pronounArray[1].value.slice(1) + " " + pronounArray[1].verb + " " + q1Array[0].spelling + age;
             q2Array[2] = pronounArray[2].value.charAt(0).toUpperCase() + pronounArray[2].value.slice(1) + " " + pronounArray[2].verb + " " + q1Array[0].spelling + age;
