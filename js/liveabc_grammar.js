@@ -243,26 +243,52 @@ function setGrammar(userInput){
             gLinks = ['<a href="http://scratch.mit.edu/projects/14219598/" target="_newtab">Scratch: B1U5 Grammar</a>'];
             grammarLesson = "";
         } else if (userInput == "Unit 6") {
-            colorArray = ["red", "yellow", "green", "blue", "pink", "black", "white", "brown", "orange", "purple"];
+            colorArray = [({voc:'red', pic:'<img src = "Level 1/images/red.png" />'}), ({voc:'yellow', pic:'<img src = "Level 1/images/yellow.png" />'}), ({voc:'green', pic:'<img src = "Level 1/images/green.png" />'}), ({voc:'blue', pic:'<img src = "Level 1/images/blue.png" />'}), ({voc:'pink', pic:'<img src = "Level 1/images/pink.png" />'}), ({voc:'black', pic:'<img src = "Level 1/images/black.png" />'}), ({voc:'white', pic:'<img src = "Level 1/images/white.png" />'}), ({voc:'brown', pic:'<img src = "Level 1/images/brown.png" />'}), ({voc:'orange', pic:'<img src = "Level 1/images/orange.png" />'}), ({voc:'purple', pic:'<img src = "Level 1/images/purple.png" />'})];
             shuffleArray(colorArray);
             vocArray = ["pencil", "eraser", "ruler", "pen", "desk", "chair", "school bag", "book", "pencil case"];
             shuffleArray(vocArray);
-            choiceArrayInt = 0;
-            while(choiceArrayInt == 0) {choiceArrayInt = Math.floor(Math.random() * 3)};
-            if (choiceArrayInt == 1){
-                document.getElementById("g0r0d0").innerHTML = "What color is it?";
-                sampleAnswer = "It is " + colorArray[0] + ".";
+            if (randomG > 3){
+                sentence = "What color is it?";
+                document.getElementById("grammarCheck").value = "It is " + colorArray[randomG].voc + ".";
+                document.getElementById("gPic").innerHTML = colorArray[randomG].pic;
+                document.getElementById("g0r1d0").textContent = "It is " + colorArray[0].voc + ".";
+                document.getElementById("g0r1d2").textContent = "It is " + colorArray[1].voc + ".";
+                document.getElementById("g0r2d0").textContent = "It is " + colorArray[2].voc + ".";
+                document.getElementById("g0r2d2").textContent = "It is " + colorArray[3].voc + ".";
+            } else if (randomG < 2){
+                answerArray = ["Yes, ", "No, "];
+                shuffleArray(answerArray);
+                if (answerArray[0] == "Yes, ") {
+                    sentence = "Is your " + vocArray[randomG] + " " + colorArray[randomG].voc + "?";
+                    document.getElementById("grammarCheck").value = answerArray[0] + "it is. It is " + colorArray[randomG].voc + ".";
+                    document.getElementById("gPic").innerHTML = colorArray[randomG].pic;
+                    document.getElementById("g0r1d0").textContent = answerArray[0] + "it is. It is " + colorArray[0].voc + ".";
+                    document.getElementById("g0r1d2").textContent = answerArray[0] + "it is. It is " + colorArray[1].voc + ".";
+                    document.getElementById("g0r2d0").textContent = answerArray[0] + "it is. It is " + colorArray[2].voc + ".";
+                    document.getElementById("g0r2d2").textContent = answerArray[0] + "it is. It is " + colorArray[3].voc + ".";
+                } else {
+                    sentence = "Is your " + vocArray[randomG] + " " + colorArray[0].voc + "?";
+                    document.getElementById("grammarCheck").value = answerArray[0] + "it is not. It is " + colorArray[1].voc + ".";
+                    document.getElementById("gPic").innerHTML = colorArray[1].pic;
+                    q2Array = [vocArray[0], vocArray[1], vocArray[2], vocArray[3]];
+                    colorArray2 = [colorArray[0], colorArray[1], colorArray[2], colorArray[3]];
+                    shuffleArray(colorArray2);
+                    shuffleArray(q2Array);
+                    document.getElementById("g0r1d0").textContent = answerArray[0] + "it is not. It is " + colorArray2[0].voc + ".";
+                    document.getElementById("g0r1d2").textContent = answerArray[0] + "it is not. It is " + colorArray2[1].voc + ".";
+                    document.getElementById("g0r2d0").textContent = answerArray[0] + "it is not. It is " + colorArray2[2].voc + ".";
+                    document.getElementById("g0r2d2").textContent = answerArray[0] + "it is not. It is " + colorArray2[3].voc + ".";
+                }
             } else {
-                q2Array = [vocArray[0], vocArray[1]];
-                shuffleArray(q2Array);
-                document.getElementById("g0r0d0").innerHTML = "What color is your " + vocArray[0] + "?";
-                sampleAnswer = "My " + vocArray[0] + " is " + colorArray[0] + ".";
+                sentence = "What color is your " + vocArray[randomG] + "?";
+                document.getElementById("grammarCheck").value = "My " + vocArray[randomG] + " is " + colorArray[randomG].voc + ".";
+                document.getElementById("gPic").innerHTML = colorArray[randomG].pic;
+                document.getElementById("g0r1d0").textContent = "My " + vocArray[randomG] + " is " + colorArray[0].voc + ".";
+                document.getElementById("g0r1d2").textContent = "My " + vocArray[randomG] + " is " + colorArray[1].voc + ".";
+                document.getElementById("g0r2d0").textContent = "My " + vocArray[randomG] + " is " + colorArray[2].voc + ".";
+                document.getElementById("g0r2d2").textContent = "My " + vocArray[randomG] + " is " + colorArray[3].voc + ".";
             }
-            document.getElementById("g0r0d5").innerHTML = '<div style="border-style: solid; border-width:2px; width:300px; height:200px; background-color: ' + colorArray[0] + '"></div>';
-            document.getElementById("g0r2d0").colspan = "3";
-            document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
-            document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
+            setTimeout(function(){speak(sentence)}, 2000);
             gLinks = ['<a href="http://scratch.mit.edu/projects/14493429/" target="_newtab">Scratch: Guess Book Color</a>'];
             grammarLesson = "";
         } else if (userInput == "Review 2") {
