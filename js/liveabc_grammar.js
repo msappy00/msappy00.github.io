@@ -301,10 +301,16 @@ function setGrammar(userInput){
             shuffleArray(vocArray);
             q1Array = ["This is ", "That is ", "This is not ", "That is not "];
             shuffleArray(q1Array);
-            q2Array = ["my ", "your ", "his ", "her ", "Lumi's ", "Ludi's ", "a "];
+            q2Array = ["my ", "your ", "his ", "her ", "a "];
             shuffleArray(q2Array);
-            document.getElementById("g0r0d0").innerHTML = q1Array[0] + q2Array[0] + vocArray[0].voc + ".";
-            document.getElementById("g0r0d5").innerHTML = vocArray[0].pic;
+            sentence = q1Array[randomG] + q2Array[randomG] + vocArray[randomG].voc + ".";
+            document.getElementById("grammarCheck").value = sentence;
+            document.getElementById("gPic").innerHTML = vocArray[randomG].pic;
+            document.getElementById("g0r1d0").textContent = q1Array[0] + q2Array[0] + vocArray[randomG].voc + ".";
+            document.getElementById("g0r1d2").textContent = q1Array[1] + q2Array[1] + vocArray[randomG].voc + ".";
+            document.getElementById("g0r2d0").textContent = q1Array[2] + q2Array[2] + vocArray[randomG].voc + ".";
+            document.getElementById("g0r2d2").textContent = q1Array[3] + q2Array[3] + vocArray[randomG].voc + ".";
+            setTimeout(function(){speak(sentence)}, 2000);
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 8") {
