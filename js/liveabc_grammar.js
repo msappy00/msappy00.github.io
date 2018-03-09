@@ -359,31 +359,31 @@ function setGrammar(userInput){
             gLinks = ['<a href="http://scratch.mit.edu/projects/15196988/" target="_newtab">Scratch: Animal Sounds</a>'];
             grammarLesson = "";
         } else if (userInput == "Unit 9") {
-            document.getElementById("gInstructions").innerHTML = "Answer using the sentence pattern: Yes, we / they are. No, we / they are not.";
-            choiceArrayInt = 0;
-            pronounArray = [" you ", " we ", " they "];
-            var pronoun;
-            q1Array = [({value:'hungry', pic:'<img src="Level 1/images/hungry.png" />'}), ({value:'thirsty', pic:'<img src="Level 1/images/thirsty.png" />'}), ({value:'angry', pic:'<img src="Level 1/images/angry.png" />'}), ({value:'lazy', pic:'<img src="Level 1/images/lazy.png" />'}), ({value:'noisy', pic:'<img src="Level 1/images/noisy.png" />'}), ({value:'quiet', pic:'<img src="Level 1/images/quiet.png" />'}), ({value:'sleepy', pic:'<img src="Level 1/images/sleepy.png" />'}), ({value:'tired', pic:'<img src="Level 1/images/tired.png" />'})];
-            shuffleArray(q1Array);
-            while(choiceArrayInt == 0) {choiceArrayInt = Math.floor(Math.random() * 7)};
-            choiceArray = [q1Array[0].value, q1Array[choiceArrayInt].value];
-            shuffleArray(choiceArray);
-            document.getElementById("g0r0d5").innerHTML = q1Array[0].pic;
+            vocArray = [({voc:'hungry', pic:'<img src="Level 1/images/hungry.png" />'}), ({voc:'thirsty', pic:'<img src="Level 1/images/thirsty.png" />'}), ({voc:'angry', pic:'<img src="Level 1/images/angry.png" />'}), ({voc:'lazy', pic:'<img src="Level 1/images/lazy.png" />'}), ({voc:'noisy', pic:'<img src="Level 1/images/noisy.png" />'}), ({voc:'quiet', pic:'<img src="Level 1/images/quiet.png" />'}), ({voc:'sleepy', pic:'<img src="Level 1/images/sleepy.png" />'}), ({voc:'tired', pic:'<img src="Level 1/images/tired.png" />'})];
+            shuffleArray(vocArray);
+            pronounArray = ([{qp: "you", ap: "we"}, {qp: "we", ap: "you"}, {qp: "they", ap: "they"}]);
             shuffleArray(pronounArray);
-            document.getElementById("g0r1d0").align = "center";
-            document.getElementById("g0r1d0").innerHTML =  '<h2>Are'+pronounArray[0]+choiceArray[0]+'?</h2>';
-            document.getElementById("g0r2d0").align = "center";
-            document.getElementById("g0r2d0").innerHTML = '<input type="text" id="grammarInput" class="form-control" autocomplete="off" autofocus placeholder="____________." /><button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
-            if (pronounArray[0] == " you ") {
-                pronoun = " we ";
+            document.getElementById("gPic").innerHTML = vocArray[randomG].pic;
+            choiceArrayInt = 0;
+            while(choiceArrayInt == 0) {choiceArrayInt = Math.floor(Math.random() * 3)};
+            answerArray = ["Yes, ", "No, "];
+            shuffleArray(answerArray);
+            if (answerArray[0] == "Yes, ") {
+                sentence = "Are " + pronounArray[choiceArrayInt].qp + " " + vocArray[randomG].voc + "?";
+                document.getElementById("grammarCheck").value = answerArray[0] + pronounArray[choiceArrayInt].ap + " are.";
+                document.getElementById("g0r1d0").textContent = answerArray[0] + pronounArray[0].ap + " are.";
+                document.getElementById("g0r1d2").textContent = answerArray[0] + pronounArray[1].ap + " are.";
+                document.getElementById("g0r2d0").textContent = answerArray[0] + pronounArray[2].ap + " are.";
+                document.getElementById("g0r2d2").textContent = "              ";
             } else {
-                pronoun = pronounArray[0];
+                sentence = "Are " + pronounArray[choiceArrayInt].qp + " " + vocArray[4].voc + "?";
+                document.getElementById("grammarCheck").value = answerArray[0] + pronounArray[choiceArrayInt].ap + " are not.";
+                document.getElementById("g0r1d0").textContent = answerArray[0] + pronounArray[0].ap + " are not.";
+                document.getElementById("g0r1d2").textContent = answerArray[0] + pronounArray[1].ap + " are not.";
+                document.getElementById("g0r2d0").textContent = answerArray[0] + pronounArray[2].ap + " are not.";
+                document.getElementById("g0r2d2").textContent = "                 ";
             }
-            if (q1Array[0].value == choiceArray[0]) {
-                sampleAnswer = 'Yes,'+pronoun+'are'+'.';
-            } else {
-                sampleAnswer = 'No,'+pronoun+'are not'+'.';
-            }
+            setTimeout(function(){speak(sentence)}, 2000);
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Review 3") {
