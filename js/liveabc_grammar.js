@@ -410,14 +410,31 @@ function setGrammar(userInput){
     }
     else if (level_id == "Level 2") {
         if (userInput == "Unit 1") {
-            q1Array = [({value:'blackboard', pic:'<img src="Level 2/images/no_blackboard.png" />'}), ({value:'DVD player', pic:'<img src="Level 2/images/no_dvd player.png" />'}), ({value:'door', pic:'<img src="Level 2/images/no_door.png" />'}), ({value:'fan', pic:'<img src="Level 2/images/no_fan.png" />'}), ({value:'television', pic:'<img src="Level 2/images/no_television.png" />'}), ({value:'table', pic:'<img src="Level 2/images/no_table.png" />'}), ({value:'trash can', pic:'<img src="Level 2/images/no_trash can.png" />'}), ({value:'window', pic:'<img src="Level 2/images/no_window.png" />'}), ({value:'telephone', pic:'<img src="Level 2/images/no_telephone.png" />'})];
-            shuffleArray(q1Array);
-            document.getElementById("g0r0d0").innerHTML = q1Array[0].pic;
-            document.getElementById("g0r0d1").innerHTML = '<div style = "font-size:30px">&nbsp;&nbsp;&nbsp;'+q1Array[1].value+'<br>&nbsp;&nbsp;&nbsp;'+q1Array[0].value+'</div>';
-            sampleAnswer1 = 'There is a '+q1Array[1].value+'.';
-            document.getElementById("g0r1d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" autofocus placeholder="There is a ___." />&nbsp;&nbsp;&nbsp;<button class="w3-button w3-blue w3-round" onclick="showGrammar1()">Example</button>';
-            sampleAnswer2 = 'There is not a '+q1Array[0].value+'.';
-            document.getElementById("g0r4d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" placeholder="There is not a ___." />&nbsp;&nbsp;&nbsp;<button class="w3-button w3-blue w3-round" onclick="showGrammar2()">Example</button>';
+            vocArray = [({voc:'blackboard', pic:'<img src="Level 2/images/no_blackboard.png" style="width:100%" />'}), ({voc:'DVD player', pic:'<img src="Level 2/images/no_dvd player.png" style="width:100%" />'}), ({voc:'door', pic:'<img src="Level 2/images/no_door.png" style="width:100%" />'}), ({voc:'fan', pic:'<img src="Level 2/images/no_fan.png" style="width:100%" />'}), ({voc:'television', pic:'<img src="Level 2/images/no_television.png" style="width:100%" />'}), ({voc:'table', pic:'<img src="Level 2/images/no_table.png" style="width:100%" />'}), ({voc:'trash can', pic:'<img src="Level 2/images/no_trash can.png" style="width:100%" />'}), ({voc:'window', pic:'<img src="Level 2/images/no_window.png" style="width:100%" />'}), ({voc:'telephone', pic:'<img src="Level 2/images/no_telephone.png" style="width:100%" />'})];
+            shuffleArray(vocArray);
+            document.getElementById("gPic").innerHTML = vocArray[0].pic;
+            sentenceArray = [];
+            if (randomG < 2) {
+                sentence = "There is a " + vocArray[1].voc + ".";
+                document.getElementById("grammarCheck").value = "There is a " + vocArray[1].voc + ".";
+                sentenceArray[0] = "There is a " + vocArray[0].voc + ".";
+                sentenceArray[1] = "There is a " + vocArray[1].voc + ".";
+                sentenceArray[2] = "There is not a " + vocArray[2].voc + ".";
+                sentenceArray[3] = "There is not a " + vocArray[3].voc + ".";
+            } else {
+                sentence = "There is not a " + vocArray[0].voc + ".";
+                document.getElementById("grammarCheck").value = "There is not a " + vocArray[0].voc + ".";
+                sentenceArray[0] = "There is not a " + vocArray[0].voc + ".";
+                sentenceArray[1] = "There is a " + vocArray[0].voc + ".";
+                sentenceArray[2] = "There is not a " + vocArray[1].voc + ".";
+                sentenceArray[3] = "There is not a " + vocArray[2].voc + ".";
+            }
+            shuffleArray(sentenceArray);
+            document.getElementById("g0r1d0").textContent = sentenceArray[0];
+            document.getElementById("g0r1d2").textContent = sentenceArray[1];
+            document.getElementById("g0r2d0").textContent = sentenceArray[2];
+            document.getElementById("g0r2d2").textContent = sentenceArray[3];
+            setTimeout(function(){speak(sentence)}, 2000);
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 2") {
