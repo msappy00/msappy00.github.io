@@ -410,24 +410,24 @@ function setGrammar(userInput){
     }
     else if (level_id == "Level 2") {
         if (userInput == "Unit 1") {
-            vocArray = [({voc:'blackboard', pic:'<img src="Level 2/images/no_blackboard.png" style="width:100%" />'}), ({voc:'DVD player', pic:'<img src="Level 2/images/no_dvd player.png" style="width:100%" />'}), ({voc:'door', pic:'<img src="Level 2/images/no_door.png" style="width:100%" />'}), ({voc:'fan', pic:'<img src="Level 2/images/no_fan.png" style="width:100%" />'}), ({voc:'television', pic:'<img src="Level 2/images/no_television.png" style="width:100%" />'}), ({voc:'table', pic:'<img src="Level 2/images/no_table.png" style="width:100%" />'}), ({voc:'trash can', pic:'<img src="Level 2/images/no_trash can.png" style="width:100%" />'}), ({voc:'window', pic:'<img src="Level 2/images/no_window.png" style="width:100%" />'}), ({voc:'telephone', pic:'<img src="Level 2/images/no_telephone.png" style="width:100%" />'})];
+            vocArray = ["blackboard", "DVD player", "door", "fan", "television", "table", "trash can", "window", "telephone"];
             shuffleArray(vocArray);
-            document.getElementById("gPic").innerHTML = vocArray[0].pic;
+            document.getElementById("gPic").innerHTML = '<img src="Level 2/images/no_' + vocArray[0] + '.png" style="width:100%" />';
             sentenceArray = [];
             if (randomG < 2) {
-                sentence = "There is a " + vocArray[1].voc + ".";
-                document.getElementById("grammarCheck").value = "There is a " + vocArray[1].voc + ".";
-                sentenceArray[0] = "There is a " + vocArray[0].voc + ".";
-                sentenceArray[1] = "There is a " + vocArray[1].voc + ".";
-                sentenceArray[2] = "There is not a " + vocArray[2].voc + ".";
-                sentenceArray[3] = "There is not a " + vocArray[3].voc + ".";
+                sentence = "There is a " + vocArray[1] + ".";
+                document.getElementById("grammarCheck").value = "There is a " + vocArray[1] + ".";
+                sentenceArray[0] = "There is a " + vocArray[0] + ".";
+                sentenceArray[1] = "There is a " + vocArray[1] + ".";
+                sentenceArray[2] = "There is not a " + vocArray[2] + ".";
+                sentenceArray[3] = "There is not a " + vocArray[3] + ".";
             } else {
-                sentence = "There is not a " + vocArray[0].voc + ".";
-                document.getElementById("grammarCheck").value = "There is not a " + vocArray[0].voc + ".";
-                sentenceArray[0] = "There is not a " + vocArray[0].voc + ".";
-                sentenceArray[1] = "There is a " + vocArray[0].voc + ".";
-                sentenceArray[2] = "There is not a " + vocArray[1].voc + ".";
-                sentenceArray[3] = "There is not a " + vocArray[2].voc + ".";
+                sentence = "There is not a " + vocArray[0] + ".";
+                document.getElementById("grammarCheck").value = "There is not a " + vocArray[0] + ".";
+                sentenceArray[0] = "There is not a " + vocArray[0] + ".";
+                sentenceArray[1] = "There is a " + vocArray[0] + ".";
+                sentenceArray[2] = "There is not a " + vocArray[1] + ".";
+                sentenceArray[3] = "There is not a " + vocArray[2] + ".";
             }
             shuffleArray(sentenceArray);
             document.getElementById("g0r1d0").textContent = sentenceArray[0];
