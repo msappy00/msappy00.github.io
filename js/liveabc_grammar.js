@@ -1035,27 +1035,18 @@ function setGrammar(userInput){
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 5") {
-            q1Array = [({verb:'eating', pic:'<img src="Level 4/images/eat.png" />'}), ({verb:'drinking', pic:'<img src="Level 4/images/drink.png" />'}), ({verb:'cooking', pic:'<img src="Level 4/images/cook.png" />'}), ({verb:'laughing', pic:'<img src="Level 4/images/laugh.png" />'}), ({verb:'drawing', pic:'<img src="Level 4/images/draw.png" />'}), ({verb:'sweeping', pic:'<img src="Level 4/images/sweep.png" />'}), ({verb:'studying', pic:'<img src="Level 4/images/study.png" />'}), ({verb:'driving', pic:'<img src="Level 4/images/drive.png" />'}), ({verb:'writing', pic:'<img src="Level 4/images/write.png" />'}), ({verb:'sleeping', pic:'<img src="Level 4/images/sleep.png" />'}), ({verb:'playing', pic:'<img src="Level 4/images/play.png" />'})];
-            pronounArray = ["you", "they", "he", "she"];
-            shuffleArray(q1Array);
+            vocArray = [({verb:'eating', pic:'<img src="Level 4/images/eat.png" />'}), ({verb:'drinking', pic:'<img src="Level 4/images/drink.png" />'}), ({verb:'cooking', pic:'<img src="Level 4/images/cook.png" />'}), ({verb:'laughing', pic:'<img src="Level 4/images/laugh.png" />'}), ({verb:'drawing', pic:'<img src="Level 4/images/draw.png" />'}), ({verb:'sweeping', pic:'<img src="Level 4/images/sweep.png" />'}), ({verb:'studying', pic:'<img src="Level 4/images/study.png" />'}), ({verb:'driving', pic:'<img src="Level 4/images/drive.png" />'}), ({verb:'writing', pic:'<img src="Level 4/images/write.png" />'}), ({verb:'sleeping', pic:'<img src="Level 4/images/sleep.png" />'}), ({verb:'playing', pic:'<img src="Level 4/images/play.png" />'})];
+            shuffleArray(vocArray);
+            document.getElementById("gPic").innerHTML = vocArray[0].pic;
+            pronounArray = ([{value: "you", verb: "are", qp: "I", qv: "am"}, {value: "they", verb: "are", qp: "they", qv: "are"}, {value: "he", verb: "is", qp: "he", qv: "is"}, {value: "she", verb: "is", qp: "she", qv: "is"}]);
             shuffleArray(pronounArray);
-            if (pronounArray[0] == "you" || pronounArray[0] == "they") {
-                document.getElementById("g0r0d0").innerHTML = "What are " + pronounArray[0] + " doing?";
-                if (pronounArray[0] == "you") {
-                    sampleAnswer = "I am " + q1Array[0].verb + ".";
-                } else {
-                    sampleAnswer = "They are " + q1Array[0].verb + ".";
-                }
-            } else {
-                document.getElementById("g0r0d0").innerHTML = "What is " + pronounArray[0] + " doing?";
-                var capitalized = pronounArray[0].charAt(0).toUpperCase() + pronounArray[0].slice(1);
-                sampleAnswer = capitalized + " is " + q1Array[0].verb + ".";
-            }
-            document.getElementById("g0r0d5").innerHTML = q1Array[0].pic;
-            document.getElementById("g0r2d0").colspan = "3";
-            document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
-            document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
+            sentence = "What " + pronounArray[randomG].verb + " " + pronounArray[randomG].value + " doing?";
+            document.getElementById("grammarCheck").value = pronounArray[randomG].qp.charAt(0).toUpperCase() + pronounArray[randomG].qp.slice(1) + " " + pronounArray[randomG].qv + " " + vocArray[0].verb + ".";
+            document.getElementById("g0r1d0").textContent = pronounArray[0].qp.charAt(0).toUpperCase() + pronounArray[0].qp.slice(1) + " " + pronounArray[0].qv + " " + vocArray[0].verb + ".";
+            document.getElementById("g0r1d2").textContent = pronounArray[1].qp.charAt(0).toUpperCase() + pronounArray[1].qp.slice(1) + " " + pronounArray[1].qv + " " + vocArray[0].verb + ".";
+            document.getElementById("g0r2d0").textContent = pronounArray[2].qp.charAt(0).toUpperCase() + pronounArray[2].qp.slice(1) + " " + pronounArray[2].qv + " " + vocArray[0].verb + ".";
+            document.getElementById("g0r2d2").textContent = pronounArray[3].qp.charAt(0).toUpperCase() + pronounArray[3].qp.slice(1) + " " + pronounArray[3].qv + " " + vocArray[0].verb + ".";
+            setTimeout(function(){speak(sentence)}, 2000);
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 6") {
