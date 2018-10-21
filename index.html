@@ -191,38 +191,7 @@
         sessionStorage.setItem("className", classN);
         document.getElementById("className").textContent = classN;
         className = classN;
-        if (classN == "Carnation Class") {
-            var Alex0610 = {displayName: 'Alex'};
-            var Herry0103 = {displayName: 'Herry'};
-            classList = [Alex0610, Herry0103, blank, blank, blank, blank];
-        } else if (classN == "Delta Class") {
-            var eddie1122 = {displayName: 'Eddie'};
-            var Ian1212 = {displayName: 'Ian'};
-            var johnson0108 = {displayName: 'Johnson'};
-            classList = [eddie1122, Ian1212, johnson0108, blank, blank, blank];
-        } else if (classN == "Gold Class") {
-            var binjin0929 = {displayName: 'Binjin'};
-            var chris1012 = {displayName: 'Chris'};
-            var jenny0726 = {displayName: 'Jenny'};
-            var ryan0319 = {displayName: 'Ryan'};
-            classList = [binjin0929, chris1012, jenny0726, ryan0319, blank, blank];
-        } else if (classN == "Scorpion Class"){
-            var Carrie1103 = {displayName: 'Carrie'};
-            var Edgar0830 = {displayName: 'Edgar'};
-            var icco0830 = {displayName: 'Icco'};
-            var Jerry0623 = {displayName: 'Jerry'};
-            var kristy0505 = {displayName: 'Kristy'};
-            var Sophie1101 = {displayName: 'Sophie'};
-            classList = [Carrie1103, Edgar0830, icco0830, Jerry0623, kristy0505, Sophie1101];
-        } else if (classN == "Sheep Class") {
-            var Eric1019 = {displayName: 'Eric'};
-            var fusion = {displayName: 'Fusion'};
-            var kiki0901 = {displayName: 'Kiki'};
-            var Justin1001 = {displayName: 'Justin'};
-            classList = [Eric1019, fusion, kiki0901, Justin1001, blank, blank];
-        } else {
-            classList = [blank, blank, blank, blank, blank, blank];
-        }
+        classList = [blank, blank, blank, blank, blank, blank];
         document.getElementById("Ss1").textContent = classList[0].displayName;
         document.getElementById("Ss2").textContent = classList[1].displayName;
         document.getElementById("Ss3").textContent = classList[2].displayName;
@@ -676,17 +645,6 @@
                     <a href="https://scratch.mit.edu/studios/954910/" target="_blank" class="w3-bar-item w3-button">Scratch Games</a>
                     <a href="http://www.merriam-webster.com/word-games" target="_blank" class="w3-bar-item w3-button">Merriam-Webster Word Games</a>
                     <!--<a href="spriteWalking.html" target="_blank" class="w3-bar-item w3-button">Sprite Animation</a>-->
-                </div>
-            </div>
-            <div class="w3-dropdown-hover">
-                <button class="w3-button w3-hide-small w3-hide-medium">Class</button>
-                <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <button class="w3-bar-item w3-button w3-mobile" onclick="setClass('Carnation Class')">Carnation Class</button>
-                    <button class="w3-bar-item w3-button w3-mobile" onclick="setClass('Delta Class')">Delta Class</button>
-                    <button class="w3-bar-item w3-button w3-mobile" onclick="setClass('Gold Class')">Gold Class</button>
-                    <button class="w3-bar-item w3-button w3-mobile" onclick="setClass('Scorpion Class')">Scorpion Class</button>
-                    <button class="w3-bar-item w3-button w3-mobile" onclick="setClass('Sheep Class')">Sheep Class</button>
-                    <button class="w3-bar-item w3-button w3-mobile" onclick="clearClass()">Clear</button>
                 </div>
             </div>
             <div class="w3-dropdown-hover">
