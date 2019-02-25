@@ -303,13 +303,21 @@ function setGrammar(userInput){
             shuffleArray(q1Array);
             q2Array = ["my ", "your ", "his ", "her ", "a "];
             shuffleArray(q2Array);
-            sentence = q1Array[randomG] + q2Array[randomG] + vocArray[randomG].voc + ".";
+            if (q1Array[0] == "This is not " || q1Array[0] == "That is not "){
+                sentence = q1Array[0] + q2Array[0] + vocArray[1].voc + ".";
+                document.getElementById("g0r1d0").textContent = "This is not " + q2Array[0] + vocArray[1].voc + ".";
+                document.getElementById("g0r1d2").textContent = "That is not " + q2Array[0] + vocArray[1].voc + ".";
+                document.getElementById("g0r2d0").textContent = "This is " + q2Array[0] + vocArray[0].voc + ".";
+                document.getElementById("g0r2d2").textContent = "That is " + q2Array[0] + vocArray[0].voc + ".";
+            } else {
+                sentence = q1Array[0] + q2Array[0] + vocArray[0].voc + ".";
+                document.getElementById("g0r1d0").textContent = "This is not " + q2Array[0] + vocArray[1].voc + ".";
+                document.getElementById("g0r1d2").textContent = "That is not " + q2Array[0] + vocArray[1].voc + ".";
+                document.getElementById("g0r2d0").textContent = "This is " + q2Array[0] + vocArray[0].voc + ".";
+                document.getElementById("g0r2d2").textContent = "That is " + q2Array[0] + vocArray[0].voc + ".";
+            }
             document.getElementById("grammarCheck").value = sentence;
-            document.getElementById("gPic").innerHTML = vocArray[randomG].pic;
-            document.getElementById("g0r1d0").textContent = q1Array[0] + q2Array[0] + vocArray[randomG].voc + ".";
-            document.getElementById("g0r1d2").textContent = q1Array[1] + q2Array[1] + vocArray[randomG].voc + ".";
-            document.getElementById("g0r2d0").textContent = q1Array[2] + q2Array[2] + vocArray[randomG].voc + ".";
-            document.getElementById("g0r2d2").textContent = q1Array[3] + q2Array[3] + vocArray[randomG].voc + ".";
+            document.getElementById("gPic").innerHTML = vocArray[0].pic;
             setTimeout(function(){speak(sentence)}, 2000);
             gLinks = [''];
             grammarLesson = "";
@@ -442,30 +450,39 @@ function setGrammar(userInput){
             shuffleArray(numberArray);
             vocArray = [({voc:'pencil', article:'a', pic:'<img src = "Level 1/images/pencil.png" />'}), ({voc:'eraser', article:'an', pic:'<img src = "Level 1/images/eraser.png" />'}), ({voc:'ruler', article:'a', pic:'<img src = "Level 1/images/ruler.png" />'}), ({voc:'pen', article:'a', pic:'<img src = "Level 1/images/pen.png" />'}), ({voc:'desk', article:'a', pic:'<img src = "Level 1/images/desk.png" />'}), ({voc:'jacket', pic:'<img src = "Level 1/images/jacket.png" />'}), ({voc:'skirt', pic:'<img src = "Level 1/images/skirt.png" />'}), ({voc:'shirt', pic:'<img src = "Level 1/images/shirt.png" />'}), ({voc:'shirt', pic:'<img src = "Level 1/images/shirt.png" />'}), ({voc:'T-shirt', pic:'<img src = "Level 1/images/T-shirt.png" />'}), ({voc:'dog', pic:'<img src = "Level 1/images/dog.png" />'}), ({voc:'cat', pic:'<img src = "Level 1/images/cat.png" />'}), ({voc:'rat', pic:'<img src = "Level 1/images/rat.png" />'}), ({voc:'rabbit', pic:'<img src = "Level 1/images/rabbit.png" />'})];
             shuffleArray(vocArray);
-            q3Array = [numberArray[0], numberArray[1]];
-            shuffleArray(q3Array);
-            choiceArrayInt = 0;
-            while(choiceArrayInt == 0) {choiceArrayInt = Math.floor(Math.random() * 3)};
-            if (choiceArrayInt == 1){
-                document.getElementById("g0r0d0").innerHTML = "How many " + vocArray[0].voc + "s are there?";
-                document.getElementById("g0r0d5").innerHTML = numberArray[0].num;
-                sampleAnswer = "There are " + numberArray[0].text + " " + vocArray[0].voc + "s.";
+            document.getElementById("gPic").innerHTML = '<p style="font-size:100px">' + numberArray[0].num + '</p>';
+            sentenceArray = []
+            if (randomG < 2) {
+                sentence = "How many " + vocArray[0].voc + "s are there?";
+                document.getElementById("grammarCheck").value = "There are " + numberArray[0].text + " " + vocArray[0].voc + "s.";
+                sentenceArray[0] = "There are " + numberArray[0].text + " " + vocArray[0].voc + "s.";
+                sentenceArray[1] = "There are " + numberArray[1].text + " " + vocArray[0].voc + "s.";
+                sentenceArray[2] = "There are " + numberArray[2].text + " " + vocArray[0].voc + "s.";
+                sentenceArray[3] = "There are " + numberArray[3].text + " " + vocArray[0].voc + "s.";
             } else {
-                q2Array = [vocArray[0], vocArray[1]];
-                shuffleArray(q2Array);
-                document.getElementById("g0r0d0").innerHTML = "Are there " + q3Array[0].text + " " + vocArray[0].voc + "s?";
-                if (q3Array[0] == numberArray[0]) {
-                    document.getElementById("g0r0d5").innerHTML = '<h1 style="font-size:100px">&#x2705;</h1>';
-                    sampleAnswer = "Yes, there are.";
+                if (randomG < 2) {
+                    sentence = "Are there " + numberArray[0].text + " " + vocArray[0].voc + "s?";
+                    document.getElementById("grammarCheck").value = "Yes, there are " + numberArray[0].text + " " + vocArray[0].voc + "s.";
+                    sentenceArray[0] = "Yes, there are " + numberArray[0].text + " " + vocArray[0].voc + "s.";
+                    sentenceArray[1] = "Yes, there are " + numberArray[1].text + " " + vocArray[0].voc + "s.";
+                    sentenceArray[2] = "Yes, there are " + numberArray[2].text + " " + vocArray[0].voc + "s.";
+                    sentenceArray[3] = "No, there are not " + numberArray[0].text + " " + vocArray[0].voc + "s.";
                 } else {
-                    document.getElementById("g0r0d5").innerHTML = '<h1 style="font-size:100px">&#x274C;</h1>';
-                    sampleAnswer = "No, there are not.";
+                    sentence = "Are there " + numberArray[1].text + " " + vocArray[0].voc + "s?";
+                    document.getElementById("grammarCheck").value = "No, there are not " + numberArray[1].text + " " + vocArray[0].voc + "s.";
+                    sentenceArray[0] = "Yes, there are " + numberArray[0].text + " " + vocArray[0].voc + "s.";
+                    sentenceArray[1] = "Yes, there are " + numberArray[1].text + " " + vocArray[0].voc + "s.";
+                    sentenceArray[2] = "Yes, there are " + numberArray[2].text + " " + vocArray[0].voc + "s.";
+                    sentenceArray[3] = "No, there are not " + numberArray[1].text + " " + vocArray[0].voc + "s.";
                 }
             }
-            document.getElementById("g0r2d0").colspan = "3";
-            document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
-            document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
+            shuffleArray(sentenceArray);
+            document.getElementById("g0r1d0").textContent = sentenceArray[0];
+            document.getElementById("g0r1d2").textContent = sentenceArray[1];
+            document.getElementById("g0r2d0").textContent = sentenceArray[2];
+            document.getElementById("g0r2d2").textContent = sentenceArray[3];
+            setTimeout(function(){speak(sentence)}, 2000);
+            gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 3") {
             vocArray = [({sing:'yo-yo', plur:'yo-yos'}), ({sing:'robot', plur:'robots'}), ({sing:'doll', plur:'dolls'}), ({sing:'teddy bear', plur:'teddy bears'}), ({sing:'ball', plur:'balls'}), ({sing:'block', plur:'blocks'}), ({sing:'video game', plur:'video games'}), ({sing:'board game', plur:'board games'})];
