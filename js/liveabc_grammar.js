@@ -489,20 +489,28 @@ function setGrammar(userInput){
             shuffleArray(vocArray);
             numberArray = [({text: 'one', num:'1'}), ({text:'two', num:'2'}), ({text:'three', num:'3'}), ({text:'four', num:'4'}), ({text:'five', num:'5'}), ({text:'six', num:'6'}), ({text:'seven', num:'7'}), ({text:'eight', num:'8'}), ({text:'nine', num:'9'}), ({text:'ten', num:'10'}), ({text: 'eleven', num:'11'}), ({text:'twelve', num:'12'}), ({text:'thirteen', num:'13'}), ({text:'fourteen', num:'14'}), ({text:'fifteen', num:'15'}), ({text:'sixteen', num:'16'}), ({text:'seventeen', num:'17'}), ({text:'eighteen', num:'18'}), ({text:'nineteen', num:'19'}), ({text:'twenty', num:'20'})];
             shuffleArray(numberArray);
-            choiceArrayInt = Math.floor(Math.random() * 3);
-            q3Array = [numberArray[0], ({text: 'one', num:'1'})];
-            shuffleArray(q3Array);
-            document.getElementById("g0r0d0").innerHTML = "How many " + vocArray[0].plur + " are there?";
-            document.getElementById("g0r0d5").innerHTML = q3Array[0].num;
-            if (q3Array[0].num == '1') {
-                sampleAnswer = "There is one " + vocArray[0].sing + ".";
+            vocArray = [({voc:'yo-yo', pic:'<img src = "Level 1/images/yo-yo.png" />'}), ({voc:'robot', pic:'<img src = "Level 1/images/robot.png" />'}), ({voc:'doll', pic:'<img src = "Level 1/images/doll.png" />'}), ({voc:'teddy bear', pic:'<img src = "Level 1/images/teddy bear.png" />'}), ({voc:'ball', pic:'<img src = "Level 1/images/ball.png" />'}), ({voc:'block', pic:'<img src = "Level 1/images/blocks.png" />'}), ({voc:'video game', pic:'<img src = "Level 1/images/video games.png" />'}), ({voc:'board game', pic:'<img src = "Level 1/images/board game.png" />'})];
+            shuffleArray(vocArray);
+            document.getElementById("gPic").innerHTML = '<p style="font-size:100px">' + numberArray[0].num + '</p>';
+            sentenceArray = []
+            sentence = "How many " + vocArray[0].voc + "s are there?";
+            if (numberArray[0].text == "one") {
+                document.getElementById("grammarCheck").value = "There is one " + vocArray[0].voc + ".";
+                sentenceArray[0] = "There is one " +vocArray[0].voc + ".";
             } else {
-                sampleAnswer = "There are " + q3Array[0].text + " " + vocArray[0].plur + ".";
+                document.getElementById("grammarCheck").value = "There are " + numberArray[0].text + " " + vocArray[0].voc + "s.";
+                sentenceArray[0] = "There are " + numberArray[0].text + " " + vocArray[0].voc + "s.";
             }
-            document.getElementById("g0r2d0").colspan = "3";
-            document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
-            document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
+            sentenceArray[1] = "There are " + numberArray[1].text + " " + vocArray[0].voc + "s.";
+            sentenceArray[2] = "There are " + numberArray[2].text + " " + vocArray[0].voc + "s.";
+            sentenceArray[3] = "There are " + numberArray[3].text + " " + vocArray[0].voc + "s.";
+            shuffleArray(sentenceArray);
+            document.getElementById("g0r1d0").textContent = sentenceArray[0];
+            document.getElementById("g0r1d2").textContent = sentenceArray[1];
+            document.getElementById("g0r2d0").textContent = sentenceArray[2];
+            document.getElementById("g0r2d2").textContent = sentenceArray[3];
+            setTimeout(function(){speak(sentence)}, 2000);
+            gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Review 1") {
             q1Array = ["Unit 1", "Unit 2", "Unit 3"];
