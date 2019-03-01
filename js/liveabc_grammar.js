@@ -521,21 +521,46 @@ function setGrammar(userInput){
         } else if (userInput == "Unit 4") {
             vocArray = [({voc:'bananas', pic:'<img src="Level 2/images/bananas.png" />'}), ({voc:'lemons', pic:'<img src="Level 2/images/lemons.png" />'}), ({voc:'wax apples', pic:'<img src="Level 2/images/wax apples.png" />'}), ({voc:'pears', pic:'<img src="Level 2/images/pears.png" />'}), ({voc:'papayas', pic:'<img src="Level 2/images/papayas.png" />'}), ({voc:'watermelons', pic:'<img src="Level 2/images/watermelons.png" />'}), ({voc:'guavas', pic:'<img src="Level 2/images/guavas.png" />'}), ({voc:'grapes', pic:'<img src="Level 2/images/grapes.png" />'})];
             shuffleArray(vocArray);
-            document.getElementById("g0r0d5").innerHTML = vocArray[0].pic;
-            choiceArrayInt = Math.floor(Math.random() * 2);
-            if (choiceArrayInt == 1) {
-                document.getElementById("g0r0d0").innerHTML = "What are these?";
-                sampleAnswer1 = 'These are ' + vocArray[0].voc + '.';
-                document.getElementById("g0r1d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" autofocus placeholder="These are ___." />&nbsp;&nbsp;&nbsp;<button class="w3-button w3-blue w3-round" onclick="showGrammar1()">Example</button>';
-                sampleAnswer2 = 'These are not ' + vocArray[1].voc +'.';
-                document.getElementById("g0r4d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" placeholder="These are not ___." />&nbsp;&nbsp;&nbsp;<button class="w3-button w3-blue w3-round" onclick="showGrammar2()">Example</button>';
+            document.getElementById("gPic").innerHTML = vocArray[0].pic;
+            sentenceArray = [];
+            if (randomG < 2) {
+                sentence = "What are these?";
+                if (randomG < 2) {
+                    document.getElementById("grammarCheck").value = "These are " + vocArray[0].voc + ".";
+                    sentenceArray[0] = "These are " + vocArray[0].voc + ".";
+                    sentenceArray[1] = "These are " + vocArray[1].voc + ".";
+                    sentenceArray[2] = "These are " + vocArray[2].voc + ".";
+                    sentenceArray[3] = "These are " + vocArray[3].voc + ".";
+                } else {
+                    document.getElementById("grammarCheck").value = "These are not " + vocArray[1].voc + ".";
+                    sentenceArray[0] = "These are not " + vocArray[0].voc + ".";
+                    sentenceArray[1] = "These are not " + vocArray[1].voc + ".";
+                    sentenceArray[2] = "These are " + vocArray[2].voc + ".";
+                    sentenceArray[3] = "These are " + vocArray[3].voc + ".";
+                }
             } else {
-                document.getElementById("g0r0d0").innerHTML = "What are those?";
-                sampleAnswer1 = 'Those are ' + vocArray[0].voc + '.';
-                document.getElementById("g0r1d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" autofocus placeholder="Those are ___." />&nbsp;&nbsp;&nbsp;<button class="w3-button w3-blue w3-round" onclick="showGrammar1()">Example</button>';
-                sampleAnswer2 = 'Those are not ' + vocArray[1].voc +'.';
-                document.getElementById("g0r4d0").innerHTML = '&nbsp;&nbsp;&nbsp;<input type="text" style="width:300px" id="grammarInput" autocomplete="off" placeholder="Those are not ___." />&nbsp;&nbsp;&nbsp;<button class="w3-button w3-blue w3-round" onclick="showGrammar2()">Example</button>';
+                sentence = "What are those?";
+                if (randomG < 2) {
+                    document.getElementById("grammarCheck").value = "Those are " + vocArray[0].voc + ".";
+                    sentenceArray[0] = "Those are " + vocArray[0].voc + ".";
+                    sentenceArray[1] = "Those are " + vocArray[1].voc + ".";
+                    sentenceArray[2] = "Those are " + vocArray[2].voc + ".";
+                    sentenceArray[3] = "Those are " + vocArray[3].voc + ".";
+                } else {
+                    document.getElementById("grammarCheck").value = "Those are not " + vocArray[1].voc + ".";
+                    sentenceArray[0] = "Those are not " + vocArray[0].voc + ".";
+                    sentenceArray[1] = "Those are not " + vocArray[1].voc + ".";
+                    sentenceArray[2] = "Those are " + vocArray[2].voc + ".";
+                    sentenceArray[3] = "Those are " + vocArray[3].voc + ".";
+                }
             }
+            shuffleArray(sentenceArray);
+            document.getElementById("g0r1d0").textContent = sentenceArray[0];
+            document.getElementById("g0r1d2").textContent = sentenceArray[1];
+            document.getElementById("g0r2d0").textContent = sentenceArray[2];
+            document.getElementById("g0r2d2").textContent = sentenceArray[3];
+            setTimeout(function(){speak(sentence)}, 2000);
+            gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 5") {
             vocArray = [({voc:'tomatoes', pic:'<img src="Level 2/images/tomatoes.png" />'}), ({voc:'mangoes', pic:'<img src="Level 2/images/mangoes.png" />'}), ({voc:'strawberries', pic:'<img src="Level 2/images/strawberries.png" />'}), ({voc:'cherries', pic:'<img src="Level 2/images/cherries.png" />'}), ({voc:'peaches', pic:'<img src="Level 2/images/peaches.png" />'}), ({voc:'oranges', pic:'<img src="Level 2/images/oranges.png" />'}), ({voc:'kiwis', pic:'<img src="Level 2/images/kiwis.png" />'}), ({voc:'coconuts', pic:'<img src="Level 2/images/coconuts.png" />'})];
