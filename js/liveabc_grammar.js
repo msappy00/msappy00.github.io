@@ -24,6 +24,7 @@ function setGrammar(userInput){
     var q3Array = [""];
     var answerArray = [""];
     var randomG = Math.floor(Math.random() * 4);
+    var x = 0;
     
     if (level_id == "Starter") {
         q1Array = ["Hi, my name is Jack.", "Hello, my name is Annie.", "Nice to meet you.", "Raise your hand.", "Take out your book.", "Open your book.", "Put away your book.", "Good morning.", "Good afternoon.", "Good evening.", "Good night.", "Goodbye.", "How are you?", "Come here.", "Go back.", "Turn around.", "Look at me.", "What is your name?", "My name is Annie.", "Who is he?", "Who is she?", "Listen to me.", "Repeat after me.", "Point and say.", "Hold up your book.", "What is it?", "May I borrow your pencil?", "May I drink some water?", "May I ask a question?", "May I go?", "Thank you.", "I know.", "I am done.", "Sorry, I am late.", "Please help me.", "I am a boy.", "I am a girl.", "Let’s dance.", "Let’s sing.", "Let’s clap.", "Let’s go.", "Let’s line up.", "It’s my turn.", "One more time.", "Teacher, choose me!", "Is this right?", "How do you feel today?", "I can do it.", "I don’t understand.", "Please say it again.", "I forgot my book."];
@@ -565,42 +566,52 @@ function setGrammar(userInput){
         } else if (userInput == "Unit 5") {
             vocArray = [({voc:'tomatoes', pic:'<img src="Level 2/images/tomatoes.png" />'}), ({voc:'mangoes', pic:'<img src="Level 2/images/mangoes.png" />'}), ({voc:'strawberries', pic:'<img src="Level 2/images/strawberries.png" />'}), ({voc:'cherries', pic:'<img src="Level 2/images/cherries.png" />'}), ({voc:'peaches', pic:'<img src="Level 2/images/peaches.png" />'}), ({voc:'oranges', pic:'<img src="Level 2/images/oranges.png" />'}), ({voc:'kiwis', pic:'<img src="Level 2/images/kiwis.png" />'}), ({voc:'coconuts', pic:'<img src="Level 2/images/coconuts.png" />'})];
             shuffleArray(vocArray);
-            q3Array = [vocArray[0], vocArray[1]];
-            shuffleArray(q3Array);
-            choiceArrayInt = 0;
-            while(choiceArrayInt == 0) {choiceArrayInt = Math.floor(Math.random() * 5)};
-            if (choiceArrayInt == 1) {
-                document.getElementById("g0r0d0").innerHTML = "What are these?";
-                sampleAnswer = 'These are ' + vocArray[0].voc + '.';
-                document.getElementById("g0r0d5").innerHTML = vocArray[0].pic;
-            } else if (choiceArrayInt == 2) {
-                document.getElementById("g0r0d0").innerHTML = "What are those?";
-                sampleAnswer = 'Those are ' + vocArray[0].voc + '.';
-                document.getElementById("g0r0d5").innerHTML = q1Array[0].pic;
-            } else if (choiceArrayInt == 3) {
-                document.getElementById("g0r0d0").innerHTML = "Are these " + q3Array[0].voc + "?";
-                if (q3Array[0] == vocArray[0]) {
-                    document.getElementById("g0r0d5").innerHTML = '<h1 style="font-size:100px">&#x2705;</h1>';
-                    sampleAnswer = "Yes, they are.";
+            document.getElementById("gPic").innerHTML = vocArray[0].pic;
+            sentenceArray = []
+            x = randomG;
+            if (x == 0) {
+                sentence = "What are these?";
+                document.getElementById("grammarCheck").value = "These are " + vocArray[0].voc + ".";
+                sentenceArray[0] = "These are " + vocArray[0].voc + ".";
+                sentenceArray[1] = "These are " + vocArray[1].voc + ".";
+                sentenceArray[2] = "These are " + vocArray[2].voc + ".";
+                sentenceArray[3] = "These are " + vocArray[3].voc + ".";
+            } else if (x == 1) {
+                sentence = "What are those?";
+                document.getElementById("grammarCheck").value = "Those are " + vocArray[0].voc + ".";
+                sentenceArray[0] = "Those are " + vocArray[0].voc + ".";
+                sentenceArray[1] = "Those are " + vocArray[1].voc + ".";
+                sentenceArray[2] = "Those are " + vocArray[2].voc + ".";
+                sentenceArray[3] = "Those are " + vocArray[3].voc + ".";
+            } else if (x == 2){     
+                if (randomG < 2){    
+                    sentence = "Are these " + vocArray[0].voc + "?";
                 } else {
-                    document.getElementById("g0r0d5").innerHTML = '<h1 style="font-size:100px">&#x274C;</h1>';
-                    sampleAnswer = "No, they are not.";
+                    sentence = "Are those " + vocArray[0].voc + "?";
                 }
+                document.getElementById("grammarCheck").value = "Yes, they are.";
+                    sentenceArray[0] = "Yes, they are.";
+                    sentenceArray[1] = "No, they are not.";
+                    sentenceArray[2] = " ";
+                    sentenceArray[3] = " ";
             } else {
-                document.getElementById("g0r0d0").innerHTML = "Are those " + q3Array[0].voc + "?";
-                if (q3Array[0] == vocArray[0]) {
-                    document.getElementById("g0r0d5").innerHTML = '<h1 style="font-size:100px">&#x2705;</h1>';
-                    sampleAnswer = "Yes, they are.";
+                if (randomG < 2){    
+                    sentence = "Are these " + vocArray[1].voc + "?";
                 } else {
-                    document.getElementById("g0r0d5").innerHTML = '<h1 style="font-size:100px">&#x274C;</h1>';
-                    sampleAnswer = "No, they are not.";
+                    sentence = "Are those " + vocArray[1].voc + "?";
                 }
+                document.getElementById("grammarCheck").value = "No, they are not.";
+                    sentenceArray[0] = "No, they are not.";
+                    sentenceArray[1] = "Yes, they are.";
+                    sentenceArray[2] = " ";
+                    sentenceArray[3] = " ";
             }
-            document.getElementById("g0r0d5").innerHTML = vocArray[0].pic;
-            document.getElementById("g0r2d0").colspan = "3";
-            document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
-            document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
+            shuffleArray(sentenceArray);
+            document.getElementById("g0r1d0").textContent = sentenceArray[0];
+            document.getElementById("g0r1d2").textContent = sentenceArray[1];
+            document.getElementById("g0r2d0").textContent = sentenceArray[2];
+            document.getElementById("g0r2d2").textContent = sentenceArray[3];
+            setTimeout(function(){speak(sentence)}, 2000);
             gLinks = [''];
             grammarLesson = "";
         } else if (userInput == "Unit 6") {
