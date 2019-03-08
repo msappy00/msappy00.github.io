@@ -651,35 +651,48 @@ function setGrammar(userInput){
             currentUnit = "Review 2";
         } else if (userInput == "Unit 7") {
             vocArray = ['television', 'DVD player', 'fan', 'trash can', 'robot', 'doll', 'teddy bear', 'ball', 'board game'];
-            locArray = [({voc:' in the box', pic:'<img src="Starter/images/box.png" />'}), ({voc:' behind the door', pic:'<img src="Level 2/images/door.png" />'}), ({voc:' near the window', pic:'<img src="Level 2/images/window.png" />'}), ({voc:' on the table', pic:'<img src="Level 2/images/table.png" />'}), ({voc:' in front of the blackboard', pic:'<img src="Level 2/images/blackboard.png" />'}), ({voc:' under the whiteboard', pic:'<img src="Level 2/images/whiteboard.png" />'})];
             shuffleArray(vocArray);
+            locArray = [({voc:' in the box', pic:'<img src="Starter/images/box.png" />'}), ({voc:' behind the door', pic:'<img src="Level 2/images/door.png" />'}), ({voc:' near the window', pic:'<img src="Level 2/images/window.png" />'}), ({voc:' on the table', pic:'<img src="Level 2/images/table.png" />'}), ({voc:' in front of the blackboard', pic:'<img src="Level 2/images/blackboard.png" />'}), ({voc:' under the whiteboard', pic:'<img src="Level 2/images/whiteboard.png" />'})];
             shuffleArray(locArray);
-            choiceArrayInt = 0;
-            while(choiceArrayInt == 0) {choiceArrayInt = Math.floor(Math.random() * 3)};
-            if (choiceArrayInt == 1) {
-                document.getElementById("g0r0d0").innerHTML = "Where is the " + vocArray[0] + "?";
-                sampleAnswer = 'It is ' + locArray[0].voc + '.';
-                document.getElementById("g0r0d5").innerHTML = vocArray[0];
-            } else if (choiceArrayInt == 2) {
-                document.getElementById("g0r0d0").innerHTML = "Where is my " + vocArray[0] + "?";
-                sampleAnswer = 'It is ' + locArray[0].voc + '.';
-                document.getElementById("g0r0d5").innerHTML = vocArray[0];
+            sentenceArray = []
+            document.getElementById("gPic").innerHTML = locArray[0].pic;
+            if (randomG < 2) {
+                sentence = "Where is the " + vocArray[0] + "?";
+                document.getElementById("grammarCheck").value = "It is " + locArray[0].voc + ".";
+                sentenceArray[0] = "It is " + locArray[0].voc + ".";
+                sentenceArray[1] = "It is " + locArray[1].voc + ".";
+                sentenceArray[2] = "It is " + locArray[2].voc + ".";
+                sentenceArray[3] = "It is " + locArray[3].voc + ".";
+            } else if (randomG == 2) {
+                sentence = "Where is my " + vocArray[0] + "?";
+                document.getElementById("grammarCheck").value = "It is " + locArray[0].voc + ".";
+                sentenceArray[0] = "It is " + locArray[0].voc + ".";
+                sentenceArray[1] = "It is " + locArray[1].voc + ".";
+                sentenceArray[2] = "It is " + locArray[2].voc + ".";
+                sentenceArray[3] = "It is " + locArray[3].voc + ".";
             } else {
-                document.getElementById("g0r0d0").innerHTML = "Is the " + vocArray[0] + locArray[0].voc + "?";
-                answerInt = Math.floor(Math.random() * 2);
-                if (answerInt == 0) {
-                    document.getElementById("g0r0d5").innerHTML = '<h1 style="font-size:100px">&#x2705;</h1>';
-                    sampleAnswer = "Yes, it is.";
+                if (randomG < 2) {
+                    sentence = "Is the " + vocArray[0] + locArray[0].voc + "?";
+                    document.getElementById("grammarCheck").value = "Yes, it is.";
+                    sentenceArray[0] = "Yes, it is.";
+                    sentenceArray[1] = "No, it is not.";
+                    sentenceArray[2] = " ";
+                    sentenceArray[3] = " ";
                 } else {
-                    document.getElementById("g0r0d5").innerHTML = '<h1 style="font-size:100px">&#x274C;</h1>';
-                    sampleAnswer = "No, it is not.";
+                    sentence = "Is the " + vocArray[0] + locArray[1].voc + "?";
+                    document.getElementById("grammarCheck").value = "No, it is not.";
+                    sentenceArray[0] = "No, it is not.";
+                    sentenceArray[1] = "Yes, it is.";
+                    sentenceArray[2] = " ";
+                    sentenceArray[3] = " ";
                 }
             }
-            document.getElementById("g0r0d5").innerHTML = locArray[0].pic;
-            document.getElementById("g0r2d0").colspan = "3";
-            document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
-            document.getElementById("g0r3d0").colspan = "3";
-            document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
+            shuffleArray(sentenceArray);
+            document.getElementById("g0r1d0").textContent = sentenceArray[0];
+            document.getElementById("g0r1d2").textContent = sentenceArray[1];
+            document.getElementById("g0r2d0").textContent = sentenceArray[2];
+            document.getElementById("g0r2d2").textContent = sentenceArray[3];
+            setTimeout(function(){speak(sentence)}, 2000);
             gLinks = ['<a href="http://www.eslgamesplus.com/prepositions-of-place-esl-fun-game-online-grammar-practice/" target="_newtab">ESL Games+: Prepositions of Place</a>'];
             grammarLesson = "";
         } else if (userInput == "Unit 8") {
