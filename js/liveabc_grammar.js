@@ -940,24 +940,74 @@ function setGrammar(userInput){
     }
     else if (level_id == "Level 4") {
         if (userInput == "Unit 1") {
-            q1Array = ["get up?", "go to school?", "go home?", "do homework?", "take a bath?", "go to bed?", "have English class?"];
-            q2Array = ["What time do you "];
-            shuffleArray(q1Array);
-            shuffleArray(q2Array);
-            answerArray = ["1:00", "1:30", "2:00", "2:30", "3:00", "3:30", "4:00", "4:30", "5:00", "5:30", "6:00", "6:30", "7:00", "7:30", "8:00", "8:30", "9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30"];
-            shuffleArray(answerArray);
-            document.getElementById("g0r1d0").innerHTML = q2Array[0] + q1Array[0];
-            document.getElementById("g0r1d4").innerHTML = answerArray[0];
+            pronounArray = [({qp:'you', qa:'I'}), ({qp:'I', qa:'You'}), ({qp:'they', qa:'They'}), ({qp:'he', qa:'He'}), ({qp:'she', qa:'She'})];
+            timeArray = [({time:"1:00", text:"one o'clock"}), ({time:"1:30", text:"one thirty"}), ({time:"2:00", text: "two o'clock"}), ({time:"2:30", text:"two thirty"}), ({time:"3:00", text:"three o'clock"}), ({time:"3:30", text:"three thirty"}), ({time:"4:00", text:"four o'clock"}), ({time:"4:30", text:"four thirty"}), ({time:"5:00", text:"five o'clock"}), ({time:"5:30", text:"five thirty"}), ({time:"6:00", text:"six o'clock"}), ({time:"6:30", text:"six thirty"}), ({time:"7:00", text:"seven o'clock"}), ({time:"7:30", text:"seven thirty"}), ({time:"8:00", text:"eight o'clock"}), ({time:"8:30", text:"eight thirty"}), ({time:"9:00", text:"nine o'clock"}), ({time:"9:30", text:"nine thirty"}), ({time:"10:00", text:"ten o'clock"}), ({time:"10:30", text:"ten thirty"}), ({time:"11:00", text:"eleven o'clock"}), ({time:"11:30", text:"eleven thirty"}), ({time:"12:00", text:"twelve o'clock"}), ({time:"12:30", text:"twelve thirty"})];
+            verbArray = [({v: "get", tps: "gets", o: "up", pic: '<img src="Level 4/images/get up.png" />'}), ({v: "go", tps: "goes", o: "to school", pic: '<img src="Level 4/images/go to school.png" />'}), ({v: "go", tps: "goes", o: "home", pic: '<img src="Level 4/images/go home.png" />'}), ({v: "do", tps: "does", o: "homework", pic: '<img src="Level 4/images/do homework.png" />'}), ({v: "take", tps: "takes", o: "a bath", pic: '<img src="Level 4/images/take a bath.png" />'}), ({v: "go", tps: "goes", o: "to bed", pic:'<img src="Level 4/images/go to bed.png" />'}), ({v: "have", tps: "has", o: "English class", pic:'<img src="Level 4/images/have English class.png" />'})];
+            shuffleArray(pronounArray);
+            shuffleArray(timeArray);
+            shuffleArray(verbArray);
+            document.getElementById("gPic").innerHTML = '<p style="font-size:100px">' + timeArray[0].time + '</p>';
+            if (randomG >= 2) {
+                sentence = "What time is it?";
+                document.getElementById("grammarCheck").value = "It's " + timeArray[0].text + ".";
+                sentenceArray[0] = "It's " + timeArray[0].text + ".";
+                sentenceArray[1] = "It's " + timeArray[1].text + ".";
+                sentenceArray[2] = "It's " + timeArray[2].text + ".";
+                sentenceArray[3] = "It's " + timeArray[3].text + ".";
+            } else {
+                if (pronounArray[0].qp == "he" || pronounArray[0].qp == "she") {
+                    sentence = "What time does " + pronounArray[0].qp + " " + verbArray[0].v + " " + verbArray[0].o + "?";
+                    document.getElementById("grammarCheck").value = pronounArray[0].qa + " " + verbArray[0].tps + " " + verbArray[0].o + " at " + timeArray[0].text + ".";
+                    sentenceArray[0] = pronounArray[0].qa + " " + verbArray[0].tps + " " + verbArray[0].o + " at " + timeArray[0].text + ".";
+                    sentenceArray[1] = pronounArray[0].qa + " " + verbArray[0].tps + " " + verbArray[0].o + " at " + timeArray[1].text + ".";
+                    sentenceArray[2] = pronounArray[0].qa + " " + verbArray[0].tps + " " + verbArray[0].o + " at " + timeArray[2].text + ".";
+                    sentenceArray[3] = pronounArray[0].qa + " " + verbArray[0].tps + " " + verbArray[0].o + " at " + timeArray[3].text + ".";
+                } else {
+                    sentence = "What time do " + pronounArray[0].qp + " " + verbArray[0].v + " " + verbArray[0].o + "?";
+                    document.getElementById("grammarCheck").value = pronounArray[0].qa + " " + verbArray[0].v + " " + verbArray[0].o + " at " + timeArray[0].text + ".";
+                    sentenceArray[0] = pronounArray[0].qa + " " + verbArray[0].v + " " + verbArray[0].o + " at " + timeArray[0].text + ".";
+                    sentenceArray[1] = pronounArray[0].qa + " " + verbArray[0].v + " " + verbArray[0].o + " at " + timeArray[1].text + ".";
+                    sentenceArray[2] = pronounArray[0].qa + " " + verbArray[0].v + " " + verbArray[0].o + " at " + timeArray[2].text + ".";
+                    sentenceArray[3] = pronounArray[0].qa + " " + verbArray[0].v + " " + verbArray[0].o + " at " + timeArray[3].text + ".";
+                }
+            }
+            shuffleArray(sentenceArray);
+            document.getElementById("g0r1d0").textContent = sentenceArray[0];
+            document.getElementById("g0r1d2").textContent = sentenceArray[1];
+            document.getElementById("g0r2d0").textContent = sentenceArray[2];
+            document.getElementById("g0r2d2").textContent = sentenceArray[3];
+            setTimeout(function(){speak(sentence)}, 2000);
             gLinks = ['<a href="http://scratch.mit.edu/projects/64711462/" target="_newtab">Scratch: What Time Is It?</a>'];
             grammarLesson = "";
         } else if (userInput == "Unit 2") {
-            q1Array = ["How do you go to school?", "How does she go to work?", "How do they go to school?", "How does he go to work?", "How does she go to school?", "How do they go to work?", "How does he go to school?"];
-            q2Array = ['<img src="Level 4/images/on foot.png" />', '<img src="Level 4/images/scooter.png" />', '<img src="Level 4/images/motorcycle.png" />', '<img src="Level 4/images/car.png" />', '<img src="Level 4/images/bus.png" />', '<img src="Level 4/images/bicycle.png" />', '<img src="Level 4/images/MRT.png" />', '<img src="Level 4/images/train.png" />', '<img src="Level 4/images/taxi.png" />', '<img src="Level 4/images/high-speed rail.png" />'];
-            shuffleArray(q1Array);
-            shuffleArray(q2Array);
-            document.getElementById("g0r1d0").innerHTML = q1Array[0];
-            document.getElementById("g0r0d5").innerHTML = q2Array[0];
-            document.getElementById("g0r1d4").innerHTML = answerArray[0];
+            pronounArray = [({qp:'you', qa:'I'}), ({qp:'I', qa:'You'}), ({qp:'they', qa:'They'}), ({qp:'he', qa:'He'}), ({qp:'she', qa:'She'})];
+            vehicleArray = [({value:'on foot', pic:'<img src="Level 4/images/on foot.png" />'}), ({value:'by scooter', pic:'<img src="Level 4/images/scooter.png" />'}), ({value:'by motorcycle', pic:'<img src="Level 4/images/motorcycle.png" />'}), ({value:'by car', pic:'<img src="Level 4/images/car.png" />'}), ({value:'by bus', pic:'<img src="Level 4/images/bus.png" />'}), ({value:'by bicycle', pic:'<img src="Level 4/images/bicycle.png" />'}), ({value:'by MRT', pic:'<img src="Level 4/images/MRT.png" />'}), ({value:'by train', pic:'<img src="Level 4/images/train.png" />'}), ({value:'by taxi', pic:'<img src="Level 4/images/taxi.png" />'}), ({value:'by high-speed rail', pic:'<img src="Level 4/images/high-speed rail.png" />'})];
+            verbArray = [({v: "go", tps: "goes", o: "to work"}), ({v: "go", tps: "goes", o: "to school"})];
+            shuffleArray(pronounArray);
+            shuffleArray(vehicleArray);
+            shuffleArray(verbArray);
+            document.getElementById("gPic").innerHTML = vehicleArray[0].pic;
+            if (pronounArray[0].qp == "he" || pronounArray[0].qp == "she") {
+                sentence = "How does " + pronounArray[0].qp + " " + verbArray[0].v + " " + verbArray[0].o + "?";
+                document.getElementById("grammarCheck").value = pronounArray[0].qa + " " + verbArray[0].tps + " " + verbArray[0].o + " " + vehicleArray[0].value + ".";
+                sentenceArray[0] = pronounArray[0].qa + " " + verbArray[0].tps + " " + verbArray[0].o + " " + vehicleArray[0].value + ".";
+                sentenceArray[1] = pronounArray[0].qa + " " + verbArray[0].tps + " " + verbArray[0].o + " " + vehicleArray[1].value + ".";
+                sentenceArray[2] = pronounArray[0].qa + " " + verbArray[0].tps + " " + verbArray[0].o + " " + vehicleArray[2].value + ".";
+                sentenceArray[3] = pronounArray[0].qa + " " + verbArray[0].tps + " " + verbArray[0].o + " " + vehicleArray[3].value + ".";
+            } else {
+                sentence = "How do " + pronounArray[0].qp + " " + verbArray[0].v + " " + verbArray[0].o + "?";
+                document.getElementById("grammarCheck").value = pronounArray[0].qa + " " + verbArray[0].v + " " + verbArray[0].o + " " + vehicleArray[0].value + ".";
+                sentenceArray[0] = pronounArray[0].qa + " " + verbArray[0].v + " " + verbArray[0].o + " " + vehicleArray[0].value + ".";
+                sentenceArray[1] = pronounArray[0].qa + " " + verbArray[0].v + " " + verbArray[0].o + " " + vehicleArray[1].value + ".";
+                sentenceArray[2] = pronounArray[0].qa + " " + verbArray[0].v + " " + verbArray[0].o + " " + vehicleArray[2].value + ".";
+                sentenceArray[3] = pronounArray[0].qa + " " + verbArray[0].v + " " + verbArray[0].o + " " + vehicleArray[3].value + ".";
+            }
+            shuffleArray(sentenceArray);
+            document.getElementById("g0r1d0").textContent = sentenceArray[0];
+            document.getElementById("g0r1d2").textContent = sentenceArray[1];
+            document.getElementById("g0r2d0").textContent = sentenceArray[2];
+            document.getElementById("g0r2d2").textContent = sentenceArray[3];
+            setTimeout(function(){speak(sentence)}, 2000);
             gLinks = ['<a href="http://www.classtools.net/QR/teacher.php?fold=7&fname=kfNhe">QR Challenge</a><br><a href="http://scratch.mit.edu/projects/66810966/" target="_newtab">Scratch: B4U2 Vocab</a>'];
             grammarLesson = "";
         } else if (userInput == "Unit 3") {
