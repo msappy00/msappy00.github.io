@@ -23,6 +23,7 @@ function setGrammar(userInput){
     var q2Array = [""];
     var q3Array = [""];
     var answerArray = [""];
+    var sentenceArray = [];
     var randomG = Math.floor(Math.random() * 4);
     var x = 0;
     
@@ -422,7 +423,6 @@ function setGrammar(userInput){
             vocArray = ["blackboard", "DVD player", "door", "fan", "television", "table", "trash can", "window", "telephone"];
             shuffleArray(vocArray);
             document.getElementById("gPic").innerHTML = '<img src="Level 2/images/no_' + vocArray[0] + '.png" style="width:100%" />';
-            sentenceArray = [];
             if (randomG < 2) {
                 sentence = "There is a " + vocArray[1] + ".";
                 document.getElementById("grammarCheck").value = "There is a " + vocArray[1] + ".";
@@ -523,7 +523,6 @@ function setGrammar(userInput){
             vocArray = [({voc:'bananas', pic:'<img src="Level 2/images/bananas.png" />'}), ({voc:'lemons', pic:'<img src="Level 2/images/lemons.png" />'}), ({voc:'wax apples', pic:'<img src="Level 2/images/wax apples.png" />'}), ({voc:'pears', pic:'<img src="Level 2/images/pears.png" />'}), ({voc:'papayas', pic:'<img src="Level 2/images/papayas.png" />'}), ({voc:'watermelons', pic:'<img src="Level 2/images/watermelons.png" />'}), ({voc:'guavas', pic:'<img src="Level 2/images/guavas.png" />'}), ({voc:'grapes', pic:'<img src="Level 2/images/grapes.png" />'})];
             shuffleArray(vocArray);
             document.getElementById("gPic").innerHTML = vocArray[0].pic;
-            sentenceArray = [];
             if (randomG < 2) {
                 sentence = "What are these?";
                 if (randomG < 2) {
@@ -941,12 +940,12 @@ function setGrammar(userInput){
     else if (level_id == "Level 4") {
         if (userInput == "Unit 1") {
             pronounArray = [({qp:'you', qa:'I'}), ({qp:'I', qa:'You'}), ({qp:'they', qa:'They'}), ({qp:'he', qa:'He'}), ({qp:'she', qa:'She'})];
-            timeArray = [({time:"1:00", text:"one o'clock"}), ({time:"1:30", text:"one thirty"}), ({time:"2:00", text: "two o'clock"}), ({time:"2:30", text:"two thirty"}), ({time:"3:00", text:"three o'clock"}), ({time:"3:30", text:"three thirty"}), ({time:"4:00", text:"four o'clock"}), ({time:"4:30", text:"four thirty"}), ({time:"5:00", text:"five o'clock"}), ({time:"5:30", text:"five thirty"}), ({time:"6:00", text:"six o'clock"}), ({time:"6:30", text:"six thirty"}), ({time:"7:00", text:"seven o'clock"}), ({time:"7:30", text:"seven thirty"}), ({time:"8:00", text:"eight o'clock"}), ({time:"8:30", text:"eight thirty"}), ({time:"9:00", text:"nine o'clock"}), ({time:"9:30", text:"nine thirty"}), ({time:"10:00", text:"ten o'clock"}), ({time:"10:30", text:"ten thirty"}), ({time:"11:00", text:"eleven o'clock"}), ({time:"11:30", text:"eleven thirty"}), ({time:"12:00", text:"twelve o'clock"}), ({time:"12:30", text:"twelve thirty"})];
-            verbArray = [({v: "get", tps: "gets", o: "up", pic: '<img src="Level 4/images/get up.png" />'}), ({v: "go", tps: "goes", o: "to school", pic: '<img src="Level 4/images/go to school.png" />'}), ({v: "go", tps: "goes", o: "home", pic: '<img src="Level 4/images/go home.png" />'}), ({v: "do", tps: "does", o: "homework", pic: '<img src="Level 4/images/do homework.png" />'}), ({v: "take", tps: "takes", o: "a bath", pic: '<img src="Level 4/images/take a bath.png" />'}), ({v: "go", tps: "goes", o: "to bed", pic:'<img src="Level 4/images/go to bed.png" />'}), ({v: "have", tps: "has", o: "English class", pic:'<img src="Level 4/images/have English class.png" />'})];
             shuffleArray(pronounArray);
+            timeArray = [({time:"1:00", text:"one o'clock"}), ({time:"1:30", text:"one thirty"}), ({time:"2:00", text: "two o'clock"}), ({time:"2:30", text:"two thirty"}), ({time:"3:00", text:"three o'clock"}), ({time:"3:30", text:"three thirty"}), ({time:"4:00", text:"four o'clock"}), ({time:"4:30", text:"four thirty"}), ({time:"5:00", text:"five o'clock"}), ({time:"5:30", text:"five thirty"}), ({time:"6:00", text:"six o'clock"}), ({time:"6:30", text:"six thirty"}), ({time:"7:00", text:"seven o'clock"}), ({time:"7:30", text:"seven thirty"}), ({time:"8:00", text:"eight o'clock"}), ({time:"8:30", text:"eight thirty"}), ({time:"9:00", text:"nine o'clock"}), ({time:"9:30", text:"nine thirty"}), ({time:"10:00", text:"ten o'clock"}), ({time:"10:30", text:"ten thirty"}), ({time:"11:00", text:"eleven o'clock"}), ({time:"11:30", text:"eleven thirty"}), ({time:"12:00", text:"twelve o'clock"}), ({time:"12:30", text:"twelve thirty"})];
             shuffleArray(timeArray);
-            shuffleArray(verbArray);
             document.getElementById("gPic").innerHTML = '<p style="font-size:100px">' + timeArray[0].time + '</p>';
+            verbArray = [({v: "get", tps: "gets", o: "up", pic: '<img src="Level 4/images/get up.png" />'}), ({v: "go", tps: "goes", o: "to school", pic: '<img src="Level 4/images/go to school.png" />'}), ({v: "go", tps: "goes", o: "home", pic: '<img src="Level 4/images/go home.png" />'}), ({v: "do", tps: "does", o: "homework", pic: '<img src="Level 4/images/do homework.png" />'}), ({v: "take", tps: "takes", o: "a bath", pic: '<img src="Level 4/images/take a bath.png" />'}), ({v: "go", tps: "goes", o: "to bed", pic:'<img src="Level 4/images/go to bed.png" />'}), ({v: "have", tps: "has", o: "English class", pic:'<img src="Level 4/images/have English class.png" />'})];            
+            shuffleArray(verbArray);
             if (randomG >= 2) {
                 sentence = "What time is it?";
                 document.getElementById("grammarCheck").value = "It's " + timeArray[0].text + ".";
@@ -981,12 +980,12 @@ function setGrammar(userInput){
             grammarLesson = "";
         } else if (userInput == "Unit 2") {
             pronounArray = [({qp:'you', qa:'I'}), ({qp:'I', qa:'You'}), ({qp:'they', qa:'They'}), ({qp:'he', qa:'He'}), ({qp:'she', qa:'She'})];
-            vehicleArray = [({value:'on foot', pic:'<img src="Level 4/images/on foot.png" />'}), ({value:'by scooter', pic:'<img src="Level 4/images/scooter.png" />'}), ({value:'by motorcycle', pic:'<img src="Level 4/images/motorcycle.png" />'}), ({value:'by car', pic:'<img src="Level 4/images/car.png" />'}), ({value:'by bus', pic:'<img src="Level 4/images/bus.png" />'}), ({value:'by bicycle', pic:'<img src="Level 4/images/bicycle.png" />'}), ({value:'by MRT', pic:'<img src="Level 4/images/MRT.png" />'}), ({value:'by train', pic:'<img src="Level 4/images/train.png" />'}), ({value:'by taxi', pic:'<img src="Level 4/images/taxi.png" />'}), ({value:'by high-speed rail', pic:'<img src="Level 4/images/high-speed rail.png" />'})];
-            verbArray = [({v: "go", tps: "goes", o: "to work"}), ({v: "go", tps: "goes", o: "to school"})];
             shuffleArray(pronounArray);
+            vehicleArray = [({value:'on foot', pic:'<img src="Level 4/images/on foot.png" />'}), ({value:'by scooter', pic:'<img src="Level 4/images/scooter.png" />'}), ({value:'by motorcycle', pic:'<img src="Level 4/images/motorcycle.png" />'}), ({value:'by car', pic:'<img src="Level 4/images/car.png" />'}), ({value:'by bus', pic:'<img src="Level 4/images/bus.png" />'}), ({value:'by bicycle', pic:'<img src="Level 4/images/bicycle.png" />'}), ({value:'by MRT', pic:'<img src="Level 4/images/MRT.png" />'}), ({value:'by train', pic:'<img src="Level 4/images/train.png" />'}), ({value:'by taxi', pic:'<img src="Level 4/images/taxi.png" />'}), ({value:'by high-speed rail', pic:'<img src="Level 4/images/high-speed rail.png" />'})];
             shuffleArray(vehicleArray);
-            shuffleArray(verbArray);
             document.getElementById("gPic").innerHTML = vehicleArray[0].pic;
+            verbArray = [({v: "go", tps: "goes", o: "to work"}), ({v: "go", tps: "goes", o: "to school"})];
+            shuffleArray(verbArray);
             if (pronounArray[0].qp == "he" || pronounArray[0].qp == "she") {
                 sentence = "How does " + pronounArray[0].qp + " " + verbArray[0].v + " " + verbArray[0].o + "?";
                 document.getElementById("grammarCheck").value = pronounArray[0].qa + " " + verbArray[0].tps + " " + verbArray[0].o + " " + vehicleArray[0].value + ".";
