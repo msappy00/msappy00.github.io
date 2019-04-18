@@ -6,19 +6,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="css/w3.css"/>
-        <!--<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
-        <script>
-            // Initialize Firebase
-            var config = {
-                apiKey: "AIzaSyCcIOz7_hDxJsyN3fKl0S5_UHiTulVX_LU",
-                authDomain: "teachermatthew-1039.firebaseapp.com",
-                databaseURL: "https://teachermatthew-1039.firebaseio.com",
-                projectId: "teachermatthew-1039",
-                storageBucket: "teachermatthew-1039.appspot.com",
-                messagingSenderId: "276692310045"
-            };
-        firebase.initializeApp(config);
-        </script>-->
+
     <style>
         body {
             margin: 0 !important;
@@ -100,63 +88,6 @@
             #displayName {display: none;}
             footer {page-break-after: always;}
         }
-        /* The Modal (background) */
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-            padding-top: 60px;
-            color: #000;
-        }
-        
-        /* Modal Content/Box */
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5px auto; /* 15% from the top and centered */
-            border: 1px solid #888;
-            width: 30%; /* Could be more or less, depending on screen size */
-        }
-        
-        /* The Close Button */
-        .close {
-            /* Position it in the top right corner outside of the modal */
-            position: absolute;
-            right: 25px;
-            top: 0;
-            color: #000;
-            font-size: 35px;
-            font-weight: bold;
-        }
-        
-        /* Close button on hover */
-        .close:hover,
-        .close:focus {
-            color: red;
-            cursor: pointer;
-        }
-        
-        /* Add Zoom Animation */
-        .animate {
-            -webkit-animation: animatezoom 0.6s;
-            animation: animatezoom 0.6s
-        }
-        
-        @-webkit-keyframes animatezoom {
-            from {-webkit-transform: scale(0)}
-            to {-webkit-transform: scale(1)}
-        }
-        
-        @keyframes animatezoom {
-            from {transform: scale(0)}
-            to {transform: scale(1)}
-        }
     </style>
     
 	<script>
@@ -165,7 +96,6 @@
     var className = "";
     var level_id = "";
     var blank = {displayName: '', correct: 0, attempted: 0};
-    var classList = [blank, blank, blank, blank, blank, blank];
     var currentUnit = "";
     var array_i = 0;
     var cArray_i = 0;
@@ -191,35 +121,13 @@
         sessionStorage.setItem("className", classN);
         document.getElementById("className").textContent = classN;
         className = classN;
-        classList = [blank, blank, blank, blank, blank, blank];
-        document.getElementById("Ss1").textContent = classList[0].displayName;
-        document.getElementById("Ss2").textContent = classList[1].displayName;
-        document.getElementById("Ss3").textContent = classList[2].displayName;
-        document.getElementById("Ss4").textContent = classList[3].displayName;
-        document.getElementById("Ss5").textContent = classList[4].displayName;
-        document.getElementById("Ss6").textContent = classList[5].displayName;
         var jsData = JSON.stringify(classList);
         window.sessionStorage.setItem("classList", jsData);
-        for (student in classList) {
-            sNum = Number(student) + 1;
-            if (classList[student].displayName != ''){
-                document.getElementById("SR"+sNum+"-btn").innerHTML = '<input class="w3-check" type="checkbox" checked id="SR'+sNum+'">';
-                if (classList[student].attempted){
-                    var score = classList[student].correct / classList[student].attempted * 100;
-                    score = Math.round(score);
-                    document.getElementById("SP"+sNum).textContent = score+"%";
-                }
-            } else {
-                document.getElementById("SR"+sNum+"-btn").innerHTML = '';
-                document.getElementById("SP"+sNum).textContent = "";
-            }
-        }
         cArray_i = 0;
         document.getElementById("displayName").textContent = classList[cArray_i].displayName;
     };
     
     function clearClass() {
-        classList = [];
         sessionStorage.setItem("className", "");
         document.getElementById("className").textContent = "";
         setClass("");
@@ -252,36 +160,7 @@
             className = sessionStorage.getItem("className");
         }
         document.getElementById("className").textContent = className;
-        if (sessionStorage.getItem("classList")) {
-            var jsData = window.sessionStorage.getItem("classList");
-            classList = JSON.parse(jsData);
-            document.getElementById("Ss1").textContent = classList[0].displayName;
-            document.getElementById("Ss2").textContent = classList[1].displayName;
-            document.getElementById("Ss3").textContent = classList[2].displayName;
-            document.getElementById("Ss4").textContent = classList[3].displayName;
-            document.getElementById("Ss5").textContent = classList[4].displayName;
-            document.getElementById("Ss6").textContent = classList[5].displayName;
-            for (student in classList) {
-                sNum = Number(student) + 1;
-                if (classList[student].displayName != ''){
-                    document.getElementById("SR"+sNum+"-btn").innerHTML = '<input class="w3-check" type="checkbox" checked id="SR'+sNum+'">';
-                    if (classList[student].attempted){
-                        var score = classList[student].correct / classList[student].attempted * 100;
-                        score = Math.round(score);
-                        document.getElementById("SP"+sNum).textContent = score+"%";
-                    }
-                } else {
-                    document.getElementById("SR"+sNum+"-btn").innerHTML = '';
-                    document.getElementById("SP"+sNum).textContent = "";
-                }
-            }
-        }
-        else {
-            classList = [blank, blank, blank, blank, blank, blank];
-        }
         cArray_i = 0;
-        document.getElementById("displayName").textContent = classList[cArray_i].displayName;
-        //readUserData("Ss1");
     };
 
     // say a message
@@ -497,124 +376,7 @@
         }
     };
 	</script>
-    <script type="text/javascript">
-        /**
-         * Handles the sign in button press.
-         */
-    function toggleSignIn() {
-        if (firebase.auth().currentUser) {
-            // [START signout]
-            document.getElementById("sign-in-btn").innerHTML = "Login";
-            firebase.auth().signOut();
-            // [END signout]
-        } else {
-            document.getElementById('id01').style.display='block';
-        }
-    };
     
-    function SignIn() {
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
-        if (email.length < 4) {
-            alert('Please enter an email address.');
-            return;
-        }
-        if (password.length < 4) {
-            alert('Please enter a password.');
-            return;
-        }
-        // Sign in with email and pass.
-        // [START authwithemail]
-        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-          // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          // [START_EXCLUDE]
-          if (errorCode === 'auth/wrong-password') {
-          alert('Wrong password.');
-          } else {
-          alert(errorMessage);
-          }
-          console.log(error);
-          // [END_EXCLUDE]
-          });
-          // [END authwithemail]
-          document.getElementById('id01').style.display='none';
-    };
-    
-    
-    function sendPasswordReset() {
-        var email = document.getElementById('email').value;
-        // [START sendpasswordemail]
-        firebase.auth().sendPasswordResetEmail(email).then(function() {
-           // Password Reset Email Sent!
-           // [START_EXCLUDE]
-           alert('Password Reset Email Sent!');
-           // [END_EXCLUDE]
-           }).catch(function(error) {
-                    // Handle Errors here.
-                    var errorCode = error.code;
-                    var errorMessage = error.message;
-                    // [START_EXCLUDE]
-                    if (errorCode == 'auth/invalid-email') {
-                    alert(errorMessage);
-                    } else if (errorCode == 'auth/user-not-found') {
-                    alert(errorMessage);
-                    }
-                    console.log(error);
-                    // [END_EXCLUDE]
-                    });
-                    // [END sendpasswordemail];
-    };
-    function readUserData(sName) {
-    return firebase.database().ref("/" + sName).once("value").then(function(snapshot) {
-                                                                        var PrevL = (snapshot.val().PLearned);
-                                                                        document.getElementById('readData').textContent = PrevL;
-                                                                      })
-    };
-
-    function writeUserData(sName, PLearned) {
-        var userId = firebase.auth().currentUser;
-        var usersRef = firebase.database().ref("/" + sName).set({
-                                                                PLearned: PLearned
-        });
-        document.getElementById('readData').textContent = PLearned;
-    };
-    
-    initApp = function() {
-        firebase.auth().onAuthStateChanged(function(user) {
-       if (user) {
-           // User is signed in.
-           var displayName = user.displayName;
-           var email = user.email;
-           var emailVerified = user.emailVerified;
-           var photoURL = user.photoURL;
-           var uid = user.uid;
-           var phoneNumber = user.phoneNumber;
-           var providerData = user.providerData;
-           user.getIdToken().then(function(accessToken) {
-              document.getElementById('sign-in-btn').textContent = 'Logout';});
-
-       } else {
-           // User is signed out.
-           document.getElementById('sign-in-btn').textContent = 'Login';
-       }
-       }, function(error) {console.log(error);});
-    };
-    
-    //window.addEventListener('load', function() {
-        //initApp()
-    //});
-    
-    function aniDrop() {
-        var x = document.getElementById("Demo");
-        if (x.className.indexOf("w3-show") == -1) {
-            x.className += " w3-show";
-        } else {
-            x.className = x.className.replace(" w3-show", "");
-        }
-    }
-    </script>
 </head>
 <body onload="checkSessionStorage()">
     <noscript>JavaScript is disabled.</noscript>
@@ -637,8 +399,6 @@
                     <a href="spotIt.html" target="_blank" class="w3-bar-item w3-button">Spot It!</a>
                     <a href="BullsAndCows.html" target="_blank" class="w3-bar-item w3-button">Bulls and Cows</a><a href="move.html" target="_blank" class="w3-bar-item w3-button">Move!</a>
                     <a href="matchingGame.html" target="_blank" class="w3-bar-item w3-button">Matching Game</a>
-                    <a href="blurry.html" target="_blank" class="w3-bar-item w3-button">Blurry</a>
-                    <a href="blocked.html" target="_blank" class="w3-bar-item w3-button">Blocked</a>
                     <a href="melon_drop.html" target="_blank" class="w3-bar-item w3-button">Melon Drop</a>
                     <a href="bat_dodge.html" target="_blank" class="w3-bar-item w3-button">Bat Dodge</a>
                     <a href="tennis_ball.html" target="_blank" class="w3-bar-item w3-button">Tennis Ball</a>
@@ -736,43 +496,7 @@
                 </div>
             </div>
             <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-right" id="day">day</a>
-            <!-- Button to open the modal login form
-            <button class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-right" onclick=toggleSignIn() id="sign-in-btn">Login</button>
-            -->
-                <!-- Login Modal -->
-                <div id="id01" class="modal">
-                    <span onclick="document.getElementById('id01').style.display='none'"
-                        class="close" title="Close Modal">&times;</span>
-                    
-                    <!-- Modal Content -->
-                    <form class="modal-content animate">
-                        <div class="imgcontainer w3-container w3-center">
-                            <img src="images/star-yellow.svg" alt="star avatar" class="avatar">
-                                <p></p>
-                                </div>
-                        <div class="w3-container w3-center">
-                            <label><b>Email</b></label>
-                            <input type="email" placeholder="Enter Email Address" id="email" required>
-                                <p></p>
-                                </div>
-                        <div class="w3-container w3-center">
-                            <label><b>Password</b></label>
-                            <input type="password" placeholder="Enter Password" id="password" required>
-                                <p></p>
-                                </div>
-                        <div class="w3-container w3-center">
-                            <button class="w3-button w3-blue w3-round" type="submit" id="sign-in" onclick=SignIn()>Submit</button>
-                        </div>
-                        <div class="w3-container w3-center">
-                            <input type="checkbox" /> Remember me
-                            <p></p>
-                        </div>
-                        <div class="w3-container w3-center" style="background-color:#f1f1f1">
-                            <button  class="w3-button w3-blue w3-round" type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                            <span class="psw">Forgot <a onclick=sendPasswordReset()>password?</a></span>
-                        </div>
-                    </form>
-                </div>
+            
         </div>
     </div><!--/#nav bar-->
     <div class="w3-container w3-col l2 w3-cell-top">
