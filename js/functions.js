@@ -159,8 +159,7 @@ function pArraySlide() {
         if (pArray_i > (pArray.length - 1)) {
             pArray_i = 0;
         }
-        phonicsCheck.pattern = pArray[pArray_i].pattern;
-        
+        phonicsCheck.pattern = pArray[pArray_i].pattern;   
     }
     setTimeout(function(){
         phonicsAudio.innerHTML = '<audio controls autoplay><source src="phonics/'+pArray[pArray_i].value+'.mp3" type="audio/mp3" /></audio>';
@@ -168,4 +167,8 @@ function pArraySlide() {
         phonicsCheck.value = "";
     }, 2000);
     phonicsCheck.focus();
+};
+
+function capitalize(word){
+   return word[0].charAt(0).toUpperCase() + word.slice(1);
 };

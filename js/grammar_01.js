@@ -1,13 +1,16 @@
 function g_01(userInput){
+    q1Array = [];
+    q2Array = [];
+    pronounArray = ([{value: "I", verb: "am", qp: "you", qv: "are"}, {value: "you", verb: "are", qp: "I", qv: "am"}, {value: "they", verb: "are", qp: "they", qv: "are"}, {value: "he", verb: "is", qp: "he", qv: "is"}, {value: "she", verb: "is", qp: "she", qv: "is"}]);
     if (userInput == "Unit 1") {
-            pronounArray = ([{value: "I", verb: "am"}, {value: "You", verb: "are"}]);
+            pronounArray = ([pronounArray[0], pronounArray[1]]);
             shuffleArray(pronounArray);
             q1Array = [({value:'boy.', pic:'<img src="Level 1/images/boy.png" />'}), ({value:'girl.', pic:'<img src="Level 1/images/girl.png" />'}), ({value:'woman.', pic:'<img src="Level 1/images/woman.png" />'}), ({value:'man.', pic:'<img src="Level 1/images/man.png" />'}), ({value:'student.', pic:'<img src="Level 1/images/student.png" />'}), ({value:'teacher.', pic:'<img src="Level 1/images/teacher.png" />'})];
             shuffleArray(q1Array);
             answerArray = (["am", "are", "", ""]);
             shuffleArray(answerArray);
             document.getElementById("gPic").innerHTML = q1Array[0].pic;
-            var sentence = pronounArray[0].value + " ______ a " + q1Array[0].value;
+            var sentence = capitalize(pronounArray[0].value) + " ______ a " + q1Array[0].value;
             document.getElementById("gInstructions").textContent = sentence;
             document.getElementById("grammarCheck").value = pronounArray[0].verb;
             document.getElementById("g0r1d0").textContent = answerArray[0];
@@ -54,14 +57,12 @@ function g_01(userInput){
         } else {
             var age = " years old.";
         }
-        pronounArray = ([{value: "I", verb: "am", qp: "you", qv: "are"}, {value: "you", verb: "are", qp: "I", qv: "am"}, {value: "they", verb: "are", qp: "they", qv: "are"}, {value: "he", verb: "is", qp: "he", qv: "is"}, {value: "she", verb: "is", qp: "she", qv: "is"}]);
         shuffleArray(pronounArray);
-        pronounArray.pop();
         var sentence = "How old " + pronounArray[randomG].qv + " " + pronounArray[randomG].qp + "?";
-        q2Array[0] = pronounArray[0].value.charAt(0).toUpperCase() + pronounArray[0].value.slice(1) + " " + pronounArray[0].verb + " " + q1Array[0].spelling + age;
-        q2Array[1] = pronounArray[1].value.charAt(0).toUpperCase() + pronounArray[1].value.slice(1) + " " + pronounArray[1].verb + " " + q1Array[0].spelling + age;
-        q2Array[2] = pronounArray[2].value.charAt(0).toUpperCase() + pronounArray[2].value.slice(1) + " " + pronounArray[2].verb + " " + q1Array[0].spelling + age;
-        q2Array[3] = pronounArray[3].value.charAt(0).toUpperCase() + pronounArray[3].value.slice(1) + " " + pronounArray[3].verb + " " + q1Array[0].spelling + age;
+        q2Array[0] = capitalize(pronounArray[0].value) + " " + pronounArray[0].verb + " " + q1Array[0].spelling + age;
+        q2Array[1] = capitalize(pronounArray[1].value) + " " + pronounArray[1].verb + " " + q1Array[0].spelling + age;
+        q2Array[2] = capitalize(pronounArray[2].value) + " " + pronounArray[2].verb + " " + q1Array[0].spelling + age;
+        q2Array[3] = capitalize(pronounArray[3].value) + " " + pronounArray[3].verb + " " + q1Array[0].spelling + age;
         document.getElementById("grammarCheck").value = q2Array[randomG];
         document.getElementById("gPic").innerHTML = '';
         document.getElementById("g0r1d0").textContent = q2Array[0];
@@ -77,7 +78,6 @@ function g_01(userInput){
         setGrammar(q1Array[0]);
         currentUnit = "Review 1";
     } else if (userInput == "Unit 4") {
-        pronounArray = ([{value: "I", verb: "am", qp: "you", qv: "are"}, {value: "you", verb: "are", qp: "I", qv: "am"}, {value: "he", verb: "is", qp: "he", qv: "is"}, {value: "she", verb: "is", qp: "she", qv: "is"}]);
         shuffleArray(pronounArray);
         answerArray = ["Yes, ", "No, "];
         shuffleArray(answerArray);
@@ -308,7 +308,6 @@ function g_01(userInput){
     } else {
         q1Array = [""];
         q2Array = [""];
-        q3Array = [""];
         gLinks = [''];
         grammarLesson = "";
     }

@@ -22,7 +22,6 @@ function setGrammar(userInput){
     var q2Array = [""];
     var q3Array = [""];
     var answerArray = [""];
-    var sentenceArray = [];
     var x = 0;
     
     if (level_id == "Starter") {
