@@ -10,18 +10,22 @@ var fail = new Audio('/audio/fail.mp3');
 
 // Randomize array element order in-place
 // Using Durstenfeld Shuffle algorithm:
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+};
 
-    function shuffleArray(array) {
-        for (var i = array.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            var temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
-        }
-        return array;
-    };
+// sessionLevel are levels starter - 12
+function checkSessionStorage() {
+    levelId.textContent = sessionStorage.getItem("sessionLevel");
+    setLevel(levelId.textContent);
+};
 
-// levels starter - 12
 function setLevel(level) {
     sessionStorage.setItem("sessionLevel", level);
     level_id = level;
@@ -42,12 +46,36 @@ function clearLevel() {
     setQuiz(currentUnit);
 };
 
-function checkSessionStorage() {
-    levelId.textContent = sessionStorage.getItem("sessionLevel");
-    setLevel(levelId.textContent);
+// sets unit from dropdown menu
+function setCss(tabName, userInput){
+    var i;
+    var x = document.getElementsByClassName("tab-content");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    document.getElementById(tabName).style.display = "block";
+    switch (tabName){
+        case 'home':
+            clearLevel();
+            break;
+        case 'vocab_tab':
+            setVocab(userInput);
+            break;
+        case 'grammar_tab':
+            setGrammar(userInput);
+            break;
+        case 'phonics_tab':
+            setPhonics(userInput);
+            break;
+        case 'quizMaker_tab':
+            setQuiz(userInput);
+            break;
+        default:
+            break;
+    }
 };
 
-// say a message
+// speaks vocab, grammar or phonics
 function speak(text, callback) {
     var u = new SpeechSynthesisUtterance();
     u.text = text;
@@ -105,7 +133,6 @@ function vArraySlide() {
     }
 };
 
-
 // checks grammar input from user
 function gArraySlide(tdId) {
     if (grammarCheck.value != document.getElementById(tdId).textContent){
@@ -141,33 +168,4 @@ function pArraySlide() {
         phonicsCheck.value = "";
     }, 2000);
     phonicsCheck.focus();
-};
-
-// sets unit from dropdown menu
-function setCss(tabName, userInput){
-    var i;
-    var x = document.getElementsByClassName("tab-content");
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-    }
-    document.getElementById(tabName).style.display = "block";
-    switch (tabName){
-        case 'home':
-            clearLevel();
-            break;
-        case 'vocab_tab':
-            setVocab(userInput);
-            break;
-        case 'grammar_tab':
-            setGrammar(userInput);
-            break;
-        case 'phonics_tab':
-            setPhonics(userInput);
-            break;
-        case 'quizMaker_tab':
-            setQuiz(userInput);
-            break;
-        default:
-            break;
-    }
 };

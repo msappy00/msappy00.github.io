@@ -21,48 +21,8 @@
             max-width: 1000px;
             margin: 0 auto;
         }
-        #aText0, #aText1, #aText2, #aText3, #aText4, #aText5, #textInput0, #textInput1, #textInput2, #textInput3, #textInput4, #textInput5, #grammarInput, #grammarInput2 {
-            text-align:center;
-            font-size: 18px;
-            padding: 20px;
-            border: 5px;
-            outline: 2px;
-            width: 200px;
-            height: 20px;
-        }
-        #bTextInput0, #bTextInput1, #bTextInput2, #bTextInput3, #bTextInput4, #cTextInput0, #cTextInput1, #cTextInput2, #cTextInput3, #cTextInput4 {
-            background-color:transparent;
-            text-align:left;
-            font-size: 18px;
-            padding: 20px;
-            border: 1px;
-            outline: 0px;
-            width: 100%;
-            height: 40px;
-        }
         button:focus {
             outline:0;
-        }
-        #grammarButton0, #grammarButton1, #grammarButton2, #grammarButton3, #grammarButton4, #grammarButton5, #grammarButton6, #grammarButton7, #grammarButton8, #grammarButton9, #grammarButton10, #grammarButton11 {
-            border:0px;
-            border-radius:6px;
-            background-color:transparent;
-            box-shadow: 0px 0px 0px 0px #fff;
-            font-size:18px
-        }
-        #grammarInput, #grammarInput2 {
-            box-shadow: 0px 0px 0px 1px #000;
-            background-color:transparent;
-        }
-        #grammarInputA {
-            text-align:center;
-            font-size: 18px;
-            padding: 20px;
-            border: 5px;
-            outline: 2px;
-            width: 200px;
-            height: 20px;
-            box-shadow: 0px 0px 0px 1px #000;
         }
         .grayscale {
             filter: grayscale(100%);
@@ -73,11 +33,7 @@
         .tab-content {
             height: 100%;
         }
-        .form-control {
-            height: 100px;
-        }
-        .onlyprint {display: none;}
-        
+        .onlyprint {display: none;}       
         @media print {
             .onlyprint {display: block;}
             .w3-bar {display: none;}
@@ -85,63 +41,6 @@
             #className {display: none;}
             #displayName {display: none;}
             footer {page-break-after: always;}
-        }
-        /* The Modal (background) */
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-            padding-top: 60px;
-            color: #000;
-        }
-        
-        /* Modal Content/Box */
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5px auto; /* 15% from the top and centered */
-            border: 1px solid #888;
-            width: 30%; /* Could be more or less, depending on screen size */
-        }
-        
-        /* The Close Button */
-        .close {
-            /* Position it in the top right corner outside of the modal */
-            position: absolute;
-            right: 25px;
-            top: 0;
-            color: #000;
-            font-size: 35px;
-            font-weight: bold;
-        }
-        
-        /* Close button on hover */
-        .close:hover,
-        .close:focus {
-            color: red;
-            cursor: pointer;
-        }
-        
-        /* Add Zoom Animation */
-        .animate {
-            -webkit-animation: animatezoom 0.6s;
-            animation: animatezoom 0.6s
-        }
-        
-        @-webkit-keyframes animatezoom {
-            from {-webkit-transform: scale(0)}
-            to {-webkit-transform: scale(1)}
-        }
-        
-        @keyframes animatezoom {
-            from {transform: scale(0)}
-            to {transform: scale(1)}
         }
     </style>
     
@@ -152,6 +51,9 @@
     <script src="js/functions.js"></script>
     <script src="js/liveabc_vocab.js"></script>
     <script src="js/liveabc_grammar.js"></script>
+    <script src="js/grammar_starter.js"></script>
+    <script src="js/grammar_01.js"></script>
+    <script src="js/grammar_02.js"></script>
     <script src="js/liveabc_phonics.js"></script>
     <script src="js/liveabc_vocabQ.js"></script>
     
@@ -268,43 +170,6 @@
                 </div>
             </div>
             <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-right" id="day">day</a>
-            <!-- Button to open the modal login form
-            <button class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-right" onclick=toggleSignIn() id="sign-in-btn">Login</button>
-            -->
-                <!-- Login Modal -->
-                <div id="id01" class="modal">
-                    <span onclick="document.getElementById('id01').style.display='none'"
-                        class="close" title="Close Modal">&times;</span>
-                    
-                    <!-- Modal Content -->
-                    <form class="modal-content animate">
-                        <div class="imgcontainer w3-container w3-center">
-                            <img src="images/star-yellow.svg" alt="star avatar" class="avatar">
-                                <p></p>
-                                </div>
-                        <div class="w3-container w3-center">
-                            <label><b>Email</b></label>
-                            <input type="email" placeholder="Enter Email Address" id="email" required>
-                                <p></p>
-                                </div>
-                        <div class="w3-container w3-center">
-                            <label><b>Password</b></label>
-                            <input type="password" placeholder="Enter Password" id="password" required>
-                                <p></p>
-                                </div>
-                        <div class="w3-container w3-center">
-                            <button class="w3-button w3-blue w3-round" type="submit" id="sign-in" onclick=SignIn()>Submit</button>
-                        </div>
-                        <div class="w3-container w3-center">
-                            <input type="checkbox" /> Remember me
-                            <p></p>
-                        </div>
-                        <div class="w3-container w3-center" style="background-color:#f1f1f1">
-                            <button  class="w3-button w3-blue w3-round" type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                            <span class="psw">Forgot <a onclick=sendPasswordReset()>password?</a></span>
-                        </div>
-                    </form>
-                </div>
         </div>
     </div><!--/#nav bar-->
     <div class="w3-container w3-col l2 w3-cell-top">
