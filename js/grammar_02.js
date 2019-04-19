@@ -1,4 +1,5 @@
 function g_02(userInput){
+    sentenceArray = [];
     if (userInput == "Unit 1") {
         vocArray = ["blackboard", "DVD player", "door", "fan", "television", "table", "trash can", "window", "telephone"];
         shuffleArray(vocArray);
@@ -32,7 +33,6 @@ function g_02(userInput){
         vocArray = [({voc:'pencil', article:'a', pic:'<img src = "Level 1/images/pencil.png" />'}), ({voc:'eraser', article:'an', pic:'<img src = "Level 1/images/eraser.png" />'}), ({voc:'ruler', article:'a', pic:'<img src = "Level 1/images/ruler.png" />'}), ({voc:'pen', article:'a', pic:'<img src = "Level 1/images/pen.png" />'}), ({voc:'desk', article:'a', pic:'<img src = "Level 1/images/desk.png" />'}), ({voc:'jacket', pic:'<img src = "Level 1/images/jacket.png" />'}), ({voc:'skirt', pic:'<img src = "Level 1/images/skirt.png" />'}), ({voc:'shirt', pic:'<img src = "Level 1/images/shirt.png" />'}), ({voc:'shirt', pic:'<img src = "Level 1/images/shirt.png" />'}), ({voc:'T-shirt', pic:'<img src = "Level 1/images/T-shirt.png" />'}), ({voc:'dog', pic:'<img src = "Level 1/images/dog.png" />'}), ({voc:'cat', pic:'<img src = "Level 1/images/cat.png" />'}), ({voc:'rat', pic:'<img src = "Level 1/images/rat.png" />'}), ({voc:'rabbit', pic:'<img src = "Level 1/images/rabbit.png" />'})];
         shuffleArray(vocArray);
         document.getElementById("gPic").innerHTML = '<p style="font-size:100px">' + numberArray[0].num + '</p>';
-        sentenceArray = []
         if (randomG < 2) {
             sentence = "How many " + vocArray[0].voc + "s are there?";
             document.getElementById("grammarCheck").value = "There are " + numberArray[0].text + " " + vocArray[0].voc + "s.";
@@ -73,7 +73,6 @@ function g_02(userInput){
         vocArray = [({voc:'yo-yo', pic:'<img src = "Level 1/images/yo-yo.png" />'}), ({voc:'robot', pic:'<img src = "Level 1/images/robot.png" />'}), ({voc:'doll', pic:'<img src = "Level 1/images/doll.png" />'}), ({voc:'teddy bear', pic:'<img src = "Level 1/images/teddy bear.png" />'}), ({voc:'ball', pic:'<img src = "Level 1/images/ball.png" />'}), ({voc:'block', pic:'<img src = "Level 1/images/blocks.png" />'}), ({voc:'video game', pic:'<img src = "Level 1/images/video games.png" />'}), ({voc:'board game', pic:'<img src = "Level 1/images/board game.png" />'})];
         shuffleArray(vocArray);
         document.getElementById("gPic").innerHTML = '<p style="font-size:100px">' + numberArray[0].num + '</p>';
-        sentenceArray = []
         sentence = "How many " + vocArray[0].voc + "s are there?";
         if (numberArray[0].text == "one") {
             document.getElementById("grammarCheck").value = "There is one " + vocArray[0].voc + ".";
@@ -146,7 +145,6 @@ function g_02(userInput){
         vocArray = [({voc:'tomatoes', pic:'<img src="Level 2/images/tomatoes.png" />'}), ({voc:'mangoes', pic:'<img src="Level 2/images/mangoes.png" />'}), ({voc:'strawberries', pic:'<img src="Level 2/images/strawberries.png" />'}), ({voc:'cherries', pic:'<img src="Level 2/images/cherries.png" />'}), ({voc:'peaches', pic:'<img src="Level 2/images/peaches.png" />'}), ({voc:'oranges', pic:'<img src="Level 2/images/oranges.png" />'}), ({voc:'kiwis', pic:'<img src="Level 2/images/kiwis.png" />'}), ({voc:'coconuts', pic:'<img src="Level 2/images/coconuts.png" />'})];
         shuffleArray(vocArray);
         document.getElementById("gPic").innerHTML = vocArray[0].pic;
-        sentenceArray = []
         x = randomG;
         if (x == 0) {
             sentence = "What are these?";
@@ -198,7 +196,6 @@ function g_02(userInput){
         shuffleArray(verbArray);
         pronounArray = [({q:'I', a:'you'}), ({q:'you', a:'I'}), ({q:'they', a:'they'}), ({q:'he', a:'he'}), ({q:'she', a:'she'}), ({q:'we', a:'we'})];
         shuffleArray(pronounArray);
-        sentenceArray = []
         document.getElementById("gPic").innerHTML = verbArray[0].pic;
         if (randomG < 2) {
             sentence = "Can " + pronounArray[0].q + " " + verbArray[0].v + "?";
@@ -233,7 +230,6 @@ function g_02(userInput){
         shuffleArray(vocArray);
         locArray = [({voc:' in the box', pic:'<img src="Starter/images/box.png" />'}), ({voc:' behind the door', pic:'<img src="Level 2/images/door.png" />'}), ({voc:' near the window', pic:'<img src="Level 2/images/window.png" />'}), ({voc:' on the table', pic:'<img src="Level 2/images/table.png" />'}), ({voc:' in front of the blackboard', pic:'<img src="Level 2/images/blackboard.png" />'}), ({voc:' under the whiteboard', pic:'<img src="Level 2/images/whiteboard.png" />'})];
         shuffleArray(locArray);
-        sentenceArray = []
         document.getElementById("gPic").innerHTML = locArray[0].pic;
         if (randomG < 2) {
             sentence = "Where is the " + vocArray[0] + "?";
