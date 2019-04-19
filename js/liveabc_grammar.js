@@ -24,7 +24,6 @@ function setGrammar(userInput){
     var q3Array = [""];
     var answerArray = [""];
     var sentenceArray = [];
-    var randomG = Math.floor(Math.random() * 4);
     var x = 0;
     
     if (level_id == "Starter") {

@@ -1,13 +1,10 @@
 var bookNumber;
-var className = "";
 var level_id = "";
-var blank = {displayName: '', correct: 0, attempted: 0};
-var classList = [blank, blank, blank, blank, blank, blank];
 var currentUnit = "";
 var array_i = 0;
-var cArray_i = 0;
 var pArray_i = 0;
 var qArray_i = 0;
+var randomG = Math.floor(Math.random() * 4);
 var success = new Audio('/audio/success.mp3');
 var fail = new Audio('/audio/fail.mp3');
 
@@ -24,43 +21,7 @@ var fail = new Audio('/audio/fail.mp3');
         return array;
     };
 
-function setClass(classN) {
-    sessionStorage.setItem("className", classN);
-    document.getElementById("className").textContent = classN;
-    className = classN;
-    classList = [blank, blank, blank, blank, blank, blank];
-    document.getElementById("Ss1").textContent = classList[0].displayName;
-    document.getElementById("Ss2").textContent = classList[1].displayName;
-    document.getElementById("Ss3").textContent = classList[2].displayName;
-    document.getElementById("Ss4").textContent = classList[3].displayName;
-    document.getElementById("Ss5").textContent = classList[4].displayName;
-    document.getElementById("Ss6").textContent = classList[5].displayName;
-    var jsData = JSON.stringify(classList);
-    window.sessionStorage.setItem("classList", jsData);
-    for (student in classList) {
-        sNum = Number(student) + 1;
-        if (classList[student].displayName != ''){
-            document.getElementById("SR"+sNum+"-btn").innerHTML = '<input class="w3-check" type="checkbox" checked id="SR'+sNum+'">';
-            if (classList[student].attempted){
-                var score = classList[student].correct / classList[student].attempted * 100;
-                score = Math.round(score);
-                document.getElementById("SP"+sNum).textContent = score+"%";
-            }
-        } else {
-            document.getElementById("SR"+sNum+"-btn").innerHTML = '';
-            document.getElementById("SP"+sNum).textContent = "";
-        }
-    }
-    cArray_i = 0;
-    document.getElementById("displayName").textContent = classList[cArray_i].displayName;
-};
-
-function clearClass() {
-    classList = [];
-    sessionStorage.setItem("className", "");
-    document.getElementById("className").textContent = "";
-    setClass("");
-};
+// levels starter - 12
 function setLevel(level) {
     sessionStorage.setItem("sessionLevel", level);
     level_id = level;
@@ -84,41 +45,8 @@ function clearLevel() {
 function checkSessionStorage() {
     levelId.textContent = sessionStorage.getItem("sessionLevel");
     setLevel(levelId.textContent);
-    if (sessionStorage.getItem("className")){
-        className = sessionStorage.getItem("className");
-    }
-    document.getElementById("className").textContent = className;
-    if (sessionStorage.getItem("classList")) {
-        var jsData = window.sessionStorage.getItem("classList");
-        classList = JSON.parse(jsData);
-        document.getElementById("Ss1").textContent = classList[0].displayName;
-        document.getElementById("Ss2").textContent = classList[1].displayName;
-        document.getElementById("Ss3").textContent = classList[2].displayName;
-        document.getElementById("Ss4").textContent = classList[3].displayName;
-        document.getElementById("Ss5").textContent = classList[4].displayName;
-        document.getElementById("Ss6").textContent = classList[5].displayName;
-        for (student in classList) {
-            sNum = Number(student) + 1;
-            if (classList[student].displayName != ''){
-                document.getElementById("SR"+sNum+"-btn").innerHTML = '<input class="w3-check" type="checkbox" checked id="SR'+sNum+'">';
-                if (classList[student].attempted){
-                    var score = classList[student].correct / classList[student].attempted * 100;
-                    score = Math.round(score);
-                    document.getElementById("SP"+sNum).textContent = score+"%";
-                }
-            } else {
-                document.getElementById("SR"+sNum+"-btn").innerHTML = '';
-                document.getElementById("SP"+sNum).textContent = "";
-            }
-        }
-    }
-    else {
-        classList = [blank, blank, blank, blank, blank, blank];
-    }
-    cArray_i = 0;
-    document.getElementById("displayName").textContent = classList[cArray_i].displayName;
-    //readUserData("Ss1");
 };
+
 // say a message
 function speak(text, callback) {
     var u = new SpeechSynthesisUtterance();
@@ -139,13 +67,10 @@ function speak(text, callback) {
     
     speechSynthesis.speak(u);
 };
+
+// checks vocab input from user
 function vArraySlide() {
-    sNum = cArray_i + 1;
-    sName = classList[cArray_i];
     if (spellCheck.value != spellCheck.pattern){
-        if (!classList[cArray_i].correct){
-            classList[cArray_i].correct = 10;
-        }
         fail.play();
         document.getElementById("spellCheck").style.backgroundColor = "lightpink";
         document.getElementById("spellCheck").placeholder = "Oops!";
@@ -153,11 +78,6 @@ function vArraySlide() {
         success.play();
         document.getElementById("spellCheck").style.backgroundColor = "lightgreen";
         document.getElementById("spellCheck").placeholder = "Correct!";
-        if (classList[cArray_i].correct){
-            classList[cArray_i].correct += 1;
-        } else {
-            classList[cArray_i].correct = 11;
-        }
         spellCheck.value = "";
         array_i++;
         if (array_i > (array.length - 1)) {
@@ -183,40 +103,24 @@ function vArraySlide() {
         //vocabAudio.innerHTML = '<audio controls autoplay><source src="'+level_id+'/audio/'+array[array_i]+'.mp3" type="audio/mp3" /></audio>';
         spellCheck.focus();
     }
-    scoreChange();
-    cArraySlide();
-    //writeUserData("Ss1", PNow);
 };
 
+
+// checks grammar input from user
 function gArraySlide(tdId) {
-    sNum = cArray_i + 1;
-    var score = classList[cArray_i].score;
     if (grammarCheck.value != document.getElementById(tdId).textContent){
-        if (!classList[cArray_i].correct){
-            classList[cArray_i].correct = 10;
-        }
         fail.play();
         setTimeout(function(){speak(grammarCheck.value);
                     }, 1000);
     } else {
         success.play();
-        if (classList[cArray_i].correct){
-            classList[cArray_i].correct += 1;
-        } else {
-            classList[cArray_i].correct = 11;
-        }
         setGrammar(currentUnit);
     }
-    scoreChange();
-    cArraySlide();
 };
+
+// checks phonics input from user
 function pArraySlide() {
-    sNum = cArray_i + 1;
-    var score = classList[cArray_i].score;
     if (phonicsCheck.value != phonicsCheck.pattern) {
-        if (!classList[cArray_i].correct){
-            classList[cArray_i].correct = 10;
-        }
         fail.play();
         document.getElementById("phonicsCheck").style.backgroundColor = "lightpink";
     }
@@ -224,11 +128,6 @@ function pArraySlide() {
         phonicsCheck.value = "";
         success.play();
         document.getElementById("phonicsCheck").style.backgroundColor = "lightgreen";
-        if (classList[cArray_i].correct){
-            classList[cArray_i].correct += 1;
-        } else {
-            classList[cArray_i].correct = 11;
-        }
         pArray_i++;
         if (pArray_i > (pArray.length - 1)) {
             pArray_i = 0;
@@ -242,61 +141,9 @@ function pArraySlide() {
         phonicsCheck.value = "";
     }, 2000);
     phonicsCheck.focus();
-    scoreChange();
-    cArraySlide();
-};
-function scoreChange() {
-    if (classList[cArray_i].displayName != ''){
-        sNum = cArray_i + 1;
-        if (classList[cArray_i].attempted){
-            classList[cArray_i].attempted += 1;
-        } else {
-            classList[cArray_i].attempted = 11;
-        }
-        score = classList[cArray_i].correct / classList[cArray_i].attempted * 100;
-        score = Math.round(score);
-        document.getElementById("SP"+sNum).textContent = score+"%";
-        var jsData = JSON.stringify(classList);
-        window.sessionStorage.setItem("classList", jsData);
-    }
-};
-function cArraySlide() {
-    if (className != "") {
-        cArray_i += 1;
-        if (cArray_i > 5) {
-            cArray_i = 0;
-        }
-        if (classList[cArray_i].displayName != "") {
-            if (document.getElementById("SR" + (cArray_i + 1)).checked) {
-                document.getElementById("displayName").textContent = classList[cArray_i].displayName;
-            } else {
-                cArraySlide();
-            }
-        } else {
-            cArray_i = 5;
-            cArraySlide();
-        }
-    }
 };
 
-function checkGrammar2(qInt, x, y) {
-    if (x == y) {
-        document.getElementById("grammarButton"+qInt).style.border = "4px solid black";
-        document.getElementById("grammarButton"+qInt).style.backgroundColor = "lightgreen";
-    } else {
-        document.getElementById("grammarButton"+qInt).style.textDecoration = "line-through";
-    }
-};
-function showGrammar() {
-    document.getElementById("g0r3d0").innerHTML = '<h3>'+sampleAnswer+'</h3>';
-};
-
-function showGrammar1() {
-    document.getElementById("g0r2d0").innerHTML = '<h3>'+sampleAnswer1+'</h3>';
-};
-function showGrammar2() {
-    document.getElementById("g0r5d0").innerHTML = '<h3>'+sampleAnswer2+'</h3>';
-};
+// sets unit from dropdown menu
 function setCss(tabName, userInput){
     var i;
     var x = document.getElementsByClassName("tab-content");
@@ -324,118 +171,3 @@ function setCss(tabName, userInput){
             break;
     }
 };
-
-    /**
-     * Handles the sign in button press.
-     */
-function toggleSignIn() {
-    if (firebase.auth().currentUser) {
-        // [START signout]
-        document.getElementById("sign-in-btn").innerHTML = "Login";
-        firebase.auth().signOut();
-        // [END signout]
-    } else {
-        document.getElementById('id01').style.display='block';
-    }
-};
-
-function SignIn() {
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-    if (email.length < 4) {
-        alert('Please enter an email address.');
-        return;
-    }
-    if (password.length < 4) {
-        alert('Please enter a password.');
-        return;
-    }
-    // Sign in with email and pass.
-    // [START authwithemail]
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // [START_EXCLUDE]
-        if (errorCode === 'auth/wrong-password') {
-        alert('Wrong password.');
-        } else {
-        alert(errorMessage);
-        }
-        console.log(error);
-        // [END_EXCLUDE]
-        });
-        // [END authwithemail]
-        document.getElementById('id01').style.display='none';
-};
-
-
-function sendPasswordReset() {
-    var email = document.getElementById('email').value;
-    // [START sendpasswordemail]
-    firebase.auth().sendPasswordResetEmail(email).then(function() {
-        // Password Reset Email Sent!
-        // [START_EXCLUDE]
-        alert('Password Reset Email Sent!');
-        // [END_EXCLUDE]
-        }).catch(function(error) {
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                // [START_EXCLUDE]
-                if (errorCode == 'auth/invalid-email') {
-                alert(errorMessage);
-                } else if (errorCode == 'auth/user-not-found') {
-                alert(errorMessage);
-                }
-                console.log(error);
-                // [END_EXCLUDE]
-                });
-                // [END sendpasswordemail];
-};
-function readUserData(sName) {
-return firebase.database().ref("/" + sName).once("value").then(function(snapshot) {
-                                                                    var PrevL = (snapshot.val().PLearned);
-                                                                    document.getElementById('readData').textContent = PrevL;
-                                                                    })
-};
-function writeUserData(sName, PLearned) {
-    var userId = firebase.auth().currentUser;
-    var usersRef = firebase.database().ref("/" + sName).set({
-                                                            PLearned: PLearned
-    });
-    document.getElementById('readData').textContent = PLearned;
-};
-
-initApp = function() {
-    firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-        // User is signed in.
-        var displayName = user.displayName;
-        var email = user.email;
-        var emailVerified = user.emailVerified;
-        var photoURL = user.photoURL;
-        var uid = user.uid;
-        var phoneNumber = user.phoneNumber;
-        var providerData = user.providerData;
-        user.getIdToken().then(function(accessToken) {
-            document.getElementById('sign-in-btn').textContent = 'Logout';});
-    } else {
-        // User is signed out.
-        document.getElementById('sign-in-btn').textContent = 'Login';
-    }
-    }, function(error) {console.log(error);});
-};
-
-//window.addEventListener('load', function() {
-    //initApp()
-//});
-
-function aniDrop() {
-    var x = document.getElementById("Demo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
