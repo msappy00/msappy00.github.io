@@ -1457,6 +1457,4 @@ function setGrammar(userInput){
         gLinks = [''];
         grammarLesson = "";
     }
-    document.getElementById("grammar_links").innerHTML = gLinks;
-    document.getElementById("grammar_lesson").innerHTML = grammarLesson;
 };

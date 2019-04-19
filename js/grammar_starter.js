@@ -52,6 +52,8 @@ function g_starter(userInput) {
     document.getElementById("g0r2d0").textContent = q1Array[2];
     document.getElementById("g0r2d2").textContent = q1Array[3];
     document.getElementById("grammarCheck").value = q1Array[randomG];
+    document.getElementById("grammar_links").innerHTML = gLinks;
+    document.getElementById("grammar_lesson").innerHTML = grammarLesson;
     if (q1Array[randomG]){
         setTimeout(function(){speak(q1Array[randomG])}, 2000);
     }
