@@ -4,7 +4,6 @@ var currentUnit = "";
 var array_i = 0;
 var pArray_i = 0;
 var qArray_i = 0;
-var randomG = Math.floor(Math.random() * 4);
 var success = new Audio('/audio/success.mp3');
 var fail = new Audio('/audio/fail.mp3');
 
@@ -19,6 +18,8 @@ function shuffleArray(array) {
     }
     return array;
 };
+
+function randG() {return Math.floor(Math.random() * 4)};
 
 // sessionLevel are levels starter - 12
 function checkSessionStorage() {
@@ -161,7 +162,7 @@ function pArraySlide() {
         }
         phonicsCheck.pattern = pArray[pArray_i].pattern;   
     }
-    setTimeout(function(){
+    setTimeout(function() {
         phonicsAudio.innerHTML = '<audio controls autoplay><source src="phonics/'+pArray[pArray_i].value+'.mp3" type="audio/mp3" /></audio>';
         document.getElementById("phonicsCheck").style.backgroundColor = "white";
         phonicsCheck.value = "";

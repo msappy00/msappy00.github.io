@@ -94,9 +94,9 @@ function g_02(userInput){
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Review 1") {
-        q1Array = ["Unit 1", "Unit 2", "Unit 3"];
-        shuffleArray(q1Array);
-        setGrammar(q1Array[0]);
+        sentenceArray = ["Unit 1", "Unit 2", "Unit 3"];
+        shuffleArray(sentenceArray);
+        setGrammar(sentenceArray[0]);
         currentUnit = "Review 1";
         grammarLesson = "";
     } else if (userInput == "Unit 4") {
@@ -221,9 +221,9 @@ function g_02(userInput){
         gLinks = ['<a href="http://scratch.mit.edu/projects/36595088/" target="_newtab">Scratch: Can he ___?</a>'];
         grammarLesson = "";
     } else if (userInput == "Review 2") {
-        q1Array = ["Unit 4", "Unit 5", "Unit 6"];
-        shuffleArray(q1Array);
-        setGrammar(q1Array[0]);
+        sentenceArray = ["Unit 4", "Unit 5", "Unit 6"];
+        shuffleArray(sentenceArray);
+        setGrammar(sentenceArray[0]);
         currentUnit = "Review 2";
     } else if (userInput == "Unit 7") {
         vocArray = ['television', 'DVD player', 'fan', 'trash can', 'robot', 'doll', 'teddy bear', 'ball', 'board game'];
@@ -385,23 +385,21 @@ function g_02(userInput){
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Review 3") {
-        q1Array = ["Unit 7", "Unit 8", "Unit 9"];
-        shuffleArray(q1Array);
-        setGrammar(q1Array[0]);
+        sentenceArray = ["Unit 7", "Unit 8", "Unit 9"];
+        shuffleArray(sentenceArray);
+        setGrammar(sentenceArray[0]);
         currentUnit = "Review 3";
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Final Review") {
-        q1Array = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9"];
-        shuffleArray(q1Array);
-        setGrammar(q1Array[0]);
+        sentenceArray = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9"];
+        shuffleArray(sentenceArray);
+        setGrammar(sentenceArray[0]);
         currentUnit = "Final Review";
         gLinks = ['<a href="http://scratch.mit.edu/projects/64838632/" target="_newtab">B2 Chat Bot</a>'];
         grammarLesson = "";
     } else {
-        q1Array = [""];
-        q2Array = [""];
-        q3Array = [""];
+        sentenceArray = [""];
         gLinks = [''];
         grammarLesson = "";
     }
