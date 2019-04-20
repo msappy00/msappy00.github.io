@@ -173,3 +173,10 @@ function pArraySlide() {
 function capitalize(word){
    return word[0].charAt(0).toUpperCase() + word.slice(1);
 };
+
+function conjugate_verb(PRP, Verb) {
+    if (PRP == 'I') {VERB = Verb.VBPArray[1].RESPONSE}
+        else if (PRP == 'you') {VERB = Verb.VBPArray[0].RESPONSE} 
+        else {VERB = Verb.VBZ}
+    return VERB;
+};

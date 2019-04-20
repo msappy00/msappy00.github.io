@@ -1,90 +1,58 @@
 function g_01(userInput){
-    /* pos_tags = 
-    ADJ: adjective
-    ADP: adposition
-    ADV: adverb
-    CCONJ: coordinating conjunction
-    DET: determiner
-    INTJ: interjection
-    NOUN: noun
-    NUM: numeral
-    PART: particle
-    PRON: pronoun
-    PRP: pronoun, personal
-    PRP$: pronoun, possessive
-    PROPN: proper noun
-    PUNCT: punctuation
-    SCONJ: subordinating conjunction
-    SYM: symbol
-    VERB: verb
-    VBP: verb, non-3rd person singular present
-    VBZ: verb, 3rd person singular present
-    WP: wh-pronoun, personal
-    X: other */
-    sentenceArray = [];
-    PRPArray = ([{PRP: "I", RESPONSE: "you"}, {PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}]);
-    PRP$Array = ([{PRP$: "my", RESPONSE: "your"}, {PRP$: "your", RESPONSE: "my"}]);
-    NOUNArray = [];
-    VBPArray = ["am", "are"];
-    VBZ = "is";
-    DETArray = ["a"]; 
-    PUNCTArray = [".", "?"];
-    WP = "who";
-
     if (userInput == "Unit 1") {
-            PRPArray = ([PRPArray[0], PRPArray[1]]);
-            shuffleArray(PRPArray);
-            NOUNArray = [({NOUN:'boy', pic:'<img src="Level 1/images/boy.png" />'}), ({NOUN:'girl', pic:'<img src="Level 1/images/girl.png" />'}), ({NOUN:'woman', pic:'<img src="Level 1/images/woman.png" />'}), ({NOUN:'man', pic:'<img src="Level 1/images/man.png" />'}), ({NOUN:'student', pic:'<img src="Level 1/images/student.png" />'}), ({NOUN:'teacher', pic:'<img src="Level 1/images/teacher.png" />'})];
-            DET = DETArray[0];
-            PUNCT = PUNCTArray[0];
-            shuffleArray(NOUNArray);
-            if (PRPArray[0].PRP == 'I') {VERB = VBPArray[0]} 
-            else {VERB = VBPArray[1]}
-            document.getElementById("gPic").innerHTML = NOUNArray[0].pic;
-            var sentence = capitalize(PRPArray[0].PRP) + " ______ " + DET + " " + NOUNArray[0].NOUN + PUNCT;
-            document.getElementById("gInstructions").innerHTML = "<h1>" + sentence + "</h1>";
-            document.getElementById("grammarCheck").value = VERB;
-            sentence = PRPArray[0].PRP + " " + VERB + " " + DET + " " + NOUNArray[0].NOUN + PUNCT;            
-            sentenceArray = ([VBPArray[0], VBPArray[1], "", ""]);
-            gLinks = [''];
-            grammarLesson = "";   
+        PRPArray = [PRPArray[0], PRPArray[1]];
+        shuffleArray(PRPArray);
+        NOUNArray = [{NOUN:'boy', pic:'<img src="Level 1/images/boy.png" />'}, {NOUN:'girl', pic:'<img src="Level 1/images/girl.png" />'}, 
+            {NOUN:'woman', pic:'<img src="Level 1/images/woman.png" />'}, {NOUN:'man', pic:'<img src="Level 1/images/man.png" />'}, 
+            {NOUN:'student', pic:'<img src="Level 1/images/student.png" />'}, {NOUN:'teacher', pic:'<img src="Level 1/images/teacher.png" />'}];
+        DET = DETArray[0];
+        PUNCT = PUNCTArray[0];
+        shuffleArray(NOUNArray);
+        document.getElementById("gPic").innerHTML = NOUNArray[0].pic;
+        var sentence = capitalize(PRPArray[0].PRP) + " ______ " + DET + " " + NOUNArray[0].NOUN + PUNCT;
+        document.getElementById("gInstructions").innerHTML = "<h1>" + sentence + "</h1>";
+        document.getElementById("grammarCheck").value = conjugate_verb(PRPArray[0].PRP, beVerb);
+        sentence = PRPArray[0].PRP + " " + VERB + " " + DET + " " + NOUNArray[0].NOUN + PUNCT;            
+        sentenceArray = [beVerb.VBPArray[0].RESPONSE, beVerb.VBPArray[1].RESPONSE, "", ""];
+        gLinks = [''];
+        grammarLesson = "";   
     } else if (userInput == "Unit 2") {
         randomG = randG();
-        PRPArray = ([PRPArray[3], PRPArray[4]]);
+        PRPArray = [PRPArray[3], PRPArray[4]];
         shuffleArray(PRPArray);
-        sentence = WP + " " + VBZ + " " + PRPArray[0].PRP + PUNCTArray[1];
-        NOUNArray = [({NOUN:'grandfather', pic:'<img src="Level 1/images/grandfather.png" />'}), ({NOUN:'father', pic:'<img src="Level 1/images/father.png" />'}), ({NOUN:'uncle', pic:'<img src="Level 1/images/uncle.png" />'}), ({NOUN:'brother', pic:'<img src="Level 1/images/brother.png" />'}, {NOUN:'grandmother', pic:'<img src="Level 1/images/grandmother.png" />'}), ({NOUN:'mother', pic:'<img src="Level 1/images/mother.png" />'}), ({NOUN:'aunt', pic:'<img src="Level 1/images/aunt.png" />'}), ({NOUN:'cousin', pic:'<img src="Level 1/images/cousin.png" />'}), ({NOUN:'sister', pic:'<img src="Level 1/images/sister.png" />'})];
+        sentence = WP + " " + conjugate_verb(PRPArray[0].PRP, beVerb) + " " + PRPArray[0].PRP + PUNCTArray[1];
+        NOUNArray = [{NOUN:'grandfather', pic:'<img src="Level 1/images/grandfather.png" />'}, {NOUN:'father', pic:'<img src="Level 1/images/father.png" />'}, 
+            {NOUN:'uncle', pic:'<img src="Level 1/images/uncle.png" />'}, {NOUN:'brother', pic:'<img src="Level 1/images/brother.png" />'}, 
+                {NOUN:'grandmother', pic:'<img src="Level 1/images/grandmother.png" />'}, {NOUN:'mother', pic:'<img src="Level 1/images/mother.png" />'}, 
+                {NOUN:'aunt', pic:'<img src="Level 1/images/aunt.png" />'}, {NOUN:'cousin', pic:'<img src="Level 1/images/cousin.png" />'}, {NOUN:'sister', pic:'<img src="Level 1/images/sister.png" />'}];
         if (PRPArray[0].PRP == "he") {NOUNArray = NOUNArray.slice(0, 4)}
         else {NOUNArray = NOUNArray.slice(4)};
         document.getElementById("gPic").innerHTML = NOUNArray[randomG].pic;
-        document.getElementById("grammarCheck").value = capitalize(PRPArray[0].PRP) + " " + VBZ + " " + PRP$Array[0].PRP$ + " " + NOUNArray[randomG].NOUN + PUNCTArray[0];
-        sentenceArray[0] = capitalize(PRPArray[0].PRP) + " " + VBZ + " " + PRP$Array[0].PRP$ + " " + NOUNArray[0].NOUN + PUNCTArray[0];
-        sentenceArray[1] = capitalize(PRPArray[0].PRP) + " " + VBZ + " " + PRP$Array[0].PRP$ + " " + NOUNArray[1].NOUN + PUNCTArray[0];
-        sentenceArray[2] = capitalize(PRPArray[0].PRP) + " " + VBZ + " " + PRP$Array[0].PRP$ + " " + NOUNArray[2].NOUN + PUNCTArray[0];
-        sentenceArray[3] = capitalize(PRPArray[0].PRP) + " " + VBZ + " " + PRP$Array[0].PRP$ + " " + NOUNArray[3].NOUN + PUNCTArray[0];
+        document.getElementById("grammarCheck").value = capitalize(PRPArray[0].PRP) + " " + conjugate_verb(PRPArray[0].PRP, beVerb) + " " + PRPSArray[0].PRPS + " " + NOUNArray[randomG].NOUN + PUNCTArray[0];
+        sentenceArray[0] = capitalize(PRPArray[0].PRP) + " " + VERB + " " + PRPSArray[0].PRPS + " " + NOUNArray[0].NOUN + PUNCTArray[0];
+        sentenceArray[1] = capitalize(PRPArray[0].PRP) + " " + VERB + " " + PRPSArray[0].PRPS + " " + NOUNArray[1].NOUN + PUNCTArray[0];
+        sentenceArray[2] = capitalize(PRPArray[0].PRP) + " " + VERB + " " + PRPSArray[0].PRPS + " " + NOUNArray[2].NOUN + PUNCTArray[0];
+        sentenceArray[3] = capitalize(PRPArray[0].PRP) + " " + VERB + " " + PRPSArray[0].PRPS + " " + NOUNArray[3].NOUN + PUNCTArray[0];
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 3") {
-        sentenceArray = [({number: "1", spelling: "one"}), ({number: "2", spelling: "two"}), ({number: "3", spelling: "three"}), ({number: "4", spelling: "four"}), ({number: "5", spelling: "five"}), ({number: "6", spelling: "six"}), ({number: "7", spelling: "seven"}), ({number: "8", spelling: "eight"}), ({number: "9", spelling: "nine"}), ({number: "10", spelling: "ten"})];
-        shuffleArray(sentenceArray);
-        if (sentenceArray[0].number == "1") {
-            var age = " year old.";
-        } else {
-            var age = " years old.";
-        }
+        randomG = randG();
+        PRPArray = [PRPArray[0], PRPArray[1], PRPArray[3], PRPArray[4]];
         shuffleArray(PRPArray);
-        var sentence = "How old " + PRPArray[randomG].qv + " " + PRPArray[randomG].qp + "?";
-        q2Array[0] = capitalize(PRPArray[0].value) + " " + PRPArray[0].verb + " " + sentenceArray[0].spelling + age;
-        q2Array[1] = capitalize(PRPArray[1].value) + " " + PRPArray[1].verb + " " + sentenceArray[0].spelling + age;
-        q2Array[2] = capitalize(PRPArray[2].value) + " " + PRPArray[2].verb + " " + sentenceArray[0].spelling + age;
-        q2Array[3] = capitalize(PRPArray[3].value) + " " + PRPArray[3].verb + " " + sentenceArray[0].spelling + age;
-        document.getElementById("grammarCheck").value = q2Array[randomG];
-        document.getElementById("gPic").innerHTML = '';
-        document.getElementById("g0r1d0").textContent = q2Array[0];
-        document.getElementById("g0r1d2").textContent = q2Array[1];
-        document.getElementById("g0r2d0").textContent = q2Array[2];
-        document.getElementById("g0r2d2").textContent = q2Array[3];
-        setTimeout(function(){speak(sentence)}, 2000);
+        WRB = "how";
+        ADJ = "old";
+        NOUNArray = [{NN: "year", NNS: "years"}];
+        shuffleArray(NUMArray);
+        if (NUMArray[0].NUM == "1") {NOUN = NOUNArray[0].NN} 
+        else {NOUN = NOUNArray[0].NNS}
+        sentence = capitalize(WRB) + " " + ADJ + " " + conjugate_verb(PRPArray[0].PRP, beVerb) + " " + PRPArray[0].PRP + PUNCTArray[1];
+        document.getElementById("grammarCheck").value = capitalize(PRPArray[0].RESPONSE) + " " + conjugate_verb(PRPArray[0].RESPONSE, beVerb) + " " + NUMArray[0].TEXT + " " + NOUN + " " + ADJ + PUNCTArray[0];
+        conjugate_verb(PRPArray[0].RESPONSE, beVerb);
+        sentenceArray[0] = capitalize(PRPArray[0].RESPONSE) + " " + VERB + " " + NUMArray[0].TEXT + " " + NOUN + " " + ADJ + PUNCTArray[0];
+        sentenceArray[1] = capitalize(PRPArray[0].RESPONSE) + " " + VERB + " " + NUMArray[1].TEXT + " " + NOUN + " " + ADJ + PUNCTArray[0];
+        sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " " + VERB + " " + NUMArray[2].TEXT + " " + NOUN + " " + ADJ + PUNCTArray[0];
+        sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + VERB + " " + NUMArray[3].TEXT + " " + NOUN + " " + ADJ + PUNCTArray[0];
+        document.getElementById("gPic").innerHTML = "<h1>" + NUMArray[0].NUM + "</h1>";
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Review 1") {
