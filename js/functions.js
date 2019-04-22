@@ -138,8 +138,7 @@ function vArraySlide() {
 function gArraySlide(tdId) {
     if (grammarCheck.value != document.getElementById(tdId).textContent){
         fail.play();
-        setTimeout(function(){speak(grammarCheck.value);
-                    }, 1000);
+        setTimeout(function(){speak(request.value);}, 1000);
     } else {
         success.play();
         setGrammar(currentUnit);
@@ -176,7 +175,7 @@ function capitalize(word){
 
 function conjugate_verb(PRP, Verb) {
     if (PRP == 'I') {VERB = Verb.VBPArray[1].RESPONSE}
-        else if (PRP == 'you') {VERB = Verb.VBPArray[0].RESPONSE} 
+        else if (PRP == 'you' || PRP == 'they') {VERB = Verb.VBPArray[0].RESPONSE}
         else {VERB = Verb.VBZ}
     return VERB;
 };

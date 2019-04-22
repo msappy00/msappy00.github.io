@@ -43,7 +43,8 @@ function g_starter(userInput) {
     document.getElementById("g0r2d2").textContent = sentenceArray[3];
     var newLocal = randG();
     sentence = sentenceArray[newLocal];
-    document.getElementById("grammarCheck").value = sentence
+    document.getElementById("grammarCheck").value = sentence;
+    document.getElementById("request").value = sentence;
     document.getElementById("grammar_links").innerHTML = ['<a href="http://www.eslgamesplus.com/verb-to-be-auxiliary-verb-am-is-are-esl-grammar-activity/" target="_newtab">ESL Games+: Be Verbs</a>'];
     document.getElementById("grammar_lesson").innerHTML = "";
     if (sentence){

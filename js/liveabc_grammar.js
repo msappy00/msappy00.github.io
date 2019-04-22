@@ -13,22 +13,29 @@ function setGrammar(userInput){
     PUNCT: punctuation
     SCONJ: subordinating conjunction
     SYM: symbol
+    UH: interjection
     VERB: verb (VB: verb, base form; VBP: verb, non-3rd person singular present; VBZ: verb, 3rd person singular present)
     WP: wh-pronoun, personal
     X: other */
     sentenceArray = [];
     PRPArray = [{PRP: "I", RESPONSE: "you"}, {PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
     PRPSArray = [{PRPS: "my", RESPONSE: "your"}, {PRPS: "your", RESPONSE: "my"}];
+    DETArray = ["a"];
+    NUMArray = [{NUM: "1", TEXT: "one"}, {NUM: "2", TEXT: "two"}, {NUM: "3", TEXT: "three"}, {NUM: "4", TEXT: "four"}, {NUM: "5", TEXT: "five"}, 
+    {NUM: "6", TEXT: "six"}, {NUM: "7", TEXT: "seven"}, {NUM: "8", TEXT: "eight"}, {NUM: "9", TEXT: "nine"}, {NUM: "10", TEXT: "ten"}]; 
     NOUNArray = [];
+    WP = "who";
+    UHArray = ["no", "yes"];
+    PUNCTArray = [".", "?", ","];
+
+    // ADJECTIVES
+    ADJArray = [];
 
     // VERBS
     beVerb = {VB: "be", VBPArray: [{REQUEST: "am", RESPONSE: "are"}, {REQUEST: "are", RESPONSE: "am"}], VBZ: "is"};
 
-    DETArray = ["a"]; 
-    PUNCTArray = [".", "?"];
-    NUMArray = [{NUM: "1", TEXT: "one"}, {NUM: "2", TEXT: "two"}, {NUM: "3", TEXT: "three"}, {NUM: "4", TEXT: "four"}, {NUM: "5", TEXT: "five"}, 
-    {NUM: "6", TEXT: "six"}, {NUM: "7", TEXT: "seven"}, {NUM: "8", TEXT: "eight"}, {NUM: "9", TEXT: "nine"}, {NUM: "10", TEXT: "ten"}];
-    WP = "who";
+    // ADVERBS
+    ADVArray = [];
 
     currentUnit = userInput;
     gLinks = [];    
@@ -47,12 +54,6 @@ function setGrammar(userInput){
     document.getElementById("g0r2d2").innerHTML = "";
     document.getElementById("g0r2d3").innerHTML = "";
     document.getElementById("g0r2d4").innerHTML = "";
-    
-    var q1Array = [""];
-    var q2Array = [""];
-    var q3Array = [""];
-    var answerArray = [""];
-    var x = 0;
     
     if (level_id == "Starter") {
         g_starter(userInput);
