@@ -180,23 +180,20 @@ function conjugate_verb(PRP, Verb) {
     return VERB;
 };
 
-function setDET(NOUNPHRASE){
-    
+function setDET(NOUNPHRASE){ // adapted from https://github.com/EamonNerbonne/a-vs-an/blob/master/A-vs-An/AvsAn-JsDemo/AvsAn.js
         // Getting the first word 
         var match = /\w+/.exec(NOUNPHRASE);
         if (match)
             var NOUN = match[0];
         else
-            return "an";
-        
+            return "an";      
     NOUN.toLowerCase();
     // Specific start of words that should be preceeded by 'an'
     var alt_cases = ["honest", "hour", "hono"];
     for (var i in alt_cases) {
         if (NOUN.indexOf(alt_cases[i]) == 0)
             return "an";
-    }
-    
+    } 
     // Single letter word which should be preceeded by 'an'
     if (NOUN.length == 1) {
         if ("aedhilmnorsx".indexOf(NOUN) >= 0)
@@ -204,19 +201,16 @@ function setDET(NOUNPHRASE){
         else
             return "a";
     }
-    
     // Capital words which should likely be preceeded by 'an'
     if (NOUN.match(/(?!FJO|[HLMNS]Y.|RY[EO]|SQU|(F[LR]?|[HL]|MN?|N|RH?|S[CHKLMNPTVW]?|X(YL)?)[AEIOU])[FHLMNRSX][A-Z]/)) {
         return "an";
     }
-    
     // Special cases where a word that begins with a vowel should be preceeded by 'a'
     regexes = [/^e[uw]/, /^onc?e\b/, /^uni([^nmd]|mo)/, /^u[bcfhjkqrst][aeiou]/]
     for (var i in regexes) {
         if (NOUN.match(regexes[i]))
             return "a"
     }
-    
     // Special capital words (UK, UN)
     if (NOUN.match(/^U[NK][AIEO]/)) {
         return "a";
@@ -227,14 +221,11 @@ function setDET(NOUNPHRASE){
         else 
             return "a";
     }
-    
     // Basic method of words that begin with a vowel being preceeded by 'an'
     if ("aeiou".indexOf(NOUN[0]) >= 0)
         return "an";
-    
     // Instances where y follwed by specific letters is preceeded by 'an'
     if (NOUN.match(/^y(b[lor]|cl[ea]|fere|gg|p[ios]|rou|tt)/))
         return "an";
-    
     return "a";
 };
