@@ -18,13 +18,15 @@ function setGrammar(userInput){
     WP: wh-pronoun, personal
     X: other */
     sentenceArray = [];
-    PRPArray = [{PRP: "I", RESPONSE: "you"}, {PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
+    sentence = "";
+    PRPArray = [{PRP: "I", RESPONSE: "you"}, {PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"},
+        {PRP: "it", RESPONSE: "it"}];
     PRPSArray = [{PRPS: "my", RESPONSE: "your"}, {PRPS: "your", RESPONSE: "my"}];
     DETArray = ["a"];
     NUMArray = [{NUM: "1", TEXT: "one"}, {NUM: "2", TEXT: "two"}, {NUM: "3", TEXT: "three"}, {NUM: "4", TEXT: "four"}, {NUM: "5", TEXT: "five"}, 
     {NUM: "6", TEXT: "six"}, {NUM: "7", TEXT: "seven"}, {NUM: "8", TEXT: "eight"}, {NUM: "9", TEXT: "nine"}, {NUM: "10", TEXT: "ten"}]; 
     NOUNArray = [];
-    WP = "who";
+    WPArray = ["who", "what"];
     UHArray = ["no", "yes"];
     PUNCTArray = [".", "?", ","];
 

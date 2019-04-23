@@ -170,7 +170,7 @@ function pArraySlide() {
 };
 
 function capitalize(word){
-   return word[0].charAt(0).toUpperCase() + word.slice(1);
+   return word.charAt(0).toUpperCase() + word.slice(1);
 };
 
 function conjugate_verb(PRP, Verb) {
@@ -178,4 +178,63 @@ function conjugate_verb(PRP, Verb) {
         else if (PRP == 'you' || PRP == 'they') {VERB = Verb.VBPArray[0].RESPONSE}
         else {VERB = Verb.VBZ}
     return VERB;
+};
+
+function setDET(NOUNPHRASE){
+    
+        // Getting the first word 
+        var match = /\w+/.exec(NOUNPHRASE);
+        if (match)
+            var NOUN = match[0];
+        else
+            return "an";
+        
+    NOUN.toLowerCase();
+    // Specific start of words that should be preceeded by 'an'
+    var alt_cases = ["honest", "hour", "hono"];
+    for (var i in alt_cases) {
+        if (NOUN.indexOf(alt_cases[i]) == 0)
+            return "an";
+    }
+    
+    // Single letter word which should be preceeded by 'an'
+    if (NOUN.length == 1) {
+        if ("aedhilmnorsx".indexOf(NOUN) >= 0)
+            return "an";
+        else
+            return "a";
+    }
+    
+    // Capital words which should likely be preceeded by 'an'
+    if (NOUN.match(/(?!FJO|[HLMNS]Y.|RY[EO]|SQU|(F[LR]?|[HL]|MN?|N|RH?|S[CHKLMNPTVW]?|X(YL)?)[AEIOU])[FHLMNRSX][A-Z]/)) {
+        return "an";
+    }
+    
+    // Special cases where a word that begins with a vowel should be preceeded by 'a'
+    regexes = [/^e[uw]/, /^onc?e\b/, /^uni([^nmd]|mo)/, /^u[bcfhjkqrst][aeiou]/]
+    for (var i in regexes) {
+        if (NOUN.match(regexes[i]))
+            return "a"
+    }
+    
+    // Special capital words (UK, UN)
+    if (NOUN.match(/^U[NK][AIEO]/)) {
+        return "a";
+    }
+    else if (NOUN == NOUN.toUpperCase()) {
+        if ("aedhilmnorsx".indexOf(NOUN[0]) >= 0)
+            return "an";
+        else 
+            return "a";
+    }
+    
+    // Basic method of words that begin with a vowel being preceeded by 'an'
+    if ("aeiou".indexOf(NOUN[0]) >= 0)
+        return "an";
+    
+    // Instances where y follwed by specific letters is preceeded by 'an'
+    if (NOUN.match(/^y(b[lor]|cl[ea]|fere|gg|p[ios]|rou|tt)/))
+        return "an";
+    
+    return "a";
 };
