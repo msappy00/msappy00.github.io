@@ -4,12 +4,16 @@
         <title>Teacher Matthew</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <link rel="stylesheet" href="css/w3.css"/>
     <style>
         body {
             margin: 0 !important;
             padding: 0 !important;
+        }
+        .center {
+            margin: auto;
+            width: 50%;
         }
         p, figcaption, input {
             font-size:20px;
@@ -33,14 +37,10 @@
         .tab-content {
             height: 100%;
         }
-        .onlyprint {display: none;}       
-        @media print {
-            .onlyprint {display: block;}
-            .w3-bar {display: none;}
-            #SsTable {display: none;}
-            #className {display: none;}
-            #displayName {display: none;}
-            footer {page-break-after: always;}
+        .responsive {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
         }
     </style>
     
@@ -61,7 +61,6 @@
         <div class="w3-bar w3-blue">
             <a href="#home" class="w3-bar-item w3-button w3-hide-small w3-hide-medium"><img width="20" height="20" src="images/star-yellow.svg" alt="yellow star" /></a>
             <a href="#home" class="w3-bar-item w3-button" onclick="setCss('home', 'null')">Home</a>
-            <a href="dice.html" target="_blank" class="w3-bar-item w3-button w3-hide-large">Dice</a>
             <div class="w3-dropdown-hover">
                 <button class="w3-button w3-hide-small w3-hide-medium">Games</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
@@ -81,7 +80,7 @@
                 </div>
             </div>
             <div class="w3-dropdown-hover">
-                <button class="w3-button w3-hide-small w3-hide-medium">Level</button>
+                <button class="w3-button">Level</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
                     <button class="w3-bar-item w3-button w3-mobile" onclick="setLevel('Starter')">Starter</button>
                     <button class="w3-bar-item w3-button w3-mobile" onclick="setLevel('Level 1')">Level 1</button>
@@ -118,7 +117,7 @@
                 </div>
             </div>
             <div class="w3-dropdown-hover">
-                <button class="w3-button w3-hide-small w3-hide-medium">Grammar</button>
+                <button class="w3-button">Grammar</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
                     <a href="#grammar_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('grammar_tab', 'Unit 1')">Unit 1</a>
                     <a href="#grammar_tab" class="w3-bar-item w3-button w3-mobile" onclick="setCss('grammar_tab', 'Unit 2')">Unit 2</a>
@@ -156,37 +155,27 @@
             <div class="w3-dropdown-hover">
                 <button class="w3-button w3-hide-small w3-hide-medium">Vocab Quiz</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="#quizMaker_tab" class="w3-bar-item w3-button" onclick="setCss('quizMaker_tab', 'Unit 1')">Unit 1</a>
-                    <a href="#quizMaker_tab" class="w3-bar-item w3-button" onclick="setCss('quizMaker_tab', 'Unit 2')">Unit 2</a>
-                    <a href="#quizMaker_tab" class="w3-bar-item w3-button" onclick="setCss('quizMaker_tab', 'Unit 3')">Unit 3</a>
-                    <a href="#quizMaker_tab" class="w3-bar-item w3-button" onclick="setCss('quizMaker_tab', 'Unit 4')">Unit 4</a>
-                    <a href="#quizMaker_tab" class="w3-bar-item w3-button" onclick="setCss('quizMaker_tab', 'Unit 5')">Unit 5</a>
-                    <a href="#quizMaker_tab" class="w3-bar-item w3-button" onclick="setCss('quizMaker_tab', 'Unit 6')">Unit 6</a>
-                    <a href="#quizMaker_tab" class="w3-bar-item w3-button" onclick="setCss('quizMaker_tab', 'Unit 7')">Unit 7</a>
-                    <a href="#quizMaker_tab" class="w3-bar-item w3-button" onclick="setCss('quizMaker_tab', 'Unit 8')">Unit 8</a>
-                    <a href="#quizMaker_tab" class="w3-bar-item w3-button" onclick="setCss('quizMaker_tab', 'Unit 9')">Unit 9</a>
-                    <a href="#quizMaker_tab" class="w3-bar-item w3-button" onclick="clear_number()">Clear</a>
+                    <a class="w3-bar-item w3-button" onclick="setVQ('Unit 1')">Unit 1</a>
+                    <a class="w3-bar-item w3-button" onclick="setVQ('Unit 2')">Unit 2</a>
+                    <a class="w3-bar-item w3-button" onclick="setVQ('Unit 3')">Unit 3</a>
+                    <a class="w3-bar-item w3-button" onclick="setVQ('Unit 4')">Unit 4</a>
+                    <a class="w3-bar-item w3-button" onclick="setVQ('Unit 5')">Unit 5</a>
+                    <a class="w3-bar-item w3-button" onclick="setVQ('Unit 6')">Unit 6</a>
+                    <a class="w3-bar-item w3-button" onclick="setVQ('Unit 7')">Unit 7</a>
+                    <a class="w3-bar-item w3-button" onclick="setVQ('Unit 8')">Unit 8</a>
+                    <a class="w3-bar-item w3-button" onclick="setVQ('Unit 9')">Unit 9</a>
                 </div>
             </div>
             <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-right" id="day">day</a>
         </div>
     </div><!--/#nav bar-->
-    <div class="w3-container w3-col l2 w3-cell-top">
-        <h2 id="className" style="padding-top: 50px"></h2>
+
+    <div class="w3-container w3-cell w3-mobile" style="padding-top:50px;">
         <h3 id="levelId"></h3>
-        <h3 id="displayName" style="font-weight: bold"></h3>
-        <table class="w3-table" id="SsTable">
-            <tr><td><div id="SR1-btn"></td><td><h4 id="Ss1"></h4></td><td><h4 id="SP1"></h4></td></tr>
-            <tr><td><div id="SR2-btn"></td><td><h4 id="Ss2"></h4></td><td><h4 id="SP2"></h4></td></tr>
-            <tr><td><div id="SR3-btn"></td><td><h4 id="Ss3"></h4></td><td><h4 id="SP3"></h4></td></tr>
-            <tr><td><div id="SR4-btn"></td><td><h4 id="Ss4"></h4></td><td><h4 id="SP4"></h4></td></tr>
-            <tr><td><div id="SR5-btn"></td><td><h4 id="Ss5"></h4></td><td><h4 id="SP5"></h4></td></tr>
-            <tr><td><div id="SR6-btn"></td><td><h4 id="Ss6"></h4></td><td><h4 id="SP6"></h4></td></tr>
-        </table>
     </div>
-    <div class="w3-container w3-cell">
-        <div id="home" class="w3-container w3-col l10 tab-content" style="display:block; padding-top:50px; text-align:right">
-            <img id="logo" src="images/mega_letters.png" alt="mega" class="w3-image"><!-- style="border:5px solid black"-->
+    <div class="w3-container w3-cell w3-mobile" style="padding-top:50px">
+        <div id="home" class="w3-container w3-col tab-content">
+            <img id="logo" src="images/mega_letters.png" alt="mega" class="responsive"><!-- style="border:5px solid black"-->
         </div><!-- /#home_tab -->
     
         <div id="vocab_tab" class="w3-container tab-content" style="display:none">
@@ -209,9 +198,9 @@
         </div><!-- /#vocab_tab -->
         
         <div id="grammar_tab" class="w3-container tab-content" style="display:none">
-            <div class="w3-row" style="height: 100px"></div>
-            <div class="w3-container w3-col l8 w3-center w3-middle" style="font-size:30px">
-                <div class="w3-row"><h3 class="w3-cell" id="gInstructions"></h3><button class="w3-cell w3-button w3-blue w3-round" onClick="speak(grammarCheck.value);">&#128264;</button></div>
+            <div class="w3-row w3-hide-small w3-hide-medium" style="height: 100px"></div>
+            <div class="w3-container w3-half w3-mobile" style="font-size:30px">
+                <div class="w3-row w3-mobile"><h3 class="w3-cell" id="gInstructions"></h3><button class="w3-cell w3-button w3-blue w3-round" onClick="speak(grammarCheck.value);">&#128264;</button></div>
                 <input type="hidden" id="grammarCheck" />
                 <input type="hidden" id="request" />
                 <table class="w3-table w3-center" style="padding:50px">
@@ -235,7 +224,7 @@
                 <h3 id="grammar_links"></h3>
                 <div id="grammar_lesson"></div>
             </div>
-            <div class="w3-container w3-col l4 w3-left">
+            <div class="w3-container w3-half w3-mobile">
                 <div id="gPic"></div>
             </div>
         </div><!-- /#grammar_tab -->
@@ -251,27 +240,8 @@
                 </tr></table>
             </div>
         </div><!-- /#phonics_tab -->
-        
-        <div id="quizMaker_tab" class="w3-container tab-content" style="display:none">
-            <div class="w3-row">
-                <div class="w3-col" style="width:150px"></div>
-                <h2>Vocab Quiz</h2>
-                <table class="onlyprint" style="font-size:14px">
-                    <th rowspan="11"></th>
-                    <tr><td width="50px">1.</td><td id="array0"></td></tr>
-                    <tr><td>2.</td><td id="array1"></td></tr>
-                    <tr><td>3.</td><td id="array2"></td></tr>
-                    <tr><td>4.</td><td id="array3"></td></tr>
-                    <tr><td>5.</td><td id="array4"></td></tr>
-                    <tr><td>6.</td><td id="array5"></td></tr>
-                    <tr><td>7.</td><td id="array6"></td></tr>
-                    <tr><td>8.</td><td id="array7"></td></tr>
-                    <tr><td>9.</td><td id="array8"></td></tr>
-                    <tr><td>10.</td><td id="array9"></td></tr>
-                </table>
-            </div>
-        </div><!-- /#quizMaker_tab  -->
     </div>
+
     <script>
         var day = new Date().getDay();
         switch(day) {

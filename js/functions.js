@@ -39,6 +39,7 @@ function setLevel(level) {
 
 function clearLevel() {
     sessionStorage.setItem("sessionLevel", "");
+    sessionStorage.setItem("sessionUnit", "");
     level_id = " ";
     levelId.textContent = " ";
     currentUnit = "";
@@ -68,12 +69,15 @@ function setCss(tabName, userInput){
         case 'phonics_tab':
             setPhonics(userInput);
             break;
-        case 'quizMaker_tab':
-            setQuiz(userInput);
-            break;
         default:
             break;
     }
+};
+
+// opens a new tab for quiz page
+function setVQ(userInput) {
+    sessionStorage.setItem("sessionUnit", userInput);
+    window.open("vocab_quiz.html","_blank");
 };
 
 // speaks vocab, grammar or phonics

@@ -1,36 +1,22 @@
 function setGrammar(userInput){
-     /* pos_tags = 
-    ADJ: adjective
-    ADP: adposition
-    ADV: adverb (WRB: wh-adverb)
-    CCONJ: coordinating conjunction
-    DET: determiner
-    INTJ: interjection
-    NOUN: noun (NN: noun, singular or mass; NNS: noun, plural; PROPN: proper noun)
-    NUM: numeral
-    PART: particle
-    PRON: pronoun (PRP: pronoun, personal; PRPS: pronoun, possessive)
-    PUNCT: punctuation
-    SCONJ: subordinating conjunction
-    SYM: symbol
-    UH: interjection
-    VERB: verb (VB: verb, base form; VBP: verb, non-3rd person singular present; VBZ: verb, 3rd person singular present)
-    WP: wh-pronoun, personal
-    X: other */
+     /* pos_tags */
     sentenceArray = [];
     sentence = "";
     PRPArray = [{PRP: "I", RESPONSE: "you"}, {PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"},
-        {PRP: "it", RESPONSE: "it"}];
-    PRPSArray = [{PRPS: "my", RESPONSE: "your"}, {PRPS: "your", RESPONSE: "my"}];
-    DETArray = ["a"];
+        {PRP: "it", RESPONSE: "it"}]; // PRP: pronoun, personal
+    PRPSArray = [{PRPS: "my", RESPONSE: "your"}, {PRPS: "your", RESPONSE: "my"}, {PRPS: "their", RESPONSE: "their"}, {PRPS: "his", RESPONSE: "his"}, 
+    {PRPS: "her", RESPONSE: "her"}, {PRPS: "its", RESPONSE: "its"}]; // PRPS: pronoun, possessive
+    DETArray = ["a"]; // determiner
     NUMArray = [{NUM: "1", TEXT: "one"}, {NUM: "2", TEXT: "two"}, {NUM: "3", TEXT: "three"}, {NUM: "4", TEXT: "four"}, {NUM: "5", TEXT: "five"}, 
-    {NUM: "6", TEXT: "six"}, {NUM: "7", TEXT: "seven"}, {NUM: "8", TEXT: "eight"}, {NUM: "9", TEXT: "nine"}, {NUM: "10", TEXT: "ten"}]; 
-    NOUNArray = [];
-    WPArray = ["who", "what"];
-    UHArray = ["no", "yes"];
+    {NUM: "6", TEXT: "six"}, {NUM: "7", TEXT: "seven"}, {NUM: "8", TEXT: "eight"}, {NUM: "9", TEXT: "nine"}, {NUM: "10", TEXT: "ten"}]; // NUM: numeral
+    NOUNArray = []; // NN: noun, singular or mass; NNS: noun, plural; PROPN: proper noun
+    UHArray = ["no", "yes"]; // interjection
+    verbArray = []; // VB: verb, base form; VBP: verb, non-3rd person singular present; VBZ: verb, 3rd person singular present
+    WPArray = ["who", "what"]; // wh-pronoun, personal
+    WDTArray = ["what", "which"]; // wh-determiner
     PUNCTArray = [".", "?", ","];
 
-    // ADJECTIVES
+    // ADJECTIVES (ADJ)
     ADJArray = [];
 
     // VERBS

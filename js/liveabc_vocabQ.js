@@ -1,5 +1,5 @@
-function clear_number() {
-    array = [];
+function setQuiz(){
+array = [];
     document.getElementById("array0").innerHTML = " ";
     document.getElementById("array1").innerHTML = " ";
     document.getElementById("array2").innerHTML = " ";
@@ -10,15 +10,11 @@ function clear_number() {
     document.getElementById("array7").innerHTML = " ";
     document.getElementById("array8").innerHTML = " ";
     document.getElementById("array9").innerHTML = " ";
-}
 
-function setQuiz(userInput){
-    
-    currentUnit = userInput;
-    
-    document.getElementById("levelId").innerHTML = level_id + " " + userInput;
-    var currentInput = level_id + userInput;
-    
+    level_id = sessionStorage.getItem("sessionLevel");
+    unit_id = sessionStorage.getItem("sessionUnit");
+    document.getElementById("levelId").innerHTML = level_id + " " + unit_id;
+    currentInput = level_id + unit_id;
     if (currentInput == "StarterUnit 1") {
         array = ["apple", "ant", "boy", "ball", "cat", "car", "dog", "desk"];
     } else if (currentInput == "StarterUnit 2") {
@@ -254,11 +250,22 @@ function setQuiz(userInput){
     } else if (currentInput == "Level 12Unit 9") {
         array = ["inventor", "invent", "magical", "pill", "wing", "incredible", "cape", "invisible", "continue", "owner", "shop", "mint", "cranberry", "flavor", "imagine", "customer"];
     } else {
+        document.getElementById("levelId").innerHTML = "";
         array = ["blank", "blank"];
     }
-    
+
+    function shuffleArray(array) {
+        for (var i = array.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+        return array;
+    };
+
     shuffleArray(array);
-    
+
     for (var i = 0; i < 10 ; i++){
         if (array[i] == undefined) {
             array[i] = "";
@@ -274,5 +281,5 @@ function setQuiz(userInput){
         document.getElementById("array7").innerHTML = array[7];
         document.getElementById("array8").innerHTML = array[8];
         document.getElementById("array9").innerHTML = array[9];
-    }
-}
+    };
+};
