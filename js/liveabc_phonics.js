@@ -286,7 +286,9 @@ function setPhonics(userInput){
     pArray = [({pattern:'blank', value:''})];
     }
     shuffleArray(pArray);
-    document.getElementById("phonicsAudio").innerHTML = '<audio controls autoplay><source src="phonics/'+pArray[pArray_i].value+'.mp3" type="audio/mp3" /></audio>';
+    if (pArray[pArray_i] != "blank"){
+        speak(pArray[pArray_i].value);
+    }
     document.getElementById("phonicsCheck").pattern = pArray[pArray_i].pattern;
     document.getElementById("mPhonicsCheck").pattern = pArray[pArray_i].pattern;
 }

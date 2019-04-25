@@ -156,7 +156,7 @@ function gArraySlide(tdId) {
 
 // checks phonics input from user
 function pArraySlide() {
-    if (phonicsCheck.value == phonicsCheck.pattern || mPhonicsCheck.value == mPhonicsCheck.pattern) {
+    if (phonicsCheck.value.toLowerCase() == phonicsCheck.pattern || mPhonicsCheck.value.toLowerCase() == mPhonicsCheck.pattern) {
         phonicsCheck.value = "";
         mPhonicsCheck.value = "";
         success.play();
@@ -178,7 +178,7 @@ function pArraySlide() {
         document.getElementById("mPhonicsCheck").style.borderColor = "red";
     }
     setTimeout(function() {
-        phonicsAudio.innerHTML = '<audio controls autoplay><source src="phonics/'+pArray[pArray_i].value+'.mp3" type="audio/mp3" /></audio>';
+        speak(pArray[pArray_i].value);
         document.getElementById("phonicsCheck").style.backgroundColor = "white";
         document.getElementById("phonicsCheck").style.borderColor = "gray";
         document.getElementById("mPhonicsCheck").style.backgroundColor = "white";

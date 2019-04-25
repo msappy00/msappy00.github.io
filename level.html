@@ -158,15 +158,15 @@
         <div class="w3-cell w3-cell-top w3-mobile w3-center">
             <progress id="vocProg" value=(array_i/array.length*100) max="100"></progress>
             <button class="w3-button w3-blue w3-round" onClick="speak(array[array_i]);" id="focusButton">&#128264;</button>
-            <button class="w3-button w3-blue w3-round w3-cell" onclick="vArraySlide();" style="padding-left: 10px">NEXT</button>
+            <button class="w3-button w3-blue w3-round w3-cell" onclick="vArraySlide();">NEXT</button>
             <figure id="figaudio1">
                 <div id="current_vocab"></div>
                 <figcaption id="currentWord"></figcaption>
             </figure>
         </div>
         <div class="w3-cell w3-mobile">
-            <input class="w3-input w3-border w3-round w3-hide-small w3-hide-medium" type="text" style="font-size: 5em" id="spellCheck" autocomplete="off" autofocus maxlength="20" placeholder="Spell It!" />
-            <input class="w3-input w3-border w3-round w3-hide-large" type="text" style="font-size: 3em" id="mSpellCheck" autocomplete="off" autofocus maxlength="20" placeholder="Spell It!" />
+            <input class="w3-input w3-border w3-round w3-hide-small w3-hide-medium" type="text" style="text-align: center; font-size: 5em" id="spellCheck" autocomplete="off" autofocus maxlength="20" placeholder="Spell It!" />
+            <input class="w3-input w3-border w3-round w3-hide-large" type="text" style="text-align: center; font-size: 3em" id="mSpellCheck" autocomplete="off" autofocus maxlength="20" placeholder="Spell It!" />
             <h3 id="vocab_links" class="w3-hide-small w3-hide-medium"></h3>
             <div id="vocab_lesson" class="w3-hide-small w3-hide-medium"></div>
         </div>
@@ -225,11 +225,11 @@
     
     <div id="phonics_tab" class="tab-pane w3-content" style="display:none">
         <div class="w3-mobile w3-center">
-            <h3 id="pInstructions"></h3>
-            <input class="w3-input w3-border w3-round w3-hide-small w3-hide-medium" type="text" style="font-size: 5em" id="phonicsCheck" autocomplete="off" autofocus maxlength="4" />
-            <input class="w3-input w3-border w3-round w3-hide-large" type="text" style="font-size: 3em" id="mPhonicsCheck" autocomplete="off" autofocus maxlength="4" />
-            <div style="padding-top:15px" id="phonicsAudio"></div>
+            <button class="w3-button w3-blue w3-round" onClick="speak(pArray[pArray_i]);" id="focusButton">&#128264;</button>
             <button class="w3-button w3-blue w3-round w3-cell" onclick="pArraySlide();">NEXT</button>
+            <h3 id="pInstructions"></h3>
+            <input class="w3-input w3-border w3-round w3-hide-small w3-hide-medium" type="text" style="text-align: center; font-size: 5em" id="phonicsCheck" autocomplete="off" autofocus maxlength="4" />
+            <input class="w3-input w3-border w3-round w3-hide-large" type="text" style="text-align: center; font-size: 3em" id="mPhonicsCheck" autocomplete="off" autofocus maxlength="4" />
         </div>
     </div><!-- /#phonics_tab -->
 
