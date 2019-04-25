@@ -808,8 +808,10 @@ function setVocab(userInput){
     if (level_id == "Starter") {
         document.getElementById("currentWord").innerHTML = '<table align="center"><tr><td align="right" style="font-size:xx-large; color:red">'+array[array_i].slice(0,1)+'</td><td align="right" style="font-size:xx-large; color:black">'+array[array_i].slice(1)+'</td></tr></table>';
         document.getElementById("spellCheck").pattern = array[array_i].slice(0,1);
+        document.getElementById("mSpellCheck").pattern = array[array_i].slice(0,1);
     } else {
         document.getElementById("spellCheck").pattern = array[array_i];
+        document.getElementById("mSpellCheck").pattern = array[array_i];
     }
     document.getElementById("vocProg").value = array_i/array.length*100;
     if (array[array_i] != "blank"){

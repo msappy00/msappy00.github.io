@@ -288,4 +288,5 @@ function setPhonics(userInput){
     shuffleArray(pArray);
     document.getElementById("phonicsAudio").innerHTML = '<audio controls autoplay><source src="phonics/'+pArray[pArray_i].value+'.mp3" type="audio/mp3" /></audio>';
     document.getElementById("phonicsCheck").pattern = pArray[pArray_i].pattern;
+    document.getElementById("mPhonicsCheck").pattern = pArray[pArray_i].pattern;
 }

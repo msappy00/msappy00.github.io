@@ -34,7 +34,6 @@ function setLevel(level) {
     currentUnit = "";
     setVocab('');
     setGrammar('');
-    setQuiz('');
 };
 
 function clearLevel() {
@@ -45,20 +44,20 @@ function clearLevel() {
     currentUnit = "";
     setVocab(currentUnit);
     setGrammar(currentUnit);
-    setQuiz(currentUnit);
 };
 
 // sets unit from dropdown menu
 function setCss(tabName, userInput){
     var i;
-    var x = document.getElementsByClassName("tab-content");
+    var x = document.getElementsByClassName("tab-pane");
     for (i = 0; i < x.length; i++) {
         x[i].style.display = "none";
     }
     document.getElementById(tabName).style.display = "block";
     switch (tabName){
         case 'home':
-            clearLevel();
+            setLevel(level_id);
+            //clearLevel();
             break;
         case 'vocab_tab':
             setVocab(userInput);
@@ -103,14 +102,13 @@ function speak(text, callback) {
 
 // checks vocab input from user
 function vArraySlide() {
-    if (spellCheck.value != spellCheck.pattern){
-        fail.play();
-        document.getElementById("spellCheck").style.backgroundColor = "lightpink";
-        document.getElementById("spellCheck").placeholder = "Oops!";
-    } else {
+    if (spellCheck.value == spellCheck.pattern || mSpellCheck.value == mSpellCheck.pattern) {
         success.play();
         document.getElementById("spellCheck").style.backgroundColor = "lightgreen";
+        document.getElementById("mSpellCheck").style.backgroundColor = "lightgreen";
         document.getElementById("spellCheck").placeholder = "Correct!";
+        document.getElementById("mSpellCheck").placeholder = "Correct!";
+        mSpellCheck.value = "";
         spellCheck.value = "";
         array_i++;
         if (array_i > (array.length - 1)) {
@@ -131,10 +129,18 @@ function vArraySlide() {
         setTimeout(function(){
                     speak(array[array_i]);
                     document.getElementById("spellCheck").style.backgroundColor = "white";
+                    document.getElementById("mSpellCheck").style.backgroundColor = "white";
                     document.getElementById("spellCheck").placeholder = "Spell It!";
+                    document.getElementById("mSpellCheck").placeholder = "Spell It!";
                     }, 2000);
         //vocabAudio.innerHTML = '<audio controls autoplay><source src="'+level_id+'/audio/'+array[array_i]+'.mp3" type="audio/mp3" /></audio>';
         spellCheck.focus();
+    } else {
+        fail.play();
+        document.getElementById("spellCheck").style.backgroundColor = "lightpink";
+        document.getElementById("mSpellCheck").style.backgroundColor = "lightpink";
+        document.getElementById("spellCheck").placeholder = "Oops!";
+        document.getElementById("mSpellCheck").placeholder = "Oops!"
     }
 };
 
@@ -151,24 +157,34 @@ function gArraySlide(tdId) {
 
 // checks phonics input from user
 function pArraySlide() {
-    if (phonicsCheck.value != phonicsCheck.pattern) {
-        fail.play();
-        document.getElementById("phonicsCheck").style.backgroundColor = "lightpink";
-    }
-    else {
+    if (phonicsCheck.value == phonicsCheck.pattern || mPhonicsCheck.value == mPhonicsCheck.pattern) {
         phonicsCheck.value = "";
+        mPhonicsCheck.value = "";
         success.play();
         document.getElementById("phonicsCheck").style.backgroundColor = "lightgreen";
+        document.getElementById("phonicsCheck").style.borderColor = "green";
+        document.getElementById("mPhonicsCheck").style.backgroundColor = "lightgreen";
+        document.getElementById("mPhonicsCheck").style.borderColor = "green";
         pArray_i++;
         if (pArray_i > (pArray.length - 1)) {
             pArray_i = 0;
         }
         phonicsCheck.pattern = pArray[pArray_i].pattern;   
+    } else {
+        fail.play();
+        document.getElementById("phonicsCheck").style.backgroundColor = "lightpink";
+        document.getElementById("phonicsCheck").style.borderColor = "red";
+        document.getElementById("mPhonicsCheck").style.backgroundColor = "lightpink";
+        document.getElementById("mPhonicsCheck").style.borderColor = "red";
     }
     setTimeout(function() {
         phonicsAudio.innerHTML = '<audio controls autoplay><source src="phonics/'+pArray[pArray_i].value+'.mp3" type="audio/mp3" /></audio>';
         document.getElementById("phonicsCheck").style.backgroundColor = "white";
+        document.getElementById("phonicsCheck").style.borderColor = "gray";
+        document.getElementById("mPhonicsCheck").style.backgroundColor = "white";
+        document.getElementById("mPhonicsCheck").style.borderColor = "gray";
         phonicsCheck.value = "";
+        mPhonicsCheck.value = "";
     }, 2000);
     phonicsCheck.focus();
 };

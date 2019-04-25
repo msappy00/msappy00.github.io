@@ -41,6 +41,11 @@ function g_starter(userInput) {
     document.getElementById("g0r1d2").textContent = sentenceArray[1];
     document.getElementById("g0r2d0").textContent = sentenceArray[2];
     document.getElementById("g0r2d2").textContent = sentenceArray[3];
+    document.getElementById("gm0").textContent = sentenceArray[0];
+    document.getElementById("gm1").textContent = sentenceArray[1];
+    document.getElementById("gm2").textContent = sentenceArray[2];
+    document.getElementById("gm3").textContent = sentenceArray[3];
+
     var newLocal = randG();
     sentence = sentenceArray[newLocal];
     document.getElementById("grammarCheck").value = sentence;
