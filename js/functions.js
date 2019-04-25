@@ -123,18 +123,11 @@ function vArraySlide() {
         if (level_id == "Starter") {
             currentWord.innerHTML = '<table align="center"><tr><td align="right" style="font-size:xx-large; color:red">'+array[array_i].slice(0,1)+'</td><td align="right" style="font-size:xx-large; color:black">'+array[array_i].slice(1)+'</td></tr></table>';
             spellCheck.pattern = array[array_i].slice(0,1);
+            mSpellCheck.pattern = array[array_i].slice(0,1);
         } else {
             spellCheck.pattern = array[array_i];
+            mSpellCheck.pattern = array[array_i];
         }
-        setTimeout(function(){
-                    speak(array[array_i]);
-                    document.getElementById("spellCheck").style.backgroundColor = "white";
-                    document.getElementById("mSpellCheck").style.backgroundColor = "white";
-                    document.getElementById("spellCheck").placeholder = "Spell It!";
-                    document.getElementById("mSpellCheck").placeholder = "Spell It!";
-                    }, 2000);
-        //vocabAudio.innerHTML = '<audio controls autoplay><source src="'+level_id+'/audio/'+array[array_i]+'.mp3" type="audio/mp3" /></audio>';
-        spellCheck.focus();
     } else {
         fail.play();
         document.getElementById("spellCheck").style.backgroundColor = "lightpink";
@@ -142,6 +135,15 @@ function vArraySlide() {
         document.getElementById("spellCheck").placeholder = "Oops!";
         document.getElementById("mSpellCheck").placeholder = "Oops!"
     }
+    setTimeout(function(){
+        speak(array[array_i]);
+        document.getElementById("spellCheck").style.backgroundColor = "white";
+        document.getElementById("mSpellCheck").style.backgroundColor = "white";
+        document.getElementById("spellCheck").placeholder = "Spell It!";
+        document.getElementById("mSpellCheck").placeholder = "Spell It!";
+        }, 2000);
+//vocabAudio.innerHTML = '<audio controls autoplay><source src="'+level_id+'/audio/'+array[array_i]+'.mp3" type="audio/mp3" /></audio>';
+spellCheck.focus();
 };
 
 // checks grammar input from user
