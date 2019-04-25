@@ -44,6 +44,7 @@ function clearLevel() {
     currentUnit = "";
     setVocab(currentUnit);
     setGrammar(currentUnit);
+    setCss('home', '');
 };
 
 // sets unit from dropdown menu
@@ -57,7 +58,6 @@ function setCss(tabName, userInput){
     switch (tabName){
         case 'home':
             setLevel(level_id);
-            //clearLevel();
             break;
         case 'vocab_tab':
             setVocab(userInput);
