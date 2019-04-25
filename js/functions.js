@@ -169,7 +169,8 @@ function pArraySlide() {
         if (pArray_i > (pArray.length - 1)) {
             pArray_i = 0;
         }
-        phonicsCheck.pattern = pArray[pArray_i].pattern;   
+        phonicsCheck.pattern = pArray[pArray_i].pattern;
+        mPhonicsCheck.pattern = pArray[pArray_i].pattern;    
     } else {
         fail.play();
         document.getElementById("phonicsCheck").style.backgroundColor = "lightpink";
