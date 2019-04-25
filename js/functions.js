@@ -56,9 +56,6 @@ function setCss(tabName, userInput){
     }
     document.getElementById(tabName).style.display = "block";
     switch (tabName){
-        case 'home':
-            setLevel(level_id);
-            break;
         case 'vocab_tab':
             setVocab(userInput);
             break;
