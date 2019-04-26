@@ -6,7 +6,7 @@ function setGrammar(userInput){
         {PRP: "it", RESPONSE: "it"}]; // PRP: pronoun, personal
     PRPSArray = [{PRPS: "my", RESPONSE: "your"}, {PRPS: "your", RESPONSE: "my"}, {PRPS: "their", RESPONSE: "their"}, {PRPS: "his", RESPONSE: "his"}, 
     {PRPS: "her", RESPONSE: "her"}, {PRPS: "its", RESPONSE: "its"}]; // PRPS: pronoun, possessive
-    DETArray = ["a"]; // determiner
+    DETArray = ["a", "not", "this", "that"]; // determiner
     NUMArray = [{NUM: "1", TEXT: "one"}, {NUM: "2", TEXT: "two"}, {NUM: "3", TEXT: "three"}, {NUM: "4", TEXT: "four"}, {NUM: "5", TEXT: "five"}, 
     {NUM: "6", TEXT: "six"}, {NUM: "7", TEXT: "seven"}, {NUM: "8", TEXT: "eight"}, {NUM: "9", TEXT: "nine"}, {NUM: "10", TEXT: "ten"}]; // NUM: numeral
     NOUNArray = []; // NN: noun, singular or mass; NNS: noun, plural; PROPN: proper noun

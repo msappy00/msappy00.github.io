@@ -212,29 +212,33 @@ function g_01(userInput){
         setGrammar(unitArray[0]);
         currentUnit = "Review 2";
     } else if (userInput == "Unit 7") {
-        vocArray = [{voc:'hat', pic:"Level 1/images/hat.png"}, {voc:'cap', pic:"Level 1/images/cap.png"}, {voc:'coat', pic:"Level 1/images/coat.png"}, 
-        {voc:'jacket', pic:"Level 1/images/jacket.png"}, {voc:'dress', pic:"Level 1/images/dress.png"}, {voc:'skirt', pic:"Level 1/images/skirt.png"}, 
-        {voc:'shirt', pic:"Level 1/images/shirt.png"}, {voc:'shirt', pic:"Level 1/images/shirt.png"}, {voc:'T-shirt', pic:"Level 1/images/T-shirt.png"}];
-        shuffleArray(vocArray);
-        sentenceArray = ["This is ", "That is ", "This is not ", "That is not "];
-        shuffleArray(sentenceArray);
-        q2Array = ["my ", "your ", "his ", "her ", "a "];
-        shuffleArray(q2Array);
-        if (sentenceArray[0] == "This is not " || sentenceArray[0] == "That is not "){
-            sentence = sentenceArray[0] + q2Array[0] + vocArray[1].voc + ".";
-            sentenceArray[0] = "This is not " + q2Array[0] + vocArray[1].voc + ".";
-            sentenceArray[0] = "That is not " + q2Array[0] + vocArray[1].voc + ".";
-            sentenceArray[0] = "This is " + q2Array[0] + vocArray[0].voc + ".";
-            sentenceArray[0] = "That is " + q2Array[0] + vocArray[0].voc + ".";
+        randomG = randG();
+        NOUNArray = [{NOUN:'hat', pic:"Level 1/images/hat.png"}, {NOUN:'cap', pic:"Level 1/images/cap.png"}, {NOUN:'coat', pic:"Level 1/images/coat.png"}, 
+        {NOUN:'jacket', pic:"Level 1/images/jacket.png"}, {NOUN:'dress', pic:"Level 1/images/dress.png"}, {NOUN:'skirt', pic:"Level 1/images/skirt.png"}, 
+        {NOUN:'shirt', pic:"Level 1/images/shirt.png"}, {NOUN:'shirt', pic:"Level 1/images/shirt.png"}, {NOUN:'T-shirt', pic:"Level 1/images/T-shirt.png"}];
+        shuffleArray(NOUNArray);
+        DETArray = ["a", "not", "this", "that"];
+        ATTRArray = [PRPSArray[0].RESPONSE, PRPSArray[1].RESPONSE, PRPSArray[3].RESPONSE, PRPSArray[4].RESPONSE, DETArray[0]]; // attribute array
+        shuffleArray(ATTRArray);
+        if (randomG == 1) {
+            document.getElementById("gPic").src = NOUNArray[0].pic;
+            sentence = [capitalize(DETArray[2]), beVerb.VBZ, ATTRArray[0], NOUNArray[0].NOUN].join(" ") + PUNCTArray[0];
+        } else if (randomG == 2) {
+            document.getElementById("gPic").src = NOUNArray[0].pic;
+            sentence = [capitalize(DETArray[3]), beVerb.VBZ, ATTRArray[0], NOUNArray[0].NOUN].join(" ") + PUNCTArray[0];
+        } else if (randomG == 3) {
+            document.getElementById("gPic").src = NOUNArray[1].pic;
+            sentence = [capitalize(DETArray[2]), beVerb.VBZ, DETArray[1], ATTRArray[0], NOUNArray[0].NOUN].join(" ") + PUNCTArray[0];
         } else {
-            sentence = sentenceArray[0] + q2Array[0] + vocArray[0].voc + ".";
-            sentenceArray[0] = "This is not " + q2Array[0] + vocArray[1].voc + ".";
-            sentenceArray[0] = "That is not " + q2Array[0] + vocArray[1].voc + ".";
-            sentenceArray[0] = "This is " + q2Array[0] + vocArray[0].voc + ".";
-            sentenceArray[0] = "That is " + q2Array[0] + vocArray[0].voc + ".";
+            document.getElementById("gPic").src = NOUNArray[1].pic;
+            sentence = [capitalize(DETArray[2]), beVerb.VBZ, DETArray[1], ATTRArray[0], NOUNArray[0].NOUN].join(" ") + PUNCTArray[0];
         }
+        sentenceArray[0] = [capitalize(DETArray[2]), beVerb.VBZ, DETArray[1], ATTRArray[0], NOUNArray[0].NOUN].join(" ") + PUNCTArray[0];
+        sentenceArray[1] = [capitalize(DETArray[3]), beVerb.VBZ, DETArray[1], ATTRArray[0], NOUNArray[0].NOUN].join(" ") + PUNCTArray[0];
+        sentenceArray[2] = [capitalize(DETArray[2]), beVerb.VBZ, ATTRArray[0], NOUNArray[0].NOUN].join(" ") + PUNCTArray[0];
+        sentenceArray[3] = [capitalize(DETArray[3]), beVerb.VBZ, ATTRArray[0], NOUNArray[0].NOUN].join(" ") + PUNCTArray[0];
+        document.getElementById("request").value = sentence;
         document.getElementById("grammarCheck").value = sentence;
-        document.getElementById("gPic").src = vocArray[0].pic;
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 8") {
