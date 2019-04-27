@@ -3,10 +3,10 @@ function setGrammar(userInput){
     sentenceArray = [];
     sentence = "";
     PRPArray = [{PRP: "I", RESPONSE: "you"}, {PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"},
-        {PRP: "it", RESPONSE: "it"}]; // PRP: pronoun, personal
+        {PRP: "it", RESPONSE: "it"}, {PRP: "we", RESPONSE: "you"}]; // PRP: pronoun, personal
     PRPSArray = [{PRPS: "my", RESPONSE: "your"}, {PRPS: "your", RESPONSE: "my"}, {PRPS: "their", RESPONSE: "their"}, {PRPS: "his", RESPONSE: "his"}, 
     {PRPS: "her", RESPONSE: "her"}, {PRPS: "its", RESPONSE: "its"}]; // PRPS: pronoun, possessive
-    DETArray = ["a", "not", "this", "that"]; // determiner
+    DETArray = ["a", "not", "this", "that", "an"]; // determiner
     NUMArray = [{NUM: "1", TEXT: "one"}, {NUM: "2", TEXT: "two"}, {NUM: "3", TEXT: "three"}, {NUM: "4", TEXT: "four"}, {NUM: "5", TEXT: "five"}, 
     {NUM: "6", TEXT: "six"}, {NUM: "7", TEXT: "seven"}, {NUM: "8", TEXT: "eight"}, {NUM: "9", TEXT: "nine"}, {NUM: "10", TEXT: "ten"}]; // NUM: numeral
     NOUNArray = []; // NN: noun, singular or mass; NNS: noun, plural; PROPN: proper noun
@@ -20,7 +20,7 @@ function setGrammar(userInput){
     ADJArray = [];
 
     // VERBS
-    beVerb = {VB: "be", VBPArray: [{REQUEST: "am", RESPONSE: "are"}, {REQUEST: "are", RESPONSE: "am"}], VBZ: "is"};
+    beVerb = {VB: "be", VBPArray: ["am", "are"], VBZ: "is"};
 
     // ADVERBS
     ADVArray = [];

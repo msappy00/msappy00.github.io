@@ -14,7 +14,7 @@ function g_01(userInput){
         document.getElementById("grammarCheck").value = conjugate_verb(PRPArray[0].PRP, beVerb);
         document.getElementById("request").value = VERB;
         sentence = [PRPArray[0].PRP, VERB, DET, NOUNArray[0].NOUN].join(" ") + PUNCTArray[0];            
-        sentenceArray = [beVerb.VBPArray[0].RESPONSE, beVerb.VBPArray[1].RESPONSE, "", ""];
+        sentenceArray = [beVerb.VBPArray[0], beVerb.VBPArray[1], "", ""];
         gLinks = [''];
         grammarLesson = "";   
     } else if (userInput == "Unit 2") {
@@ -212,7 +212,6 @@ function g_01(userInput){
         setGrammar(unitArray[0]);
         currentUnit = "Review 2";
     } else if (userInput == "Unit 7") {
-        randomG = randG();
         NOUNArray = [{NOUN:'hat', pic:"Level 1/images/hat.png"}, {NOUN:'cap', pic:"Level 1/images/cap.png"}, {NOUN:'coat', pic:"Level 1/images/coat.png"}, 
         {NOUN:'jacket', pic:"Level 1/images/jacket.png"}, {NOUN:'dress', pic:"Level 1/images/dress.png"}, {NOUN:'skirt', pic:"Level 1/images/skirt.png"}, 
         {NOUN:'shirt', pic:"Level 1/images/shirt.png"}, {NOUN:'shirt', pic:"Level 1/images/shirt.png"}, {NOUN:'T-shirt', pic:"Level 1/images/T-shirt.png"}];
@@ -242,78 +241,75 @@ function g_01(userInput){
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 8") {
-        vocArray = [{voc:'dog', pic:"Level 1/images/dog.png"}, {voc:'cat', pic:"Level 1/images/cat.png"}, {voc:'rat', pic:"Level 1/images/rat.png"}, 
-        {voc:'rabbit', pic:"Level 1/images/rabbit.png"}, {voc:'cow', pic:"Level 1/images/cow.png"}, {voc:'horse', pic:"Level 1/images/horse.png"}, 
-        {voc:'sheep', pic:"Level 1/images/sheep.png"}, {voc:'pig', pic:"Level 1/images/pig.png"}, {voc:'chicken', pic:"Level 1/images/chicken.png"}, 
-        {voc:'duck', pic:"Level 1/images/duck.png"}];
-        shuffleArray(vocArray);
-        document.getElementById("gPic").src = vocArray[randomG].pic;
-        if (randomG < 2){
-            if (randomG == 0) {
-                sentence = "What is this?";
+        randomG = randG();
+        ADV = "not";
+        NOUNArray = [{NOUN:'dog', pic:"Level 1/images/dog.png"}, {NOUN:'cat', pic:"Level 1/images/cat.png"}, {NOUN:'rat', pic:"Level 1/images/rat.png"}, 
+        {NOUN:'rabbit', pic:"Level 1/images/rabbit.png"}, {NOUN:'cow', pic:"Level 1/images/cow.png"}, {NOUN:'horse', pic:"Level 1/images/horse.png"}, 
+        {NOUN:'sheep', pic:"Level 1/images/sheep.png"}, {NOUN:'pig', pic:"Level 1/images/pig.png"}, {NOUN:'chicken', pic:"Level 1/images/chicken.png"}, 
+        {NOUN:'duck', pic:"Level 1/images/duck.png"}];
+        shuffleArray(NOUNArray);
+        document.getElementById("gPic").src = NOUNArray[0].pic;
+        DETArray = [DETArray[2], DETArray[3]];
+        shuffleArray(DETArray);
+        DETArray.push("a");
+        if (randomG > 2) {
+                sentence = [capitalize(WDTArray[0]), beVerb.VBZ, DETArray[0]].join(" ") + PUNCTArray[1];
+                document.getElementById("request").value = sentence;
+                document.getElementById("grammarCheck").value = [capitalize(PRPArray[5].PRP), beVerb.VBZ, DETArray[2], NOUNArray[0].NOUN].join(" ") + PUNCTArray[0];
+                sentenceArray[0] = [capitalize(PRPArray[5].PRP), beVerb.VBZ, DETArray[2], NOUNArray[0].NOUN].join(" ") + PUNCTArray[0];
+                sentenceArray[1] = [capitalize(PRPArray[5].PRP), beVerb.VBZ, DETArray[2], NOUNArray[1].NOUN].join(" ") + PUNCTArray[0];
+                sentenceArray[2] = [capitalize(PRPArray[5].PRP), beVerb.VBZ, DETArray[2], NOUNArray[2].NOUN].join(" ") + PUNCTArray[0];
+                sentenceArray[3] = [capitalize(PRPArray[5].PRP), beVerb.VBZ, DETArray[2], NOUNArray[3].NOUN].join(" ") + PUNCTArray[0];
+        } else {
+            ATTRArray = [DETArray[2], PRPSArray[1].PRPS];
+            shuffleArray(ATTRArray);
+            shuffleArray(UHArray);
+            UH = capitalize(UHArray[0]);
+            if (UHArray[0] == "yes") {
+                sentence = [capitalize(beVerb.VBZ), DETArray[0], ATTRArray[0], NOUNArray[0].NOUN].join(" ") + PUNCTArray[1];
+                document.getElementById("request").value = sentence;
+                document.getElementById("grammarCheck").value = 
+                [[UH + PUNCTArray[2]], PRPArray[5].RESPONSE, beVerb.VBZ].join(" ") + PUNCTArray[0];
+                sentenceArray[0] = [[UH + PUNCTArray[2]], PRPArray[5].RESPONSE, beVerb.VBZ].join(" ") + PUNCTArray[0];
+                sentenceArray[1] = [[capitalize(UHArray[1]) + PUNCTArray[2]], PRPArray[5].RESPONSE, beVerb.VBZ, ADV].join(" ") + PUNCTArray[0];
+                sentenceArray[2] = [capitalize(PRPArray[5].PRP), beVerb.VBZ, DETArray[2], NOUNArray[1].NOUN].join(" ") + PUNCTArray[0];
+                sentenceArray[3] = [capitalize(PRPArray[5].PRP), beVerb.VBZ, DETArray[2], NOUNArray[2].NOUN].join(" ") + PUNCTArray[0];
             } else {
-                sentence = "What is that?";
-            }
-            document.getElementById("grammarCheck").value = "It is a " + vocArray[randomG].voc + ".";
-            sentenceArray[0] = "It is a " + vocArray[0].voc + ".";
-            sentenceArray[0] = "It is a " + vocArray[1].voc + ".";
-            sentenceArray[0] = "It is a " + vocArray[2].voc + ".";
-            sentenceArray[0] = "It is a " + vocArray[3].voc + ".";
-        } else if (randomG > 1){
-            answerArray = ["Yes, ", "No, "];
-            shuffleArray(answerArray);
-            if (answerArray[0] == "Yes, ") {
-                if (randomG == 2)  {
-                    sentence = "Is this a " + vocArray[randomG].voc + "?";
-                } else {
-                    sentence = "Is that a " + vocArray[randomG].voc + "?";
-                }
-                document.getElementById("grammarCheck").value = "Yes, it is. It is a " + vocArray[randomG].voc + ".";
-                sentenceArray[0] = answerArray[0] + "it is. It is a " + vocArray[0].voc + ".";
-                sentenceArray[0] = answerArray[0] + "it is. It is a " + vocArray[1].voc + ".";
-                sentenceArray[0] = answerArray[0] + "it is. It is a " + vocArray[2].voc + ".";
-                sentenceArray[0] = answerArray[0] + "it is. It is a " + vocArray[3].voc + ".";
-            } else {
-                if (randomG == 2)  {
-                    sentence = "Is this a " + vocArray[4].voc + "?";
-                } else {
-                    sentence = "Is that a " + vocArray[4].voc + "?";
-                }
-                document.getElementById("grammarCheck").value = "No, it is not. It is a " + vocArray[randomG].voc + ".";
-                sentenceArray[0] = answerArray[0] + "it is not. It is a " + vocArray[0].voc + ".";
-                sentenceArray[0] = answerArray[0] + "it is not. It is a " + vocArray[1].voc + ".";
-                sentenceArray[0] = answerArray[0] + "it is not. It is a " + vocArray[2].voc + ".";
-                sentenceArray[0] = answerArray[0] + "it is not. It is a " + vocArray[3].voc + ".";
+                sentence = [capitalize(beVerb.VBZ), DETArray[0], ATTRArray[0], NOUNArray[1].NOUN].join(" ") + PUNCTArray[1];
+                document.getElementById("request").value = sentence;
+                document.getElementById("grammarCheck").value = [[UH + PUNCTArray[2]], PRPArray[5].RESPONSE, beVerb.VBZ, ADV].join(" ") + PUNCTArray[0];
+                sentenceArray[0] = [[UH + PUNCTArray[2]], PRPArray[5].RESPONSE, beVerb.VBZ, ADV].join(" ") + PUNCTArray[0];
+                sentenceArray[1] = [[capitalize(UHArray[1]) + PUNCTArray[2]], PRPArray[5].RESPONSE, beVerb.VBZ].join(" ") + PUNCTArray[0];
+                sentenceArray[2] = [capitalize(PRPArray[5].PRP), beVerb.VBZ, DETArray[2], NOUNArray[1].NOUN].join(" ") + PUNCTArray[0];
+                sentenceArray[3] = [capitalize(PRPArray[5].PRP), beVerb.VBZ, DETArray[2], NOUNArray[2].NOUN].join(" ") + PUNCTArray[0];
             }
         }
         gLinks = ['<a href="http://scratch.mit.edu/projects/15196988/" target="_newtab">Scratch: Animal Sounds</a>'];
         grammarLesson = "";
     } else if (userInput == "Unit 9") {
-        vocArray = [{voc:'hungry', pic:"Level 1/images/hungry.png"}, {voc:'thirsty', pic:"Level 1/images/thirsty.png"}, {voc:'angry', pic:"Level 1/images/angry.png"}, 
-        {voc:'lazy', pic:"Level 1/images/lazy.png"}, {voc:'noisy', pic:"Level 1/images/noisy.png"}, {voc:'quiet', pic:"Level 1/images/quiet.png"}, 
-        {voc:'sleepy', pic:"Level 1/images/sleepy.png"}, {voc:'tired', pic:"Level 1/images/tired.png"}];
-        shuffleArray(vocArray);
-        PRPArray = ([{qp: "you", ap: "we"}, {qp: "we", ap: "you"}, {qp: "they", ap: "they"}]);
+        ADJArray = [{ADJ:'hungry', pic:"Level 1/images/hungry.png"}, {ADJ:'thirsty', pic:"Level 1/images/thirsty.png"}, {ADJ:'angry', pic:"Level 1/images/angry.png"}, 
+        {ADJ:'lazy', pic:"Level 1/images/lazy.png"}, {ADJ:'noisy', pic:"Level 1/images/noisy.png"}, {ADJ:'quiet', pic:"Level 1/images/quiet.png"}, 
+        {ADJ:'sleepy', pic:"Level 1/images/sleepy.png"}, {ADJ:'tired', pic:"Level 1/images/tired.png"}];
+        shuffleArray(ADJArray);
+        document.getElementById("gPic").src = ADJArray[0].pic;
+        PRPArray = [{PRP: "you", RESPONSE: "we"}, {PRP: "they", RESPONSE: "they"}, {PRP: "we", RESPONSE: "you"}];
         shuffleArray(PRPArray);
-        document.getElementById("gPic").src = vocArray[randomG].pic;
-        choiceArrayInt = 0;
-        while(choiceArrayInt == 0) {choiceArrayInt = Math.floor(Math.random() * 3)};
-        answerArray = ["Yes, ", "No, "];
-        shuffleArray(answerArray);
-        if (answerArray[0] == "Yes, ") {
-            sentence = "Are " + PRPArray[choiceArrayInt].qp + " " + vocArray[randomG].voc + "?";
-            document.getElementById("grammarCheck").value = answerArray[0] + PRPArray[choiceArrayInt].ap + " are.";
-            sentenceArray[0] = answerArray[0] + PRPArray[0].ap + " are.";
-            sentenceArray[0] = answerArray[0] + PRPArray[1].ap + " are.";
-            sentenceArray[0] = answerArray[0] + PRPArray[2].ap + " are.";
-            sentenceArray[0] = "              ";
+        shuffleArray(UHArray);
+        ADV = "not";
+        if (UHArray[0] == "yes") {
+            sentence = [capitalize(beVerb.VBPArray[1]), PRPArray[0].PRP, ADJArray[0].ADJ].join(" ") + PUNCTArray[1];
+            document.getElementById("grammarCheck").value = [[capitalize(UHArray[0]) + PUNCTArray[2]], PRPArray[0].RESPONSE, beVerb.VBPArray[1]].join(" ") + PUNCTArray[0];
+            sentenceArray[0] = [[capitalize(UHArray[0]) + PUNCTArray[2]], PRPArray[0].RESPONSE, beVerb.VBPArray[1]].join(" ") + PUNCTArray[0];
+            sentenceArray[1] = [[capitalize(UHArray[0]) + PUNCTArray[2]], PRPArray[1].RESPONSE, beVerb.VBPArray[1]].join(" ") + PUNCTArray[0];
+            sentenceArray[2] = [[capitalize(UHArray[0]) + PUNCTArray[2]], PRPArray[2].RESPONSE, beVerb.VBPArray[1]].join(" ") + PUNCTArray[0];
+            sentenceArray[3] = "              ";
         } else {
-            sentence = "Are " + PRPArray[choiceArrayInt].qp + " " + vocArray[4].voc + "?";
-            document.getElementById("grammarCheck").value = answerArray[0] + PRPArray[choiceArrayInt].ap + " are not.";
-            sentenceArray[0] = answerArray[0] + PRPArray[0].ap + " are not.";
-            sentenceArray[0] = answerArray[0] + PRPArray[1].ap + " are not.";
-            sentenceArray[0] = answerArray[0] + PRPArray[2].ap + " are not.";
-            sentenceArray[0] = "                 ";
+            sentence = [capitalize(beVerb.VBPArray[1]), PRPArray[0].PRP, ADJArray[1].ADJ].join(" ") + PUNCTArray[1];
+            document.getElementById("grammarCheck").value = [[capitalize(UHArray[0]) + PUNCTArray[2]], PRPArray[0].RESPONSE, beVerb.VBPArray[1], ADV].join(" ") + PUNCTArray[0];
+            sentenceArray[0] = [[capitalize(UHArray[0]) + PUNCTArray[2]], PRPArray[0].RESPONSE, beVerb.VBPArray[1], ADV].join(" ") + PUNCTArray[0];
+            sentenceArray[1] = [[capitalize(UHArray[0]) + PUNCTArray[2]], PRPArray[1].RESPONSE, beVerb.VBPArray[1], ADV].join(" ") + PUNCTArray[0];
+            sentenceArray[2] = [[capitalize(UHArray[0]) + PUNCTArray[2]], PRPArray[2].RESPONSE, beVerb.VBPArray[1], ADV].join(" ") + PUNCTArray[0];
+            sentenceArray[3] = "                 ";
         }
         gLinks = [''];
         grammarLesson = "";
