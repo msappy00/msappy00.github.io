@@ -157,13 +157,13 @@ function gArraySlide(tdId) {
 // checks phonics input from user
 function pArraySlide() {
     if (phonicsCheck.value.toLowerCase() == phonicsCheck.pattern || mPhonicsCheck.value.toLowerCase() == mPhonicsCheck.pattern) {
-        phonicsCheck.value = "";
-        mPhonicsCheck.value = "";
         success.play();
         document.getElementById("phonicsCheck").style.backgroundColor = "lightgreen";
         document.getElementById("phonicsCheck").style.borderColor = "green";
         document.getElementById("mPhonicsCheck").style.backgroundColor = "lightgreen";
         document.getElementById("mPhonicsCheck").style.borderColor = "green";
+        phonicsCheck.value = "";
+        mPhonicsCheck.value = "";
         pArray_i++;
         if (pArray_i > (pArray.length - 1)) {
             pArray_i = 0;
@@ -176,15 +176,15 @@ function pArraySlide() {
         document.getElementById("phonicsCheck").style.borderColor = "red";
         document.getElementById("mPhonicsCheck").style.backgroundColor = "lightpink";
         document.getElementById("mPhonicsCheck").style.borderColor = "red";
+        phonicsCheck.value = "";
+        mPhonicsCheck.value = "";
     }
     setTimeout(function() {
         speak(pArray[pArray_i].value);
         document.getElementById("phonicsCheck").style.backgroundColor = "white";
         document.getElementById("phonicsCheck").style.borderColor = "gray";
         document.getElementById("mPhonicsCheck").style.backgroundColor = "white";
-        document.getElementById("mPhonicsCheck").style.borderColor = "gray";
-        phonicsCheck.value = "";
-        mPhonicsCheck.value = "";
+        document.getElementById("mPhonicsCheck").style.borderColor = "gray";  
     }, 2000);
     phonicsCheck.focus();
 };
