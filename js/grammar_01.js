@@ -7,13 +7,13 @@ function g_01(userInput){
             {NOUN:'woman', pic:"Level 1/images/woman.png"}, {NOUN:'man', pic:"Level 1/images/man.png"}, 
             {NOUN:'student', pic:"Level 1/images/student.png"}, {NOUN:'teacher', pic:"Level 1/images/teacher.png"}];
         DET = DETArray[0];
+        VERB = conjugate_verb(PRPArray[0].PRP, beVerb);
         shuffleArray(NOUNArray);
         document.getElementById("gPic").src = NOUNArray[0].pic;
-        sentence = [capitalize(PRPArray[0].PRP) + " ______ " + DET, NOUNArray[0].NOUN].join(" ") + PUNCTArray[0];
-        document.getElementById("gInstructions").innerHTML = "<h1>" + sentence + "</h1>";
-        document.getElementById("grammarCheck").value = conjugate_verb(PRPArray[0].PRP, beVerb);
-        document.getElementById("request").value = VERB;
-        sentence = [PRPArray[0].PRP, VERB, DET, NOUNArray[0].NOUN].join(" ") + PUNCTArray[0];            
+        document.getElementById("gInstructions").innerHTML = "<h1>" + [capitalize(PRPArray[0].PRP) + " ______ " + DET, NOUNArray[0].NOUN].join(" ") + PUNCTArray[0] + "</h1>";
+        document.getElementById("grammarCheck").value = VERB;
+        sentence = [capitalize(PRPArray[0].PRP), VERB, DET, NOUNArray[0].NOUN].join(" ") + PUNCTArray[0];
+        document.getElementById("request").value = sentence;
         sentenceArray = [beVerb.VBPArray[0], beVerb.VBPArray[1], "", ""];
         gLinks = [''];
         grammarLesson = "";   
@@ -65,7 +65,7 @@ function g_01(userInput){
     } else if (userInput == "Review 1") {
         unitArray = ["Unit 1", "Unit 2", "Unit 3"];
         shuffleArray(unitArray);
-        setGrammar(unitArray[0]);
+        g_01(unitArray[0]);
         currentUnit = "Review 1";
     } else if (userInput == "Unit 4") {
         PRPArray = [PRPArray[0], PRPArray[1], PRPArray[3], PRPArray[4]];
@@ -209,7 +209,7 @@ function g_01(userInput){
     } else if (userInput == "Review 2") {
         unitArray = ["Unit 4", "Unit 5", "Unit 6"];
         shuffleArray(unitArray);
-        setGrammar(unitArray[0]);
+        g_01(unitArray[0]);
         currentUnit = "Review 2";
     } else if (userInput == "Unit 7") {
         NOUNArray = [{NOUN:'hat', pic:"Level 1/images/hat.png"}, {NOUN:'cap', pic:"Level 1/images/cap.png"}, {NOUN:'coat', pic:"Level 1/images/coat.png"}, 
@@ -316,14 +316,14 @@ function g_01(userInput){
     } else if (userInput == "Review 3") {
         unitArray = ["Unit 7", "Unit 8", "Unit 9"];
         shuffleArray(unitArray);
-        setGrammar(unitArray[0]);
+        g_01(unitArray[0]);
         currentUnit = "Review 3";
         gLinks = ['<a href="http://scratch.mit.edu/projects/20142996/" target="_newtab">Scratch: B1 Chat Bot</a>'];
         grammarLesson = "";
     } else if (userInput == "Final Review") {
-        sentenceArray = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9"];
+        unitArray = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9"];
         shuffleArray(unitArray);
-        setGrammar(unitArray[0]);
+        g_01(unitArray[0]);
         currentUnit = "Final Review";
         gLinks = ['<a href="http://scratch.mit.edu/projects/20142996/" target="_newtab">Scratch: B1 Chat Bot</a><br><a href="http://www.classtools.net/connect/201512_BdGEGi">Connect 4: B1 Vocab</a>'];
         grammarLesson = "";
@@ -343,5 +343,10 @@ function g_01(userInput){
     document.getElementById("gm1").textContent = sentenceArray[1];
     document.getElementById("gm2").textContent = sentenceArray[2];
     document.getElementById("gm3").textContent = sentenceArray[3];
-    if (sentence) {setTimeout(function(){speak(sentence)}, 2000)};
-}
+
+    document.getElementById("grammar_links").innerHTML = [''];
+    document.getElementById("grammar_lesson").innerHTML = "";
+    if (sentence){
+        setTimeout(function(){speak(sentence)}, 2000);
+    }
+};
