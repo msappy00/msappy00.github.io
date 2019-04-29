@@ -16,7 +16,10 @@ function g_01(userInput){
         document.getElementById("request").value = sentence;
         sentenceArray = [beVerb.VBPArray[0], beVerb.VBPArray[1], "", ""];
         gLinks = [''];
-        grammarLesson = "";   
+        grammarLesson = "";
+        if (sentence){
+            setTimeout(function(){speak(sentence)}, 2000);
+        };   
     } else if (userInput == "Unit 2") {
         PRPArray = [PRPArray[3], PRPArray[4]];
         shuffleArray(PRPArray);
@@ -39,6 +42,9 @@ function g_01(userInput){
         sentenceArray[3] = [capitalize(PRPArray[0].PRP), VERB, PRPSArray[0].PRPS, NOUNArray[3].NOUN].join(" ") + PUNCTArray[0];
         gLinks = [''];
         grammarLesson = "";
+        if (sentence){
+            setTimeout(function(){speak(sentence)}, 2000);
+        }
     } else if (userInput == "Unit 3") {
         PRPArray = [PRPArray[0], PRPArray[1], PRPArray[3], PRPArray[4]];
         shuffleArray(PRPArray);
@@ -62,6 +68,9 @@ function g_01(userInput){
         document.getElementById("gPic").src = picArray[NUMArray[0].NUM];
         gLinks = [''];
         grammarLesson = "";
+        if (sentence){
+            setTimeout(function(){speak(sentence)}, 2000);
+        }
     } else if (userInput == "Review 1") {
         unitArray = ["Unit 1", "Unit 2", "Unit 3"];
         shuffleArray(unitArray);
@@ -107,6 +116,9 @@ function g_01(userInput){
         }
         gLinks = [''];
         grammarLesson = "";
+        if (sentence){
+            setTimeout(function(){speak(sentence)}, 2000);
+        }
     } else if (userInput == "Unit 5") {
         randomG = randG();
         NOUNArray = [{NOUN:'pencil', pic:"Level 1/images/pencil.png"}, {NOUN:'eraser', pic:"Level 1/images/eraser.png"}, 
@@ -150,6 +162,9 @@ function g_01(userInput){
         }
         gLinks = ['<a href="http://scratch.mit.edu/projects/14219598/" target="_newtab">Scratch: B1U5 Grammar</a>'];
         grammarLesson = "";
+        if (sentence){
+            setTimeout(function(){speak(sentence)}, 2000);
+        }
     } else if (userInput == "Unit 6") {
         randomG = randG();
         NOUN = "color";
@@ -206,6 +221,9 @@ function g_01(userInput){
         }
         gLinks = ['<a href="http://scratch.mit.edu/projects/14493429/" target="_newtab">Scratch: Guess Book Color</a>'];
         grammarLesson = "";
+        if (sentence){
+            setTimeout(function(){speak(sentence)}, 2000);
+        }
     } else if (userInput == "Review 2") {
         unitArray = ["Unit 4", "Unit 5", "Unit 6"];
         shuffleArray(unitArray);
@@ -240,6 +258,9 @@ function g_01(userInput){
         document.getElementById("grammarCheck").value = sentence;
         gLinks = [''];
         grammarLesson = "";
+        if (sentence){
+            setTimeout(function(){speak(sentence)}, 2000);
+        }
     } else if (userInput == "Unit 8") {
         randomG = randG();
         ADV = "not";
@@ -286,6 +307,9 @@ function g_01(userInput){
         }
         gLinks = ['<a href="http://scratch.mit.edu/projects/15196988/" target="_newtab">Scratch: Animal Sounds</a>'];
         grammarLesson = "";
+        if (sentence){
+            setTimeout(function(){speak(sentence)}, 2000);
+        }
     } else if (userInput == "Unit 9") {
         ADJArray = [{ADJ:'hungry', pic:"Level 1/images/hungry.png"}, {ADJ:'thirsty', pic:"Level 1/images/thirsty.png"}, {ADJ:'angry', pic:"Level 1/images/angry.png"}, 
         {ADJ:'lazy', pic:"Level 1/images/lazy.png"}, {ADJ:'noisy', pic:"Level 1/images/noisy.png"}, {ADJ:'quiet', pic:"Level 1/images/quiet.png"}, 
@@ -313,6 +337,9 @@ function g_01(userInput){
         }
         gLinks = [''];
         grammarLesson = "";
+        if (sentence){
+            setTimeout(function(){speak(sentence)}, 2000);
+        }
     } else if (userInput == "Review 3") {
         unitArray = ["Unit 7", "Unit 8", "Unit 9"];
         shuffleArray(unitArray);
@@ -346,7 +373,4 @@ function g_01(userInput){
 
     document.getElementById("grammar_links").innerHTML = [''];
     document.getElementById("grammar_lesson").innerHTML = "";
-    if (sentence){
-        setTimeout(function(){speak(sentence)}, 2000);
-    }
 };
