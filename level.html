@@ -145,7 +145,7 @@
 
             <div id="vocab_tab" class="tab-pane w3-content" style="display:none">
                 <div class="w3-cell w3-cell-top w3-mobile w3-center">
-                    <progress id="vocProg" value=(array_i/array.length*100) max="100"></progress>
+                    <progress class=" w3-hide-small w3-hide-medium" id="vocProg" value=(array_i/array.length*100) max="100"></progress>
                     <button class="w3-button w3-blue w3-round" style="font-size: 20px; margin-left: 10px" onClick="speak(array[array_i]);"><i class="material-icons">play_arrow</i></button>
                     <button class="w3-button w3-blue w3-round" style="font-size: 20px; margin-left: 10px" id="next" onclick="vArraySlide();">NEXT</button>
                     <figure id="figaudio1">
@@ -224,9 +224,9 @@
         </div>
         <div class="item4"></div>
         <div class="item5" style="text-indent:20px">
-            <p id='foot01'>
-            <h4><a href="privacy.html">Privacy Policy</a></h4></p>
-        </div>
+                <h4 id='foot01'></h4>
+                <h4><a href="privacy.html">Privacy Policy</a></h4>
+            </div>
     </div>
     <script>
         var day = new Date().getDay();
