@@ -12,8 +12,20 @@
             font-family: 'ArchitectsDaughter-Regular';
             src: url('fonts/ArchitectsDaughter-Regular.ttf');
         }
-        .w3-bar, h3, #date, #next {
+        .w3-bar, h1, h3, #date, #next {
             font-family: ArchitectsDaughter-Regular;
+        }
+        .item1 { grid-area: header; }
+        .item2 { grid-area: left-filler; }
+        .item3 { grid-area: main; }
+        .item4 { grid-area: right-filler; }
+        .item5 { grid-area: footer; }
+        .grid-container {
+            display: grid;
+            grid-template: 'header header header'
+                'left-filler main right-filler'
+                'footer footer footer';
+            grid-auto-rows: 1em;
         }
     </style>
 </head>
@@ -123,94 +135,99 @@
         <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-display-topright" id="day">day</a>
     </div><!--/#nav bar-->
 
-    <header class="w3-row w3-mobile">
-        <h3 id="levelId" style="height:50; text-indent:20px"></h3>
-    </header>
-    <div id="home_tab" class="tab-pane w3-content">
-        <img id="logo" src="images/mega_vengers.png" alt="mega"><!-- style="border:5px solid black"-->
-    </div><!-- /#home_tab -->
+    <div class="grid-container">
+        <div class="item1"><h1 id="levelId" style="text-indent:20px"></h1></div>
+        <div class="item2"></div>
+        <div class="item3">
+            <div id="home_tab" class="tab-pane w3-content">
+                <img id="logo" src="images/mega_vengers.png" alt="mega"><!-- style="border:5px solid black"-->
+            </div><!-- /#home_tab -->
 
-    <div id="vocab_tab" class="tab-pane w3-content" style="display:none">
-        <div class="w3-cell w3-cell-top w3-mobile w3-center">
-            <progress id="vocProg" value=(array_i/array.length*100) max="100"></progress>
-            <button class="w3-button w3-blue w3-round" style="font-size: 20px; margin-left: 10px" onClick="speak(array[array_i]);"><i class="material-icons">play_arrow</i></button>
-            <button class="w3-button w3-blue w3-round" style="font-size: 20px; margin-left: 10px" id="next" onclick="vArraySlide();">NEXT</button>
-            <figure id="figaudio1">
-                <div id="current_vocab"></div>
-                <figcaption id="currentWord"></figcaption>
-            </figure>
+            <div id="vocab_tab" class="tab-pane w3-content" style="display:none">
+                <div class="w3-cell w3-cell-top w3-mobile w3-center">
+                    <progress id="vocProg" value=(array_i/array.length*100) max="100"></progress>
+                    <button class="w3-button w3-blue w3-round" style="font-size: 20px; margin-left: 10px" onClick="speak(array[array_i]);"><i class="material-icons">play_arrow</i></button>
+                    <button class="w3-button w3-blue w3-round" style="font-size: 20px; margin-left: 10px" id="next" onclick="vArraySlide();">NEXT</button>
+                    <figure id="figaudio1">
+                        <div id="current_vocab"></div>
+                        <figcaption id="currentWord"></figcaption>
+                    </figure>
+                </div>
+                <div class="w3-cell w3-mobile">
+                    <input class="w3-input w3-border w3-round w3-hide-small w3-hide-medium" type="text" style="text-align: center; font-size: 5em" id="spellCheck" autocomplete="off" autofocus maxlength="20" placeholder="Spell It!" />
+                    <input class="w3-input w3-border w3-round w3-hide-large" type="text" style="text-align: center; font-size: 3em" id="mSpellCheck" autocomplete="off" autofocus maxlength="20" placeholder="Spell It!" />
+                    <h3 id="vocab_links" class="w3-hide-small w3-hide-medium"></h3>
+                    <div id="vocab_lesson" class="w3-hide-small w3-hide-medium"></div>
+                </div>
+            </div><!-- /#vocab_tab -->
+            
+            <div id="grammar_tab" class="tab-pane w3-content" style="display:none">
+                <div class="w3-cell w3-cell-top w3-mobile">
+                    <div class="w3-row w3-mobile">
+                        <h3 class="w3-cell" id="gInstructions"></h3>
+                        <button class="w3-cell w3-button w3-blue w3-round" onClick="speak(request.value);"><i class="material-icons">play_arrow</i></button>
+                    </div>
+                    <input type="hidden" id="grammarCheck" />
+                    <input type="hidden" id="request" />
+                    <table class="w3-table w3-center w3-hide-small w3-hide-medium" style="padding:50px; font-size: 3em">
+                        <tr class="w3-row" style="height: 50px"></tr>
+                        <tr class="w3-row">
+                            <td id="r1d0" class="w3-cell"><div id="g0r1d0" class="w3-red" style="border: 2px solid black; text-align: center; padding: 0px 10px; min-height: 50px" onclick="gArraySlide('g0r1d0')"></div></td>
+                            <td id="g0r1d1"></td>
+                            <td id ="r1d2" class="w3-cell"><div id="g0r1d2" class="w3-green" style="border: 2px solid black; text-align: center; padding: 0px 10px; min-height: 50px" onclick="gArraySlide('g0r1d2')"></div></td>
+                            <td id="g0r1d3"></td>
+                            <td id="g0r1d4"></td>
+                        </tr>
+                        <tr class="w3-row" style="height: 20px"></tr>
+                        <tr class="w3-row">
+                            <td id="r2d0" class="w3-cell"><div id="g0r2d0" class="w3-blue" style="border: 2px solid black; text-align: center; padding: 0px 10px; min-height: 50px" onclick="gArraySlide('g0r2d0')"></div></td>
+                            <td id="g0r2d1"></td>
+                            <td id ="r2d2" class="w3-cell"><div id="g0r2d2" class="w3-yellow" style="border: 2px solid black; text-align: center; padding: 0px 10px; min-height: 50px" onclick="gArraySlide('g0r2d2')"></div></td>
+                            <td id="g0r2d3"></td>
+                            <td id="g0r2d4"></td>
+                        </tr>
+                    </table>
+                    <table class="w3-table w3-center w3-hide-large" style="padding:10px">
+                            <tr class="w3-row"></tr>
+                            <tr class="w3-row">
+                                <td class="w3-cell"><div id="gm0" class="w3-red" style="border: 1px solid black; text-align: center; padding: 0px 10px; min-height: 1em" onclick="gArraySlide('g0r1d0')"></div></td>
+                            </tr>
+                            <tr class="w3-row">
+                                <td class="w3-cell"><div id="gm1" class="w3-green" style="border: 1px solid black; text-align: center; padding: 0px 10px; min-height: 1em" onclick="gArraySlide('g0r1d2')"></div></td>
+                            </tr>
+                            <tr class="w3-row">
+                                <td class="w3-cell"><div id="gm2" class="w3-blue" style="border: 1px solid black; text-align: center; padding: 0px 10px; min-height: 1em" onclick="gArraySlide('g0r2d0')"></div></td>
+                            </tr>
+                            <tr class="w3-row">
+                                <td class="w3-cell"><div id="gm3" class="w3-yellow" style="border: 1px solid black; text-align: center; padding: 0px 10px; min-height: 1em" onclick="gArraySlide('g0r2d2')"></div></td>
+                            </tr>
+                    </table>
+                    <h3 id="grammar_links"></h3>
+                    <div id="grammar_lesson"></div>
+                </div>
+                <div class="w3-cell w3-cell-top w3-mobile">
+                    <div>
+                        <img id="gPic" />
+                    </div>
+                </div>
+            </div><!-- /#grammar_tab -->
+            
+            <div id="phonics_tab" class="tab-pane w3-content" style="display:none">
+                <div class="w3-mobile w3-center">
+                    <button class="w3-button w3-blue w3-round" style="font-size: 20px" onClick="speak(pArray[pArray_i].value);"><i class="material-icons">play_arrow</i></button>
+                    <button class="w3-button w3-blue w3-round" style="font-size: 20px; margin-left: 10px" id="next" onclick="pArraySlide();">NEXT</button>
+                    <h3 id="pInstructions"></h3>
+                    <input class="w3-input w3-border w3-round w3-hide-small w3-hide-medium" type="text" style="text-align: center; font-size: 5em" id="phonicsCheck" autocomplete="off" autofocus maxlength="4" />
+                    <input class="w3-input w3-border w3-round w3-hide-large" type="text" style="text-align: center; font-size: 3em" id="mPhonicsCheck" autocomplete="off" autofocus maxlength="4" />
+                </div>
+            </div><!-- /#phonics_tab -->
         </div>
-        <div class="w3-cell w3-mobile">
-            <input class="w3-input w3-border w3-round w3-hide-small w3-hide-medium" type="text" style="text-align: center; font-size: 5em" id="spellCheck" autocomplete="off" autofocus maxlength="20" placeholder="Spell It!" />
-            <input class="w3-input w3-border w3-round w3-hide-large" type="text" style="text-align: center; font-size: 3em" id="mSpellCheck" autocomplete="off" autofocus maxlength="20" placeholder="Spell It!" />
-            <h3 id="vocab_links" class="w3-hide-small w3-hide-medium"></h3>
-            <div id="vocab_lesson" class="w3-hide-small w3-hide-medium"></div>
+        <div class="item4"></div>
+        <div class="item5" style="text-indent:20px">
+            <p id='foot01'>
+            <h4><a href="privacy.html">Privacy Policy</a></h4></p>
         </div>
-    </div><!-- /#vocab_tab -->
-    
-    <div id="grammar_tab" class="tab-pane w3-content" style="display:none">
-        <div class="w3-cell w3-cell-top w3-mobile">
-            <div class="w3-row w3-mobile">
-                <h3 class="w3-cell" id="gInstructions"></h3>
-                <button class="w3-cell w3-button w3-blue w3-round" onClick="speak(request.value);"><i class="material-icons">play_arrow</i></button>
-            </div>
-            <input type="hidden" id="grammarCheck" />
-            <input type="hidden" id="request" />
-            <table class="w3-table w3-center w3-hide-small w3-hide-medium" style="padding:50px; font-size: 3em">
-                <tr class="w3-row" style="height: 50px"></tr>
-                <tr class="w3-row">
-                    <td id="r1d0" class="w3-cell"><div id="g0r1d0" class="w3-red" style="border: 2px solid black; text-align: center; padding: 0px 10px; min-height: 50px" onclick="gArraySlide('g0r1d0')"></div></td>
-                    <td id="g0r1d1"></td>
-                    <td id ="r1d2" class="w3-cell"><div id="g0r1d2" class="w3-green" style="border: 2px solid black; text-align: center; padding: 0px 10px; min-height: 50px" onclick="gArraySlide('g0r1d2')"></div></td>
-                    <td id="g0r1d3"></td>
-                    <td id="g0r1d4"></td>
-                </tr>
-                <tr class="w3-row" style="height: 20px"></tr>
-                <tr class="w3-row">
-                    <td id="r2d0" class="w3-cell"><div id="g0r2d0" class="w3-blue" style="border: 2px solid black; text-align: center; padding: 0px 10px; min-height: 50px" onclick="gArraySlide('g0r2d0')"></div></td>
-                    <td id="g0r2d1"></td>
-                    <td id ="r2d2" class="w3-cell"><div id="g0r2d2" class="w3-yellow" style="border: 2px solid black; text-align: center; padding: 0px 10px; min-height: 50px" onclick="gArraySlide('g0r2d2')"></div></td>
-                    <td id="g0r2d3"></td>
-                    <td id="g0r2d4"></td>
-                </tr>
-            </table>
-            <table class="w3-table w3-center w3-hide-large" style="padding:10px">
-                    <tr class="w3-row"></tr>
-                    <tr class="w3-row">
-                        <td class="w3-cell"><div id="gm0" class="w3-red" style="border: 1px solid black; text-align: center; padding: 0px 10px; min-height: 1em" onclick="gArraySlide('g0r1d0')"></div></td>
-                    </tr>
-                    <tr class="w3-row">
-                        <td class="w3-cell"><div id="gm1" class="w3-green" style="border: 1px solid black; text-align: center; padding: 0px 10px; min-height: 1em" onclick="gArraySlide('g0r1d2')"></div></td>
-                    </tr>
-                    <tr class="w3-row">
-                        <td class="w3-cell"><div id="gm2" class="w3-blue" style="border: 1px solid black; text-align: center; padding: 0px 10px; min-height: 1em" onclick="gArraySlide('g0r2d0')"></div></td>
-                    </tr>
-                    <tr class="w3-row">
-                        <td class="w3-cell"><div id="gm3" class="w3-yellow" style="border: 1px solid black; text-align: center; padding: 0px 10px; min-height: 1em" onclick="gArraySlide('g0r2d2')"></div></td>
-                    </tr>
-            </table>
-            <h3 id="grammar_links"></h3>
-            <div id="grammar_lesson"></div>
-        </div>
-        <div class="w3-cell w3-cell-top w3-mobile">
-            <div>
-                <img id="gPic" />
-            </div>
-        </div>
-    </div><!-- /#grammar_tab -->
-    
-    <div id="phonics_tab" class="tab-pane w3-content" style="display:none">
-        <div class="w3-mobile w3-center">
-            <button class="w3-button w3-blue w3-round" style="font-size: 20px" onClick="speak(pArray[pArray_i].value);"><i class="material-icons">play_arrow</i></button>
-            <button class="w3-button w3-blue w3-round" style="font-size: 20px; margin-left: 10px" id="next" onclick="pArraySlide();">NEXT</button>
-            <h3 id="pInstructions"></h3>
-            <input class="w3-input w3-border w3-round w3-hide-small w3-hide-medium" type="text" style="text-align: center; font-size: 5em" id="phonicsCheck" autocomplete="off" autofocus maxlength="4" />
-            <input class="w3-input w3-border w3-round w3-hide-large" type="text" style="text-align: center; font-size: 3em" id="mPhonicsCheck" autocomplete="off" autofocus maxlength="4" />
-        </div>
-    </div><!-- /#phonics_tab -->
-
-    <div style="height: 10px"></div>
-
+    </div>
     <script>
         var day = new Date().getDay();
         switch(day) {
@@ -237,12 +254,7 @@
                 break;
         }
         document.getElementById("day").innerHTML = day;
+        document.getElementById("foot01").innerHTML = "<h4 id='date'>&copy; " + new Date().getFullYear() + " Teacher Matthew</h4>";
     </script>
-    <footer id='foot01' style="text-indent:20px">
-        <script>
-            document.getElementById("foot01").innerHTML = "<h4 id='date'>&copy; " + new Date().getFullYear() + " Teacher Matthew</h4>";
-        </script>
-        <h4><a href="privacy.html">Privacy Policy</a></h4>
-    </footer>
 </body>
 </html>
