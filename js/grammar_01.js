@@ -10,7 +10,7 @@ function g_01(userInput){
         VERB = conjugate_verb(PRPArray[0].PRP, beVerb);
         shuffleArray(NOUNArray);
         document.getElementById("gPic").src = NOUNArray[0].pic;
-        document.getElementById("gInstructions").innerHTML = "<h1>" + [capitalize(PRPArray[0].PRP) + " ______ " + DET, NOUNArray[0].NOUN].join(" ") + PUNCTArray[0] + "</h1>";
+        document.getElementById("gInstructions").innerHTML = "<h2>" + [capitalize(PRPArray[0].PRP) + " ______ " + DET, NOUNArray[0].NOUN].join(" ") + PUNCTArray[0] + "</h2>";
         document.getElementById("grammarCheck").value = VERB;
         sentence = [capitalize(PRPArray[0].PRP), VERB, DET, NOUNArray[0].NOUN].join(" ") + PUNCTArray[0];
         document.getElementById("request").value = sentence;
