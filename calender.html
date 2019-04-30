@@ -13,20 +13,23 @@
         font-family: ArchitectsDaughter-Regular;
         text-align: center;
     }
+    h3 {
+        margin-bottom: 50px;
+    }
     h4 {
         border: 2px solid black;
         border-radius: 10%;
         width: 50%;
         line-height: 2em;
         margin: 0px auto;
-        margin-bottom: 20px;
+        margin-bottom: 50px;
     }
     .center h4 {
         vertical-align: middle;
     }
     header { 
         grid-area: m;
-        margin-bottom: 80px; 
+        margin-bottom: 50px; 
     }
     .w1 { grid-area: w1; }
     .w2 { grid-area: w2; }
@@ -68,27 +71,24 @@
     .d31 { grid-area: d31; }
     .front-filler { grid-area: f; }
     .back-filler { grid-area: b; }
-    .img { grid-area: img; 
-        margin: 0px auto; 
-        margin-top: 100px;
+    img {
+        margin-top: 50px;
     }
     .grid-container {
         display: grid;
-        grid-template-areas: 'm m m m m m m'
+        grid-template-areas:
             'w1 w2 w3 w4 w5 w6 w7'
             'f f f d1 d2 d3 d4'
             'd5 d6 d7 d8 d9 d10 d11'
             'd12 d13 d14 d15 d16 d17 d18'
             'd19 d20 d21 d22 d23 d24 d25'
-            'd26 d27 d28 d29 d30 d31 b'
-            'img img img img img img img';
-        grid-gap: 10px;
+            'd26 d27 d28 d29 d30 d31 b';
     }
     </style>
 </head>
 <body>
+    <header><h1>MAY</h1></header>
     <div class="grid-container">
-        <header><h1>MAY</h1></header>
         <div class="w1"><h3>Sun</h3></div>
         <div class="w2"><h3>Mon</h3></div>
         <div class="w3"><h3>Tue</h3></div>
@@ -128,8 +128,9 @@
         <div class="d29"><h4>29</h4></div>
         <div class="d30"><h4>30</h4></div>
         <div class="d31"><h4>31</h4></div>
-        <div class="back-filler"></div>
-        <div class="img"><img src="images/einstein.png" /></div>
+        <div class="back-filler"></div>    
     </div>
+    <div style="text-align: center"><img src="images/einstein.png" alt="einstein"></div>
+    
 </body>
 </html>
