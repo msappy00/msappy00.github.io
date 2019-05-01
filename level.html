@@ -144,10 +144,12 @@
             </div><!-- /#home_tab -->
 
             <div id="vocab_tab" class="tab-pane w3-content" style="display:none">
-                <div class="w3-cell w3-cell-top w3-mobile w3-center">
-                    <progress class=" w3-hide-small w3-hide-medium" id="vocProg" value=(array_i/array.length*100) max="100"></progress>
-                    <button class="w3-button w3-blue w3-round" style="font-size: 20px; margin-left: 10px" onClick="speak(array[array_i]);"><i class="material-icons">play_arrow</i></button>
-                    <button class="w3-button w3-blue w3-round" style="font-size: 20px; margin-left: 10px" id="next" onclick="vArraySlide();">NEXT</button>
+                <div class="w3-cell w3-cell-top w3-mobile w3-center"> 
+                    <div class="w3-row w3-mobile w3-center">
+                        <progress class=" w3-hide-small w3-hide-medium" id="vocProg" value=(array_i/array.length*100) max="100"></progress>
+                    </div>
+                    <button class="w3-button w3-blue w3-round" onClick="speak(array[array_i]);"><i class="material-icons">play_arrow</i></button>
+                    <button class="w3-button w3-blue w3-round" style="margin-left: 10px" id="next" onclick="vArraySlide();">NEXT</button>
                     <figure id="figaudio1">
                         <div id="current_vocab"></div>
                         <figcaption id="currentWord"></figcaption>
@@ -214,8 +216,8 @@
             
             <div id="phonics_tab" class="tab-pane w3-content" style="display:none">
                 <div class="w3-mobile w3-center">
-                    <button class="w3-button w3-blue w3-round" style="font-size: 20px" onClick="speak(pArray[pArray_i].value);"><i class="material-icons">play_arrow</i></button>
-                    <button class="w3-button w3-blue w3-round" style="font-size: 20px; margin-left: 10px" id="next" onclick="pArraySlide();">NEXT</button>
+                    <button class="w3-button w3-blue w3-round" onClick="speak(pArray[pArray_i].value);"><i class="material-icons">play_arrow</i></button>
+                    <button class="w3-button w3-blue w3-round" style="margin-left: 10px" id="next" onclick="pArraySlide();">NEXT</button>
                     <h3 id="pInstructions"></h3>
                     <input class="w3-input w3-border w3-round w3-hide-small w3-hide-medium" type="text" style="text-align: center; font-size: 5em" id="phonicsCheck" autocomplete="off" autofocus maxlength="4" />
                     <input class="w3-input w3-border w3-round w3-hide-large" type="text" style="text-align: center; font-size: 3em" id="mPhonicsCheck" autocomplete="off" autofocus maxlength="4" />
