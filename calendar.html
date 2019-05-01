@@ -5,30 +5,27 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <style>
-    @font-face {
-        font-family: 'ArchitectsDaughter-Regular';
-        src: url('fonts/ArchitectsDaughter-Regular.ttf');
-    }
-    h1, h2, h3, h4 {
-        font-family: ArchitectsDaughter-Regular;
+    body {
+        font-family: Arial, Helvetica, sans-serif;
         text-align: center;
     }
-    h3 {
-        margin-bottom: 50px;
+    h1 {
+        font-size: 50px;
+    }
+    h2 {
+        font-size: 30px;
     }
     h4 {
         border: 2px solid black;
         border-radius: 10%;
+        font-size: 50px;
         width: 50%;
-        line-height: 2em;
+        line-height: 1em;
         margin: 0px auto;
-        margin-bottom: 50px;
+        margin-bottom: 40px;
     }
     .center h4 {
         vertical-align: middle;
-    }
-    header { 
-        margin-bottom: 50px; 
     }
     .w1 { grid-area: w1; }
     .w2 { grid-area: w2; }
@@ -67,34 +64,31 @@
     .d28 { grid-area: d28; }
     .d29 { grid-area: d29; }
     .d30 { grid-area: d30; }
-    .d31 { grid-area: d31; }
     .front-filler { grid-area: f; }
     .back-filler { grid-area: b; }
-    img {
-        margin-top: 50px;
-    }
     .grid-container {
         display: grid;
         grid-template-areas:
             'w1 w2 w3 w4 w5 w6 w7'
-            'f f f d1 d2 d3 d4'
-            'd5 d6 d7 d8 d9 d10 d11'
-            'd12 d13 d14 d15 d16 d17 d18'
-            'd19 d20 d21 d22 d23 d24 d25'
-            'd26 d27 d28 d29 d30 d31 b';
+            'f f f f f f d1' 
+            'd2 d3 d4 d5 d6 d7 d8'
+            'd9 d10 d11 d12 d13 d14 d15'
+            'd16 d17 d18 d19 d20 d21 d22'
+            'd23 d24 d25 d26 d27 d28 d29'
+            'd30 b b b b b b';
     }
     </style>
 </head>
 <body>
-    <header><h1>MAY</h1></header>
+    <div><h1>JUNE</h1></div>
     <div class="grid-container">
-        <div class="w1"><h3>Sun</h3></div>
-        <div class="w2"><h3>Mon</h3></div>
-        <div class="w3"><h3>Tue</h3></div>
-        <div class="w4"><h3>Wed</h3></div>
-        <div class="w5"><h3>Thu</h3></div>
-        <div class="w6"><h3>Fri</h3></div>
-        <div class="w7"><h3>Sat</h3></div>
+        <div class="w1"><h2>Sun</h2></div>
+        <div class="w2"><h2>Mon</h2></div>
+        <div class="w3"><h2>Tue</h2></div>
+        <div class="w4"><h2>Wed</h2></div>
+        <div class="w5"><h2>Thu</h2></div>
+        <div class="w6"><h2>Fri</h2></div>
+        <div class="w7"><h2>Sat</h2></div>
         <div class="front-filler"></div>
         <div class="d1"><h4>1</h4></div>
         <div class="d2"><h4>2</h4></div>
@@ -126,7 +120,6 @@
         <div class="d28"><h4>28</h4></div>
         <div class="d29"><h4>29</h4></div>
         <div class="d30"><h4>30</h4></div>
-        <div class="d31"><h4>31</h4></div>
         <div class="back-filler"></div>    
     </div>
     <div style="text-align: center"><img src="images/einstein.png" alt="einstein"></div>
