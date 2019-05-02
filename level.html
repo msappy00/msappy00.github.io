@@ -15,17 +15,9 @@
         .w3-bar, h1, h4, #date, #next {
             font-family: ArchitectsDaughter-Regular;
         }
-        .item1 { grid-area: header; }
-        .item2 { grid-area: left-filler; }
-        .item3 { grid-area: main; }
-        .item4 { grid-area: right-filler; }
-        .item5 { grid-area: footer; }
         .grid-container {
             display: grid;
-            grid-template: 'header header header'
-                'left-filler main right-filler'
-                'footer footer footer';
-            grid-auto-rows: 1em;
+            grid-template-rows: auto auto auto;
         }
     </style>
 </head>
@@ -143,28 +135,24 @@
                 <img class="w3-image" id="logo" src="images/mega_vengers.png" alt="mega">
             </div><!-- /#home_tab -->
 
-            <div id="vocab_tab" class="tab-pane w3-content" style="display:none">
-                <div class="w3-cell w3-cell-top w3-mobile w3-center"> 
-                    <div class="w3-row w3-mobile w3-center">
-                        <progress class=" w3-hide-small w3-hide-medium" id="vocProg" value=(array_i/array.length*100) max="100"></progress>
-                    </div>
-                    <button class="w3-button w3-blue w3-round" onClick="speak(array[array_i]);"><i class="material-icons">play_arrow</i></button>
-                    <button class="w3-button w3-blue w3-round" style="margin-left: 10px" id="next" onclick="vArraySlide();">NEXT</button>
-                    <figure id="figaudio1">
-                        <div id="current_vocab"></div>
-                        <figcaption id="currentWord"></figcaption>
-                    </figure>
-                </div>
-                <div class="w3-cell w3-mobile">
-                    <input class="w3-input w3-border w3-round w3-hide-small w3-hide-medium" type="text" style="text-align: center; font-size: 5em" id="spellCheck" autocomplete="off" autofocus maxlength="20" placeholder="Spell It!" />
+            <div id="vocab_tab" class="tab-pane" style="display:none">
+                <div class="w3-cell w3-cell-top w3-mobile w3-center">
+                    <progress class=" w3-hide-small w3-hide-medium" id="vocProg" value=(array_i/array.length*100) max="100" style="display:block; width: 100%"></progress>
+                    <button class="w3-button w3-blue w3-round" style="height:50px" onClick="speak(array[array_i]);"><i class="material-icons">play_arrow</i></button>
+                    <button class="w3-button w3-blue w3-round" style="height:50px; margin: 10px" id="next" onclick="vArraySlide();">NEXT</button>
+                    <input class="w3-input w3-border w3-round w3-hide-small w3-hide-medium" type="text" style="text-align: center; font-size: 4em" id="spellCheck" autocomplete="off" autofocus maxlength="20" placeholder="Spell It!" />
                     <input class="w3-input w3-border w3-round w3-hide-large" type="text" style="text-align: center; font-size: 3em" id="mSpellCheck" autocomplete="off" autofocus maxlength="20" placeholder="Spell It!" />
                     <h3 id="vocab_links" class="w3-hide-small w3-hide-medium"></h3>
                     <div id="vocab_lesson" class="w3-hide-small w3-hide-medium"></div>
                 </div>
+                <div class="w3-cell w3-mobile">
+                    <img id="current_vocab" style="margin: 10px" />
+                    <p id="currentWord"></p>   
+                </div>
             </div><!-- /#vocab_tab -->
             
             <div id="grammar_tab" class="tab-pane w3-content" style="display:none">
-                <div class="w3-cell w3-cell-top w3-mobile">
+                <div class="w3-cell w3-cell-top w3-mobile w3-center">
                     <div class="w3-row w3-mobile">
                         <h3 class="w3-cell" id="gInstructions"></h3>
                         <button class="w3-cell w3-button w3-blue w3-round" onClick="speak(request.value);"><i class="material-icons">play_arrow</i></button>
@@ -207,10 +195,8 @@
                     <h3 id="grammar_links"></h3>
                     <div id="grammar_lesson"></div>
                 </div>
-                <div class="w3-cell w3-cell-top w3-mobile">
-                    <div>
-                        <img id="gPic" />
-                    </div>
+                <div class="w3-cell w3-mobile">
+                    <img id="gPic" />
                 </div>
             </div><!-- /#grammar_tab -->
             

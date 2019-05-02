@@ -105,6 +105,7 @@ function vArraySlide() {
         document.getElementById("mSpellCheck").style.backgroundColor = "lightgreen";
         document.getElementById("spellCheck").placeholder = "Correct!";
         document.getElementById("mSpellCheck").placeholder = "Correct!";
+        document.getElementById("currentWord").innerHTML = "";
         mSpellCheck.value = "";
         spellCheck.value = "";
         array_i++;
@@ -118,7 +119,7 @@ function vArraySlide() {
         }
         else document.getElementById("current_vocab").innerHTML =  '<img src="'+level_id+'/images/'+array[array_i]+'.png" onClick="vArraySlide()" class="w3-image" />';
         if (level_id == "Starter") {
-            currentWord.innerHTML = '<table align="center"><tr><td align="right" style="font-size:xx-large; color:red">'+array[array_i].slice(0,1)+'</td><td align="right" style="font-size:xx-large; color:black">'+array[array_i].slice(1)+'</td></tr></table>';
+            document.getElementById("currentWord").innerHTML = '<table align="center"><tr><td align="right" style="font-size:xx-large; color:red">'+array[array_i].slice(0,1)+'</td><td align="right" style="font-size:xx-large; color:black">'+array[array_i].slice(1)+'</td></tr></table>';
             spellCheck.pattern = array[array_i].slice(0,1);
             mSpellCheck.pattern = array[array_i].slice(0,1);
         } else {

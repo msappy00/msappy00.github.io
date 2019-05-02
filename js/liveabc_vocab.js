@@ -13,7 +13,6 @@ function setVocab(userInput){
     
     document.getElementById("levelId").innerHTML = level_id + " " + userInput;
     document.getElementById("spellCheck").value = "";
-    document.getElementById("currentWord").innerHTML = "";
     
     if (level_id == "Starter") {
         array = ["apple", "ant", "boy", "ball", "cat", "car", "dog", "desk", "elephant", "egg", "fish", "frog", "goat", "girl", "house", "hat", "Indian", "igloo", "jet", "jar", "kite", "king", "lollipop", "lion", "monkey", "milk", "nurse", "nose", "ox", "octopus", "pig", "pink", "queen", "quilt", "rabbit", "rat", "snake", "sun", "tiger", "toe", "umbrella", "under", "vampire", "vase", "window", "watermelon", "x-ray", "box", "yo-yo", "yellow", "zebra", "zoo"];
@@ -804,7 +803,7 @@ function setVocab(userInput){
     if (level_id == "Level 9" || level_id == "Level 10" || level_id == "Level 11" || level_id == "Level 12") {
         document.getElementById("current_vocab").innerHTML = '<button class="w3-button w3-white w3-round" onClick="vArraySlide()" class="w3-image">NEXT</button>';
     }
-    else document.getElementById("current_vocab").innerHTML =  '<img src="'+level_id+'/images/'+array[array_i]+'.png" onClick="vArraySlide()" class="w3-image" />';
+    else document.getElementById("current_vocab").src =  level_id+'/images/'+array[array_i]+'.png';
     if (level_id == "Starter") {
         document.getElementById("currentWord").innerHTML = '<table align="center"><tr><td align="right" style="font-size:xx-large; color:red">'+array[array_i].slice(0,1)+'</td><td align="right" style="font-size:xx-large; color:black">'+array[array_i].slice(1)+'</td></tr></table>';
         document.getElementById("spellCheck").pattern = array[array_i].slice(0,1);
