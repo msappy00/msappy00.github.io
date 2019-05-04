@@ -115,9 +115,9 @@ function vArraySlide() {
         }
         document.getElementById("vocProg").value = array_i/array.length*100;
         if (level_id == "Level 9" || level_id == "Level 10" || level_id == "Level 11" || level_id == "Level 12") {
-            document.getElementById("current_vocab").innerHTML = '<button class="w3-button w3-white w3-round" onClick="vArraySlide()" class="w3-image">NEXT</button>';
+            document.getElementById("current_vocab").src = 'images/blank.png';
         }
-        else document.getElementById("current_vocab").innerHTML =  '<img src="'+level_id+'/images/'+array[array_i]+'.png" onClick="vArraySlide()" class="w3-image" />';
+        else document.getElementById("current_vocab").src =  level_id+'/images/'+array[array_i]+'.png';
         if (level_id == "Starter") {
             document.getElementById("currentWord").innerHTML = '<table align="center"><tr><td align="right" style="font-size:xx-large; color:red">'+array[array_i].slice(0,1)+'</td><td align="right" style="font-size:xx-large; color:black">'+array[array_i].slice(1)+'</td></tr></table>';
             spellCheck.pattern = array[array_i].slice(0,1);
@@ -171,6 +171,7 @@ function pArraySlide() {
         if (pArray_i > (pArray.length - 1)) {
             pArray_i = 0;
         }
+        document.getElementById("phonProg").value = pArray_i/pArray.length*100;
         phonicsCheck.pattern = pArray[pArray_i].pattern;
         mPhonicsCheck.pattern = pArray[pArray_i].pattern;    
     } else {

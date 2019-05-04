@@ -46,8 +46,6 @@
                 <a href="BullsAndCows.html" target="_blank" class="w3-bar-item w3-button">Bulls and Cows</a>
                 <a href="move.html" target="_blank" class="w3-bar-item w3-button">Move!</a>
                 <a href="matchingGame.html" target="_blank" class="w3-bar-item w3-button">Matching Game</a>
-                <a href="blurry.html" target="_blank" class="w3-bar-item w3-button">Blurry</a>
-                <a href="blocked.html" target="_blank" class="w3-bar-item w3-button">Blocked</a>
                 <a href="melon_drop.html" target="_blank" class="w3-bar-item w3-button">Melon Drop</a>
                 <a href="bat_dodge.html" target="_blank" class="w3-bar-item w3-button">Bat Dodge</a>
                 <a href="tennis_ball.html" target="_blank" class="w3-bar-item w3-button">Tennis Ball</a>
@@ -201,19 +199,21 @@
             </div><!-- /#grammar_tab -->
             
             <div id="phonics_tab" class="tab-pane w3-content" style="display:none">
+                <progress class=" w3-hide-small w3-hide-medium" id="phonProg" value=(pArray_i/pArray.length*100) max="100" style="display:block; width: 100%"></progress>
                 <div class="w3-mobile w3-center">
-                    <button class="w3-button w3-blue w3-round" onClick="speak(pArray[pArray_i].value);"><i class="material-icons">play_arrow</i></button>
-                    <button class="w3-button w3-blue w3-round" style="margin-left: 10px" id="next" onclick="pArraySlide();">NEXT</button>
+                    <button class="w3-button w3-blue w3-round" style="height:50px" onClick="speak(pArray[pArray_i]);"><i class="material-icons">play_arrow</i></button>
+                    <button class="w3-button w3-blue w3-round" style="height:50px; margin: 10px" id="next" onclick="pArraySlide();">NEXT</button>
                     <h3 id="pInstructions"></h3>
                     <input class="w3-input w3-border w3-round w3-hide-small w3-hide-medium" type="text" style="text-align: center; font-size: 5em" id="phonicsCheck" autocomplete="off" autofocus maxlength="4" />
                     <input class="w3-input w3-border w3-round w3-hide-large" type="text" style="text-align: center; font-size: 3em" id="mPhonicsCheck" autocomplete="off" autofocus maxlength="4" />
                 </div>
             </div><!-- /#phonics_tab -->
+
         </div>
         <div class="item4"></div>
         <div class="item5" style="text-indent:20px">
                 <h4 id='foot01'></h4>
-                <h4><a href="privacy.html">Privacy Policy</a></h4>
+                <h5><a href="privacy.html">Privacy Policy</a></h5>
             </div>
     </div>
     <script>

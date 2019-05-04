@@ -801,7 +801,7 @@ function setVocab(userInput){
     document.getElementById("vocab_links").innerHTML = links;
     document.getElementById("vocab_lesson").innerHTML = vocabLesson;
     if (level_id == "Level 9" || level_id == "Level 10" || level_id == "Level 11" || level_id == "Level 12") {
-        document.getElementById("current_vocab").innerHTML = '<button class="w3-button w3-white w3-round" onClick="vArraySlide()" class="w3-image">NEXT</button>';
+        document.getElementById("current_vocab").src = 'images/blank.png';
     }
     else document.getElementById("current_vocab").src =  level_id+'/images/'+array[array_i]+'.png';
     if (level_id == "Starter") {
