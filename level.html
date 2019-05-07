@@ -224,7 +224,7 @@
             <div id="phonics_tab" class="tab-pane w3-content" style="display:none">
                 <progress class=" w3-hide-small w3-hide-medium" id="phonProg" value=(pArray_i/pArray.length*100) max="100" style="display:block; width: 100%"></progress>
                 <div class="w3-mobile w3-center">
-                    <button class="w3-button w3-blue w3-round" style="height:50px" onClick="speak(pArray[pArray_i]);"><i class="material-icons">play_arrow</i></button>
+                    <button class="w3-button w3-blue w3-round" style="height:50px" onClick="speak(pArray[pArray_i].value);"><i class="material-icons">play_arrow</i></button>
                     <button class="w3-button w3-blue w3-round" style="height:50px; margin: 10px" id="next" onclick="pArraySlide();">NEXT</button>
                     <h3 id="pInstructions"></h3>
                     <input class="w3-input w3-border w3-round w3-hide-small w3-hide-medium" type="text" style="text-align: center; font-size: 5em" id="phonicsCheck" autocomplete="off" autofocus maxlength="4" />

@@ -230,6 +230,7 @@ function g_01(userInput){
         g_01(unitArray[0]);
         currentUnit = "Review 2";
     } else if (userInput == "Unit 7") {
+        randomG = randG();
         NOUNArray = [{NOUN:'hat', pic:"Level 1/images/hat.png"}, {NOUN:'cap', pic:"Level 1/images/cap.png"}, {NOUN:'coat', pic:"Level 1/images/coat.png"}, 
         {NOUN:'jacket', pic:"Level 1/images/jacket.png"}, {NOUN:'dress', pic:"Level 1/images/dress.png"}, {NOUN:'skirt', pic:"Level 1/images/skirt.png"}, 
         {NOUN:'shirt', pic:"Level 1/images/shirt.png"}, {NOUN:'shirt', pic:"Level 1/images/shirt.png"}, {NOUN:'T-shirt', pic:"Level 1/images/T-shirt.png"}];
