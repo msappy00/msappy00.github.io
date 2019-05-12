@@ -31,6 +31,7 @@ function setLevel(level) {
     sessionStorage.setItem("sessionLevel", level);
     level_id = level;
     levelId.textContent = level;
+    document.title = level_id;
     currentUnit = "";
     setVocab('');
     setGrammar('');
