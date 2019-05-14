@@ -19,7 +19,8 @@ function shuffleArray(array) {
     return array;
 };
 
-function randG() {return Math.floor(Math.random() * 4)};
+// a random number used extensively in grammar_**.js
+function randG(max) {return Math.floor(Math.random() * max)};
 
 // sessionLevel are levels starter - 12
 function checkSessionStorage() {
@@ -81,6 +82,7 @@ function setVQ(userInput) {
 function speak(text, callback) {
     var u = new SpeechSynthesisUtterance();
     u.text = text;
+    u.rate = 0.6;
     u.lang = 'en-US';
     
     u.onend = function () {
@@ -94,7 +96,7 @@ function speak(text, callback) {
             callback(e);
         }
     };
-    
+
     speechSynthesis.speak(u);
 };
 

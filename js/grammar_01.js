@@ -1,45 +1,53 @@
 function g_01(userInput){
 
     if (userInput == "Unit 1") {
-        PRPArray = [PRPArray[0], PRPArray[1]];
-        shuffleArray(PRPArray);
-        NOUNArray = [{NOUN:'boy', pic:"Level 1/images/boy.png"}, {NOUN:'girl', pic:"Level 1/images/girl.png"}, 
-            {NOUN:'woman', pic:"Level 1/images/woman.png"}, {NOUN:'man', pic:"Level 1/images/man.png"}, 
-            {NOUN:'student', pic:"Level 1/images/student.png"}, {NOUN:'teacher', pic:"Level 1/images/teacher.png"}];
-        DET = DETArray[0];
-        VERB = conjugate_verb(PRPArray[0].PRP, beVerb);
-        shuffleArray(NOUNArray);
-        document.getElementById("gPic").src = NOUNArray[0].pic;
-        document.getElementById("gInstructions").innerHTML = "<h2>" + [capitalize(PRPArray[0].PRP) + " ______ " + DET, NOUNArray[0].NOUN].join(" ") + PUNCTArray[0] + "</h2>";
-        document.getElementById("grammarCheck").value = VERB;
-        sentence = [capitalize(PRPArray[0].PRP), VERB, DET, NOUNArray[0].NOUN].join(" ") + PUNCTArray[0];
+        randomG = randG(2);
+        BaseArray = [
+            {NOUN:'boy', A:"I am a boy.", B:"You are a boy.", pic:"Level 1/images/boy.png"}, 
+            {NOUN:'girl', A: "I am a girl.", B:"You are a girl.", pic:"Level 1/images/girl.png"}, 
+            {NOUN:'woman', A: "I am a woman.", B:"You are a woman.", pic:"Level 1/images/woman.png"}, 
+            {NOUN:'man', A: "I am a man.", B:"You are a man.", pic:"Level 1/images/man.png"}, 
+            {NOUN:'student', A: "I am a student.", B:"You are a student.", pic:"Level 1/images/student.png"}, 
+            {NOUN:'teacher', A: "I am a teacher.", B:"You are a teacher.", pic:"Level 1/images/teacher.png"}];
+        shuffleArray(BaseArray);
+        document.getElementById("gPic").src = BaseArray[0].pic;
+        if (randomG < 1){
+            document.getElementById("gInstructions").innerHTML = "<h2>I ______ a " + BaseArray[0].NOUN + ".</h2>";
+            document.getElementById("grammarCheck").value = "am";
+            sentence = BaseArray[0].A;
+        } else {
+            document.getElementById("gInstructions").innerHTML = "<h2>You ______ a " + BaseArray[0].NOUN + ".</h2>";
+            document.getElementById("grammarCheck").value = "are";
+            sentence = BaseArray[0].B;
+        }
         document.getElementById("request").value = sentence;
-        sentenceArray = [beVerb.VBPArray[0], beVerb.VBPArray[1], "", ""];
+        sentenceArray = ["am", "are", "", ""];
         gLinks = [''];
         grammarLesson = "";
         if (sentence){
             setTimeout(function(){speak(sentence)}, 2000);
         };   
     } else if (userInput == "Unit 2") {
-        PRPArray = [PRPArray[3], PRPArray[4]];
-        shuffleArray(PRPArray);
-        sentence = [WPArray[0], conjugate_verb(PRPArray[0].PRP, beVerb), PRPArray[0].PRP].join(" ") + PUNCTArray[1];
+        randomG = randG(2);
+        if (randomG < 1){
+            BaseArray = [{NOUN:'grandfather', A:"He is my grandfather.", pic:"Level 1/images/grandfather.png"}, 
+            {NOUN:'father', A:"He is my father.", pic:"Level 1/images/father.png"}, 
+            {NOUN:'uncle', A:"He is my uncle.", pic:"Level 1/images/uncle.png"}, 
+            {NOUN:'brother', A:"He is my brother.", pic:"Level 1/images/brother.png"}];
+            sentence = "Who is he?";
+        } else {
+            BaseArray = [{NOUN:'grandmother', A:"She is my grandmother.", pic:"Level 1/images/grandmother.png"}, 
+            {NOUN:'mother', A:"She is my mother.", pic:"Level 1/images/mother.png"}, 
+            {NOUN:'aunt', A:"She is my aunt.", pic:"Level 1/images/aunt.png"}, 
+            {NOUN:'cousin', A:"She is my cousin.", pic:"Level 1/images/cousin.png"}, 
+            {NOUN:'sister', A:"She is my sister.", pic:"Level 1/images/sister.png"}];
+            sentence = "Who is she?";
+        }
+        shuffleArray(BaseArray);
         document.getElementById("request").value = sentence;
-        NOUNArray = [{NOUN:'grandfather', pic:"Level 1/images/grandfather.png"}, {NOUN:'father', pic:"Level 1/images/father.png"}, 
-            {NOUN:'uncle', pic:"Level 1/images/uncle.png"}, {NOUN:'brother', pic:"Level 1/images/brother.png"}, 
-                {NOUN:'grandmother', pic:"Level 1/images/grandmother.png"}, {NOUN:'mother', pic:"Level 1/images/mother.png"}, 
-                {NOUN:'aunt', pic:"Level 1/images/aunt.png"}, {NOUN:'cousin', pic:"Level 1/images/cousin.png"}, 
-                {NOUN:'sister', pic:"Level 1/images/sister.png"}];
-        if (PRPArray[0].PRP == "he") {NOUNArray = NOUNArray.slice(0, 4)}
-        else {NOUNArray = NOUNArray.slice(4)};
-        shuffleArray(NOUNArray);
-        document.getElementById("gPic").src = NOUNArray[0].pic;
-        document.getElementById("grammarCheck").value = [capitalize(PRPArray[0].PRP), conjugate_verb(PRPArray[0].PRP, beVerb), PRPSArray[0].PRPS, NOUNArray[0].NOUN].join(" ")
-         + PUNCTArray[0];
-        sentenceArray[0] = [capitalize(PRPArray[0].PRP), VERB, PRPSArray[0].PRPS, NOUNArray[0].NOUN].join(" ") + PUNCTArray[0];
-        sentenceArray[1] = [capitalize(PRPArray[0].PRP), VERB, PRPSArray[0].PRPS, NOUNArray[1].NOUN].join(" ") + PUNCTArray[0];
-        sentenceArray[2] = [capitalize(PRPArray[0].PRP), VERB, PRPSArray[0].PRPS, NOUNArray[2].NOUN].join(" ") + PUNCTArray[0];
-        sentenceArray[3] = [capitalize(PRPArray[0].PRP), VERB, PRPSArray[0].PRPS, NOUNArray[3].NOUN].join(" ") + PUNCTArray[0];
+        document.getElementById("gPic").src = BaseArray[0].pic;
+        document.getElementById("grammarCheck").value = BaseArray[0].A;
+        sentenceArray = [BaseArray[0].A, BaseArray[1].A, BaseArray[2].A, BaseArray[3].A];
         gLinks = [''];
         grammarLesson = "";
         if (sentence){
@@ -120,7 +128,7 @@ function g_01(userInput){
             setTimeout(function(){speak(sentence)}, 2000);
         }
     } else if (userInput == "Unit 5") {
-        randomG = randG();
+        randomG = randG(4);
         NOUNArray = [{NOUN:'pencil', pic:"Level 1/images/pencil.png"}, {NOUN:'eraser', pic:"Level 1/images/eraser.png"}, 
         {NOUN:'ruler', pic:"Level 1/images/ruler.png"}, {NOUN:'pen', pic:"Level 1/images/pen.png"}, 
         {NOUN:'desk', pic:"Level 1/images/desk.png"}, {NOUN:'chair', pic:"Level 1/images/chair.png"}, 
@@ -166,7 +174,7 @@ function g_01(userInput){
             setTimeout(function(){speak(sentence)}, 2000);
         }
     } else if (userInput == "Unit 6") {
-        randomG = randG();
+        randomG = randG(4);
         NOUN = "color";
         ADJArray = [{color:'red', pic:"Level 1/images/red.png"}, {color:'yellow', pic:"Level 1/images/yellow.png"}, 
         {color:'green', pic:"Level 1/images/green.png"}, {color:'blue', pic:"Level 1/images/blue.png"}, 
@@ -230,7 +238,7 @@ function g_01(userInput){
         g_01(unitArray[0]);
         currentUnit = "Review 2";
     } else if (userInput == "Unit 7") {
-        randomG = randG();
+        randomG = randG(4);
         NOUNArray = [{NOUN:'hat', pic:"Level 1/images/hat.png"}, {NOUN:'cap', pic:"Level 1/images/cap.png"}, {NOUN:'coat', pic:"Level 1/images/coat.png"}, 
         {NOUN:'jacket', pic:"Level 1/images/jacket.png"}, {NOUN:'dress', pic:"Level 1/images/dress.png"}, {NOUN:'skirt', pic:"Level 1/images/skirt.png"}, 
         {NOUN:'shirt', pic:"Level 1/images/shirt.png"}, {NOUN:'shirt', pic:"Level 1/images/shirt.png"}, {NOUN:'T-shirt', pic:"Level 1/images/T-shirt.png"}];
@@ -263,7 +271,7 @@ function g_01(userInput){
             setTimeout(function(){speak(sentence)}, 2000);
         }
     } else if (userInput == "Unit 8") {
-        randomG = randG();
+        randomG = randG(4);
         ADV = "not";
         NOUNArray = [{NOUN:'dog', pic:"Level 1/images/dog.png"}, {NOUN:'cat', pic:"Level 1/images/cat.png"}, {NOUN:'rat', pic:"Level 1/images/rat.png"}, 
         {NOUN:'rabbit', pic:"Level 1/images/rabbit.png"}, {NOUN:'cow', pic:"Level 1/images/cow.png"}, {NOUN:'horse', pic:"Level 1/images/horse.png"}, 
