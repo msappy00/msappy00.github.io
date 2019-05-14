@@ -46,7 +46,7 @@ function g_starter(userInput) {
     document.getElementById("gm2").textContent = sentenceArray[2];
     document.getElementById("gm3").textContent = sentenceArray[3];
 
-    randomG = randG();
+    randomG = randG(4);
     sentence = sentenceArray[randomG];
     document.getElementById("grammarCheck").value = sentence;
     document.getElementById("request").value = sentence;
