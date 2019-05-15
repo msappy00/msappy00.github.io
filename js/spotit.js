@@ -137,30 +137,30 @@ function drawCircle1(){
 function drawCircle2(){
     
     // puts characters in the second circle and rotates them
-    ctx.save();
-    ctx.font = "80px Arial";
-    ctx.translate(600, 200);
-    ctx.rotate(circleAngle2);
-    ctx.translate(-100, -100);
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-    ctx.arc(100, 100, 175, 0, 2*Math.PI, false);
-    ctx.fillStyle=availableColors[7];
-    ctx.fillText(shown[7], 0, 35);
-    ctx.fillStyle=availableColors[8];
-    ctx.fillText(shown[8], 130, 35);
-    ctx.fillStyle=availableColors[9];
-    ctx.fillText(shown[9], -30, 125);
-    ctx.fillStyle=availableColors[10];
-    ctx.fillText(shown[10], 70, 125);
-    ctx.fillStyle=availableColors[11];
-    ctx.fillText(shown[11], 170, 125);
-    ctx.fillStyle=availableColors[12];
-    ctx.fillText(shown[12], 0, 210);
-    ctx.fillStyle=availableColors[13];
-    ctx.fillText(shown[13], 130, 210);
-    ctx.stroke();
-    ctx.restore();
+    ctx2.save();
+    ctx2.font = "80px Arial";
+    ctx2.translate(200, 200);
+    ctx2.rotate(circleAngle2);
+    ctx2.translate(-100, -100);
+    ctx2.lineWidth = 1;
+    ctx2.beginPath();
+    ctx2.arc(100, 100, 175, 0, 2*Math.PI, false);
+    ctx2.fillStyle=availableColors[7];
+    ctx2.fillText(shown[7], 0, 35);
+    ctx2.fillStyle=availableColors[8];
+    ctx2.fillText(shown[8], 130, 35);
+    ctx2.fillStyle=availableColors[9];
+    ctx2.fillText(shown[9], -30, 125);
+    ctx2.fillStyle=availableColors[10];
+    ctx2.fillText(shown[10], 70, 125);
+    ctx2.fillStyle=availableColors[11];
+    ctx2.fillText(shown[11], 170, 125);
+    ctx2.fillStyle=availableColors[12];
+    ctx2.fillText(shown[12], 0, 210);
+    ctx2.fillStyle=availableColors[13];
+    ctx2.fillText(shown[13], 130, 210);
+    ctx2.stroke();
+    ctx2.restore();
 }
 
 function start() {

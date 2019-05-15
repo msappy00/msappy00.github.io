@@ -1,17 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"/>
-	<title>Spot It!</title>
-	<link rel="stylesheet" href="css/w3.css"/>
+    <title>Spot It!</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link href="css/w3.css" type="text/css" rel="stylesheet"/>
 	<style>
-    body {
-        padding-top: 100px;
-    }
-    canvas {
-        display: block;
-        max-width: 100%;
-    }
+        canvas {
+            max-width: 400px;
+            height: auto;
+        }
+        @font-face {
+            font-family: 'ArchitectsDaughter-Regular';
+            src: url('fonts/ArchitectsDaughter-Regular.ttf');
+        }
+        .w3-bar, h1, h3, #date {
+            font-family: ArchitectsDaughter-Regular;
+        }
+        .item1 { grid-area: header; }
+        .item2 { grid-area: left-filler; }
+        .item3 { grid-area: mainL; }
+        .item4 { grid-area: mainR; }
+        .item5 { grid-area: right-filler; }
+        .item6 { grid-area: footer; }
+        .grid-container {
+            display: grid;
+            grid-template: 'header header header header'
+                'left-filler mainL mainR right-filler'
+                'footer footer footer footer';
+            grid-auto-rows: 1em;
+        }
     </style>
 
 	<noscript>JavaScript is disabled.</noscript>
@@ -20,61 +39,59 @@
 <body onload="init();">
     <script src="js/spotit.js"></script>
 
-<!--#nav bar-->
-<div class="w3-top">
+    <!--#nav bar-->
     <div class="w3-bar w3-blue">
-        <a href="#home" class="w3-bar-item w3-button"><img width="20" height="20" src="images/star-yellow.svg" alt="yellow star" /></a>
-        <a href="#home" class="w3-bar-item w3-button">Spot It!</a>
-        <a href="#" class="w3-bar-item w3-button w3-right" id="day">day</a>
-    </div>
-</div><!--/#nav bar-->
+        <a href="index.html" class="w3-bar-item w3-button"><img width="20" height="20" src="images/star-yellow.svg" alt="yellow star" onclick="setCss('home', '')"/></a>
+        <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium" onclick="setCss('home', '')">Home</a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-display-topright" id="day">day</a>
+    </div><!--/#nav bar-->
 
-<div class="w3-row">
-    <div class="w3-col w3-container" style="width:30%"><p></p></div>
-    <div class="w3-col w3-container" style="width:40%">
-            <canvas class="img-responsive; hidden-xs" id="spot_it" width="800" height="400" style="outline:none">
-                Your browser does not support the canvas tag or JavaScript is not enabled.
-            </canvas>
-            <canvas class="img-responsive; visible-xs" id="spot_it2" width="400" height="800" style="outline:none">
-                Your browser does not support the canvas tag or JavaScript is not enabled.
-            </canvas>
-    </div>
-    <div class="w3-col w3-container" style="width:30%"><p></p></div>
-</div>
+    <div class="grid-container">
+        <div class="item1"><h1 id="levelId" style="text-indent:20px"></h1></div>
+        <div class="item2"></div>
 
+        <canvas class="img-responsive; hidden-xs; item3; w3-content" id="spot_it" width="400px" height="400px" style="outline:none">
+            Your browser does not support the canvas tag or JavaScript is not enabled.
+        </canvas>
+
+
+        <canvas class="img-responsive; visible-xs; item4; w3-content" id="spot_it2" width="400px" height="400px" style="outline:none">
+            Your browser does not support the canvas tag or JavaScript is not enabled.
+        </canvas>
+
+        <div class="item5"></div>
+        <div class="item6" style="text-indent:20px">
+            <h4 id='foot01'></h4>
+            <h5><a href="privacy.html">Privacy Policy</a></h5>
+        </div>
+    </div>
     <script>
-        // shows the day of the week in the nav bar
         var day = new Date().getDay();
         switch(day) {
             case 0:
-            day = "Sunday ";
-            break;
+                day = "Sunday ";
+                break;
             case 1:
-            day = "Monday ";
-            break;
+                day = "Monday ";
+                break;
             case 2:
-            day = "Tuesday ";
-            break;
+                day = "Tuesday ";
+                break;
             case 3:
-            day = "Wednesday ";
-            break;
+                day = "Wednesday ";
+                break;
             case 4:
-            day = "Thursday ";
-            break;
+                day = "Thursday ";
+                break;
             case 5:
-            day = "Friday ";
-            break;
+                day = "Friday ";
+                break;
             case 6:
-            day = "Saturday ";
-            break;
+                day = "Saturday ";
+                break;
         }
-    document.getElementById("day").innerHTML = day;
+        document.getElementById("day").innerHTML = day;
+        document.getElementById("foot01").innerHTML = "<h4 id='date'>&copy; " + new Date().getFullYear() + " Teacher Matthew</h4>";
     </script>
-    <footer id='foot01' style="text-indent:20px">
-        <script>
-            document.getElementById("foot01").innerHTML = "<p>&copy; " + new Date().getFullYear() + " Teacher Matthew</p>";
-            </script>
-        <a href="privacy.html">Privacy Policy</a>
-    </footer>
 </body>
 </html>
