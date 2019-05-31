@@ -1,5 +1,4 @@
 function g_01(userInput){
-
     if (userInput == "Unit 1") {
         randomG = randG(2);
         BaseArray = [

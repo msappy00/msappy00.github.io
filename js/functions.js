@@ -149,15 +149,27 @@ spellCheck.focus();
 
 // checks grammar input from user
 function gArraySlide(tdId) {
+    document.getElementById('g0r1d0').onclick = ''
+    document.getElementById('g0r1d2').onclick = ''
+    document.getElementById('g0r2d0').onclick = ''
+    document.getElementById('g0r2d2').onclick = ''
     if (grammarCheck.value != document.getElementById(tdId).textContent){
         fail.play();
         setTimeout(function(){
-            speak(request.value);
-        }, 2000);
+            speak(sentence);
+        }, 2000);        
     } else {
         success.play();
-        setGrammar(currentUnit);
+        setTimeout(function(){
+            setGrammar(currentUnit);
+        }, 2000);  
     }
+    setTimeout(function(){
+        document.getElementById('g0r1d0').onclick = function() { gArraySlide('g0r1d0') }
+        document.getElementById('g0r1d2').onclick = function() { gArraySlide('g0r1d2') }
+        document.getElementById('g0r2d0').onclick = function() { gArraySlide('g0r2d0') }
+        document.getElementById('g0r2d2').onclick = function() { gArraySlide('g0r2d2') }
+    }, 4000);
 };
 
 // checks phonics input from user

@@ -1,11 +1,11 @@
 function g_02(userInput){
-    sentenceArray = [];
-    pronounArray = ([{value: "I", verb: "am", qp: "you", qv: "are"}, {value: "you", verb: "are", qp: "I", qv: "am"}, {value: "they", verb: "are", qp: "they", qv: "are"}, {value: "he", verb: "is", qp: "he", qv: "is"}, {value: "she", verb: "is", qp: "she", qv: "is"}]);
     if (userInput == "Unit 1") {
+        randomG = randG(2);
         vocArray = ["blackboard", "DVD player", "door", "fan", "television", "table", "trash can", "window", "telephone"];
         shuffleArray(vocArray);
-        document.getElementById("gPic").innerHTML = '<img src="Level 2/images/no_' + vocArray[0] + '.png" style="width:100%" />';
-        if (randomG < 2) {
+        document.getElementById("gPic").src = "Level 2/images/no_" + vocArray[0] + ".png";
+        document.getElementById("gPic").width = 400;
+        if (randomG < 1) {
             sentence = "There is a " + vocArray[1] + ".";
             document.getElementById("grammarCheck").value = "There is a " + vocArray[1] + ".";
             sentenceArray[0] = "There is a " + vocArray[0] + ".";

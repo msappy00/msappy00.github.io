@@ -45,13 +45,11 @@ function setGrammar(userInput){
     
     if (level_id == "Starter") {
         g_starter(userInput);
-}
-    else if (level_id == "Level 1") {
+    } else if (level_id == "Level 1") {
         g_01(userInput);
-    }
-    // else if (level_id == "Level 2") {
-    else {
-        //g_02(userInput);
+    } else if (level_id == "Level 2") {
+        g_02(userInput);
+    } else {
         document.getElementById("gInstructions").innerHTML = "<h1>Work in Progress</h1>";
         document.getElementById("grammarCheck").value = "";
         document.getElementById("request").value = " ";
