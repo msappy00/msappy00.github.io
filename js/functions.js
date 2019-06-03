@@ -24,25 +24,20 @@ function randG(max) {return Math.floor(Math.random() * max)};
 
 // sessionLevel are levels starter - 12
 function checkSessionStorage() {
-    levelId.textContent = sessionStorage.getItem("sessionLevel");
-    setLevel(levelId.textContent);
+    level = sessionStorage.getItem("sessionLevel");
+    setLevel(level)
 };
 
 function setLevel(level) {
     sessionStorage.setItem("sessionLevel", level);
     level_id = level;
-    levelId.textContent = level;
     document.title = level_id;
-    currentUnit = "";
-    setVocab('');
-    setGrammar('');
 };
 
 function clearLevel() {
     sessionStorage.setItem("sessionLevel", "");
     sessionStorage.setItem("sessionUnit", "");
     level_id = " ";
-    levelId.textContent = " ";
     currentUnit = "";
     setVocab(currentUnit);
     setGrammar(currentUnit);
@@ -62,6 +57,7 @@ function setCss(tabName, userInput){
             setVocab(userInput);
             break;
         case 'grammar_tab':
+            console.log(userInput);
             setGrammar(userInput);
             break;
         case 'phonics_tab':

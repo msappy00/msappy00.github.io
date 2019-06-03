@@ -11,7 +11,6 @@ function setVocab(userInput){
     currentUnit = userInput;
     array_i = 0;
     
-    document.getElementById("levelId").innerHTML = level_id + " " + userInput;
     document.getElementById("spellCheck").value = "";
     
     if (level_id == "Starter") {
