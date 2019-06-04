@@ -57,7 +57,6 @@ function setCss(tabName, userInput){
             setVocab(userInput);
             break;
         case 'grammar_tab':
-            console.log(userInput);
             setGrammar(userInput);
             break;
         case 'phonics_tab':
