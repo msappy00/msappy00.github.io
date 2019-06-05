@@ -13,7 +13,6 @@ function setGrammar(userInput){
     verbArray = []; // VB: verb, base form; VBP: verb, non-3rd person singular present; VBZ: verb, 3rd person singular present
     WPArray = ["who", "what"]; // wh-pronoun, personal
     WDTArray = ["what", "which"]; // wh-determiner
-    PUNCTArray = [".", "?", ","];
 
     // ADJECTIVES (ADJ)
     ADJArray = [];
