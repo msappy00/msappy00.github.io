@@ -115,12 +115,12 @@ function g_02(userInput){
                 sentenceArray[0] = "These are " + NOUNArray[0].NNS + ".";
                 sentenceArray[1] = "These are " + NOUNArray[1].NNS + ".";
                 sentenceArray[2] = "These are " + NOUNArray[2].NNS + ".";
-                sentenceArray[3] = "These are " + NOUNArray[3].NNS+ ".";
+                sentenceArray[3] = "These are " + NOUNArray[3].NNS + ".";
             } else {
-                document.getElementById("grammarCheck").value = "These are not " + NOUNArray[1].NNS+ ".";
-                sentenceArray[0] = "These are not " + NOUNArray[0].NNS+ ".";
-                sentenceArray[1] = "These are not " + NOUNArray[1].NNS+ ".";
-                sentenceArray[2] = "These are " + NOUNArray[2].NNS+ ".";
+                document.getElementById("grammarCheck").value = "These are not " + NOUNArray[1].NNS + ".";
+                sentenceArray[0] = "These are not " + NOUNArray[0].NNS + ".";
+                sentenceArray[1] = "These are not " + NOUNArray[1].NNS + ".";
+                sentenceArray[2] = "These are " + NOUNArray[2].NNS + ".";
                 sentenceArray[3] = "These are " + NOUNArray[3].NNS + ".";
             }
         } else {
@@ -148,29 +148,30 @@ function g_02(userInput){
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 5") {
-        vocArray = [({voc:'tomatoes', pic:'<img src="Level 2/images/tomatoes.png" />'}), ({voc:'mangoes', pic:'<img src="Level 2/images/mangoes.png" />'}), ({voc:'strawberries', pic:'<img src="Level 2/images/strawberries.png" />'}), ({voc:'cherries', pic:'<img src="Level 2/images/cherries.png" />'}), ({voc:'peaches', pic:'<img src="Level 2/images/peaches.png" />'}), ({voc:'oranges', pic:'<img src="Level 2/images/oranges.png" />'}), ({voc:'kiwis', pic:'<img src="Level 2/images/kiwis.png" />'}), ({voc:'coconuts', pic:'<img src="Level 2/images/coconuts.png" />'})];
-        shuffleArray(vocArray);
-        document.getElementById("gPic").innerHTML = vocArray[0].pic;
-        x = randomG;
-        if (x == 0) {
+        randomG = randG(4);
+        NOUNArray = [{NNS:'tomatoes', pic:"Level 2/images/tomatoes.png"}, {NNS:'mangoes', pic:"Level 2/images/mangoes.png"}, {NNS:'strawberries', pic:"Level 2/images/strawberries.png"}, {NNS:'cherries', pic:"Level 2/images/cherries.png"}, {NNS:'peaches', pic:"Level 2/images/peaches.png"}, {NNS:'oranges', pic:"Level 2/images/oranges.png"}, {NNS:'kiwis', pic:"Level 2/images/kiwis.png"}, {NNS:'coconuts', pic:"Level 2/images/coconuts.png"}];
+        shuffleArray(NOUNArray);
+        document.getElementById("gPic").src = NOUNArray[0].pic;
+        if (randomG == 0) {
             sentence = "What are these?";
-            document.getElementById("grammarCheck").value = "These are " + vocArray[0].voc + ".";
-            sentenceArray[0] = "These are " + vocArray[0].voc + ".";
-            sentenceArray[1] = "These are " + vocArray[1].voc + ".";
-            sentenceArray[2] = "These are " + vocArray[2].voc + ".";
-            sentenceArray[3] = "These are " + vocArray[3].voc + ".";
-        } else if (x == 1) {
+            document.getElementById("grammarCheck").value = "These are " + NOUNArray[0].NNS + ".";
+            sentenceArray[0] = "These are " + NOUNArray[0].NNS + ".";
+            sentenceArray[1] = "These are " + NOUNArray[1].NNS + ".";
+            sentenceArray[2] = "These are " + NOUNArray[2].NNS + ".";
+            sentenceArray[3] = "These are " + NOUNArray[3].NNS + ".";
+        } else if (randomG == 1) {
             sentence = "What are those?";
-            document.getElementById("grammarCheck").value = "Those are " + vocArray[0].voc + ".";
-            sentenceArray[0] = "Those are " + vocArray[0].voc + ".";
-            sentenceArray[1] = "Those are " + vocArray[1].voc + ".";
-            sentenceArray[2] = "Those are " + vocArray[2].voc + ".";
-            sentenceArray[3] = "Those are " + vocArray[3].voc + ".";
-        } else if (x == 2){     
-            if (randomG < 2){    
-                sentence = "Are these " + vocArray[0].voc + "?";
+            document.getElementById("grammarCheck").value = "Those are " + NOUNArray[0].NNS + ".";
+            sentenceArray[0] = "Those are " + NOUNArray[0].NNS + ".";
+            sentenceArray[1] = "Those are " + NOUNArray[1].NNS + ".";
+            sentenceArray[2] = "Those are " + NOUNArray[2].NNS + ".";
+            sentenceArray[3] = "Those are " + NOUNArray[3].NNS + ".";
+        } else if (randomG == 2){
+            randomG = randG(2);     
+            if (randomG < 1){    
+                sentence = "Are these " + NOUNArray[0].NNS + "?";
             } else {
-                sentence = "Are those " + vocArray[0].voc + "?";
+                sentence = "Are those " + NOUNArray[0].NNS + "?";
             }
             document.getElementById("grammarCheck").value = "Yes, they are.";
                 sentenceArray[0] = "Yes, they are.";
@@ -178,10 +179,11 @@ function g_02(userInput){
                 sentenceArray[2] = " ";
                 sentenceArray[3] = " ";
         } else {
-            if (randomG < 2){    
-                sentence = "Are these " + vocArray[1].voc + "?";
+            randomG = randG(2);
+            if (randomG < 1){    
+                sentence = "Are these " + NOUNArray[1].NNS + "?";
             } else {
-                sentence = "Are those " + vocArray[1].voc + "?";
+                sentence = "Are those " + NOUNArray[1].NNS + "?";
             }
             document.getElementById("grammarCheck").value = "No, they are not.";
                 sentenceArray[0] = "No, they are not.";
@@ -198,10 +200,10 @@ function g_02(userInput){
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 6") {
-        verbArray = [({v:'sing', pic:'<img src = "Level 2/images/sing.png" />'}), ({v: 'dance', pic:'<img src = "Level 2/images/dance.png" />'}), ({v:'run', pic:'<img src = "Level 2/images/run.png" />'}), ({v:'swim', pic:'<img src = "Level 2/images/swim.png" />'}), ({v:'read', pic:'<img src = "Level 2/images/read.png" />'}), ({v:'write', pic:'<img src = "Level 2/images/write.png" />'}), ({v:'type', pic:'<img src = "Level 2/images/type.png" />'}), ({v: 'jump', pic:'<img src = "Level 2/images/jump.png" />'}), ({v: 'draw', pic:'<img src = "Level 2/images/draw.png" />'})];
+        verbArray = [{v:'sing', pic:"Level 2/images/sing.png"}, {v: 'dance', pic:"Level 2/images/dance.png"}, {v:'run', pic:"Level 2/images/run.png"}, {v:'swim', pic:"Level 2/images/swim.png"}, {v:'read', pic:"Level 2/images/read.png"}, {v:'write', pic:"Level 2/images/write.png"}, {v:'type', pic:"Level 2/images/type.png"}, {v: 'jump', pic:"Level 2/images/jump.png"}, {v: 'draw', pic:"Level 2/images/draw.png"}];
         shuffleArray(verbArray);
         shuffleArray(pronounArray);
-        document.getElementById("gPic").innerHTML = verbArray[0].pic;
+        document.getElementById("gPic").src = verbArray[0].pic;
         if (randomG < 2) {
             sentence = "Can " + pronounArray[0].qp + " " + verbArray[0].v + "?";
             document.getElementById("grammarCheck").value = "Yes, " + pronounArray[0].value + " can.";
@@ -233,9 +235,9 @@ function g_02(userInput){
     } else if (userInput == "Unit 7") {
         vocArray = ['television', 'DVD player', 'fan', 'trash can', 'robot', 'doll', 'teddy bear', 'ball', 'board game'];
         shuffleArray(vocArray);
-        locArray = [({voc:' in the box', pic:'<img src="Starter/images/box.png" />'}), ({voc:' behind the door', pic:'<img src="Level 2/images/door.png" />'}), ({voc:' near the window', pic:'<img src="Level 2/images/window.png" />'}), ({voc:' on the table', pic:'<img src="Level 2/images/table.png" />'}), ({voc:' in front of the blackboard', pic:'<img src="Level 2/images/blackboard.png" />'}), ({voc:' under the whiteboard', pic:'<img src="Level 2/images/whiteboard.png" />'})];
+        locArray = [{voc:' in the box', pic:"Starter/images/box.png"}, {voc:' behind the door', pic:"Level 2/images/door.png"}, {voc:' near the window', pic:"Level 2/images/window.png"}, {voc:' on the table', pic:"Level 2/images/table.png"}, {voc:' in front of the blackboard', pic:"Level 2/images/blackboard.png"}, {voc:' under the whiteboard', pic:"Level 2/images/whiteboard.png"}];
         shuffleArray(locArray);
-        document.getElementById("gPic").innerHTML = locArray[0].pic;
+        document.getElementById("gPic").src = locArray[0].pic;
         if (randomG < 2) {
             sentence = "Where is the " + vocArray[0] + "?";
             document.getElementById("grammarCheck").value = "It is " + locArray[0].voc + ".";
@@ -277,7 +279,7 @@ function g_02(userInput){
         grammarLesson = "";
     } else if (userInput == "Unit 8") {
         pronounArray = ['you', 'they', 'he', 'she'];
-        locArray = [({voc:'living room', pic:'<img src="Level 2/images/living room.png" />'}), ({voc:'dining room', pic:'<img src="Level 2/images/dining room.png" />'}), ({voc:'bedroom', pic:'<img src="Level 2/images/bedroom.png" />'}), ({voc:'bathroom', pic:'<img src="Level 2/images/bathroom.png" />'}), ({voc:'kitchen', pic:'<img src="Level 2/images/kitchen.png" />'}), ({voc:'backyard', pic:'<img src="Level 2/images/backyard.png" />'}), ({voc:'garden', pic:'<img src="Level 2/images/garden.png" />'}), ({voc:'basement', pic:'<img src="Level 2/images/basement.png" />'})];
+        locArray = [{voc:'living room', pic:"Level 2/images/living room.png"}, {voc:'dining room', pic:"Level 2/images/dining room.png"}, {voc:'bedroom', pic:"Level 2/images/bedroom.png"}, {voc:'bathroom', pic:"Level 2/images/bathroom.png"}, {voc:'kitchen', pic:"Level 2/images/kitchen.png"}, {voc:'backyard', pic:"Level 2/images/backyard.png"}, {voc:'garden', pic:"Level 2/images/garden.png"}, {voc:'basement', pic:"Level 2/images/basement.png"}];
         shuffleArray(pronounArray);
         shuffleArray(locArray);
         choiceArrayInt = Math.floor(Math.random() * 2);
@@ -334,7 +336,7 @@ function g_02(userInput){
         grammarLesson = "";
     } else if (userInput == "Unit 9") {
         pronounArray = ['you', 'they', 'he', 'she'];
-        animalArray = [({voc:'tigers', pic:'<img src="Level 2/images/tiger.png" />'}), ({voc:'lions', pic:'<img src="Level 2/images/lion.png" />'}), ({voc:'monkeys', pic:'<img src="Level 2/images/monkey.png" />'}), ({voc:'bears', pic:'<img src="Level 2/images/bear.png" />'}), ({voc:'zebras', pic:'<img src="Level 2/images/zebra.png" />'}), ({voc:'goats', pic:'<img src="Level 2/images/goat.png" />'}), ({voc:'elephants', pic:'<img src="Level 2/images/elephant.png" />'}), ({voc:'hippos', pic:'<img src="Level 2/images/hippo.png" />'}), ({voc:'snakes', pic:'<img src="Level 2/images/snake.png" />'}), ({voc:'parrots', pic:'<img src="Level 2/images/parrot.png" />'})];
+        animalArray = [{voc:'tigers', pic:"Level 2/images/tiger.png"}, {voc:'lions', pic:"Level 2/images/lion.png"}, {voc:'monkeys', pic:"Level 2/images/monkey.png"}, {voc:'bears', pic:"Level 2/images/bear.png"}, {voc:'zebras', pic:"Level 2/images/zebra.png"}, {voc:'goats', pic:"Level 2/images/goat.png"}, {voc:'elephants', pic:"Level 2/images/elephant.png"}, {voc:'hippos', pic:"Level 2/images/hippo.png"}, {voc:'snakes', pic:"Level 2/images/snake.png"}, {voc:'parrots', pic:"Level 2/images/parrot.png"}];
         shuffleArray(pronounArray);
         shuffleArray(animalArray);
         choiceArrayInt = Math.floor(Math.random() * 2);
