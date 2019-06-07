@@ -200,24 +200,26 @@ function g_02(userInput){
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 6") {
+        randomG = randG(2);
         verbArray = [{v:'sing', pic:"Level 2/images/sing.png"}, {v: 'dance', pic:"Level 2/images/dance.png"}, {v:'run', pic:"Level 2/images/run.png"}, {v:'swim', pic:"Level 2/images/swim.png"}, {v:'read', pic:"Level 2/images/read.png"}, {v:'write', pic:"Level 2/images/write.png"}, {v:'type', pic:"Level 2/images/type.png"}, {v: 'jump', pic:"Level 2/images/jump.png"}, {v: 'draw', pic:"Level 2/images/draw.png"}];
         shuffleArray(verbArray);
-        shuffleArray(pronounArray);
+        PRPArray = [{PRP: "I", RESPONSE: "you"}, {PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}, {PRP: "we", RESPONSE: "you"}];
+        shuffleArray(PRPArray);
         document.getElementById("gPic").src = verbArray[0].pic;
-        if (randomG < 2) {
-            sentence = "Can " + pronounArray[0].qp + " " + verbArray[0].v + "?";
-            document.getElementById("grammarCheck").value = "Yes, " + pronounArray[0].value + " can.";
-            sentenceArray[0] = "Yes, " + pronounArray[0].value + " can.";
-            sentenceArray[1] = "Yes, " + pronounArray[1].value + " can.";
-            sentenceArray[2] = "Yes, " + pronounArray[2].value + " can.";
-            sentenceArray[3] = "Yes, " + pronounArray[3].value + " can.";
+        if (randomG < 1) {
+            sentence = "Can " + PRPArray[0].PRP + " " + verbArray[0].v + "?";
+            document.getElementById("grammarCheck").value = "Yes, " + PRPArray[0].RESPONSE + " can.";
+            sentenceArray[0] = "Yes, " + PRPArray[0].RESPONSE + " can.";
+            sentenceArray[1] = "Yes, " + PRPArray[1].RESPONSE + " can.";
+            sentenceArray[2] = "Yes, " + PRPArray[2].RESPONSE + " can.";
+            sentenceArray[3] = "Yes, " + PRPArray[3].RESPONSE + " can.";
         } else {
-            sentence = "Can " + pronounArray[0].q + " " + verbArray[1].v + "?";
-            document.getElementById("grammarCheck").value = "No, " + pronounArray[0].value + " can't.";
-            sentenceArray[0] = "No, " + pronounArray[0].value + " can't.";
-            sentenceArray[1] = "No, " + pronounArray[1].value + " can't.";
-            sentenceArray[2] = "No, " + pronounArray[2].value + " can't.";
-            sentenceArray[3] = "No, " + pronounArray[3].value + " can't.";
+            sentence = "Can " + PRPArray[0].PRP + " " + verbArray[1].v + "?";
+            document.getElementById("grammarCheck").value = "No, " + PRPArray[0].RESPONSE + " can't.";
+            sentenceArray[0] = "No, " + PRPArray[0].RESPONSE + " can't.";
+            sentenceArray[1] = "No, " + PRPArray[1].RESPONSE + " can't.";
+            sentenceArray[2] = "No, " + PRPArray[2].RESPONSE + " can't.";
+            sentenceArray[3] = "No, " + PRPArray[3].RESPONSE + " can't.";
         }
         shuffleArray(sentenceArray);
         document.getElementById("g0r1d0").textContent = sentenceArray[0];

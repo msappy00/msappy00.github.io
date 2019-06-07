@@ -207,7 +207,7 @@ array = [];
     } else if (currentInput == "Level 10Unit 6") {
         array = ["have", "dusty", "let", "housework", "make", "sweater", "messy", "iron", "knock", "turn into", "prince"];
     } else if (currentInput == "Level 10Unit 7") {
-        array = ["national", "quickly", "information staff", "rule", "traditional", "clearly", "loudly", "area", "softly", "run into", "repeat", "important", "well"];
+        array = ["national", "quickly", "museum guide", "rule", "traditional", "clearly", "softly", "gently", "run into", "important", "understand", "well", "repeat"];
     } else if (currentInput == "Level 10Unit 8") {
         array = ["as soon as", "only", "thoughtful", "asleep", "move", "pull", "sleeve", "save", "become", "die", "believe", "true"];
     } else if (currentInput == "Level 10Unit 9") {
