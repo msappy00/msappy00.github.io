@@ -7,7 +7,8 @@ cal_months_labels = ['January', 'February', 'March', 'April',
 // this is the current date
 cal_current_date = new Date();
 
-function Calendar(month, year) {
+function Calendar(date, month, year) {
+    this.date = (isNaN(date) || date == null) ? cal_current_date.getDate() : date;
     this.month = (isNaN(month) || month == null) ? cal_current_date.getMonth() : month;
     this.year  = (isNaN(year) || year == null) ? cal_current_date.getFullYear() : year;
     this.html = '';
@@ -40,7 +41,11 @@ Calendar.prototype.generateHTML = function(){
         html += '<div></div>';
     }
     for(var i = 1; i <= monthLength; i++){
+        if (i == this.date){
+        html += '<div class="today"><h2>' + i + '</h2></div>';
+        } else {
         html += '<div><h2>' + i + '</h2></div>';
+        }
     }
     html += '</div>';
     this.html = html;

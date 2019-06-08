@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Time</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <META HTTP-EQUIV="refresh" CONTENT="60">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+        .center {
+            position: relative;
+        }
+        .center p {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        h1 {
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/time.js"></script>
+    <script type="text/javascript">
+        var time = new Time();
+        time.generateHTML();
+        document.write(time.getHTML());
+    </script>
+</body>
+</html>  

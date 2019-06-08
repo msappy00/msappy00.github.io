@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Widget</title>
+    <meta charset="utf-8">
+    <META HTTP-EQUIV="refresh" CONTENT="900">
+    <style>
+    body {
+        background-color: rgb(150, 150, 150);
+    }
+    .item1 { grid-area: header; height: 50px }
+    .item2 { grid-area: left; }
+    .item3 { grid-area: right; padding-top: 100px }
+    .grid-container {
+        margin: 50px;
+        display: grid;
+        grid-template:
+            'header header' 
+            'left right';
+    }
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="item1"></div>
+        <div class="item2">
+            <iframe src="calendar.html" width="100%" height="800" style="border:none;"></iframe>
+        </div>
+        <div class="item3">
+                <script type='text/javascript' src='https://darksky.net/widget/default/22.6203,120.312/ca12/en.js?width=100%&height=400&title=Kaohsiung City, Taiwan&textColor=000000&bgColor=transparent&transparency=true&skyColor=undefined&fontFamily=Default&customFont=&units=ca&htColor=333333&ltColor=C7C7C7&displaySum=yes&displayHeader=yes'></script>
+        </div>
+    </div>
+</body>
+</html>
