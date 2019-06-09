@@ -335,16 +335,61 @@ function g_04(userInput){
         gLinks = ['<a href="Level 4/images/city_buildings.png" target="_newtab">City Buildings</a>'];
         grammarLesson = "";
     } else if (userInput == "Unit 8") {
+        randomG = randG(2);
         q1Array = ["museum", "post office", "restaurant", "movie theater", "bakery", "hospital", "library", "clinic", "gas station", "toy store"];
-        q2Array = ["Is there a ... near the ...?"];
-        gLinks = [''];
-        grammarLesson = "<img src='Level 4/images/city2.png' />";
+        NOUNArray = [{NN:"police station", pic:"Level 4/images/police station.png"}, {NN:"fire station", pic:"Level 4/images/fire station.png"}, {NN:"MRT station", pic:"Level 4/images/MRT station.png"}, {NN:"bus stop", pic:"Level 4/images/bus stop.png"}, {NN:"bank", pic:"Level 4/images/bank.png"}, {NN:"bookstore", pic:"Level 4/images/bookstore.png"}, {NN:"convenience store", pic:"Level 4/images/convenience store.png"}, {NN:"department store", pic:"Level 4/images/department store.png"}];
+        shuffleArray(NOUNArray);
+        if (randomG < 1) {
+            sentence = "Is there a " + NOUNArray[0].NN + " near the " + NOUNArray[1].NN + "?";
+            document.getElementById("grammarCheck").value = "Yes, there is a " + NOUNArray[0].NN + " near the " + NOUNArray[1].NN + ".";
+            sentenceArray[0] = "Yes, there is a " + NOUNArray[0].NN + " near the " + NOUNArray[1].NN + ".";
+            sentenceArray[1] = "Yes, there is a " + NOUNArray[1].NN + " near the " + NOUNArray[0].NN + ".";
+            sentenceArray[2] = "Yes, there is a " + NOUNArray[2].NN + " near the " + NOUNArray[1].NN + ".";
+            sentenceArray[3] = "Yes, there is a " + NOUNArray[3].NN + " near the " + NOUNArray[1].NN + ".";
+        } else {
+            sentence = "Is there a " + NOUNArray[1].NN + " near the " + NOUNArray[2].NN + "?";
+            document.getElementById("grammarCheck").value = "No, there is not a " + NOUNArray[1].NN + " near the " + NOUNArray[2].NN + ".";
+            sentenceArray[0] = "No, there is not a " + NOUNArray[0].NN + " near the " + NOUNArray[2].NN + ".";
+            sentenceArray[1] = "No, there is not a " + NOUNArray[1].NN + " near the " + NOUNArray[2].NN + ".";
+            sentenceArray[2] = "No, there is not a " + NOUNArray[2].NN + " near the " + NOUNArray[1].NN + ".";
+            sentenceArray[3] = "No, there is not a " + NOUNArray[3].NN + " near the " + NOUNArray[2].NN + ".";
+        }
+        document.getElementById("gPic").src = NOUNArray[0].pic;
+        shuffleArray(sentenceArray);
+        document.getElementById("g0r1d0").textContent = sentenceArray[0];
+        document.getElementById("g0r1d2").textContent = sentenceArray[1];
+        document.getElementById("g0r2d0").textContent = sentenceArray[2];
+        document.getElementById("g0r2d2").textContent = sentenceArray[3];
+        setTimeout(function(){speak(sentence)}, 2000);
+        gLinks = ['<a href="Level 4/images/city2.png" target="_newtab">City Buildings</a>'];
+        grammarLesson = "";
     } else if (userInput == "Unit 9") {
-        q1Array = [""];
-        q2Array = [""];
-        q3Array = [""];
-        gLinks = [''];
-        grammarLesson = "<img src='Level 4/images/city3.png' />";
+        PRPArray = ["I", "we", "they", "he", "she"];
+        shuffleArray(PRPArray);
+        NOUNArray = ["police station", "fire station", "MRT station", "bus stop", "bank", "bookstore", "convenience store", "department store", "police station", "fire station", "MRT station", "bus stop", "bank", "bookstore", "convenience store", "department store"];
+        shuffleArray(NOUNArray);
+        verbArray = ["go straight", "turn right", "turn left"];
+        shuffleArray(verbArray);
+        document.getElementById("gPic").src = "Level 4/images/" + verbArray[0] + ".png";
+        lightArray = ["first traffic light.", "second traffic light.", "third traffic light."];
+        shuffleArray(lightArray);
+        locArray = ["on the left side.", "on the right side.", "at the corner."];
+        shuffleArray(locArray);
+        document.getElementById("gInstructions").textContent = capitalize(verbArray[0]) + " at the " + lightArray[0];
+        sentence = "How can " + PRPArray[0] + " get to the " + NOUNArray[0] + "?";
+        document.getElementById("grammarCheck").value = "The " + NOUNArray[0] + " is " + locArray[0];
+        sentenceArray[0] = "The " + NOUNArray[0] + " is " + locArray[0];
+        sentenceArray[1] = "The " + NOUNArray[1] + " is " + locArray[0];
+        sentenceArray[2] = "The " + NOUNArray[2] + " is " + locArray[0];
+        sentenceArray[3] = "The " + NOUNArray[3] + " is " + locArray[0];
+        shuffleArray(sentenceArray);
+        document.getElementById("g0r1d0").textContent = sentenceArray[0];
+        document.getElementById("g0r1d2").textContent = sentenceArray[1];
+        document.getElementById("g0r2d0").textContent = sentenceArray[2];
+        document.getElementById("g0r2d2").textContent = sentenceArray[3];
+        setTimeout(function(){speak(sentence)}, 2000);
+        gLinks = ['<a href="Level 4/images/city3.png" target="_newtab">City Buildings</a>'];
+        grammarLesson = "";
     } else if (userInput == "Review 3") {
         q1Array = ["Unit 7", "Unit 8", "Unit 9"];
         shuffleArray(q1Array);

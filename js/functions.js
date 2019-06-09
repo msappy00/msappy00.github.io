@@ -207,6 +207,15 @@ function capitalize(word){
    return word.charAt(0).toUpperCase() + word.slice(1);
 };
 
+function pluralize(NUM){
+    if (NUM == "one"){
+        NOUN = NOUNArray[0].NN;
+    } else {
+        NOUN = NOUNArray[0].NNS;
+    }
+    return NOUN;
+};
+
 function conjugate_verb(PRP, Verb) {
     if (PRP == 'I') {VERB = Verb.VBPArray[0]}
         else if (PRP == 'you' || PRP == 'they') {VERB = Verb.VBPArray[1]}
