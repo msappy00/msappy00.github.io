@@ -201,25 +201,25 @@ function g_02(userInput){
         grammarLesson = "";
     } else if (userInput == "Unit 6") {
         randomG = randG(2);
-        verbArray = [{v:'sing', pic:"Level 2/images/sing.png"}, {v: 'dance', pic:"Level 2/images/dance.png"}, {v:'run', pic:"Level 2/images/run.png"}, {v:'swim', pic:"Level 2/images/swim.png"}, {v:'read', pic:"Level 2/images/read.png"}, {v:'write', pic:"Level 2/images/write.png"}, {v:'type', pic:"Level 2/images/type.png"}, {v: 'jump', pic:"Level 2/images/jump.png"}, {v: 'draw', pic:"Level 2/images/draw.png"}];
+        verbArray = [{VB:'sing', pic:"Level 2/images/sing.png"}, {VB: 'dance', pic:"Level 2/images/dance.png"}, {VB:'run', pic:"Level 2/images/run.png"}, {VB:'swim', pic:"Level 2/images/swim.png"}, {VB:'read', pic:"Level 2/images/read.png"}, {VB:'write', pic:"Level 2/images/write.png"}, {VB:'type', pic:"Level 2/images/type.png"}, {VB: 'jump', pic:"Level 2/images/jump.png"}, {VB: 'draw', pic:"Level 2/images/draw.png"}];
         shuffleArray(verbArray);
         PRPArray = [{PRP: "I", RESPONSE: "you"}, {PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}, {PRP: "we", RESPONSE: "you"}];
         shuffleArray(PRPArray);
         document.getElementById("gPic").src = verbArray[0].pic;
         if (randomG < 1) {
-            sentence = "Can " + PRPArray[0].PRP + " " + verbArray[0].v + "?";
-            document.getElementById("grammarCheck").value = "Yes, " + PRPArray[0].RESPONSE + " can.";
-            sentenceArray[0] = "Yes, " + PRPArray[0].RESPONSE + " can.";
-            sentenceArray[1] = "Yes, " + PRPArray[1].RESPONSE + " can.";
-            sentenceArray[2] = "Yes, " + PRPArray[2].RESPONSE + " can.";
-            sentenceArray[3] = "Yes, " + PRPArray[3].RESPONSE + " can.";
+            sentence = "Can " + PRPArray[0].PRP + " " + verbArray[0].VB + "?";
+            document.getElementById("grammarCheck").value = "Yes, " + PRPArray[0].RESPONSE + " can. " + capitalize(PRPArray[0].RESPONSE) + " can " + verbArray[0].VB + ".";
+            sentenceArray[0] = "Yes, " + PRPArray[0].RESPONSE + " can. " + capitalize(PRPArray[0].RESPONSE) + " can " + verbArray[0].VB + ".";
+            sentenceArray[1] = "Yes, " + PRPArray[1].RESPONSE + " can. " + capitalize(PRPArray[1].RESPONSE) + " can " + verbArray[0].VB + ".";
+            sentenceArray[2] = "Yes, " + PRPArray[2].RESPONSE + " can. " + capitalize(PRPArray[2].RESPONSE) + " can " + verbArray[0].VB + ".";
+            sentenceArray[3] = "Yes, " + PRPArray[3].RESPONSE + " can. " + capitalize(PRPArray[3].RESPONSE) + " can " + verbArray[0].VB + ".";
         } else {
-            sentence = "Can " + PRPArray[0].PRP + " " + verbArray[1].v + "?";
-            document.getElementById("grammarCheck").value = "No, " + PRPArray[0].RESPONSE + " can't.";
-            sentenceArray[0] = "No, " + PRPArray[0].RESPONSE + " can't.";
-            sentenceArray[1] = "No, " + PRPArray[1].RESPONSE + " can't.";
-            sentenceArray[2] = "No, " + PRPArray[2].RESPONSE + " can't.";
-            sentenceArray[3] = "No, " + PRPArray[3].RESPONSE + " can't.";
+            sentence = "Can " + PRPArray[0].PRP + " " + verbArray[1].VB + "?";
+            document.getElementById("grammarCheck").value = "No, " + PRPArray[0].RESPONSE + " can't. " + capitalize(PRPArray[0].RESPONSE) + " can't " + verbArray[1].VB + ".";
+            sentenceArray[0] = "No, " + PRPArray[0].RESPONSE + " can't. " + capitalize(PRPArray[0].RESPONSE) + " can't " + verbArray[1].VB + ".";
+            sentenceArray[1] = "No, " + PRPArray[1].RESPONSE + " can't. " + capitalize(PRPArray[1].RESPONSE) + " can't " + verbArray[1].VB + ".";
+            sentenceArray[2] = "No, " + PRPArray[2].RESPONSE + " can't. " + capitalize(PRPArray[2].RESPONSE) + " can't " + verbArray[1].VB + ".";
+            sentenceArray[3] = "No, " + PRPArray[3].RESPONSE + " can't. " + capitalize(PRPArray[3].RESPONSE) + " can't " + verbArray[1].VB + ".";
         }
         shuffleArray(sentenceArray);
         document.getElementById("g0r1d0").textContent = sentenceArray[0];
