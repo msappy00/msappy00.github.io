@@ -48,6 +48,8 @@ function setGrammar(userInput){
         g_02(userInput);
     } else if (level_id == "Level 4") {
         g_04(userInput);
+    } else if (level_id == "Level 7") {
+        g_07(userInput);
     } else {
         document.getElementById("gInstructions").innerHTML = "<h1>Work in Progress</h1>";
         document.getElementById("grammarCheck").value = "";
