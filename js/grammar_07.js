@@ -59,7 +59,7 @@ function g_07(userInput){
     } else if (userInput == "Unit 3") {
         randomG = randG(3);
         verbArray = [{VBG:'baking a cake', VBD:'baked a cake', pic:"Level 7/images/bake a cake.png"}, {VBG:'cooking a meal', VBD:'cooked a meal', pic:"Level 7/images/cook a meal.png"}, {VBG:'making a sandwich', VBD:'made a sandwich', pic:"Level 7/images/make a sandwich.png"}, {VBG:'drawing a picture', VBD:'drew a picture', pic:"Level 7/images/draw a picture.png"}, {VBG:'vacuuming the floor', VBD:'vacuumed the floor', pic:"Level 7/images/vacuum the floor.png"},  {VBG:'making a call', VBD:'made a call', pic:"Level 7/images/make a call.png"}, {VBG:'answering the phone', VBD:'answered the phone', pic:"Level 7/images/answer the phone.png"}, {VBG:'trying on a shirt', VBD:'tried on a shirt', pic:"Level 7/images/try on a shirt.png"}];
-        timeArray = [" at one o'clock", " at ten o'clock", " at six o'clock", " at twelve o'clock", " at two-thirty", " at nine forty-five", " at seven oh-five", "five minutes ago", "twenty minutes ago", "one hour ago"];
+        timeArray = [" at one o'clock", " at ten o'clock", " at six o'clock", " at twelve o'clock", " at two-thirty", " at nine forty-five", " at seven oh-five", " five minutes ago", " twenty minutes ago", " one hour ago"];
         shuffleArray(verbArray);
         shuffleArray(timeArray);
         document.getElementById("gPic").src = verbArray[0].pic;
@@ -78,12 +78,12 @@ function g_07(userInput){
             sentenceArray[2] = "Addison " + verbArray[3].VBD + " while Hayden was "+ verbArray[1].VBG + ".";
             sentenceArray[3] = "Addison " + verbArray[4].VBD + " while Hayden was "+ verbArray[1].VBG + ".";
         } else {
-            sentence = "What was Addison doing when Hayden " + verbArray[1].VBD + "?";
-            document.getElementById("grammarCheck").value = "Addison was " + verbArray[0].VBG + " when Hayden "+ verbArray[1].VBD + ".";
-            sentenceArray[0] = "Addison was " + verbArray[0].VBG + " when Hayden "+ verbArray[1].VBD + ".";
-            sentenceArray[1] = "Addison was " + verbArray[2].VBG + " when Hayden "+ verbArray[1].VBD + ".";
-            sentenceArray[2] = "Addison was " + verbArray[3].VBG + " when Hayden "+ verbArray[1].VBD + ".";
-            sentenceArray[3] = "Addison was " + verbArray[4].VBG + " when Hayden "+ verbArray[1].VBD + ".";
+            sentence = "What did Addison do while Hayden was " + verbArray[1].VBG + "?";
+            document.getElementById("grammarCheck").value = "While Hayden was "+ verbArray[1].VBG + ", Addison " + verbArray[0].VBD + ".";
+            sentenceArray[0] = "While Hayden was "+ verbArray[1].VBG + ", Addison " + verbArray[0].VBD + ".";
+            sentenceArray[1] = "While Hayden was "+ verbArray[1].VBG + ", Addison " + verbArray[2].VBD + ".";
+            sentenceArray[2] = "While Hayden was "+ verbArray[1].VBG + ", Addison " + verbArray[3].VBD + ".";
+            sentenceArray[3] = "While Hayden was "+ verbArray[1].VBG + ", Addison " + verbArray[4].VBD + ".";
         }
         shuffleArray(sentenceArray);
         document.getElementById("g0r1d0").textContent = sentenceArray[0];
