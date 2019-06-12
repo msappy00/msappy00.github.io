@@ -378,7 +378,7 @@ function g_01(userInput){
     document.getElementById("gm1").textContent = sentenceArray[1];
     document.getElementById("gm2").textContent = sentenceArray[2];
     document.getElementById("gm3").textContent = sentenceArray[3];
-
     document.getElementById("grammar_links").innerHTML = [''];
     document.getElementById("grammar_lesson").innerHTML = "";
+    document.getElementById('g_request').textContent = sentence;
 };

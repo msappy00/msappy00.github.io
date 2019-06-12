@@ -13,6 +13,7 @@ array = [];
 
     level_id = sessionStorage.getItem("sessionLevel");
     unit_id = sessionStorage.getItem("sessionUnit");
+    document.getElementById("levelId").textContent = level_id + " " + unit_id;
     currentInput = level_id + unit_id;
     if (currentInput == "StarterUnit 1") {
         array = ["apple", "ant", "boy", "ball", "cat", "car", "dog", "desk"];

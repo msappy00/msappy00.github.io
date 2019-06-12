@@ -292,6 +292,7 @@ function g_04(userInput){
         randomG = randG(3);
         NOUNArray = [{NN:"police station", pic:"Level 4/images/police station.png"}, {NN:"fire station", pic:"Level 4/images/fire station.png"}, {NN:"MRT station", pic:"Level 4/images/MRT station.png"}, {NN:"bus stop", pic:"Level 4/images/bus stop.png"}, {NN:"bank", pic:"Level 4/images/bank.png"}, {NN:"bookstore", pic:"Level 4/images/bookstore.png"}, {NN:"convenience store", pic:"Level 4/images/convenience store.png"}, {NN:"department store", pic:"Level 4/images/department store.png"}];
         shuffleArray(NOUNArray);
+        document.getElementById("gPic").src = NOUNArray[0].pic;
         PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
         shuffleArray(PRPArray);
         if (randomG == 0) {
@@ -325,7 +326,6 @@ function g_04(userInput){
             sentenceArray[2] = "The " + NOUNArray[2].NN + " is across from the " + NOUNArray[1].NN + ".";
             sentenceArray[3] = "The " + NOUNArray[3].NN + " is across from the " + NOUNArray[1].NN + ".";
         }
-        document.getElementById("gPic").src = NOUNArray[0].pic;
         shuffleArray(sentenceArray);
         document.getElementById("g0r1d0").textContent = sentenceArray[0];
         document.getElementById("g0r1d2").textContent = sentenceArray[1];
@@ -339,6 +339,7 @@ function g_04(userInput){
         q1Array = ["museum", "post office", "restaurant", "movie theater", "bakery", "hospital", "library", "clinic", "gas station", "toy store"];
         NOUNArray = [{NN:"police station", pic:"Level 4/images/police station.png"}, {NN:"fire station", pic:"Level 4/images/fire station.png"}, {NN:"MRT station", pic:"Level 4/images/MRT station.png"}, {NN:"bus stop", pic:"Level 4/images/bus stop.png"}, {NN:"bank", pic:"Level 4/images/bank.png"}, {NN:"bookstore", pic:"Level 4/images/bookstore.png"}, {NN:"convenience store", pic:"Level 4/images/convenience store.png"}, {NN:"department store", pic:"Level 4/images/department store.png"}];
         shuffleArray(NOUNArray);
+        document.getElementById("gPic").src = NOUNArray[0].pic;
         if (randomG < 1) {
             sentence = "Is there a " + NOUNArray[0].NN + " near the " + NOUNArray[1].NN + "?";
             document.getElementById("grammarCheck").value = "Yes, there is a " + NOUNArray[0].NN + " near the " + NOUNArray[1].NN + ".";
@@ -354,7 +355,6 @@ function g_04(userInput){
             sentenceArray[2] = "No, there is not a " + NOUNArray[2].NN + " near the " + NOUNArray[1].NN + ".";
             sentenceArray[3] = "No, there is not a " + NOUNArray[3].NN + " near the " + NOUNArray[2].NN + ".";
         }
-        document.getElementById("gPic").src = NOUNArray[0].pic;
         shuffleArray(sentenceArray);
         document.getElementById("g0r1d0").textContent = sentenceArray[0];
         document.getElementById("g0r1d2").textContent = sentenceArray[1];
@@ -407,4 +407,5 @@ function g_04(userInput){
     }
     document.getElementById("grammar_links").innerHTML = gLinks;
     document.getElementById("grammar_lesson").innerHTML = grammarLesson;
+    document.getElementById('g_request').textContent = sentence;
 }

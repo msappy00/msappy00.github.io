@@ -414,4 +414,5 @@ function g_02(userInput){
     }
     document.getElementById("grammar_links").innerHTML = gLinks;
     document.getElementById("grammar_lesson").innerHTML = grammarLesson;
+    document.getElementById('g_request').textContent = sentence;
 }

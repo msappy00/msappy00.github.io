@@ -1,59 +1,72 @@
 function g_07(userInput){
     if (userInput == "Unit 1") {
-        pronounArray = ["I", "you", "we", "they", "he", "she"];
-        verbArray = [({verb:'made a card', pic:'<img src="Level 7/images/made.png" />'}), ({verb:'took a picture', pic:'<img src="Level 7/images/took.png" />'}), ({verb:'saw a turtle', pic:'<img src="Level 7/images/saw.png" />'}), ({verb:'got a gift', pic:'<img src="Level 7/images/got.png" />'}), ({verb:'sat on a chair', pic:'<img src="Level 7/images/sat.png" />'}),  ({verb:'sang a song', pic:'<img src="Level 7/images/sang.png" />'}), ({verb:'gave a gift', pic:'<img src="Level 7/images/gave.png" />'}), ({verb:'swam in the pool', pic:'<img src="Level 7/images/swam.png" />'})];
-        destinationArray = ["park", "supermarket", "city", "countryside", "beach", "airport", "farm", "concert", "classroom", "amusement park", "playground", "port", "police station", "fire station", "MRT station", "bus stop", "bank", "bookstore", "convenience store", "department store", "museum", "post office", "restaurant", "movie theater", "bakery", "hospital", "library", "clinic", "gas station", "toy store"];
-        q3Array = [" last week", " last weekend", " yesterday", " yesterday afternoon", " this morning", " last Sunday", " last Monday", " last Tuesday", " last Wednesday", " last Thursday", " last Friday", " last Saturday"];
-        shuffleArray(pronounArray);
+        randomG = randG(2);
+        PRPArray = [{PRP: "I", RESPONSE: "you"}, {PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}, {PRP: "we", RESPONSE: "you"}];
+        shuffleArray(PRPArray);
+        verbArray = [{VBD:'made a card', pic:"Level 7/images/made.png"}, {VBD:'took a picture', pic:"Level 7/images/took.png"}, {VBD:'saw a turtle', pic:"Level 7/images/saw.png"}, {VBD:'got a gift', pic:"Level 7/images/got.png"}, {VBD:'sat on a chair', pic:"Level 7/images/sat.png"},  {VBD:'sang a song', pic:"Level 7/images/sang.png"}, {VBD:'gave a gift', pic:"Level 7/images/gave.png"}, {VBD:'swam in the pool', pic:"Level 7/images/swam.png"}];
         shuffleArray(verbArray);
-        shuffleArray(destinationArray);
-        shuffleArray(q3Array);
-        document.getElementById("g0r0d0").innerHTML = "Where did " + pronounArray[0] + " go " + q3Array[0] + "?";
-        document.getElementById("g0r0d5").innerHTML = verbArray[0].pic;
-        document.getElementById("g0r3d0").innerHTML = "What did " + pronounArray[0] + " do there?";
-        if (pronounArray[0] == "you"){
-            pronounArray[0] = "I";
-        } else if (pronounArray[0] == "I" || pronounArray[0] == "we"){
-            pronounArray[0] = "you";
+        NOUNArray = [{NN:"park", pic:"Level 4/images/park.png"}, {NN:"supermarket", pic:"Level 4/images/supermarket.png"}, {NN:"city", pic:"Level 4/images/city.png"}, {NN:"countryside", pic:"Level 4/images/countryside.png"}, {NN:"beach", pic:"Level 6/images/beach.png"}, {NN:"airport", pic:"Level 6/images/airport.png"}, {NN:"farm", pic:"Level 6/images/farm.png"}, {NN:"concert", pic:"Level 6/images/concert.png"}, {NN:"classroom", pic:"Level 6/images/classroom.png"}, {NN:"amusement park", pic:"Level 6/images/amusement park.png"}, {NN:"playground", pic:"Level 6/images/playground.png"}, {NN:"port", pic:"Level 6/images/port.png"}, {NN:"bus stop", pic:"Level 4/images/bus stop.png"}, {NN:"bank", pic:"Level 4/images/bank.png"}, {NN:"bookstore", pic:"Level 4/images/bookstore.png"}, {NN:"convenience store", pic:"Level 4/images/convenience store.png"}, {NN:"department store", pic:"Level 4/images/department store.png"}, {NN:"museum", pic:"Level 4/images/museum.png"}, {NN:"post office", pic:"Level 4/images/post office.png"}, {NN:"restaurant", pic:"Level 4/images/.png"}, {NN:"movie theater", pic:"Level 4/images/.png"}, {NN:"bakery", pic:"Level 4/images/.png"}, {NN:"hospital", pic:"Level 4/images/hospital.png"}, {NN:"library", pic:"Level 4/images/library.png"}, {NN:"clinic", pic:"Level 4/images/clinic.png"}, {NN:"gas station", pic:"Level 4/images/gas station.png"}, {NN:"toy store", pic:"Level 4/images/toy store.png"}];
+        shuffleArray(NOUNArray);
+        if (randomG < 1){
+            document.getElementById("gPic").src = NOUNArray[0].pic;
+            sentence = "Where did " + PRPArray[0].PRP + " go?";
+            document.getElementById("grammarCheck").value = capitalize(PRPArray[0].RESPONSE) + " went to the " + NOUNArray[0].NN + ".";
+            sentenceArray[0] = capitalize(PRPArray[0].RESPONSE) + " went to the " + NOUNArray[0].NN + ".";
+            sentenceArray[1] = capitalize(PRPArray[0].RESPONSE) + " went to the " + NOUNArray[1].NN + ".";
+            sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " went to the " + NOUNArray[2].NN + ".";
+            sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " went to the " + NOUNArray[3].NN + ".";    
+        } else {
+            document.getElementById("gPic").src = verbArray[0].pic;
+            sentence = "What did " + PRPArray[0].PRP + " do there?";
+            document.getElementById("grammarCheck").value = capitalize(PRPArray[0].RESPONSE) + " " + verbArray[0].VBD + ".";
+            sentenceArray[0] = capitalize(PRPArray[0].RESPONSE) + " " + verbArray[0].VBD + ".";
+            sentenceArray[1] = capitalize(PRPArray[0].RESPONSE) + " " + verbArray[1].VBD + ".";
+            sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " " + verbArray[2].VBD + ".";
+            sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + verbArray[3].VBD + ".";
         }
-        var capitalized = pronounArray[0].charAt(0).toUpperCase() + pronounArray[0].slice(1);
-        sampleAnswer1 = capitalized + " went to the " + destinationArray[0] + q3Array[0] + ".";
-        sampleAnswer2 = capitalized + " " + verbArray[0].verb + ".";
-        document.getElementById("g0r1d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" />';
-        document.getElementById("g0r1d1").align = "left";
-        document.getElementById("g0r1d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar1()">Example</button>';
-        document.getElementById("g0r4d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput2" />';
-        document.getElementById("g0r4d1").align = "left";
-        document.getElementById("g0r4d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar2()">Example</button>';
+        shuffleArray(sentenceArray);
+        document.getElementById("g0r1d0").textContent = sentenceArray[0];
+        document.getElementById("g0r1d2").textContent = sentenceArray[1];
+        document.getElementById("g0r2d0").textContent = sentenceArray[2];
+        document.getElementById("g0r2d2").textContent = sentenceArray[3];
+        setTimeout(function(){speak(sentence)}, 2000);
+        gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 2") {
-        pronounArray = ["I", "you", "we", "they", "he", "she"];
-        verbArray = [({verb:'wrote a letter', pic:'<img src="Level 7/images/wrote.png" />'}), ({verb:'had a snack', pic:'<img src="Level 7/images/had.png" />'}), ({verb:'sent a postcard', pic:'<img src="Level 7/images/sent.png" />'}), ({verb:'bought a gift', pic:'<img src="Level 7/images/bought.png" />'}), ({verb:'taught a lesson', pic:'<img src="Level 7/images/taught.png" />'}),  ({verb:'brought a gift', pic:'<img src="Level 7/images/brought.png" />'}), ({verb:'caught a fish', pic:'<img src="Level 7/images/caught.png" />'}), ({verb:'found a shell', pic:'<img src="Level 7/images/found.png" />'})];
-        destinationArray = ["park", "supermarket", "city", "countryside", "beach", "airport", "farm", "concert", "classroom", "amusement park", "playground", "port", "police station", "fire station", "MRT station", "bus stop", "bank", "bookstore", "convenience store", "department store", "museum", "post office", "restaurant", "movie theater", "bakery", "hospital", "library", "clinic", "gas station", "toy store"];
-        q3Array = [" last week", " last weekend", " yesterday", " yesterday afternoon", " this morning", " last Sunday", " last Monday", " last Tuesday", " last Wednesday", " last Thursday", " last Friday", " last Saturday"];
-        q4Array = ["rode a bike", "drove a car", "rode a scooter", "drove a truck", "rode a bus", "drove a van"];
-        shuffleArray(pronounArray);
+        randomG = randG(2);
+        PRPArray = [{PRP: "I", RESPONSE: "you"}, {PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}, {PRP: "we", RESPONSE: "you"}];
+        shuffleArray(PRPArray);
+        verbArray = [{VBD:'wrote a letter', pic:"Level 7/images/wrote.png"}, {VBD:'had a snack', pic:"Level 7/images/had.png"}, {VBD:'sent a postcard', pic:"Level 7/images/sent.png"}, {VBD:'bought a gift', pic:"Level 7/images/bought.png"}, {VBD:'taught a lesson', pic:"Level 7/images/taught.png"},  {VBD:'brought a gift', pic:"Level 7/images/brought.png"}, {VBD:'caught a fish', pic:"Level 7/images/caught.png"}, {VBD:'found a shell', pic:"Level 7/images/found.png"}];
         shuffleArray(verbArray);
-        shuffleArray(destinationArray);
-        shuffleArray(q3Array);
-        shuffleArray(q4Array);
-        document.getElementById("g0r0d0").innerHTML = "When did " + pronounArray[0] + " go to the " + destinationArray[0] + "?";
-        document.getElementById("g0r0d5").innerHTML = verbArray[0].pic;
-        document.getElementById("g0r3d0").innerHTML = "How did " + pronounArray[0] + " get there?";
-        if (pronounArray[0] == "you"){
-            pronounArray[0] = "I";
-        } else if (pronounArray[0] == "I" || pronounArray[0] == "we"){
-            pronounArray[0] = "you";
+        NOUNArray = [{NN:"park", pic:"Level 4/images/park.png"}, {NN:"supermarket", pic:"Level 4/images/supermarket.png"}, {NN:"city", pic:"Level 4/images/city.png"}, {NN:"countryside", pic:"Level 4/images/countryside.png"}, {NN:"beach", pic:"Level 6/images/beach.png"}, {NN:"airport", pic:"Level 6/images/airport.png"}, {NN:"farm", pic:"Level 6/images/farm.png"}, {NN:"concert", pic:"Level 6/images/concert.png"}, {NN:"classroom", pic:"Level 6/images/classroom.png"}, {NN:"amusement park", pic:"Level 6/images/amusement park.png"}, {NN:"playground", pic:"Level 6/images/playground.png"}, {NN:"port", pic:"Level 6/images/port.png"}, {NN:"bus stop", pic:"Level 4/images/bus stop.png"}, {NN:"bank", pic:"Level 4/images/bank.png"}, {NN:"bookstore", pic:"Level 4/images/bookstore.png"}, {NN:"convenience store", pic:"Level 4/images/convenience store.png"}, {NN:"department store", pic:"Level 4/images/department store.png"}, {NN:"museum", pic:"Level 4/images/museum.png"}, {NN:"post office", pic:"Level 4/images/post office.png"}, {NN:"restaurant", pic:"Level 4/images/.png"}, {NN:"movie theater", pic:"Level 4/images/.png"}, {NN:"bakery", pic:"Level 4/images/.png"}, {NN:"hospital", pic:"Level 4/images/hospital.png"}, {NN:"library", pic:"Level 4/images/library.png"}, {NN:"clinic", pic:"Level 4/images/clinic.png"}, {NN:"gas station", pic:"Level 4/images/gas station.png"}, {NN:"toy store", pic:"Level 4/images/toy store.png"}];
+        shuffleArray(NOUNArray);
+        timeArray = [" last week", " last weekend", " yesterday", " yesterday afternoon", " this morning", " last Sunday", " last Monday", " last Tuesday", " last Wednesday", " last Thursday", " last Friday", " last Saturday"];
+        shuffleArray(timeArray);
+        transArray = [{trans:"rode a bike", pic:"Level 4/images/bicycle.png"}, {trans:"drove a car", pic:"Level 4/images/car.png"}, {trans:"rode a scooter", pic:"Level 4/images/scooter.png"}, {trans:"walked", pic:"Level 4/images/walk.png"}, {trans:"rode a bus", pic:"Level 4/images/bus.png"}, {trans:"drove a van", pic:"Level 4/images/van.png"}];
+        shuffleArray(transArray);
+        if (randomG < 1){
+            document.getElementById("gPic").src = NOUNArray[0].pic;
+            sentence = "When did " + PRPArray[0].PRP + " go to the " + NOUNArray[0].NN + "?";
+            document.getElementById("grammarCheck").value = capitalize(PRPArray[0].RESPONSE) + " went to the " + NOUNArray[0].NN + timeArray[0] + ".";
+            sentenceArray[0] = capitalize(PRPArray[0].RESPONSE) + " went to the " + NOUNArray[0].NN + timeArray[0] + ".";
+            sentenceArray[1] = capitalize(PRPArray[0].RESPONSE) + " went to the " + NOUNArray[1].NN + timeArray[0] + ".";
+            sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " went to the " + NOUNArray[2].NN + timeArray[0] + ".";
+            sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " went to the " + NOUNArray[3].NN + timeArray[0] + ".";
+        } else {
+            document.getElementById("gPic").src = transArray[0].pic;
+            sentence = "How did " + PRPArray[0].PRP + " go to the " + NOUNArray[0].NN + "?";
+            document.getElementById("grammarCheck").value = capitalize(PRPArray[0].RESPONSE) + " " + transArray[0].trans + " to the " + NOUNArray[0].NN + ".";
+            sentenceArray[0] = capitalize(PRPArray[0].RESPONSE) + " " + transArray[0].trans + " to the " + NOUNArray[0].NN + ".";
+            sentenceArray[1] = capitalize(PRPArray[0].RESPONSE) + " " + transArray[1].trans + " to the " + NOUNArray[0].NN + ".";
+            sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " " + transArray[2].trans + " to the " + NOUNArray[0].NN + ".";
+            sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + transArray[3].trans + " to the " + NOUNArray[0].NN + ".";
         }
-        var capitalized = pronounArray[0].charAt(0).toUpperCase() + pronounArray[0].slice(1);
-        sampleAnswer1 = capitalized + " went to the " + destinationArray[0] + q3Array[0] + ".";
-        sampleAnswer2 = capitalized + " " + q4Array[0] + " to the " + destinationArray[0] + ".";
-        document.getElementById("g0r1d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" />';
-        document.getElementById("g0r1d1").align = "left";
-        document.getElementById("g0r1d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar1()">Example</button>';
-        document.getElementById("g0r4d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput2" />';
-        document.getElementById("g0r4d1").align = "left";
-        document.getElementById("g0r4d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar2()">Example</button>';
+        shuffleArray(sentenceArray);
+        document.getElementById("g0r1d0").textContent = sentenceArray[0];
+        document.getElementById("g0r1d2").textContent = sentenceArray[1];
+        document.getElementById("g0r2d0").textContent = sentenceArray[2];
+        document.getElementById("g0r2d2").textContent = sentenceArray[3];
+        setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 3") {
@@ -194,4 +207,5 @@ function g_07(userInput){
         gLinks = [''];
         grammarLesson = "";
     }
+    document.getElementById('g_request').textContent = sentence;
 }

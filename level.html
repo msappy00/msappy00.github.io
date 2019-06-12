@@ -165,7 +165,11 @@
             <div id="grammar_tab" class="tab-pane w3-content" style="display:none">
                 <div class="w3-cell w3-cell-top w3-mobile w3-center">
                     <div class="w3-row w3-mobile">
-                        <button class="w3-cell w3-button w3-blue w3-round" onClick="speak(sentence);"><i class="material-icons">play_arrow</i></button>
+                        <div class="w3-tooltip">
+                            <button class="w3-cell w3-button w3-blue w3-round" onClick="speak(sentence);"><i class="material-icons">play_arrow</i></button>
+                            <br>
+                            <p class="w3-text" id="g_request"></p>
+                        </div>
                         <div class="w3-cell" style="padding-top:50px; font-size: 2em" id="gInstructions"></div>
                     </div>
                     <input type="hidden" id="grammarCheck" />
