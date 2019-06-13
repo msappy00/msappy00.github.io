@@ -21,11 +21,11 @@ function g_04(userInput){
             
             verb = conjugate_VB(PRPArray[0].RESPONSE, temp);
             console.log();
-            document.getElementById("grammarCheck").value = capitalize(PRPArray[0].PRP) + " " + verb + " " + verbArray[0].RB + " at " + timeArray[0].text + ".";
-            sentenceArray[0] = capitalize(PRPArray[0].PRP) + " " + verb + " " + verbArray[0].RB + " at " + timeArray[0].text + ".";
-            sentenceArray[1] = capitalize(PRPArray[0].PRP) + " " + verb + " " + verbArray[0].RB + " at " + timeArray[1].text + ".";
-            sentenceArray[2] = capitalize(PRPArray[0].PRP) + " " + verb + " " + verbArray[0].RB + " at " + timeArray[2].text + ".";
-            sentenceArray[3] = capitalize(PRPArray[0].PRP) + " " + verb + " " + verbArray[0].RB + " at " + timeArray[3].text + ".";
+            document.getElementById("grammarCheck").value = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[0].RB + " at " + timeArray[0].text + ".";
+            sentenceArray[0] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[0].RB + " at " + timeArray[0].text + ".";
+            sentenceArray[1] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[0].RB + " at " + timeArray[1].text + ".";
+            sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[0].RB + " at " + timeArray[2].text + ".";
+            sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[0].RB + " at " + timeArray[3].text + ".";
         }
         shuffleArray(sentenceArray);
         document.getElementById("g0r1d0").textContent = sentenceArray[0];
