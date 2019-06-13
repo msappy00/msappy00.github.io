@@ -1,13 +1,14 @@
 function g_04(userInput){
     if (userInput == "Unit 1") {
-        pronounArray = [({qp:'you', qa:'I'}), ({qp:'I', qa:'You'}), ({qp:'they', qa:'They'}), ({qp:'he', qa:'He'}), ({qp:'she', qa:'She'})];
-        shuffleArray(pronounArray);
-        timeArray = [({time:"1:00", text:"one o'clock"}), ({time:"1:30", text:"one thirty"}), ({time:"2:00", text: "two o'clock"}), ({time:"2:30", text:"two thirty"}), ({time:"3:00", text:"three o'clock"}), ({time:"3:30", text:"three thirty"}), ({time:"4:00", text:"four o'clock"}), ({time:"4:30", text:"four thirty"}), ({time:"5:00", text:"five o'clock"}), ({time:"5:30", text:"five thirty"}), ({time:"6:00", text:"six o'clock"}), ({time:"6:30", text:"six thirty"}), ({time:"7:00", text:"seven o'clock"}), ({time:"7:30", text:"seven thirty"}), ({time:"8:00", text:"eight o'clock"}), ({time:"8:30", text:"eight thirty"}), ({time:"9:00", text:"nine o'clock"}), ({time:"9:30", text:"nine thirty"}), ({time:"10:00", text:"ten o'clock"}), ({time:"10:30", text:"ten thirty"}), ({time:"11:00", text:"eleven o'clock"}), ({time:"11:30", text:"eleven thirty"}), ({time:"12:00", text:"twelve o'clock"}), ({time:"12:30", text:"twelve thirty"})];
+        randomG = randG(2);
+        PRPArray = PRPArray = [{PRP: "I", RESPONSE: "you"}, {PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
+        shuffleArray(PRPArray);
+        timeArray = [{time:"1:00", text:"one o'clock"}, {time:"1:30", text:"one thirty"}, {time:"2:00", text: "two o'clock"}, {time:"2:30", text:"two thirty"}, {time:"3:00", text:"three o'clock"}, {time:"3:30", text:"three thirty"}, {time:"4:00", text:"four o'clock"}, {time:"4:30", text:"four thirty"}, {time:"5:00", text:"five o'clock"}, {time:"5:30", text:"five thirty"}, {time:"6:00", text:"six o'clock"}, {time:"6:30", text:"six thirty"}, {time:"7:00", text:"seven o'clock"}, {time:"7:30", text:"seven thirty"}, {time:"8:00", text:"eight o'clock"}, {time:"8:30", text:"eight thirty"}, {time:"9:00", text:"nine o'clock"}, {time:"9:30", text:"nine thirty"}, {time:"10:00", text:"ten o'clock"}, {time:"10:30", text:"ten thirty"}, {time:"11:00", text:"eleven o'clock"}, {time:"11:30", text:"eleven thirty"}, {time:"12:00", text:"twelve o'clock"}, {time:"12:30", text:"twelve thirty"}];
         shuffleArray(timeArray);
-        document.getElementById("gPic").innerHTML = '<p style="font-size:100px">' + timeArray[0].time + '</p>';
-        verbArray = [({v: "get", tps: "gets", o: "up", pic: '<img src="Level 4/images/get up.png" />'}), ({v: "go", tps: "goes", o: "to school", pic: '<img src="Level 4/images/go to school.png" />'}), ({v: "go", tps: "goes", o: "home", pic: '<img src="Level 4/images/go home.png" />'}), ({v: "do", tps: "does", o: "homework", pic: '<img src="Level 4/images/do homework.png" />'}), ({v: "take", tps: "takes", o: "a bath", pic: '<img src="Level 4/images/take a bath.png" />'}), ({v: "go", tps: "goes", o: "to bed", pic:'<img src="Level 4/images/go to bed.png" />'}), ({v: "have", tps: "has", o: "English class", pic:'<img src="Level 4/images/have English class.png" />'})];            
+        document.getElementById("altText").textContent = timeArray[0].time;
+        verbArray = [{VB: "get", RB: "up"}, {VB: "go", RB: "to school"}, {VB: "go", RB: "home"}, {VB: "do", RB: "homework"}, {VB: "take", RB: "a bath"}, {VB: "go", RB: "to bed"}, {VB: "have", RB: "English class"}];            
         shuffleArray(verbArray);
-        if (randomG >= 2) {
+        if (randomG < 1) {
             sentence = "What time is it?";
             document.getElementById("grammarCheck").value = "It's " + timeArray[0].text + ".";
             sentenceArray[0] = "It's " + timeArray[0].text + ".";
@@ -15,21 +16,16 @@ function g_04(userInput){
             sentenceArray[2] = "It's " + timeArray[2].text + ".";
             sentenceArray[3] = "It's " + timeArray[3].text + ".";
         } else {
-            if (pronounArray[0].qp == "he" || pronounArray[0].qp == "she") {
-                sentence = "What time does " + pronounArray[0].qp + " " + verbArray[0].v + " " + verbArray[0].o + "?";
-                document.getElementById("grammarCheck").value = pronounArray[0].qa + " " + verbArray[0].tps + " " + verbArray[0].o + " at " + timeArray[0].text + ".";
-                sentenceArray[0] = pronounArray[0].qa + " " + verbArray[0].tps + " " + verbArray[0].o + " at " + timeArray[0].text + ".";
-                sentenceArray[1] = pronounArray[0].qa + " " + verbArray[0].tps + " " + verbArray[0].o + " at " + timeArray[1].text + ".";
-                sentenceArray[2] = pronounArray[0].qa + " " + verbArray[0].tps + " " + verbArray[0].o + " at " + timeArray[2].text + ".";
-                sentenceArray[3] = pronounArray[0].qa + " " + verbArray[0].tps + " " + verbArray[0].o + " at " + timeArray[3].text + ".";
-            } else {
-                sentence = "What time do " + pronounArray[0].qp + " " + verbArray[0].v + " " + verbArray[0].o + "?";
-                document.getElementById("grammarCheck").value = pronounArray[0].qa + " " + verbArray[0].v + " " + verbArray[0].o + " at " + timeArray[0].text + ".";
-                sentenceArray[0] = pronounArray[0].qa + " " + verbArray[0].v + " " + verbArray[0].o + " at " + timeArray[0].text + ".";
-                sentenceArray[1] = pronounArray[0].qa + " " + verbArray[0].v + " " + verbArray[0].o + " at " + timeArray[1].text + ".";
-                sentenceArray[2] = pronounArray[0].qa + " " + verbArray[0].v + " " + verbArray[0].o + " at " + timeArray[2].text + ".";
-                sentenceArray[3] = pronounArray[0].qa + " " + verbArray[0].v + " " + verbArray[0].o + " at " + timeArray[3].text + ".";
-            }
+            sentence = "What time " + conjugate_VB(PRPArray[0].PRP, "doVerb") + " " + PRPArray[0].PRP + " " + verbArray[0].VB + " " + verbArray[0].RB + "?";
+            temp = verbArray[0].VB + "Verb";
+            
+            verb = conjugate_VB(PRPArray[0].RESPONSE, temp);
+            console.log();
+            document.getElementById("grammarCheck").value = capitalize(PRPArray[0].PRP) + " " + verb + " " + verbArray[0].RB + " at " + timeArray[0].text + ".";
+            sentenceArray[0] = capitalize(PRPArray[0].PRP) + " " + verb + " " + verbArray[0].RB + " at " + timeArray[0].text + ".";
+            sentenceArray[1] = capitalize(PRPArray[0].PRP) + " " + verb + " " + verbArray[0].RB + " at " + timeArray[1].text + ".";
+            sentenceArray[2] = capitalize(PRPArray[0].PRP) + " " + verb + " " + verbArray[0].RB + " at " + timeArray[2].text + ".";
+            sentenceArray[3] = capitalize(PRPArray[0].PRP) + " " + verb + " " + verbArray[0].RB + " at " + timeArray[3].text + ".";
         }
         shuffleArray(sentenceArray);
         document.getElementById("g0r1d0").textContent = sentenceArray[0];

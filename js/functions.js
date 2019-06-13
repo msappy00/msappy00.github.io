@@ -216,10 +216,15 @@ function pluralize(NUM){
     return NOUN;
 };
 
-function conjugate_verb(PRP, Verb) {
-    if (PRP == 'I') {VERB = Verb.VBPArray[0]}
-        else if (PRP == 'you' || PRP == 'they') {VERB = Verb.VBPArray[1]}
-        else {VERB = Verb.VBZ}
+function conjugate_VB(PRP, Verb) {
+    if (Verb == "beVerb"){
+        if (PRP == 'I') {VERB = beVerb.VBPArray[0]}
+        else if (PRP == 'you' || PRP == 'they') {VERB = beVerb.VBPArray[1]}
+        else {VERB = beVerb.VBZ}    
+    } else {
+        if (PRP == 'he' || PRP == 'she') {VERB = window[Verb].VBZ}
+        else {VERB = window[Verb].VB}
+    }   
     return VERB;
 };
 
