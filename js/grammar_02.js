@@ -235,35 +235,37 @@ function g_02(userInput){
         setGrammar(sentenceArray[0]);
         currentUnit = "Review 2";
     } else if (userInput == "Unit 7") {
-        vocArray = ['television', 'DVD player', 'fan', 'trash can', 'robot', 'doll', 'teddy bear', 'ball', 'board game'];
-        shuffleArray(vocArray);
-        locArray = [{voc:' in the box', pic:"Starter/images/box.png"}, {voc:' behind the door', pic:"Level 2/images/door.png"}, {voc:' near the window', pic:"Level 2/images/window.png"}, {voc:' on the table', pic:"Level 2/images/table.png"}, {voc:' in front of the blackboard', pic:"Level 2/images/blackboard.png"}, {voc:' under the whiteboard', pic:"Level 2/images/whiteboard.png"}];
+        randomG = randG(3);
+        NOUNArray = ['television', 'DVD player', 'fan', 'trash can', 'robot', 'doll', 'teddy bear', 'ball', 'board game'];
+        shuffleArray(NOUNArray);
+        locArray = [{loc:' in the box', pic:"Starter/images/box.png"}, {loc:' behind the door', pic:"Level 2/images/door.png"}, {loc:' near the window', pic:"Level 2/images/window.png"}, {loc:' on the table', pic:"Level 2/images/table.png"}, {loc:' in front of the blackboard', pic:"Level 2/images/blackboard.png"}, {loc:' under the whiteboard', pic:"Level 2/images/whiteboard.png"}];
         shuffleArray(locArray);
         document.getElementById("gPic").src = locArray[0].pic;
-        if (randomG < 2) {
-            sentence = "Where is the " + vocArray[0] + "?";
-            document.getElementById("grammarCheck").value = "It is " + locArray[0].voc + ".";
-            sentenceArray[0] = "It is " + locArray[0].voc + ".";
-            sentenceArray[1] = "It is " + locArray[1].voc + ".";
-            sentenceArray[2] = "It is " + locArray[2].voc + ".";
-            sentenceArray[3] = "It is " + locArray[3].voc + ".";
-        } else if (randomG == 2) {
-            sentence = "Where is my " + vocArray[0] + "?";
-            document.getElementById("grammarCheck").value = "It is " + locArray[0].voc + ".";
-            sentenceArray[0] = "It is " + locArray[0].voc + ".";
-            sentenceArray[1] = "It is " + locArray[1].voc + ".";
-            sentenceArray[2] = "It is " + locArray[2].voc + ".";
-            sentenceArray[3] = "It is " + locArray[3].voc + ".";
+        if (randomG == 0) {
+            sentence = "Where is the " + NOUNArray[0] + "?";
+            document.getElementById("grammarCheck").value = "It is " + locArray[0].loc + ".";
+            sentenceArray[0] = "It is " + locArray[0].loc + ".";
+            sentenceArray[1] = "It is " + locArray[1].loc + ".";
+            sentenceArray[2] = "It is " + locArray[2].loc + ".";
+            sentenceArray[3] = "It is " + locArray[3].loc + ".";
+        } else if (randomG == 1) {
+            sentence = "Where is my " + NOUNArray[0] + "?";
+            document.getElementById("grammarCheck").value = "It is " + locArray[0].loc + ".";
+            sentenceArray[0] = "It is " + locArray[0].loc + ".";
+            sentenceArray[1] = "It is " + locArray[1].loc + ".";
+            sentenceArray[2] = "It is " + locArray[2].loc + ".";
+            sentenceArray[3] = "It is " + locArray[3].loc + ".";
         } else {
-            if (randomG < 2) {
-                sentence = "Is the " + vocArray[0] + locArray[0].voc + "?";
+            randomG = randG(2);
+            if (randomG < 1) {
+                sentence = "Is the " + NOUNArray[0] + locArray[0].loc + "?";
                 document.getElementById("grammarCheck").value = "Yes, it is.";
                 sentenceArray[0] = "Yes, it is.";
                 sentenceArray[1] = "No, it is not.";
                 sentenceArray[2] = " ";
                 sentenceArray[3] = " ";
             } else {
-                sentence = "Is the " + vocArray[0] + locArray[1].voc + "?";
+                sentence = "Is the " + NOUNArray[0] + locArray[1].loc + "?";
                 document.getElementById("grammarCheck").value = "No, it is not.";
                 sentenceArray[0] = "No, it is not.";
                 sentenceArray[1] = "Yes, it is.";
