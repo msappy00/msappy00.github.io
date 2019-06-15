@@ -282,60 +282,47 @@ function g_02(userInput){
         gLinks = ['<a href="http://www.eslgamesplus.com/prepositions-of-place-esl-fun-game-online-grammar-practice/" target="_newtab">ESL Games+: Prepositions of Place</a>'];
         grammarLesson = "";
     } else if (userInput == "Unit 8") {
-        pronounArray = ['you', 'they', 'he', 'she'];
-        locArray = [{voc:'living room', pic:"Level 2/images/living room.png"}, {voc:'dining room', pic:"Level 2/images/dining room.png"}, {voc:'bedroom', pic:"Level 2/images/bedroom.png"}, {voc:'bathroom', pic:"Level 2/images/bathroom.png"}, {voc:'kitchen', pic:"Level 2/images/kitchen.png"}, {voc:'backyard', pic:"Level 2/images/backyard.png"}, {voc:'garden', pic:"Level 2/images/garden.png"}, {voc:'basement', pic:"Level 2/images/basement.png"}];
-        shuffleArray(pronounArray);
-        shuffleArray(locArray);
-        choiceArrayInt = Math.floor(Math.random() * 2);
-        if (choiceArrayInt == 1) {
-            if (pronounArray[0] == "he" || pronounArray[0] == "she"){
-                document.getElementById("g0r0d0").innerHTML = "Where is " + pronounArray[0] + "?";
-            } else {
-                document.getElementById("g0r0d0").innerHTML = "Where are " + pronounArray[0] + "?";
-            }
-            var capitalized = pronounArray[0].charAt(0).toUpperCase() + pronounArray[0].slice(1);
-            if (pronounArray[0] == "he" || pronounArray[0] == "she"){
-                sampleAnswer = capitalized + " is in the " + locArray[0].voc + ".";
-            } else {
-                if (capitalized == "You"){
-                    sampleAnswer = "I am in the " + locArray[0].voc + ".";
-                } else {
-                    sampleAnswer = "They are in the " + locArray[0].voc + ".";
-                }
-            }
+        randomG = randG(2);
+        PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
+        shuffleArray(PRPArray);
+        verb = conjugate_VB(PRPArray[0].PRP, "beVerb");
+        NOUNArray = [{NN:'living room', pic:"Level 2/images/living room.png"}, {NN:'dining room', pic:"Level 2/images/dining room.png"}, {NN:'bedroom', pic:"Level 2/images/bedroom.png"}, {NN:'bathroom', pic:"Level 2/images/bathroom.png"}, {NN:'kitchen', pic:"Level 2/images/kitchen.png"}, {NN:'backyard', pic:"Level 2/images/backyard.png"}, {NN:'garden', pic:"Level 2/images/garden.png"}, {NN:'basement', pic:"Level 2/images/basement.png"}];
+        shuffleArray(NOUNArray);
+        document.getElementById("gPic").src = NOUNArray[0].pic;
+        if (randomG < 1) {
+            sentence = "Where " + verb + " " + PRPArray[0].PRP + "?";
+            verb = conjugate_VB(PRPArray[0].RESPONSE, "beVerb");
+            document.getElementById("grammarCheck").value = capitalize(PRPArray[0].RESPONSE) + " " + verb + " in the " + NOUNArray[0].NN + ".";
+            sentenceArray[0] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " in the " + NOUNArray[0].NN + ".";
+            sentenceArray[1] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " in the " + NOUNArray[1].NN + ".";
+            sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " in the " + NOUNArray[2].NN + ".";
+            sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " in the " + NOUNArray[3].NN + ".";
         } else {
-            answerInt = Math.floor(Math.random() * 2);
-            if (pronounArray[0] == "he" || pronounArray[0] == "she"){
-                if (answerInt == 0) {
-                    document.getElementById("g0r0d0").innerHTML = "Is " + pronounArray[0] + " in the " + locArray[1].voc + "?";
-                    sampleAnswer = "No, " + pronounArray[0] + " is not.";
-                } else {
-                    document.getElementById("g0r0d0").innerHTML = "Is " + pronounArray[0] + " in the " + locArray[0].voc + "?";
-                    sampleAnswer = "Yes, " + pronounArray[0] + " is.";
-                }
-            } else if (pronounArray[0] = "you"){
-                if (answerInt == 0) {
-                    document.getElementById("g0r0d0").innerHTML = "Are you in the " + locArray[1].voc + "?";
-                    sampleAnswer = "No, I am not.";
-                } else {
-                    document.getElementById("g0r0d0").innerHTML = "Are you in the " + locArray[0].voc + "?";
-                    sampleAnswer = "Yes, I am.";
-                }
+            randomG = randG(2);
+            if (randomG < 1) {
+                sentence = capitalize(verb) + " " + PRPArray[0].PRP + " in the " + NOUNArray[0].NN + "?";
+                verb = conjugate_VB(PRPArray[0].RESPONSE, "beVerb");
+                document.getElementById("grammarCheck").value = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " in the " + NOUNArray[0].NN + ".";
+                sentenceArray[0] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " in the " + NOUNArray[0].NN + ".";
+                sentenceArray[1] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " in the " + NOUNArray[1].NN + ".";
+                sentenceArray[2] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " in the " + NOUNArray[2].NN + ".";
+                sentenceArray[3] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " in the " + NOUNArray[3].NN + ".";
             } else {
-                if (answerInt == 0) {
-                    document.getElementById("g0r0d0").innerHTML = "Are they in the " + locArray[1].voc + "?";
-                    sampleAnswer = "No, they are not.";
-                } else {
-                    document.getElementById("g0r0d0").innerHTML = "Are they in the " + locArray[0].voc + "?";
-                    sampleAnswer = "Yes, they are.";
-                }
+                sentence = capitalize(verb) + " " + PRPArray[0].PRP + " in the " + NOUNArray[1].NN + "?";
+                verb = conjugate_VB(PRPArray[0].RESPONSE, "beVerb");
+                document.getElementById("grammarCheck").value = "No, " + PRPArray[0].RESPONSE + " " + verb + " not in the " + NOUNArray[1].NN + ".";
+                sentenceArray[0] = "No, " + PRPArray[0].RESPONSE + " " + verb + " not in the " + NOUNArray[1].NN + ".";
+                sentenceArray[1] = "No, " + PRPArray[0].RESPONSE + " " + verb + " not in the " + NOUNArray[2].NN + ".";
+                sentenceArray[2] = "No, " + PRPArray[0].RESPONSE + " " + verb + " not in the " + NOUNArray[3].NN + ".";
+                sentenceArray[3] = "No, " + PRPArray[0].RESPONSE + " " + verb + " not in the " + NOUNArray[4].NN + ".";
             }
         }
-        document.getElementById("g0r0d5").innerHTML = locArray[0].pic;
-        document.getElementById("g0r2d0").colspan = "3";
-        document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
-        document.getElementById("g0r3d0").colspan = "3";
-        document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
+        shuffleArray(sentenceArray);
+        document.getElementById("g0r1d0").textContent = sentenceArray[0];
+        document.getElementById("g0r1d2").textContent = sentenceArray[1];
+        document.getElementById("g0r2d0").textContent = sentenceArray[2];
+        document.getElementById("g0r2d2").textContent = sentenceArray[3];
+        setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 9") {
