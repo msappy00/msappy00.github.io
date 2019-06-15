@@ -22,6 +22,7 @@ function setGrammar(userInput){
     getVerb = {VB: "get", VBZ: "gets"};
     takeVerb = {VB: "take", VBZ: "takes"};
     haveVerb = {VB: "have", VBZ: "has"};
+    likeVerb = {VB: "like", VBZ: "likes"};
 
     // ADVERBS
     ADVArray = [];

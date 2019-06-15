@@ -326,60 +326,47 @@ function g_02(userInput){
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 9") {
-        pronounArray = ['you', 'they', 'he', 'she'];
-        animalArray = [{voc:'tigers', pic:"Level 2/images/tiger.png"}, {voc:'lions', pic:"Level 2/images/lion.png"}, {voc:'monkeys', pic:"Level 2/images/monkey.png"}, {voc:'bears', pic:"Level 2/images/bear.png"}, {voc:'zebras', pic:"Level 2/images/zebra.png"}, {voc:'goats', pic:"Level 2/images/goat.png"}, {voc:'elephants', pic:"Level 2/images/elephant.png"}, {voc:'hippos', pic:"Level 2/images/hippo.png"}, {voc:'snakes', pic:"Level 2/images/snake.png"}, {voc:'parrots', pic:"Level 2/images/parrot.png"}];
-        shuffleArray(pronounArray);
-        shuffleArray(animalArray);
-        choiceArrayInt = Math.floor(Math.random() * 2);
-        if (choiceArrayInt == 1) {
-            if (pronounArray[0] == "he" || pronounArray[0] == "she"){
-                document.getElementById("g0r0d0").innerHTML = "What does " + pronounArray[0] + " like?";
-            } else {
-                document.getElementById("g0r0d0").innerHTML = "What do " + pronounArray[0] + " like?";
-            }
-            var capitalized = pronounArray[0].charAt(0).toUpperCase() + pronounArray[0].slice(1);
-            if (pronounArray[0] == "he" || pronounArray[0] == "she"){
-                sampleAnswer = capitalized + " likes " + animalArray[0].voc + ".";
-            } else {
-                if (capitalized == "You"){
-                    sampleAnswer = "I like " + animalArray[0].voc + ".";
-                } else {
-                    sampleAnswer = "They like " + animalArray[0].voc + ".";
-                }
-            }
+        randomG = randG(2);
+        PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
+        shuffleArray(PRPArray);
+        verb = conjugate_VB(PRPArray[0].PRP, "doVerb");
+        NOUNArray = [{NNS:'tigers', pic:"Level 2/images/tiger.png"}, {NNS:'lions', pic:"Level 2/images/lion.png"}, {NNS:'monkeys', pic:"Level 2/images/monkey.png"}, {NNS:'bears', pic:"Level 2/images/bear.png"}, {NNS:'zebras', pic:"Level 2/images/zebra.png"}, {NNS:'goats', pic:"Level 2/images/goat.png"}, {NNS:'elephants', pic:"Level 2/images/elephant.png"}, {NNS:'hippos', pic:"Level 2/images/hippo.png"}, {NNS:'snakes', pic:"Level 2/images/snake.png"}, {NNS:'parrots', pic:"Level 2/images/parrot.png"}];
+        shuffleArray(NOUNArray);
+        document.getElementById("gPic").src = NOUNArray[0].pic;
+        if (randomG < 1) {
+            sentence = "What " + verb + " " + PRPArray[0].PRP + " like?";
+            verb = conjugate_VB(PRPArray[0].RESPONSE, "likeVerb");
+            document.getElementById("grammarCheck").value = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + NOUNArray[0].NNS + ".";
+            sentenceArray[0] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + NOUNArray[0].NNS + ".";
+            sentenceArray[1] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + NOUNArray[1].NNS + ".";
+            sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + NOUNArray[2].NNS + ".";
+            sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + NOUNArray[3].NNS + ".";
         } else {
-            answerInt = Math.floor(Math.random() * 2);
-            if (pronounArray[0] == "he" || pronounArray[0] == "she"){
-                if (answerInt == 0) {
-                    document.getElementById("g0r0d0").innerHTML = "Does " + pronounArray[0] + " like " + animalArray[1].voc + "?";
-                    sampleAnswer = "No, " + pronounArray[0] + " doesn't.";
-                } else {
-                    document.getElementById("g0r0d0").innerHTML = "Does " + pronounArray[0] + " like " + animalArray[0].voc + "?";
-                    sampleAnswer = "Yes, " + pronounArray[0] + " does.";
-                }
-            } else if (pronounArray[0] = "you"){
-                if (answerInt == 0) {
-                    document.getElementById("g0r0d0").innerHTML = "Do you like " + animalArray[1].voc + "?";
-                    sampleAnswer = "No, I don't.";
-                } else {
-                    document.getElementById("g0r0d0").innerHTML = "Do you like " + animalArray[0].voc + "?";
-                    sampleAnswer = "Yes, I do.";
-                }
+            randomG = randG(2);
+            if (randomG < 1) {
+                sentence = capitalize(verb) + " " + PRPArray[0].PRP + " like " + NOUNArray[0].NNS + "?";
+                verb = conjugate_VB(PRPArray[0].RESPONSE, "likeVerb");
+                document.getElementById("grammarCheck").value = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " " + NOUNArray[0].NNS + ".";
+                sentenceArray[0] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " " + NOUNArray[0].NNS + ".";
+                sentenceArray[1] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " " + NOUNArray[1].NNS + ".";
+                sentenceArray[2] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " " + NOUNArray[2].NNS + ".";
+                sentenceArray[3] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " " + NOUNArray[3].NNS + ".";
             } else {
-                if (answerInt == 0) {
-                    document.getElementById("g0r0d0").innerHTML = "Do they like " + animalArray[1].voc + "?";
-                    sampleAnswer = "No, they don't.";
-                } else {
-                    document.getElementById("g0r0d0").innerHTML = "Do they like " + animalArray[0].voc + "?";
-                    sampleAnswer = "Yes, they do.";
-                }
+                sentence = capitalize(verb) + " " + PRPArray[0].PRP + " like " + NOUNArray[1].NNS + "?";
+                verb = conjugate_VB(PRPArray[0].RESPONSE, "doVerb");
+                document.getElementById("grammarCheck").value = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't like " + NOUNArray[1].NNS + ".";
+                sentenceArray[0] = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't like " + NOUNArray[1].NNS + ".";
+                sentenceArray[1] = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't like " + NOUNArray[2].NNS + ".";
+                sentenceArray[2] = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't like " + NOUNArray[3].NNS + ".";
+                sentenceArray[3] = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't like " + NOUNArray[4].NNS + ".";
             }
         }
-        document.getElementById("g0r0d5").innerHTML = animalArray[0].pic;
-        document.getElementById("g0r2d0").colspan = "3";
-        document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
-        document.getElementById("g0r3d0").colspan = "3";
-        document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
+        shuffleArray(sentenceArray);
+        document.getElementById("g0r1d0").textContent = sentenceArray[0];
+        document.getElementById("g0r1d2").textContent = sentenceArray[1];
+        document.getElementById("g0r2d0").textContent = sentenceArray[2];
+        document.getElementById("g0r2d2").textContent = sentenceArray[3];
+        setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Review 3") {
