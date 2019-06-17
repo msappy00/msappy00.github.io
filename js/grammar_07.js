@@ -1,7 +1,7 @@
 function g_07(userInput){
     if (userInput == "Unit 1") {
         randomG = randG(2);
-        PRPArray = [{PRP: "I", RESPONSE: "you"}, {PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}, {PRP: "we", RESPONSE: "you"}];
+        PRPArray = [{PRP: "I", RESPONSE: "you"}, {PRP: "you", RESPONSE: "I"}, {PRP: "you", RESPONSE: "we"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}, {PRP: "we", RESPONSE: "you"}];
         shuffleArray(PRPArray);
         verbArray = [{VBD:'made a card', pic:"Level 7/images/made.png"}, {VBD:'took a picture', pic:"Level 7/images/took.png"}, {VBD:'saw a turtle', pic:"Level 7/images/saw.png"}, {VBD:'got a gift', pic:"Level 7/images/got.png"}, {VBD:'sat on a chair', pic:"Level 7/images/sat.png"},  {VBD:'sang a song', pic:"Level 7/images/sang.png"}, {VBD:'gave a gift', pic:"Level 7/images/gave.png"}, {VBD:'swam in the pool', pic:"Level 7/images/swam.png"}];
         shuffleArray(verbArray);

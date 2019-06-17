@@ -15,14 +15,11 @@ function setGrammar(userInput){
     // ADJECTIVES (ADJ)
     ADJArray = [];
 
-    // VERBS
-    beVerb = {VBPArray: ["am", "are"], VBZ: "is"};
+    // IRREGULAR VERBS
+    beVerb = {VB: "be", VBPArray: ["am", "are"], VBZ: "is"};
     doVerb = {VB: "do", VBZ: "does"};
     goVerb = {VB: "go", VBZ: "goes"};
-    getVerb = {VB: "get", VBZ: "gets"};
-    takeVerb = {VB: "take", VBZ: "takes"};
     haveVerb = {VB: "have", VBZ: "has"};
-    likeVerb = {VB: "like", VBZ: "likes"};
 
     // ADVERBS
     ADVArray = [];
@@ -52,6 +49,8 @@ function setGrammar(userInput){
         g_01(userInput);
     } else if (level_id == "Level 2") {
         g_02(userInput);
+    } else if (level_id == "Level 3") {
+        g_03(userInput);
     } else if (level_id == "Level 4") {
         g_04(userInput);
     } else if (level_id == "Level 7") {

@@ -5,14 +5,17 @@
     <script>
         function playVideo() {
             var video = document.getElementById("video1");
-            video.play();
+            video.loop = true;
+            video.autoplay = true;
+            video.load();
         }
     </script>
 </head>
 <body>
+    <body onload="playVideo()">
     <div align="center">
         <video controls id="video1" width="420">
-            <source src="video/starter_phonics.mp4" type="video/mp4">
+            <source src="video/monkey.mp4" type="video/mp4">
                     Your browser does not support HTML5 video.
         </video>
     </div>
