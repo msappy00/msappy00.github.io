@@ -1,30 +1,39 @@
 function g_02(userInput){
     if (userInput == "Unit 1") {
-        randomG = randG(2);
+        randomG = randG(4);
         NOUNArray = ["blackboard", "DVD player", "door", "fan", "television", "table", "trash can", "window", "telephone"];
         shuffleArray(NOUNArray);
         document.getElementById("gPic").src = "Level 2/images/no_" + NOUNArray[0] + ".png";
         document.getElementById("gPic").width = 400;
-        if (randomG < 1) {
+        if (randomG == 0) {
             sentence = "There is a " + NOUNArray[1] + ".";
             document.getElementById("grammarCheck").value = "There is a " + NOUNArray[1] + ".";
             sentenceArray[0] = "There is a " + NOUNArray[0] + ".";
             sentenceArray[1] = "There is a " + NOUNArray[1] + ".";
             sentenceArray[2] = "There is not a " + NOUNArray[2] + ".";
             sentenceArray[3] = "There is not a " + NOUNArray[3] + ".";
-        } else {
+        } else if (randomG == 1) {
             sentence = "There is not a " + NOUNArray[0] + ".";
             document.getElementById("grammarCheck").value = "There is not a " + NOUNArray[0] + ".";
             sentenceArray[0] = "There is not a " + NOUNArray[0] + ".";
             sentenceArray[1] = "There is a " + NOUNArray[0] + ".";
             sentenceArray[2] = "There is not a " + NOUNArray[1] + ".";
             sentenceArray[3] = "There is not a " + NOUNArray[2] + ".";
+        } else if (randomG == 2) {
+            sentence = "Is there a " + NOUNArray[0] + "?";
+            document.getElementById("grammarCheck").value = "No, there is not a " + NOUNArray[0] + ".";
+            sentenceArray[0] = "No, there is not a " + NOUNArray[0] + ".";
+            sentenceArray[1] = "No, there is not a " + NOUNArray[1] + ".";
+            sentenceArray[2] = "No, there is not a " + NOUNArray[2] + ".";
+            sentenceArray[3] = "No, there is not a " + NOUNArray[3] + ".";
+        } else {
+            sentence = "Is there a " + NOUNArray[1] + "?";
+            document.getElementById("grammarCheck").value = "Yes, there is a " + NOUNArray[1] + ".";
+            sentenceArray[0] = "Yes, there is a " + NOUNArray[1] + ".";
+            sentenceArray[1] = "Yes, there is a " + NOUNArray[2] + ".";
+            sentenceArray[2] = "Yes, there is a " + NOUNArray[3] + ".";
+            sentenceArray[3] = "Yes, there is a " + NOUNArray[4] + ".";
         }
-        shuffleArray(sentenceArray);
-        document.getElementById("g0r1d0").textContent = sentenceArray[0];
-        document.getElementById("g0r1d2").textContent = sentenceArray[1];
-        document.getElementById("g0r2d0").textContent = sentenceArray[2];
-        document.getElementById("g0r2d2").textContent = sentenceArray[3];
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
@@ -61,11 +70,6 @@ function g_02(userInput){
                 sentenceArray[3] = "No, there are not " + NUMArray[1].TEXT + " " + NOUNArray[0].NNS + ".";
             }
         }
-        shuffleArray(sentenceArray);
-        document.getElementById("g0r1d0").textContent = sentenceArray[0];
-        document.getElementById("g0r1d2").textContent = sentenceArray[1];
-        document.getElementById("g0r2d0").textContent = sentenceArray[2];
-        document.getElementById("g0r2d2").textContent = sentenceArray[3];
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
@@ -89,18 +93,13 @@ function g_02(userInput){
         }
         sentenceArray[2] = "There are " + NUMArray[2].TEXT + " " + NOUNArray[0].NNS + ".";
         sentenceArray[3] = "There are " + NUMArray[3].TEXT + " " + NOUNArray[0].NNS + ".";
-        shuffleArray(sentenceArray);
-        document.getElementById("g0r1d0").textContent = sentenceArray[0];
-        document.getElementById("g0r1d2").textContent = sentenceArray[1];
-        document.getElementById("g0r2d0").textContent = sentenceArray[2];
-        document.getElementById("g0r2d2").textContent = sentenceArray[3];
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Review 1") {
-        sentenceArray = ["Unit 1", "Unit 2", "Unit 3"];
-        shuffleArray(sentenceArray);
-        setGrammar(sentenceArray[0]);
+        unitArray = ["Unit 1", "Unit 2", "Unit 3"];
+        shuffleArray(unitArray);
+        g_02(unitArray[0]);
         currentUnit = "Review 1";
         grammarLesson = "";
     } else if (userInput == "Unit 4") {
@@ -139,11 +138,6 @@ function g_02(userInput){
                 sentenceArray[3] = "Those are " + NOUNArray[3].NNS + ".";
             }
         }
-        shuffleArray(sentenceArray);
-        document.getElementById("g0r1d0").textContent = sentenceArray[0];
-        document.getElementById("g0r1d2").textContent = sentenceArray[1];
-        document.getElementById("g0r2d0").textContent = sentenceArray[2];
-        document.getElementById("g0r2d2").textContent = sentenceArray[3];
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
@@ -191,11 +185,6 @@ function g_02(userInput){
                 sentenceArray[2] = " ";
                 sentenceArray[3] = " ";
         }
-        shuffleArray(sentenceArray);
-        document.getElementById("g0r1d0").textContent = sentenceArray[0];
-        document.getElementById("g0r1d2").textContent = sentenceArray[1];
-        document.getElementById("g0r2d0").textContent = sentenceArray[2];
-        document.getElementById("g0r2d2").textContent = sentenceArray[3];
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
@@ -221,18 +210,13 @@ function g_02(userInput){
             sentenceArray[2] = "No, " + PRPArray[2].RESPONSE + " can't. " + capitalize(PRPArray[2].RESPONSE) + " can't " + verbArray[1].VB + ".";
             sentenceArray[3] = "No, " + PRPArray[3].RESPONSE + " can't. " + capitalize(PRPArray[3].RESPONSE) + " can't " + verbArray[1].VB + ".";
         }
-        shuffleArray(sentenceArray);
-        document.getElementById("g0r1d0").textContent = sentenceArray[0];
-        document.getElementById("g0r1d2").textContent = sentenceArray[1];
-        document.getElementById("g0r2d0").textContent = sentenceArray[2];
-        document.getElementById("g0r2d2").textContent = sentenceArray[3];
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="http://scratch.mit.edu/projects/36595088/" target="_newtab">Scratch: Can he ___?</a>'];
         grammarLesson = "";
     } else if (userInput == "Review 2") {
-        sentenceArray = ["Unit 4", "Unit 5", "Unit 6"];
-        shuffleArray(sentenceArray);
-        setGrammar(sentenceArray[0]);
+        unitArray = ["Unit 4", "Unit 5", "Unit 6"];
+        shuffleArray(unitArray);
+        g_02(unitArray[0]);
         currentUnit = "Review 2";
     } else if (userInput == "Unit 7") {
         randomG = randG(3);
@@ -273,11 +257,6 @@ function g_02(userInput){
                 sentenceArray[3] = " ";
             }
         }
-        shuffleArray(sentenceArray);
-        document.getElementById("g0r1d0").textContent = sentenceArray[0];
-        document.getElementById("g0r1d2").textContent = sentenceArray[1];
-        document.getElementById("g0r2d0").textContent = sentenceArray[2];
-        document.getElementById("g0r2d2").textContent = sentenceArray[3];
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="http://www.eslgamesplus.com/prepositions-of-place-esl-fun-game-online-grammar-practice/" target="_newtab">ESL Games+: Prepositions of Place</a>'];
         grammarLesson = "";
@@ -317,11 +296,6 @@ function g_02(userInput){
                 sentenceArray[3] = "No, " + PRPArray[0].RESPONSE + " " + verb + " not in the " + NOUNArray[4].NN + ".";
             }
         }
-        shuffleArray(sentenceArray);
-        document.getElementById("g0r1d0").textContent = sentenceArray[0];
-        document.getElementById("g0r1d2").textContent = sentenceArray[1];
-        document.getElementById("g0r2d0").textContent = sentenceArray[2];
-        document.getElementById("g0r2d2").textContent = sentenceArray[3];
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
@@ -361,25 +335,20 @@ function g_02(userInput){
                 sentenceArray[3] = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't like " + NOUNArray[4].NNS + ".";
             }
         }
-        shuffleArray(sentenceArray);
-        document.getElementById("g0r1d0").textContent = sentenceArray[0];
-        document.getElementById("g0r1d2").textContent = sentenceArray[1];
-        document.getElementById("g0r2d0").textContent = sentenceArray[2];
-        document.getElementById("g0r2d2").textContent = sentenceArray[3];
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Review 3") {
-        sentenceArray = ["Unit 7", "Unit 8", "Unit 9"];
-        shuffleArray(sentenceArray);
-        setGrammar(sentenceArray[0]);
+        unitArray = ["Unit 7", "Unit 8", "Unit 9"];
+        shuffleArray(unitArray);
+        g_02(unitArray[0]);
         currentUnit = "Review 3";
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Final Review") {
-        sentenceArray = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9"];
-        shuffleArray(sentenceArray);
-        setGrammar(sentenceArray[0]);
+        unitArray = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9"];
+        shuffleArray(unitArray);
+        g_02(unitArray[0]);
         currentUnit = "Final Review";
         gLinks = ['<a href="http://scratch.mit.edu/projects/64838632/" target="_newtab">B2 Chat Bot</a>'];
         grammarLesson = "";
@@ -388,6 +357,11 @@ function g_02(userInput){
         gLinks = [''];
         grammarLesson = "";
     }
+    shuffleArray(sentenceArray);
+    document.getElementById("g0r1d0").textContent = sentenceArray[0];
+    document.getElementById("g0r1d2").textContent = sentenceArray[1];
+    document.getElementById("g0r2d0").textContent = sentenceArray[2];
+    document.getElementById("g0r2d2").textContent = sentenceArray[3];
     document.getElementById("grammar_links").innerHTML = gLinks;
     document.getElementById("grammar_lesson").innerHTML = grammarLesson;
     document.getElementById('g_request').textContent = sentence;
