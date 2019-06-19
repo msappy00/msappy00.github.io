@@ -24,11 +24,6 @@ function g_07(userInput){
             sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " " + verbArray[2].VBD + ".";
             sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + verbArray[3].VBD + ".";
         }
-        shuffleArray(sentenceArray);
-        document.getElementById("g0r1d0").textContent = sentenceArray[0];
-        document.getElementById("g0r1d2").textContent = sentenceArray[1];
-        document.getElementById("g0r2d0").textContent = sentenceArray[2];
-        document.getElementById("g0r2d2").textContent = sentenceArray[3];
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
@@ -61,19 +56,14 @@ function g_07(userInput){
             sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " " + transArray[2].trans + " to the " + NOUNArray[0].NN + ".";
             sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + transArray[3].trans + " to the " + NOUNArray[0].NN + ".";
         }
-        shuffleArray(sentenceArray);
-        document.getElementById("g0r1d0").textContent = sentenceArray[0];
-        document.getElementById("g0r1d2").textContent = sentenceArray[1];
-        document.getElementById("g0r2d0").textContent = sentenceArray[2];
-        document.getElementById("g0r2d2").textContent = sentenceArray[3];
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 3") {
         randomG = randG(3);
         verbArray = [{VBG:'baking a cake', VBD:'baked a cake', pic:"Level 7/images/bake a cake.png"}, {VBG:'cooking a meal', VBD:'cooked a meal', pic:"Level 7/images/cook a meal.png"}, {VBG:'making a sandwich', VBD:'made a sandwich', pic:"Level 7/images/make a sandwich.png"}, {VBG:'drawing a picture', VBD:'drew a picture', pic:"Level 7/images/draw a picture.png"}, {VBG:'vacuuming the floor', VBD:'vacuumed the floor', pic:"Level 7/images/vacuum the floor.png"},  {VBG:'making a call', VBD:'made a call', pic:"Level 7/images/make a call.png"}, {VBG:'answering the phone', VBD:'answered the phone', pic:"Level 7/images/answer the phone.png"}, {VBG:'trying on a shirt', VBD:'tried on a shirt', pic:"Level 7/images/try on a shirt.png"}];
-        timeArray = [" at one o'clock", " at ten o'clock", " at six o'clock", " at twelve o'clock", " at two-thirty", " at nine forty-five", " at seven oh-five", " five minutes ago", " twenty minutes ago", " one hour ago"];
         shuffleArray(verbArray);
+        timeArray = [" at one o'clock", " at ten o'clock", " at six o'clock", " at twelve o'clock", " at two-thirty", " at nine forty-five", " at seven oh-five", " five minutes ago", " twenty minutes ago", " one hour ago"];
         shuffleArray(timeArray);
         document.getElementById("gPic").src = verbArray[0].pic;
         if (randomG == 0){
@@ -85,11 +75,11 @@ function g_07(userInput){
             sentenceArray[3] = "I was " + verbArray[3].VBG + timeArray[0] + ".";
         } else if (randomG == 1){
             sentence = "What did Addison do while Hayden was " + verbArray[1].VBG + "?";
-            document.getElementById("grammarCheck").value = "Addison " + verbArray[0].VBD + " while Hayden was "+ verbArray[1].VBG + ".";
-            sentenceArray[0] = "Addison " + verbArray[0].VBD + " while Hayden was "+ verbArray[1].VBG + ".";
-            sentenceArray[1] = "Addison " + verbArray[2].VBD + " while Hayden was "+ verbArray[1].VBG + ".";
-            sentenceArray[2] = "Addison " + verbArray[3].VBD + " while Hayden was "+ verbArray[1].VBG + ".";
-            sentenceArray[3] = "Addison " + verbArray[4].VBD + " while Hayden was "+ verbArray[1].VBG + ".";
+            document.getElementById("grammarCheck").value = "Addison " + verbArray[0].VBD + " while Hayden was " + verbArray[1].VBG + ".";
+            sentenceArray[0] = "Addison " + verbArray[0].VBD + " while Hayden was " + verbArray[1].VBG + ".";
+            sentenceArray[1] = "Addison " + verbArray[2].VBD + " while Hayden was " + verbArray[1].VBG + ".";
+            sentenceArray[2] = "Addison " + verbArray[3].VBD + " while Hayden was " + verbArray[1].VBG + ".";
+            sentenceArray[3] = "Addison " + verbArray[4].VBD + " while Hayden was " + verbArray[1].VBG + ".";
         } else {
             sentence = "What did Addison do while Hayden was " + verbArray[1].VBG + "?";
             document.getElementById("grammarCheck").value = "While Hayden was "+ verbArray[1].VBG + ", Addison " + verbArray[0].VBD + ".";
@@ -98,55 +88,57 @@ function g_07(userInput){
             sentenceArray[2] = "While Hayden was "+ verbArray[1].VBG + ", Addison " + verbArray[3].VBD + ".";
             sentenceArray[3] = "While Hayden was "+ verbArray[1].VBG + ", Addison " + verbArray[4].VBD + ".";
         }
-        shuffleArray(sentenceArray);
-        document.getElementById("g0r1d0").textContent = sentenceArray[0];
-        document.getElementById("g0r1d2").textContent = sentenceArray[1];
-        document.getElementById("g0r2d0").textContent = sentenceArray[2];
-        document.getElementById("g0r2d2").textContent = sentenceArray[3];
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Review 1") {
-        q1Array = ["Unit 1", "Unit 2", "Unit 3"];
-        shuffleArray(q1Array);
-        setGrammar(q1Array[0]);
+        unitArray = ["Unit 1", "Unit 2", "Unit 3"];
+        shuffleArray(unitArray);
+        g_07(unitArray[0]);
         currentUnit = "Review 1";
         grammarLesson = "";
     } else if (userInput == "Unit 4") {
-        verbArray = [({VBG:'watching the news', VBD:'watched the news', pic:'<img src="Level 7/images/watch the news.png" />'}), ({VBG:'reading a magazine', VBD:'read a magazine', pic:'<img src="Level 7/images/read a magazine.png" />'}), ({VBG:'listening to the radio', VBD:'listened to the radio', pic:'<img src="Level 7/images/listen to the radio.png" />'}), ({VBG:'building a model', VBD:'built a model', pic:'<img src="Level 7/images/build a model.png" />'}), ({VBG:'doing puzzles', VBD:'did puzzles', pic:'<img src="Level 7/images/do puzzles.png" />'}), ({VBG:'taking a message', VBD:'took a message', pic:'<img src="Level 7/images/take a message.png" />'}), ({VBG:'leaving a message', VBD:'left a message', pic:'<img src="Level 7/images/leave a message.png" />'})];
-        timeArray = ["at one o'clock", "at ten o'clock", "at six o'clock", "at twelve o'clock", "at two-thirty", "at nine forty-five", "at seven oh-five", "five minutes ago", "twenty minutes ago", "one hour ago"];
+        randomG = randG(3);
+        verbArray = [{VBG:'watching the news', VBD:'watched the news', pic:"Level 7/images/watch the news.png"}, {VBG:'reading a magazine', VBD:'read a magazine', pic:"Level 7/images/read a magazine.png"}, {VBG:'listening to the radio', VBD:'listened to the radio', pic:"Level 7/images/listen to the radio.png"}, {VBG:'building a model', VBD:'built a model', pic:"Level 7/images/build a model.png"}, {VBG:'doing puzzles', VBD:'did puzzles', pic:"Level 7/images/do puzzles.png"}, {VBG:'taking a message', VBD:'took a message', pic:"Level 7/images/take a message.png"}, {VBG:'leaving a message', VBD:'left a message', pic:"Level 7/images/leave a message.png"}];
         shuffleArray(verbArray);
-        shuffleArray(timeArray);
-        answerInt = Math.floor(Math.random() * 4);
-        if (answerInt == 0){
-            document.getElementById("g0r0d0").innerHTML = "What did you do " + timeArray[0] + "?";
-        } else if (answerInt == 1){
-            document.getElementById("g0r0d0").innerHTML = "What was Skyler doing when Dakota " + verbArray[1].VBD + "?";
-        } else if (answerInt == 2){
-            document.getElementById("g0r0d0").innerHTML = "What was Dakota doing when Skyler " + verbArray[1].VBD + "?";
-        }else {
-            document.getElementById("g0r0d0").innerHTML = "Make a past tense sentence using 'when'.";
-        }
-        document.getElementById("g0r0d5").innerHTML = verbArray[0].pic;
-        if (answerInt == 0){
-            sampleAnswer = "I " + verbArray[0].VBD + " " + timeArray[0] + ".";
-        } else if (answerInt == 1){
-            sampleAnswer = "Skyler was " + verbArray[0].VBG + " when Dakota " + verbArray[1].VBD + ".";
-        } else if (answerInt == 2){
-            sampleAnswer = "Dakota was " + verbArray[0].VBG + " when Skyler " + verbArray[1].VBD + ".";
+        document.getElementById("gPic").src = verbArray[0].pic;
+        if (randomG == 0){
+            sentence = "What was Skyler doing when Dakota " + verbArray[1].VBD + "?";
+            document.getElementById("grammarCheck").value = "Skyler was " + verbArray[0].VBG + " when Dakota " + verbArray[1].VBD + ".";
+            sentenceArray[0] = "Skyler was " + verbArray[0].VBG + " when Dakota " + verbArray[1].VBD + ".";
+            sentenceArray[1] = "Skyler was " + verbArray[1].VBG + " when Dakota " + verbArray[1].VBD + ".";
+            sentenceArray[2] = "Skyler was " + verbArray[2].VBG + " when Dakota " + verbArray[1].VBD + ".";
+            sentenceArray[3] = "Skyler was " + verbArray[3].VBG + " when Dakota " + verbArray[1].VBD + ".";
+        } else if (randomG == 1){
+            sentence = "What was Skyler doing when Dakota " + verbArray[1].VBD + "?";
+            document.getElementById("grammarCheck").value = "When Dakota " + verbArray[1].VBD + ", Skyler was " + verbArray[0].VBG + ".";
+            sentenceArray[0] = "When Dakota " + verbArray[1].VBD + ", Skyler was " + verbArray[0].VBG + ".";
+            sentenceArray[1] = "When Dakota " + verbArray[1].VBD + ", Skyler was " + verbArray[1].VBG + ".";
+            sentenceArray[2] = "When Dakota " + verbArray[1].VBD + ", Skyler was " + verbArray[2].VBG + ".";
+            sentenceArray[3] = "When Dakota " + verbArray[1].VBD + ", Skyler was " + verbArray[3].VBG + ".";
+        } else if (randomG == 2){
+            sentence = "What did Dakota do while Skyler was " + verbArray[1].VBG + "?";
+            document.getElementById("grammarCheck").value = "Dakota " + verbArray[0].VBD + " while Skyler was " + verbArray[1].VBG + ".";
+            sentenceArray[0] = "Dakota " + verbArray[0].VBD + " while Skyler was " + verbArray[1].VBG + ".";
+            sentenceArray[1] = "Dakota " + verbArray[2].VBD + " while Skyler was " + verbArray[1].VBG + ".";
+            sentenceArray[2] = "Dakota " + verbArray[3].VBD + " while Skyler was " + verbArray[1].VBG + ".";
+            sentenceArray[3] = "Dakota " + verbArray[4].VBD + " while Skyler was " + verbArray[1].VBG + ".";
         } else {
-            sampleAnswer = "When Skyler " + verbArray[0].VBD + ", Dakota was " + verbArray[1].VBG + ".";
+            sentence = "What did Dakota do while Skyler was " + verbArray[1].VBG + "?";
+            document.getElementById("grammarCheck").value = "While Skyler was " + verbArray[1].VBG + ", Dakota " + verbArray[0].VBD + ".";
+            sentenceArray[0] = "While Skyler was " + verbArray[1].VBG + ", Dakota " + verbArray[0].VBD + ".";
+            sentenceArray[1] = "While Skyler was " + verbArray[1].VBG + ", Dakota " + verbArray[2].VBD + ".";
+            sentenceArray[2] = "While Skyler was " + verbArray[1].VBG + ", Dakota " + verbArray[3].VBD + ".";
+            sentenceArray[3] = "While Skyler was " + verbArray[1].VBG + ", Dakota " + verbArray[4].VBD + ".";
         }
-        document.getElementById("g0r1d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" />';
-        document.getElementById("g0r1d1").align = "left";
-        document.getElementById("g0r1d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
+        setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="http://scratch.mit.edu/projects/38942726/" target="_newtab">Scratch: B7U4 Grammar</a><br><a href="http://scratch.mit.edu/projects/37565016/" target="_newtab">Scratch: B7U4 Q&A</a>'];
         grammarLesson = "";
     } else if (userInput == "Unit 5") {
         q1Array = ["before", "after"];
         shuffleArray(q1Array);
         document.getElementById("gInstructions").innerHTML = "Make a sentence using '" + q1Array[0] + "'.";
-        verbArray = [({firstVerb:'wake up', secondVerb:'take a shower', pic1:'<img src="Level 7/images/wake up.png" />', pic2:'<img src="Level 7/images/take a shower.png" />'}), ({firstVerb:'take a shower', secondVerb:'get dressed', pic1:'<img src="Level 7/images/take a shower.png" />', pic2:'<img src="Level 7/images/get dressed.png" />'}), ({firstVerb:'take a shower', secondVerb:'shave your face', pic1:'<img src="Level 7/images/take a shower.png" />', pic2:'<img src="Level 7/images/shave my face.png" />'}), ({firstVerb:'take a shower', secondVerb:'put on makeup', pic1:'<img src="Level 7/images/take a shower.png" />', pic2:'<img src="Level 7/images/put on makeup.png" />'}), ({firstVerb:'set the table', secondVerb:'eat dinner', pic1:'<img src="Level 7/images/set the table.png" />', pic2:'<img src="Level 4/images/eat dinner.png" />'}), ({firstVerb:'feed the dog', secondVerb:'go to school', pic1:'<img src="Level 7/images/feed the dog.png" />', pic2:'<img src="Level 4/images/go to school.png" />'})];
+        verbArray = [({firstVerb:'wake up', secondVerb:'take a shower', pic1:"Level 7/images/wake up.png", pic2:"Level 7/images/take a shower.png"}), ({firstVerb:'take a shower', secondVerb:'get dressed', pic1:"Level 7/images/take a shower.png", pic2:"Level 7/images/get dressed.png"}), ({firstVerb:'take a shower', secondVerb:'shave your face', pic1:"Level 7/images/take a shower.png", pic2:"Level 7/images/shave my face.png"}), ({firstVerb:'take a shower', secondVerb:'put on makeup', pic1:"Level 7/images/take a shower.png", pic2:"Level 7/images/put on makeup.png"}), ({firstVerb:'set the table', secondVerb:'eat dinner', pic1:"Level 7/images/set the table.png", pic2:"Level 4/images/eat dinner.png"}), ({firstVerb:'feed the dog', secondVerb:'go to school', pic1:"Level 7/images/feed the dog.png", pic2:"Level 4/images/go to school.png"})];
         shuffleArray(verbArray);
         if (q1Array[0] == "before"){
             document.getElementById("g0r0d5").innerHTML = verbArray[0].pic1;
@@ -168,9 +160,9 @@ function g_07(userInput){
         gLinks = ['<a href="http://scratch.mit.edu/projects/41169968/" target="_newtab">Scratch: B7U6 Grammar</a>'];
         grammarLesson = "";
     } else if (userInput == "Review 2") {
-        q1Array = ["Unit 4", "Unit 5", "Unit 6"];
-        shuffleArray(q1Array);
-        setGrammar(q1Array[0]);
+        unitArray = ["Unit 4", "Unit 5", "Unit 6"];
+        shuffleArray(unitArray);
+        g_07(unitArray[0]);
         currentUnit = "Review 2";
     } else if (userInput == "Unit 7") {
         q1Array = [""];
@@ -191,14 +183,14 @@ function g_07(userInput){
         gLinks = ['<a href="http://scratch.mit.edu/projects/19966243/" target="_newtab">Scratch: "Spelling: Nations"</a>'];
         grammarLesson = "";
     } else if (userInput == "Review 3") {
-        q1Array = ["Unit 7", "Unit 8", "Unit 9"];
-        shuffleArray(q1Array);
-        setGrammar(q1Array[0]);
+        unitArray = ["Unit 7", "Unit 8", "Unit 9"];
+        shuffleArray(unitArray);
+        g_07(unitArray[0]);
         currentUnit = "Review 3";
     } else if (userInput == "Final Review") {
-        q1Array = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9"];
-        shuffleArray(q1Array);
-        setGrammar(q1Array[0]);
+        unitArray = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9"];
+        shuffleArray(unitArray);
+        g_07(unitArray[0]);
         currentUnit = "Final Review";
     } else {
         q1Array = [""];
@@ -207,5 +199,12 @@ function g_07(userInput){
         gLinks = [''];
         grammarLesson = "";
     }
+    shuffleArray(sentenceArray);
+    document.getElementById("g0r1d0").textContent = sentenceArray[0];
+    document.getElementById("g0r1d2").textContent = sentenceArray[1];
+    document.getElementById("g0r2d0").textContent = sentenceArray[2];
+    document.getElementById("g0r2d2").textContent = sentenceArray[3];
+    document.getElementById("grammar_links").innerHTML = gLinks;
+    document.getElementById("grammar_lesson").innerHTML = grammarLesson;
     document.getElementById('g_request').textContent = sentence;
 }

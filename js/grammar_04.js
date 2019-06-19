@@ -27,11 +27,6 @@ function g_04(userInput){
             sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[0].RB + " at " + timeArray[2].text + ".";
             sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[0].RB + " at " + timeArray[3].text + ".";
         }
-        shuffleArray(sentenceArray);
-        document.getElementById("g0r1d0").textContent = sentenceArray[0];
-        document.getElementById("g0r1d2").textContent = sentenceArray[1];
-        document.getElementById("g0r2d0").textContent = sentenceArray[2];
-        document.getElementById("g0r2d2").textContent = sentenceArray[3];
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="http://scratch.mit.edu/projects/64711462/" target="_newtab">Scratch: What Time Is It?</a>'];
         grammarLesson = "";
@@ -58,11 +53,6 @@ function g_04(userInput){
             sentenceArray[2] = pronounArray[0].qa + " " + verbArray[0].v + " " + verbArray[0].o + " " + vehicleArray[2].value + ".";
             sentenceArray[3] = pronounArray[0].qa + " " + verbArray[0].v + " " + verbArray[0].o + " " + vehicleArray[3].value + ".";
         }
-        shuffleArray(sentenceArray);
-        document.getElementById("g0r1d0").textContent = sentenceArray[0];
-        document.getElementById("g0r1d2").textContent = sentenceArray[1];
-        document.getElementById("g0r2d0").textContent = sentenceArray[2];
-        document.getElementById("g0r2d2").textContent = sentenceArray[3];
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="http://www.classtools.net/QR/teacher.php?fold=7&fname=kfNhe">QR Challenge</a><br><a href="http://scratch.mit.edu/projects/66810966/" target="_newtab">Scratch: B4U2 Vocab</a>'];
         grammarLesson = "";
@@ -322,11 +312,6 @@ function g_04(userInput){
             sentenceArray[2] = "The " + NOUNArray[2].NN + " is across from the " + NOUNArray[1].NN + ".";
             sentenceArray[3] = "The " + NOUNArray[3].NN + " is across from the " + NOUNArray[1].NN + ".";
         }
-        shuffleArray(sentenceArray);
-        document.getElementById("g0r1d0").textContent = sentenceArray[0];
-        document.getElementById("g0r1d2").textContent = sentenceArray[1];
-        document.getElementById("g0r2d0").textContent = sentenceArray[2];
-        document.getElementById("g0r2d2").textContent = sentenceArray[3];
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="Level 4/images/city_buildings.png" target="_newtab">City Buildings</a>'];
         grammarLesson = "";
@@ -351,11 +336,6 @@ function g_04(userInput){
             sentenceArray[2] = "No, there is not a " + NOUNArray[2].NN + " near the " + NOUNArray[1].NN + ".";
             sentenceArray[3] = "No, there is not a " + NOUNArray[3].NN + " near the " + NOUNArray[2].NN + ".";
         }
-        shuffleArray(sentenceArray);
-        document.getElementById("g0r1d0").textContent = sentenceArray[0];
-        document.getElementById("g0r1d2").textContent = sentenceArray[1];
-        document.getElementById("g0r2d0").textContent = sentenceArray[2];
-        document.getElementById("g0r2d2").textContent = sentenceArray[3];
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="Level 4/images/city2.png" target="_newtab">City Buildings</a>'];
         grammarLesson = "";
@@ -378,11 +358,6 @@ function g_04(userInput){
         sentenceArray[1] = "The " + NOUNArray[1] + " is " + locArray[0];
         sentenceArray[2] = "The " + NOUNArray[2] + " is " + locArray[0];
         sentenceArray[3] = "The " + NOUNArray[3] + " is " + locArray[0];
-        shuffleArray(sentenceArray);
-        document.getElementById("g0r1d0").textContent = sentenceArray[0];
-        document.getElementById("g0r1d2").textContent = sentenceArray[1];
-        document.getElementById("g0r2d0").textContent = sentenceArray[2];
-        document.getElementById("g0r2d2").textContent = sentenceArray[3];
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="Level 4/images/city3.png" target="_newtab">City Buildings</a>'];
         grammarLesson = "";
@@ -401,6 +376,11 @@ function g_04(userInput){
         gLinks = [''];
         grammarLesson = "";
     }
+    shuffleArray(sentenceArray);
+    document.getElementById("g0r1d0").textContent = sentenceArray[0];
+    document.getElementById("g0r1d2").textContent = sentenceArray[1];
+    document.getElementById("g0r2d0").textContent = sentenceArray[2];
+    document.getElementById("g0r2d2").textContent = sentenceArray[3];
     document.getElementById("grammar_links").innerHTML = gLinks;
     document.getElementById("grammar_lesson").innerHTML = grammarLesson;
     document.getElementById('g_request').textContent = sentence;

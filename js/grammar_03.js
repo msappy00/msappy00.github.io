@@ -109,9 +109,9 @@ function g_03(userInput){
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Review 1") {
-        q1Array = ["Unit 1", "Unit 2", "Unit 3"];
-        shuffleArray(q1Array);
-        setGrammar(q1Array[0]);
+        unitArray = ["Unit 1", "Unit 2", "Unit 3"];
+        shuffleArray(unitArray);
+        g_03(unitArray[0]);
         currentUnit = "Review 1";
     } else if (userInput == "Unit 4") {
         PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "we", RESPONSE: "you"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
@@ -131,8 +131,34 @@ function g_03(userInput){
         gLinks = ['<a href="http://scratch.mit.edu/projects/49847728/" target="_newtab">B3U4 Grammar</a>'];
         grammarLesson = "";
     } else if (userInput == "Unit 5") {
-        q1Array = ["I", "you", "he", "she", "it", "we", "they"];
-        q2Array = ["Who has small eyes?", "Who has small ears?", "Who has a small nose?", "Who has a small mouth?", "Who has small teeth?", "Who has small hands?", "Who has small feet?", "Who has small arms?", "Who has small legs?", "Who has a small head?", "Who has a small face?", "Who has a small neck?", "Who has small fingers?", "Who has small toes?"];
+        randomG = randG(2);
+        PRPArray = [{PRP: "I", RESPONSE: "you"}, {PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}, {PRP: "we", RESPONSE: "you"}];
+        shuffleArray(PRPArray);
+        ADJArray = [" big ", " small "];
+        shuffleArray(ADJArray);
+        verb = conjugate_VB(PRPArray[0].RESPONSE, "haveVerb");
+        if (randomG < 1){
+            NOUNArray = [{NN:"nose", pic: "Level 3/images/nose.png"}, {NN:"mouth", pic: "Level 3/images/mouth.png"}, {NN:"head", pic: "Level 3/images/head.png"}, {NN:"face", pic: "Level 3/images/face.png"}];
+            shuffleArray(NOUNArray);
+            document.getElementById("gPic").src = NOUNArray[0].pic;
+            sentence = "Who has a " + ADJArray[0] + NOUNArray[randomG].NN + "?";
+            document.getElementById("grammarCheck").value = capitalize(PRPArray[randomG].RESPONSE) + " " + verb + " a " + ADJArray[0] + NOUNArray[0].NN + ".";
+            sentenceArray[0] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " a " + ADJArray[0] + NOUNArray[0].NN + ".";
+            sentenceArray[1] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " a " + ADJArray[0] + NOUNArray[1].NN + ".";
+            sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " a " + ADJArray[0] + NOUNArray[2].NN + ".";
+            sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " a " + ADJArray[0] + NOUNArray[3].NN + ".";
+        } else {
+            NOUNArray = [{NN:"eyes", pic: "Level 3/images/eyes.png"}, {NN:"ears", pic: "Level 3/images/ears.png"}, {NN:"teeth", pic: "Level 3/images/teeth.png"}, {NN:"hands", pic: "Level 3/images/hands.png"}, {NN:"feet", pic: "Level 3/images/feet.png"}, {NN:"arms", pic: "Level 3/images/arms.png"}, {NN:"legs", pic: "Level 3/images/legs.png"}];
+            shuffleArray(NOUNArray);
+            document.getElementById("gPic").src = NOUNArray[0].pic;
+            sentence = "Who has " + ADJArray[0] + NOUNArray[0].NN + "?";
+            document.getElementById("grammarCheck").value = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + ADJArray[0] + NOUNArray[0].NN + ".";
+            sentenceArray[0] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + ADJArray[0] + NOUNArray[0].NN + ".";
+            sentenceArray[1] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + ADJArray[0] + NOUNArray[1].NN + ".";
+            sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + ADJArray[0] + NOUNArray[2].NN + ".";
+            sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + ADJArray[0] + NOUNArray[3].NN + ".";
+        }
+        setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 6") {
@@ -141,9 +167,9 @@ function g_03(userInput){
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Review 2") {
-        q1Array = ["Unit 4", "Unit 5", "Unit 6"];
-        shuffleArray(q1Array);
-        setGrammar(q1Array[0]);
+        unitArray = ["Unit 4", "Unit 5", "Unit 6"];
+        shuffleArray(unitArray);
+        g_03(unitArray[0]);
         currentUnit = "Review 2";
     } else if (userInput == "Unit 7") {
         q1Array = ["yes", "yes", "yes", "yes", "yes", "no", "no", "no", "no", "no"];
@@ -190,14 +216,14 @@ function g_03(userInput){
         document.getElementById("g0r4d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar2()">Example</button>';
         grammarLesson = "";
     } else if (userInput == "Review 3") {
-        q1Array = ["Unit 7", "Unit 8", "Unit 9"];
-        shuffleArray(q1Array);
-        setGrammar(q1Array[0]);
+        unitArray = ["Unit 7", "Unit 8", "Unit 9"];
+        shuffleArray(unitArray);
+        g_03(unitArray[0]);
         currentUnit = "Review 3";
     } else if (userInput == "Final Review") {
-        q1Array = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9"];
-        shuffleArray(q1Array);
-        setGrammar(q1Array[0]);
+        unitArray = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9"];
+        shuffleArray(unitArray);
+        g_03(unitArray[0]);
         currentUnit = "Final Review";
     } else {
         q1Array = [""];
