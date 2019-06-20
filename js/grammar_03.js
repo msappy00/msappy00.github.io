@@ -141,8 +141,8 @@ function g_03(userInput){
             NOUNArray = [{NN:"nose", pic: "Level 3/images/nose.png"}, {NN:"mouth", pic: "Level 3/images/mouth.png"}, {NN:"head", pic: "Level 3/images/head.png"}, {NN:"face", pic: "Level 3/images/face.png"}];
             shuffleArray(NOUNArray);
             document.getElementById("gPic").src = NOUNArray[0].pic;
-            sentence = "Who has a " + ADJArray[0] + NOUNArray[randomG].NN + "?";
-            document.getElementById("grammarCheck").value = capitalize(PRPArray[randomG].RESPONSE) + " " + verb + " a " + ADJArray[0] + NOUNArray[0].NN + ".";
+            sentence = "Who has a " + ADJArray[0] + NOUNArray[0].NN + "?";
+            document.getElementById("grammarCheck").value = capitalize(PRPArray[0].RESPONSE) + " " + verb + " a " + ADJArray[0] + NOUNArray[0].NN + ".";
             sentenceArray[0] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " a " + ADJArray[0] + NOUNArray[0].NN + ".";
             sentenceArray[1] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " a " + ADJArray[0] + NOUNArray[1].NN + ".";
             sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " a " + ADJArray[0] + NOUNArray[2].NN + ".";
@@ -162,8 +162,31 @@ function g_03(userInput){
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 6") {
-        q1Array = ["yes", "yes", "yes", "yes", "yes", "no", "no", "no", "no", "no"];
-        q2Array = ["Do you have long hair?", "Do you have short hair?", "Do you have curly hair?", "Do you have braided hair?", "Do you have straight hair?", "Do you have dark hair?", "Do you have red hair?", "Do you have black hair?", "Do you have brown hair?"];
+        randomG = randG(2);
+        ADJArray = [{ADJ:"long", pic: "Level 3/images/long.png"}, {ADJ:"short", pic: "Level 3/images/short.png"}, {ADJ:"curly", pic: "Level 3/images/curly.png"}, {ADJ:"straight", pic: "Level 3/images/straight.png"}, {ADJ:"braided", pic: "Level 3/images/braided.png"}, {ADJ:"blond", pic: "Level 3/images/blond.png"}, {ADJ:"dark", pic: "Level 3/images/dark.png"}, {ADJ:"red", pic: "Level 3/images/red hair.png"}, {ADJ:"brown", pic: "Level 3/images/brown hair.png"}, {ADJ:"black", pic: "Level 3/images/black hair.png"}];
+        shuffleArray(ADJArray);
+        PRPArray = [{PRP: "I", RESPONSE: "you"}, {PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}, {PRP: "we", RESPONSE: "you"}];
+        shuffleArray(PRPArray);
+        verb = conjugate_VB(PRPArray[0].RESPONSE, "doVerb");
+        sentence = capitalize(verb) + " " + PRPArray[0].PRP + " have " + ADJArray[0].ADJ + " hair?";
+        if (randomG < 1){
+            document.getElementById("gPic").src = ADJArray[0].pic;
+            verb = conjugate_VB(PRPArray[0].RESPONSE, "haveVerb");
+            document.getElementById("grammarCheck").value = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " " + ADJArray[0].ADJ + " hair.";
+            sentenceArray[0] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " " + ADJArray[0].ADJ + " hair.";
+            sentenceArray[1] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " " + ADJArray[1].ADJ + " hair.";
+            sentenceArray[2] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " " + ADJArray[2].ADJ + " hair.";
+            sentenceArray[3] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " " + ADJArray[3].ADJ + " hair.";
+        } else {
+            document.getElementById("gPic").src = ADJArray[1].pic;
+            verb = conjugate_VB(PRPArray[0].RESPONSE, "doVerb");
+            document.getElementById("grammarCheck").value = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't have " + ADJArray[0].ADJ + " hair.";
+            sentenceArray[0] = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't have " + ADJArray[0].ADJ + " hair.";
+            sentenceArray[1] = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't have " + ADJArray[1].ADJ + " hair.";
+            sentenceArray[2] = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't have " + ADJArray[2].ADJ + " hair.";
+            sentenceArray[3] = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't have " + ADJArray[3].ADJ + " hair.";
+        }
+        setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Review 2") {
