@@ -7,8 +7,6 @@ function clearUnit(){
 function setPhonics(userInput){
     
     currentUnit = userInput;
-    array_i = 0;
-    array[array_i] = "blank";
 
     if (level_id == "Starter") {
         document.getElementById("pInstructions").innerHTML = "Type the first letter of the word.";

@@ -165,7 +165,7 @@ function g_03(userInput){
         randomG = randG(2);
         ADJArray = [{ADJ:"long", pic: "Level 3/images/long.png"}, {ADJ:"short", pic: "Level 3/images/short.png"}, {ADJ:"curly", pic: "Level 3/images/curly.png"}, {ADJ:"straight", pic: "Level 3/images/straight.png"}, {ADJ:"braided", pic: "Level 3/images/braided.png"}, {ADJ:"blond", pic: "Level 3/images/blond.png"}, {ADJ:"dark", pic: "Level 3/images/dark.png"}, {ADJ:"red", pic: "Level 3/images/red hair.png"}, {ADJ:"brown", pic: "Level 3/images/brown hair.png"}, {ADJ:"black", pic: "Level 3/images/black hair.png"}];
         shuffleArray(ADJArray);
-        PRPArray = [{PRP: "I", RESPONSE: "you"}, {PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}, {PRP: "we", RESPONSE: "you"}];
+        PRPArray = [{PRP: "I", RESPONSE: "you"}, {PRP: "you", RESPONSE: "I"}, , {PRP: "you", RESPONSE: "we"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}, {PRP: "we", RESPONSE: "you"}];
         shuffleArray(PRPArray);
         verb = conjugate_VB(PRPArray[0].RESPONSE, "doVerb");
         sentence = capitalize(verb) + " " + PRPArray[0].PRP + " have " + ADJArray[0].ADJ + " hair?";
@@ -195,8 +195,31 @@ function g_03(userInput){
         g_03(unitArray[0]);
         currentUnit = "Review 2";
     } else if (userInput == "Unit 7") {
-        q1Array = ["yes", "yes", "yes", "yes", "yes", "no", "no", "no", "no", "no"];
-        q2Array = ["Do you like to play baseball?", "Do they like to play basketball?", "Does he like to play soccer?", "Does she like to play badminton?", "Do you like to play ping-pong?", "Do they like to play dodgeball?", "Does he like to play volleyball?", "Does she like to play tennis?", "Do you like to play golf?", "Does he like to play football?"];
+        randomG = randG(2);
+        NOUNArray = [{NN:"baseball", pic:"Level 3/images/baseball.png"}, {NN:"basketball", pic:"Level 3/images/basketball.png"}, {NN:"soccer", pic:"Level 3/images/soccer.png"}, {NN:"badminton", pic:"Level 3/images/badminton.png"}, {NN:"ping-pong", pic:"Level 3/images/ping-pong.png"}, {NN:"dodgeball", pic:"Level 3/images/dodgeball.png"}, {NN:"volleyball", pic:"Level 3/images/volleyball.png"}, {NN:"tennis", pic:"Level 3/images/tennis.png"}, {NN:"golf", pic:"Level 3/images/golf.png"}, {NN:"football", pic:"Level 3/images/football.png"}];
+        shuffleArray(NOUNArray);
+        PRPArray = [{PRP: "I", RESPONSE: "you"}, {PRP: "you", RESPONSE: "I"}, , {PRP: "you", RESPONSE: "we"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}, {PRP: "we", RESPONSE: "you"}];
+        shuffleArray(PRPArray);
+        verb = conjugate_VB(PRPArray[0].RESPONSE, "doVerb");
+        sentence = capitalize(verb) + " " + PRPArray[0].PRP + " like to play " + NOUNArray[0].NN + "?";
+        if (randomG < 1){
+            document.getElementById("gPic").src = NOUNArray[0].pic;
+            verb = conjugate_VB(PRPArray[0].RESPONSE, "likeVerb");
+            document.getElementById("grammarCheck").value = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " to play " + NOUNArray[0].NN + ".";
+            sentenceArray[0] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " to play " + NOUNArray[0].NN + ".";
+            sentenceArray[1] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " to play " + NOUNArray[1].NN + ".";
+            sentenceArray[2] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " to play " + NOUNArray[2].NN + ".";
+            sentenceArray[3] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " to play " + NOUNArray[3].NN + ".";
+        } else {
+            document.getElementById("gPic").src = NOUNArray[1].pic;
+            verb = conjugate_VB(PRPArray[0].RESPONSE, "doVerb");
+            document.getElementById("grammarCheck").value = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't like to play " + NOUNArray[0].NN + ".";
+            sentenceArray[0] = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't like to play " + NOUNArray[0].NN + ".";
+            sentenceArray[1] = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't like to play " + NOUNArray[1].NN + ".";
+            sentenceArray[2] = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't like to play " + NOUNArray[2].NN + ".";
+            sentenceArray[3] = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't like to play " + NOUNArray[3].NN + ".";
+        }
+        setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 8") {
