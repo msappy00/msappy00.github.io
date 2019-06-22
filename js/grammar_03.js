@@ -198,7 +198,7 @@ function g_03(userInput){
         randomG = randG(2);
         NOUNArray = [{NN:"baseball", pic:"Level 3/images/baseball.png"}, {NN:"basketball", pic:"Level 3/images/basketball.png"}, {NN:"soccer", pic:"Level 3/images/soccer.png"}, {NN:"badminton", pic:"Level 3/images/badminton.png"}, {NN:"ping-pong", pic:"Level 3/images/ping-pong.png"}, {NN:"dodgeball", pic:"Level 3/images/dodgeball.png"}, {NN:"volleyball", pic:"Level 3/images/volleyball.png"}, {NN:"tennis", pic:"Level 3/images/tennis.png"}, {NN:"golf", pic:"Level 3/images/golf.png"}, {NN:"football", pic:"Level 3/images/football.png"}];
         shuffleArray(NOUNArray);
-        PRPArray = [{PRP: "I", RESPONSE: "you"}, {PRP: "you", RESPONSE: "I"}, , {PRP: "you", RESPONSE: "we"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}, {PRP: "we", RESPONSE: "you"}];
+        PRPArray = [{PRP: "I", RESPONSE: "you"}, {PRP: "you", RESPONSE: "I"}, , {PRP: "you", RESPONSE: "we"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
         shuffleArray(PRPArray);
         verb = conjugate_VB(PRPArray[0].RESPONSE, "doVerb");
         sentence = capitalize(verb) + " " + PRPArray[0].PRP + " like to play " + NOUNArray[0].NN + "?";
@@ -223,8 +223,33 @@ function g_03(userInput){
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 8") {
-        q1Array = ["fly a kite", "read a book", "listen to music", "watch TV", "ride a bike"];
-        q2Array = ["What do you like to do on Mondays?", "What does she like to do on Tuesdays?", "What does he like to do on Wednesdays?", "What do they like to do on Thursdays?", "What do you like to do on Fridays?", "What does she like to do on Saturdays?", "What does he like to do on Sundays?"];
+        randomG = randG(2);
+        verbArray = [{verb:"fly a kite", pic:"Level 3/images/fly a kite.png"}, {verb:"read a book", pic:"Level 3/images/read a book.png"}, {verb:"listen to music", pic:"Level 3/images/listen to music.png"}, {verb:"watch TV", pic:"Level 3/images/watch TV.png"}, {verb:"ride a bike", pic:"Level 3/images/ride a bike.png"}];
+        shuffleArray(verbArray);
+        PRPArray = [{PRP: "I", RESPONSE: "you"}, {PRP: "you", RESPONSE: "I"}, , {PRP: "you", RESPONSE: "we"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
+        shuffleArray(PRPArray);
+        NNPArray = ["Sundays", "Mondays", "Tuesdays", "Wednesdays", "Thursdays", "Fridays", "Saturdays"];
+        shuffleArray(NNPArray);
+        verb = conjugate_VB(PRPArray[0].RESPONSE, "doVerb");
+        sentence = capitalize(verb) + " " + PRPArray[0].PRP + " like to " + verbArray[0].verb + " on " + NNPArray[0] + "?";
+        if (randomG < 1){
+            document.getElementById("gPic").src = verbArray[0].pic;
+            verb = conjugate_VB(PRPArray[0].RESPONSE, "likeVerb");
+            document.getElementById("grammarCheck").value = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " to " + verbArray[0].verb + " on " + NNPArray[0] + ".";
+            sentenceArray[0] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " to " + verbArray[0].verb + " on " + NNPArray[0] + ".";
+            sentenceArray[1] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " to " + verbArray[1].verb + " on " + NNPArray[0] + ".";
+            sentenceArray[2] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " to " + verbArray[2].verb + " on " + NNPArray[0] + ".";
+            sentenceArray[3] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " to " + verbArray[3].verb + " on " + NNPArray[0] + ".";
+        } else {
+            document.getElementById("gPic").src = verbArray[1].pic;
+            verb = conjugate_VB(PRPArray[0].RESPONSE, "doVerb");
+            document.getElementById("grammarCheck").value = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't like to " + verbArray[0].verb + " on " + NNPArray[0] + ".";
+            sentenceArray[0] = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't like to " + verbArray[0].verb + " on " + NNPArray[0] + ".";
+            sentenceArray[1] = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't like to " + verbArray[1].verb + " on " + NNPArray[0] + ".";
+            sentenceArray[2] = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't like to " + verbArray[2].verb + " on " + NNPArray[0] + ".";
+            sentenceArray[3] = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't like to " + verbArray[3].verb + " on " + NNPArray[0] + ".";
+        }
+        setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 9") {
