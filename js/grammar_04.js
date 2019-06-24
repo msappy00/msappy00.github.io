@@ -6,7 +6,7 @@ function g_04(userInput){
         timeArray = [{time:"1:00", text:"one o'clock"}, {time:"1:30", text:"one thirty"}, {time:"2:00", text: "two o'clock"}, {time:"2:30", text:"two thirty"}, {time:"3:00", text:"three o'clock"}, {time:"3:30", text:"three thirty"}, {time:"4:00", text:"four o'clock"}, {time:"4:30", text:"four thirty"}, {time:"5:00", text:"five o'clock"}, {time:"5:30", text:"five thirty"}, {time:"6:00", text:"six o'clock"}, {time:"6:30", text:"six thirty"}, {time:"7:00", text:"seven o'clock"}, {time:"7:30", text:"seven thirty"}, {time:"8:00", text:"eight o'clock"}, {time:"8:30", text:"eight thirty"}, {time:"9:00", text:"nine o'clock"}, {time:"9:30", text:"nine thirty"}, {time:"10:00", text:"ten o'clock"}, {time:"10:30", text:"ten thirty"}, {time:"11:00", text:"eleven o'clock"}, {time:"11:30", text:"eleven thirty"}, {time:"12:00", text:"twelve o'clock"}, {time:"12:30", text:"twelve thirty"}];
         shuffleArray(timeArray);
         document.getElementById("altText").textContent = timeArray[0].time;
-        verbArray = [{VB: "get", RB: "up"}, {VB: "go", RB: "to school"}, {VB: "go", RB: "home"}, {VB: "do", RB: "homework"}, {VB: "take", RB: "a bath"}, {VB: "go", RB: "to bed"}, {VB: "have", RB: "English class"}];            
+        verbArray = [{VB: "get", RP: "up"}, {VB: "go", RP: "to school"}, {VB: "go", RP: "home"}, {VB: "do", RP: "homework"}, {VB: "take", RP: "a bath"}, {VB: "go", RP: "to bed"}, {VB: "have", RP: "English class"}];            
         shuffleArray(verbArray);
         if (randomG < 1) {
             sentence = "What time is it?";
@@ -16,43 +16,35 @@ function g_04(userInput){
             sentenceArray[2] = "It's " + timeArray[2].text + ".";
             sentenceArray[3] = "It's " + timeArray[3].text + ".";
         } else {
-            sentence = "What time " + conjugate_VB(PRPArray[0].PRP, "doVerb") + " " + PRPArray[0].PRP + " " + verbArray[0].VB + " " + verbArray[0].RB + "?";
+            sentence = "What time " + conjugate_VB(PRPArray[0].PRP, "doVerb") + " " + PRPArray[0].PRP + " " + verbArray[0].VB + " " + verbArray[0].RP + "?";
             temp = verbArray[0].VB + "Verb";
-            
             verb = conjugate_VB(PRPArray[0].RESPONSE, temp);
             console.log();
-            document.getElementById("grammarCheck").value = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[0].RB + " at " + timeArray[0].text + ".";
-            sentenceArray[0] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[0].RB + " at " + timeArray[0].text + ".";
-            sentenceArray[1] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[0].RB + " at " + timeArray[1].text + ".";
-            sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[0].RB + " at " + timeArray[2].text + ".";
-            sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[0].RB + " at " + timeArray[3].text + ".";
+            document.getElementById("grammarCheck").value = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[0].RP + " at " + timeArray[0].text + ".";
+            sentenceArray[0] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[0].RP + " at " + timeArray[0].text + ".";
+            sentenceArray[1] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[0].RP + " at " + timeArray[1].text + ".";
+            sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[0].RP + " at " + timeArray[2].text + ".";
+            sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[0].RP + " at " + timeArray[3].text + ".";
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="http://scratch.mit.edu/projects/64711462/" target="_newtab">Scratch: What Time Is It?</a>'];
         grammarLesson = "";
     } else if (userInput == "Unit 2") {
-        pronounArray = [({qp:'you', qa:'I'}), ({qp:'I', qa:'You'}), ({qp:'they', qa:'They'}), ({qp:'he', qa:'He'}), ({qp:'she', qa:'She'})];
-        shuffleArray(pronounArray);
-        vehicleArray = [({value:'on foot', pic:'<img src="Level 4/images/on foot.png" />'}), ({value:'by scooter', pic:'<img src="Level 4/images/scooter.png" />'}), ({value:'by motorcycle', pic:'<img src="Level 4/images/motorcycle.png" />'}), ({value:'by car', pic:'<img src="Level 4/images/car.png" />'}), ({value:'by bus', pic:'<img src="Level 4/images/bus.png" />'}), ({value:'by bicycle', pic:'<img src="Level 4/images/bicycle.png" />'}), ({value:'by MRT', pic:'<img src="Level 4/images/MRT.png" />'}), ({value:'by train', pic:'<img src="Level 4/images/train.png" />'}), ({value:'by taxi', pic:'<img src="Level 4/images/taxi.png" />'}), ({value:'by high-speed rail', pic:'<img src="Level 4/images/high-speed rail.png" />'})];
-        shuffleArray(vehicleArray);
-        document.getElementById("gPic").innerHTML = vehicleArray[0].pic;
-        verbArray = [({v: "go", tps: "goes", o: "to work"}), ({v: "go", tps: "goes", o: "to school"})];
+        PRPArray = PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}, {PRP: "your father", RESPONSE: "my father"}, {PRP: "your sister", RESPONSE: "my sister"}];
+        shuffleArray(PRPArray);
+        NOUNArray = [{NN:'on foot', pic:"Level 4/images/on foot.png"}, {NN:'by scooter', pic:"Level 4/images/scooter.png"}, {NN:'by motorcycle', pic:"Level 4/images/motorcycle.png"}, {NN:'by car', pic:"Level 4/images/car.png"}, {NN:'by bus', pic:"Level 4/images/bus.png"}, {NN:'by bicycle', pic:"Level 4/images/bicycle.png"}, {NN:'by MRT', pic:"Level 4/images/MRT.png"}, {NN:'by train', pic:"Level 4/images/train.png"}, {NN:'by taxi', pic:"Level 4/images/taxi.png"}, {NN:'by high-speed rail', pic:"Level 4/images/high-speed rail.png"}];
+        shuffleArray(NOUNArray);
+        document.getElementById("gPic").src = NOUNArray[0].pic;
+        verbArray = [{VB: "go", NN: " work"}, {VB: "go", NN: " school"}];
         shuffleArray(verbArray);
-        if (pronounArray[0].qp == "he" || pronounArray[0].qp == "she") {
-            sentence = "How does " + pronounArray[0].qp + " " + verbArray[0].v + " " + verbArray[0].o + "?";
-            document.getElementById("grammarCheck").value = pronounArray[0].qa + " " + verbArray[0].tps + " " + verbArray[0].o + " " + vehicleArray[0].value + ".";
-            sentenceArray[0] = pronounArray[0].qa + " " + verbArray[0].tps + " " + verbArray[0].o + " " + vehicleArray[0].value + ".";
-            sentenceArray[1] = pronounArray[0].qa + " " + verbArray[0].tps + " " + verbArray[0].o + " " + vehicleArray[1].value + ".";
-            sentenceArray[2] = pronounArray[0].qa + " " + verbArray[0].tps + " " + verbArray[0].o + " " + vehicleArray[2].value + ".";
-            sentenceArray[3] = pronounArray[0].qa + " " + verbArray[0].tps + " " + verbArray[0].o + " " + vehicleArray[3].value + ".";
-        } else {
-            sentence = "How do " + pronounArray[0].qp + " " + verbArray[0].v + " " + verbArray[0].o + "?";
-            document.getElementById("grammarCheck").value = pronounArray[0].qa + " " + verbArray[0].v + " " + verbArray[0].o + " " + vehicleArray[0].value + ".";
-            sentenceArray[0] = pronounArray[0].qa + " " + verbArray[0].v + " " + verbArray[0].o + " " + vehicleArray[0].value + ".";
-            sentenceArray[1] = pronounArray[0].qa + " " + verbArray[0].v + " " + verbArray[0].o + " " + vehicleArray[1].value + ".";
-            sentenceArray[2] = pronounArray[0].qa + " " + verbArray[0].v + " " + verbArray[0].o + " " + vehicleArray[2].value + ".";
-            sentenceArray[3] = pronounArray[0].qa + " " + verbArray[0].v + " " + verbArray[0].o + " " + vehicleArray[3].value + ".";
-        }
+        verb = conjugate_VB(PRPArray[0].PRP, "doVerb");
+        sentence = "How " + verb + " " + PRPArray[0].PRP + " go to " + verbArray[0].NN + "?";
+        verb = conjugate_VB(PRPArray[0].PRP, "goVerb");
+        document.getElementById("grammarCheck").value = capitalize(PRPArray[0].RESPONSE) + " " + verb + " to " + verbArray[0].NN + " " + NOUNArray[0].NN + ".";
+        sentenceArray[0] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " to " + verbArray[0].NN + " " + NOUNArray[0].NN + ".";
+        sentenceArray[1] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " to " + verbArray[0].NN + " " + NOUNArray[1].NN + ".";
+        sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " to " + verbArray[0].NN + " " + NOUNArray[2].NN + ".";
+        sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " to " + verbArray[0].NN + " " + NOUNArray[3].NN + ".";
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="http://www.classtools.net/QR/teacher.php?fold=7&fname=kfNhe">QR Challenge</a><br><a href="http://scratch.mit.edu/projects/66810966/" target="_newtab">Scratch: B4U2 Vocab</a>'];
         grammarLesson = "";

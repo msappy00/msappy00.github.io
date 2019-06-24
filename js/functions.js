@@ -222,11 +222,13 @@ function conjugate_VB(PRP, Verb) {
         else if (PRP == 'you' || PRP == 'they') {VERB = beVerb.VBPArray[1]}
         else {VERB = beVerb.VBZ}    
     } else if (typeof window[Verb] === 'undefined' || window[Verb] === null) {
-        if (PRP == 'he' || PRP == 'she') {VERB = Verb.slice(0, -4) + 's'}
-        else {VERB = Verb.slice(0, -4)}
+        if (PRP == 'I' || PRP == 'you' || PRP == 'they') {
+            VERB = Verb.slice(0, -4)
+        }
+        else {VERB = Verb.slice(0, -4) + 's'}
     } else {
-        if (PRP == 'he' || PRP == 'she') {VERB = window[Verb].VBZ}
-        else {VERB = window[Verb].VB}
+        if (PRP == 'I' || PRP == 'you' || PRP == 'they') {VERB = window[Verb].VB}
+        else {VERB = window[Verb].VBZ}
     }   
     return VERB;
 };
