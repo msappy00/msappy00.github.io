@@ -19,7 +19,6 @@ function g_04(userInput){
             sentence = "What time " + conjugate_VB(PRPArray[0].PRP, "doVerb") + " " + PRPArray[0].PRP + " " + verbArray[0].VB + " " + verbArray[0].RP + "?";
             temp = verbArray[0].VB + "Verb";
             verb = conjugate_VB(PRPArray[0].RESPONSE, temp);
-            console.log();
             document.getElementById("grammarCheck").value = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[0].RP + " at " + timeArray[0].text + ".";
             sentenceArray[0] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[0].RP + " at " + timeArray[0].text + ".";
             sentenceArray[1] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[0].RP + " at " + timeArray[1].text + ".";

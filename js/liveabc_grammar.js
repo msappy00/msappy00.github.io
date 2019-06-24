@@ -20,6 +20,7 @@ function setGrammar(userInput){
     doVerb = {VB: "do", VBZ: "does"};
     goVerb = {VB: "go", VBZ: "goes"};
     haveVerb = {VB: "have", VBZ: "has"};
+    playVerb = {VB: "play", VBZ: "plays"};
 
     // ADVERBS
     ADVArray = [];

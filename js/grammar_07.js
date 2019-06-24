@@ -135,23 +135,93 @@ function g_07(userInput){
         gLinks = ['<a href="http://scratch.mit.edu/projects/38942726/" target="_newtab">Scratch: B7U4 Grammar</a><br><a href="http://scratch.mit.edu/projects/37565016/" target="_newtab">Scratch: B7U4 Q&A</a>'];
         grammarLesson = "";
     } else if (userInput == "Unit 5") {
-        q1Array = ["before", "after"];
-        shuffleArray(q1Array);
-        document.getElementById("gInstructions").innerHTML = "Make a sentence using '" + q1Array[0] + "'.";
-        verbArray = [({firstVerb:'wake up', secondVerb:'take a shower', pic1:"Level 7/images/wake up.png", pic2:"Level 7/images/take a shower.png"}), ({firstVerb:'take a shower', secondVerb:'get dressed', pic1:"Level 7/images/take a shower.png", pic2:"Level 7/images/get dressed.png"}), ({firstVerb:'take a shower', secondVerb:'shave your face', pic1:"Level 7/images/take a shower.png", pic2:"Level 7/images/shave my face.png"}), ({firstVerb:'take a shower', secondVerb:'put on makeup', pic1:"Level 7/images/take a shower.png", pic2:"Level 7/images/put on makeup.png"}), ({firstVerb:'set the table', secondVerb:'eat dinner', pic1:"Level 7/images/set the table.png", pic2:"Level 4/images/eat dinner.png"}), ({firstVerb:'feed the dog', secondVerb:'go to school', pic1:"Level 7/images/feed the dog.png", pic2:"Level 4/images/go to school.png"})];
+        randomG = randG(2);
+        PRPArray = [{PRP: "I", PRP$:"my"}, {PRP: "you", PRP$:"your"}, {PRP: "he", PRP$:"his"}, {PRP: "she", PRP$:"her"}];
+        shuffleArray(PRPArray);
+        verbArray = [{VB:"wake", VBD:"woke", RP:" up", pic:"Level 7/images/wake up.png"}, {VB:"take", VBD:"took", RP:" a shower", pic:"Level 7/images/take a shower.png"}, {VB:"get", VBD:"got", RP:" dressed", pic:"Level 7/images/get dressed.png"}, {VB:"shave", VBD:"shaved", RP:" face", pic:"Level 7/images/shave my face.png"},  {VB:"blow-dry", VBD:"blow-dried", RP:" hair", pic:"Level 7/images/blow-dry my hair.png"}, {VB:"put", VBD:"put", RP:" on makeup", pic:"Level 7/images/put on makeup.png"}, {VB:"set", VBD:"set", RP:" the table", pic:"Level 7/images/set the table.png"}, {VB:"feed", VBD:"fed", RP:" the dog", pic:"Level 7/images/feed the dog.png"}];
         shuffleArray(verbArray);
-        if (q1Array[0] == "before"){
-            document.getElementById("g0r0d5").innerHTML = verbArray[0].pic1;
-            var capitalized = verbArray[0].firstVerb.charAt(0).toUpperCase() + verbArray[0].firstVerb.slice(1);
-            sampleAnswer = capitalized + " before you " + verbArray[0].secondVerb + ".";
+        document.getElementById("gPic").src = verbArray[0].pic;
+        if (verbArray[0].VB == "shave" || verbArray[0].VB == "blow-dry"){verbArray[0].RP = " " + PRPArray[0].PRP$ + verbArray[0].RP;}
+        if (verbArray[1].VB == "shave" || verbArray[1].VB == "blow-dry"){verbArray[1].RP = " " + PRPArray[0].PRP$ + verbArray[1].RP;}
+        if (verbArray[2].VB == "shave" || verbArray[2].VB == "blow-dry"){verbArray[2].RP = " " + PRPArray[0].PRP$ + verbArray[2].RP;}
+        if (verbArray[3].VB == "shave" || verbArray[3].VB == "blow-dry"){verbArray[3].RP = " " + PRPArray[0].PRP$ + verbArray[3].RP;}
+        if (verbArray[4].VB == "shave" || verbArray[4].VB == "blow-dry"){verbArray[4].RP = " " + PRPArray[0].PRP$ + verbArray[4].RP;}
+        if (randomG == 0){
+            randomG = randG(2);
+            if (randomG == 0){
+                if (PRPArray[0].PRP == "you"){
+                    sentence = capitalize(verbArray[0].VB) + verbArray[0].RP + " before " + PRPArray[0].PRP + " " + verbArray[1].VB + verbArray[1].RP + ".";
+                    document.getElementById("grammarCheck").value = sentence;
+                    sentenceArray[0] = capitalize(verbArray[0].VB) + verbArray[0].RP + " before " + PRPArray[0].PRP + " " + verbArray[1].VB + verbArray[1].RP + ".";
+                    sentenceArray[1] = capitalize(verbArray[2].VB) + verbArray[2].RP + " before " + PRPArray[0].PRP + " " + verbArray[1].VB + verbArray[1].RP + ".";
+                    sentenceArray[2] = capitalize(verbArray[3].VB) + verbArray[3].RP + " before " + PRPArray[0].PRP + " " + verbArray[1].VB + verbArray[1].RP + ".";
+                    sentenceArray[3] = capitalize(verbArray[4].VB) + verbArray[4].RP + " before " + PRPArray[0].PRP + " " + verbArray[1].VB + verbArray[1].RP + ".";
+                } else {
+                    temp1 = verbArray[0].VB + "Verb";
+                    verb1 = conjugate_VB(PRPArray[0].PRP, temp1);
+                    temp2 = verbArray[1].VB + "Verb";
+                    verb2 = conjugate_VB(PRPArray[0].PRP, temp2);
+                    sentence = capitalize(PRPArray[0].PRP) + " " + verb1 + " " + verbArray[0].RP + " before " + PRPArray[0].PRP + " " + verb2 + verbArray[1].RP + ".";
+                    document.getElementById("grammarCheck").value = sentence;
+                    sentenceArray[0] = capitalize(PRPArray[0].PRP) + " " + verb1 + " " + verbArray[0].RP + " before " + PRPArray[0].PRP + " " + verb2 + verbArray[1].RP + ".";
+                    temp = verbArray[2].VB + "Verb";
+                    verb = conjugate_VB(PRPArray[0].PRP, temp);
+                    sentenceArray[1] = capitalize(PRPArray[0].PRP) + " " + verb + " " + verbArray[2].RP + " before " + PRPArray[0].PRP + " " + verb2 + verbArray[1].RP + ".";
+                    temp = verbArray[3].VB + "Verb";
+                    verb = conjugate_VB(PRPArray[0].PRP, temp);
+                    sentenceArray[2] = capitalize(PRPArray[0].PRP) + " " + verb + " " + verbArray[3].RP + " before " + PRPArray[0].PRP + " " + verb2 + verbArray[1].RP + ".";
+                    temp = verbArray[4].VB + "Verb";
+                    verb = conjugate_VB(PRPArray[0].PRP, temp);
+                    sentenceArray[3] = capitalize(PRPArray[0].PRP) + " " + verb + " " + verbArray[4].RP + " before " + PRPArray[0].PRP + " " + verb2 + verbArray[1].RP + ".";
+                }
+            } else {
+                if (PRPArray[0].PRP == "you"){
+                    sentence = "Before " + PRPArray[0].PRP + " " + verbArray[0].VB + verbArray[0].RP + ", " + verbArray[1].VB + verbArray[1].RP + ".";
+                    document.getElementById("grammarCheck").value = sentence;
+                    sentenceArray[0] = "Before " + PRPArray[0].PRP + " " + verbArray[0].VB + verbArray[0].RP + ", " + verbArray[1].VB + verbArray[1].RP + ".";
+                    sentenceArray[1] = "Before " + PRPArray[0].PRP + " " + verbArray[1].VB + verbArray[1].RP + ", " + verbArray[1].VB + verbArray[1].RP + ".";
+                    sentenceArray[2] = "Before " + PRPArray[0].PRP + " " + verbArray[2].VB + verbArray[2].RP + ", " + verbArray[1].VB + verbArray[1].RP + ".";
+                    sentenceArray[3] = "Before " + PRPArray[0].PRP + " " + verbArray[3].VB + verbArray[3].RP + ", " + verbArray[1].VB + verbArray[1].RP + ".";
+                } else {
+                    temp1 = verbArray[0].VB + "Verb";
+                    verb1 = conjugate_VB(PRPArray[0].PRP, temp1);
+                    temp2 = verbArray[1].VB + "Verb";
+                    verb2 = conjugate_VB(PRPArray[0].PRP, temp2);
+                    sentence = "Before " + PRPArray[0].PRP + " " + verb1 + verbArray[0].RP + ", " + PRPArray[0].PRP + " " + verb2 + verbArray[1].RP + ".";
+                    document.getElementById("grammarCheck").value = sentence;
+                    sentenceArray[0] = "Before " + PRPArray[0].PRP + " " + verb1 + verbArray[0].RP + ", " + PRPArray[0].PRP + " " + verb2 + verbArray[1].RP + ".";
+                    temp = verbArray[2].VB + "Verb";
+                    verb = conjugate_VB(PRPArray[0].PRP, temp);
+                    sentenceArray[1] = "Before " + PRPArray[0].PRP + " " + verb + " " + verbArray[2].RP + ", " + PRPArray[0].PRP + " " + verb2 + verbArray[1].RP + ".";
+                    temp = verbArray[3].VB + "Verb";
+                    verb = conjugate_VB(PRPArray[0].PRP, temp);
+                    sentenceArray[2] = "Before " + PRPArray[0].PRP + " " + verb + " " + verbArray[3].RP + ", " + PRPArray[0].PRP + " " + verb2 + verbArray[1].RP + ".";
+                    temp = verbArray[4].VB + "Verb";
+                    verb = conjugate_VB(PRPArray[0].PRP, temp);
+                    sentenceArray[3] = "Before " + PRPArray[0].PRP + " " + verb + " " + verbArray[4].RP + ", " + PRPArray[0].PRP + " " + verb2 + verbArray[1].RP + ".";
+                }
+            }
         } else {
-            document.getElementById("g0r0d5").innerHTML = verbArray[0].pic2;
-            var capitalized = verbArray[0].secondVerb.charAt(0).toUpperCase() + verbArray[0].secondVerb.slice(1);
-            sampleAnswer = capitalized + " after you " + verbArray[0].firstVerb + ".";
+            randomG = randG(2);
+            if (randomG == 0){
+                sentence = capitalize(PRPArray[0].PRP) + " " + verbArray[0].VBD + " " + verbArray[0].RP + " after " + PRPArray[0].PRP + " " + verbArray[1].VBD + verbArray[1].RP + ".";
+                document.getElementById("grammarCheck").value = sentence;
+                sentenceArray[0] = capitalize(PRPArray[0].PRP) + " " + verbArray[0].VBD + " " + verbArray[0].RP + " after " + PRPArray[0].PRP + " " + verbArray[1].VBD + verbArray[1].RP + ".";
+                sentenceArray[1] = capitalize(PRPArray[0].PRP) + " " + verbArray[2].VBD + " " + verbArray[2].RP + " after " + PRPArray[0].PRP + " " + verbArray[1].VBD + verbArray[1].RP + ".";
+                sentenceArray[2] = capitalize(PRPArray[0].PRP) + " " + verbArray[3].VBD + " " + verbArray[3].RP + " after " + PRPArray[0].PRP + " " + verbArray[1].VBD + verbArray[1].RP + ".";
+                sentenceArray[3] = capitalize(PRPArray[0].PRP) + " " + verbArray[4].VBD + " " + verbArray[4].RP + " after " + PRPArray[0].PRP + " " + verbArray[1].VBD + verbArray[1].RP + ".";
+            } else {
+                sentence =  "After " + PRPArray[0].PRP + " " + verbArray[0].VBD + verbArray[0].RP + ", " + PRPArray[0].PRP + " " + verbArray[1].VBD + " " + verbArray[1].RP + ".";
+                document.getElementById("grammarCheck").value = sentence;
+                sentenceArray[0] = "After " + PRPArray[0].PRP + " " + verbArray[0].VBD + verbArray[0].RP + ", " + PRPArray[0].PRP + " " + verbArray[1].VBD + " " + verbArray[1].RP + ".";
+                sentenceArray[1] = "After " + PRPArray[0].PRP + " " + verbArray[2].VBD + verbArray[2].RP + ", " + PRPArray[0].PRP + " " + verbArray[1].VBD + " " + verbArray[1].RP + ".";
+                sentenceArray[2] = "After " + PRPArray[0].PRP + " " + verbArray[3].VBD + verbArray[3].RP + ", " + PRPArray[0].PRP + " " + verbArray[1].VBD + " " + verbArray[1].RP + ".";
+                sentenceArray[3] = "After " + PRPArray[0].PRP + " " + verbArray[4].VBD + verbArray[4].RP + ", " + PRPArray[0].PRP + " " + verbArray[1].VBD + " " + verbArray[1].RP + ".";
+            }
         }
-        document.getElementById("g0r1d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" />';
-        document.getElementById("g0r1d1").align = "left";
-        document.getElementById("g0r1d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
+            
+            
+        setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 6") {

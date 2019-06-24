@@ -225,7 +225,14 @@ function conjugate_VB(PRP, Verb) {
         if (PRP == 'I' || PRP == 'you' || PRP == 'they') {
             VERB = Verb.slice(0, -4)
         }
-        else {VERB = Verb.slice(0, -4) + 's'}
+        else {
+            VERB = Verb.slice(0, -4);
+            if (VERB.slice(-1) == "y"){
+                VERB = VERB.slice(0,-1);
+                VERB = VERB + "ies";
+            } else {
+                VERB = VERB + 's'}
+            }
     } else {
         if (PRP == 'I' || PRP == 'you' || PRP == 'they') {VERB = window[Verb].VB}
         else {VERB = window[Verb].VBZ}
