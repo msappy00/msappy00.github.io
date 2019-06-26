@@ -251,9 +251,40 @@ function g_07(userInput){
         g_07(unitArray[0]);
         currentUnit = "Review 2";
     } else if (userInput == "Unit 7") {
-        q1Array = [""];
-        q2Array = [""];
-        q3Array = [""];
+        randomG = randG(2);
+        PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "you", RESPONSE: "we"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
+        shuffleArray(PRPArray);
+        verbArray = [{VBG:"camping", pic:"Level 7/images/go camping.png"}, {VBG:"skiing", pic:"Level 7/images/go skiing.png"}, {VBG:"cycling", pic:"Level 7/images/go cycling.png"}, {VBG:"snorkeling", pic:"Level 7/images/go snorkeling.png"}, {VBG:"in-line skating", pic:"Level 7/images/go in-line skating.png"}, {VBG:"surfing", pic:"Level 7/images/go surfing.png"}, {VBG:"rafting", pic:"Level 7/images/go rafting.png"}, {VBG:"ice-skating", pic:"Level 7/images/go ice-skating.png"}];
+        shuffleArray(verbArray);
+        document.getElementById("gPic").src = verbArray[0].pic;
+        timeArray = [" tomorrow", " this weekend", " next weekend", " this Sunday", " next Sunday"];
+        shuffleArray(timeArray);
+        if (randomG < 1){
+            sentence = "What will " + PRPArray[0].PRP + " do" + timeArray[0] + "?";
+            document.getElementById("grammarCheck").value = capitalize(PRPArray[0].RESPONSE) + " will go " + verbArray[0].VBG + timeArray[0] + ".";
+            sentenceArray[0] = capitalize(PRPArray[0].RESPONSE) + " will go " + verbArray[0].VBG + timeArray[0] + ".";
+            sentenceArray[1] = capitalize(PRPArray[0].RESPONSE) + " will go " + verbArray[0].VBG + timeArray[1] + ".";
+            sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " will go " + verbArray[1].VBG + timeArray[0] + ".";
+            sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " will go " + verbArray[1].VBG + timeArray[1] + ".";
+        } else {
+            randomG = randG(2);
+            if (randomG < 1){
+                sentence = "Will " + PRPArray[0].PRP + " go " + verbArray[0].VBG + timeArray[0] + "?";
+                document.getElementById("grammarCheck").value = "Yes, " + PRPArray[0].RESPONSE + " will go " + verbArray[0].VBG + timeArray[0] + ".";
+                sentenceArray[0] = "Yes, " + PRPArray[0].RESPONSE + " will go " + verbArray[0].VBG + timeArray[0] + ".";
+                sentenceArray[1] = "Yes, " + PRPArray[0].RESPONSE + " will go " + verbArray[0].VBG + timeArray[1] + ".";
+                sentenceArray[2] = "Yes, " + PRPArray[0].RESPONSE + " will go " + verbArray[1].VBG + timeArray[0] + ".";
+                sentenceArray[3] = "Yes, " + PRPArray[0].RESPONSE + " will go " + verbArray[1].VBG + timeArray[1] + ".";
+            } else {
+                sentence = "Will " + PRPArray[0].PRP + " go " + verbArray[1].VBG + timeArray[0] + "?";
+                document.getElementById("grammarCheck").value = "No, " + PRPArray[0].RESPONSE + " won't go " + verbArray[0].VBG + timeArray[0] + ".";
+                sentenceArray[0] = "No, " + PRPArray[0].RESPONSE + " won't go " + verbArray[1].VBG + timeArray[0] + ".";
+                sentenceArray[1] = "No, " + PRPArray[0].RESPONSE + " won't go " + verbArray[1].VBG + timeArray[1] + ".";
+                sentenceArray[2] = "No, " + PRPArray[0].RESPONSE + " won't go " + verbArray[0].VBG + timeArray[0] + ".";
+                sentenceArray[3] = "No, " + PRPArray[0].RESPONSE + " won't go " + verbArray[0].VBG + timeArray[1] + ".";
+            }
+        }
+        setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 8") {
