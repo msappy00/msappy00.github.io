@@ -219,7 +219,7 @@ function pluralize(NUM){
 function conjugate_VB(PRP, Verb) {
     if (Verb == "beVerb"){
         if (PRP == 'I') {VERB = beVerb.VBPArray[0]}
-        else if (PRP == 'you' || PRP == 'they') {VERB = beVerb.VBPArray[1]}
+        else if (PRP == 'you' || PRP == 'they' || PRP == 'we') {VERB = beVerb.VBPArray[1]}
         else {VERB = beVerb.VBZ}    
     } else if (typeof window[Verb] === 'undefined' || window[Verb] === null) {
         if (PRP == 'I' || PRP == 'you' || PRP == 'they') {

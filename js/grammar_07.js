@@ -277,7 +277,7 @@ function g_07(userInput){
                 sentenceArray[3] = "Yes, " + PRPArray[0].RESPONSE + " will go " + verbArray[1].VBG + timeArray[1] + ".";
             } else {
                 sentence = "Will " + PRPArray[0].PRP + " go " + verbArray[1].VBG + timeArray[0] + "?";
-                document.getElementById("grammarCheck").value = "No, " + PRPArray[0].RESPONSE + " won't go " + verbArray[0].VBG + timeArray[0] + ".";
+                document.getElementById("grammarCheck").value = "No, " + PRPArray[0].RESPONSE + " won't go " + verbArray[1].VBG + timeArray[0] + ".";
                 sentenceArray[0] = "No, " + PRPArray[0].RESPONSE + " won't go " + verbArray[1].VBG + timeArray[0] + ".";
                 sentenceArray[1] = "No, " + PRPArray[0].RESPONSE + " won't go " + verbArray[1].VBG + timeArray[1] + ".";
                 sentenceArray[2] = "No, " + PRPArray[0].RESPONSE + " won't go " + verbArray[0].VBG + timeArray[0] + ".";
@@ -288,15 +288,88 @@ function g_07(userInput){
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 8") {
-        q1Array = [""];
-        q2Array = [""];
-        q3Array = [""];
+        randomG = randG(2);
+        PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "you", RESPONSE: "we"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
+        shuffleArray(PRPArray);
+        verbArray = [{VB:"watch the sunrise", pic:"Level 7/images/watch the sunrise.png"}, {VB:"watch the sunset", pic:"Level 7/images/watch the sunset.png"}, {VB:"go on a picnic", pic:"Level 7/images/go on a picnic.png"}, {VB:"see the maple leaves", pic:"Level 7/images/see the maple leaves.png"}, {VB:"go to the hot springs", pic:"Level 7/images/go to the hot springs.png"}, {VB:"have a party", pic:"Level 7/images/have a party.png"}, {VB:"have hot pot", pic:"Level 7/images/have hot pot.png"}, {VB:"go on a vacation", pic:"Level 7/images/go on a vacation.png"}];
+        shuffleArray(verbArray);
+        document.getElementById("gPic").src = verbArray[0].pic;
+        timeArray = [" tonight", " in one hour", " in two hours", " next Sunday", " next month"];
+        shuffleArray(timeArray);
+        verb1 = conjugate_VB(PRPArray[0].PRP, "beVerb");
+        verb2 = conjugate_VB(PRPArray[0].RESPONSE, "beVerb");
+        if (randomG < 1){
+            sentence = "What " + verb1 + " " + PRPArray[0].PRP + " going to do" + timeArray[0] + "?";
+            document.getElementById("grammarCheck").value = capitalize(PRPArray[0].RESPONSE) + " " + verb2 + " going to " + verbArray[0].VB + timeArray[0] + ".";
+            sentenceArray[0] = capitalize(PRPArray[0].RESPONSE) + " " + verb2 + " going to " + verbArray[0].VB + timeArray[0] + ".";
+            sentenceArray[1] = capitalize(PRPArray[0].RESPONSE) + " " + verb2 + " going to " + verbArray[1].VB + timeArray[0] + ".";
+            sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " " + verb2 + " going to " + verbArray[2].VB + timeArray[0] + ".";
+            sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + verb2 + " going to " + verbArray[3].VB + timeArray[0] + ".";
+        } else {
+            randomG = randG(2);
+            if (randomG < 1){
+                sentence = capitalize(verb1) + " " + PRPArray[0].PRP + " going to " + verbArray[0].VB + timeArray[0] + "?";
+                document.getElementById("grammarCheck").value = "Yes, " + PRPArray[0].RESPONSE + " " + verb2 + " going to " + verbArray[0].VB + timeArray[0] + ".";
+                sentenceArray[0] = "Yes, " + PRPArray[0].RESPONSE + " " + verb2 + " going to " + verbArray[0].VB + timeArray[0] + ".";
+                sentenceArray[1] = "Yes, " + PRPArray[0].RESPONSE + " " + verb2 + " going to " + verbArray[0].VB + timeArray[0] + ".";
+                sentenceArray[2] = "Yes, " + PRPArray[0].RESPONSE + " " + verb2 + " going to " + verbArray[0].VB + timeArray[0] + ".";
+                sentenceArray[3] = "Yes, " + PRPArray[0].RESPONSE + " " + verb2 + " going to " + verbArray[0].VB + timeArray[0] + ".";
+            } else {
+                sentence = capitalize(verb1) + " " + PRPArray[0].PRP + " going to " + verbArray[1].VB + timeArray[0] + "?";
+                document.getElementById("grammarCheck").value = "No, " + PRPArray[0].RESPONSE + " " + verb2 + " not going to " + verbArray[1].VB + timeArray[0] + ".";
+                sentenceArray[0] = "No, " + PRPArray[0].RESPONSE + " " + verb2 + " not going to " + verbArray[0].VB + timeArray[0] + ".";
+                sentenceArray[1] = "No, " + PRPArray[0].RESPONSE + " " + verb2 + " not going to " + verbArray[1].VB + timeArray[0] + ".";
+                sentenceArray[2] = "No, " + PRPArray[0].RESPONSE + " " + verb2 + " not going to " + verbArray[2].VB + timeArray[0] + ".";
+                sentenceArray[3] = "No, " + PRPArray[0].RESPONSE + " " + verb2 + " not going to " + verbArray[3].VB + timeArray[0] + ".";
+            }
+        }
+        setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 9") {
-        q1Array = [""];
-        q2Array = [""];
-        q3Array = [""];
+        randomG = randG(4);
+        if (randomG < 2){
+            NOUNArray = [{NN:"America", pic:"Level 7/images/America.png"}, {NN:"Korea", pic:"Level 7/images/Korea.png"}, {NN:"Japan", pic:"Level 7/images/Japan.png"}, {NN:"China", pic:"Level 7/images/China.png"}, {NN:"Canada", pic:"Level 7/images/Canada.png"}, {NN:"England", pic:"Level 7/images/England.png"}, {NN:"France", pic:"Level 7/images/France.png"}];
+            shuffleArray(NOUNArray);
+            document.getElementById("gPic").src = NOUNArray[0].pic;
+            timeArray = [" next spring", " next summer", " next fall", " next winter", " next year"];
+            shuffleArray(timeArray);
+            if (randomG == 0){
+                sentence = "What will they do " + timeArray[0] + "?";
+                document.getElementById("grammarCheck").value = "They will study in " + NOUNArray[0].NN + timeArray[0] + ".";
+                sentenceArray[0] = "They will study in " + NOUNArray[0].NN + timeArray[0] + ".";
+                sentenceArray[1] = "They will study in " + NOUNArray[1].NN + timeArray[0] + ".";
+                sentenceArray[2] = "They will study in " + NOUNArray[2].NN + timeArray[0] + ".";
+                sentenceArray[3] = "They will study in " + NOUNArray[3].NN + timeArray[0] + ".";
+            } else {
+                sentence = "What are they going to do " + timeArray[0] + "?";
+                document.getElementById("grammarCheck").value = "They are going to study in " + NOUNArray[0].NN + timeArray[0] + ".";
+                sentenceArray[0] = "They are going to study in " + NOUNArray[0].NN + timeArray[0] + ".";
+                sentenceArray[1] = "They are going to study in " + NOUNArray[1].NN + timeArray[0] + ".";
+                sentenceArray[2] = "They are going to study in " + NOUNArray[2].NN + timeArray[0] + ".";
+                sentenceArray[3] = "They are going to study in " + NOUNArray[3].NN + timeArray[0] + ".";
+            }
+        } else {
+            NOUNArray = [{NN:"an artist", pic:"Level 7/images/artist.png"}, {NN:"a musician", pic:"Level 7/images/musician.png"}, {NN:"a soccer player", pic:"Level 7/images/soccer player.png"}, {NN:"a vet", pic:"Level 7/images/vet.png"}, {NN:"a flight attendant", pic:"Level 7/images/flight attendant.png"}];
+            shuffleArray(NOUNArray);
+            document.getElementById("gPic").src = NOUNArray[0].pic;
+            if (randomG == 2){
+                sentence = "Will you be " + NOUNArray[0].NN + " when you grow up?";
+                document.getElementById("grammarCheck").value = sentence;
+                sentenceArray[0] = sentence;
+                sentenceArray[1] = "Will you be " + NOUNArray[1].NN + " when you grow up?";
+                sentenceArray[2] = "Will you be " + NOUNArray[2].NN + " when you grow up?";
+                sentenceArray[3] = "Will you be " + NOUNArray[3].NN + " when you grow up?";
+            } else {
+                sentence = "Are you going to be " + NOUNArray[0].NN + " when you grow up?";
+                document.getElementById("grammarCheck").value = sentence;
+                sentenceArray[0] = sentence;
+                sentenceArray[1] = "Are you going to be " + NOUNArray[1].NN + " when you grow up?";
+                sentenceArray[2] = "Are you going to be " + NOUNArray[2].NN + " when you grow up?";
+                sentenceArray[3] = "Are you going to be " + NOUNArray[3].NN + " when you grow up?";
+            }
+        }
+        setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="http://scratch.mit.edu/projects/19966243/" target="_newtab">Scratch: "Spelling: Nations"</a>'];
         grammarLesson = "";
     } else if (userInput == "Review 3") {
