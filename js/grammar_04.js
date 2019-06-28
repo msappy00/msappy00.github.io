@@ -29,7 +29,7 @@ function g_04(userInput){
         gLinks = ['<a href="http://scratch.mit.edu/projects/64711462/" target="_newtab">Scratch: What Time Is It?</a>'];
         grammarLesson = "";
     } else if (userInput == "Unit 2") {
-        PRPArray = PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}, {PRP: "your father", RESPONSE: "my father"}, {PRP: "your sister", RESPONSE: "my sister"}];
+        PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}, {PRP: "your father", RESPONSE: "my father"}, {PRP: "your sister", RESPONSE: "my sister"}];
         shuffleArray(PRPArray);
         NOUNArray = [{NN:'on foot', pic:"Level 4/images/on foot.png"}, {NN:'by scooter', pic:"Level 4/images/scooter.png"}, {NN:'by motorcycle', pic:"Level 4/images/motorcycle.png"}, {NN:'by car', pic:"Level 4/images/car.png"}, {NN:'by bus', pic:"Level 4/images/bus.png"}, {NN:'by bicycle', pic:"Level 4/images/bicycle.png"}, {NN:'by MRT', pic:"Level 4/images/MRT.png"}, {NN:'by train', pic:"Level 4/images/train.png"}, {NN:'by taxi', pic:"Level 4/images/taxi.png"}, {NN:'by high-speed rail', pic:"Level 4/images/high-speed rail.png"}];
         shuffleArray(NOUNArray);
@@ -48,124 +48,40 @@ function g_04(userInput){
         gLinks = ['<a href="http://www.classtools.net/QR/teacher.php?fold=7&fname=kfNhe">QR Challenge</a><br><a href="http://scratch.mit.edu/projects/66810966/" target="_newtab">Scratch: B4U2 Vocab</a>'];
         grammarLesson = "";
     } else if (userInput == "Unit 3") {
-        pronounArray = ["you", "they", "he", "she"];
-        verbArray = ["take", "drive", "walk"];
-        destinationArray = ["to the park", "to the supermarket", "to the city", "to the countryside"];
-        shuffleArray(pronounArray);
+        randomG = randG(2);
+        PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "we", RESPONSE: "we"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
+        shuffleArray(PRPArray);
+        verbArray = [{VB:"take", RP:" a boat", pic:"Level 4/images/boat.png"}, {VB:"take", RP:" a ship", pic:"Level 4/images/ship.png"}, {VB:"take", RP:" an airplane", pic:"Level 4/images/airplane.png"}, {VB:"take", RP:" a helicopter", pic:"Level 4/images/helicopter.png"}, {VB:"take", RP:" the subway", pic:"Level 4/images/subway.png"}, {VB:"drive", RP:" a van", pic:"Level 4/images/van.png"}, {VB:"walk", RP:" ", pic:"Level 4/images/walk.png"}];
         shuffleArray(verbArray);
-        if (verbArray[0] == "take") {
-            vehicleArray = ["a boat", "a ship", "an airplane", "a helicopter"];
-        } else if (verbArray[0] == "drive") {
-            vehicleArray = ["a van"];
+        document.getElementById("gPic").src = verbArray[0].pic;
+        locArray = [" to the park", " to the supermarket", " to the city", " to the countryside"];
+        shuffleArray(locArray);
+        verb = conjugate_VB(PRPArray[0].PRP, "doVerb");
+        if (randomG < 1){
+            sentence = capitalize(verb) + " " + PRPArray[0].PRP + " " + verbArray[0].VB + verbArray[0].RP + locArray[0] + "?";
+            temp = verbArray[0].VB + "Verb";
+            verb = conjugate_VB(PRPArray[0].RESPONSE, temp);
+            document.getElementById("grammarCheck").value = "Yes, " + PRPArray[0].RESPONSE + " " + verb + verbArray[0].RP + locArray[0] + ".";
+            sentenceArray[0] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + verbArray[0].RP + locArray[0] + ".";
+            temp = verbArray[1].VB + "Verb";
+            verb = conjugate_VB(PRPArray[0].RESPONSE, temp);
+            sentenceArray[1] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + verbArray[1].RP + locArray[0] + ".";
+            temp = verbArray[2].VB + "Verb";
+            verb = conjugate_VB(PRPArray[0].RESPONSE, temp);
+            sentenceArray[2] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + verbArray[2].RP + locArray[0] + ".";
+            temp = verbArray[3].VB + "Verb";
+            verb = conjugate_VB(PRPArray[0].RESPONSE, temp);
+            sentenceArray[3] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + verbArray[3].RP + locArray[0] + ".";
         } else {
-            vehicleArray = [""];
+            sentence = capitalize(verb) + " " + PRPArray[0].PRP + " " + verbArray[1].VB + verbArray[1].RP + locArray[0] + "?";
+            verb = conjugate_VB(PRPArray[0].RESPONSE, "doVerb");
+            document.getElementById("grammarCheck").value = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't " + verbArray[1].VB + verbArray[1].RP + locArray[0] + ".";
+            sentenceArray[0] = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't " + verbArray[0].VB + verbArray[0].RP + locArray[0] + ".";
+            sentenceArray[1] = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't " + verbArray[1].VB + verbArray[1].RP + locArray[0] + ".";
+            sentenceArray[2] = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't " + verbArray[2].VB + verbArray[2].RP + locArray[0] + ".";
+            sentenceArray[3] = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't " + verbArray[3].VB + verbArray[3].RP + locArray[0] + ".";
         }
-        shuffleArray(vehicleArray);
-        shuffleArray(destinationArray);
-        answerArray = ["&#x2705;", "&#x274C;"]; // YES or NO
-        shuffleArray(answerArray);
-        document.getElementById("g0r0d1").innerHTML = answerArray[0];
-        if (pronounArray[0] == "you" || pronounArray[0] == "they") {
-            document.getElementById("g0r0d0").innerHTML = "Do " + pronounArray[0] + " " + verbArray[0] + " " + vehicleArray[0] + " " + destinationArray[0] + "?";
-        } else {
-            document.getElementById("g0r0d0").innerHTML = "Does " + pronounArray[0] + " " + verbArray[0] + " " + vehicleArray[0] + " " + destinationArray[0] + "?";
-        }
-        if (answerArray[0] == "&#x274C;") { // if NO
-            vehicleAnswer = ["on foot", "scooter", "motorcycle", "car" , "bus", "bicycle", "MRT", "train", "taxi", "high-speed rail"];
-            shuffleArray(vehicleAnswer);
-            switch(vehicleAnswer[0]){
-                case "on foot":
-                    vehicleAnswerText1 = "walk";
-                    vehicleAnswerText2 = "";
-                    break;
-                case "scooter":
-                    vehicleAnswerText1 = "ride";
-                    vehicleAnswerText2 = "a scooter";
-                    break;
-                case "motorcycle":
-                    vehicleAnswerText1 = "ride";
-                    vehicleAnswerText2 = "a motorcycle";
-                    break;
-                case "car":
-                    vehicleAnswerText1 = "drive";
-                    vehicleAnswerText2 = "a car";
-                    break;
-                case "bus":
-                    vehicleAnswerText1 = "take";
-                    vehicleAnswerText2 = "a bus";
-                    break;
-                case "bicycle":
-                    vehicleAnswerText1 = "ride";
-                    vehicleAnswerText2 = "a bicycle";
-                    break;
-                case "MRT":
-                    vehicleAnswerText1 = "take";
-                    vehicleAnswerText2 = "the MRT";
-                    break;
-                case "train":
-                    vehicleAnswerText1 = "take";
-                    vehicleAnswerText2 = "a train";
-                    break;
-                case "taxi":
-                    vehicleAnswerText1 = "take";
-                    vehicleAnswerText2 = "a taxi";
-                    break;
-                case "high-speed rail":
-                    vehicleAnswerText1 = "take";
-                    vehicleAnswerText2 = "the high-speed rail";
-                    
-                    break;
-                default:
-                    vehicleAnswerText1 = "";
-                    vehicleAnswerText2 = "";
-                    break;
-            }
-            document.getElementById("g0r0d5").innerHTML = '<img src="Level 4/images/'+vehicleAnswer[0]+'.png" />';
-            switch(pronounArray[0]) {
-                case "you":
-                    sampleAnswer1 = "No, we don't.";
-                    document.getElementById("g0r3d0").innerHTML = "How do you get " + destinationArray[0] + "?";
-                    sampleAnswer2 = "We" + " " + vehicleAnswerText1 + " " + vehicleAnswerText2 + " " + destinationArray[0] + ".";
-                    break;
-                case "they":
-                    sampleAnswer1 = "No, they don't.";
-                    document.getElementById("g0r3d0").innerHTML = "How do they get " + destinationArray[0] + "?";
-                    sampleAnswer2 = "They" + " " + vehicleAnswerText1 + " " + vehicleAnswerText2 + " " + destinationArray[0] + ".";
-                    break;
-                default:
-                    sampleAnswer1 = "No, " + pronounArray[0] + " doesn't.";
-                    document.getElementById("g0r3d0").innerHTML = "How does " + pronounArray[0] + " get " + destinationArray[0] + "?";
-                    var capitalized = pronounArray[0].charAt(0).toUpperCase() + pronounArray[0].slice(1);
-                    sampleAnswer2 = capitalized + " " + vehicleAnswerText1 + "s " + vehicleAnswerText2 + " " + destinationArray[0] + ".";
-                    break;
-            }
-        } else { // if YES
-            document.getElementById("g0r0d5").innerHTML = "";
-            switch(pronounArray[0]) {
-                case "you":
-                    sampleAnswer1 = "Yes, we do.";
-                    document.getElementById("g0r3d0").innerHTML = "How do you get " + destinationArray[0] + "?";
-                    sampleAnswer2 = "We" + " " + verbArray[0] + " " + vehicleArray[0]+ " " + destinationArray[0] + ".";
-                    break;
-                case "they":
-                    sampleAnswer1 = "Yes, they do.";
-                    document.getElementById("g0r3d0").innerHTML = "How do you get " + destinationArray[0] + "?";
-                    sampleAnswer2 = "They" + " " + verbArray[0] + " " + vehicleArray[0]+ " " + destinationArray[0] + ".";
-                    break;
-                default:
-                    sampleAnswer1 = "Yes, " + pronounArray[0] + " does.";
-                    document.getElementById("g0r3d0").innerHTML = "How does " + pronounArray[0] + " get " + destinationArray[0] + "?";
-                    var capitalized = pronounArray[0].charAt(0).toUpperCase() + pronounArray[0].slice(1);
-                    sampleAnswer2 = capitalized + " " + verbArray[0] + "s " + vehicleArray[0] + " " + destinationArray[0] + ".";
-                    break;
-            }
-        }
-        document.getElementById("g0r1d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" />';
-        document.getElementById("g0r1d1").align = "left";
-        document.getElementById("g0r1d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar1()">Example</button>';
-        document.getElementById("g0r4d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput2" />';
-        document.getElementById("g0r4d1").align = "left";
-        document.getElementById("g0r4d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar2()">Example</button>';
+        setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Review 1") {
