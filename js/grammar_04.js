@@ -90,34 +90,30 @@ function g_04(userInput){
         setGrammar(q1Array[0]);
         currentUnit = "Review 1";
     } else if (userInput == "Unit 4") {
-        q1Array = [({verb:'exercise', object:'', pic:'<img src="Level 4/images/exercise.png" />'}), ({verb:'read', object:'the newspaper', pic:'<img src="Level 4/images/read the newspaper.png" />'}), ({verb:'take', object:'a nap', pic:'<img src="Level 4/images/take a nap.png" />'}), ({verb:'surf', object:'the Net', pic:'<img src="Level 4/images/surf the Net.png" />'}), ({verb:'keep', object:'a diary', pic:'<img src="Level 4/images/keep my diary.png" />'}), ({verb:'have', object:'a snack', pic:'<img src="Level 4/images/have a snack.png" />'}), ({verb:'play', object:'the piano', pic:'<img src="Level 4/images/play the piano.png" />'}), ({verb:'play', object:'the violin', pic:'<img src="Level 4/images/play the violin.png" />'}), ({verb:'walk', object:'the dog', pic:'<img src="Level 4/images/walk the dog.png" />'})];
-        pronounArray = ["you", "they", "he", "she"];
+        randomG = randG(2);
+        PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "you", RESPONSE: "we"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
+        shuffleArray(PRPArray);
+        verbArray = [{VB:'exercise', RP:'', pic:"Level 4/images/exercise.png"}, {VB:'read', RP:'the newspaper', pic:"Level 4/images/read the newspaper.png"}, {VB:'take', RP:'a nap', pic:"Level 4/images/take a nap.png"}, {VB:'surf', RP:'the Net', pic:"Level 4/images/surf the Net.png"}, {VB:'keep', RP:'a diary', pic:"Level 4/images/keep my diary.png"}, {VB:'have', RP:'a snack', pic:"Level 4/images/have a snack.png"}, {VB:'play', RP:'the piano', pic:"Level 4/images/play the piano.png"}, {VB:'play', RP:'the violin', pic:"Level 4/images/play the violin.png"}, {VB:'walk', RP:'the dog', pic:"Level 4/images/walk the dog.png"}];
+        shuffleArray(verbArray);
+        document.getElementById("gPic").src = verbArray[0].pic;
         timeArray = ["morning", "afternoon", "evening"];
-        shuffleArray(q1Array);
-        shuffleArray(pronounArray);
         shuffleArray(timeArray);
-        if (pronounArray[0] == "you" || pronounArray[0] == "they") {
-            document.getElementById("g0r0d0").innerHTML = "What do " + pronounArray[0] + " do every " + timeArray[0] + "?";
-            if (pronounArray[0] == "you") {
-                sampleAnswer = "I " + q1Array[0].verb + " " + q1Array[0].object + " every " + timeArray[0] + ".";
-            } else {
-                sampleAnswer = "They " + q1Array[0].verb + " " + q1Array[0].object + " every " + timeArray[0] + ".";
-            }
-        } else {
-            document.getElementById("g0r0d0").innerHTML = "What does " + pronounArray[0] + " do every " + timeArray[0] + "?";
-            if (q1Array[0].verb == "have") {
-                answerVerb = "has";
-            } else {
-                answerVerb = q1Array[0].verb + "s";
-            }
-            var capitalized = pronounArray[0].charAt(0).toUpperCase() + pronounArray[0].slice(1);
-            sampleAnswer = capitalized + " " + answerVerb + " " + q1Array[0].object + " every " + timeArray[0] + ".";
-        }
-        document.getElementById("g0r0d5").innerHTML = q1Array[0].pic;
-        document.getElementById("g0r2d0").colspan = "3";
-        document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
-        document.getElementById("g0r3d0").colspan = "3";
-        document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
+        verb = conjugate_VB(PRPArray[0].PRP, "doVerb");
+        sentence = "What " + verb + " " + PRPArray[0].PRP + " do every " + timeArray[0] + "?";
+        temp = verbArray[0].VB + "Verb";
+        verb = conjugate_VB(PRPArray[0].RESPONSE, temp);
+        document.getElementById("grammarCheck").value = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[0].RP + " every " + timeArray[0] + ".";
+        sentenceArray[0] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[0].RP + " every " + timeArray[0] + ".";
+        temp = verbArray[1].VB + "Verb";
+        verb = conjugate_VB(PRPArray[0].RESPONSE, temp);
+        sentenceArray[1] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[1].RP + " every " + timeArray[0] + ".";
+        temp = verbArray[2].VB + "Verb";
+        verb = conjugate_VB(PRPArray[0].RESPONSE, temp);
+        sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[2].RP + " every " + timeArray[0] + ".";
+        temp = verbArray[3].VB + "Verb";
+        verb = conjugate_VB(PRPArray[0].RESPONSE, temp);
+        sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[3].RP + " every " + timeArray[0] + ".";
+        setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 5") {
