@@ -141,11 +141,12 @@ function g_07(userInput){
         verbArray = [{VB:"wake", VBD:"woke", RP:" up", pic:"Level 7/images/wake up.png"}, {VB:"take", VBD:"took", RP:" a shower", pic:"Level 7/images/take a shower.png"}, {VB:"get", VBD:"got", RP:" dressed", pic:"Level 7/images/get dressed.png"}, {VB:"shave", VBD:"shaved", RP:" face", pic:"Level 7/images/shave my face.png"},  {VB:"blow-dry", VBD:"blow-dried", RP:" hair", pic:"Level 7/images/blow-dry my hair.png"}, {VB:"put", VBD:"put", RP:" on makeup", pic:"Level 7/images/put on makeup.png"}, {VB:"set", VBD:"set", RP:" the table", pic:"Level 7/images/set the table.png"}, {VB:"feed", VBD:"fed", RP:" the dog", pic:"Level 7/images/feed the dog.png"}];
         shuffleArray(verbArray);
         document.getElementById("gPic").src = verbArray[0].pic;
-        if (verbArray[0].VB == "shave" || verbArray[0].VB == "blow-dry"){verbArray[0].RP = " " + PRPArray[0].PRP$ + verbArray[0].RP;}
-        if (verbArray[1].VB == "shave" || verbArray[1].VB == "blow-dry"){verbArray[1].RP = " " + PRPArray[0].PRP$ + verbArray[1].RP;}
-        if (verbArray[2].VB == "shave" || verbArray[2].VB == "blow-dry"){verbArray[2].RP = " " + PRPArray[0].PRP$ + verbArray[2].RP;}
-        if (verbArray[3].VB == "shave" || verbArray[3].VB == "blow-dry"){verbArray[3].RP = " " + PRPArray[0].PRP$ + verbArray[3].RP;}
-        if (verbArray[4].VB == "shave" || verbArray[4].VB == "blow-dry"){verbArray[4].RP = " " + PRPArray[0].PRP$ + verbArray[4].RP;}
+        PRP$List = ["shave", "blow-dry"];
+        if (PRP$List.includes(verbArray[0].VB)){verbArray[0].RP = " " + PRPArray[0].PRP$ + verbArray[0].RP;}
+        if (PRP$List.includes(verbArray[1].VB)){verbArray[1].RP = " " + PRPArray[0].PRP$ + verbArray[1].RP;}
+        if (PRP$List.includes(verbArray[2].VB)){verbArray[2].RP = " " + PRPArray[0].PRP$ + verbArray[2].RP;}
+        if (PRP$List.includes(verbArray[3].VB)){verbArray[3].RP = " " + PRPArray[0].PRP$ + verbArray[3].RP;}
+        if (PRP$List.includes(verbArray[4].VB)){verbArray[4].RP = " " + PRPArray[0].PRP$ + verbArray[4].RP;}
         if (randomG == 0){
             randomG = randG(2);
             if (randomG == 0){

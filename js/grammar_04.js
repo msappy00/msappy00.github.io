@@ -117,59 +117,56 @@ function g_04(userInput){
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 5") {
-        vocArray = [({verb:'eating', pic:'<img src="Level 4/images/eat.png" />'}), ({verb:'drinking', pic:'<img src="Level 4/images/drink.png" />'}), ({verb:'cooking', pic:'<img src="Level 4/images/cook.png" />'}), ({verb:'laughing', pic:'<img src="Level 4/images/laugh.png" />'}), ({verb:'drawing', pic:'<img src="Level 4/images/draw.png" />'}), ({verb:'sweeping', pic:'<img src="Level 4/images/sweep.png" />'}), ({verb:'studying', pic:'<img src="Level 4/images/study.png" />'}), ({verb:'driving', pic:'<img src="Level 4/images/drive.png" />'}), ({verb:'writing', pic:'<img src="Level 4/images/write.png" />'}), ({verb:'sleeping', pic:'<img src="Level 4/images/sleep.png" />'}), ({verb:'playing', pic:'<img src="Level 4/images/play.png" />'})];
-        shuffleArray(vocArray);
-        document.getElementById("gPic").innerHTML = vocArray[0].pic;
-        pronounArray = ([{value: "you", verb: "are", qp: "I", qv: "am"}, {value: "they", verb: "are", qp: "they", qv: "are"}, {value: "he", verb: "is", qp: "he", qv: "is"}, {value: "she", verb: "is", qp: "she", qv: "is"}]);
-        shuffleArray(pronounArray);
-        sentence = "What " + pronounArray[randomG].verb + " " + pronounArray[randomG].value + " doing?";
-        document.getElementById("grammarCheck").value = pronounArray[randomG].qp.charAt(0).toUpperCase() + pronounArray[randomG].qp.slice(1) + " " + pronounArray[randomG].qv + " " + vocArray[0].verb + ".";
-        document.getElementById("g0r1d0").textContent = pronounArray[0].qp.charAt(0).toUpperCase() + pronounArray[0].qp.slice(1) + " " + pronounArray[0].qv + " " + vocArray[0].verb + ".";
-        document.getElementById("g0r1d2").textContent = pronounArray[1].qp.charAt(0).toUpperCase() + pronounArray[1].qp.slice(1) + " " + pronounArray[1].qv + " " + vocArray[0].verb + ".";
-        document.getElementById("g0r2d0").textContent = pronounArray[2].qp.charAt(0).toUpperCase() + pronounArray[2].qp.slice(1) + " " + pronounArray[2].qv + " " + vocArray[0].verb + ".";
-        document.getElementById("g0r2d2").textContent = pronounArray[3].qp.charAt(0).toUpperCase() + pronounArray[3].qp.slice(1) + " " + pronounArray[3].qv + " " + vocArray[0].verb + ".";
+        verbArray = [{VBG:'eating', pic:"Level 4/images/eat.png"}, {VBG:'drinking', pic:"Level 4/images/drink.png"}, {VBG:'cooking', pic:"Level 4/images/cook.png"}, {VBG:'laughing', pic:"Level 4/images/laugh.png"}, {VBG:'drawing', pic:"Level 4/images/draw.png"}, {VBG:'sweeping', pic:"Level 4/images/sweep.png"}, {VBG:'studying', pic:"Level 4/images/study.png"}, {VBG:'driving', pic:"Level 4/images/drive.png"}, {VBG:'writing', pic:"Level 4/images/write.png"}, {VBG:'sleeping', pic:"Level 4/images/sleep.png"}, {VBG:'playing', pic:"Level 4/images/play.png"}];
+        shuffleArray(verbArray);
+        document.getElementById("gPic").src = verbArray[0].pic;
+        PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "you", RESPONSE: "we"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}, {PRP:"Lumi", RESPONSE: "Lumi"}];
+        shuffleArray(PRPArray);
+        verb = conjugate_VB(PRPArray[0].PRP, "beVerb");
+        sentence = "What " + verb + " " + PRPArray[0].PRP + " doing?";
+        verb = conjugate_VB(PRPArray[0].RESPONSE, "beVerb");
+        document.getElementById("grammarCheck").value = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[0].VBG + ".";
+        sentenceArray[0] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[0].VBG + ".";
+        sentenceArray[1] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[1].VBG + ".";
+        sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[2].VBG + ".";
+        sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[3].VBG + ".";
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 6") {
-        q1Array = [({verb:'washing', obj:'face', pic:'<img src="Level 4/images/wash my face.png" />'}), ({verb:'brushing', obj:'teeth', pic:'<img src="Level 4/images/brush my teeth.png" />'}), ({verb:'combing', obj:'hair', pic:'<img src="Level 4/images/comb my hair.png" />'}), ({verb:'making', obj:'bed', pic:'<img src="Level 4/images/make my bed.png" />'}), ({verb:'eating', obj:' breakfast', pic:'<img src="Level 4/images/eat breakfast.png" />'}), ({verb:'eating', obj:' lunch', pic:'<img src="Level 4/images/eat lunch.png" />'}), ({verb:'eating', obj:' dinner', pic:'<img src="Level 4/images/eat dinner.png" />'}), ({verb:'washing', obj:' the dishes', pic:'<img src="Level 4/images/wash the dishes.png" />'})];
-        pronounArray = [({pro:'you ', poss:' your '}), ({pro:'they ', poss:' their '}), ({pro:'he ', poss:' his '}), ({pro:'she ', poss:' her '})];
-        answerArray = ["Yes", "No"];
-        shuffleArray(q1Array);
-        shuffleArray(pronounArray);
-        shuffleArray(answerArray);
-        if (q1Array[0].verb == "eating" || q1Array[0].obj == " the dishes") {
-            pronounArray[0].poss = '';
-        }
-        if (pronounArray[0].pro == "you " || pronounArray[0].pro == "they ") {
-            document.getElementById("g0r0d0").innerHTML = "Are " + pronounArray[0].pro + q1Array[0].verb + pronounArray[0].poss + q1Array[0].obj + "?";
+        randomG = randG(2);
+        PRPArray = [{PRP: "you", P1:"your", RESPONSE: "I", P2:"my"}, {PRP: "you", P1:"your", RESPONSE: "we", P2:"our"}, {PRP: "they", P1:"their", RESPONSE: "they", P2:"their"}, {PRP: "he", P1:"his", RESPONSE: "he", P2:"his"}, {PRP: "she", P1:"her", RESPONSE: "she", P2:"her"}];
+        shuffleArray(PRPArray);
+        verbArray = [{VBG:'washing', RP:'face', pic:"Level 4/images/wash my face.png"}, {VBG:'brushing', RP:'teeth', pic:"Level 4/images/brush my teeth.png"}, {VBG:'combing', RP:'hair', pic:"Level 4/images/comb my hair.png"}, {VBG:'making', RP:'bed', pic:"Level 4/images/make my bed.png"}, {VBG:'eating', RP:' breakfast', pic:"Level 4/images/eat breakfast.png"}, {VBG:'eating', RP:' lunch', pic:"Level 4/images/eat lunch.png"}, {VBG:'eating', RP:' dinner', pic:"Level 4/images/eat dinner.png"}, {VBG:'washing', RP:' the dishes', pic:"Level 4/images/wash the dishes.png"}];
+        shuffleArray(verbArray);
+        document.getElementById("gPic").src = verbArray[0].pic;
+        verb = conjugate_VB(PRPArray[0].PRP, "beVerb");
+        PRP$List = ["face", "teeth", "hair", "bed"];
+        if (PRP$List.includes(verbArray[0].RP)){temp1 = " " + PRPArray[0].P1 + " " + verbArray[0].RP;}
+        if (PRP$List.includes(verbArray[1].RP)){temp2 = " " + PRPArray[0].P1 + " " + verbArray[1].RP;}
+        if (PRP$List.includes(verbArray[0].RP)){verbArray[0].RP = " " + PRPArray[0].P2 + " " + verbArray[0].RP;}
+        if (PRP$List.includes(verbArray[1].RP)){verbArray[1].RP = " " + PRPArray[0].P2 + " " + verbArray[1].RP;}
+        if (PRP$List.includes(verbArray[2].RP)){verbArray[2].RP = " " + PRPArray[0].P2 + " " + verbArray[2].RP;}
+        if (PRP$List.includes(verbArray[3].RP)){verbArray[3].RP = " " + PRPArray[0].P2 + " " + verbArray[3].RP;}
+        if (PRP$List.includes(verbArray[4].RP)){verbArray[4].RP = " " + PRPArray[0].P2 + " " + verbArray[4].RP;}
+        if (randomG < 1){
+            sentence = capitalize(verb) + " " + PRPArray[0].PRP + " " + verbArray[0].VBG + " " + temp1 + "?";
+            verb = conjugate_VB(PRPArray[0].RESPONSE, "beVerb");
+            document.getElementById("grammarCheck").value = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " " + verbArray[0].VBG + verbArray[0].RP + ".";
+            sentenceArray[0] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " " + verbArray[0].VBG + verbArray[0].RP + ".";
+            sentenceArray[1] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " " + verbArray[1].VBG + verbArray[1].RP + ".";
+            sentenceArray[2] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " " + verbArray[2].VBG + verbArray[2].RP + ".";
+            sentenceArray[3] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " " + verbArray[3].VBG + verbArray[3].RP + ".";
         } else {
-            document.getElementById("g0r0d0").innerHTML = "Is " + pronounArray[0].pro + q1Array[0].verb + pronounArray[0].poss + q1Array[0].obj + "?";
+            sentence = capitalize(verb) + " " + PRPArray[0].PRP + " " + verbArray[1].VBG + " " + temp2 + "?";
+            verb = conjugate_VB(PRPArray[0].RESPONSE, "beVerb");
+            document.getElementById("grammarCheck").value = "No, " + PRPArray[0].RESPONSE + " " + verb + " not " + verbArray[1].VBG + verbArray[1].RP + ".";
+            sentenceArray[0] = "No, " + PRPArray[0].RESPONSE + " " + verb + " not " + verbArray[1].VBG + verbArray[1].RP + ".";
+            sentenceArray[1] = "No, " + PRPArray[0].RESPONSE + " " + verb + " not " + verbArray[2].VBG + verbArray[2].RP + ".";
+            sentenceArray[2] = "No, " + PRPArray[0].RESPONSE + " " + verb + " not " + verbArray[3].VBG + verbArray[3].RP + ".";
+            sentenceArray[3] = "No, " + PRPArray[0].RESPONSE + " " + verb + " not " + verbArray[4].VBG + verbArray[4].RP + ".";
         }
-        if (answerArray[0] == "Yes") {
-            document.getElementById("g0r0d5").innerHTML = q1Array[0].pic;
-            if (pronounArray[0].pro == "you ") {
-                sampleAnswer = "Yes, I am.";
-            } else if (pronounArray[0].pro == "they ") {
-                sampleAnswer = "Yes, they are.";
-            } else {
-                sampleAnswer = "Yes, " + pronounArray[0].pro + "is.";
-            }
-        } else {
-            document.getElementById("g0r0d5").innerHTML = q1Array[1].pic;
-            if (pronounArray[0].pro == "you ") {
-                sampleAnswer = "No, I am not.";
-            } else if (pronounArray[0].pro == "they ") {
-                sampleAnswer = "No, they aren't.";
-            } else {
-                sampleAnswer = "No, " + pronounArray[0].pro + "isn't.";
-            }
-        }
-        
-        document.getElementById("g0r2d0").colspan = "3";
-        document.getElementById("g0r2d0").innerHTML = '<input style="width:500px" type="text" id="grammarInput" autofocus />';
-        document.getElementById("g0r3d0").colspan = "3";
-        document.getElementById("g0r3d1").innerHTML = '<button class="w3-button w3-blue w3-round" onclick="showGrammar()">Example</button>';
+        setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Review 2") {
