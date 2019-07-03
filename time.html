@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Time</title>
-    <!-- Required meta tags -->
+    <!-- Requiorange meta tags -->
     <meta charset="utf-8">
     <style>
         body {
@@ -16,15 +16,143 @@
         h1 {
             font-size: 6em;
         }
+        .grid-container {
+            display: grid;
+            margin-left: 50px;
+            margin-top: 50px;
+            grid-column-gap: 50px;
+            grid-template-columns: 70px 200px 140px 200px;
+            min-height: 200px;
+        }
     </style>
 </head>
 <body>
-    <p><h1 id="time"></h1></p>
+    <div class="grid-container">
+        <table class='h1'>
+            <tr>
+                <th><svg width="50" height="50"><rect id='h11' x="0" y="0" width="50" height="50" stroke="darkorange" stroke-width="5" fill="orange" /></svg></th></tr>
+            <tr>
+                <th><svg width="50" height="50"><rect id='h12' x="0" y="0" width="50" height="50" stroke="darkorange" stroke-width="5" fill="orange" /></svg></th>
+            </tr>
+            <tr>
+                <th><svg width="50" height="50"><rect id='h13' x="0" y="0" width="50" height="50" stroke="darkorange" stroke-width="5" fill="orange" /></svg></th>
+            </tr>
+        </table>
+        <table class='h2'>
+            <tr>
+                <th><svg width="50" height="50"><rect id='h21' x="0" y="0" width="50" height="50" stroke="darkgreen" stroke-width="5" fill="green" /></svg></th>
+                <th><svg width="50" height="50"><rect id='h22' x="0" y="0" width="50" height="50" stroke="darkgreen" stroke-width="5" fill="green" /></svg></th>
+                <th><svg width="50" height="50"><rect id='h23' x="0" y="0" width="50" height="50" stroke="darkgreen" stroke-width="5" fill="green" /></svg></th>
+            </tr>
+            <tr>
+                <th><svg width="50" height="50"><rect id='h24' x="0" y="0" width="50" height="50" stroke="darkgreen" stroke-width="5" fill="green" /></svg></th>
+                <th><svg width="50" height="50"><rect id='h25' x="0" y="0" width="50" height="50" stroke="darkgreen" stroke-width="5" fill="green" /></svg></th>
+                <th><svg width="50" height="50"><rect id='h26' x="0" y="0" width="50" height="50" stroke="darkgreen" stroke-width="5" fill="green" /></svg></th>
+            </tr>
+            <tr>
+                <th><svg width="50" height="50"><rect id='h27' x="0" y="0" width="50" height="50" stroke="darkgreen" stroke-width="5" fill="green" /></svg></th>
+                <th><svg width="50" height="50"><rect id='h28' x="0" y="0" width="50" height="50" stroke="darkgreen" stroke-width="5" fill="green" /></svg></th>
+                <th><svg width="50" height="50"><rect id='h29' x="0" y="0" width="50" height="50" stroke="darkgreen" stroke-width="5" fill="green" /></svg></th>
+            </tr>
+        </table>
+        <table class='m1'>
+            <tr>
+                <th><svg width="50" height="50"><rect id='m11' x="0" y="0" width="50" height="50" stroke="darkblue" stroke-width="5" fill="blue" /></svg></th>
+                <th><svg width="50" height="50"><rect id='m12' x="0" y="0" width="50" height="50" stroke="darkblue" stroke-width="5" fill="blue" /></svg></th>
+            </tr>
+            <tr>
+                <th><svg width="50" height="50"><rect id='m13' x="0" y="0" width="50" height="50" stroke="darkblue" stroke-width="5" fill="blue" /></svg></th>
+                <th><svg width="50" height="50"><rect id='m14' x="0" y="0" width="50" height="50" stroke="darkblue" stroke-width="5" fill="blue" /></svg></th>
+            </tr>
+            <tr>
+                <th><svg width="50" height="50"><rect id='m15' x="0" y="0" width="50" height="50" stroke="darkblue" stroke-width="5" fill="blue" /></svg></th>
+                <th><svg width="50" height="50"><rect id='m16' x="0" y="0" width="50" height="50" stroke="darkblue" stroke-width="5" fill="blue" /></svg></th>
+            </tr>
+        </table>
+        <table class='m2'>
+                <tr>
+                    <th><svg width="50" height="50"><rect id='m21' x="0" y="0" width="50" height="50" stroke="darkorange" stroke-width="5" fill="orange" /></svg></th>
+                    <th><svg width="50" height="50"><rect id='m22' x="0" y="0" width="50" height="50" stroke="darkorange" stroke-width="5" fill="orange" /></svg></th>
+                    <th><svg width="50" height="50"><rect id='m23' x="0" y="0" width="50" height="50" stroke="darkorange" stroke-width="5" fill="orange" /></svg></th>
+                </tr>
+                <tr>
+                    <th><svg width="50" height="50"><rect id='m24' x="0" y="0" width="50" height="50" stroke="darkorange" stroke-width="5" fill="orange" /></svg></th>
+                    <th><svg width="50" height="50"><rect id='m25' x="0" y="0" width="50" height="50" stroke="darkorange" stroke-width="5" fill="orange" /></svg></th>
+                    <th><svg width="50" height="50"><rect id='m26' x="0" y="0" width="50" height="50" stroke="darkorange" stroke-width="5" fill="orange" /></svg></th>
+                </tr>
+                <tr>
+                    <th><svg width="50" height="50"><rect id='m27' x="0" y="0" width="50" height="50" stroke="darkorange" stroke-width="5" fill="orange" /></svg></th>
+                    <th><svg width="50" height="50"><rect id='m28' x="0" y="0" width="50" height="50" stroke="darkorange" stroke-width="5" fill="orange" /></svg></th>
+                    <th><svg width="50" height="50"><rect id='m29' x="0" y="0" width="50" height="50" stroke="darkorange" stroke-width="5" fill="orange" /></svg></th>
+                </tr>
+            </table>
+    </div>
+    
     <script type='text/javascript'>
+
+        function shuffleArray(array) {
+            for (var i = array.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+            return array;
+        };
+
         setInterval(function(){
             d = new Date();
-            n = d.toLocaleTimeString([], {hour: 'numeric', minute:'2-digit'});
-            document.getElementById("time").textContent = n;     
+            hour = d.getHours();
+            if (hour == 0){
+                hour = 12;
+            } else if (hour > 12){
+                hour -= 12;
+            }
+            hour1 = Math.floor(hour/10);
+            hour2 = hour - (hour1*10);
+            min = d.getMinutes();
+            min1 = Math.floor(min/10);
+            min2 = min - (min1*10);
+            hour1array = ['h11', 'h12', 'h13'];
+            shuffleArray(hour1array);
+            hour2array = ['h21', 'h22', 'h23', 'h24', 'h25', 'h26', 'h27', 'h28', 'h29'];
+            shuffleArray(hour2array);
+            min1array = ['m11', 'm12', 'm13', 'm14', 'm15', 'm16'];
+            shuffleArray(min1array);
+            min2array = ['m21', 'm22', 'm23', 'm24', 'm25', 'm26', 'm27', 'm28', 'm29'];
+            shuffleArray(min2array);
+            for (i=0; i<hour1; i++){
+                document.getElementById(hour1array[i]).style.stroke="darkorange";
+                document.getElementById(hour1array[i]).style.fill="orange"; 
+            }
+            for (i=hour1; i<hour1array.length; i++){
+                document.getElementById(hour1array[i]).style.stroke="gray";
+                document.getElementById(hour1array[i]).style.fill="gray";
+            }
+            for (i=0; i<hour2; i++){
+                document.getElementById(hour2array[i]).style.stroke="darkgreen";
+                document.getElementById(hour2array[i]).style.fill="green"; 
+            }
+            for (i=hour2; i<hour2array.length; i++){
+                document.getElementById(hour2array[i]).style.stroke="gray";
+                document.getElementById(hour2array[i]).style.fill="gray";
+            }
+            for (i=0; i<min1; i++){
+                document.getElementById(min1array[i]).style.stroke="darkblue";
+                document.getElementById(min1array[i]).style.fill="blue";
+            }
+            for (i=min1; i<min1array.length; i++){
+                document.getElementById(min1array[i]).style.stroke="gray";
+                document.getElementById(min1array[i]).style.fill="gray";
+            }
+            for (i=0; i<min2; i++){
+                document.getElementById(min2array[i]).style.stroke="darkorange";
+                document.getElementById(min2array[i]).style.fill="orange";
+            }
+            for (i=min2; i<min2array.length; i++){
+                document.getElementById(min2array[i]).style.stroke="gray";
+                document.getElementById(min2array[i]).style.fill="gray";
+            }
         }, 5000);
     </script>
 </body>
