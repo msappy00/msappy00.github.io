@@ -40,6 +40,7 @@
     <script src="js/grammar_02.js"></script>
     <script src="js/grammar_03.js"></script>
     <script src="js/grammar_04.js"></script>
+    <script src="js/grammar_05.js"></script>
     <script src="js/grammar_07.js"></script>
     <script src="js/liveabc_phonics.js"></script>
     <script src="js/liveabc_vocabQ.js"></script>
@@ -152,8 +153,8 @@
                     <progress class=" w3-hide-small w3-hide-medium" id="vocProg" value=(array_i/array.length*100) max="100" style="display:block; width: 100%"></progress>
                     <button class="w3-button w3-blue w3-round" style="height:50px" onClick="speak(array[array_i]);"><i class="material-icons">play_arrow</i></button>
                     <button class="w3-button w3-blue w3-round" style="height:50px; margin: 10px" id="next" onclick="vArraySlide();">NEXT</button>
-                    <input class="w3-input w3-border w3-round w3-hide-small w3-hide-medium" type="text" style="text-align: center; font-size: 4em" id="spellCheck" autocomplete="off" autofocus maxlength="20" placeholder="Spell It!" />
-                    <input class="w3-input w3-border w3-round w3-hide-large" type="text" style="text-align: center; font-size: 3em" id="mSpellCheck" autocomplete="off" autofocus maxlength="20" placeholder="Spell It!" />
+                    <input class="w3-input w3-border w3-round w3-hide-small w3-hide-medium" type="text" style="text-align: center; font-size: 4em" id="spellCheck" autocomplete="off" autofocus maxlength="20" placeholder="Spell It!" value="X" />
+                    <input class="w3-input w3-border w3-round w3-hide-large" type="text" style="text-align: center; font-size: 3em" id="mSpellCheck" autocomplete="off" autofocus maxlength="20" placeholder="Spell It!" value="X" />
                     <h3 id="vocab_links" class="w3-hide-small w3-hide-medium"></h3>
                     <div id="vocab_lesson" class="w3-hide-small w3-hide-medium"></div>
                 </div>

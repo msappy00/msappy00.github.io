@@ -107,11 +107,31 @@ function vArraySlide() {
         mSpellCheck.value = "";
         spellCheck.value = "";
         array_i++;
-        if (array_i > (array.length - 1)) {
+        if (array_i == (array.length - 1)) {
+            document.getElementById("next").textContent = "AGAIN";
+            if (level_id == "Starter") {
+                document.getElementById("spellCheck").value = "f";
+                document.getElementById("mSpellCheck").value = "f";
+            } else {
+                document.getElementById("spellCheck").value = "finished";
+                document.getElementById("mSpellCheck").value = "finished";
+            }  
+        } else if (array_i > (array.length - 1)) {
+            document.getElementById("next").textContent = "NEXT";
+            document.getElementById("spellCheck").value = "";
+            document.getElementById("mSpellCheck").value = "";
             array_i = 0;
             shuffleArray(array);
+        } else {
+            document.getElementById("next").textContent = "NEXT";
+            document.getElementById("spellCheck").value = "";
+            document.getElementById("mSpellCheck").value = "";
         }
-        document.getElementById("vocProg").value = array_i/array.length*100;
+        if (array_i == (array.length - 1)) {
+            document.getElementById("vocProg").value = 100; 
+        } else {
+           document.getElementById("vocProg").value = array_i/array.length*100; 
+        }
         if (level_id == "Level 9" || level_id == "Level 10" || level_id == "Level 11" || level_id == "Level 12") {
             document.getElementById("current_vocab").src = 'images/blank.png';
         }

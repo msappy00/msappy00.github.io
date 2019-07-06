@@ -794,6 +794,7 @@ function setVocab(userInput){
     }
     
     shuffleArray(array);
+    array.push("finished");
     document.getElementById("vocab_links").innerHTML = links;
     document.getElementById("vocab_lesson").innerHTML = vocabLesson;
     if (level_id == "Level 9" || level_id == "Level 10" || level_id == "Level 11" || level_id == "Level 12") {

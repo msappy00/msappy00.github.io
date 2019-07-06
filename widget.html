@@ -3,7 +3,6 @@
 <head>
     <title>Widget</title>
     <meta charset="utf-8">
-    <META HTTP-EQUIV="refresh" CONTENT="900">
     <style>
     body {
         background-color: rgb(150, 150, 150);
@@ -28,9 +27,16 @@
             <iframe src="calendar.html" width="100%" height="800" style="border:none;"></iframe>
         </div>
         <div class="item3">
-                <iframe src="time.html" width="100%" height="300" style="border:none;"></iframe>
-                <script type='text/javascript' src='https://darksky.net/widget/default/22.6203,120.312/ca12/en.js?width=100%&height=400&title=Kaohsiung City, Taiwan&textColor=000000&bgColor=transparent&transparency=true&skyColor=undefined&fontFamily=Default&customFont=&units=ca&htColor=333333&ltColor=C7C7C7&displaySum=yes&displayHeader=yes'></script>
+                <div width="100%" style="align-content: center"><iframe src="time.html" width="100%" height="300" style="border:none;"></iframe></div>
+                <script id="weather" type="text/javascript" src='https://darksky.net/widget/default/22.6203,120.312/ca12/en.js?width=100%&height=400&title=Kaohsiung City, Taiwan&textColor=000000&bgColor=transparent&transparency=true&skyColor=undefined&fontFamily=Default&customFont=&units=ca&htColor=333333&ltColor=C7C7C7&displaySum=yes&displayHeader=yes'></script>
         </div>
     </div>
 </body>
+<script>
+    var src = $('#weather').attr('src');
+    setInterval(function () {
+        document.getElementById('weather').src = "";
+        document.getElementById('weather').src = src;
+    }, 900000);
+</script>
 </html>
