@@ -18,7 +18,53 @@ function g_05(userInput){
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 2") {
-        
+        randomG = randG(2);
+        PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
+        shuffleArray(PRPArray);
+        verb = conjugate_VB(PRPArray[0].PRP, "doVerb");
+        NOUNArray = [{NN: "doctor", pic: "Level 5/images/doctor.png"}, {NN: "nurse", pic: "Level 5/images/nurse.png"}, {NN: "driver", pic: "Level 5/images/driver.png"}, {NN: "police officer", pic: "Level 5/images/police officer.png"}, {NN: "firefighter", pic: "Level 5/images/firefighter.png"}, {NN: "pilot", pic: "Level 5/images/pilot.png"}, {NN: "office worker", pic: "Level 5/images/office worker.png"}, {NN: "housekeeper", pic: "Level 5/images/housekeeper.png"}, {NN: "mail carrier", pic: "Level 5/images/mail carrier.png"}];
+        shuffleArray(NOUNArray);
+        verb1 = conjugate_VB(PRPArray[0].RESPONSE, "beVerb");
+        verb2 = conjugate_VB(PRPArray[1].RESPONSE, "beVerb");
+        verb3 = conjugate_VB(PRPArray[2].RESPONSE, "beVerb");
+        verb4 = conjugate_VB(PRPArray[3].RESPONSE, "beVerb");
+        if (PRPArray[0].RESPONSE == "they") {NOUNPhrase0 = NOUNArray[0].NN + "s"}
+        else {NOUNPhrase0 = setDET(NOUNArray[0].NN) + " " + NOUNArray[0].NN}
+        if (PRPArray[1].RESPONSE == "they") {NOUNPhrase1 = NOUNArray[0].NN + "s"}
+        else {NOUNPhrase1 = setDET(NOUNArray[0].NN) + " " + NOUNArray[0].NN}
+        if (PRPArray[2].RESPONSE == "they") {NOUNPhrase2 = NOUNArray[0].NN + "s"}
+        else {NOUNPhrase2 = setDET(NOUNArray[0].NN) + " " + NOUNArray[0].NN}
+        if (PRPArray[3].RESPONSE == "they") {NOUNPhrase3 = NOUNArray[0].NN + "s"}
+        else {NOUNPhrase3 = setDET(NOUNArray[0].NN) + " " + NOUNArray[0].NN}
+        if (randomG < 1){
+            sentence = "What " + verb + " " + PRPArray[0].PRP + " do?";
+            document.getElementById("gPic").src = NOUNArray[0].pic;
+            document.getElementById("grammarCheck").value = capitalize(PRPArray[0].RESPONSE) + " " + verb1 + " " + NOUNPhrase0 + ".";
+            sentenceArray[0] = capitalize(PRPArray[0].RESPONSE) + " " + verb1 + " " + NOUNPhrase0 + ".";
+            sentenceArray[1] = capitalize(PRPArray[1].RESPONSE) + " " + verb2 + " " + NOUNPhrase1 + ".";
+            sentenceArray[2] = capitalize(PRPArray[2].RESPONSE) + " " + verb3 + " " + NOUNPhrase2 + ".";
+            sentenceArray[3] = capitalize(PRPArray[3].RESPONSE) + " " + verb4 + " " + NOUNPhrase3 + ".";
+        } else {
+            randomG = randG(2);
+            if (randomG < 1){
+                document.getElementById("gPic").src = NOUNArray[0].pic;
+                sentence = capitalize(conjugate_VB(PRPArray[0].PRP, "beVerb")) + " " + PRPArray[0].PRP + " " + NOUNPhrase0 + "?";
+                document.getElementById("grammarCheck").value = "Yes, " + PRPArray[0].RESPONSE + " " + verb1 + " " + NOUNPhrase0 + ".";
+                sentenceArray[0] = "Yes, " + PRPArray[0].RESPONSE + " " + verb1 + " " + NOUNPhrase0 + ".";
+                sentenceArray[1] = "Yes, " + PRPArray[1].RESPONSE + " " + verb2 + " " + NOUNPhrase1 + ".";
+                sentenceArray[2] = "Yes, " + PRPArray[2].RESPONSE + " " + verb3 + " " + NOUNPhrase2 + ".";
+                sentenceArray[3] = "Yes, " + PRPArray[3].RESPONSE + " " + verb4 + " " + NOUNPhrase3 + ".";
+            } else {
+                document.getElementById("gPic").src = NOUNArray[1].pic;
+                sentence = capitalize(conjugate_VB(PRPArray[0].PRP, "beVerb")) + " " + PRPArray[0].PRP + " " + NOUNPhrase0 + "?";
+                document.getElementById("grammarCheck").value = "No, " + PRPArray[0].RESPONSE + " " + verb1 + " not " + NOUNPhrase0 + ".";
+                sentenceArray[0] = "No, " + PRPArray[0].RESPONSE + " " + verb1 + " not " + NOUNPhrase0 + ".";
+                sentenceArray[1] = "No, " + PRPArray[1].RESPONSE + " " + verb2 + " not " + NOUNPhrase1 + ".";
+                sentenceArray[2] = "No, " + PRPArray[2].RESPONSE + " " + verb3 + " not " + NOUNPhrase2 + ".";
+                sentenceArray[3] = "No, " + PRPArray[3].RESPONSE + " " + verb4 + " not " + NOUNPhrase3 + ".";
+            }
+        }
+        setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 3") {
