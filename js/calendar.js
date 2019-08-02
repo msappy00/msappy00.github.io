@@ -41,11 +41,11 @@ Calendar.prototype.generateHTML = function(){
         html += '<div></div>';
     }
     for(var i = 1; i <= monthLength; i++){
-        if (i == this.date){
-        html += '<div class="today"><h2>' + i + '</h2></div>';
-        } else {
+        //if (i == this.date){
+        //html += '<div class="today"><h2>' + i + '</h2></div>';
+        //} else {
         html += '<div><h2>' + i + '</h2></div>';
-        }
+        //}
     }
     html += '</div>';
     this.html = html;
