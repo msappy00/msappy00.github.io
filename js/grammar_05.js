@@ -69,7 +69,30 @@ function g_05(userInput){
         grammarLesson = "";
     } else if (userInput == "Unit 3") {
         randomG = randG(2);
-       
+        if (randomG < 1){
+            time = "today"
+        } else {
+            weekDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+            randomG = randG(5);
+            time = "on " + weekDays[randomG];
+        }
+        PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
+        shuffleArray(PRPArray);
+        verb = conjugate_VB(PRPArray[0].PRP, "doVerb");
+        NOUNArray = [{NN: "Chinese", pic: "Level 5/images/Chinese.png"}, {NN: "English", pic: "Level 5/images/English.png"}, {NN: "math", pic: "Level 5/images/math.png"}, {NN: "science", pic: "Level 5/images/science.png"}, {NN: "social studies", pic: "Level 5/images/social studies.png"}, {NN: "music", pic: "Level 5/images/music.png"}, {NN: "art", pic: "Level 5/images/art.png"}];
+        shuffleArray(NOUNArray);
+        verb1 = conjugate_VB(PRPArray[0].RESPONSE, "haveVerb");
+        verb2 = conjugate_VB(PRPArray[1].RESPONSE, "haveVerb");
+        verb3 = conjugate_VB(PRPArray[2].RESPONSE, "haveVerb");
+        verb4 = conjugate_VB(PRPArray[3].RESPONSE, "haveVerb");
+        sentence = "What subjects " + verb + " " + PRPArray[0].PRP + " have " + time + "?";
+        document.getElementById("gPic").src = NOUNArray[0].pic;
+        document.getElementById("grammarCheck").value = capitalize(PRPArray[0].RESPONSE) + " " + verb1 + " " + NOUNArray[0].NN + " class " + time + ".";
+        sentenceArray[0] = capitalize(PRPArray[0].RESPONSE) + " " + verb1 + " " + NOUNArray[0].NN + " class " + time + ".";
+        sentenceArray[1] = capitalize(PRPArray[1].RESPONSE) + " " + verb2 + " " + NOUNArray[1].NN + " class " + time + ".";
+        sentenceArray[2] = capitalize(PRPArray[2].RESPONSE) + " " + verb3 + " " + NOUNArray[2].NN + " class " + time + ".";
+        sentenceArray[3] = capitalize(PRPArray[3].RESPONSE) + " " + verb4 + " " + NOUNArray[3].NN + " class " + time + ".";
+        setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Review 1") {
