@@ -101,7 +101,40 @@ function g_05(userInput){
         setGrammar(q1Array[0]);
         currentUnit = "Review 1";
     } else if (userInput == "Unit 4") {
-        
+        randomG = randG(2);
+        PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
+        shuffleArray(PRPArray);
+        ADJArray = ["busy", "nervous", "happy", "sad", "angry", "tired"];
+        shuffleArray(ADJArray);
+        ADVArray = [{ADV: "always", pic: "Level 5/images/always.png"}, {ADV: "usually", pic: "Level 5/images/usually.png"}, {ADV: "often", pic: "Level 5/images/often.png"}, {ADV: "sometimes", pic: "Level 5/images/sometimes.png"}, {ADV: "seldom", pic: "Level 5/images/seldom.png"}, {ADV: "never", pic: "Level 5/images/never.png"}];
+        shuffleArray(ADVArray);
+        VERBArray = ["help", "cry", "study", "play", "dance", "cook", "go hiking", "keep a diary"];
+        shuffleArray(VERBArray);
+        if (randomG < 1){
+            sentence = capitalize(PRPArray[0].PRP) + " " + conjugate_VB(PRPArray[0].PRP, "beVerb") + " " + ADVArray[0].ADV + " " + ADJArray[0] + ".";
+            document.getElementById("gPic").src = ADVArray[0].pic;
+            document.getElementById("grammarCheck").value = sentence;
+            sentenceArray[0] = sentence;
+            sentenceArray[1] = capitalize(PRPArray[0].PRP) + " " + conjugate_VB(PRPArray[0].PRP, "beVerb") + " " + ADVArray[1].ADV + " " + ADJArray[0] + ".";
+            sentenceArray[2] = capitalize(PRPArray[0].PRP) + " " + conjugate_VB(PRPArray[0].PRP, "beVerb") + " " + ADVArray[2].ADV + " " + ADJArray[0] + ".";
+            sentenceArray[3] = capitalize(PRPArray[0].PRP) + " " + conjugate_VB(PRPArray[0].PRP, "beVerb") + " " + ADVArray[3].ADV + " " + ADJArray[0] + ".";
+        } else {
+            verb = VERBArray[0].split(" ");
+            verb0 = conjugate_VB(PRPArray[0].PRP, verb[0] + "Verb");
+            if (verb[1]){
+                verb = verb0 + " " +verb.slice(1).join(" ");
+            } else {
+                verb = verb0;
+            }
+            sentence = capitalize(PRPArray[0].PRP) + " " + ADVArray[0].ADV + " " + verb + ".";
+            document.getElementById("gPic").src = ADVArray[0].pic;
+            document.getElementById("grammarCheck").value = sentence;
+            sentenceArray[0] = sentence;
+            sentenceArray[1] = capitalize(PRPArray[0].PRP) + " " + ADVArray[1].ADV + " " + verb + ".";;
+            sentenceArray[2] = capitalize(PRPArray[0].PRP) + " " + ADVArray[2].ADV + " " + verb + ".";;
+            sentenceArray[3] = capitalize(PRPArray[0].PRP) + " " + ADVArray[3].ADV + " " + verb + ".";;
+        }
+        setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 5") {
