@@ -130,15 +130,35 @@ function g_05(userInput){
             document.getElementById("gPic").src = ADVArray[0].pic;
             document.getElementById("grammarCheck").value = sentence;
             sentenceArray[0] = sentence;
-            sentenceArray[1] = capitalize(PRPArray[0].PRP) + " " + ADVArray[1].ADV + " " + verb + ".";;
-            sentenceArray[2] = capitalize(PRPArray[0].PRP) + " " + ADVArray[2].ADV + " " + verb + ".";;
-            sentenceArray[3] = capitalize(PRPArray[0].PRP) + " " + ADVArray[3].ADV + " " + verb + ".";;
+            sentenceArray[1] = capitalize(PRPArray[0].PRP) + " " + ADVArray[1].ADV + " " + verb + ".";
+            sentenceArray[2] = capitalize(PRPArray[0].PRP) + " " + ADVArray[2].ADV + " " + verb + ".";
+            sentenceArray[3] = capitalize(PRPArray[0].PRP) + " " + ADVArray[3].ADV + " " + verb + ".";
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 5") {
-       
+        randomG = randG(2);
+        shuffleArray(ADVArray);
+        ADJArray = [{ADJ: "hot", pic: "Level 5/images/hot.png", time:"summer"}, {ADJ: "cold", pic: "Level 5/images/cold.png", time:"winter"}, {ADJ: "warm", pic: "Level 5/images/warm.png", time:"spring"}, {ADJ: "cool", pic: "Level 5/images/cool.png", time:"fall"}];
+        shuffleArray(ADJArray);
+        document.getElementById("gPic").src = ADJArray[0].pic;
+        if (randomG < 1){
+            sentence = "Is it always " + ADJArray[0].ADJ + " in " + ADJArray[0].time + "?";
+            document.getElementById("grammarCheck").value = "Yes, it is always " + ADJArray[0].ADJ + " in " + ADJArray[0].time + ".";
+            sentenceArray[0] = "Yes, it is always " + ADJArray[0].ADJ + " in " + ADJArray[0].time + ".";
+            sentenceArray[1] = "Yes, it is always " + ADJArray[1].ADJ + " in " + ADJArray[0].time + ".";
+            sentenceArray[2] = "Yes, it is always " + ADJArray[2].ADJ + " in " + ADJArray[0].time + ".";
+            sentenceArray[3] = "Yes, it is always " + ADJArray[3].ADJ + " in " + ADJArray[0].time + ".";
+        } else {
+            sentence = "Is it always " + ADJArray[0].ADJ + " in " + ADJArray[1].time + "?";
+            document.getElementById("grammarCheck").value = "No, it is not always " + ADJArray[0].ADJ + " in " + ADJArray[1].time + ".";
+            sentenceArray[0] = "No, it is not always " + ADJArray[0].ADJ + " in " + ADJArray[0].time + ".";
+            sentenceArray[1] = "No, it is not always " + ADJArray[0].ADJ + " in " + ADJArray[1].time + ".";
+            sentenceArray[2] = "No, it is not always " + ADJArray[0].ADJ + " in " + ADJArray[2].time + ".";
+            sentenceArray[3] = "No, it is not always " + ADJArray[0].ADJ + " in " + ADJArray[3].time + ".";
+        }
+        setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 6") {
