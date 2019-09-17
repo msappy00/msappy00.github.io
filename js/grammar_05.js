@@ -139,7 +139,6 @@ function g_05(userInput){
         grammarLesson = "";
     } else if (userInput == "Unit 5") {
         randomG = randG(2);
-        shuffleArray(ADVArray);
         ADJArray = [{ADJ: "hot", pic: "Level 5/images/hot.png", time:"summer"}, {ADJ: "cold", pic: "Level 5/images/cold.png", time:"winter"}, {ADJ: "warm", pic: "Level 5/images/warm.png", time:"spring"}, {ADJ: "cool", pic: "Level 5/images/cool.png", time:"fall"}];
         shuffleArray(ADJArray);
         document.getElementById("gPic").src = ADJArray[0].pic;
@@ -162,7 +161,42 @@ function g_05(userInput){
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 6") {
-        
+        randomG = randG(2);
+        PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
+        shuffleArray(PRPArray);
+        verb = conjugate_VB(PRPArray[0].PRP, "doVerb");
+        verbArray = [{VB: "do", OBJ: " the laundry", pic: "Level 5/images/do the laundry.png"}, {VB: "sweep", OBJ: " the floor", pic: "Level 5/images/sweep the floor.png"}, {VB: "mop", OBJ: " the floor", pic: "Level 5/images/mop the floor.png"}, {VB: "walk", OBJ: " the dog", pic: "Level 5/images/walk the dog.png"}, {VB: "go", OBJ: " mountain climbing", pic: "Level 5/images/go mountain climbing.png"}, {VB: "play", OBJ: " chess", pic: "Level 5/images/play chess.png"}, {VB: "water", OBJ: " the plants", pic: "Level 5/images/water the plants.png"}, {VB: "take", OBJ: " a walk", pic: "Level 5/images/take a walk.png"}];
+        shuffleArray(verbArray);
+        timeArray = [" morning", "afternoon", "evening"];
+        shuffleArray(timeArray);
+        if (randomG < 1){
+            document.getElementById("gPic").src = verbArray[0].pic;
+            sentence = "What " + verb + " " + PRPArray[0].PRP + " usually do in the " + timeArray[0] + "?";
+            document.getElementById("grammarCheck").value = capitalize(PRPArray[0].RESPONSE) + " usually " + conjugate_VB(PRPArray[0].RESPONSE, verbArray[0].VB + "Verb") + verbArray[0].OBJ + " in the " + timeArray[0] + ".";
+            sentenceArray[0] = capitalize(PRPArray[0].RESPONSE) + " usually " + conjugate_VB(PRPArray[0].RESPONSE, verbArray[0].VB + "Verb") + verbArray[0].OBJ + " in the " + timeArray[0] + ".";
+            sentenceArray[1] = capitalize(PRPArray[0].RESPONSE) + " usually " + conjugate_VB(PRPArray[0].RESPONSE, verbArray[1].VB + "Verb") + verbArray[1].OBJ + " in the " + timeArray[0] + ".";
+            sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " usually " + conjugate_VB(PRPArray[0].RESPONSE, verbArray[2].VB + "Verb") + verbArray[2].OBJ + " in the " + timeArray[0] + ".";
+            sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " usually " + conjugate_VB(PRPArray[0].RESPONSE, verbArray[3].VB + "Verb") + verbArray[3].OBJ + " in the " + timeArray[0] + ".";
+        } else {
+            randomG = randG(2);
+            sentence = capitalize(verb) + " " + PRPArray[0].PRP + " usually " + verbArray[0].VB + verbArray[0].OBJ + " in the " + timeArray[0] + "?";
+            if (randomG < 1){
+                document.getElementById("gPic").src = verbArray[0].pic;
+                document.getElementById("grammarCheck").value = "Yes, " + PRPArray[0].RESPONSE + " usually " + conjugate_VB(PRPArray[0].RESPONSE, verbArray[0].VB + "Verb") + verbArray[0].OBJ + " in the " + timeArray[0] + ".";
+                sentenceArray[0] = "Yes, " + PRPArray[0].RESPONSE + " usually " + conjugate_VB(PRPArray[0].RESPONSE, verbArray[0].VB + "Verb") + verbArray[0].OBJ + " in the " + timeArray[0] + ".";
+                sentenceArray[1] = "Yes, " + PRPArray[0].RESPONSE + " usually " + conjugate_VB(PRPArray[0].RESPONSE, verbArray[1].VB + "Verb") + verbArray[1].OBJ + " in the " + timeArray[0] + ".";
+                sentenceArray[2] = "Yes, " + PRPArray[0].RESPONSE + " usually " + conjugate_VB(PRPArray[0].RESPONSE, verbArray[2].VB + "Verb") + verbArray[2].OBJ + " in the " + timeArray[0] + ".";
+                sentenceArray[3] = "Yes, " + PRPArray[0].RESPONSE + " usually " + conjugate_VB(PRPArray[0].RESPONSE, verbArray[3].VB + "Verb") + verbArray[3].OBJ + " in the " + timeArray[0] + ".";
+            } else {
+                document.getElementById("gPic").src = verbArray[1].pic;
+                document.getElementById("grammarCheck").value = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't" + ".";
+                sentenceArray[0] = "No, " + PRPArray[0].RESPONSE + " " + verb + "n't" + ".";
+                sentenceArray[1] = "No, " + PRPArray[1].RESPONSE + " " + conjugate_VB(PRPArray[1].RESPONSE, "doVerb") + "n't" + ".";
+                sentenceArray[2] = "No, " + PRPArray[2].RESPONSE + " " + conjugate_VB(PRPArray[2].RESPONSE, "doVerb") + "n't" + ".";
+                sentenceArray[3] = "No, " + PRPArray[3].RESPONSE + " " + conjugate_VB(PRPArray[3].RESPONSE, "doVerb") + "n't" + ".";
+            }
+        }
+        setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Review 2") {
