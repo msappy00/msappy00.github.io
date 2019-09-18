@@ -108,8 +108,8 @@ function g_05(userInput){
         shuffleArray(ADJArray);
         ADVArray = [{ADV: "always", pic: "Level 5/images/always.png"}, {ADV: "usually", pic: "Level 5/images/usually.png"}, {ADV: "often", pic: "Level 5/images/often.png"}, {ADV: "sometimes", pic: "Level 5/images/sometimes.png"}, {ADV: "seldom", pic: "Level 5/images/seldom.png"}, {ADV: "never", pic: "Level 5/images/never.png"}];
         shuffleArray(ADVArray);
-        VERBArray = ["help", "cry", "study", "play", "dance", "cook", "go hiking", "keep a diary"];
-        shuffleArray(VERBArray);
+        verbArray = ["help", "cry", "study", "play", "dance", "cook", "go hiking", "keep a diary"];
+        shuffleArray(verbArray);
         if (randomG < 1){
             sentence = capitalize(PRPArray[0].PRP) + " " + conjugate_VB(PRPArray[0].PRP, "beVerb") + " " + ADVArray[0].ADV + " " + ADJArray[0] + ".";
             document.getElementById("gPic").src = ADVArray[0].pic;
@@ -119,7 +119,7 @@ function g_05(userInput){
             sentenceArray[2] = capitalize(PRPArray[0].PRP) + " " + conjugate_VB(PRPArray[0].PRP, "beVerb") + " " + ADVArray[2].ADV + " " + ADJArray[0] + ".";
             sentenceArray[3] = capitalize(PRPArray[0].PRP) + " " + conjugate_VB(PRPArray[0].PRP, "beVerb") + " " + ADVArray[3].ADV + " " + ADJArray[0] + ".";
         } else {
-            verb = VERBArray[0].split(" ");
+            verb = verbArray[0].split(" ");
             verb0 = conjugate_VB(PRPArray[0].PRP, verb[0] + "Verb");
             if (verb[1]){
                 verb = verb0 + " " +verb.slice(1).join(" ");
@@ -205,7 +205,23 @@ function g_05(userInput){
         setGrammar(q1Array[0]);
         currentUnit = "Review 2";
     } else if (userInput == "Unit 7") {
-       
+        PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
+        shuffleArray(PRPArray);
+        verb = conjugate_VB(PRPArray[0].PRP, "doVerb");
+        freqArray = [" once ", " twice ", " three times "];
+        shuffleArray(freqArray);
+        timeArray = ["a week.", "a month.", "a year."];
+        shuffleArray(timeArray);
+        verbArray = [{VB:'play', OBJ:' the piano', pic: "Level 5/images/play the piano.png"}, {VB:'play', OBJ:' cards', pic: "Level 5/images/play cards.png"}, {VB:'go', OBJ:' to the movies', pic: "Level 5/images/go to the movies.png"}, {VB:'go', OBJ:' abroad', pic: "Level 5/images/go abroad.png"}];
+        shuffleArray(verbArray);
+        document.getElementById("gPic").src = verbArray[0].pic;
+            sentence = "How often " + verb + " " + PRPArray[0].PRP + " " + verbArray[0].VB + verbArray[0].OBJ + "?";
+            document.getElementById("grammarCheck").value = capitalize(PRPArray[0].RESPONSE) + " " + conjugate_VB(PRPArray[0].RESPONSE, verbArray[0].VB + "Verb") + verbArray[0].OBJ + freqArray[0] + timeArray[0];
+            sentenceArray[0] = capitalize(PRPArray[0].RESPONSE) + " " + conjugate_VB(PRPArray[0].RESPONSE, verbArray[0].VB + "Verb") + verbArray[0].OBJ + freqArray[0] + timeArray[0];
+            sentenceArray[1] = capitalize(PRPArray[0].RESPONSE) + " " + conjugate_VB(PRPArray[0].RESPONSE, verbArray[1].VB + "Verb") + verbArray[1].OBJ + freqArray[0] + timeArray[0];
+            sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " " + conjugate_VB(PRPArray[0].RESPONSE, verbArray[2].VB + "Verb") + verbArray[2].OBJ + freqArray[0] + timeArray[0];
+            sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + conjugate_VB(PRPArray[0].RESPONSE, verbArray[3].VB + "Verb") + verbArray[3].OBJ + freqArray[0] + timeArray[0];
+        setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 8") {
