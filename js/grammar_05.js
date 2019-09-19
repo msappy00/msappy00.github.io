@@ -225,11 +225,23 @@ function g_05(userInput){
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 8") {
-       
+        PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
+        shuffleArray(PRPArray);
+        verb = conjugate_VB(PRPArray[0].PRP, "doVerb");
+        verb2 = conjugate_VB(PRPArray[0].RESPONSE, "wantVerb");
+        NOUNArray = [{NN: "shoes", pic: "Level 5/images/shoes.png"}, {NN: "boots", pic: "Level 5/images/boots.png"}, {NN: "socks", pic: "Level 5/images/socks.png"}, {NN: "jeans", pic: "Level 5/images/jeans.png"}, {NN: "pants", pic: "Level 5/images/pants.png"}, {NN: "shorts", pic: "Level 5/images/shorts.png"}, {NN: "glasses", pic: "Level 5/images/glasses.png"}, {NN: "gloves", pic: "Level 5/images/gloves.png"}, {NN: "earrings", pic: "Level 5/images/earrings.png"}];
+        shuffleArray(NOUNArray);
+        document.getElementById("gPic").src = NOUNArray[0].pic;
+        sentence = "What " + verb + " " + PRPArray[0].PRP + " want to buy?";
+        document.getElementById("grammarCheck").value = capitalize(PRPArray[0].RESPONSE) + " " + verb2 + " to buy a pair of " + NOUNArray[0].NN + ".";
+        sentenceArray[0] = capitalize(PRPArray[0].RESPONSE) + " " + verb2 + " to buy a pair of " + NOUNArray[0].NN + ".";
+        sentenceArray[1] = capitalize(PRPArray[0].RESPONSE) + " " + verb2 + " to buy a pair of " + NOUNArray[1].NN + ".";
+        sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " " + verb2 + " to buy a pair of " + NOUNArray[2].NN + ".";
+        sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + verb2 + " to buy a pair of " + NOUNArray[3].NN + ".";
+        setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 9") {
-       
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Review 3") {
