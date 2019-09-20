@@ -242,6 +242,39 @@ function g_05(userInput){
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Unit 9") {
+        randomG = randG(2);
+        Num1Array = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+        shuffleArray(Num1Array);
+        Num2Array = ["sixty", "seventy", "eighty", "ninety"];
+        shuffleArray(Num2Array);
+        NNArray = [{NN: "pair of earrings", pic: "Level 5/images/earrings.png"}, {NN: "ring", pic: "Level 5/images/ring.png"}, {NN: "belt", pic: "Level 5/images/belt.png"}, {NN: "backpack", pic: "Level 5/images/backpack.png"}];
+        shuffleArray(NNArray);
+        NNSArray = [{NNS: "boots", pic: "Level 5/images/boots.png"}, {NNS: "jeans", pic: "Level 5/images/jeans.png"}, {NNS: "shorts", pic: "Level 5/images/shorts.png"}, {NNS: "glasses", pic: "Level 5/images/glasses.png"}];
+        shuffleArray(NNSArray);
+        rand2 = randG(2);
+        if (rand2 < 1){
+            price = Num1Array[0] + " thousand and " + Num1Array[1] + " hundred dollars.";
+        } else {
+            price = Num1Array[0] + " hundred and " + Num2Array[0] + " dollars.";
+        }
+        if (randomG < 1){
+            document.getElementById("gPic").src = NNArray[0].pic;
+            sentence = "How much is the " + NNArray[0].NN + "?";
+            document.getElementById("grammarCheck").value = "The " + NNArray[0].NN + " is " + price;
+            sentenceArray[0] = "The " + NNArray[0].NN + " is " + price;
+            sentenceArray[1] = "The " + NNArray[1].NN + " is " + price;
+            sentenceArray[2] = "The " + NNArray[2].NN + " is " + price;
+            sentenceArray[3] = "The " + NNArray[3].NN + " is " + price;
+        } else {
+            document.getElementById("gPic").src = NNSArray[0].pic;
+            sentence = "How much are the " + NNSArray[0].NNS + "?";
+            document.getElementById("grammarCheck").value = "The " + NNSArray[0].NNS + " are " + price;
+            sentenceArray[0] = "The " + NNSArray[0].NNS + " are " + price;
+            sentenceArray[1] = "The " + NNSArray[1].NNS + " are " + price;
+            sentenceArray[2] = "The " + NNSArray[2].NNS + " are " + price;
+            sentenceArray[3] = "The " + NNSArray[3].NNS + " are " + price;
+        }
+        setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
         grammarLesson = "";
     } else if (userInput == "Review 3") {
