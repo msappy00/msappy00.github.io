@@ -1,6 +1,5 @@
 function g_05(userInput){
     if (userInput == "Unit 1") {
-        randomG = randG(2);
         PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
         shuffleArray(PRPArray);
         ADJArray = [{ADJ: "first", pic:"Level 5/images/first.png"}, {ADJ: "second", pic:"Level 5/images/second.png"}, {ADJ: "third", pic:"Level 5/images/third.png"}, {ADJ: "fourth", pic:"Level 5/images/fourth.png"}, {ADJ: "fifth", pic:"Level 5/images/fifth.png"}, {ADJ: "sixth", pic:"Level 5/images/sixth.png"}, {ADJ: "seventh", pic:"Level 5/images/seventh.png"}, {ADJ: "eighth", pic:"Level 5/images/eighth.png"}, {ADJ: "ninth", pic:"Level 5/images/ninth.png"}, {ADJ: "tenth", pic:"Level 5/images/tenth.png"}, {ADJ: "eleventh", pic:"Level 5/images/eleventh.png"}, {ADJ: "twelfth", pic:"Level 5/images/twelfth.png"}];
@@ -16,7 +15,6 @@ function g_05(userInput){
         sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + verb2 + " in the " + ADJArray[3].ADJ + " grade.";
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Unit 2") {
         randomG = randG(2);
         PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
@@ -66,7 +64,6 @@ function g_05(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Unit 3") {
         randomG = randG(2);
         if (randomG < 1){
@@ -94,7 +91,6 @@ function g_05(userInput){
         sentenceArray[3] = capitalize(PRPArray[3].RESPONSE) + " " + verb4 + " " + NOUNArray[3].NN + " class " + time + ".";
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Review 1") {
         q1Array = ["Unit 1", "Unit 2", "Unit 3"];
         shuffleArray(q1Array);
@@ -136,7 +132,6 @@ function g_05(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Unit 5") {
         randomG = randG(2);
         ADJArray = [{ADJ: "hot", pic: "Level 5/images/hot.png", time:"summer"}, {ADJ: "cold", pic: "Level 5/images/cold.png", time:"winter"}, {ADJ: "warm", pic: "Level 5/images/warm.png", time:"spring"}, {ADJ: "cool", pic: "Level 5/images/cool.png", time:"fall"}];
@@ -159,7 +154,6 @@ function g_05(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Unit 6") {
         randomG = randG(2);
         PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
@@ -198,7 +192,6 @@ function g_05(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Review 2") {
         q1Array = ["Unit 4", "Unit 5", "Unit 6"];
         shuffleArray(q1Array);
@@ -223,7 +216,6 @@ function g_05(userInput){
             sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + conjugate_VB(PRPArray[0].RESPONSE, verbArray[3].VB + "Verb") + verbArray[3].OBJ + freqArray[0] + timeArray[0];
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Unit 8") {
         PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
         shuffleArray(PRPArray);
@@ -240,7 +232,6 @@ function g_05(userInput){
         sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + verb2 + " to buy a pair of " + NOUNArray[3].NN + ".";
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Unit 9") {
         randomG = randG(2);
         Num1Array = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
@@ -275,8 +266,7 @@ function g_05(userInput){
             sentenceArray[3] = "The " + NNSArray[3].NNS + " are " + price;
         }
         setTimeout(function(){speak(sentence)}, 2000);
-        gLinks = [''];
-        grammarLesson = "";
+        gLinks = ['<a href="http://scratch.mit.edu/projects/20076362/" target="_newtab">Scratch: B5U9 "How Much Is It?"</a>'];
     } else if (userInput == "Review 3") {
         q1Array = ["Unit 7", "Unit 8", "Unit 9"];
         shuffleArray(q1Array);
@@ -290,7 +280,6 @@ function g_05(userInput){
     } else {
         sentenceArray = [""];
         gLinks = [''];
-        grammarLesson = "";
     }
     shuffleArray(sentenceArray);
     document.getElementById("g0r1d0").textContent = sentenceArray[0];
@@ -298,6 +287,5 @@ function g_05(userInput){
     document.getElementById("g0r2d0").textContent = sentenceArray[2];
     document.getElementById("g0r2d2").textContent = sentenceArray[3];
     document.getElementById("grammar_links").innerHTML = gLinks;
-    document.getElementById("grammar_lesson").innerHTML = grammarLesson;
     document.getElementById('g_request').textContent = sentence;
 }

@@ -33,7 +33,6 @@ function g_03(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Unit 2") {
         randomG = randG(2);
         PRPArray = [{PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
@@ -67,8 +66,7 @@ function g_03(userInput){
             }
         }
         setTimeout(function(){speak(sentence)}, 2000);
-        gLinks = [''];
-        grammarLesson = "";    
+        gLinks = [''];   
     } else if (userInput == "Unit 3") {
         randomG = randG(2);
         PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "we", RESPONSE: "you"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
@@ -107,7 +105,6 @@ function g_03(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Review 1") {
         unitArray = ["Unit 1", "Unit 2", "Unit 3"];
         shuffleArray(unitArray);
@@ -129,7 +126,6 @@ function g_03(userInput){
         sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + setDET(NOUNArray[3].NN) + " " + NOUNArray[3].NN + ".";
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="http://scratch.mit.edu/projects/49847728/" target="_newtab">B3U4 Grammar</a>'];
-        grammarLesson = "";
     } else if (userInput == "Unit 5") {
         randomG = randG(2);
         PRPArray = [{PRP: "I", RESPONSE: "you"}, {PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}, {PRP: "we", RESPONSE: "you"}];
@@ -160,7 +156,6 @@ function g_03(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Unit 6") {
         randomG = randG(2);
         ADJArray = [{ADJ:"long", pic: "Level 3/images/long.png"}, {ADJ:"short", pic: "Level 3/images/short.png"}, {ADJ:"curly", pic: "Level 3/images/curly.png"}, {ADJ:"straight", pic: "Level 3/images/straight.png"}, {ADJ:"braided", pic: "Level 3/images/braided.png"}, {ADJ:"blond", pic: "Level 3/images/blond.png"}, {ADJ:"dark", pic: "Level 3/images/dark.png"}, {ADJ:"red", pic: "Level 3/images/red hair.png"}, {ADJ:"brown", pic: "Level 3/images/brown hair.png"}, {ADJ:"black", pic: "Level 3/images/black hair.png"}];
@@ -188,7 +183,6 @@ function g_03(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Review 2") {
         unitArray = ["Unit 4", "Unit 5", "Unit 6"];
         shuffleArray(unitArray);
@@ -221,7 +215,6 @@ function g_03(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Unit 8") {
         randomG = randG(2);
         verbArray = [{verb:"fly a kite", pic:"Level 3/images/fly a kite.png"}, {verb:"read a book", pic:"Level 3/images/read a book.png"}, {verb:"listen to music", pic:"Level 3/images/listen to music.png"}, {verb:"watch TV", pic:"Level 3/images/watch TV.png"}, {verb:"ride a bike", pic:"Level 3/images/ride a bike.png"}];
@@ -251,7 +244,6 @@ function g_03(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Unit 9") {
         randomG = randG(2);
         PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "you", RESPONSE: "we"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
@@ -281,7 +273,6 @@ function g_03(userInput){
             }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Review 3") {
         unitArray = ["Unit 7", "Unit 8", "Unit 9"];
         shuffleArray(unitArray);
@@ -297,7 +288,6 @@ function g_03(userInput){
         q2Array = [""];
         q3Array = [""];
         gLinks = [''];
-        grammarLesson = "";
     }
     shuffleArray(sentenceArray);
     document.getElementById("g0r1d0").textContent = sentenceArray[0];
@@ -305,6 +295,5 @@ function g_03(userInput){
     document.getElementById("g0r2d0").textContent = sentenceArray[2];
     document.getElementById("g0r2d2").textContent = sentenceArray[3];
     document.getElementById("grammar_links").innerHTML = gLinks;
-    document.getElementById("grammar_lesson").innerHTML = grammarLesson;
     document.getElementById('g_request').textContent = sentence;
 }

@@ -26,7 +26,6 @@ function g_07(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Unit 2") {
         randomG = randG(2);
         PRPArray = [{PRP: "I", RESPONSE: "you"}, {PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}, {PRP: "we", RESPONSE: "you"}];
@@ -58,7 +57,6 @@ function g_07(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Unit 3") {
         randomG = randG(3);
         verbArray = [{VBG:'baking a cake', VBD:'baked a cake', pic:"Level 7/images/bake a cake.png"}, {VBG:'cooking a meal', VBD:'cooked a meal', pic:"Level 7/images/cook a meal.png"}, {VBG:'making a sandwich', VBD:'made a sandwich', pic:"Level 7/images/make a sandwich.png"}, {VBG:'drawing a picture', VBD:'drew a picture', pic:"Level 7/images/draw a picture.png"}, {VBG:'vacuuming the floor', VBD:'vacuumed the floor', pic:"Level 7/images/vacuum the floor.png"},  {VBG:'making a call', VBD:'made a call', pic:"Level 7/images/make a call.png"}, {VBG:'answering the phone', VBD:'answered the phone', pic:"Level 7/images/answer the phone.png"}, {VBG:'trying on a shirt', VBD:'tried on a shirt', pic:"Level 7/images/try on a shirt.png"}];
@@ -90,13 +88,11 @@ function g_07(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Review 1") {
         unitArray = ["Unit 1", "Unit 2", "Unit 3"];
         shuffleArray(unitArray);
         g_07(unitArray[0]);
         currentUnit = "Review 1";
-        grammarLesson = "";
     } else if (userInput == "Unit 4") {
         randomG = randG(3);
         verbArray = [{VBG:'watching the news', VBD:'watched the news', pic:"Level 7/images/watch the news.png"}, {VBG:'reading a magazine', VBD:'read a magazine', pic:"Level 7/images/read a magazine.png"}, {VBG:'listening to the radio', VBD:'listened to the radio', pic:"Level 7/images/listen to the radio.png"}, {VBG:'building a model', VBD:'built a model', pic:"Level 7/images/build a model.png"}, {VBG:'doing puzzles', VBD:'did puzzles', pic:"Level 7/images/do puzzles.png"}, {VBG:'taking a message', VBD:'took a message', pic:"Level 7/images/take a message.png"}, {VBG:'leaving a message', VBD:'left a message', pic:"Level 7/images/leave a message.png"}];
@@ -133,7 +129,6 @@ function g_07(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="http://scratch.mit.edu/projects/38942726/" target="_newtab">Scratch: B7U4 Grammar</a><br><a href="http://scratch.mit.edu/projects/37565016/" target="_newtab">Scratch: B7U4 Q&A</a>'];
-        grammarLesson = "";
     } else if (userInput == "Unit 5") {
         randomG = randG(2);
         PRPArray = [{PRP: "I", PRP$:"my"}, {PRP: "you", PRP$:"your"}, {PRP: "he", PRP$:"his"}, {PRP: "she", PRP$:"her"}];
@@ -222,7 +217,6 @@ function g_07(userInput){
         }   
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Unit 6") {
         randomG = randG(2);
         verbArray = [{VB:"Study hard, ", and:" you'll pass the exam.", or:" you'll fail the exam.", pic:"Level 7/images/study hard.png"}, {VB:"Hurry up, ", and:" you'll catch the bus.", or:" you'll miss the bus.", pic:"Level 7/images/hurry up.png"}, {VB:"Be careful, ", and:" you'll win the game.", or:" you'll lose the game.", pic:"Level 7/images/be careful.png"}, {VB:"Turn right, ", and:" you'll see the MRT station.", or:" you won't see the MRT station.", pic:"Level 4/images/turn right.png"}, {VB:"Put on a coat, ", and:" you won't catch a cold.", or:" you'll catch a cold.", pic:"Level 1/images/coat.png"}, {VB:"Watch your step, ", and:" you won't fall down.", or:" you'll fall down.", pic:"Level 7/images/watch your step.png"}, {VB:"Get up early, ", and:" you'll catch the bus.", or:" you won't catch the bus.", pic:"Level 4/images/get up.png"}];
@@ -245,7 +239,6 @@ function g_07(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="http://scratch.mit.edu/projects/41169968/" target="_newtab">Scratch: B7U6 Grammar</a>'];
-        grammarLesson = "";
     } else if (userInput == "Review 2") {
         unitArray = ["Unit 4", "Unit 5", "Unit 6"];
         shuffleArray(unitArray);
@@ -287,7 +280,6 @@ function g_07(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Unit 8") {
         randomG = randG(2);
         PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "you", RESPONSE: "we"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
@@ -326,7 +318,6 @@ function g_07(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Unit 9") {
         randomG = randG(4);
         if (randomG < 2){
@@ -372,7 +363,6 @@ function g_07(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="http://scratch.mit.edu/projects/19966243/" target="_newtab">Scratch: "Spelling: Nations"</a>'];
-        grammarLesson = "";
     } else if (userInput == "Review 3") {
         unitArray = ["Unit 7", "Unit 8", "Unit 9"];
         shuffleArray(unitArray);
@@ -388,7 +378,6 @@ function g_07(userInput){
         q2Array = [""];
         q3Array = [""];
         gLinks = [''];
-        grammarLesson = "";
     }
     shuffleArray(sentenceArray);
     document.getElementById("g0r1d0").textContent = sentenceArray[0];
@@ -396,6 +385,5 @@ function g_07(userInput){
     document.getElementById("g0r2d0").textContent = sentenceArray[2];
     document.getElementById("g0r2d2").textContent = sentenceArray[3];
     document.getElementById("grammar_links").innerHTML = gLinks;
-    document.getElementById("grammar_lesson").innerHTML = grammarLesson;
     document.getElementById('g_request').textContent = sentence;
 }

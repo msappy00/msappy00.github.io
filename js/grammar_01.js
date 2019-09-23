@@ -22,7 +22,6 @@ function g_01(userInput){
         document.getElementById("request").value = sentence;
         sentenceArray = ["am", "are", "", ""];
         gLinks = [''];
-        grammarLesson = "";
         if (sentence){
             setTimeout(function(){speak(sentence)}, 2000);
         };   
@@ -48,7 +47,6 @@ function g_01(userInput){
         document.getElementById("grammarCheck").value = BaseArray[0].A;
         sentenceArray = [BaseArray[0].A, BaseArray[1].A, BaseArray[2].A, BaseArray[3].A];
         gLinks = [''];
-        grammarLesson = "";
         if (sentence){
             setTimeout(function(){speak(sentence)}, 2000);
         }
@@ -72,7 +70,6 @@ function g_01(userInput){
         sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + NUMArray[3].TEXT + " " + NOUN + " old.";
         document.getElementById("gPic").src = picArray[NUMArray[0].NUM];
         gLinks = [''];
-        grammarLesson = "";
         if (sentence){
             setTimeout(function(){speak(sentence)}, 2000);
         }
@@ -120,7 +117,6 @@ function g_01(userInput){
             sentenceArray[3] = UH + [",", PRPArray[3].RESPONSE, VERB, ADV].join(" ") + ".";
         }
         gLinks = [''];
-        grammarLesson = "";
         if (sentence){
             setTimeout(function(){speak(sentence)}, 2000);
         }
@@ -166,7 +162,6 @@ function g_01(userInput){
             }
         }
         gLinks = ['<a href="http://scratch.mit.edu/projects/14219598/" target="_newtab">Scratch: B1U5 Grammar</a>'];
-        grammarLesson = "";
         if (sentence){
             setTimeout(function(){speak(sentence)}, 2000);
         }
@@ -225,7 +220,6 @@ function g_01(userInput){
             sentenceArray[3] = [capitalize(PRPS), NOUNArray[0], beVerb.VBZ, ADJArray[3].color].join(" ") + ".";
         }
         gLinks = ['<a href="http://scratch.mit.edu/projects/14493429/" target="_newtab">Scratch: Guess Book Color</a>'];
-        grammarLesson = "";
         if (sentence){
             setTimeout(function(){speak(sentence)}, 2000);
         }
@@ -263,7 +257,6 @@ function g_01(userInput){
         document.getElementById("request").value = sentence;
         document.getElementById("grammarCheck").value = sentence;
         gLinks = [''];
-        grammarLesson = "";
         if (sentence){
             setTimeout(function(){speak(sentence)}, 2000);
         }
@@ -312,7 +305,6 @@ function g_01(userInput){
             }
         }
         gLinks = ['<a href="http://scratch.mit.edu/projects/15196988/" target="_newtab">Scratch: Animal Sounds</a>'];
-        grammarLesson = "";
         if (sentence){
             setTimeout(function(){speak(sentence)}, 2000);
         }
@@ -342,7 +334,6 @@ function g_01(userInput){
             sentenceArray[3] = "                 ";
         }
         gLinks = [''];
-        grammarLesson = "";
         if (sentence){
             setTimeout(function(){speak(sentence)}, 2000);
         }
@@ -352,19 +343,16 @@ function g_01(userInput){
         g_01(unitArray[0]);
         currentUnit = "Review 3";
         gLinks = ['<a href="http://scratch.mit.edu/projects/20142996/" target="_newtab">Scratch: B1 Chat Bot</a>'];
-        grammarLesson = "";
     } else if (userInput == "Final Review") {
         unitArray = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9"];
         shuffleArray(unitArray);
         g_01(unitArray[0]);
         currentUnit = "Final Review";
         gLinks = ['<a href="http://scratch.mit.edu/projects/20142996/" target="_newtab">Scratch: B1 Chat Bot</a><br><a href="http://www.classtools.net/connect/201512_BdGEGi">Connect 4: B1 Vocab</a>'];
-        grammarLesson = "";
     } else {
         sentenceArray = [""];
         q2Array = [""];
         gLinks = [''];
-        grammarLesson = "";
     }
     document.getElementById("gPic").class = "responsive";
     shuffleArray(sentenceArray);
@@ -377,6 +365,5 @@ function g_01(userInput){
     document.getElementById("gm2").textContent = sentenceArray[2];
     document.getElementById("gm3").textContent = sentenceArray[3];
     document.getElementById("grammar_links").innerHTML = [''];
-    document.getElementById("grammar_lesson").innerHTML = "";
     document.getElementById('g_request').textContent = sentence;
 };

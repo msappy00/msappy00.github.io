@@ -56,6 +56,8 @@ function setGrammar(userInput){
         g_04(userInput);
     } else if (level_id == "Level 5") {
         g_05(userInput);
+    } else if (level_id == "Level 6") {
+        g_06(userInput);
     } else if (level_id == "Level 7") {
         g_07(userInput);
     } else {

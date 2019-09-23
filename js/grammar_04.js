@@ -27,13 +27,12 @@ function g_04(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="http://scratch.mit.edu/projects/64711462/" target="_newtab">Scratch: What Time Is It?</a>'];
-        grammarLesson = "";
     } else if (userInput == "Unit 2") {
         PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}, {PRP: "your father", RESPONSE: "my father"}, {PRP: "your sister", RESPONSE: "my sister"}];
         shuffleArray(PRPArray);
         NOUNArray = [{NN:'on foot', pic:"Level 4/images/on foot.png"}, {NN:'by scooter', pic:"Level 4/images/scooter.png"}, {NN:'by motorcycle', pic:"Level 4/images/motorcycle.png"}, {NN:'by car', pic:"Level 4/images/car.png"}, {NN:'by bus', pic:"Level 4/images/bus.png"}, {NN:'by bicycle', pic:"Level 4/images/bicycle.png"}, {NN:'by MRT', pic:"Level 4/images/MRT.png"}, {NN:'by train', pic:"Level 4/images/train.png"}, {NN:'by taxi', pic:"Level 4/images/taxi.png"}, {NN:'by high-speed rail', pic:"Level 4/images/high-speed rail.png"}];
         shuffleArray(NOUNArray);
-        document.getElementById("gPic").src = NOUNArray[0].pic;
+        f
         verbArray = [{VB: "go", NN: " work"}, {VB: "go", NN: " school"}];
         shuffleArray(verbArray);
         verb = conjugate_VB(PRPArray[0].PRP, "doVerb");
@@ -46,7 +45,6 @@ function g_04(userInput){
         sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " to " + verbArray[0].NN + " " + NOUNArray[3].NN + ".";
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="http://www.classtools.net/QR/teacher.php?fold=7&fname=kfNhe">QR Challenge</a><br><a href="http://scratch.mit.edu/projects/66810966/" target="_newtab">Scratch: B4U2 Vocab</a>'];
-        grammarLesson = "";
     } else if (userInput == "Unit 3") {
         randomG = randG(2);
         PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "we", RESPONSE: "we"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
@@ -83,7 +81,6 @@ function g_04(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Review 1") {
         q1Array = ["Unit 1", "Unit 2", "Unit 3"];
         shuffleArray(q1Array);
@@ -115,7 +112,6 @@ function g_04(userInput){
         sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[3].RP + " every " + timeArray[0] + ".";
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Unit 5") {
         verbArray = [{VBG:'eating', pic:"Level 4/images/eat.png"}, {VBG:'drinking', pic:"Level 4/images/drink.png"}, {VBG:'cooking', pic:"Level 4/images/cook.png"}, {VBG:'laughing', pic:"Level 4/images/laugh.png"}, {VBG:'drawing', pic:"Level 4/images/draw.png"}, {VBG:'sweeping', pic:"Level 4/images/sweep.png"}, {VBG:'studying', pic:"Level 4/images/study.png"}, {VBG:'driving', pic:"Level 4/images/drive.png"}, {VBG:'writing', pic:"Level 4/images/write.png"}, {VBG:'sleeping', pic:"Level 4/images/sleep.png"}, {VBG:'playing', pic:"Level 4/images/play.png"}];
         shuffleArray(verbArray);
@@ -132,7 +128,6 @@ function g_04(userInput){
         sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[3].VBG + ".";
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Unit 6") {
         randomG = randG(2);
         PRPArray = [{PRP: "you", P1:"your", RESPONSE: "I", P2:"my"}, {PRP: "you", P1:"your", RESPONSE: "we", P2:"our"}, {PRP: "they", P1:"their", RESPONSE: "they", P2:"their"}, {PRP: "he", P1:"his", RESPONSE: "he", P2:"his"}, {PRP: "she", P1:"her", RESPONSE: "she", P2:"her"}];
@@ -168,7 +163,6 @@ function g_04(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Review 2") {
         q1Array = ["Unit 4", "Unit 5", "Unit 6"];
         shuffleArray(q1Array);
@@ -214,7 +208,6 @@ function g_04(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="Level 4/images/city_buildings.png" target="_newtab">City Buildings</a>'];
-        grammarLesson = "";
     } else if (userInput == "Unit 8") {
         randomG = randG(2);
         NOUNArray = [{NN:"police station", pic:"Level 4/images/police station.png"}, {NN:"fire station", pic:"Level 4/images/fire station.png"}, {NN:"MRT station", pic:"Level 4/images/MRT station.png"}, {NN:"bus stop", pic:"Level 4/images/bus stop.png"}, {NN:"bank", pic:"Level 4/images/bank.png"}, {NN:"bookstore", pic:"Level 4/images/bookstore.png"}, {NN:"convenience store", pic:"Level 4/images/convenience store.png"}, {NN:"department store", pic:"Level 4/images/department store.png"}];
@@ -241,7 +234,6 @@ function g_04(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="Level 4/images/city2.png" target="_newtab">City Buildings</a>'];
-        grammarLesson = "";
     } else if (userInput == "Unit 9") {
         PRPArray = ["I", "we", "they", "he", "she"];
         shuffleArray(PRPArray);
@@ -263,7 +255,6 @@ function g_04(userInput){
         sentenceArray[3] = "The " + NOUNArray[3] + " is " + locArray[0];
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="Level 4/images/city3.png" target="_newtab">City Buildings</a>'];
-        grammarLesson = "";
     } else if (userInput == "Review 3") {
         q1Array = ["Unit 7", "Unit 8", "Unit 9"];
         shuffleArray(q1Array);
@@ -277,7 +268,6 @@ function g_04(userInput){
     } else {
         sentenceArray = [""];
         gLinks = [''];
-        grammarLesson = "";
     }
     shuffleArray(sentenceArray);
     document.getElementById("g0r1d0").textContent = sentenceArray[0];
@@ -285,6 +275,5 @@ function g_04(userInput){
     document.getElementById("g0r2d0").textContent = sentenceArray[2];
     document.getElementById("g0r2d2").textContent = sentenceArray[3];
     document.getElementById("grammar_links").innerHTML = gLinks;
-    document.getElementById("grammar_lesson").innerHTML = grammarLesson;
     document.getElementById('g_request').textContent = sentence;
 }

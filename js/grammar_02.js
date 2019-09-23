@@ -36,7 +36,6 @@ function g_02(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Unit 2") {
         randomG = randG(2);
         NUMArray = [{TEXT: 'eleven', NUM:'11'}, {TEXT:'twelve', NUM:'12'}, {TEXT:'thirteen', NUM:'13'}, {TEXT:'fourteen', NUM:'14'}, {TEXT:'fifteen', NUM:'15'}, {TEXT:'sixteen', NUM:'16'}, {TEXT:'seventeen', NUM:'17'}, {TEXT:'eighteen', NUM:'18'}, {TEXT:'nineteen', NUM:'19'}, {TEXT:'twenty', NUM:'20'}];
@@ -72,7 +71,6 @@ function g_02(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Unit 3") {  
         shuffleArray(NOUNArray);
         NUMArray = [{TEXT: 'one', NUM:'1'}, {TEXT:'two', NUM:'2'}, {TEXT:'three', NUM:'3'}, {TEXT:'four', NUM:'4'}, {TEXT:'five', NUM:'5'}, {TEXT:'six', NUM:'6'}, {TEXT:'seven', NUM:'7'}, {TEXT:'eight', NUM:'8'}, {TEXT:'nine', NUM:'9'}, {TEXT:'ten', NUM:'10'}, {TEXT: 'eleven', NUM:'11'}, {TEXT:'twelve', NUM:'12'}, {TEXT:'thirteen', NUM:'13'}, {TEXT:'fourteen', NUM:'14'}, {TEXT:'fifteen', NUM:'15'}, {TEXT:'sixteen', NUM:'16'}, {TEXT:'seventeen', NUM:'17'}, {TEXT:'eighteen', NUM:'18'}, {TEXT:'nineteen', NUM:'19'}, {TEXT:'twenty', NUM:'20'}];
@@ -95,13 +93,11 @@ function g_02(userInput){
         sentenceArray[3] = "There are " + NUMArray[3].TEXT + " " + NOUNArray[0].NNS + ".";
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Review 1") {
         unitArray = ["Unit 1", "Unit 2", "Unit 3"];
         shuffleArray(unitArray);
         g_02(unitArray[0]);
         currentUnit = "Review 1";
-        grammarLesson = "";
     } else if (userInput == "Unit 4") {
         randomG = randG(4);
         NOUNArray = [{NNS:'bananas', pic:"Level 2/images/bananas.png"}, {NNS:'lemons', pic:"Level 2/images/lemons.png"}, {NNS:'wax apples', pic:"Level 2/images/wax apples.png"}, {NNS:'pears', pic:"Level 2/images/pears.png"}, {NNS:'papayas', pic:"Level 2/images/papayas.png"}, {NNS:'watermelons', pic:"Level 2/images/watermelons.png"}, {NNS:'guavas', pic:"Level 2/images/guavas.png"}, {NNS:'grapes', pic:"Level 2/images/grapes.png"}];
@@ -140,7 +136,6 @@ function g_02(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Unit 5") {
         randomG = randG(4);
         NOUNArray = [{NNS:'tomatoes', pic:"Level 2/images/tomatoes.png"}, {NNS:'mangoes', pic:"Level 2/images/mangoes.png"}, {NNS:'strawberries', pic:"Level 2/images/strawberries.png"}, {NNS:'cherries', pic:"Level 2/images/cherries.png"}, {NNS:'peaches', pic:"Level 2/images/peaches.png"}, {NNS:'oranges', pic:"Level 2/images/oranges.png"}, {NNS:'kiwis', pic:"Level 2/images/kiwis.png"}, {NNS:'coconuts', pic:"Level 2/images/coconuts.png"}];
@@ -187,7 +182,6 @@ function g_02(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Unit 6") {
         randomG = randG(2);
         verbArray = [{VB:'sing', pic:"Level 2/images/sing.png"}, {VB: 'dance', pic:"Level 2/images/dance.png"}, {VB:'run', pic:"Level 2/images/run.png"}, {VB:'swim', pic:"Level 2/images/swim.png"}, {VB:'read', pic:"Level 2/images/read.png"}, {VB:'write', pic:"Level 2/images/write.png"}, {VB:'type', pic:"Level 2/images/type.png"}, {VB: 'jump', pic:"Level 2/images/jump.png"}, {VB: 'draw', pic:"Level 2/images/draw.png"}];
@@ -212,7 +206,6 @@ function g_02(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="http://scratch.mit.edu/projects/36595088/" target="_newtab">Scratch: Can he ___?</a>'];
-        grammarLesson = "";
     } else if (userInput == "Review 2") {
         unitArray = ["Unit 4", "Unit 5", "Unit 6"];
         shuffleArray(unitArray);
@@ -259,7 +252,6 @@ function g_02(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="http://www.eslgamesplus.com/prepositions-of-place-esl-fun-game-online-grammar-practice/" target="_newtab">ESL Games+: Prepositions of Place</a>'];
-        grammarLesson = "";
     } else if (userInput == "Unit 8") {
         randomG = randG(2);
         PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
@@ -298,7 +290,6 @@ function g_02(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Unit 9") {
         randomG = randG(2);
         PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
@@ -337,25 +328,21 @@ function g_02(userInput){
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Review 3") {
         unitArray = ["Unit 7", "Unit 8", "Unit 9"];
         shuffleArray(unitArray);
         g_02(unitArray[0]);
         currentUnit = "Review 3";
         gLinks = [''];
-        grammarLesson = "";
     } else if (userInput == "Final Review") {
         unitArray = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9"];
         shuffleArray(unitArray);
         g_02(unitArray[0]);
         currentUnit = "Final Review";
         gLinks = ['<a href="http://scratch.mit.edu/projects/64838632/" target="_newtab">B2 Chat Bot</a>'];
-        grammarLesson = "";
     } else {
         sentenceArray = [""];
         gLinks = [''];
-        grammarLesson = "";
     }
     shuffleArray(sentenceArray);
     document.getElementById("g0r1d0").textContent = sentenceArray[0];
@@ -363,6 +350,5 @@ function g_02(userInput){
     document.getElementById("g0r2d0").textContent = sentenceArray[2];
     document.getElementById("g0r2d2").textContent = sentenceArray[3];
     document.getElementById("grammar_links").innerHTML = gLinks;
-    document.getElementById("grammar_lesson").innerHTML = grammarLesson;
     document.getElementById('g_request').textContent = sentence;
 }
