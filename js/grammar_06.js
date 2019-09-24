@@ -36,7 +36,31 @@ function g_06(userInput){
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="http://scratch.mit.edu/projects/20797437/" target="_newtab">Scratch: Date Game</a>'];
     } else if (userInput == "Unit 2") {
-        
+        randomG = randG(2);
+        PRPArray = [{POSS: "my", PER: "mine"}, {POSS: "your", PER: "yours"}, {POSS: "our", PER: "ours"}, {POSS: "their", PER: "theirs"}, {POSS: "his", PER: "his"}, {POSS: "her", PER: "hers"}];
+        shuffleArray(PRPArray);
+        NOUNArray = [{NN: "tie", NNS: "ties", pic:"Level 6/images/tie.png"}, {NN: "scarf", NNS: "scarves", pic:"Level 6/images/scarf.png"}, {NN: "necklace", NNS: "necklaces", pic:"Level 6/images/necklace.png"}, {NN: "raincoat", NNS: "raincoats", pic:"Level 6/images/raincoat.png"}, {NN: "uniform", NNS: "uniforms", pic:"Level 6/images/uniform.png"}, {NN: "watch", NNS: "watches", pic:"Level 6/images/watch.png"}, {NNS: "sneakers", pic:"Level 6/images/sneakers.png"}, {NNS: "slippers", pic:"Level 6/images/slippers.png"}];
+        document.getElementById("gPic").src = NOUNArray[0].pic;
+        if (randomG < 1){
+            NOUNArray = NOUNArray.slice(0, 6);
+            shuffleArray(NOUNArray);
+        document.getElementById("gPic").src = NOUNArray[0].pic;
+            sentence = "This is " + PRPArray[0].POSS + " " + NOUNArray[0].NN + ". This is " + PRPArray[0].PER + ", not " + PRPArray[1].PER + ".";
+            document.getElementById("grammarCheck").value = sentence;
+            sentenceArray[0] = sentence;
+            sentenceArray[1] = "This is " + PRPArray[0].POSS + " " + NOUNArray[1].NN + ". This is " + PRPArray[0].PER + ", not " + PRPArray[1].PER + ".";
+            sentenceArray[2] = "This is " + PRPArray[0].POSS + " " + NOUNArray[2].NN + ". This is " + PRPArray[0].PER + ", not " + PRPArray[1].PER + ".";
+            sentenceArray[3] = "This is " + PRPArray[0].POSS + " " + NOUNArray[3].NN + ". This is " + PRPArray[0].PER + ", not " + PRPArray[1].PER + ".";
+        } else {
+            shuffleArray(NOUNArray);
+            document.getElementById("gPic").src = NOUNArray[0].pic;
+            sentence = "These are " + PRPArray[0].POSS + " " + NOUNArray[0].NNS + ". These are " + PRPArray[0].PER + ", not " + PRPArray[1].PER + ".";
+            document.getElementById("grammarCheck").value = sentence;
+            sentenceArray[0] = sentence;
+            sentenceArray[1] = "These are " + PRPArray[0].POSS + " " + NOUNArray[1].NNS + ". These are " + PRPArray[0].PER + ", not " + PRPArray[1].PER + ".";
+            sentenceArray[2] = "These are " + PRPArray[0].POSS + " " + NOUNArray[2].NNS + ". These are " + PRPArray[0].PER + ", not " + PRPArray[1].PER + ".";
+            sentenceArray[3] = "These are " + PRPArray[0].POSS + " " + NOUNArray[3].NNS + ". These are " + PRPArray[0].PER + ", not " + PRPArray[1].PER + ".";
+        }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
     } else if (userInput == "Unit 3") {
