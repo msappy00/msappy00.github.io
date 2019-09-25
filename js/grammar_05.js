@@ -2,7 +2,7 @@ function g_05(userInput){
     if (userInput == "Unit 1") {
         PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
         shuffleArray(PRPArray);
-        ADJArray = [{ADJ: "first", pic:"Level 5/images/first.png"}, {ADJ: "second", pic:"Level 5/images/second.png"}, {ADJ: "third", pic:"Level 5/images/third.png"}, {ADJ: "fourth", pic:"Level 5/images/fourth.png"}, {ADJ: "fifth", pic:"Level 5/images/fifth.png"}, {ADJ: "sixth", pic:"Level 5/images/sixth.png"}, {ADJ: "seventh", pic:"Level 5/images/seventh.png"}, {ADJ: "eighth", pic:"Level 5/images/eighth.png"}, {ADJ: "ninth", pic:"Level 5/images/ninth.png"}, {ADJ: "tenth", pic:"Level 5/images/tenth.png"}, {ADJ: "eleventh", pic:"Level 5/images/eleventh.png"}, {ADJ: "twelfth", pic:"Level 5/images/twelfth.png"}];
+        ADJArray = [{ADJ: "first", pic: "Level 5/images/first.png"}, {ADJ: "second", pic: "Level 5/images/second.png"}, {ADJ: "third", pic: "Level 5/images/third.png"}, {ADJ: "fourth", pic: "Level 5/images/fourth.png"}, {ADJ: "fifth", pic: "Level 5/images/fifth.png"}, {ADJ: "sixth", pic: "Level 5/images/sixth.png"}, {ADJ: "seventh", pic: "Level 5/images/seventh.png"}, {ADJ: "eighth", pic: "Level 5/images/eighth.png"}, {ADJ: "ninth", pic: "Level 5/images/ninth.png"}, {ADJ: "tenth", pic: "Level 5/images/tenth.png"}, {ADJ: "eleventh", pic: "Level 5/images/eleventh.png"}, {ADJ: "twelfth", pic: "Level 5/images/twelfth.png"}];
         shuffleArray(ADJArray);
         document.getElementById("gPic").src = ADJArray[0].pic;
         verb1 = conjugate_VB(PRPArray[0].PRP, "beVerb");
@@ -134,7 +134,7 @@ function g_05(userInput){
         gLinks = [''];
     } else if (userInput == "Unit 5") {
         randomG = randG(2);
-        ADJArray = [{ADJ: "hot", pic: "Level 5/images/hot.png", time:"summer"}, {ADJ: "cold", pic: "Level 5/images/cold.png", time:"winter"}, {ADJ: "warm", pic: "Level 5/images/warm.png", time:"spring"}, {ADJ: "cool", pic: "Level 5/images/cool.png", time:"fall"}];
+        ADJArray = [{ADJ: "hot", pic: "Level 5/images/hot.png", time: "summer"}, {ADJ: "cold", pic: "Level 5/images/cold.png", time: "winter"}, {ADJ: "warm", pic: "Level 5/images/warm.png", time: "spring"}, {ADJ: "cool", pic: "Level 5/images/cool.png", time:"fall"}];
         shuffleArray(ADJArray);
         document.getElementById("gPic").src = ADJArray[0].pic;
         if (randomG < 1){

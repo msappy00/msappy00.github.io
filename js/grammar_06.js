@@ -1,7 +1,7 @@
 function g_06(userInput){
     if (userInput == "Unit 1") {
         randomG = randG(3);
-        monthArray = [{month: "January", pic:"Level 6/images/January.png"}, {month: "February", pic:"Level 6/images/February.png"}, {month: "March", pic:"Level 6/images/March.png"}, {month: "April", pic:"Level 6/images/April.png"}, {month: "May", pic:"Level 6/images/May.png"}, {month: "June", pic:"Level 6/images/June.png"}, {month: "July", pic:"Level 6/images/July.png"}, {month: "August", pic:"Level 6/images/August.png"}, {month: "September", pic:"Level 6/images/September.png"}, {month: "October", pic:"Level 6/images/October.png"}, {month: "November", pic:"Level 6/images/November.png"}, {month: "December", pic:"Level 6/images/December.png"}];
+        monthArray = [{month: "January", pic: "Level 6/images/January.png"}, {month: "February", pic: "Level 6/images/February.png"}, {month: "March", pic: "Level 6/images/March.png"}, {month: "April", pic: "Level 6/images/April.png"}, {month: "May", pic: "Level 6/images/May.png"}, {month: "June", pic: "Level 6/images/June.png"}, {month: "July", pic: "Level 6/images/July.png"}, {month: "August", pic: "Level 6/images/August.png"}, {month: "September", pic: "Level 6/images/September.png"}, {month: "October", pic: "Level 6/images/October.png"}, {month: "November", pic: "Level 6/images/November.png"}, {month: "December", pic: "Level 6/images/December.png"}];
         shuffleArray(monthArray);
         ordinalArray = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th", "13th", "14th", "15th", "16th", "17th", "18th", "19th", "20th", "21st", "22nd", "23rd", "24th", "25th", "26th", "27th", "28th", "29th", "30th", "31st"];
         if (monthArray[0].month == "February") {
@@ -39,7 +39,7 @@ function g_06(userInput){
         randomG = randG(2);
         PRPArray = [{POSS: "my", PER: "mine"}, {POSS: "your", PER: "yours"}, {POSS: "our", PER: "ours"}, {POSS: "their", PER: "theirs"}, {POSS: "his", PER: "his"}, {POSS: "her", PER: "hers"}];
         shuffleArray(PRPArray);
-        NOUNArray = [{NN: "tie", NNS: "ties", pic:"Level 6/images/tie.png"}, {NN: "scarf", NNS: "scarves", pic:"Level 6/images/scarf.png"}, {NN: "necklace", NNS: "necklaces", pic:"Level 6/images/necklace.png"}, {NN: "raincoat", NNS: "raincoats", pic:"Level 6/images/raincoat.png"}, {NN: "uniform", NNS: "uniforms", pic:"Level 6/images/uniform.png"}, {NN: "watch", NNS: "watches", pic:"Level 6/images/watch.png"}, {NNS: "sneakers", pic:"Level 6/images/sneakers.png"}, {NNS: "slippers", pic:"Level 6/images/slippers.png"}];
+        NOUNArray = [{NN: "tie", NNS: "ties", pic: "Level 6/images/tie.png"}, {NN: "scarf", NNS: "scarves", pic: "Level 6/images/scarf.png"}, {NN: "necklace", NNS: "necklaces", pic: "Level 6/images/necklace.png"}, {NN: "raincoat", NNS: "raincoats", pic: "Level 6/images/raincoat.png"}, {NN: "uniform", NNS: "uniforms", pic: "Level 6/images/uniform.png"}, {NN: "watch", NNS: "watches", pic: "Level 6/images/watch.png"}, {NNS: "sneakers", pic: "Level 6/images/sneakers.png"}, {NNS: "slippers", pic: "Level 6/images/slippers.png"}];
         document.getElementById("gPic").src = NOUNArray[0].pic;
         if (randomG < 1){
             NOUNArray = NOUNArray.slice(0, 6);
@@ -64,7 +64,30 @@ function g_06(userInput){
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
     } else if (userInput == "Unit 3") {
-        
+        randomG = randG(2);
+        PRPArray = [{POSS: "my", PER: "mine"}, {POSS: "your", PER: "yours"}, {POSS: "our", PER: "ours"}, {POSS: "their", PER: "theirs"}, {POSS: "his", PER: "his"}, {POSS: "her", PER: "hers"}];
+        shuffleArray(PRPArray);
+        document.getElementById("gInstructions").innerHTML = "<h2> hint: (" + PRPArray[0].PER + ")</h2>";
+        if (randomG < 1){
+            NOUNArray = [{NN: "glue", pic: "Level 6/images/glue.png"}, {NN: "pencil case", pic: "Level 6/images/pencil case.png"}, {NN: "tape", pic: "Level 6/images/tape.png"}, {NN: "pencil sharpener", pic: "Level 6/images/pencil sharpener.png"}, {NN: "notebook", pic: "Level 6/images/notebook.png"}, {NN: "paper", pic: "Level 6/images/paper.png"}, {NN: "correction tape", pic: "Level 6/images/correction tape.png"}];
+            shuffleArray(NOUNArray);
+            sentence = "Whose " + NOUNArray[0].NN + " is this?";
+            document.getElementById("grammarCheck").value = "It's " + PRPArray[0].PER + ", not " + PRPArray[1].PER + ".";
+            sentenceArray[0] = "It's " + PRPArray[0].PER + ", not " + PRPArray[1].PER + ".";
+            sentenceArray[1] = "It's " + PRPArray[1].PER + ", not " + PRPArray[0].PER + ".";
+            sentenceArray[2] = "It's " + PRPArray[2].PER + ", not " + PRPArray[1].PER + ".";
+            sentenceArray[3] = "It's " + PRPArray[3].PER + ", not " + PRPArray[1].PER + ".";
+        } else {
+            NOUNArray = [{NNS: "scissors", pic: "Level 6/images/scissors.png"}, {NNS: "crayons", pic: "Level 6/images/crayons.png"}, {NNS: "markers", pic: "Level 6/images/markers.png"}];
+            shuffleArray(NOUNArray);
+            sentence = "Whose " + NOUNArray[0].NNS + " are these?";
+            document.getElementById("grammarCheck").value = "They're " + PRPArray[0].PER + ", not " + PRPArray[1].PER + ".";
+            sentenceArray[0] = "They're " + PRPArray[0].PER + ", not " + PRPArray[1].PER + ".";
+            sentenceArray[1] = "They're " + PRPArray[1].PER + ", not " + PRPArray[0].PER + ".";
+            sentenceArray[2] = "They're " + PRPArray[2].PER + ", not " + PRPArray[1].PER + ".";
+            sentenceArray[3] = "They're " + PRPArray[3].PER + ", not " + PRPArray[1].PER + ".";
+        }
+        document.getElementById("gPic").src = NOUNArray[0].pic;    
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
     } else if (userInput == "Review 1") {
