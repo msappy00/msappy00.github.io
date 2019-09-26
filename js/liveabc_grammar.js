@@ -16,11 +16,11 @@ function setGrammar(userInput){
     ADJArray = [];
 
     // IRREGULAR VERBS
-    beVerb = {VB: "be", VBPArray: ["am", "are"], VBZ: "is"};
-    doVerb = {VB: "do", VBZ: "does"};
-    goVerb = {VB: "go", VBZ: "goes"};
-    haveVerb = {VB: "have", VBZ: "has"};
-    playVerb = {VB: "play", VBZ: "plays"};
+    beVerb = {VB: "be", VBPArray: ["am", "are"], VBZ: "is", VBDArray: ["was", "were"]};
+    doVerb = {VB: "do", VBZ: "does", VBD: "did"};
+    goVerb = {VB: "go", VBZ: "goes", VBD: "went"};
+    haveVerb = {VB: "have", VBZ: "has", VBD: "had"};
+    playVerb = {VB: "play", VBZ: "plays", VBD: "played"};
 
     // ADVERBS
     ADVArray = [];

@@ -260,6 +260,20 @@ function conjugate_VB(PRP, Verb) {
     return VERB;
 };
 
+function conjugate_VBD(PRP, Verb) {
+    if (Verb == "beVerb"){
+        if (PRP == 'I' || PRP == 'he' || PRP == 'she') {VERB = beVerb.VBDArray[0]}
+        else {VERB = beVerb.VBDArray[1]}   
+    } else if (typeof window[Verb] === 'undefined' || window[Verb] === null) {
+        if (PRP == 'I' || PRP == 'you' || PRP == 'they' || PRP == 'we') {
+            VERB = Verb.slice(0, -4) + "ed";
+        }
+    } else {
+        VERB = window[Verb].VBD;
+        }   
+    return VERB;
+};
+
 function setDET(NOUNPHRASE){ // adapted from https://github.com/EamonNerbonne/a-vs-an/blob/master/A-vs-An/AvsAn-JsDemo/AvsAn.js
         // Getting the first word 
         var match = /\w+/.exec(NOUNPHRASE);

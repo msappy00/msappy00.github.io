@@ -32,7 +32,7 @@ function g_04(userInput){
         shuffleArray(PRPArray);
         NOUNArray = [{NN:'on foot', pic:"Level 4/images/on foot.png"}, {NN:'by scooter', pic:"Level 4/images/scooter.png"}, {NN:'by motorcycle', pic:"Level 4/images/motorcycle.png"}, {NN:'by car', pic:"Level 4/images/car.png"}, {NN:'by bus', pic:"Level 4/images/bus.png"}, {NN:'by bicycle', pic:"Level 4/images/bicycle.png"}, {NN:'by MRT', pic:"Level 4/images/MRT.png"}, {NN:'by train', pic:"Level 4/images/train.png"}, {NN:'by taxi', pic:"Level 4/images/taxi.png"}, {NN:'by high-speed rail', pic:"Level 4/images/high-speed rail.png"}];
         shuffleArray(NOUNArray);
-        f
+        document.getElementById("gPic").src = NOUNArray[0].pic;
         verbArray = [{VB: "go", NN: " work"}, {VB: "go", NN: " school"}];
         shuffleArray(verbArray);
         verb = conjugate_VB(PRPArray[0].PRP, "doVerb");

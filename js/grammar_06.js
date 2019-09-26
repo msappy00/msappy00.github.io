@@ -96,7 +96,31 @@ function g_06(userInput){
         setGrammar(q1Array[0]);
         currentUnit = "Review 1";
     } else if (userInput == "Unit 4") {
-        
+        randomG = randG(2);
+        PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
+        shuffleArray(PRPArray);
+        verb = conjugate_VBD(PRPArray[0].PRP, "beVerb");
+        verb2 = conjugate_VBD(PRPArray[0].RESPONSE, "beVerb");
+        VOCArray = [{voc: "excited", pic: "Level 6/images/excited.png"}, {voc: "scared", pic: "Level 6/images/scared.png"}, {voc: "bored", pic: "Level 6/images/bored.png"}, {voc: "sick", pic: "Level 6/images/sick.png"}, {voc: "early", pic: "Level 6/images/early.png"}, {voc: "late", pic: "Level 6/images/late.png"}];
+        shuffleArray(VOCArray);
+        timeArray = [" yesterday morning", " yesterday afternoon", " yesterday evening", " yesterday", " last week", " last Monday", " last Tuesday", " last Wednesday", " last Thursday", " last Friday"];
+        shuffleArray(timeArray);
+        sentence = capitalize(verb) + " " + PRPArray[0].PRP + " " + VOCArray[0].voc + timeArray[0] + "?";
+        if (randomG < 1){
+            document.getElementById("gPic").src = VOCArray[0].pic;
+            document.getElementById("grammarCheck").value = "Yes, " + PRPArray[0].RESPONSE + " " + verb2 + " " + VOCArray[0].voc + timeArray[0] + ".";
+            sentenceArray[0] = "Yes, " + PRPArray[0].RESPONSE + " " + verb2 + " " + VOCArray[0].voc + timeArray[0] + ".";
+            sentenceArray[1] = "Yes, " + PRPArray[0].RESPONSE + " " + verb2 + " " + VOCArray[1].voc + timeArray[0] + ".";
+            sentenceArray[2] = "Yes, " + PRPArray[0].RESPONSE + " " + verb2 + " " + VOCArray[2].voc + timeArray[0] + ".";
+            sentenceArray[3] = "Yes, " + PRPArray[0].RESPONSE + " " + verb2 + " " + VOCArray[3].voc + timeArray[0] + ".";
+        } else {
+            document.getElementById("gPic").src = VOCArray[1].pic;
+            document.getElementById("grammarCheck").value = "No, " + PRPArray[0].RESPONSE + " " + verb2 + "n't " + VOCArray[0].voc + timeArray[0] + ".";
+            sentenceArray[0] = "No, " + PRPArray[0].RESPONSE + " " + verb2 + "n't " + VOCArray[0].voc + timeArray[0] + ".";
+            sentenceArray[1] = "No, " + PRPArray[0].RESPONSE + " " + verb2 + "n't " + VOCArray[2].voc + timeArray[0] + ".";
+            sentenceArray[2] = "No, " + PRPArray[0].RESPONSE + " " + verb2 + "n't " + VOCArray[3].voc + timeArray[0] + ".";
+            sentenceArray[3] = "No, " + PRPArray[0].RESPONSE + " " + verb2 + "n't " + VOCArray[4].voc + timeArray[0] + ".";
+        }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
     } else if (userInput == "Unit 5") {
