@@ -103,7 +103,7 @@ function g_06(userInput){
         verb2 = conjugate_VBD(PRPArray[0].RESPONSE, "beVerb");
         VOCArray = [{voc: "excited", pic: "Level 6/images/excited.png"}, {voc: "scared", pic: "Level 6/images/scared.png"}, {voc: "bored", pic: "Level 6/images/bored.png"}, {voc: "sick", pic: "Level 6/images/sick.png"}, {voc: "early", pic: "Level 6/images/early.png"}, {voc: "late", pic: "Level 6/images/late.png"}];
         shuffleArray(VOCArray);
-        timeArray = [" yesterday morning", " yesterday afternoon", " yesterday evening", " yesterday", " last week", " last Monday", " last Tuesday", " last Wednesday", " last Thursday", " last Friday"];
+        timeArray = [" yesterday morning", " yesterday afternoon", " yesterday evening", " yesterday", " last weekend", " last Monday", " last Tuesday", " last Wednesday", " last Thursday", " last Friday"];
         shuffleArray(timeArray);
         sentence = capitalize(verb) + " " + PRPArray[0].PRP + " " + VOCArray[0].voc + timeArray[0] + "?";
         if (randomG < 1){
@@ -124,7 +124,21 @@ function g_06(userInput){
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
     } else if (userInput == "Unit 5") {
-        
+        PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
+        shuffleArray(PRPArray);
+        verb = conjugate_VBD(PRPArray[0].PRP, "beVerb");
+        verb2 = conjugate_VBD(PRPArray[0].RESPONSE, "beVerb");
+        LOCArray = [{loc: "at the beach", pic: "Level 6/images/beach.png"}, {loc: "at the airport", pic: "Level 6/images/airport.png"}, {loc: "at the farm", pic: "Level 6/images/farm.png"}, {loc: "at the concert", pic: "Level 6/images/concert.png"}, {loc: "in the mountains", pic: "Level 6/images/mountain.png"}, {loc: "in the amusement park", pic: "Level 6/images/amusement park.png"}, {loc: "at the playground", pic: "Level 6/images/playground.png"}, {loc: "at the port", pic: "Level 6/images/port.png"}];
+        shuffleArray(LOCArray);
+        document.getElementById("gPic").src = LOCArray[0].pic;
+        timeArray = [" yesterday morning", " yesterday afternoon", " yesterday evening", " yesterday", " last weekend", " last Monday", " last Tuesday", " last Wednesday", " last Thursday", " last Friday"];
+        shuffleArray(timeArray);
+        sentence = "Where " + verb + " " + PRPArray[0].PRP + timeArray[0] + "?";
+        document.getElementById("grammarCheck").value = capitalize(PRPArray[0].RESPONSE) + " " + verb2 + " " + LOCArray[0].loc + " " + timeArray[0] + ".";
+            sentenceArray[0] = capitalize(PRPArray[0].RESPONSE) + " " + verb2 + " " + LOCArray[0].loc + " " + timeArray[0] + ".";
+            sentenceArray[1] = capitalize(PRPArray[0].RESPONSE) + " " + verb2 + " " + LOCArray[1].loc + " " + timeArray[0] + ".";
+            sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " " + verb2 + " " + LOCArray[2].loc + " " + timeArray[0] + ".";
+            sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + verb2 + " " + LOCArray[3].loc + " " + timeArray[0] + ".";
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
     } else if (userInput == "Unit 6") {
