@@ -175,11 +175,45 @@ function g_06(userInput){
         setGrammar(q1Array[0]);
         currentUnit = "Review 2";
     } else if (userInput == "Unit 7") {
-        
+        PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
+        shuffleArray(PRPArray);
+        VERBArray = [{VBD: "fixed the bike", pic: "Level 6/images/fixed the bike.png"}, {VBD: "cleaned the room", pic: "Level 6/images/cleaned the room.png"}, {VBD: "visited", pic: "Level 6/images/visited.png"}, {VBD: "painted the wall", pic: "Level 6/images/painted the wall.png"}, {VBD: "washed my hair", pic: "Level 6/images/washed my hair.png"}, {VBD: "jumped rope", pic: "Level 6/images/jumped rope.png"}, {VBD: "used the computer", pic: "Level 6/images/used the computer.png"}, {VBD: "played a video game", pic: "Level 6/images/played a video game.png"}];
+        shuffleArray(VERBArray);
+        timeArray = [" yesterday", " last night", " last week", " last month", " five minutes ago"];
+        shuffleArray(timeArray);
+        document.getElementById("gPic").src = VERBArray[0].pic;
+        sentence = "What did " + PRPArray[0].PRP + " do" + timeArray[0] + "?";
+        document.getElementById("grammarCheck").value = capitalize(PRPArray[0].RESPONSE) + " " + VERBArray[0].VBD + timeArray[0] + ".";
+        sentenceArray[0] = capitalize(PRPArray[0].RESPONSE) + " " + VERBArray[0].VBD + timeArray[0] + ".";
+        sentenceArray[1] = capitalize(PRPArray[0].RESPONSE) + " " + VERBArray[1].VBD + timeArray[0] + ".";
+        sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " " + VERBArray[2].VBD + timeArray[0] + ".";
+        sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + VERBArray[3].VBD + timeArray[0] + ".";
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="http://www.turtlediary.com/grade-3-games/ela-games/simple-past-tense.html" target="_newtab">Turtle Diary: Simple Past Tense</a>'];
     } else if (userInput == "Unit 8") {
-        
+        randomG = randG(2);
+        PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
+        shuffleArray(PRPArray);
+        VERBArray = [{VB: "study", VBD: "studied", pic: "Level 6/images/studied.png"}, {VB: "fry an egg", VBD: "fried an egg", pic: "Level 6/images/fried an egg.png"}, {VB: "copy the paper", VBD: "copied the paper", pic: "Level 6/images/copied.png"}, {VB: "chat", VBD: "chatted", pic: "Level 6/images/chatted.png"}, {VB: "plan", VBD: "planned", pic: "Level 6/images/planned.png"}, {VB: "stop", VBD: "stopped", pic: "Level 6/images/stopped.png"}, {VB: "put the vase on the table", VBD: "put the vase on the table", pic: "Level 6/images/put.png"}, {VB: "cut paper", VBD: "cut paper", pic: "Level 6/images/cut.png"}, {VB: "read a book", VBD: "read a book", pic: "Level 6/images/read.png"}];
+        shuffleArray(VERBArray);
+        timeArray = [" yesterday", " last night", " last week", " last month", " five minutes ago"];
+        shuffleArray(timeArray);
+        sentence = "Did " + PRPArray[0].PRP + " " + VERBArray[0].VB + timeArray[0] + "?";
+        if (randomG < 1){
+            document.getElementById("gPic").src = VERBArray[0].pic;
+            document.getElementById("grammarCheck").value = "Yes, " + PRPArray[0].RESPONSE + " " + VERBArray[0].VBD + timeArray[0] + ".";
+            sentenceArray[0] = "Yes, " + PRPArray[0].RESPONSE + " " + VERBArray[0].VBD + timeArray[0] + ".";
+            sentenceArray[1] = "Yes, " + PRPArray[0].RESPONSE + " " + VERBArray[1].VBD + timeArray[0] + ".";
+            sentenceArray[2] = "Yes, " + PRPArray[0].RESPONSE + " " + VERBArray[2].VBD + timeArray[0] + ".";
+            sentenceArray[3] = "Yes, " + PRPArray[0].RESPONSE + " " + VERBArray[3].VBD + timeArray[0] + ".";
+        } else {
+            document.getElementById("gPic").src = VERBArray[1].pic;
+            document.getElementById("grammarCheck").value = "No, " + PRPArray[0].RESPONSE + " didn't " + VERBArray[0].VB + timeArray[0] + ".";
+            sentenceArray[0] = "No, " + PRPArray[0].RESPONSE + " didn't " + VERBArray[0].VB + timeArray[0] + ".";
+            sentenceArray[1] = "No, " + PRPArray[0].RESPONSE + " didn't " + VERBArray[1].VB + timeArray[0] + ".";
+            sentenceArray[2] = "No, " + PRPArray[0].RESPONSE + " didn't " + VERBArray[2].VB + timeArray[0] + ".";
+            sentenceArray[3] = "No, " + PRPArray[0].RESPONSE + " didn't " + VERBArray[3].VB + timeArray[0] + ".";
+        }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="http://www.eslgamesplus.com/irregular-past-tense-esl-grammar-jeopardy-quiz-game/" target="_newtab">ESL Games+: Irregular Past Tense Jeopardy</a></li><li><a href="http://www.turtlediary.com/grade-3-games/ela-games/simple-past-tense.html" target="_newtab">Turtle Diary: Simple Past Tense</a></li><li><a href="http://www.grammar.cl/Games/Past_Irregular_Verbs.htm" target="_newtab">Woodward English: Past Irregular Verbs</a></li><li><a href="http://www.perfect-english-grammar.com/past-simple-exercise-7.html" target="_newtab">Perfect English Grammar: Past Simple Forms</a>'];
     } else if (userInput == "Unit 9") {
