@@ -214,23 +214,23 @@ array = [];
     } else if (currentInput == "Level 10Unit 9") {
         array = ["place", "dump", "happen", "owner", "faint", "ground", "mend", "clay", "unique"];
     } else if (currentInput == "Level 11Unit 1") {
-        array = ["village", "grow", "neighbor", "life", "beginning", "crowded", "apartment", "start", "elevator", "stairway", "familiar", "peaceful", "decide"];
+        array = ["village", "grow", "neighbor", "beginning", "start", "apartment", "crowded", "elevator", "stairs", "familiar", "neighborhood", "decide", "satisfied"];
     } else if (currentInput == "Level 11Unit 2") {
-        array = ["seesaw", "slide", "swing", "monkey bars", "practice", "tremble", "jungle gym", "borrow", "return", "hope", "finish", "bother"];
+        array = ["seesaw", "slide", "swing", "monkey bars", "tremble", "jungle gym", "practice", "borrow", "return", "hope", "finish", "bother"];
     } else if (currentInput == "Level 11Unit 3") {
-        array = ["across", "skywalk", "crosswalk", "sidewalk", "pedestrian", "helmet", "unforgivable", "buckle", "seat belt", "shortcut", "illegal", "calm"];
+        array = ["buckle", "seat belt", "shortcut", "illegal", "calm", "across", "overpass", "crosswalk", "sidewalk", "pedestrian", "helmet", "unforgivable"];
     } else if (currentInput == "Level 11Unit 4") {
-        array = ["exhibition", "discount", "yet", "author", "sign", "arrive", "signature", "also", "subscribe", "weekly"];
+        array = ["exhibition", "discount", "yet", "author", "sign", "online", "arrive", "signature", "also", "subscribe", "weekly"];
     } else if (currentInput == "Level 11Unit 5") {
         array = ["semester", "receive", "package", "instant noodles", "homesick", "homesickness", "relieve", "New York", "college", "whenever"];
     } else if (currentInput == "Level 11Unit 6") {
-        array = ["born", "maid", "response", "examine", "cure", "deaf", "blind", "ill-tempered", "smash", "monster", "fork", "punish", "led", "lifelong"];
+        array = ["born", "illness", "maid", "response", "examine", "cure", "deaf", "blind", "ill-tempered", "smash", "monster", "invite", "force", "fork", "punish", "pour", "led", "lifelong"];
     } else if (currentInput == "Level 11Unit 7") {
-        array = ["burnt", "frozen", "put out", "wounded", "fried", "boiled", "homeless", "secondhand", "used", "buyer", "satisfied", "spoiled"];
+        array = ["burnt", "frozen", "put out", "injured", "fried", "boiled", "homeless", "secondhand", "used", "buyer", "spoiled"];
     } else if (currentInput == "Level 11Unit 8") {
-        array = ["faucet", "leak", "spend", "introduce", "neighborhood", "drop", "repair", "stew", "hide"];
+        array = ["faucet", "leak", "introduce", "camera", "drop", "repair", "stew", "outside", "hide"];
     } else if (currentInput == "Level 11Unit 9") {
-        array = ["cupboard", "handmade", "antique", "budget", "jewelry box", "flea market", "stuff", "frame", "perfect"];
+        array = ["handmade", "antique", "cost", "budget", "worth", "jewelry box", "flea market", "stuff", "frame", "perfect"];
     } else if (currentInput == "Level 12Unit 1") {
         array = ["yourself", "myself", "classmates", "ourselves", "themselves", "trust", "yourselves", "himself", "herself", "carry", "almost"];
     } else if (currentInput == "Level 12Unit 2") {
