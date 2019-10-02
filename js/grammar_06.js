@@ -217,7 +217,33 @@ function g_06(userInput){
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="http://www.eslgamesplus.com/irregular-past-tense-esl-grammar-jeopardy-quiz-game/" target="_newtab">ESL Games+: Irregular Past Tense Jeopardy</a></li><li><a href="http://www.turtlediary.com/grade-3-games/ela-games/simple-past-tense.html" target="_newtab">Turtle Diary: Simple Past Tense</a></li><li><a href="http://www.grammar.cl/Games/Past_Irregular_Verbs.htm" target="_newtab">Woodward English: Past Irregular Verbs</a></li><li><a href="http://www.perfect-english-grammar.com/past-simple-exercise-7.html" target="_newtab">Perfect English Grammar: Past Simple Forms</a>'];
     } else if (userInput == "Unit 9") {
-        
+        randomG = randG(2);
+        PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
+        shuffleArray(PRPArray);
+        VOCArray = [{voc: "a bag of chips", pic: "Level 6/images/a bag of chips.png"}, {voc: "a piece of cake", pic: "Level 6/images/a piece of cake.png"}, {voc: "a slice of bread", pic: "Level 6/images/a slice of bread.png"}, {voc: "a box of crackers", pic: "Level 6/images/a box of crackers.png"}, {voc: "a bar of chocolate", pic: "Level 6/images/a bar of chocolate.png"}, {voc: "a bottle of water", pic: "Level 6/images/a bottle of water.png"}, {voc: "a can of soda", pic: "Level 6/images/a can of soda.png"}, {voc: "a cup of tea", pic: "Level 6/images/a cup of tea.png"}, {voc: "a glass of juice", pic: "Level 6/images/a glass of juice.png"}];
+        timeArray = [" yesterday", " yesterday morning", " yesterday afternoon", " yesterday evening", " this morning", " this afternoon", " this evening", " five minutes ago", "one hour ago"];
+        shuffleArray(timeArray);
+        if (randomG < 1){
+            VOCArray = VOCArray.slice(0, 5);
+            shuffleArray(VOCArray);
+            document.getElementById("gPic").src = VOCArray[0].pic;
+            sentence = capitalize(PRPArray[0].PRP) + " ate " + VOCArray[0].voc + timeArray[0] + ".";
+            document.getElementById("grammarCheck").value = sentence;
+            sentenceArray[0] = capitalize(PRPArray[0].PRP) + " ate " + VOCArray[0].voc + timeArray[0] + ".";
+            sentenceArray[1] = capitalize(PRPArray[0].PRP) + " ate " + VOCArray[1].voc + timeArray[0] + ".";
+            sentenceArray[2] = capitalize(PRPArray[0].PRP) + " ate " + VOCArray[2].voc + timeArray[0] + ".";
+            sentenceArray[3] = capitalize(PRPArray[0].PRP) + " ate " + VOCArray[3].voc + timeArray[0] + ".";
+        } else {
+            VOCArray = VOCArray.slice(5);
+            shuffleArray(VOCArray);
+            document.getElementById("gPic").src = VOCArray[0].pic;
+            sentence = capitalize(PRPArray[0].PRP) + " drank " + VOCArray[0].voc + timeArray[0] + ".";
+            document.getElementById("grammarCheck").value = sentence;
+            sentenceArray[0] = capitalize(PRPArray[0].PRP) + " drank " + VOCArray[0].voc + timeArray[0] + ".";
+            sentenceArray[1] = capitalize(PRPArray[0].PRP) + " drank " + VOCArray[1].voc + timeArray[0] + ".";
+            sentenceArray[2] = capitalize(PRPArray[0].PRP) + " drank " + VOCArray[2].voc + timeArray[0] + ".";
+            sentenceArray[3] = capitalize(PRPArray[0].PRP) + " drank " + VOCArray[3].voc + timeArray[0] + ".";
+        }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="http://www.eslgamesplus.com/food-partitives-expressions-of-quantity-a-slice-of-a-piece-of-esl-grammar-activity/" target="_newtab">ESL Games+: Phrase Monkey</a></li><li><a href="http://www.eslgamesplus.com/food-partitives-esl-fun-game-food-quantities-game/" target="_newtab">ESL Games+: Moonshot</a>'];
     } else if (userInput == "Review 3") {

@@ -103,6 +103,8 @@ function setGrammar(userInput){
         g_06(userInput);
     } else if (level_id == "Level 7") {
         g_07(userInput);
+    } else if (level_id == "Level 8") {
+        g_08(userInput);
     } else {
         document.getElementById("gInstructions").innerHTML = "<h1>Work in Progress</h1>";
         document.getElementById("grammarCheck").value = "";
