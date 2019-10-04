@@ -43,7 +43,22 @@ function g_08(userInput){
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
     } else if (userInput == "Unit 2") {
-        
+        randomG = randG(2);
+        if (randomG < 1){
+            ADJArray = [{NN: "Number 1 is ", COMP: "faster", pic:"Level 8/images/fast.png"}, {NN: "Number 4 ", COMP: "slower", pic:"Level 8/images/slow.png"}, {NN: "The orange cat ", COMP: "fatter", pic:"Level 8/images/fat.png"}, {NN: "The woman in the blue dress ", COMP: "slimmer", pic:"Level 8/images/slim.png"}];
+        shuffleArray(ADJArray);
+            sentence = "Who is " + ADJArray[0].COMP + "?";
+        } else {
+            ADJArray = [{NN: "The doll on the left ", COMP: "prettier", pic:"Level 8/images/pretty.png"}, {NN: "The duck on the right ", COMP: "uglier", pic:"Level 8/images/ugly.png"}, {NN: "The orange ball ", COMP: "bigger", pic:"Level 8/images/big.png"}, {NN: "The blue ball ", COMP: "smaller", pic:"Level 8/images/small.png"}];
+        shuffleArray(ADJArray);
+        sentence = "Which is " + ADJArray[0].COMP + "?";
+        }
+        document.getElementById("gPic").src = ADJArray[0].pic;
+        document.getElementById("grammarCheck").value = ADJArray[0].NN + "is " + ADJArray[0].COMP + ".";
+        sentenceArray[0] = ADJArray[0].NN + "is " + ADJArray[0].COMP + ".";
+        sentenceArray[1] = ADJArray[0].NN + "is " + ADJArray[1].COMP + ".";
+        sentenceArray[2] = ADJArray[0].NN + "is " + ADJArray[2].COMP + ".";
+        sentenceArray[3] = ADJArray[0].NN + "is " + ADJArray[3].COMP + ".";
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
     } else if (userInput == "Unit 3") {
