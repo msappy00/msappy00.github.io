@@ -91,9 +91,9 @@ function g_06(userInput){
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
     } else if (userInput == "Review 1") {
-        q1Array = ["Unit 1", "Unit 2", "Unit 3"];
-        shuffleArray(q1Array);
-        setGrammar(q1Array[0]);
+        unitArray = ["Unit 1", "Unit 2", "Unit 3"];
+        shuffleArray(unitArray);
+        g_06(unitArray[0]);
         currentUnit = "Review 1";
     } else if (userInput == "Unit 4") {
         randomG = randG(2);
@@ -170,9 +170,9 @@ function g_06(userInput){
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
     } else if (userInput == "Review 2") {
-        q1Array = ["Unit 4", "Unit 5", "Unit 6"];
-        shuffleArray(q1Array);
-        setGrammar(q1Array[0]);
+        unitArray = ["Unit 4", "Unit 5", "Unit 6"];
+        shuffleArray(unitArray);
+        g_06(unitArray[0]);
         currentUnit = "Review 2";
     } else if (userInput == "Unit 7") {
         PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
@@ -247,14 +247,14 @@ function g_06(userInput){
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="http://www.eslgamesplus.com/food-partitives-expressions-of-quantity-a-slice-of-a-piece-of-esl-grammar-activity/" target="_newtab">ESL Games+: Phrase Monkey</a></li><li><a href="http://www.eslgamesplus.com/food-partitives-esl-fun-game-food-quantities-game/" target="_newtab">ESL Games+: Moonshot</a>'];
     } else if (userInput == "Review 3") {
-        q1Array = ["Unit 7", "Unit 8", "Unit 9"];
-        shuffleArray(q1Array);
-        setGrammar(q1Array[0]);
+        unitArray = ["Unit 7", "Unit 8", "Unit 9"];
+        shuffleArray(unitArray);
+        g_06(unitArray[0]);
         currentUnit = "Review 3";
     } else if (userInput == "Final Review") {
-        q1Array = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9"];
-        shuffleArray(q1Array);
-        setGrammar(q1Array[0]);
+        unitArray = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9"];
+        shuffleArray(unitArray);
+        g_06(unitArray[0]);
         currentUnit = "Final Review";
     } else {
         sentenceArray = [""];

@@ -89,7 +89,7 @@ function g_08(userInput){
     } else if (userInput == "Review 1") {
         unitArray = ["Unit 1", "Unit 2", "Unit 3"];
         shuffleArray(unitArray);
-        g_07(unitArray[0]);
+        g_08(unitArray[0]);
         currentUnit = "Review 1";
     } else if (userInput == "Unit 4") {
         
@@ -106,7 +106,7 @@ function g_08(userInput){
     } else if (userInput == "Review 2") {
         unitArray = ["Unit 4", "Unit 5", "Unit 6"];
         shuffleArray(unitArray);
-        g_07(unitArray[0]);
+        g_08(unitArray[0]);
         currentUnit = "Review 2";
     } else if (userInput == "Unit 7") {
         
@@ -123,12 +123,12 @@ function g_08(userInput){
     } else if (userInput == "Review 3") {
         unitArray = ["Unit 7", "Unit 8", "Unit 9"];
         shuffleArray(unitArray);
-        g_07(unitArray[0]);
+        g_08(unitArray[0]);
         currentUnit = "Review 3";
     } else if (userInput == "Final Review") {
         unitArray = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9"];
         shuffleArray(unitArray);
-        g_07(unitArray[0]);
+        g_08(unitArray[0]);
         currentUnit = "Final Review";
     } else {
         q1Array = [""];

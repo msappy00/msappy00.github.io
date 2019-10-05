@@ -82,9 +82,9 @@ function g_04(userInput){
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
     } else if (userInput == "Review 1") {
-        q1Array = ["Unit 1", "Unit 2", "Unit 3"];
-        shuffleArray(q1Array);
-        setGrammar(q1Array[0]);
+        unitArray = ["Unit 1", "Unit 2", "Unit 3"];
+        shuffleArray(unitArray);
+        g_04(unitArray[0]);
         currentUnit = "Review 1";
     } else if (userInput == "Unit 4") {
         randomG = randG(2);
@@ -164,9 +164,9 @@ function g_04(userInput){
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
     } else if (userInput == "Review 2") {
-        q1Array = ["Unit 4", "Unit 5", "Unit 6"];
-        shuffleArray(q1Array);
-        setGrammar(q1Array[0]);
+        unitArray = ["Unit 4", "Unit 5", "Unit 6"];
+        shuffleArray(unitArray);
+        g_04(unitArray[0]);
         currentUnit = "Review 2";
     } else if (userInput == "Unit 7") {
         randomG = randG(3);
@@ -256,14 +256,14 @@ function g_04(userInput){
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="Level 4/images/city3.png" target="_newtab">City Buildings</a>'];
     } else if (userInput == "Review 3") {
-        q1Array = ["Unit 7", "Unit 8", "Unit 9"];
-        shuffleArray(q1Array);
-        setGrammar(q1Array[0]);
+        unitArray = ["Unit 7", "Unit 8", "Unit 9"];
+        shuffleArray(unitArray);
+        g_04(unitArray[0]);
         currentUnit = "Review 3";
     } else if (userInput == "Final Review") {
-        q1Array = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9"];
-        shuffleArray(q1Array);
-        setGrammar(q1Array[0]);
+        unitArray = ["Unit 1", "Unit 2", "Unit 3", "Unit 4", "Unit 5", "Unit 6", "Unit 7", "Unit 8", "Unit 9"];
+        shuffleArray(unitArray);
+        g_04(unitArray[0]);
         currentUnit = "Final Review";
     } else {
         sentenceArray = [""];
