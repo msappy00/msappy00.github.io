@@ -92,7 +92,28 @@ function g_08(userInput){
         g_08(unitArray[0]);
         currentUnit = "Review 1";
     } else if (userInput == "Unit 4") {
-        
+        randomG = randG(2);
+        if (randomG == 0) {
+            VOCArray = [{NN1: "The boy on the right", NN2: "the boy on the left", COMP: "has less hair", pic: "Level 8/images/little.png"}, {NN1: "The boy on the right", NN2: "the boy on the left", COMP: "has more ice cream", pic: "Level 8/images/much.png"}, {NN1: "The man on the right", NN2: "the boy on the left", COMP: "is stronger", pic: "Level 8/images/strong.png"}, {NN1: "The boy on the right", NN2: "the boy on the left", COMP: "is weaker", pic: "Level 8/images/weak.png"}];
+            shuffleArray(VOCArray);
+            sentence = "Who " + VOCArray[0].COMP + "?";
+            document.getElementById("gPic").src = VOCArray[0].pic;
+            document.getElementById("grammarCheck").value = VOCArray[0].NN1 + " " + VOCArray[0].COMP + " than " + VOCArray[0].NN2 + ".";
+            sentenceArray[0] = VOCArray[0].NN1 + " " + VOCArray[0].COMP + " than " + VOCArray[0].NN2 + ".";
+            sentenceArray[1] = VOCArray[0].NN1 + " " + VOCArray[1].COMP + " than " + VOCArray[0].NN2 + ".";
+            sentenceArray[2] = VOCArray[0].NN1 + " " + VOCArray[2].COMP + " than " + VOCArray[0].NN2 + ".";
+            sentenceArray[3] = VOCArray[0].NN1 + " " + VOCArray[3].COMP + " than " + VOCArray[0].NN2 + ".";
+        } else {    
+            VOCArray = [{NN1: "The blue car", NN2: "the orange car", COMP: "better", pic: "Level 8/images/better.png"}, {NN1: "30", NN2: "50", COMP: "worse", pic: "Level 8/images/worse.png"}];
+            shuffleArray(VOCArray);
+            sentence = "Which is " + VOCArray[0].COMP + "?";
+            document.getElementById("gPic").src = VOCArray[0].pic;
+            document.getElementById("grammarCheck").value = VOCArray[0].NN1 + " is " + VOCArray[0].COMP + " than " + VOCArray[0].NN2 + ".";
+            sentenceArray[0] = VOCArray[0].NN1 + " is " + VOCArray[0].COMP + " than " + VOCArray[0].NN2 + ".";
+            sentenceArray[1] = VOCArray[0].NN1 + " is " + VOCArray[1].COMP + " than " + VOCArray[0].NN2 + ".";
+            sentenceArray[2] = "";
+            sentenceArray[3] = "";
+        }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
     } else if (userInput == "Unit 5") {
