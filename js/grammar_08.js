@@ -117,7 +117,28 @@ function g_08(userInput){
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
     } else if (userInput == "Unit 5") {
-        
+        randomG = randG(2);
+        if (randomG == 0) {
+            VOCArray = [{NN: "The baby", COMP: "the youngest", pic: "Level 8/images/young.png"}, {NN: "The man on the right", COMP: "the oldest", pic: "Level 8/images/old.png"}, {NN: "The boy on the left", COMP: "the wettest", pic: "Level 8/images/wet.png"}, {NN: "The boy on the right", COMP: "the dirtiest", pic: "Level 8/images/dirty.png"}];
+            shuffleArray(VOCArray);
+            sentence = "Who is " + VOCArray[0].COMP + "?";
+            document.getElementById("gPic").src = VOCArray[0].pic;
+            document.getElementById("grammarCheck").value = VOCArray[0].NN + " is " + VOCArray[0].COMP + ".";
+            sentenceArray[0] = VOCArray[0].NN + " is " + VOCArray[0].COMP + ".";
+            sentenceArray[1] = VOCArray[0].NN + " is " + VOCArray[1].COMP + ".";
+            sentenceArray[2] = VOCArray[0].NN + " is " + VOCArray[2].COMP + ".";
+            sentenceArray[3] = VOCArray[0].NN + " is " + VOCArray[3].COMP + ".";
+        } else {    
+            VOCArray = [{NN: "The glass in the middle", COMP: "the cleanest", pic: "Level 8/images/clean.png"}, {NN: "The problem on the right", COMP: "the easiest", pic: "Level 8/images/easy.png"}];
+            shuffleArray(VOCArray);
+            sentence = "Which is " + VOCArray[0].COMP + "?";
+            document.getElementById("gPic").src = VOCArray[0].pic;
+            document.getElementById("grammarCheck").value = VOCArray[0].NN + " is " + VOCArray[0].COMP + ".";
+            sentenceArray[0] = VOCArray[0].NN + " is " + VOCArray[0].COMP + ".";
+            sentenceArray[1] = VOCArray[0].NN + " is " + VOCArray[1].COMP + ".";
+            sentenceArray[2] = "";
+            sentenceArray[3] = "";
+        }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
     } else if (userInput == "Unit 6") {
