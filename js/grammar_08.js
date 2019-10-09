@@ -142,7 +142,28 @@ function g_08(userInput){
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
     } else if (userInput == "Unit 6") {
-        
+        randomG = randG(2);
+        if (randomG == 0) {
+            VOCArray = [{NN: "The boy on the right", COMP: "the most hardworking", pic: "Level 8/images/hardworking.png"}, {NN: "The boy on the right", COMP: "the most careful", pic: "Level 8/images/careful.png"}, {NN: "The boy on the right", COMP: "the most careless", pic: "Level 8/images/careless.png"}];
+            shuffleArray(VOCArray);
+            sentence = "Who is " + VOCArray[0].COMP + "?";
+            document.getElementById("gPic").src = VOCArray[0].pic;
+            document.getElementById("grammarCheck").value = VOCArray[0].NN + " is " + VOCArray[0].COMP + ".";
+            sentenceArray[0] = VOCArray[0].NN + " is " + VOCArray[0].COMP + ".";
+            sentenceArray[1] = VOCArray[0].NN + " is " + VOCArray[1].COMP + ".";
+            sentenceArray[2] = VOCArray[0].NN + " is " + VOCArray[2].COMP + ".";
+            sentenceArray[3] = "";
+        } else {    
+            VOCArray = [{NN: "French fries are ", COMP: "the most popular", pic: "Level 8/images/popular.png"}, {NN: "The picture on the right is ", COMP: "the most colorful", pic: "Level 8/images/colorful.png"}, {NN: "The red chair is ", COMP: "the most comfortable", pic: "Level 8/images/comfortable.png"}];
+            shuffleArray(VOCArray);
+            sentence = "Which is " + VOCArray[0].COMP + "?";
+            document.getElementById("gPic").src = VOCArray[0].pic;
+            document.getElementById("grammarCheck").value = VOCArray[0].NN + VOCArray[0].COMP + ".";
+            sentenceArray[0] = VOCArray[0].NN + VOCArray[0].COMP + ".";
+            sentenceArray[1] = VOCArray[1].NN + VOCArray[0].COMP + ".";
+            sentenceArray[2] = VOCArray[2].NN + VOCArray[0].COMP + ".";
+            sentenceArray[3] = "";
+        }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
     } else if (userInput == "Review 2") {
