@@ -94,23 +94,23 @@ function g_08(userInput){
     } else if (userInput == "Unit 4") {
         randomG = randG(2);
         if (randomG == 0) {
-            VOCArray = [{NN1: "The boy on the right", NN2: "the boy on the left", COMP: "has less hair", pic: "Level 8/images/little.png"}, {NN1: "The boy on the right", NN2: "the boy on the left", COMP: "has more ice cream", pic: "Level 8/images/much.png"}, {NN1: "The man on the right", NN2: "the boy on the left", COMP: "is stronger", pic: "Level 8/images/strong.png"}, {NN1: "The boy on the right", NN2: "the boy on the left", COMP: "is weaker", pic: "Level 8/images/weak.png"}];
+            VOCArray = [{NN1: "The boy", LOC: "on the right", NN2: "the boy", COMP: "has less hair", pic: "Level 8/images/little.png"}, {NN1: "The boy", LOC: "on the left", NN2: "the boy", COMP: "has more hair", pic: "Level 8/images/little.png"}, {NN1: "The boy", LOC: "on the right", NN2: "the boy", COMP: "has more ice cream", pic: "Level 8/images/much.png"}, {NN1: "The boy", LOC: "on the left", NN2: "the boy", COMP: "has less ice cream", pic: "Level 8/images/much.png"}, {NN1: "The man", LOC: "on the right", NN2: "the man", COMP: "is stronger", pic: "Level 8/images/strong.png"}, {NN1: "The man", LOC: "on the left", NN2: "the man", COMP: "is weaker", pic: "Level 8/images/strong.png"}, {NN1: "The boy", LOC: "on the right", NN2: "the boy", COMP: "is weaker", pic: "Level 8/images/weak.png"}, {NN1: "The boy", LOC: "on the left", NN2: "the boy", COMP: "is stronger", pic: "Level 8/images/weak.png"}];
             shuffleArray(VOCArray);
             sentence = "Who " + VOCArray[0].COMP + "?";
             document.getElementById("gPic").src = VOCArray[0].pic;
-            document.getElementById("grammarCheck").value = VOCArray[0].NN1 + " " + VOCArray[0].COMP + " than " + VOCArray[0].NN2 + ".";
-            sentenceArray[0] = VOCArray[0].NN1 + " " + VOCArray[0].COMP + " than " + VOCArray[0].NN2 + ".";
-            sentenceArray[1] = VOCArray[0].NN1 + " " + VOCArray[1].COMP + " than " + VOCArray[0].NN2 + ".";
-            sentenceArray[2] = VOCArray[0].NN1 + " " + VOCArray[2].COMP + " than " + VOCArray[0].NN2 + ".";
-            sentenceArray[3] = VOCArray[0].NN1 + " " + VOCArray[3].COMP + " than " + VOCArray[0].NN2 + ".";
+            document.getElementById("grammarCheck").value = VOCArray[0].NN1 + " " + VOCArray[0].LOC + " " + VOCArray[0].COMP + " than " + VOCArray[0].NN2 + ".";
+            sentenceArray[0] = VOCArray[0].NN1 + " on the right " + VOCArray[0].COMP + " than " + VOCArray[0].NN2 + " on the left.";
+            sentenceArray[1] = VOCArray[0].NN1 + " on the left "  + VOCArray[0].COMP + " than " + VOCArray[0].NN2 + "on the right.";
+            sentenceArray[2] = "";
+            sentenceArray[3] = "";
         } else {    
-            VOCArray = [{NN1: "The blue car", NN2: "the orange car", COMP: "better", pic: "Level 8/images/better.png"}, {NN1: "30", NN2: "50", COMP: "worse", pic: "Level 8/images/worse.png"}];
+            VOCArray = [{NN1: "The blue car", NN2: "the orange car", COMP: "better", pic: "Level 8/images/better.png"}, {NN1: "The orange car", NN2: "the blue car", COMP: "worse", pic: "Level 8/images/better.png"}, {NN1: "30", NN2: "50", COMP: "worse", pic: "Level 8/images/worse.png"}, {NN1: "50", NN2: "30", COMP: "better", pic: "Level 8/images/worse.png"}];
             shuffleArray(VOCArray);
             sentence = "Which is " + VOCArray[0].COMP + "?";
             document.getElementById("gPic").src = VOCArray[0].pic;
-            document.getElementById("grammarCheck").value = VOCArray[0].NN1 + " is " + VOCArray[0].COMP + " than " + VOCArray[0].NN2 + ".";
+            document.getElementById("grammarCheck").value = VOCArray[0].NN1 + VOCArray[0].COMP + " than " + VOCArray[0].NN2 + ".";
             sentenceArray[0] = VOCArray[0].NN1 + " is " + VOCArray[0].COMP + " than " + VOCArray[0].NN2 + ".";
-            sentenceArray[1] = VOCArray[0].NN1 + " is " + VOCArray[1].COMP + " than " + VOCArray[0].NN2 + ".";
+            sentenceArray[1] = VOCArray[0].NN2 + " is " + VOCArray[0].COMP + " than " + VOCArray[0].NN1 + ".";
             sentenceArray[2] = "";
             sentenceArray[3] = "";
         }
@@ -119,49 +119,45 @@ function g_08(userInput){
     } else if (userInput == "Unit 5") {
         randomG = randG(2);
         if (randomG == 0) {
-            VOCArray = [{NN: "The baby", COMP: "the youngest", pic: "Level 8/images/young.png"}, {NN: "The man on the right", COMP: "the oldest", pic: "Level 8/images/old.png"}, {NN: "The boy on the left", COMP: "the wettest", pic: "Level 8/images/wet.png"}, {NN: "The boy on the right", COMP: "the dirtiest", pic: "Level 8/images/dirty.png"}];
+            VOCArray = [{NN: "The child", LOC: "on the right", COMP: "the youngest", pic: "Level 8/images/young.png"}, {NN: "The child", LOC: "on the left", COMP: "the oldest", pic: "Level 8/images/young.png"}, {NN: "The man", LOC: "on the right", COMP: "the oldest", pic: "Level 8/images/old.png"}, {NN: "The man", LOC: "on the left", COMP: "the youngest", pic: "Level 8/images/old.png"}, {NN: "The boy", LOC: "on the left", COMP: "the wettest", pic: "Level 8/images/wet.png"}, {NN: "The boy", LOC: "on the right", COMP: "the dirtiest", pic: "Level 8/images/dirty.png"}, {NN: "The boy", LOC: "on the left", COMP: "the cleanest", pic: "Level 8/images/dirty.png"}];
             shuffleArray(VOCArray);
             sentence = "Who is " + VOCArray[0].COMP + "?";
-            document.getElementById("gPic").src = VOCArray[0].pic;
-            document.getElementById("grammarCheck").value = VOCArray[0].NN + " is " + VOCArray[0].COMP + ".";
-            sentenceArray[0] = VOCArray[0].NN + " is " + VOCArray[0].COMP + ".";
-            sentenceArray[1] = VOCArray[0].NN + " is " + VOCArray[1].COMP + ".";
-            sentenceArray[2] = VOCArray[0].NN + " is " + VOCArray[2].COMP + ".";
-            sentenceArray[3] = VOCArray[0].NN + " is " + VOCArray[3].COMP + ".";
+            
+            
         } else {    
-            VOCArray = [{NN: "The glass in the middle", COMP: "the cleanest", pic: "Level 8/images/clean.png"}, {NN: "The problem on the right", COMP: "the easiest", pic: "Level 8/images/easy.png"}];
+            VOCArray = [{NN: "The glass", LOC: "in the middle", COMP: "the cleanest", pic: "Level 8/images/clean.png"}, {NN: "The glass", LOC: "on the left", COMP: "the dirtiest", pic: "Level 8/images/clean.png"}, {NN: "The problem", LOC: "on the right", COMP: "the easiest", pic: "Level 8/images/easy.png"}];
             shuffleArray(VOCArray);
             sentence = "Which is " + VOCArray[0].COMP + "?";
-            document.getElementById("gPic").src = VOCArray[0].pic;
-            document.getElementById("grammarCheck").value = VOCArray[0].NN + " is " + VOCArray[0].COMP + ".";
-            sentenceArray[0] = VOCArray[0].NN + " is " + VOCArray[0].COMP + ".";
-            sentenceArray[1] = VOCArray[0].NN + " is " + VOCArray[1].COMP + ".";
-            sentenceArray[2] = "";
-            sentenceArray[3] = "";
         }
+        document.getElementById("gPic").src = VOCArray[0].pic;
+        document.getElementById("grammarCheck").value = VOCArray[0].NN + " " + VOCArray[0].LOC +  " is " + VOCArray[0].COMP + ".";
+        sentenceArray[0] = VOCArray[0].NN + " on the left is " + VOCArray[0].COMP + ".";
+        sentenceArray[1] = VOCArray[0].NN + " in the middle is " + VOCArray[0].COMP + ".";
+        sentenceArray[2] = VOCArray[0].NN + " on the right is " + VOCArray[0].COMP + ".";
+        sentenceArray[3] = "";
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
     } else if (userInput == "Unit 6") {
         randomG = randG(2);
         if (randomG == 0) {
-            VOCArray = [{NN: "The boy on the right", COMP: "the most hardworking", pic: "Level 8/images/hardworking.png"}, {NN: "The boy on the right", COMP: "the most careful", pic: "Level 8/images/careful.png"}, {NN: "The boy on the right", COMP: "the most careless", pic: "Level 8/images/careless.png"}];
+            VOCArray = [{NN: "The boy", LOC: "on the right", COMP: "the most hardworking", pic: "Level 8/images/hardworking.png"}, {NN: "The boy", LOC: "on the right", COMP: "the most careful", pic: "Level 8/images/careful.png"}, {NN: "The boy", LOC: "on the left", COMP: "the most careless", pic: "Level 8/images/careful.png"}, {NN: "The boy", LOC: "on the right", COMP: "the most careless", pic: "Level 8/images/careless.png"}, {NN: "The boy", LOC: "on the left", COMP: "the most careful", pic: "Level 8/images/careless.png"}];
             shuffleArray(VOCArray);
             sentence = "Who is " + VOCArray[0].COMP + "?";
             document.getElementById("gPic").src = VOCArray[0].pic;
-            document.getElementById("grammarCheck").value = VOCArray[0].NN + " is " + VOCArray[0].COMP + ".";
-            sentenceArray[0] = VOCArray[0].NN + " is " + VOCArray[0].COMP + ".";
-            sentenceArray[1] = VOCArray[0].NN + " is " + VOCArray[1].COMP + ".";
-            sentenceArray[2] = VOCArray[0].NN + " is " + VOCArray[2].COMP + ".";
+            document.getElementById("grammarCheck").value = VOCArray[0].NN + " " + VOCArray[0].LOC +  " is " + VOCArray[0].COMP + ".";
+            sentenceArray[0] = VOCArray[0].NN + " on the left is " + VOCArray[0].COMP + ".";
+            sentenceArray[1] = VOCArray[0].NN + " in the middle is " + VOCArray[0].COMP + ".";
+            sentenceArray[2] = VOCArray[0].NN + " on the right is " + VOCArray[0].COMP + ".";
             sentenceArray[3] = "";
         } else {    
-            VOCArray = [{NN: "French fries are ", COMP: "the most popular", pic: "Level 8/images/popular.png"}, {NN: "The picture on the right is ", COMP: "the most colorful", pic: "Level 8/images/colorful.png"}, {NN: "The red chair is ", COMP: "the most comfortable", pic: "Level 8/images/comfortable.png"}];
+            VOCArray = [{NN1: "French fries are ", NN2: "Chicken nuggets are ", NN3: "Hamburgers are ", COMP: "the most popular", pic: "Level 8/images/popular.png"}, {NN1: "The picture on the right is ", NN2: "The picture in the middle is ", NN3: "The picture on the left is ", COMP: "the most colorful", pic: "Level 8/images/colorful.png"}, {NN1: "The red chair is ", NN2: "The yellow chair is ", NN3: "The green stool is ", COMP: "the most comfortable", pic: "Level 8/images/comfortable.png"}];
             shuffleArray(VOCArray);
             sentence = "Which is " + VOCArray[0].COMP + "?";
             document.getElementById("gPic").src = VOCArray[0].pic;
-            document.getElementById("grammarCheck").value = VOCArray[0].NN + VOCArray[0].COMP + ".";
-            sentenceArray[0] = VOCArray[0].NN + VOCArray[0].COMP + ".";
-            sentenceArray[1] = VOCArray[1].NN + VOCArray[0].COMP + ".";
-            sentenceArray[2] = VOCArray[2].NN + VOCArray[0].COMP + ".";
+            document.getElementById("grammarCheck").value = VOCArray[0].NN1 + VOCArray[0].COMP + ".";
+            sentenceArray[0] = VOCArray[0].NN1 + VOCArray[0].COMP + ".";
+            sentenceArray[1] = VOCArray[0].NN2 + VOCArray[0].COMP + ".";
+            sentenceArray[2] = VOCArray[0].NN3 + VOCArray[0].COMP + ".";
             sentenceArray[3] = "";
         }
         setTimeout(function(){speak(sentence)}, 2000);
@@ -172,7 +168,22 @@ function g_08(userInput){
         g_08(unitArray[0]);
         currentUnit = "Review 2";
     } else if (userInput == "Unit 7") {
-        
+        randomG = randG(2);
+        if (randomG == 0) {
+            VOCArray = [{NN: "The boy", LOC: "on the right", COMP: "is the best", pic: "Level 8/images/best.png"}, {NN: "The boy", LOC: "on the left", COMP: "is the worst", pic: "Level 8/images/best.png"}, {NN: "The girl", LOC: "on the right", COMP: "has the most money", pic: "Level 8/images/most.png"}, {NN: "The girl", LOC: "on the left", COMP: "has the least money", pic: "Level 8/images/most.png"}, {NN: "The elephant", LOC: "on the left", COMP: "is the worst", pic: "Level 8/images/worst.png"}, {NN: "The elephant", LOC: "on the right", COMP: "is the best", pic: "Level 8/images/worst.png"}];
+            shuffleArray(VOCArray);
+            sentence = "Who " + VOCArray[0].COMP + "?";
+        } else {    
+            VOCArray = [{NN: "The glass", LOC: "on the right", COMP: "has the least juice", pic: "Level 8/images/least.png"}, {NN: "The glass", LOC: "on the left", COMP: "has the most juice", pic: "Level 8/images/least.png"}, {NN: "The mountain", LOC: "on the right", COMP: "is the highest", pic: "Level 8/images/high.png"}, {NN: "The mountain", LOC: "on the left", COMP: "is the lowest", pic: "Level 8/images/high.png"}, {NN: "The table", LOC: "on the right", COMP: "is the lowest", pic: "Level 8/images/low.png"}, {NN: "The table", LOC: "on the left", COMP: "is the highest", pic: "Level 8/images/low.png"}];
+            shuffleArray(VOCArray);
+            sentence = "Which " + VOCArray[0].COMP + "?";
+        }
+        document.getElementById("gPic").src = VOCArray[0].pic;
+            document.getElementById("grammarCheck").value = VOCArray[0].NN + " " + VOCArray[0].LOC + " " + VOCArray[0].COMP + ".";
+            sentenceArray[0] = VOCArray[0].NN + " on the left " + VOCArray[0].COMP + ".";
+            sentenceArray[1] = VOCArray[0].NN + " in the middle " + VOCArray[0].COMP + ".";
+            sentenceArray[2] = VOCArray[0].NN + " on the right " + VOCArray[0].COMP + ".";
+            sentenceArray[3] = "";
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
     } else if (userInput == "Unit 8") {
