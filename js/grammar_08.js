@@ -93,7 +93,7 @@ function g_08(userInput){
         currentUnit = "Review 1";
     } else if (userInput == "Unit 4") {
         randomG = randG(2);
-        if (randomG == 0) {
+        if (randomG < 1) {
             VOCArray = [{NN1: "The boy", LOC: "on the right", NN2: "the boy", COMP: "has less hair", pic: "Level 8/images/little.png"}, {NN1: "The boy", LOC: "on the left", NN2: "the boy", COMP: "has more hair", pic: "Level 8/images/little.png"}, {NN1: "The boy", LOC: "on the right", NN2: "the boy", COMP: "has more ice cream", pic: "Level 8/images/much.png"}, {NN1: "The boy", LOC: "on the left", NN2: "the boy", COMP: "has less ice cream", pic: "Level 8/images/much.png"}, {NN1: "The man", LOC: "on the right", NN2: "the man", COMP: "is stronger", pic: "Level 8/images/strong.png"}, {NN1: "The man", LOC: "on the left", NN2: "the man", COMP: "is weaker", pic: "Level 8/images/strong.png"}, {NN1: "The boy", LOC: "on the right", NN2: "the boy", COMP: "is weaker", pic: "Level 8/images/weak.png"}, {NN1: "The boy", LOC: "on the left", NN2: "the boy", COMP: "is stronger", pic: "Level 8/images/weak.png"}];
             shuffleArray(VOCArray);
             sentence = "Who " + VOCArray[0].COMP + "?";
@@ -118,7 +118,7 @@ function g_08(userInput){
         gLinks = [''];
     } else if (userInput == "Unit 5") {
         randomG = randG(2);
-        if (randomG == 0) {
+        if (randomG < 1) {
             VOCArray = [{NN: "The child", LOC: "on the right", COMP: "the youngest", pic: "Level 8/images/young.png"}, {NN: "The child", LOC: "on the left", COMP: "the oldest", pic: "Level 8/images/young.png"}, {NN: "The man", LOC: "on the right", COMP: "the oldest", pic: "Level 8/images/old.png"}, {NN: "The man", LOC: "on the left", COMP: "the youngest", pic: "Level 8/images/old.png"}, {NN: "The boy", LOC: "on the left", COMP: "the wettest", pic: "Level 8/images/wet.png"}, {NN: "The boy", LOC: "on the right", COMP: "the dirtiest", pic: "Level 8/images/dirty.png"}, {NN: "The boy", LOC: "on the left", COMP: "the cleanest", pic: "Level 8/images/dirty.png"}];
             shuffleArray(VOCArray);
             sentence = "Who is " + VOCArray[0].COMP + "?";
@@ -139,7 +139,7 @@ function g_08(userInput){
         gLinks = [''];
     } else if (userInput == "Unit 6") {
         randomG = randG(2);
-        if (randomG == 0) {
+        if (randomG < 1) {
             VOCArray = [{NN: "The boy", LOC: "on the right", COMP: "the most hardworking", pic: "Level 8/images/hardworking.png"}, {NN: "The boy", LOC: "on the right", COMP: "the most careful", pic: "Level 8/images/careful.png"}, {NN: "The boy", LOC: "on the left", COMP: "the most careless", pic: "Level 8/images/careful.png"}, {NN: "The boy", LOC: "on the right", COMP: "the most careless", pic: "Level 8/images/careless.png"}, {NN: "The boy", LOC: "on the left", COMP: "the most careful", pic: "Level 8/images/careless.png"}];
             shuffleArray(VOCArray);
             sentence = "Who is " + VOCArray[0].COMP + "?";
@@ -169,7 +169,7 @@ function g_08(userInput){
         currentUnit = "Review 2";
     } else if (userInput == "Unit 7") {
         randomG = randG(2);
-        if (randomG == 0) {
+        if (randomG < 1) {
             VOCArray = [{NN: "The boy", LOC: "on the right", COMP: "is the best", pic: "Level 8/images/best.png"}, {NN: "The boy", LOC: "on the left", COMP: "is the worst", pic: "Level 8/images/best.png"}, {NN: "The girl", LOC: "on the right", COMP: "has the most money", pic: "Level 8/images/most.png"}, {NN: "The girl", LOC: "on the left", COMP: "has the least money", pic: "Level 8/images/most.png"}, {NN: "The elephant", LOC: "on the left", COMP: "is the worst", pic: "Level 8/images/worst.png"}, {NN: "The elephant", LOC: "on the right", COMP: "is the best", pic: "Level 8/images/worst.png"}];
             shuffleArray(VOCArray);
             sentence = "Who " + VOCArray[0].COMP + "?";
@@ -179,15 +179,40 @@ function g_08(userInput){
             sentence = "Which " + VOCArray[0].COMP + "?";
         }
         document.getElementById("gPic").src = VOCArray[0].pic;
-            document.getElementById("grammarCheck").value = VOCArray[0].NN + " " + VOCArray[0].LOC + " " + VOCArray[0].COMP + ".";
-            sentenceArray[0] = VOCArray[0].NN + " on the left " + VOCArray[0].COMP + ".";
-            sentenceArray[1] = VOCArray[0].NN + " in the middle " + VOCArray[0].COMP + ".";
-            sentenceArray[2] = VOCArray[0].NN + " on the right " + VOCArray[0].COMP + ".";
-            sentenceArray[3] = "";
+        document.getElementById("grammarCheck").value = VOCArray[0].NN + " " + VOCArray[0].LOC + " " + VOCArray[0].COMP + ".";
+        sentenceArray[0] = VOCArray[0].NN + " on the left " + VOCArray[0].COMP + ".";
+        sentenceArray[1] = VOCArray[0].NN + " in the middle " + VOCArray[0].COMP + ".";
+        sentenceArray[2] = VOCArray[0].NN + " on the right " + VOCArray[0].COMP + ".";
+        sentenceArray[3] = "";
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
     } else if (userInput == "Unit 8") {
-        
+        randomG = randG(2);
+        if (randomG < 1){
+            VOCArray = [{NN: "ice", LOC:"glass",  pic: "Level 8/images/ice.png"}, {NN: "juice", LOC:"glass",  pic: "Level 3/images/juice.png"}, {NN: "milk", LOC:"bottle",  pic: "Level 3/images/milk.png"}, {NN: "water", LOC:"bottle",  pic: "Level 6/images/a bottle of water.png"}, {NN: "ice cream", LOC:"bowl",  pic: "Level 3/images/ice cream.png"}];
+            shuffleArray(VOCArray);
+            document.getElementById("gPic").src = VOCArray[0].pic;
+            QUANTArray = ["a lot of", "a little", "some"];
+            shuffleArray(QUANTArray);
+            sentence = "How much " + VOCArray[0].NN + " is there in the " + VOCArray[0].LOC + "?";
+            document.getElementById("grammarCheck").value = "There is " + QUANTArray[0] + " " + VOCArray[0].NN + " in the " + VOCArray[0].LOC + ".";
+            sentenceArray[0] = "There is " + QUANTArray[0] + " " + VOCArray[0].NN + " in the " + VOCArray[0].LOC + ".";
+            sentenceArray[1] = "There is " + QUANTArray[0] + " " + VOCArray[1].NN + " in the " + VOCArray[0].LOC + ".";
+            sentenceArray[2] = "There is " + QUANTArray[0] + " " + VOCArray[2].NN + " in the " + VOCArray[0].LOC + ".";
+            sentenceArray[3] = "There is " + QUANTArray[0] + " " + VOCArray[3].NN + " in the " + VOCArray[0].LOC + ".";
+        } else {
+            VOCArray = [{NN: "penguins", LOC: "in the zoo", pic: "Level 8/images/penguin.png"}, {NN: "giraffes", LOC: "in the zoo", pic: "Level 8/images/giraffe.png"}, {NN: "koalas", LOC: "in the zoo", pic: "Level 8/images/koala.png"}, {NN: "crocodiles", LOC: "in the zoo", pic: "Level 8/images/crocodile.png"}, {NN: "kangaroos", LOC: "in the zoo", pic: "Level 8/images/kangaroo.png"}, {NN: "camels", LOC: "in the zoo", pic: "Level 8/images/camel.png"}, {NN: "pandas", LOC: "in the zoo", pic: "Level 8/images/panda.png"}, {NN: "peacocks", LOC: "in the zoo", pic: "Level 8/images/peacock.png"}, {NN: "dolphins", LOC: "in the zoo", pic: "Level 1/images/dolphin.png"}, {NN: "boys", LOC: "in your class", pic: "Level 1/images/boy.png"}, {NN: "girls", LOC: "in your class", pic: "Level 8/images/girl.png"}];
+            shuffleArray(VOCArray);
+            document.getElementById("gPic").src = VOCArray[0].pic;
+            QUANTArray = ["a few", "some", "many", "a lot of", "three", "ten"];
+            shuffleArray(QUANTArray);
+            sentence = "How many " + VOCArray[0].NN + " are there " + VOCArray[0].LOC + " ?";
+            document.getElementById("grammarCheck").value = "There are " + QUANTArray[0] + " " + VOCArray[0].NN + " " + VOCArray[0].LOC + ".";
+            sentenceArray[0] = "There are " + QUANTArray[0] + " " + VOCArray[0].NN + " " + VOCArray[0].LOC + ".";
+            sentenceArray[1] = "There are " + QUANTArray[0] + " " + VOCArray[1].NN + " " + VOCArray[0].LOC + ".";
+            sentenceArray[2] = "There are " + QUANTArray[0] + " " + VOCArray[2].NN + " " + VOCArray[0].LOC + ".";
+            sentenceArray[3] = "There are " + QUANTArray[0] + " " + VOCArray[3].NN + " " + VOCArray[0].LOC + ".";
+        }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
     } else if (userInput == "Unit 9") {
