@@ -216,7 +216,67 @@ function g_08(userInput){
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
     } else if (userInput == "Unit 9") {
-        
+        randomG = randG(3);
+        if (randomG == 0) {
+            VOCArray = [{NN: "biscuits", pic: "Level 8/images/biscuit.png"}, {NN: "sweets", pic: "Level 8/images/sweets.png"}];
+            shuffleArray(VOCArray);
+            sentence = "Are there any " + VOCArray[0].NN + " in the cupboard?";
+            randomG = randG(2);
+            if (randomG < 1) {
+                document.getElementById("gPic").src = VOCArray[0].pic;
+                document.getElementById("grammarCheck").value = "Yes, there are some " + VOCArray[0].NN + " in the cupboard.";
+                sentenceArray[0] = "Yes, there are some " + VOCArray[0].NN + " in the cupboard.";
+                sentenceArray[1] = "Yes, there are any " + VOCArray[0].NN + " in the cupboard.";
+                sentenceArray[2] = "Yes, there are every " + VOCArray[0].NN + " in the cupboard.";
+                sentenceArray[3] = "Yes, there are all " + VOCArray[0].NN + " in the cupboard.";
+            } else {
+                document.getElementById("gPic").src = VOCArray[1].pic;
+                document.getElementById("grammarCheck").value = "No, there are no " + VOCArray[0].NN + " in the cupboard.";
+                sentenceArray[0] = "No, there are no " + VOCArray[0].NN + " in the cupboard.";
+                sentenceArray[1] = "No, there are some " + VOCArray[0].NN + " in the cupboard.";
+                sentenceArray[2] = "No, there are any " + VOCArray[0].NN + " in the cupboard.";
+                sentenceArray[3] = "No, there are every " + VOCArray[0].NN + " in the cupboard.";
+            }
+        } else if (randomG == 1) {
+            VOCArray = [{NN: "lemonade", pic: "Level 8/images/lemonade.png"}, {NN: "ketchup", pic: "Level 8/images/ketchup.png"}, {NN: "butter", pic: "Level 8/images/butter.png"}, {NN: "cheese", pic: "Level 8/images/cheese.png"}, {NN: "peanut butter", pic: "Level 8/images/peanut butter.png"}];
+            shuffleArray(VOCArray);
+            sentence = "Is there any " + VOCArray[0].NN + " in the refrigerator?";
+            randomG = randG(2);
+            if (randomG < 1) {
+                document.getElementById("gPic").src = VOCArray[0].pic;
+                document.getElementById("grammarCheck").value = "Yes, there is some " + VOCArray[0].NN + " in the refrigerator.";
+                sentenceArray[0] = "Yes, there is some " + VOCArray[0].NN + " in the refrigerator.";
+                sentenceArray[1] = "Yes, there is any " + VOCArray[0].NN + " in the refrigerator.";
+                sentenceArray[2] = "Yes, there is every " + VOCArray[0].NN + " in the refrigerator.";
+                sentenceArray[3] = "Yes, there is all " + VOCArray[0].NN + " in the refrigerator.";
+            } else {
+                document.getElementById("gPic").src = VOCArray[1].pic;
+                document.getElementById("grammarCheck").value = "No, there is no " + VOCArray[0].NN + " in the refrigerator.";
+                sentenceArray[0] = "No, there is no " + VOCArray[0].NN + " in the refrigerator.";
+                sentenceArray[1] = "No, there is some " + VOCArray[0].NN + " in the refrigerator.";
+                sentenceArray[2] = "No, there is any " + VOCArray[0].NN + " in the refrigerator.";
+                sentenceArray[3] = "No, there is every " + VOCArray[0].NN + " in the refrigerator.";
+            }
+        } else {
+            document.getElementById("gPic").src = "Level 8/images/biscuit.png";
+            ADJArray = ["strawberry", "lemon", "chocolate", "peanut butter"];
+            shuffleArray(ADJArray);
+            sentence = "Are the biscuits all " + ADJArray[0] + " flavored?";
+            randomG = randG(2);    
+            if (randomG < 1) {
+                document.getElementById("grammarCheck").value = "Yes, every one of them is " + ADJArray[0] + " flavored.";
+                sentenceArray[0] = "Yes, every one of them is " + ADJArray[0] + " flavored.";
+                sentenceArray[1] = "Yes, every one of them is " + ADJArray[1] + " flavored.";
+                sentenceArray[2] = "Yes, every one of them is " + ADJArray[2] + " flavored.";
+                sentenceArray[3] = "Yes, every one of them is " + ADJArray[3] + " flavored.";
+            } else {
+                document.getElementById("grammarCheck").value = "No, some of them are " + ADJArray[1] + " flavored.";
+                sentenceArray[0] = "No, some of them are " + ADJArray[1] + " flavored.";
+                sentenceArray[1] = "No, any of them are " + ADJArray[1] + " flavored.";
+                sentenceArray[2] = "No, some of them are " + ADJArray[0] + " flavored.";
+                sentenceArray[3] = "No, any of them are " + ADJArray[0] + " flavored.";
+            }
+        }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
     } else if (userInput == "Review 3") {
