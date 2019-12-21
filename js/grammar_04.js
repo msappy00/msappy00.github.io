@@ -135,31 +135,32 @@ function g_04(userInput){
         verbArray = [{VBG:'washing', RP:'face', pic:"Level 4/images/wash my face.png"}, {VBG:'brushing', RP:'teeth', pic:"Level 4/images/brush my teeth.png"}, {VBG:'combing', RP:'hair', pic:"Level 4/images/comb my hair.png"}, {VBG:'making', RP:'bed', pic:"Level 4/images/make my bed.png"}, {VBG:'eating', RP:' breakfast', pic:"Level 4/images/eat breakfast.png"}, {VBG:'eating', RP:' lunch', pic:"Level 4/images/eat lunch.png"}, {VBG:'eating', RP:' dinner', pic:"Level 4/images/eat dinner.png"}, {VBG:'washing', RP:' the dishes', pic:"Level 4/images/wash the dishes.png"}];
         shuffleArray(verbArray);
         document.getElementById("gPic").src = verbArray[0].pic;
-        verb = conjugate_VB(PRPArray[0].PRP, "beVerb");
+        verb1 = conjugate_VB(PRPArray[0].PRP, "beVerb");
+        verb2 = conjugate_VB(PRPArray[0].RESPONSE, "beVerb");
         PRP$List = ["face", "teeth", "hair", "bed"];
         if (PRP$List.includes(verbArray[0].RP)){temp1 = " " + PRPArray[0].P1 + " " + verbArray[0].RP;}
+        else {temp1 = " " + verbArray[0].RP;}
         if (PRP$List.includes(verbArray[1].RP)){temp2 = " " + PRPArray[0].P1 + " " + verbArray[1].RP;}
+        else {temp2 = " " + verbArray[1].RP;}
         if (PRP$List.includes(verbArray[0].RP)){verbArray[0].RP = " " + PRPArray[0].P2 + " " + verbArray[0].RP;}
         if (PRP$List.includes(verbArray[1].RP)){verbArray[1].RP = " " + PRPArray[0].P2 + " " + verbArray[1].RP;}
         if (PRP$List.includes(verbArray[2].RP)){verbArray[2].RP = " " + PRPArray[0].P2 + " " + verbArray[2].RP;}
         if (PRP$List.includes(verbArray[3].RP)){verbArray[3].RP = " " + PRPArray[0].P2 + " " + verbArray[3].RP;}
         if (PRP$List.includes(verbArray[4].RP)){verbArray[4].RP = " " + PRPArray[0].P2 + " " + verbArray[4].RP;}
         if (randomG < 1){
-            sentence = capitalize(verb) + " " + PRPArray[0].PRP + " " + verbArray[0].VBG + " " + temp1 + "?";
-            verb = conjugate_VB(PRPArray[0].RESPONSE, "beVerb");
-            document.getElementById("grammarCheck").value = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " " + verbArray[0].VBG + verbArray[0].RP + ".";
-            sentenceArray[0] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " " + verbArray[0].VBG + verbArray[0].RP + ".";
-            sentenceArray[1] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " " + verbArray[1].VBG + verbArray[1].RP + ".";
-            sentenceArray[2] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " " + verbArray[2].VBG + verbArray[2].RP + ".";
-            sentenceArray[3] = "Yes, " + PRPArray[0].RESPONSE + " " + verb + " " + verbArray[3].VBG + verbArray[3].RP + ".";
+            sentence = capitalize(verb1) + " " + PRPArray[0].PRP + " " + verbArray[0].VBG + " " + temp1 + "?";
+            document.getElementById("grammarCheck").value = "Yes, " + PRPArray[0].RESPONSE + " " + verb2 + " " + verbArray[0].VBG + verbArray[0].RP + ".";
+            sentenceArray[0] = "Yes, " + PRPArray[0].RESPONSE + " " + verb2 + " " + verbArray[0].VBG + verbArray[0].RP + ".";
+            sentenceArray[1] = "Yes, " + PRPArray[0].RESPONSE + " " + verb2 + " " + verbArray[1].VBG + verbArray[1].RP + ".";
+            sentenceArray[2] = "Yes, " + PRPArray[0].RESPONSE + " " + verb2 + " " + verbArray[2].VBG + verbArray[2].RP + ".";
+            sentenceArray[3] = "Yes, " + PRPArray[0].RESPONSE + " " + verb2 + " " + verbArray[3].VBG + verbArray[3].RP + ".";
         } else {
-            sentence = capitalize(verb) + " " + PRPArray[0].PRP + " " + verbArray[1].VBG + " " + temp2 + "?";
-            verb = conjugate_VB(PRPArray[0].RESPONSE, "beVerb");
-            document.getElementById("grammarCheck").value = "No, " + PRPArray[0].RESPONSE + " " + verb + " not " + verbArray[1].VBG + verbArray[1].RP + ".";
-            sentenceArray[0] = "No, " + PRPArray[0].RESPONSE + " " + verb + " not " + verbArray[1].VBG + verbArray[1].RP + ".";
-            sentenceArray[1] = "No, " + PRPArray[0].RESPONSE + " " + verb + " not " + verbArray[2].VBG + verbArray[2].RP + ".";
-            sentenceArray[2] = "No, " + PRPArray[0].RESPONSE + " " + verb + " not " + verbArray[3].VBG + verbArray[3].RP + ".";
-            sentenceArray[3] = "No, " + PRPArray[0].RESPONSE + " " + verb + " not " + verbArray[4].VBG + verbArray[4].RP + ".";
+            sentence = capitalize(verb1) + " " + PRPArray[0].PRP + " " + verbArray[1].VBG + " " + temp2 + "?";
+            document.getElementById("grammarCheck").value = "No, " + PRPArray[0].RESPONSE + " " + verb2 + " not. " + capitalize(PRPArray[0].RESPONSE) + " " + verb2 + " " + verbArray[0].VBG + verbArray[0].RP + ".";
+            sentenceArray[0] = "No, " + PRPArray[0].RESPONSE + " " + verb2 + " not. " + capitalize(PRPArray[0].RESPONSE) + " " + verb2 + " " + verbArray[0].VBG + verbArray[0].RP + ".";
+            sentenceArray[1] = "No, " + PRPArray[0].RESPONSE + " " + verb2 + " not. " + capitalize(PRPArray[0].RESPONSE) + " " + verb2 + " " + verbArray[2].VBG + verbArray[2].RP + ".";
+            sentenceArray[2] = "No, " + PRPArray[0].RESPONSE + " " + verb2 + " not. " + capitalize(PRPArray[0].RESPONSE) + " " + verb2 + " " + verbArray[3].VBG + verbArray[3].RP + ".";
+            sentenceArray[3] = "No, " + PRPArray[0].RESPONSE + " " + verb2 + " not. " + capitalize(PRPArray[0].RESPONSE) + " " + verb2 + " " + verbArray[4].VBG + verbArray[4].RP + ".";
         }
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = [''];
