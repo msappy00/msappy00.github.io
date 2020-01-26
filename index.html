@@ -27,6 +27,10 @@
                 'footer footer footer';
             grid-auto-rows: 1em;
         }
+        .dark-mode {
+        background-color: rgb(15, 15, 15);
+        color: white;
+}
     </style>
 </head>
 <body>
@@ -36,7 +40,7 @@
     <!--#nav bar-->
     <div class="w3-top">
         <div class="w3-bar w3-blue">
-            <a href="index.html" class="w3-bar-item w3-button"><img width="20" height="20" src="images/star-yellow.svg" alt="yellow star" onclick="setCss('home', '')"/></a>
+            <img id="darkToggle" class="w3-bar-item w3-button" width="40" height="40" src="images/moon.svg" alt="yellow star" onclick="darkMode()"/>
             <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium" onclick="setCss('home', '')">Home</a>
             <div class="w3-dropdown-hover">
                 <button class="w3-button w3-hide-small w3-hide-medium">Games</button>
@@ -118,6 +122,20 @@
         }
         document.getElementById("day").innerHTML = day;
         document.getElementById("foot01").innerHTML = "<h4 id='date'>&copy; " + new Date().getFullYear() + " Teacher Matthew</h4>";
+    </script>
+    <script>
+    function darkMode() {
+       var element = document.body;
+       element.classList.toggle("dark-mode");
+       var img = document.getElementById('darkToggle').src;
+        if (img.indexOf('moon.svg')!=-1) {
+            document.getElementById('darkToggle').src='images/star-yellow.svg';
+        }
+         else {
+           document.getElementById('darkToggle').src='images/moon.svg';
+       }
+
+    }
     </script>
 </body>
 </html>
