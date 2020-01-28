@@ -1,25 +1,47 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <title>Teacher Matthew</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="vocabulary, grammar and phonics practice for children's ESL">   
-    <link href="css/w3.css" type="text/css" rel="stylesheet"/>
+    <meta name="description" content="vocabulary, grammar and phonics practice for children's ESL">
+    <link href="css/w3.css" type="text/css" rel="stylesheet" />
     <style>
         @font-face {
             font-family: 'ArchitectsDaughter-Regular';
             src: url('fonts/ArchitectsDaughter-Regular.ttf');
         }
-        .w3-bar, h1, h3, #date {
+
+        .w3-bar,
+        h1,
+        h3,
+        #date {
             font-family: ArchitectsDaughter-Regular;
         }
-        .item1 { grid-area: header; height: 100px }
-        .item2 { grid-area: left-filler; }
-        .item3 { grid-area: main; }
-        .item4 { grid-area: right-filler; }
-        .item5 { grid-area: footer; }
+
+        .item1 {
+            grid-area: header;
+            height: 100px
+        }
+
+        .item2 {
+            grid-area: left-filler;
+        }
+
+        .item3 {
+            grid-area: main;
+        }
+
+        .item4 {
+            grid-area: right-filler;
+        }
+
+        .item5 {
+            grid-area: footer;
+        }
+
         .grid-container {
             display: grid;
             grid-template: 'header header header'
@@ -27,21 +49,24 @@
                 'footer footer footer';
             grid-auto-rows: 1em;
         }
+
         .dark-mode {
-        background-color: rgb(15, 15, 15);
-        color: white;
-}
+            background-color: rgb(15, 15, 15);
+            color: white;
+        }
     </style>
 </head>
-<body>
 
+<body onload="checkSessionStorage()">
     <script src="js/functions.js"></script>
-    
+
     <!--#nav bar-->
     <div class="w3-top">
         <div class="w3-bar w3-blue">
-            <img id="darkToggle" class="w3-bar-item w3-button" width="40" height="40" src="images/moon.svg" alt="yellow star" onclick="darkMode()"/>
-            <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium" onclick="setCss('home', '')">Home</a>
+            <img id="darkToggle" class="w3-bar-item w3-button" width="40" height="40" src="images/star-yellow.svg"
+                alt="yellow star" onclick="setDark()" />
+            <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium"
+                onclick="setCss('home', '')">Home</a>
             <div class="w3-dropdown-hover">
                 <button class="w3-button w3-hide-small w3-hide-medium">Games</button>
                 <div class="w3-dropdown-content w3-bar-block">
@@ -54,34 +79,50 @@
                     <a href="melon_drop.html" target="_blank" class="w3-bar-item w3-button">Melon Drop</a>
                     <a href="bat_dodge.html" target="_blank" class="w3-bar-item w3-button">Bat Dodge</a>
                     <a href="tennis_ball.html" target="_blank" class="w3-bar-item w3-button">Tennis Ball</a>
-                    <a href="https://scratch.mit.edu/studios/954910/" target="_blank" class="w3-bar-item w3-button">Scratch Games</a>
-                    <a href="http://www.merriam-webster.com/word-games" target="_blank" class="w3-bar-item w3-button">Merriam-Webster Word Games</a>
+                    <a href="https://scratch.mit.edu/studios/954910/" target="_blank"
+                        class="w3-bar-item w3-button">Scratch Games</a>
+                    <a href="http://www.merriam-webster.com/word-games" target="_blank"
+                        class="w3-bar-item w3-button">Merriam-Webster Word Games</a>
                     <!--<a href="spriteWalking.html" target="_blank" class="w3-bar-item w3-button">Sprite Animation</a>-->
                 </div>
             </div>
             <div class="w3-dropdown-hover">
                 <button class="w3-button">Level</button>
                 <div class="w3-dropdown-content w3-bar-block">
-                    <a href="level.html" target="_self" class="w3-bar-item w3-button" onclick="setLevel('Starter')">Starter</a>
-                    <a href="level.html" target="_self" class="w3-bar-item w3-button" onclick="setLevel('Level 1')">Level 1</a>
-                    <a href="level.html" target="_self" class="w3-bar-item w3-button" onclick="setLevel('Level 2')">Level 2</a>
-                    <a href="level.html" target="_self" class="w3-bar-item w3-button" onclick="setLevel('Level 3')">Level 3</a>
-                    <a href="level.html" target="_self" class="w3-bar-item w3-button" onclick="setLevel('Level 4')">Level 4</a>
-                    <a href="level.html" target="_self" class="w3-bar-item w3-button" onclick="setLevel('Level 5')">Level 5</a>
-                    <a href="level.html" target="_self" class="w3-bar-item w3-button" onclick="setLevel('Level 6')">Level 6</a>
-                    <a href="level.html" target="_self" class="w3-bar-item w3-button" onclick="setLevel('Level 7')">Level 7</a>
-                    <a href="level.html" target="_self" class="w3-bar-item w3-button" onclick="setLevel('Level 8')">Level 8</a>
-                    <a href="level.html" target="_self" class="w3-bar-item w3-button" onclick="setLevel('Level 9')">Level 9</a>
-                    <a href="level.html" target="_self" class="w3-bar-item w3-button" onclick="setLevel('Level 10')">Level 10</a>
-                    <a href="level.html" target="_self" class="w3-bar-item w3-button" onclick="setLevel('Level 11')">Level 11</a>
-                    <a href="level.html" target="_self" class="w3-bar-item w3-button" onclick="setLevel('Level 12')">Level 12</a>
+                    <a href="level.html" target="_self" class="w3-bar-item w3-button"
+                        onclick="setLevel('Starter')">Starter</a>
+                    <a href="level.html" target="_self" class="w3-bar-item w3-button"
+                        onclick="setLevel('Level 1')">Level 1</a>
+                    <a href="level.html" target="_self" class="w3-bar-item w3-button"
+                        onclick="setLevel('Level 2')">Level 2</a>
+                    <a href="level.html" target="_self" class="w3-bar-item w3-button"
+                        onclick="setLevel('Level 3')">Level 3</a>
+                    <a href="level.html" target="_self" class="w3-bar-item w3-button"
+                        onclick="setLevel('Level 4')">Level 4</a>
+                    <a href="level.html" target="_self" class="w3-bar-item w3-button"
+                        onclick="setLevel('Level 5')">Level 5</a>
+                    <a href="level.html" target="_self" class="w3-bar-item w3-button"
+                        onclick="setLevel('Level 6')">Level 6</a>
+                    <a href="level.html" target="_self" class="w3-bar-item w3-button"
+                        onclick="setLevel('Level 7')">Level 7</a>
+                    <a href="level.html" target="_self" class="w3-bar-item w3-button"
+                        onclick="setLevel('Level 8')">Level 8</a>
+                    <a href="level.html" target="_self" class="w3-bar-item w3-button"
+                        onclick="setLevel('Level 9')">Level 9</a>
+                    <a href="level.html" target="_self" class="w3-bar-item w3-button"
+                        onclick="setLevel('Level 10')">Level 10</a>
+                    <a href="level.html" target="_self" class="w3-bar-item w3-button"
+                        onclick="setLevel('Level 11')">Level 11</a>
+                    <a href="level.html" target="_self" class="w3-bar-item w3-button"
+                        onclick="setLevel('Level 12')">Level 12</a>
                     <a class="w3-bar-item w3-button" onclick="clearLevel()">Clear</a>
                 </div>
             </div>
-            
+
             <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-display-topright" id="day">day</a>
         </div>
-    </div><!--/#nav bar-->
+    </div>
+    <!--/#nav bar-->
 
     <div class="grid-container">
         <div class="item1"></div>
@@ -97,7 +138,7 @@
     </div>
     <script>
         var day = new Date().getDay();
-        switch(day) {
+        switch (day) {
             case 0:
                 day = "Sunday ";
                 break;
@@ -123,19 +164,6 @@
         document.getElementById("day").innerHTML = day;
         document.getElementById("foot01").innerHTML = "<h4 id='date'>&copy; " + new Date().getFullYear() + " Teacher Matthew</h4>";
     </script>
-    <script>
-    function darkMode() {
-       var element = document.body;
-       element.classList.toggle("dark-mode");
-       var img = document.getElementById('darkToggle').src;
-        if (img.indexOf('moon.svg')!=-1) {
-            document.getElementById('darkToggle').src='images/star-yellow.svg';
-        }
-         else {
-           document.getElementById('darkToggle').src='images/moon.svg';
-       }
-
-    }
-    </script>
 </body>
+
 </html>

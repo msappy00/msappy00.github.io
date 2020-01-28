@@ -1,4 +1,3 @@
-var bookNumber;
 var level_id = "";
 var currentUnit = "";
 var array_i = 0;
@@ -20,7 +19,7 @@ function shuffleArray(array) {
 };
 
 // a random number used extensively in grammar_**.js
-function randG(max) {return Math.floor(Math.random() * max)};
+function randG(max) { return Math.floor(Math.random() * max) };
 
 // sessionLevel are levels starter - 12
 function checkSessionStorage() {
@@ -34,6 +33,20 @@ function setLevel(level) {
     document.title = level_id;
 };
 
+function setDark() {
+    mode = sessionStorage.getItem("darkMode");
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+    if ( mode == "false") {
+        sessionStorage.setItem("darkMode", true);
+        document.getElementById('darkToggle').src = "images/star-yellow.svg";
+    }
+    else {
+        sessionStorage.setItem("darkMode", false);
+        document.getElementById('darkToggle').src = "images/moon.svg";
+    }                
+}
+
 function clearLevel() {
     sessionStorage.setItem("sessionLevel", "");
     sessionStorage.setItem("sessionUnit", "");
@@ -45,14 +58,14 @@ function clearLevel() {
 };
 
 // sets unit from dropdown menu
-function setCss(tabName, userInput){
+function setCss(tabName, userInput) {
     var i;
     var x = document.getElementsByClassName("tab-pane");
     for (i = 0; i < x.length; i++) {
         x[i].style.display = "none";
     }
     document.getElementById(tabName).style.display = "block";
-    switch (tabName){
+    switch (tabName) {
         case 'vocab_tab':
             setVocab(userInput);
             break;
@@ -70,7 +83,7 @@ function setCss(tabName, userInput){
 // opens a new tab for quiz page
 function setVQ(userInput) {
     sessionStorage.setItem("sessionUnit", userInput);
-    window.open("vocab_quiz.html","_blank");
+    window.open("vocab_quiz.html", "_blank");
 };
 
 // speaks vocab, grammar or phonics
@@ -79,13 +92,13 @@ function speak(text, callback) {
     u.text = text;
     u.rate = 0.6;
     u.lang = 'en-US';
-    
+
     u.onend = function () {
         if (callback) {
             callback();
         }
     };
-    
+
     u.onerror = function (e) {
         if (callback) {
             callback(e);
@@ -115,7 +128,7 @@ function vArraySlide() {
             } else {
                 document.getElementById("spellCheck").value = "finished";
                 document.getElementById("mSpellCheck").value = "finished";
-            }  
+            }
         } else if (array_i > (array.length - 1)) {
             document.getElementById("next").textContent = "NEXT";
             document.getElementById("spellCheck").value = "";
@@ -128,18 +141,18 @@ function vArraySlide() {
             document.getElementById("mSpellCheck").value = "";
         }
         if (array_i == (array.length - 1)) {
-            document.getElementById("vocProg").value = 100; 
+            document.getElementById("vocProg").value = 100;
         } else {
-           document.getElementById("vocProg").value = array_i/array.length*100; 
+            document.getElementById("vocProg").value = array_i / array.length * 100;
         }
         if (level_id == "Level 9" || level_id == "Level 10" || level_id == "Level 11" || level_id == "Level 12") {
             document.getElementById("current_vocab").src = 'images/blank.png';
         }
-        else document.getElementById("current_vocab").src =  level_id+'/images/'+array[array_i]+'.png';
+        else document.getElementById("current_vocab").src = level_id + '/images/' + array[array_i] + '.png';
         if (level_id == "Starter") {
-            document.getElementById("currentWord").innerHTML = '<table align="center"><tr><td align="right" style="font-size:xx-large; color:red">'+array[array_i].slice(0,1)+'</td><td align="right" style="font-size:xx-large; color:black">'+array[array_i].slice(1)+'</td></tr></table>';
-            spellCheck.pattern = array[array_i].slice(0,1);
-            mSpellCheck.pattern = array[array_i].slice(0,1);
+            document.getElementById("currentWord").innerHTML = '<table align="center"><tr><td align="right" style="font-size:xx-large; color:red">' + array[array_i].slice(0, 1) + '</td><td align="right" style="font-size:xx-large; color:black">' + array[array_i].slice(1) + '</td></tr></table>';
+            spellCheck.pattern = array[array_i].slice(0, 1);
+            mSpellCheck.pattern = array[array_i].slice(0, 1);
         } else {
             spellCheck.pattern = array[array_i];
             mSpellCheck.pattern = array[array_i];
@@ -151,15 +164,15 @@ function vArraySlide() {
         document.getElementById("spellCheck").placeholder = "Oops!";
         document.getElementById("mSpellCheck").placeholder = "Oops!"
     }
-    setTimeout(function(){
+    setTimeout(function () {
         speak(array[array_i]);
         document.getElementById("spellCheck").style.backgroundColor = "white";
         document.getElementById("mSpellCheck").style.backgroundColor = "white";
         document.getElementById("spellCheck").placeholder = "Spell It!";
         document.getElementById("mSpellCheck").placeholder = "Spell It!";
-        }, 2000);
-//vocabAudio.innerHTML = '<audio controls autoplay><source src="'+level_id+'/audio/'+array[array_i]+'.mp3" type="audio/mp3" /></audio>';
-spellCheck.focus();
+    }, 2000);
+    //vocabAudio.innerHTML = '<audio controls autoplay><source src="'+level_id+'/audio/'+array[array_i]+'.mp3" type="audio/mp3" /></audio>';
+    spellCheck.focus();
 };
 
 // checks grammar input from user
@@ -168,22 +181,22 @@ function gArraySlide(tdId) {
     document.getElementById('g0r1d2').onclick = ''
     document.getElementById('g0r2d0').onclick = ''
     document.getElementById('g0r2d2').onclick = ''
-    if (grammarCheck.value != document.getElementById(tdId).textContent){
+    if (grammarCheck.value != document.getElementById(tdId).textContent) {
         fail.play();
-        setTimeout(function(){
+        setTimeout(function () {
             speak(sentence);
-        }, 2000);        
+        }, 2000);
     } else {
         success.play();
-        setTimeout(function(){
+        setTimeout(function () {
             setGrammar(currentUnit);
-        }, 2000);  
+        }, 2000);
     }
-    setTimeout(function(){
-        document.getElementById('g0r1d0').onclick = function() { gArraySlide('g0r1d0') }
-        document.getElementById('g0r1d2').onclick = function() { gArraySlide('g0r1d2') }
-        document.getElementById('g0r2d0').onclick = function() { gArraySlide('g0r2d0') }
-        document.getElementById('g0r2d2').onclick = function() { gArraySlide('g0r2d2') }
+    setTimeout(function () {
+        document.getElementById('g0r1d0').onclick = function () { gArraySlide('g0r1d0') }
+        document.getElementById('g0r1d2').onclick = function () { gArraySlide('g0r1d2') }
+        document.getElementById('g0r2d0').onclick = function () { gArraySlide('g0r2d0') }
+        document.getElementById('g0r2d2').onclick = function () { gArraySlide('g0r2d2') }
     }, 4000);
 };
 
@@ -201,9 +214,9 @@ function pArraySlide() {
         if (pArray_i > (pArray.length - 1)) {
             pArray_i = 0;
         }
-        document.getElementById("phonProg").value = pArray_i/pArray.length*100;
+        document.getElementById("phonProg").value = pArray_i / pArray.length * 100;
         phonicsCheck.pattern = pArray[pArray_i].pattern;
-        mPhonicsCheck.pattern = pArray[pArray_i].pattern;    
+        mPhonicsCheck.pattern = pArray[pArray_i].pattern;
     } else {
         fail.play();
         document.getElementById("phonicsCheck").style.backgroundColor = "lightpink";
@@ -213,22 +226,22 @@ function pArraySlide() {
         phonicsCheck.value = "";
         mPhonicsCheck.value = "";
     }
-    setTimeout(function() {
+    setTimeout(function () {
         speak(pArray[pArray_i].value);
         document.getElementById("phonicsCheck").style.backgroundColor = "white";
         document.getElementById("phonicsCheck").style.borderColor = "gray";
         document.getElementById("mPhonicsCheck").style.backgroundColor = "white";
-        document.getElementById("mPhonicsCheck").style.borderColor = "gray";  
+        document.getElementById("mPhonicsCheck").style.borderColor = "gray";
     }, 2000);
     phonicsCheck.focus();
 };
 
-function capitalize(word){
-   return word.charAt(0).toUpperCase() + word.slice(1);
+function capitalize(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
 };
 
-function pluralize(NUM){
-    if (NUM == "one"){
+function pluralize(NUM) {
+    if (NUM == "one") {
         NOUN = NOUNArray[0].NN;
     } else {
         NOUN = NOUNArray[0].NNS;
@@ -237,57 +250,58 @@ function pluralize(NUM){
 };
 
 function conjugate_VB(PRP, Verb) {
-    if (Verb == "beVerb"){
-        if (PRP == 'I') {VERB = beVerb.VBPArray[0]}
-        else if (PRP == 'you' || PRP == 'they' || PRP == 'we') {VERB = beVerb.VBPArray[1]}
-        else {VERB = beVerb.VBZ}    
+    if (Verb == "beVerb") {
+        if (PRP == 'I') { VERB = beVerb.VBPArray[0] }
+        else if (PRP == 'you' || PRP == 'they' || PRP == 'we') { VERB = beVerb.VBPArray[1] }
+        else { VERB = beVerb.VBZ }
     } else if (typeof window[Verb] === 'undefined' || window[Verb] === null) {
         if (PRP == 'I' || PRP == 'you' || PRP == 'they' || PRP == 'we') {
             VERB = Verb.slice(0, -4);
         }
         else {
             VERB = Verb.slice(0, -4);
-            if (VERB.slice(-1) == "y"){
-                VERB = VERB.slice(0,-1);
+            if (VERB.slice(-1) == "y") {
+                VERB = VERB.slice(0, -1);
                 VERB = VERB + "ies";
             } else {
-                VERB = VERB + 's'}
+                VERB = VERB + 's'
             }
+        }
     } else {
-        if (PRP == 'I' || PRP == 'you' || PRP == 'they' || PRP == 'we') {VERB = window[Verb].VB}
-        else {VERB = window[Verb].VBZ}
-    }   
+        if (PRP == 'I' || PRP == 'you' || PRP == 'they' || PRP == 'we') { VERB = window[Verb].VB }
+        else { VERB = window[Verb].VBZ }
+    }
     return VERB;
 };
 
 function conjugate_VBD(PRP, Verb) {
-    if (Verb == "beVerb"){
-        if (PRP == 'I' || PRP == 'he' || PRP == 'she') {VERB = beVerb.VBDArray[0]}
-        else {VERB = beVerb.VBDArray[1]}   
+    if (Verb == "beVerb") {
+        if (PRP == 'I' || PRP == 'he' || PRP == 'she') { VERB = beVerb.VBDArray[0] }
+        else { VERB = beVerb.VBDArray[1] }
     } else if (typeof window[Verb] === 'undefined' || window[Verb] === null) {
         if (PRP == 'I' || PRP == 'you' || PRP == 'they' || PRP == 'we') {
             VERB = Verb.slice(0, -4) + "ed";
         }
     } else {
         VERB = window[Verb].VBD;
-        }   
+    }
     return VERB;
 };
 
-function setDET(NOUNPHRASE){ // adapted from https://github.com/EamonNerbonne/a-vs-an/blob/master/A-vs-An/AvsAn-JsDemo/AvsAn.js
-        // Getting the first word 
-        var match = /\w+/.exec(NOUNPHRASE);
-        if (match)
-            var NOUN = match[0];
-        else
-            return "an";      
+function setDET(NOUNPHRASE) { // adapted from https://github.com/EamonNerbonne/a-vs-an/blob/master/A-vs-An/AvsAn-JsDemo/AvsAn.js
+    // Getting the first word 
+    var match = /\w+/.exec(NOUNPHRASE);
+    if (match)
+        var NOUN = match[0];
+    else
+        return "an";
     NOUN.toLowerCase();
     // Specific start of words that should be preceeded by 'an'
     var alt_cases = ["honest", "hour", "hono"];
     for (var i in alt_cases) {
         if (NOUN.indexOf(alt_cases[i]) == 0)
             return "an";
-    } 
+    }
     // Single letter word which should be preceeded by 'an'
     if (NOUN.length == 1) {
         if ("aedhilmnorsx".indexOf(NOUN) >= 0)
@@ -312,7 +326,7 @@ function setDET(NOUNPHRASE){ // adapted from https://github.com/EamonNerbonne/a-
     else if (NOUN == NOUN.toUpperCase()) {
         if ("aedhilmnorsx".indexOf(NOUN[0]) >= 0)
             return "an";
-        else 
+        else
             return "a";
     }
     // Basic method of words that begin with a vowel being preceeded by 'an'
