@@ -24,7 +24,8 @@ function randG(max) { return Math.floor(Math.random() * max) };
 // sessionLevel are levels starter - 12
 function checkSessionStorage() {
     level = sessionStorage.getItem("sessionLevel");
-    setLevel(level)
+    setLevel(level);
+    checkDark();
 };
 
 function setLevel(level) {
@@ -36,17 +37,26 @@ function setLevel(level) {
 };
 
 function setDark() {
-    mode = sessionStorage.getItem("darkMode");
     var element = document.body;
     element.classList.toggle("dark-mode");
-    if ( mode == "false") {
+    mode = sessionStorage.getItem("darkMode");
+    if (mode == "false") {
         sessionStorage.setItem("darkMode", true);
-        document.getElementById('darkToggle').src = "images/star-yellow.svg";
-    }
-    else {
+    } else {
         sessionStorage.setItem("darkMode", false);
+    } 
+    checkDark();
+}
+
+function checkDark() {
+    mode = sessionStorage.getItem("darkMode");
+    console.log(mode)
+    if (mode == "true") {
+        document.body.className = "dark-mode";
+        document.getElementById('darkToggle').src = "images/star-yellow.svg";
+    } else {
         document.getElementById('darkToggle').src = "images/moon.svg";
-    }                
+    }
 }
 
 function clearLevel() {
