@@ -30,7 +30,9 @@ function checkSessionStorage() {
 function setLevel(level) {
     sessionStorage.setItem("sessionLevel", level);
     level_id = level;
-    document.title = level_id;
+    if (level_id != null) {
+      document.title = level_id;  
+    }
 };
 
 function setDark() {
@@ -55,6 +57,7 @@ function clearLevel() {
     setVocab(currentUnit);
     setGrammar(currentUnit);
     setCss('home', '');
+    document.title = "Teacher Matthew";
 };
 
 // sets unit from dropdown menu
