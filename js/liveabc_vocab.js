@@ -811,6 +811,7 @@ function setVocab(userInput){
     }
     document.getElementById("vocProg").value = array_i/array.length*100;
     if (array[array_i] != "blank"){
-        speak(array[array_i]);
+        var tempVoc = new Audio(level_id+'/audio/'+array[array_i]+'.mp3');
+        tempVoc.play();
     }
 }

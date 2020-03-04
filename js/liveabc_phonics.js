@@ -45,7 +45,7 @@ function setPhonics(userInput){
         document.getElementById("pInstructions").innerHTML = "Type the first letter of the word.";
         phonicsLesson = "";
         if (userInput =="Unit 1") {
-            pArray = [{pattern:'a', value:'add'}, {pattern:'a', value:'apple'}, {pattern:'b', value:'baby'}, {pattern:'b', value:'book'}, {pattern:'c', value:'cake'}, {pattern:'c', value:'cat'}];
+            pArray = [{pattern:'a', value:'ant'}, {pattern:'a', value:'apple'}, {pattern:'b', value:'baby'}, {pattern:'b', value:'book'}, {pattern:'c', value:'cake'}, {pattern:'c', value:'cat'}];
         } else if (userInput == "Unit 2") {
             pArray = [{pattern:'d', value:'dog'}, {pattern:'d', value:'doll'}, {pattern:'e', value:'egg'}, {pattern:'e', value:'elephant'}, {pattern:'f', value:'fish'}, {pattern:'f', value:'frog'}];
         } else if (userInput == "Unit 3") {
@@ -284,7 +284,8 @@ function setPhonics(userInput){
     shuffleArray(pArray);
     setTimeout(function() {
         if (pArray[pArray_i] != "blank"){
-            speak(pArray[pArray_i].value);
+            tempPhonics = new Audio('phonics/'+pArray[pArray_i].value+'.mp3');
+            tempPhonics.play();
             document.getElementById("phonicsCheck").pattern = pArray[pArray_i].pattern;
             document.getElementById("mPhonicsCheck").pattern = pArray[pArray_i].pattern;
         }

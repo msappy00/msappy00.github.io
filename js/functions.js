@@ -99,6 +99,17 @@ function setVQ(userInput) {
     window.open("vocab_quiz.html", "_blank");
 };
 
+// plays the audio for vobab, grammar or phonics
+function playVoc(voc){
+    var file = new Audio(level_id+'/audio/'+voc+'.mp3');
+    file.play();
+}
+
+function playPhonics(voc){
+    var file = new Audio('phonics/'+voc+'.mp3');
+    file.play();
+}
+
 // speaks vocab, grammar or phonics
 function speak(text, callback) {
     var u = new SpeechSynthesisUtterance();
@@ -178,13 +189,13 @@ function vArraySlide() {
         document.getElementById("mSpellCheck").placeholder = "Oops!"
     }
     setTimeout(function () {
-        speak(array[array_i]);
+        var tempVoc = new Audio(level_id+'/audio/'+array[array_i]+'.mp3');
+        tempVoc.play();
         document.getElementById("spellCheck").style.backgroundColor = "white";
         document.getElementById("mSpellCheck").style.backgroundColor = "white";
         document.getElementById("spellCheck").placeholder = "Spell It!";
         document.getElementById("mSpellCheck").placeholder = "Spell It!";
     }, 2000);
-    //vocabAudio.innerHTML = '<audio controls autoplay><source src="'+level_id+'/audio/'+array[array_i]+'.mp3" type="audio/mp3" /></audio>';
     spellCheck.focus();
 };
 
@@ -240,7 +251,8 @@ function pArraySlide() {
         mPhonicsCheck.value = "";
     }
     setTimeout(function () {
-        speak(pArray[pArray_i].value);
+        tempPhonics = new Audio('phonics/'+pArray[pArray_i].value+'.mp3');
+        tempPhonics.play();
         document.getElementById("phonicsCheck").style.backgroundColor = "white";
         document.getElementById("phonicsCheck").style.borderColor = "gray";
         document.getElementById("mPhonicsCheck").style.backgroundColor = "white";
