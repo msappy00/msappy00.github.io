@@ -668,7 +668,7 @@ function setVocab(userInput){
         }
     }
     else if (level_id == "Level 11") {
-        array = ["village", "grow", "neighbor", "beginning", "start", "apartment", "crowded", "elevator", "stairs", "familiar", "neighborhood", "decide", "satisfied", "seesaw", "slide", "swing", "monkey bars", "practice", "tremble", "jungle gym", "borrow", "return", "hope", "finish", "bother", "across", "skywalk", "crosswalk", "sidewalk", "pedestrian", "helmet", "unforgivable", "buckle", "seat belt", "shortcut", "illegal", "calm", "exhibition", "discount", "yet", "author", "sign", "arrive", "signature", "also", "subscribe", "weekly", "semester", "receive", "package", "instant noodles", "homesick", "homesickness", "relieve", "New York", "college", "whenever", "born", "maid", "response", "examine", "cure", "deaf", "blind", "ill-tempered", "smash", "monster", "fork", "punish", "led", "lifelong", "burnt", "frozen", "put out", "wounded", "fried", "boiled", "homeless", "secondhand", "used", "buyer", "satisfied", "spoiled", "faucet", "leak", "spend", "introduce", "neighborhood", "drop", "repair", "stew", "hide", "cupboard", "handmade", "antique", "budget", "jewelry box", "flea market", "stuff", "frame", "perfect"];
+        array = ["village", "grow", "neighbor", "beginning", "start", "apartment", "crowded", "elevator", "stairs", "familiar", "neighborhood", "decide", "satisfied", "seesaw", "slide", "swing", "monkey bars", "practice", "tremble", "jungle gym", "borrow", "return", "hope", "finish", "bother", "across", "skywalk", "crosswalk", "sidewalk", "pedestrian", "helmet", "unforgivable", "buckle", "seat belt", "shortcut", "illegal", "calm", "exhibition", "discount", "yet", "author", "sign", "arrive", "signature", "also", "subscribe", "weekly", "semester", "receive", "package", "instant noodles", "homesick", "homesickness", "relieve", "New York", "college", "whenever", "born", "maid", "response", "examine", "cure", "deaf", "blind", "ill-tempered", "smash", "monster", "fork", "punish", "lead", "lifelong", "burned", "frozen", "put out", "injured", "fried", "boiled", "homeless", "secondhand", "used", "buyer", "spoiled", "faucet", "leak", "spend", "introduce", "neighborhood", "drop", "repair", "stew", "hide", "cupboard", "handmade", "antique", "budget", "jewelry box", "flea market", "stuff", "frame", "perfect"];
         if (userInput == "Unit 1") {
             array = array.slice(0,13);
             links = [''];
@@ -702,11 +702,11 @@ function setVocab(userInput){
             links=[''];
             vocabLesson = "";
         } else if (userInput == "Unit 7") {
-            array = array.slice(71,83);
+            array = array.slice(71,82);
             links = [''];
             vocabLesson = "";
         } else if (userInput == "Unit 8") {
-            array = array.slice(83,92);
+            array = array.slice(82,91);
             links = [''];
             vocabLesson = "";
         } else if (userInput == "Unit 9") {
@@ -714,7 +714,7 @@ function setVocab(userInput){
             links = [''];
             vocabLesson = "";
         } else if (userInput == "Review 3") {
-            array = array.slice(83);
+            array = array.slice(82);
             links=[''];
             vocabLesson = "";
         } else if (userInput == "Final Review") {

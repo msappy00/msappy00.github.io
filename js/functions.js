@@ -36,29 +36,6 @@ function setLevel(level) {
     }
 };
 
-function setDark() {
-    var element = document.body;
-    element.classList.toggle("dark-mode");
-    mode = sessionStorage.getItem("darkMode");
-    if (mode == "false") {
-        sessionStorage.setItem("darkMode", true);
-    } else {
-        sessionStorage.setItem("darkMode", false);
-    } 
-    checkDark();
-}
-
-function checkDark() {
-    mode = sessionStorage.getItem("darkMode");
-    console.log(mode)
-    if (mode == "true") {
-        document.body.className = "dark-mode";
-        document.getElementById('darkToggle').src = "images/star-yellow.svg";
-    } else {
-        document.getElementById('darkToggle').src = "images/moon.svg";
-    }
-}
-
 function clearLevel() {
     sessionStorage.setItem("sessionLevel", "");
     sessionStorage.setItem("sessionUnit", "");
