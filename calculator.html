@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Calculator</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -28,6 +29,7 @@
         }
 
         .calculator {
+            max-width: 100%;
             border: 1px solid #ccc;
             border-radius: 5px;
             position: absolute;
@@ -110,7 +112,7 @@
             <a class="w3-bar-item w3-button w3-right" id="day">day</a>
         </div>
     </div><!--/#nav bar-->
-    <div class="calculator">
+    <div class="calculator w3-content">
 
         <input type="text" class="calculator-screen" value="0" disabled />
         
