@@ -17,13 +17,18 @@ const calculator = {
   }
   
   function inputDecimal(dot) {
-      if (calculator.waitingForSecondOperand === true) return;
+    if (calculator.waitingForSecondOperand === true) return;
     
     // If the `displayValue` does not contain a decimal point
     if (!calculator.displayValue.includes(dot)) {
       // Append the decimal point
       calculator.displayValue += dot;
     }
+  }
+
+  function toggleNegative(){
+    if (calculator.waitingForSecondOperand === true) return;
+    calculator.displayValue *= -1;
   }
   
   function handleOperator(nextOperator) {
@@ -84,19 +89,25 @@ const calculator = {
   
     if (target.classList.contains('operator')) {
       handleOperator(target.value);
-          updateDisplay();
+      updateDisplay();
       return;
     }
   
     if (target.classList.contains('decimal')) {
       inputDecimal(target.value);
-          updateDisplay();
+      updateDisplay();
+      return;
+    }
+
+    if (target.classList.contains('negative')) {
+      toggleNegative();
+      updateDisplay();
       return;
     }
   
     if (target.classList.contains('all-clear')) {
       resetCalculator();
-          updateDisplay();
+      updateDisplay();
       return;
     }
   
