@@ -5,14 +5,19 @@ const calculator = {
     operator: null,
   };
   
-  function inputDigit(digit) {
+  function inputDigit(target) {
     const { displayValue, waitingForSecondOperand } = calculator;
-  
+    if (target.classList.contains('pi')) {
+      target.value = Math.PI;
+    } 
+    if (target.classList.contains('e')) {
+      target.value = Math.E;
+    }
     if (waitingForSecondOperand === true) {
-      calculator.displayValue = digit;
+      calculator.displayValue = target.value;
       calculator.waitingForSecondOperand = false;
     } else {
-      calculator.displayValue = displayValue === '0' ? digit : displayValue + digit;
+      calculator.displayValue = displayValue === '0' ? target.value : displayValue + target.value;
     }
   }
   
@@ -86,7 +91,7 @@ const calculator = {
     if (!target.matches('button')) {
       return;
     }
-  
+
     if (target.classList.contains('operator')) {
       handleOperator(target.value);
       updateDisplay();
@@ -110,7 +115,7 @@ const calculator = {
       updateDisplay();
       return;
     }
-  
-    inputDigit(target.value);
+
+    inputDigit(target);
     updateDisplay();
   });
