@@ -3,10 +3,12 @@ const calculator = {
     firstOperand: null,
     waitingForSecondOperand: false,
     operator: null,
+    rad: true,
   };
   
   function inputDigit(target) {
     const { displayValue, waitingForSecondOperand } = calculator;
+
     if (target.classList.contains('pi')) {
       target.value = Math.PI;
     } 
@@ -31,9 +33,17 @@ const calculator = {
     }
   }
 
-  function toggleNegative(){
-    if (calculator.waitingForSecondOperand === true) return;
-    calculator.displayValue *= -1;
+  function toggleRad() {
+    if (calculator.rad == false) {
+      document.querySelector('.rad-line').innerHTML = "RAD";
+      document.querySelector('#rad-button').innerHTML = "DEG";
+      calculator.rad = true;
+
+    } else {
+      document.querySelector('.rad-line').innerHTML = "DEG";
+      document.querySelector('#rad-button').innerHTML = "RAD";
+      calculator.rad = false;
+    }
   }
   
   function handleOperator(nextOperator) {
@@ -67,8 +77,15 @@ const calculator = {
     '+': (firstOperand, secondOperand) => firstOperand + secondOperand,
   
     '-': (firstOperand, secondOperand) => firstOperand - secondOperand,
+
+    '^': (firstOperand, secondOperand) => Math.pow(firstOperand, secondOperand),
+
+    'e^': (firstOperand, secondOperand) => Math.pow(Math.E, secondOperand),
+
+    'yroot': (firstOperand, secondOperand) => Math.pow(firstOperand, (1 / secondOperand)),
   
-    '=': (firstOperand, secondOperand) => secondOperand
+    '=': (firstOperand, secondOperand) => secondOperand,
+
   };
   
   function resetCalculator() {
@@ -105,13 +122,103 @@ const calculator = {
     }
 
     if (target.classList.contains('negative')) {
-      toggleNegative();
+      calculator.displayValue *= -1;
       updateDisplay();
       return;
     }
   
     if (target.classList.contains('all-clear')) {
       resetCalculator();
+      updateDisplay();
+      return;
+    }
+
+    if (target.classList.contains('sqrt')) {
+      calculator.displayValue = Math.sqrt(calculator.displayValue);
+      updateDisplay();
+      return;
+    }
+
+    if (target.classList.contains('inverse')) {
+      calculator.displayValue = 1 / calculator.displayValue;
+      updateDisplay();
+      return;
+    }
+
+    if (target.classList.contains('square')) {
+      calculator.displayValue = Math.pow(calculator.displayValue, 2);
+      updateDisplay();
+      return;
+    }
+
+    if (target.classList.contains('rad')) {
+      toggleRad();
+      updateDisplay();
+      return;
+    }
+
+    if (target.classList.contains('sin')) {
+      if (calculator.rad == true) {
+        calculator.displayValue = Math.sin(calculator.displayValue);
+      } else {
+        radians = calculator.displayValue * (Math.PI/180);
+        calculator.displayValue = Math.sin(radians);
+      }
+      updateDisplay();
+      return;
+    }
+
+    if (target.classList.contains('cos')) {
+      if (calculator.rad == true) {
+        calculator.displayValue = Math.cos(calculator.displayValue);
+      } else {
+        radians = calculator.displayValue * (Math.PI/180);
+        calculator.displayValue = Math.cos(radians);
+      }
+      updateDisplay();
+      return;
+    }
+
+    if (target.classList.contains('tan')) {
+      if (calculator.rad == true) {
+        calculator.displayValue = Math.tan(calculator.displayValue);
+      } else {
+        radians = calculator.displayValue * (Math.PI/180);
+        calculator.displayValue = Math.tan(radians);
+      }
+      updateDisplay();
+      return;
+    }
+
+    if (target.classList.contains('sinh')) {
+      if (calculator.rad == true) {
+        calculator.displayValue = Math.sinh(calculator.displayValue);
+      } else {
+        radians = calculator.displayValue * (Math.PI/180);
+        calculator.displayValue = Math.sinh(radians);
+      }
+      updateDisplay();
+      return;
+    }
+
+    if (target.classList.contains('cosh')) {
+      if (calculator.rad == true) {
+        calculator.displayValue = Math.cosh(calculator.displayValue);
+      } else {
+        radians = calculator.displayValue * (Math.PI/180);
+        calculator.displayValue = Math.cosh(radians);
+      }
+      updateDisplay();
+      return;
+    }
+
+    if (target.classList.contains('tanh')) {
+      if (calculator.rad == true) {
+        calculator.displayValue = Math.tanh(calculator.displayValue);
+      } else {
+        radians = calculator.displayValue * (Math.PI/180);
+        calculator.displayValue = Math.tanh(radians);
+      }
       updateDisplay();
       return;
     }
