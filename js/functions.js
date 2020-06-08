@@ -25,7 +25,6 @@ function randG(max) { return Math.floor(Math.random() * max) };
 function checkSessionStorage() {
     level = sessionStorage.getItem("sessionLevel");
     setLevel(level);
-    checkDark();
 };
 
 function setLevel(level) {
