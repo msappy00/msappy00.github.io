@@ -31,40 +31,39 @@ function init() {
     bulls = 0;
     cows = 0;
     answer_array = [];
-    var guess_array = [];
     var temp_array = [];
     guess_id = 1;
     digit0 = Math.floor(Math.random() * 10);
     answer_array.push(digit0);
     temp_array.push(digit0);
-    string0 = digit0.toString();
+    var string0 = digit0.toString();
     digit1 = Math.floor(Math.random() * 10);
     answer_array.push(digit1);
     temp_array.push(digit1);
-    string1 = digit1.toString();
+    var string1 = digit1.toString();
     digit2 = Math.floor(Math.random() * 10);
     answer_array.push(digit2);
     temp_array.push(digit2);
-    string2 = digit2.toString();
+    var string2 = digit2.toString();
     digit3 = Math.floor(Math.random() * 10);
     answer_array.push(digit3);
     temp_array.push(digit3);
-    string3 = digit3.toString();
+    var string3 = digit3.toString();
     answer = string0 + string1 + string2 + string3;
 }
 function check() {
     bulls = 0;
     cows = 0;
-    temp_array = [];
+    var temp_array = [];
     var cow_array = [];
     temp_array.push(digit0);
     temp_array.push(digit1);
     temp_array.push(digit2);
     temp_array.push(digit3);
-    guess_string = document.getElementById("playerGuess").value;
+    var guess_string = document.getElementById("playerGuess").value;
     guess_string = guess_string.split("");
     for (var i = 0; i < 4; i++) {
-        temp_digit = temp_array.indexOf(parseInt(guess_string[i]));
+        var temp_digit = temp_array.indexOf(parseInt(guess_string[i]));
         if (answer_array[i] == guess_string[i]) {
             bulls += 1;
             temp_array.splice(temp_digit, 1);
