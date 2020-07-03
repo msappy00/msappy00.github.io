@@ -1,9 +1,7 @@
-
 /*generates a four digit number
  checks to see if the user has guessed the number
  gives clues to the user
  */
-
 var digit0, digit1, digit2, digit3;
 var answer = "";
 var answer_array = [];
@@ -11,7 +9,6 @@ var guess_string = [];
 var guess_id;
 var bulls;
 var cows;
-
 function init() {
     document.getElementById("guess1").innerHTML = "";
     document.getElementById("guess2").innerHTML = "";
@@ -34,8 +31,8 @@ function init() {
     bulls = 0;
     cows = 0;
     answer_array = [];
-    guess_array = [];
-    temp_array = [];
+    var guess_array = [];
+    var temp_array = [];
     guess_id = 1;
     digit0 = Math.floor(Math.random() * 10);
     answer_array.push(digit0);
@@ -53,9 +50,8 @@ function init() {
     answer_array.push(digit3);
     temp_array.push(digit3);
     string3 = digit3.toString();
-    answer = string0+string1+string2+string3;
+    answer = string0 + string1 + string2 + string3;
 }
-
 function check() {
     bulls = 0;
     cows = 0;
@@ -72,34 +68,36 @@ function check() {
         if (answer_array[i] == guess_string[i]) {
             bulls += 1;
             temp_array.splice(temp_digit, 1);
-        } else {
+        }
+        else {
             cow_array.push(guess_string[i]);
         }
     }
     for (var j = 0; j < cow_array.length; j++) {
         temp_digit = parseInt(cow_array[j]);
-        if (temp_array.indexOf(temp_digit) != -1){
+        if (temp_array.indexOf(temp_digit) != -1) {
             cows += 1;
         }
     }
-    
     if (answer == document.getElementById("playerGuess").value) {
-        document.getElementById("guess"+guess_id).innerHTML = document.getElementById("playerGuess").value;
-        document.getElementById("result"+guess_id).innerHTML = "B"+bulls+"C"+cows;
+        document.getElementById("guess" + guess_id).innerHTML = document.getElementById("playerGuess").value;
+        document.getElementById("result" + guess_id).innerHTML = "B" + bulls + "C" + cows;
         document.getElementById("answer").innerHTML = "Winner!";
-        
-    } else {
+    }
+    else {
         if (guess_id == 8) {
-            document.getElementById("guess"+guess_id).innerHTML = document.getElementById("playerGuess").value;
-            document.getElementById("result"+guess_id).innerHTML = "B"+bulls+"C"+cows;
+            document.getElementById("guess" + guess_id).innerHTML = document.getElementById("playerGuess").value;
+            document.getElementById("result" + guess_id).innerHTML = "B" + bulls + "C" + cows;
             guess_id += 1;
             document.getElementById("answer").innerHTML = "You Lose";
-        } else if (guess_id > 8) {
-            document.getElementById("answer").innerHTML = answer;//"Click on 'New Game'";
-        } else {
-            document.getElementById("guess"+guess_id).innerHTML = document.getElementById("playerGuess").value;
-            document.getElementById("result"+guess_id).innerHTML = "B"+bulls+"C"+cows;
-            document.getElementById("playerGuess").value = "";
+        }
+        else if (guess_id > 8) {
+            document.getElementById("answer").innerHTML = answer; //"Click on 'New Game'";
+        }
+        else {
+            document.getElementById("guess" + guess_id).innerHTML = document.getElementById("playerGuess").value;
+            document.getElementById("result" + guess_id).innerHTML = "B" + bulls + "C" + cows;
+            document.getElementById("playerGuess").value;
             document.getElementById("answer").innerHTML = "Try Again";
             guess_id += 1;
         }
