@@ -154,7 +154,7 @@
 
             <div id="vocab_tab" class="tab-pane w3-content" style="display:none">
                 <div class="w3-cell w3-cell-top w3-mobile w3-center">
-                    <progress class=" w3-hide-small w3-hide-medium" id="vocProg" value=(array_i/array.length*100) max="100" style="display:block; width: 100%"></progress>
+                    <progress class=" w3-hide-small w3-hide-medium" id="vocProg" value="0" max="100" style="display:block; width: 100%"></progress>
                     <button class="w3-button w3-blue w3-round" style="height:50px" onClick="playAudio(array[array_i]);"><i class="material-icons">play_arrow</i></button>
                     <button class="w3-button w3-blue w3-round" style="height:50px; margin: 10px" id="next" onclick="vArraySlide();">NEXT</button>
                     <input class="w3-input w3-border w3-round w3-hide-small w3-hide-medium" type="text" style="text-align: center; font-size: 4em" id="spellCheck" autocomplete="off" autofocus maxlength="20" placeholder="Spell It!" value="X" />
@@ -222,7 +222,7 @@
             </div><!-- /#grammar_tab -->
             
             <div id="phonics_tab" class="tab-pane w3-content" style="display:none">
-                <progress class=" w3-hide-small w3-hide-medium" id="phonProg" value=(pArray_i/pArray.length*100) max="100" style="display:block; width: 100%"></progress>
+                <progress class=" w3-hide-small w3-hide-medium" id="phonProg" value="0" max="100" style="display:block; width: 100%"></progress>
                 <div class="w3-mobile w3-center">
                     <button class="w3-button w3-blue w3-round" style="height:50px" onClick="playPhonics(pArray[pArray_i].value);"><i class="material-icons">play_arrow</i></button>
                     <button class="w3-button w3-blue w3-round" style="height:50px; margin: 10px" id="next" onclick="pArraySlide();">NEXT</button>
