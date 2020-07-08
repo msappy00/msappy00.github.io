@@ -36,6 +36,7 @@ function setLevel(level) {
 };
 
 function clearLevel() {
+    document.title = "Teacher Matthew";
     sessionStorage.setItem("sessionLevel", "");
     sessionStorage.setItem("sessionUnit", "");
     level_id = " ";
@@ -43,7 +44,6 @@ function clearLevel() {
     setVocab(currentUnit);
     setGrammar(currentUnit);
     setCss('home', '');
-    document.title = "Teacher Matthew";
 };
 
 // sets unit from dropdown menu
