@@ -809,7 +809,7 @@ function setVocab(userInput){
         document.getElementById("spellCheck").pattern = array[array_i];
         document.getElementById("mSpellCheck").pattern = array[array_i];
     }
-    document.getElementById("vocProg").value = array_i/array.length*100;
+    document.getElementById("vocProg").value = (array_i / array.length * 100).toString();
     if (array[array_i] != "blank"){
         var tempVoc = new Audio(level_id+'/audio/'+array[array_i]+'.mp3');
         tempVoc.play();

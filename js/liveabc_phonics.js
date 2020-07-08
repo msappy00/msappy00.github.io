@@ -290,5 +290,5 @@ function setPhonics(userInput){
             document.getElementById("mPhonicsCheck").pattern = pArray[pArray_i].pattern;
         }
     }, 1000);
-    document.getElementById("phonProg").value = pArray_i/pArray.length*100;
+    document.getElementById("phonProg").value = (pArray_i / pArray.length * 100).toString();
 }
