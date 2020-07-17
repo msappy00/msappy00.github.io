@@ -221,7 +221,7 @@ function g_06(userInput){
         PRPArray = [{PRP: "you", RESPONSE: "I"}, {PRP: "they", RESPONSE: "they"}, {PRP: "he", RESPONSE: "he"}, {PRP: "she", RESPONSE: "she"}];
         shuffleArray(PRPArray);
         VOCArray = [{voc: "a bag of chips", pic: "Level 6/images/a bag of chips.png"}, {voc: "a piece of cake", pic: "Level 6/images/a piece of cake.png"}, {voc: "a slice of bread", pic: "Level 6/images/a slice of bread.png"}, {voc: "a box of crackers", pic: "Level 6/images/a box of crackers.png"}, {voc: "a bar of chocolate", pic: "Level 6/images/a bar of chocolate.png"}, {voc: "a bottle of water", pic: "Level 6/images/a bottle of water.png"}, {voc: "a can of soda", pic: "Level 6/images/a can of soda.png"}, {voc: "a cup of tea", pic: "Level 6/images/a cup of tea.png"}, {voc: "a glass of juice", pic: "Level 6/images/a glass of juice.png"}];
-        timeArray = [" yesterday", " yesterday morning", " yesterday afternoon", " yesterday evening", " this morning", " this afternoon", " this evening", " five minutes ago", "one hour ago"];
+        timeArray = [" yesterday", " yesterday morning", " yesterday afternoon", " yesterday evening", " this morning", " this afternoon", " this evening", " five minutes ago", " one hour ago"];
         shuffleArray(timeArray);
         if (randomG < 1){
             VOCArray = VOCArray.slice(0, 5);
