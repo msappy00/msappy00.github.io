@@ -61,7 +61,7 @@ const calculator = {
       const currentValue = firstOperand || 0;
       const result = performCalculation[operator](currentValue, inputValue);
   
-      calculator.displayValue = String(result);
+      calculator.displayValue = `${parseFloat(result.toFixed(7))}`;
       calculator.firstOperand = result;
     }
   
@@ -159,10 +159,10 @@ const calculator = {
 
     if (target.classList.contains('sin')) {
       if (calculator.rad == true) {
-        calculator.displayValue = Math.sin(calculator.displayValue);
+          calculator.displayValue = `${parseFloat(Math.sin(calculator.displayValue).toFixed(7))}`;
       } else {
-        radians = calculator.displayValue * (Math.PI/180);
-        calculator.displayValue = Math.sin(radians);
+          radians = calculator.displayValue * (Math.PI / 180);
+          calculator.displayValue = `${parseFloat(Math.sin(radians).toFixed(7))}`;
       }
       updateDisplay();
       return;
@@ -170,57 +170,57 @@ const calculator = {
 
     if (target.classList.contains('cos')) {
       if (calculator.rad == true) {
-        calculator.displayValue = Math.cos(calculator.displayValue);
-      } else {
-        radians = calculator.displayValue * (Math.PI/180);
-        calculator.displayValue = Math.cos(radians);
-      }
-      updateDisplay();
-      return;
+            calculator.displayValue = `${parseFloat(Math.cos(calculator.displayValue).toFixed(7))}`;
+        } else {
+            radians = calculator.displayValue * (Math.PI / 180);
+            calculator.displayValue = `${parseFloat(Math.cos(radians).toFixed(7))}`;
+        }
+        updateDisplay();
+        return;
     }
 
     if (target.classList.contains('tan')) {
       if (calculator.rad == true) {
-        calculator.displayValue = Math.tan(calculator.displayValue);
-      } else {
-        radians = calculator.displayValue * (Math.PI/180);
-        calculator.displayValue = Math.tan(radians);
-      }
-      updateDisplay();
-      return;
+            calculator.displayValue = `${parseFloat(Math.tan(calculator.displayValue).toFixed(7))}`;
+        } else {
+            radians = calculator.displayValue * (Math.PI / 180);
+            calculator.displayValue = `${parseFloat(Math.tan(radians).toFixed(7))}`;
+        }
+        updateDisplay();
+        return;
     }
 
     if (target.classList.contains('sinh')) {
       if (calculator.rad == true) {
-        calculator.displayValue = Math.sinh(calculator.displayValue);
-      } else {
-        radians = calculator.displayValue * (Math.PI/180);
-        calculator.displayValue = Math.sinh(radians);
-      }
-      updateDisplay();
-      return;
+            calculator.displayValue = `${parseFloat(Math.sinh(calculator.displayValue).toFixed(7))}`;
+        } else {
+            radians = calculator.displayValue * (Math.PI / 180);
+            calculator.displayValue = `${parseFloat(Math.sinh(radians).toFixed(7))}`;
+        }
+        updateDisplay();
+        return;
     }
 
     if (target.classList.contains('cosh')) {
       if (calculator.rad == true) {
-        calculator.displayValue = Math.cosh(calculator.displayValue);
-      } else {
-        radians = calculator.displayValue * (Math.PI/180);
-        calculator.displayValue = Math.cosh(radians);
-      }
-      updateDisplay();
-      return;
+            calculator.displayValue = `${parseFloat(Math.cosh(calculator.displayValue).toFixed(7))}`;
+        } else {
+            radians = calculator.displayValue * (Math.PI / 180);
+            calculator.displayValue = `${parseFloat(Math.cosh(radians).toFixed(7))}`;
+        }
+        updateDisplay();
+        return;
     }
 
     if (target.classList.contains('tanh')) {
       if (calculator.rad == true) {
-        calculator.displayValue = Math.tanh(calculator.displayValue);
-      } else {
-        radians = calculator.displayValue * (Math.PI/180);
-        calculator.displayValue = Math.tanh(radians);
-      }
-      updateDisplay();
-      return;
+            calculator.displayValue = `${parseFloat(Math.tanh(calculator.displayValue).toFixed(7))}`;
+        } else {
+            radians = calculator.displayValue * (Math.PI / 180);
+            calculator.displayValue = `${parseFloat(Math.tanh(radians).toFixed(7))}`;
+        }
+        updateDisplay();
+        return;
     }
 
     inputDigit(target);
