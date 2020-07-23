@@ -102,6 +102,14 @@
             grid-area: 3 / 7 / 6 / 7;
         }
 
+        .equal-sign-small {
+            background-color: #2e86c0;
+            border-color: #337cac;
+            color: #fff;
+            height: 100%;
+            grid-area: 3 / 4 / 6 / 4;
+        }
+
         .equal-sign:hover {
             background-color: #4e9ed4;
         }
@@ -112,10 +120,17 @@
             grid-gap: 20px;
             padding: 20px;
         }
+
+        .calc-keys-small {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+            padding: 10px;
+        }
     </style>
 </head>
 <body>
-    
+
     <!--#nav bar-->
     <div class="w3-top">
         <div class="w3-bar w3-blue">
@@ -124,13 +139,14 @@
             <a class="w3-bar-item w3-button w3-right" id="day">day</a>
         </div>
     </div><!--/#nav bar-->
-    <div class="calculator w3-content">
+    <div class="calculator">
 
         <input type="text" class="calculator-screen" value="0" disabled />
-        <div class="rad-line">RAD</div>
-        
-        <div class="calculator-keys">
-        
+        <div class="rad-line w3-hide-small">RAD</div>
+
+        <div class="calculator-keys w3-content w3-hide-small">
+            <!--#medium and large-->
+
             <button type="button" class="sqrt">√</button>
             <button type="button" class="operator" value="yroot"><sup>y</sup>√</button>
             <button type="button" class="operator" value="e^">e<sup>x</sup></button>
@@ -138,7 +154,7 @@
             <button type="button" class="operator" value="/">&divide;</button>
             <button type="button" class="operator" value="*">&times;</button>
             <button type="button" class="operator" value="-">-</button>
-        
+
             <button type="button" class="inverse">1/x</button>
             <button type="button" class="square">x<sup>2</sup></button>
             <button type="button" class="operator" value="^">x<sup>y</sup></button>
@@ -146,59 +162,88 @@
             <button type="button" value="8">8</button>
             <button type="button" value="9">9</button>
             <button type="button" class="operator" value="+">+</button>
-        
+
             <button type="button" class="sin">sin</button>
             <button type="button" class="cos">cos</button>
             <button type="button" class="tan">tan</button>
             <button type="button" value="4">4</button>
             <button type="button" value="5">5</button>
             <button type="button" value="6">6</button>
-        
+
             <button type="button" class="sinh">sinh</button>
             <button type="button" class="cosh">cosh</button>
             <button type="button" class="tanh">tanh</button>
             <button type="button" value="1">1</button>
             <button type="button" value="2">2</button>
             <button type="button" value="3">3</button>
-        
+
             <button type="button" class="rad" id="rad-button">DEG</button>
             <button type="button" class="e" value="">e</button>
             <button type="button" class="pi" value="">π</button>
             <button type="button" value="0">0</button>
             <button type="button" class="decimal" value=".">.</button>
             <button type="button" class="all-clear" value="all-clear">AC</button>
-        
+
             <button type="button" class="equal-sign operator" value="=">=</button>
-        </div>
+        </div><!--/#medium and large-->
+
+        <div class="calc-keys-small w3-content w3-hide-medium w3-hide-large">
+            <!--#small-->
+
+            <button type="button" class="negative" value="-1">&plusmn;</button>
+            <button type="button" class="operator" value="/">&divide;</button>
+            <button type="button" class="operator" value="*">&times;</button>
+            <button type="button" class="operator" value="-">-</button>
+
+            <button type="button" value="7">7</button>
+            <button type="button" value="8">8</button>
+            <button type="button" value="9">9</button>
+            <button type="button" class="operator" value="+">+</button>
+
+            <button type="button" value="4">4</button>
+            <button type="button" value="5">5</button>
+            <button type="button" value="6">6</button>
+
+            <button type="button" value="1">1</button>
+            <button type="button" value="2">2</button>
+            <button type="button" value="3">3</button>
+
+            <button type="button" value="0">0</button>
+            <button type="button" class="decimal" value=".">.</button>
+            <button type="button" class="all-clear" value="all-clear">AC</button>
+
+            <button type="button" class="equal-sign-small operator" value="=">=</button>
+        </div><!--/#small-->
     </div>
-    <script src="js/calculator.js"></script>
-    <script>
-        // shows the day of the week in the nav bar
-        var day = new Date().getDay();
-        switch(day) {
-            case 0:
-            day = "Sunday ";
-            break;
-            case 1:
-            day = "Monday ";
-            break;
-            case 2:
-            day = "Tuesday ";
-            break;
-            case 3:
-            day = "Wednesday ";
-            break;
-            case 4:
-            day = "Thursday ";
-            break;
-            case 5:
-            day = "Friday ";
-            break;
-            case 6:
-            day = "Saturday ";
-            break;
-        }
-        document.getElementById("day").innerHTML = day;
-    </script>
+        
+        <script src="js/calculator.js"></script>
+        <script>
+            // shows the day of the week in the nav bar
+            var day = new Date().getDay();
+            switch (day) {
+                case 0:
+                    day = "Sunday ";
+                    break;
+                case 1:
+                    day = "Monday ";
+                    break;
+                case 2:
+                    day = "Tuesday ";
+                    break;
+                case 3:
+                    day = "Wednesday ";
+                    break;
+                case 4:
+                    day = "Thursday ";
+                    break;
+                case 5:
+                    day = "Friday ";
+                    break;
+                case 6:
+                    day = "Saturday ";
+                    break;
+            }
+            document.getElementById("day").innerHTML = day;
+        </script>
 </body>
 </html>

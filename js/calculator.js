@@ -102,7 +102,7 @@ const calculator = {
   
   updateDisplay();
   
-  const keys = document.querySelector('.calculator-keys');
+  const keys = document.querySelector('.calculator');
   keys.addEventListener('click', (event) => {
     const { target } = event;
     if (!target.matches('button')) {
