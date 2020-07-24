@@ -128,9 +128,6 @@
             padding: 10px;
         }
 
-        input:-webkit-autofill {
-            -webkit-box-shadow: 0 0 0px 600px #252525 inset;
-        }
     </style>
 </head>
 <body>
@@ -145,7 +142,7 @@
     </div><!--/#nav bar-->
     <div class="calculator">
 
-        <input type="text" class="calculator-screen" value="0" disabled />
+        <input type="text" class="calculator-screen" autocomplete="off" disabled />
         <div class="rad-line w3-hide-small">RAD</div>
 
         <div class="calculator-keys w3-content w3-hide-small">
