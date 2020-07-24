@@ -35,12 +35,12 @@ const calculator = {
 
   function toggleRad() {
     if (calculator.rad == false) {
-      document.querySelector('.rad-line').innerHTML = "RAD";
+      document.querySelector('.rad-line').value = "RAD";
       document.querySelector('#rad-button').innerHTML = "DEG";
       calculator.rad = true;
 
     } else {
-      document.querySelector('.rad-line').innerHTML = "DEG";
+      document.querySelector('.rad-line').value = "DEG";
       document.querySelector('#rad-button').innerHTML = "RAD";
       calculator.rad = false;
     }
