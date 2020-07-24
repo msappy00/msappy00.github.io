@@ -1,7 +1,3 @@
-$("input[type='text']").bind('focus', function () {
-    $(this).css('background-color', '#252525');
-});
-
 const calculator = {
     displayValue: '0',
     firstOperand: null,
