@@ -8,18 +8,15 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/w3.css"/>
     <style>
-        @font-face {
-            font-family: 'ArchitectsDaughter-Regular';
-            src: url('fonts/ArchitectsDaughter-Regular.ttf');
-        }
 
         html {
             font-size: 62.5%;
             box-sizing: border-box;
         }
 
-        div.w3-top {
-            font-family: ArchitectsDaughter-Regular;
+        body {
+            width: 100vw;
+            height: 100vh;
         }
 
         *, *::before, *::after {
@@ -30,6 +27,7 @@
 
         .calculator {
             max-width: 100%;
+            max-height: 100%;
             border: 1px solid #ccc;
             border-radius: 5px;
             position: absolute;
@@ -117,15 +115,13 @@
         .calculator-keys {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            grid-gap: 20px;
-            padding: 20px;
+            grid-gap: 10px;
+            padding: 10px;
         }
 
         .calc-keys-small {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-gap: 10px;
-            padding: 10px;
         }
 
         input {
@@ -140,14 +136,6 @@
 </head>
 <body>
 
-    <!--#nav bar-->
-    <div class="w3-top">
-        <div class="w3-bar w3-blue">
-            <a href="index.html" target="_self" class="w3-bar-item w3-button"><img width="20" height="20" src="images/star-yellow.svg" alt="yellow star" /></a>
-            <a class="w3-bar-item w3-button">Calculator</a>
-            <a class="w3-bar-item w3-button w3-right" id="day">day</a>
-        </div>
-    </div><!--/#nav bar-->
     <div class="calculator">
 
         <input type="text" class="calculator-screen" autocomplete="off" readonly />
