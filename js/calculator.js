@@ -80,8 +80,6 @@ const calculator = {
 
     '^': (firstOperand, secondOperand) => Math.pow(firstOperand, secondOperand),
 
-    'e^': (firstOperand, secondOperand) => Math.pow(Math.E, secondOperand),
-
     'yroot': (firstOperand, secondOperand) => Math.pow(firstOperand, (1 / secondOperand)),
   
     '=': (firstOperand, secondOperand) => secondOperand,
@@ -133,20 +131,8 @@ const calculator = {
       return;
     }
 
-    if (target.classList.contains('sqrt')) {
-      calculator.displayValue = Math.sqrt(calculator.displayValue);
-      updateDisplay();
-      return;
-    }
-
     if (target.classList.contains('inverse')) {
       calculator.displayValue = 1 / calculator.displayValue;
-      updateDisplay();
-      return;
-    }
-
-    if (target.classList.contains('square')) {
-      calculator.displayValue = Math.pow(calculator.displayValue, 2);
       updateDisplay();
       return;
     }
@@ -185,39 +171,6 @@ const calculator = {
         } else {
             radians = calculator.displayValue * (Math.PI / 180);
             calculator.displayValue = `${parseFloat(Math.tan(radians).toFixed(7))}`;
-        }
-        updateDisplay();
-        return;
-    }
-
-    if (target.classList.contains('sinh')) {
-      if (calculator.rad == true) {
-            calculator.displayValue = `${parseFloat(Math.sinh(calculator.displayValue).toFixed(7))}`;
-        } else {
-            radians = calculator.displayValue * (Math.PI / 180);
-            calculator.displayValue = `${parseFloat(Math.sinh(radians).toFixed(7))}`;
-        }
-        updateDisplay();
-        return;
-    }
-
-    if (target.classList.contains('cosh')) {
-      if (calculator.rad == true) {
-            calculator.displayValue = `${parseFloat(Math.cosh(calculator.displayValue).toFixed(7))}`;
-        } else {
-            radians = calculator.displayValue * (Math.PI / 180);
-            calculator.displayValue = `${parseFloat(Math.cosh(radians).toFixed(7))}`;
-        }
-        updateDisplay();
-        return;
-    }
-
-    if (target.classList.contains('tanh')) {
-      if (calculator.rad == true) {
-            calculator.displayValue = `${parseFloat(Math.tanh(calculator.displayValue).toFixed(7))}`;
-        } else {
-            radians = calculator.displayValue * (Math.PI / 180);
-            calculator.displayValue = `${parseFloat(Math.tanh(radians).toFixed(7))}`;
         }
         updateDisplay();
         return;
