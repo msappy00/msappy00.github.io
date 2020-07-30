@@ -115,6 +115,7 @@ function speak(text, callback) {
 
 // checks vocab input from user
 function vArraySlide() {
+    document.getElementById("next").setAttribute("disabled", "disabled");
     if (spellCheck.value == spellCheck.pattern || mSpellCheck.value == mSpellCheck.pattern) {
         success.play();
         document.getElementById("spellCheck").style.backgroundColor = "lightgreen";
@@ -177,6 +178,9 @@ function vArraySlide() {
         document.getElementById("spellCheck").placeholder = "Spell It!";
         document.getElementById("mSpellCheck").placeholder = "Spell It!";
     }, 2000);
+    setTimeout(function () {
+        document.getElementById("next").removeAttribute("disabled");
+    }, 2000);
     spellCheck.focus();
 };
 
@@ -207,6 +211,7 @@ function gArraySlide(tdId) {
 
 // checks phonics input from user
 function pArraySlide() {
+    document.getElementById("next").setAttribute("disabled", "disabled");
     if (phonicsCheck.value.toLowerCase() == phonicsCheck.pattern || mPhonicsCheck.value.toLowerCase() == mPhonicsCheck.pattern) {
         success.play();
         document.getElementById("phonicsCheck").style.backgroundColor = "lightgreen";
@@ -238,6 +243,9 @@ function pArraySlide() {
         document.getElementById("phonicsCheck").style.borderColor = "gray";
         document.getElementById("mPhonicsCheck").style.backgroundColor = "white";
         document.getElementById("mPhonicsCheck").style.borderColor = "gray";
+    }, 2000);
+    setTimeout(function () {
+        document.getElementById("next").removeAttribute("disabled");
     }, 2000);
     phonicsCheck.focus();
 };
