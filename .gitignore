@@ -1,5 +1,5 @@
-desktop.ini
-.vs
+.idea
+.vsdesktop.ini
 .vscode/settings.json
 webcam.js
 webcam.html
