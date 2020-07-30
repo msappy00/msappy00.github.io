@@ -275,7 +275,7 @@ function setPhonics(userInput) {
         }
         else if (userInput == "Unit 3") {
             document.getElementById("pInstructions").innerHTML = "Listen and write 'long' or 'short'.";
-            pArray = [{ pattern: 'long', value: 'heavy' }, { pattern: 'long', value: 'bear' }, { pattern: 'long', value: 'wears' }, { pattern: 'long', value: 'ready' }, { pattern: 'long', value: 'jealous' }, { pattern: 'short', value: 'feast' }, { pattern: 'short', value: 'please' }, { pattern: 'short', value: 'seat' }, { pattern: 'short', value: 'meat' }, { pattern: 'short', value: 'beans' }, { pattern: 'short', value: 'eat' }];
+            pArray = [{ pattern: 'short', value: 'heavy' }, { pattern: 'short', value: 'bear' }, { pattern: 'short', value: 'wears' }, { pattern: 'short', value: 'ready' }, { pattern: 'short', value: 'jealous' }, { pattern: 'long', value: 'feast' }, { pattern: 'long', value: 'please' }, { pattern: 'long', value: 'seat' }, { pattern: 'long', value: 'meat' }, { pattern: 'long', value: 'beans' }, { pattern: 'long', value: 'eat' }];
         }
         else if (userInput == "Review 1") {
             pArray = [{ pattern: 'blank', value: '' }];
