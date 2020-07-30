@@ -23,8 +23,13 @@ function randG(max) { return Math.floor(Math.random() * max) };
 
 // sessionLevel are levels starter - 12
 function checkSessionStorage() {
-    level = sessionStorage.getItem("sessionLevel");
-    setLevel(level);
+    if (sessionStorage.getItem("sessionLevel") === null) {
+        document.title = "Teacher Matthew"
+    }
+    else {
+        level = sessionStorage.getItem("sessionLevel");
+        setLevel(level);
+    }
 };
 
 function setLevel(level) {
