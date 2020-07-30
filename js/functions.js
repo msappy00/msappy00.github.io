@@ -115,7 +115,7 @@ function speak(text, callback) {
 
 // checks vocab input from user
 function vArraySlide() {
-    document.getElementById("next").setAttribute("disabled", "disabled");
+    document.getElementById("vNext").setAttribute("disabled", "disabled");
     if (spellCheck.value == spellCheck.pattern || mSpellCheck.value == mSpellCheck.pattern) {
         success.play();
         document.getElementById("spellCheck").style.backgroundColor = "lightgreen";
@@ -127,7 +127,7 @@ function vArraySlide() {
         spellCheck.value = "";
         array_i++;
         if (array_i == (array.length - 1)) {
-            document.getElementById("next").textContent = "AGAIN";
+            document.getElementById("vNext").textContent = "AGAIN";
             if (level_id == "Starter") {
                 document.getElementById("spellCheck").value = "f";
                 document.getElementById("mSpellCheck").value = "f";
@@ -136,13 +136,13 @@ function vArraySlide() {
                 document.getElementById("mSpellCheck").value = "finished";
             }
         } else if (array_i > (array.length - 1)) {
-            document.getElementById("next").textContent = "NEXT";
+            document.getElementById("vNext").textContent = "NEXT";
             document.getElementById("spellCheck").value = "";
             document.getElementById("mSpellCheck").value = "";
             array_i = 0;
             shuffleArray(array);
         } else {
-            document.getElementById("next").textContent = "NEXT";
+            document.getElementById("vNext").textContent = "NEXT";
             document.getElementById("spellCheck").value = "";
             document.getElementById("mSpellCheck").value = "";
         }
@@ -179,7 +179,7 @@ function vArraySlide() {
         document.getElementById("mSpellCheck").placeholder = "Spell It!";
     }, 2000);
     setTimeout(function () {
-        document.getElementById("next").removeAttribute("disabled");
+        document.getElementById("vNext").removeAttribute("disabled");
     }, 2000);
     spellCheck.focus();
 };
@@ -211,7 +211,7 @@ function gArraySlide(tdId) {
 
 // checks phonics input from user
 function pArraySlide() {
-    document.getElementById("next").setAttribute("disabled", "disabled");
+    document.getElementById("pNext").setAttribute("disabled", "disabled");
     if (phonicsCheck.value.toLowerCase() == phonicsCheck.pattern || mPhonicsCheck.value.toLowerCase() == mPhonicsCheck.pattern) {
         success.play();
         document.getElementById("phonicsCheck").style.backgroundColor = "lightgreen";
@@ -245,7 +245,7 @@ function pArraySlide() {
         document.getElementById("mPhonicsCheck").style.borderColor = "gray";
     }, 2000);
     setTimeout(function () {
-        document.getElementById("next").removeAttribute("disabled");
+        document.getElementById("pNext").removeAttribute("disabled");
     }, 2000);
     phonicsCheck.focus();
 };
