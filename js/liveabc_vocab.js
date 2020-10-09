@@ -728,7 +728,7 @@ function setVocab(userInput){
         }
     }
     else if (level_id == "Level 12") {
-        array = ["yourself", "myself", "classmates", "ourselves", "themselves", "trust", "yourselves", "himself", "herself", "carry", "almost", "blood type", "article", "personality", "stupid", "confident", "outgoing", "leader", "group", "correct", "patient", "responsible", "creative", "flexible", "calm", "fair", "consider", "faithful", "inconvenient", "besides", "guide", "train", "priest", "successfully", "helper", "rare", "disturb", "feed", "provide", "environment", "partner", "desktop", "monitor", "mouse", "keyboard", "assemble", "professional", "switch", "power", "button", "plug", "socket", "genius", "planetarium", "display", "free", "space", "shuttle", "astronaut", "search", "accident", "protect", "danger", "earthquake", "occur", "building", "squat", "firm", "furniture", "cover", "crawl", "exit", "trap", "emergency", "arm", "burn", "flush", "soak", "job", "toilsome", "high heels", "salary", "difference", "service", "passenger", "complain", "cram school", "lesson", "senior high school", "necessary", "high jump", "light", "diet", "healthy", "habit", "grateful", "cockroach", "wiper", "wipe", "broom", "dustpan", "mood", "inventor", "invent", "magical", "pill", "wing", "incredible", "cape", "invisible", "continue", "owner", "shop", "mint", "cranberry", "flavor", "imagine", "customer"];
+        array = ["yourself", "myself", "classmate", "ourselves", "themselves", "trust", "yourselves", "himself", "herself", "carry", "almost", "blood type", "article", "personality", "trait", "stupid", "confident", "outgoing", "leader", "group", "correct", "patient", "responsible", "creative", "flexible", "fair", "consider", "faithful", "inconvenient", "besides", "helper", "guide", "enter", "train", "priest", "successfully", "rare", "disturb", "provide", "environment", "partner", "desktop", "monitor", "mouse", "keyboard", "assemble", "professional", "switch on", "power", "normal", "plug", "socket", "genius", "display", "free", "planetarium", "space", "shuttle", "astronaut", "accident", "protect", "danger", "earthquake", "occur", "building", "squat", "sturdy", "furniture", "cover", "crawl", "exit", "trap", "calm", "emergency", "button", "knock", "flush", "soak", "job", "tiring", "high heels", "salary", "difference", "service", "passenger", "complain", "cram school", "lesson", "senior high school", "necessary", "high jump", "diet", "healthy", "habit", "grateful", "cockroach", "rag", "wipe", "broom", "dustpan", "mood", "inventor", "invent", "magical", "pill", "incredible", "cape", "invisible", "continue", "tasty", "mint", "cranberry", "flavor", "imagine", "customer"];
         if (userInput == "Unit 1") {
             array = array.slice(0,11);
             links = [''];
@@ -750,11 +750,11 @@ function setVocab(userInput){
             links = [''];
             vocabLesson = "";
         } else if (userInput == "Unit 5") {
-            array = array.slice(53,60);
+            array = array.slice(53,59);
             links = [''];
             vocabLesson = "";
         } else if (userInput == "Unit 6") {
-            array = array.slice(60,78);
+            array = array.slice(59,78);
             links = [''];
             vocabLesson = "";
         } else if (userInput == "Review 3") {
@@ -766,11 +766,11 @@ function setVocab(userInput){
             links = [''];
             vocabLesson = "";
         } else if (userInput == "Unit 8") {
-            array = array.slice(89,102);
+            array = array.slice(90,101);
             links = [''];
             vocabLesson = "";
         } else if (userInput == "Unit 9") {
-            array = array.slice(-16);
+            array = array.slice(-14);
             links = [''];
             vocabLesson = "";
         } else if (userInput == "Review 3") {

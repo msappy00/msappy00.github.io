@@ -232,23 +232,23 @@ array = [];
     } else if (currentInput == "Level 11Unit 9") {
         array = ["handmade", "antique", "cost", "budget", "worth", "jewelry box", "flea market", "stuff", "frame", "perfect"];
     } else if (currentInput == "Level 12Unit 1") {
-        array = ["yourself", "myself", "classmates", "ourselves", "themselves", "trust", "yourselves", "himself", "herself", "carry", "almost"];
+        array = ["yourself", "myself", "classmate", "ourselves", "themselves", "trust", "yourselves", "himself", "herself", "carry", "almost"];
     } else if (currentInput == "Level 12Unit 2") {
-        array = ["blood type", "article", "personality", "stupid", "confident", "outgoing", "leader", "group", "correct", "patient", "responsible", "creative", "flexible", "calm", "fair"];
+        array = ["blood type", "article", "personality", "trait",  "stupid", "confident", "outgoing", "leader", "group", "correct", "patient", "responsible", "creative", "flexible", "fair"];
     } else if (currentInput == "Level 12Unit 3") {
-        array = ["consider", "faithful", "inconvenient", "besides", "guide", "train", "priest", "successfully", "helper", "rare", "disturb", "feed", "provide", "environment", "partner"];
+        array = ["consider", "faithful", "inconvenient", "besides", "helper", "guide", "enter", "train", "priest", "successfully", "rare", "disturb", "provide", "environment", "partner"];
     } else if (currentInput == "Level 12Unit 4") {
-        array = ["desktop", "monitor", "mouse", "keyboard", "assemble", "professional", "switch", "power", "button", "plug", "socket", "genius"];
+        array = ["desktop", "monitor", "mouse", "keyboard", "assemble", "professional", "switch on", "power", "normal", "plug", "socket", "genius"];
     } else if (currentInput == "Level 12Unit 5") {
-        array = ["planetarium", "display", "free", "space", "shuttle", "astronaut", "search"];
+        array = ["display", "free", "planetarium", "space", "shuttle", "astronaut"];
     } else if (currentInput == "Level 12Unit 6") {
-        array = ["accident", "protect", "danger", "earthquake", "occur", "building", "squat", "firm", "furniture", "cover", "crawl", "exit", "trap", "emergency", "arm", "burn", "flush", "soak"];
+        array = ["accident", "protect", "danger", "earthquake", "occur", "building", "squat", "sturdy", "furniture", "cover", "crawl", "exit", "trap", "calm", "emergency", "button", "knock", "flush", "soak"];
     } else if (currentInput == "Level 12Unit 7") {
-        array = ["job", "toilsome", "high heels", "salary", "difference", "service", "passenger", "complain", "cram school", "lesson", "senior high school", "necessary"];
+        array = ["job", "tiring", "high heels", "salary", "difference", "service", "passenger", "complain", "cram school", "lesson", "senior high school", "necessary"];
     } else if (currentInput == "Level 12Unit 8") {
-        array = ["high jump", "light", "diet", "healthy", "habit", "grateful", "cockroach", "wiper", "wipe", "broom", "dustpan", "mood"];
+        array = ["high jump", "diet", "healthy", "habit", "grateful", "cockroach", "rag", "wipe", "broom", "dustpan", "mood"];
     } else if (currentInput == "Level 12Unit 9") {
-        array = ["inventor", "invent", "magical", "pill", "wing", "incredible", "cape", "invisible", "continue", "owner", "shop", "mint", "cranberry", "flavor", "imagine", "customer"];
+        array = ["inventor", "invent", "magical", "pill", "incredible", "cape", "invisible", "continue", "tasty", "mint", "cranberry", "flavor", "imagine", "customer"];
     } else {
         document.getElementById("levelId").innerHTML = "";
         array = ["blank", "blank"];
