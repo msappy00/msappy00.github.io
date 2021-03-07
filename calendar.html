@@ -10,10 +10,10 @@
             text-align: center;
         }
         h1 {
-            font-size: 50px;
+            font-size: 40px;
         }
         h2 {
-            font-size: 30px;
+            font-size: 25px;
         }
         .today {
             border: solid;
@@ -26,17 +26,17 @@
     </style>
 </head>
 <body>
-    <script src="js/calendar.js"></script>
-    <script type="text/javascript">
-        var cal = new Calendar();
-        cal.generateHTML();
-        document.write(cal.getHTML());
-    </script>
     <canvas id="mycanvas" width="400" height="400">
     </canvas>
     <script type="text/javascript">
         var canvas = document.getElementById('mycanvas');
         var ctx = canvas.getContext('2d');
+    </script>
+    <script src="js/calendar.js"></script>
+    <script type="text/javascript">
+        var cal = new Calendar();
+        cal.generateHTML();
+        document.write(cal.getHTML());
     </script>
     <script src="js/mandala.js"></script>
 </body>

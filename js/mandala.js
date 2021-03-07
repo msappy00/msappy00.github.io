@@ -2,44 +2,33 @@ var ctx = document.getElementById('mycanvas').getContext('2d');
 ctx.lineWidth = 3;
 
 // define rgb colors
-var turquoise = "rgb(0,255,125)";
-var ocean = "rgb(0,125,255)";
-var raspberry = "rgb(255,0,125)";
-var spring_green = "rgb(125,255,0)";
+
+rgb_colors = ["rgb(0,255,125)", "cyan", "rgb(0,125,255)", "blue", "violet", "magenta",
+    "rgb(255,0,125)", "red", "orange", "yellow", "rgb(125,255,0)", "green"];
+var i = cal_current_date.getMonth();
+if (i == 10) {
+    var color_01 = rgb_colors[i];
+    var color_02 = rgb_colors[i + 1];
+    var color_03 = rgb_colors[0];
+}
+else if (i == 11) {
+    var color_01 = rgb_colors[i];
+    var color_02 = rgb_colors[0];
+    var color_03 = rgb_colors[1];
+}
+else {
+    var color_01 = rgb_colors[i];
+    var color_02 = rgb_colors[i+1];
+    var color_03 = rgb_colors[i+2];
+}
+
 
 // define gradients by month
-var jangrad = ctx.createLinearGradient(0, 0, 400, 0);
-jangrad.addColorStop(0, turquoise);
-jangrad.addColorStop(0.3, "cyan");
-jangrad.addColorStop(0.7, "cyan");
-jangrad.addColorStop(1, ocean);
-
-var febgrad = ctx.createLinearGradient(0, 0, 400, 0);
-febgrad.addColorStop(0, "cyan");
-febgrad.addColorStop(0.3, ocean);
-febgrad.addColorStop(0.7, ocean);
-febgrad.addColorStop(1, "blue");
-
-var margrad = ctx.createLinearGradient(0, 0, 400, 0);
-margrad.addColorStop(0, ocean);
-margrad.addColorStop(0.5, "blue");
-margrad.addColorStop(1, "violet");
-
-var aprgrad = ctx.createLinearGradient(0, 0, 400, 0);
-aprgrad.addColorStop(0, "blue");
-aprgrad.addColorStop(0.3, "violet");
-aprgrad.addColorStop(0.7, "violet");
-aprgrad.addColorStop(1, "magenta");
-
-var maygrad = ctx.createLinearGradient(0, 0, 400, 0);
-maygrad.addColorStop(0, "blue");
-maygrad.addColorStop(0.3, "violet");
-maygrad.addColorStop(0.7, "violet");
-maygrad.addColorStop(1, "magenta");
-
-// assign lingrad to current month's grad
-grad_labels = [jangrad, febgrad, margrad, aprgrad, maygrad];
-var lingrad = grad_labels[cal_current_date.getMonth()];
+var lingrad = ctx.createLinearGradient(0, 0, 400, 0);
+lingrad.addColorStop(0, color_01);
+lingrad.addColorStop(0.3, color_02);
+lingrad.addColorStop(0.7, color_02);
+lingrad.addColorStop(1, color_03);
 
 // define the coordiaates of the drawing
 var centerX = 200;
@@ -61,7 +50,7 @@ var radgrad = ctx.createRadialGradient(centerX, centerY, radius2, centerX, cente
 radgrad.addColorStop(0.3, "rgb(200,200,200)");
 radgrad.addColorStop(1, "white");
 
-function draw(lingrad) {
+function draw() {
  
     var circle3 = new Path2D();
     circle3.arc(centerX, centerY, radius3, 0, 2 * Math.PI);
@@ -100,4 +89,4 @@ function draw(lingrad) {
     ctx.fill(circle);
     ctx.stroke(circle);
 }
-draw(lingrad);
+draw();
