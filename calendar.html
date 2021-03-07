@@ -32,9 +32,12 @@
         cal.generateHTML();
         document.write(cal.getHTML());
     </script>
-    <div style="height: 50px"></div>
-    <div>
-        <img src="images/rectangle_ratios.png" />
-    </div>
+    <canvas id="mycanvas" width="400" height="400">
+    </canvas>
+    <script type="text/javascript">
+        var canvas = document.getElementById('mycanvas');
+        var ctx = canvas.getContext('2d');
+    </script>
+    <script src="js/mandala.js"></script>
 </body>
 </html>  
