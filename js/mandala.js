@@ -1,4 +1,5 @@
 var ctx = document.getElementById('mycanvas').getContext('2d');
+ctx.fillStyle = "white";
 ctx.lineWidth = 3;
 
 // define rgb colors
@@ -30,62 +31,82 @@ lingrad.addColorStop(0.3, color_02);
 lingrad.addColorStop(0.7, color_02);
 lingrad.addColorStop(1, color_03);
 
-// define the coordiaates of the drawing
+//ctx.fillStyle = lingrad;
+
+//define the coordinates of the drawing
 var centerX = 200;
 var centerY = 200;
-var radius = 50;
+var radius = 40;
 var testX = radius * Math.cos(Math.PI / 4);
-var midX = radius * 2 * Math.cos(Math.PI / 8);
+var midX = radius * 3 * Math.cos(Math.PI / 8);
 var testY = radius * Math.sin(Math.PI / 4);
-var midY = radius * 2 * Math.sin(Math.PI / 8);
-var radius2 = 180;
+var midY = radius * 3 * Math.sin(Math.PI / 8);
+var radius2 = 100;
 var testX2 = radius2 * Math.cos(Math.PI / 4);
 var midX2 = radius2 / 1.5 * Math.cos(Math.PI / 8);
 var testY2 = radius2 * Math.sin(Math.PI / 4);
 var midY2 = radius2 / 1.5 * Math.sin(Math.PI / 8);
-var radius3 = 190;
-
-// define radgrad for a dropshadow
-var radgrad = ctx.createRadialGradient(centerX, centerY, radius2, centerX, centerY, radius3);
-radgrad.addColorStop(0.3, "rgb(200,200,200)");
-radgrad.addColorStop(1, "white");
+var radius3 = 130;
+var testX3 = radius3 * Math.cos(Math.PI / 12);
+var midX3 = radius3 * 1.2 * Math.cos(Math.PI / 24);
+var testY3 = radius3 * Math.sin(Math.PI / 12);
+var midY3 = radius3 * 1.2 * Math.sin(Math.PI / 24);
+var testX4 = radius3 * Math.cos(Math.PI / 6);
+var midX4 = radius3 * 1.2 * Math.cos(Math.PI / 8);
+var testY4 = radius3 * Math.sin(Math.PI / 6);
+var midY4 = radius3 * 1.2 * Math.sin(Math.PI / 8);
+var testX5 = radius3 * Math.cos(Math.PI / 4);
+var midX5 = radius3 * 1.2 * Math.cos(5 * Math.PI / 24);
+var testY5 = radius3 * Math.sin(Math.PI / 4);
+var midY5 = radius3 * 1.2 * Math.sin(5 * Math.PI / 24);
+var startInX = radius2 * Math.cos(5 * Math.PI / 24);
+var startInY = radius2 * Math.sin(5 * Math.PI / 24);
+var midInX = radius2 / 1.4 * Math.cos(Math.PI / 4);
+var midInY = radius2 / 1.4 * Math.sin(Math.PI / 4);
+var testInX = radius2 * Math.cos(7 * Math.PI / 24);
+var testInY = radius2 * Math.sin(7 * Math.PI / 24);
 
 function draw() {
- 
+
     var circle3 = new Path2D();
     circle3.arc(centerX, centerY, radius3, 0, 2 * Math.PI);
-    ctx.fillStyle = radgrad;
     ctx.fill(circle3);
+    ctx.stroke(circle3);
 
     var circle2 = new Path2D();
     circle2.arc(centerX, centerY, radius2, 0, 2 * Math.PI);
-    ctx.fillStyle = lingrad;
     ctx.fill(circle2);
     ctx.stroke(circle2);
 
     ctx.translate(centerX, centerY);
     ctx.save();
-    for (var i = 0; i <= 8; i++) {
-        ctx.beginPath();
-        ctx.moveTo(radius, 0);
-        ctx.lineTo(midX, midY);
-        ctx.lineTo(testX, testY);
-        ctx.closePath();
-        ctx.stroke();
-        ctx.rotate(Math.PI / 8);
+    for (var i = 0; i <= 7; i++) {
+        ctx.moveTo(radius3, 0);
+        ctx.quadraticCurveTo(midX3, midY3, testX3, testY3);
+        ctx.quadraticCurveTo(midX4, midY4, testX4, testY4);
+        ctx.quadraticCurveTo(midX5, midY5, testX5, testY5);
+        ctx.moveTo(startInX, startInY);
+        ctx.quadraticCurveTo(midInX, midInY, testInX, testInY);
         ctx.moveTo(radius2, 0);
-        ctx.lineTo(midX2, midY2);
-        ctx.lineTo(testX2, testY2);
-        //ctx.fill();  
+        ctx.lineTo(radius3, 0);
+        ctx.moveTo(radius2 * Math.cos(Math.PI / 12), radius2 * Math.sin(Math.PI / 12));
+        ctx.lineTo(radius3 * Math.cos(Math.PI / 12), radius3 * Math.sin(Math.PI / 12));
+        ctx.moveTo(radius2 * Math.cos(Math.PI / 6), radius2 * Math.sin(Math.PI / 6));
+        ctx.lineTo(radius3 * Math.cos(Math.PI / 6), radius3 * Math.sin(Math.PI / 6));
+        ctx.moveTo(radius, 0);
+        ctx.quadraticCurveTo(midX, midY, testX, testY);
         ctx.stroke();
-        ctx.rotate(Math.PI / 8);
+        ctx.rotate(Math.PI / 4);
     }
     ctx.restore();
     ctx.translate(-centerX, -centerY);
-    ctx.fillStyle = "white";
+    var circle1 = new Path2D();
+    circle1.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+    ctx.fill(circle1);
+    ctx.stroke(circle1);
     var circle = new Path2D();
-    circle.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-    ctx.fillStyle = lingrad;
+    circle.arc(centerX, centerY, 10, 0, 2 * Math.PI);
+    ctx.fillStyle = "black";
     ctx.fill(circle);
     ctx.stroke(circle);
 }
