@@ -1,5 +1,4 @@
-var ctx = document.getElementById('mycanvas').getContext('2d');
-ctx.fillStyle = "white";
+var ctx = document.getElementById('ctx').getContext('2d');
 ctx.lineWidth = 3;
 
 // define rgb colors
@@ -25,13 +24,17 @@ else {
 
 
 // define gradients by month
+var radgrad = ctx.createRadialGradient(200, 200, 40, 200, 200, 150);
 var lingrad = ctx.createLinearGradient(0, 0, 400, 0);
+radgrad.addColorStop(0, color_01);
+radgrad.addColorStop(0.3, color_02);
+radgrad.addColorStop(0.5, color_02);
+radgrad.addColorStop(0.7, color_03);
+radgrad.addColorStop(1, "white");
 lingrad.addColorStop(0, color_01);
 lingrad.addColorStop(0.3, color_02);
 lingrad.addColorStop(0.7, color_02);
 lingrad.addColorStop(1, color_03);
-
-//ctx.fillStyle = lingrad;
 
 //define the coordinates of the drawing
 var centerX = 200;
@@ -66,20 +69,26 @@ var midInY = radius2 / 1.4 * Math.sin(Math.PI / 4);
 var testInX = radius2 * Math.cos(7 * Math.PI / 24);
 var testInY = radius2 * Math.sin(7 * Math.PI / 24);
 
+ctx.fillStyle = radgrad;
+ctx.fillRect(0, 0, 400, 400);
+
 function draw() {
 
     var circle3 = new Path2D();
     circle3.arc(centerX, centerY, radius3, 0, 2 * Math.PI);
-    ctx.fill(circle3);
     ctx.stroke(circle3);
 
     var circle2 = new Path2D();
     circle2.arc(centerX, centerY, radius2, 0, 2 * Math.PI);
-    ctx.fill(circle2);
     ctx.stroke(circle2);
+
+    var circle1 = new Path2D();
+    circle1.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+    ctx.stroke(circle1);
 
     ctx.translate(centerX, centerY);
     ctx.save();
+
     for (var i = 0; i <= 7; i++) {
         ctx.moveTo(radius3, 0);
         ctx.quadraticCurveTo(midX3, midY3, testX3, testY3);
@@ -100,14 +109,10 @@ function draw() {
     }
     ctx.restore();
     ctx.translate(-centerX, -centerY);
-    var circle1 = new Path2D();
-    circle1.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-    ctx.fill(circle1);
-    ctx.stroke(circle1);
+
     var circle = new Path2D();
     circle.arc(centerX, centerY, 10, 0, 2 * Math.PI);
     ctx.fillStyle = "black";
-    ctx.fill(circle);
     ctx.stroke(circle);
 }
 draw();
