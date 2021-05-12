@@ -3,35 +3,67 @@
 <head>
     <title>Widget</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/w3.css" />
     <style>
-    body {
-        background-color: rgb(150, 150, 150);
-    }
-    .item1 { grid-area: header; height: 50px }
-    .item2 { grid-area: left; }
-    .item3 { grid-area: right; }
-    .grid-container {
-        margin: 50px;
-        display: grid;
-        grid-template:
-            'header header' 
-            'left right';
-    }
+        body {
+            background-color: rgb(150, 150, 150);
+        }
+
+        .item1 {
+            grid-area: header;
+            height: 50px
+        }
+
+        .item2 {
+            grid-area: left;
+        }
+
+        .item3 {
+            grid-area: right;
+        }
+
+        .grid-container {
+            margin: 50px;
+            display: grid;
+            grid-template:
+                'header header'
+                'left right';
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding-top: 23.23%
+        }
+
+        .responsive-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
     </style>
 </head>
 
 <body>
     <div class="grid-container">
         <div class="item1"></div>
-        <div class="item2">
-            <iframe src="calendar.html" width="100%" height="800" style="border:none;"></iframe>
+        <div class="item2 w3-third w3-container">
+            <iframe src="calendar2.html" max-width="100%" height="800" style="border:none;"></iframe>
         </div>
-        <div class="item3">
-                <div width="100%" style="align-content: center"><iframe src="time.html" width="100%" height="300" style="border:none;"></iframe></div>
-                <script id="weather" type="text/javascript" src='https://darksky.net/widget/default/22.6203,120.312/ca12/en.js?width=100%&height=400&title=Kaohsiung City, Taiwan&textColor=000000&bgColor=transparent&transparency=true&skyColor=undefined&fontFamily=Default&customFont=&units=ca&htColor=333333&ltColor=C7C7C7&displaySum=yes&displayHeader=yes'></script>
+        <div class="item3 w3-twothird w3-container">
+            <div><iframe src="time.html"></iframe></div>
+            <script id="weather" type="text/javascript" src='https://darksky.net/widget/default/22.6203,120.312/ca12/en.js?width=100%&height=400&title=Kaohsiung City, Taiwan&textColor=000000&bgColor=transparent&transparency=true&skyColor=undefined&fontFamily=Default&customFont=&units=ca&htColor=333333&ltColor=C7C7C7&displaySum=yes&displayHeader=yes'></script>
         </div>
     </div>
 </body>
+</html>
 <script>
     var src = $('#weather').attr('src');
     setInterval(function () {
@@ -39,4 +71,3 @@
         document.getElementById('weather').src = src;
     }, 900000);
 </script>
-</html>
