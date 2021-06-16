@@ -48,6 +48,7 @@ function clearLevel() {
     currentUnit = "";
     setVocab(currentUnit);
     setGrammar(currentUnit);
+    setPhonics(currentUnit);
     setCss('home', '');
 };
 

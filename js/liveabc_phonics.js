@@ -381,12 +381,12 @@ function setPhonics(userInput) {
         pArray = [{ pattern: 'blank', value: '' }];
     }
     shuffleArray(pArray);
+    document.getElementById("phonicsCheck").pattern = pArray[pArray_i].pattern;
+    document.getElementById("mPhonicsCheck").pattern = pArray[pArray_i].pattern;
     setTimeout(function () {
         if (pArray[pArray_i] != "blank") {
             var tempPhonics = new Audio('phonics/' + pArray[pArray_i].value + '.mp3');
             tempPhonics.play();
-            document.getElementById("phonicsCheck").pattern = pArray[pArray_i].pattern;
-            document.getElementById("phonicsCheck").pattern = pArray[pArray_i].pattern;
         }
     }, 1000);
     document.getElementById("phonProg").value = (pArray_i / pArray.length * 100).toString();
