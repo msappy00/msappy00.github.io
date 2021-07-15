@@ -21,7 +21,7 @@ function search() {
             node.appendChild(textnode);                              // Append the text to <li>
             document.getElementById("myList").appendChild(node);     // Append <li> to <ul> with id="myList"
         })  
-}
+	}
 
 function listAll() {
     document.getElementById("myList").innerHTML = '';
