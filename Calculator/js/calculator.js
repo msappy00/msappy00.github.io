@@ -110,11 +110,6 @@ updateDisplay();
 
   
 const keys = document.querySelector('.calculator');
-var els = nav.getElementsByTagName('button');
-for (var i = 0; i < els.length; i++) {
-    els[i].addEventListener('touchstart', function () { this.className = "hover"; }, false);
-    els[i].addEventListener('touchend', function () { this.className = ""; }, false);
-}
   keys.addEventListener('click', (event) => {
     const { target } = event;
     if (!target.matches('button')) {
