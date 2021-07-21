@@ -106,9 +106,16 @@ const calculator = {
   }
   
   updateDisplay();
-  
-  const keys = document.querySelector('.calculator');
-  keys.addEventListener('click', (event) => {
+
+function bigImg(x) {
+    x.style.color = red;
+}
+
+const keys = document.querySelector('.calculator');
+keys.addEventListener('onmouseover', (event) => {
+    bigImg(this);
+});
+keys.addEventListener('click', (event) => {
     const { target } = event;
     if (!target.matches('button')) {
       return;
