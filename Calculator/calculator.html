@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Calculator</title>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="theme-color" content="#317EFB" />
     <link rel="stylesheet" href="css/w3.css" />
-    <link rel="manifest" href="manifest.json" />
+    <link rel="manifest" href="manifest.json">
     <link rel="manifest" href="manifest.webmanifest">
+    <!-- ios support -->
+    <link rel="apple-touch-icon" href="icons/icon-96.png" />
+    <meta name="apple-mobile-web-app-status-bar" content="#00695c" />
+    <meta name="theme-color" content="#317EFB" />
+    <!-- /ios support -->
+
     <style>
 
         html {
@@ -141,8 +145,8 @@
 
     <div class="calculator">
 
-        <input type="text" class="calculator-screen" autocomplete="off" readonly />
-        <input type="text" class="rad-line w3-hide-small" value="RAD" readonly />
+        <input type="text" aria-label="output screen" class="calculator-screen" autocomplete="off" readonly />
+        <input type="text" aria-label="rad line" class="rad-line w3-hide-small" value="RAD" readonly />
 
         <div class="calculator-keys w3-content w3-hide-small">
             <!--#medium and large-->
