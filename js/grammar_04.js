@@ -25,6 +25,7 @@ function g_04(userInput){
             sentenceArray[2] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[0].RP + " at " + timeArray[2].text + ".";
             sentenceArray[3] = capitalize(PRPArray[0].RESPONSE) + " " + verb + " " + verbArray[0].RP + " at " + timeArray[3].text + ".";
         }
+        document.getElementById("gPic").src = "Level 4/images/blank.png";
         setTimeout(function(){speak(sentence)}, 2000);
         gLinks = ['<a href="http://scratch.mit.edu/projects/64711462/" target="_newtab">Scratch: What Time Is It?</a>'];
     } else if (userInput == "Unit 2") {
