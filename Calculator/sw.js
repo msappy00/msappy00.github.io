@@ -1,13 +1,26 @@
-//console.log('service worker inside sw.js');
+// console.log('service worker inside sw.js');
 
-const cacheName = "app-shell-rsrs-v1";
+const cacheName = "app-shell-rsrs-v2";
+const dynamicCacheName = "dynamic-cache-v1"
 const assets = [
     '/',
-    'calculator.html',
+    'index.html',
     'css/w3.css',
     'js/calculator.js',
-    'icons/icon-144.png'
+    'icons/icon-144.png',
+    'favicon.ico'
 ];
+
+// cache size limit function
+const limitCacheSize = (name, size) => {
+    caches.open(name).then(cache => {
+        cache.keys().then(keys => {
+            if (keys.length > size) {
+                cache.delete(keys[0]).then(limitCacheSize(name, size))
+            }
+        });
+    });
+};
 
 // install service worker
 self.addEventListener('install', evt => {
@@ -36,13 +49,15 @@ self.addEventListener('activate', evt => {
 
 // fetch event
 self.addEventListener('fetch', evt => {
-    console.log(evt);
-
     evt.respondWith(
         caches.match(evt.request).then(cacheRes => {
-            return cacheRes || evt.request;
+            return cacheRes || fetch(evt.request).then(fetchRes => {
+                return caches.open(dynamicCacheName).then(cache => {
+                    cache.put(evt.request.url, fetchRes.clone())
+                    limitCacheSize(dynamicCacheName, 10);
+                    return fetchRes;
+                });
+            });
         })
     );
-
-    
 });

@@ -16,50 +16,39 @@
 
     <style>
 
-        html {
-            font-size: 62.5%;
-            box-sizing: border-box;
-        }
-
         body {
-            width: 100vw;
-            height: 100vh;
-            background-color: #618685;
+            background-color: #252525;
+            line-height: 0;
         }
 
         *, *::before, *::after {
             margin: 0;
             padding: 0;
-            box-sizing: inherit;
         }
 
         .calculator {
-            width: 100%;
-            max-width: 600px;
-            max-height: 100vh;
-            border: 1px solid #000;
-            background-color: #696969;
-            border-radius: 5px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            display: block;
+            height: 100vh;
+            width: 100vw;
+            background-color: #252525;
         }
 
         .calculator-screen {
             width: 100%;
-            font-size: 4rem;
+            font-size: 3rem;
             border: none;
             background-color: #252525;
             color: #fff;
             text-align: right;
             padding-right: 2rem;
             padding-left: 1rem;
+            height: 15%;
         }
 
         .rad-line {
             width: 100%;
-            font-size: 1.5rem;
+            height: 5%;
+            font-size: 1rem;
             border: none;
             background-color: #252525;
             color: #fff;
@@ -69,11 +58,10 @@
         }
 
         button {
-            height: 5rem;
             background-color: #d3d3d3;
             border-radius: 0.1rem;
             border: 0.1rem solid #c4c4c4;
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: #000;
             background-image: linear-gradient(to bottom,transparent,transparent 50%,rgba(0,0,0,.04));
             box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), inset 0 1px 0 0 rgba(255,255,255,.45), inset 0 -1px 0 0 rgba(255,255,255,.15), 0 1px 0 0 rgba(255,255,255,.15);
@@ -108,8 +96,7 @@
             background-color: #2e86c0;
             border-color: #337cac;
             color: #fff;
-            height: 100%;
-            grid-area: 3 / 7 / 6 / 7;
+            grid-row: span 2;
         }
 
         .equal-sign-small {
@@ -122,15 +109,32 @@
 
         .calculator-keys {
             display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            grid-gap: 0.1rem;
-            padding: 0.1rem;
+            grid-template-columns: auto auto auto auto auto auto auto;
+            height: 80%;
+            max-height: 600px;
+            grid-gap: 1px;
+            background-color: #252525;
         }
 
-        .calc-keys-small {
+            .calculator-keys > div {
+                background-color: rgba(255, 255, 255, 0.8);
+                text-align: center;
+                font-size: 30px;
+            }
+
+        .calculator-keys-small {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: auto auto auto auto;
+            height: 85%;
+            grid-gap: 1px;
+            background-color: #252525;
         }
+
+            .calculator-keys-small > div {
+                background-color: rgba(255, 255, 255, 0.8);
+                text-align: center;
+                font-size: 30px;
+            }
 
         input {
             border-radius: 0;
@@ -139,6 +143,12 @@
             input[type="text"] {
                 -webkit-appearance: none;
             }
+
+        .bottom-bar {
+            height: 5%;
+            background-color: #252525;
+            grid-column: span 4;
+        }
     </style>
 </head>
 <body>
@@ -148,7 +158,7 @@
         <input type="text" aria-label="output screen" class="calculator-screen" autocomplete="off" readonly />
         <input type="text" aria-label="rad line" class="rad-line w3-hide-small" value="RAD" readonly />
 
-        <div class="calculator-keys w3-content w3-hide-small">
+        <div class="calculator-keys w3-hide-small">
             <!--#medium and large-->
 
             <button type="button" class="pi" value="">π</button>
@@ -186,7 +196,7 @@
 
         </div><!--/#medium and large-->
 
-        <div class="calc-keys-small w3-content w3-hide-medium w3-hide-large">
+        <div class="calculator-keys-small w3-hide-medium w3-hide-large">
             <!--#small-->
 
             <button type="button" class="negative" value="-1">&plusmn;</button>
@@ -212,8 +222,11 @@
             <button type="button" class="all-clear" value="all-clear">AC</button>
 
             <button type="button" class="equal-sign-small operator" value="=">=</button>
+            <span class="bottom-bar"></span>
         </div><!--/#small-->
     </div>
+
+    
         
         <script src="js/calculator.js"></script>
 </body>
