@@ -95,50 +95,32 @@
             border-color: #2196f3 !important
         }
 
-        .w3-hover-theme:hover {
-            color: #fff !important;
-            background-color: #2196f3 !important
-        }
-
-        .w3-hover-text-theme:hover {
-            color: #2196f3 !important
-        }
-
-        .w3-hover-border-theme:hover {
-            border-color: #2196f3 !important
-        }
-
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            width: 25%;
-            background-color: #f1f1f1;
-            position: fixed;
-            height: 100%;
-            overflow: auto;
-        }
-
-        li a {
-            display: block;
-            color: #000;
-            padding: 8px 16px;
-            text-decoration: none;
-        }
-
-            li a.active {
-                background-color: #04AA6D;
-                color: white;
+        @media (hover: hover) and (pointer: fine) {
+            .w3-hover-theme:hover {
+                color: #fff !important;
+                background-color: #2196f3 !important
             }
 
-            li a:hover:not(.active) {
-                background-color: #555;
-                color: white;
+            .w3-hover-text-theme:hover {
+                color: #2196f3 !important
             }
 
-        .navTitle {
+            .w3-hover-border-theme:hover {
+                border-color: #2196f3 !important
+            }
+        }
+
+        .navRight {
             padding-right: 20px;
             padding-top: 10px;
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
         }
 
     </style>
@@ -146,29 +128,61 @@
 <body>
     <!-- top nav -->
     <div class="w3-bar w3-theme-d5">
-        <div class="w3-dropdown-click">
-            <button onclick="toggleMenu()" class="w3-btn"><img style="max-width: 50%; height: auto" src="icons/menu_white.png" /></button>
-            <div id="menu" class="w3-dropdown-content w3-bar-block w3-border">
-                <ul>
-                    <li><a href="#" class="w3-bar-item w3-border w3-button">Word Of The Day</a></li>
-                    <li><a href="#" class="w3-bar-item w3-border w3-button">Vocab</a></li>
-                    <li><a href="#" class="w3-bar-item w3-border w3-button">Grammar</a></li>
-                    <li><a href="#" class="w3-bar-item w3-border w3-button">Phonics</a></li>
-                    <li><a href="#" class="w3-bar-item w3-border w3-button">Games</a></li>
-                </ul>
+        <div class="w3-dropdown-hover w3-theme-d5">
+            <button onclick="toggleMenu()" class="w3-btn"><img src="icons/menu_white.png" /></button>
+            <div id="menu" class="w3-dropdown-content w3-theme w3-bar-block w3-border">
+                <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('wotd_tab')">Word Of The Day</a>
+                <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('alphabet_tab')">Alphabet</a>
+                <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('vocab_tab')">Vocab</a>
+                <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('grammar_tab')">Grammar</a>
+                <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('phonics_tab')">Phonics</a>
+                <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('games_tab')">Games</a>
+
             </div>
         </div>
-        <span class="w3-right navTitle">Lesson App</span>
+        <span class="w3-right navRight" onclick="setTab('home_tab')">Lesson App</span>
     </div>
-    <div style="text-align: center">
-        <div height="100px"></div>
-        <p><h2>keep&emsp;<img src="icons/play_circle.png" /></h2><br />
-           <h2>留&emsp;<img src="icons/play_circle.png" /></h2></p>
-        <p><h2>Keep the hat here.&emsp;<img src="icons/play_circle.png" /></h2><br />
-           <h2>把帽子留在這裡。&emsp;<img src="icons/play_circle.png" /></h2></p>
-    </div>  
+    <div style="display: grid">
+        <div id="home_tab" class="tab-pane">
+            <div style="text-align: center">
+                <h1>HOME</h1>
+            </div>
+        </div><!-- /#home_tab -->
 
+        <div id="wotd_tab" class="tab-pane"  style="display:none">
+            <div style="text-align: center">
+                <div height="100px"></div>
+                <p>
+                    <h3>keep&emsp;<img src="icons/play_circle.png" /></h3><br />
+                    <h3>留&emsp;<img src="icons/play_circle.png" /></h3>
+                </p>
+                <p>
+                    <h3>Keep the hat here.&emsp;<img src="icons/play_circle.png" /></h3><br />
+                    <h3>把帽子留在這裡。&emsp;<img src="icons/play_circle.png" /></h3>
+                </p>
+            </div>
+        </div><!-- /#wotd_tab -->
+
+        <footer style="text-indent:20px">
+            <div class="w3-bar w3-theme-d5">
+                <span style="font-size: x-small" id='foot01' class="w3-bar-item"></span>
+                <a href="privacy.html" style="font-size: x-small" class="w3-bar-item w3-right navRight">Privacy Policy</a>
+            
+            </div>
+        </footer>
+    </div>
     <script>
+
+        // user sets the tab via the menu
+        function setTab(tabName) {
+            var i;
+            var x = document.getElementsByClassName("tab-pane");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            document.getElementById(tabName).style.display = "block";
+        };
+
         function toggleMenu() {
             var x = document.getElementById("menu");
             if (x.className.indexOf("w3-show") == -1) {
@@ -177,6 +191,7 @@
                 x.className = x.className.replace(" w3-show", "");
             }
         }
+        document.getElementById("foot01").innerHTML = '&copy;' + new Date().getFullYear() + ' Teacher Matthew';
     </script>
 </body>
 </html>
