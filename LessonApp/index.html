@@ -14,6 +14,8 @@
     <!-- /ios support -->
     <style>
         body {
+            height: 100%;
+            margin: 0;
             background-color: #d2eafd !important
         }
 
@@ -95,21 +97,11 @@
             border-color: #2196f3 !important
         }
 
-        .w3-hover-theme:hover {
-            color: #fff !important;
-            background-color: #2196f3 !important
-        }
+        
 
-        .w3-hover-text-theme:hover {
-            color: #2196f3 !important
-        }
-
-        .w3-hover-border-theme:hover {
-            border-color: #2196f3 !important
-        }
-
-        .navRight {
+        .navText {
             padding-right: 20px;
+            padding-left: 20px;
             padding-top: 10px;
         }
 
@@ -121,54 +113,122 @@
             text-align: center;
         }
 
+        @media (hover: hover) and (pointer: fine) {
+
+            .w3-hover-theme:hover {
+                color: #fff !important;
+                background-color: #2196f3 !important
+            }
+
+            .w3-hover-text-theme:hover {
+                color: #2196f3 !important
+            }
+
+            .w3-hover-border-theme:hover {
+                border-color: #2196f3 !important
+            }
+
+            /* Style the active link (or home/logo) */
+            .active {
+                background-color: #04AA6D;
+                color: white;
+            }
+
+        }
+
+        .box {
+            display: flex;
+            flex-flow: column;
+            height: 100%;
+        }
+
+        .box .row.header {
+            flex: 0 1 auto;
+            /* The above is shorthand for:
+            flex-grow: 0,
+            flex-shrink: 1,
+            flex-basis: auto
+            */
+        }
+
+        .box .row.content {
+            flex: 1 1 auto;
+        }
+
+        .box .row.footer {
+            flex: 0 1 40px;
+        }
+
     </style>
 </head>
 <body>
-    <!-- top nav -->
-    <div class="w3-bar w3-theme-d5">
-        <div class="w3-dropdown-hover w3-theme-d5">
-            <button onclick="toggleMenu()" class="w3-btn"><img src="icons/menu_white.png" /></button>
-            <div id="menu" class="w3-dropdown-content w3-theme w3-bar-block w3-border">
-                <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('wotd_tab')">Word Of The Day</a>
-                <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('alphabet_tab')">Alphabet</a>
-                <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('vocab_tab')">Vocab</a>
-                <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('grammar_tab')">Grammar</a>
-                <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('phonics_tab')">Phonics</a>
-                <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('games_tab')">Games</a>
-
+    <div class="box">
+        <!-- Top Navigation Menu -->
+        <div class="row header w3-bar w3-theme-d5">
+            <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+            <div class="w3-dropdown-click">
+                <button class="w3-button w3-theme-d5" onclick="toggleMenu()"><img src="icons/menu_white.png" /></button>
+                <!-- Navigation links (hidden by default) -->
+                <div id="menu" class="w3-dropdown-content w3-bar-block w3-theme">
+                    <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('home_tab')">Home</a>
+                    <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('alphabet_tab')">Alphabet</a>
+                    <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('vocab_tab')">Vocab</a>
+                    <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('grammar_tab')">Grammar</a>
+                    <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('phonics_tab')">Phonics</a>
+                    <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('games_tab')">Games</a>
+                </div>
             </div>
+            <a href="#" class="w3-right w3-bar-item" onclick="setTab('home_tab')" style="text-decoration:none;">Lesson App</a>
         </div>
-        <span class="w3-right navRight" onclick="setTab('home_tab')">Lesson App</span>
-    </div>
-    <div style="display: grid">
-        <div id="home_tab" class="tab-pane">
-            <div style="text-align: center">
-                <h1>HOME</h1>
-            </div>
-        </div><!-- /#home_tab -->
 
-        <div id="wotd_tab" class="tab-pane"  style="display:none">
-            <div style="text-align: center">
-                <div height="100px"></div>
-                <p>
-                    <h3>keep&emsp;<img src="icons/play_circle.png" /></h3><br />
-                    <h3>留&emsp;<img src="icons/play_circle.png" /></h3>
-                </p>
-                <p>
-                    <h3>Keep the hat here.&emsp;<img src="icons/play_circle.png" /></h3><br />
-                    <h3>把帽子留在這裡。&emsp;<img src="icons/play_circle.png" /></h3>
-                </p>
-            </div>
-        </div><!-- /#wotd_tab -->
+        <div style="display: grid">
+            <div id="home_tab" class="tab-pane" style="display:block">
+                <div style="text-align: center">
+                    <h1>Word Of The Day</h1>
+                    <div style="text-align: center">
+                        <div height="50px"></div>
+                        <p>
+                            <h3>keep&emsp;<img src="icons/play_circle.png" /></h3><br />
+                            <h3>留&emsp;<img src="icons/play_circle.png" /></h3>
+                        </p>
+                        <p>
+                            <h3>Keep the hat here.&emsp;<img src="icons/play_circle.png" /></h3><br />
+                            <h3>把帽子留在這裡。&emsp;<img src="icons/play_circle.png" /></h3>
+                        </p>
+                    </div>
+                </div>
+            </div><!-- /#home_tab -->
 
-        <footer style="text-indent:20px">
-            <div class="w3-bar w3-theme-d5">
-                <span style="font-size: x-small" id='foot01' class="w3-bar-item"></span>
-                <a href="privacy.html" style="font-size: x-small" class="w3-bar-item w3-right navRight">Privacy Policy</a>
-            
-            </div>
-        </footer>
+            <div id="alphabet_tab" class="tab-pane" style="display:none">
+
+            </div><!-- /#alphabet_tab -->
+
+            <div id="vocab_tab" class="tab-pane" style="display:none">
+
+            </div><!-- /#vocab_tab -->
+
+            <div id="grammar_tab" class="tab-pane" style="display:none">
+
+            </div><!-- /#grammar_tab -->
+
+            <div id="phonics_tab" class="tab-pane" style="display:none">
+
+            </div><!-- /#phonics_tab -->
+
+            <div id="games_tab" class="tab-pane" style="display:none">
+
+            </div><!-- /#games_tab -->
+
+            <footer class="row footer">
+                <div class="w3-bar w3-theme-d5">
+                    <span style="font-size: x-small" id='foot01' class="w3-bar-item"></span>
+                    <a href="privacy.html" style="font-size: x-small" class="w3-bar-item w3-right navRight">Privacy Policy</a>
+
+                </div>
+            </footer>
+        </div>
     </div>
+    
     <script>
 
         // user sets the tab via the menu
@@ -179,7 +239,13 @@
                 x[i].style.display = "none";
             }
             document.getElementById(tabName).style.display = "block";
-        };
+            if (tabName != 'home_tab') {
+                toggleMenu();
+            } else {
+                var x = document.getElementById("menu");
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
 
         function toggleMenu() {
             var x = document.getElementById("menu");
@@ -189,6 +255,7 @@
                 x.className = x.className.replace(" w3-show", "");
             }
         }
+
         document.getElementById("foot01").innerHTML = '&copy;' + new Date().getFullYear() + ' Teacher Matthew';
     </script>
 </body>
