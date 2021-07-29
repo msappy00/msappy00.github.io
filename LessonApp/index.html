@@ -159,6 +159,25 @@
             flex: 0 1 40px;
         }
 
+        #alphabet_tab .grid-container {
+            display: grid;
+            grid-template-columns: auto auto;
+            padding: 10px;
+        }
+
+        #alphabet_tab .grid-item {
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            font-size: 14px;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .responsive {
+            max-width: 100%;
+            height: auto;
+        }
+
     </style>
 </head>
 <body>
@@ -200,7 +219,14 @@
             </div><!-- /#home_tab -->
 
             <div id="alphabet_tab" class="tab-pane" style="display:none">
-
+                <div class="grid-container">
+                    <div class="grid-item"><img src="images/cmat.png" class="responsive" /></div>
+                    <div class="grid-item">Second set: s  r  i  p</div>
+                    <div class="grid-item">Third set: b  f  o  g </div>
+                    <div class="grid-item">Fourth set: h  j  u  l</div>
+                    <div class="grid-item">Fifth set: d  w  e  n</div>
+                    <div class="grid-item">Sixth set: k  q  v  x  y  z</div>
+                </div>
             </div><!-- /#alphabet_tab -->
 
             <div id="vocab_tab" class="tab-pane" style="display:none">
