@@ -161,12 +161,19 @@
 
         #alphabet_tab .grid-container {
             display: grid;
-            grid-template-columns: auto auto;
+            grid-template-columns: auto auto auto;
             padding: 10px;
         }
 
+        @media screen and (max-width: 800px) {
+            #alphabet_tab .grid-container {
+                display: grid;
+                grid-template-columns: auto auto;
+                padding: 10px;
+            }
+        }
+
         #alphabet_tab .grid-item {
-            border: 1px solid rgba(0, 0, 0, 0.8);
             padding: 20px;
             font-size: 14px;
             vertical-align: middle;
@@ -221,11 +228,11 @@
             <div id="alphabet_tab" class="tab-pane" style="display:none">
                 <div class="grid-container">
                     <div class="grid-item"><img src="images/cmat.png" class="responsive" /></div>
-                    <div class="grid-item">Second set: s  r  i  p</div>
-                    <div class="grid-item">Third set: b  f  o  g </div>
-                    <div class="grid-item">Fourth set: h  j  u  l</div>
-                    <div class="grid-item">Fifth set: d  w  e  n</div>
-                    <div class="grid-item">Sixth set: k  q  v  x  y  z</div>
+                    <div class="grid-item"><img src="images/srip.png" class="responsive" /></div>
+                    <div class="grid-item"><img src="images/bfog.png" class="responsive" /></div>
+                    <div class="grid-item"><img src="images/hjul.png" class="responsive" /></div>
+                    <div class="grid-item"><img src="images/dwen.png" class="responsive" /></div>
+                    <div class="grid-item"><img src="images/kqvxyz.png" class="responsive" /></div>
                 </div>
             </div><!-- /#alphabet_tab -->
 
