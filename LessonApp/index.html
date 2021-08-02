@@ -159,21 +159,21 @@
             flex: 0 1 40px;
         }
 
-        #alphabet_tab .grid-container {
+        .tab-pane .grid-container {
             display: grid;
             grid-template-columns: auto auto auto;
             padding: 10px;
         }
 
         @media screen and (max-width: 800px) {
-            #alphabet_tab .grid-container {
+            .tab-pane .grid-container {
                 display: grid;
                 grid-template-columns: auto auto;
                 padding: 10px;
             }
         }
 
-        #alphabet_tab .grid-item {
+        .tab-pane .grid-item {
             padding: 20px;
             font-size: 14px;
             vertical-align: middle;
@@ -193,7 +193,7 @@
         <div class="row header w3-bar w3-theme-d5">
             <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
             <div class="w3-dropdown-click">
-                <button class="w3-button w3-theme-d5" onclick="toggleMenu()"><img src="icons/menu_white.png" /></button>
+                <button class="w3-button w3-theme-d5" onclick="toggleMenu()"><img src="icons/menu_white.png" alt="menu" /></button>
                 <!-- Navigation links (hidden by default) -->
                 <div id="menu" class="w3-dropdown-content w3-bar-block w3-theme">
                     <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('home_tab')">Home</a>
@@ -249,7 +249,14 @@
             </div><!-- /#phonics_tab -->
 
             <div id="games_tab" class="tab-pane" style="display:none">
-
+                <div class="grid-container">
+                    <div class="grid-item"><a href="move.html"><img src="images/move.png" class="responsive" /></a></div>
+                    <div class="grid-item"><img src="" class="responsive" /></div>
+                    <div class="grid-item"><img src="" class="responsive" /></div>
+                    <div class="grid-item"><img src="" class="responsive" /></div>
+                    <div class="grid-item"><img src="" class="responsive" /></div>
+                    <div class="grid-item"><img src="" class="responsive" /></div>
+                </div>
             </div><!-- /#games_tab -->
 
             <footer class="row footer">
@@ -262,34 +269,6 @@
         </div>
     </div>
     
-    <script>
-
-        // user sets the tab via the menu
-        function setTab(tabName) {
-            var i;
-            var x = document.getElementsByClassName("tab-pane");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            document.getElementById(tabName).style.display = "block";
-            if (tabName != 'home_tab') {
-                toggleMenu();
-            } else {
-                var x = document.getElementById("menu");
-                x.className = x.className.replace(" w3-show", "");
-            }
-        }
-
-        function toggleMenu() {
-            var x = document.getElementById("menu");
-            if (x.className.indexOf("w3-show") == -1) {
-                x.className += " w3-show";
-            } else {
-                x.className = x.className.replace(" w3-show", "");
-            }
-        }
-
-        document.getElementById("foot01").innerHTML = '&copy;' + new Date().getFullYear() + ' Teacher Matthew';
-    </script>
+    <script src="js/index.js"></script>
 </body>
 </html>
