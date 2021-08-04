@@ -31,35 +31,6 @@ function _DrawImage() {
     context.drawImage(sun_img, mousePos.x - (sun_img.width / 2), mousePos.y - (sun_img.height / 2));
 }
 
-// Mouse events
-canvas.onmousedown = function (e) {
-    var mouseX = e.pageX - this.offsetLeft;
-    var mouseY = e.pageY - this.offsetTop;
-
-
-    if (mouseX >= (mousePos.x - sun_img.width / 2) &&
-        mouseX <= (mousePos.x + sun_img.width / 2) &&
-        mouseY >= (mousePos.y - sun_img.height / 2) &&
-        mouseY <= (mousePos.y + sun_img.height / 2)) {
-        isDraggable = true;
-    }
-};
-
-canvas.onmouseup = function (e) {
-    isDraggable = false;
-};
-
-canvas.onmouseout = function (e) {
-    isDraggable = false;
-};
-
-canvas.onmousemove = function (e) {
-    if (isDraggable) {
-        mousePos.x = e.pageX - this.offsetLeft;
-        mousePos.y = e.pageY - this.offsetTop;
-    }
-};
-
 // Set up touch events for mobile, etc
 canvas.addEventListener("touchstart", function (e) {
     mousePos = getTouchPos(canvas, e);
@@ -70,10 +41,12 @@ canvas.addEventListener("touchstart", function (e) {
     });
     canvas.dispatchEvent(mouseEvent);
 }, false);
+
 canvas.addEventListener("touchend", function (e) {
     var mouseEvent = new MouseEvent("mouseup", {});
     canvas.dispatchEvent(mouseEvent);
 }, false);
+
 canvas.addEventListener("touchmove", function (e) {
     var touch = e.touches[0];
     var mouseEvent = new MouseEvent("mousemove", {
