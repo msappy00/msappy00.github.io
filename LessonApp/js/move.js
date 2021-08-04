@@ -31,24 +31,6 @@ function _DrawImage() {
     context.drawImage(sun_img, mousePos.x - (sun_img.width / 2), mousePos.y - (sun_img.height / 2));
 }
 
-// Prevent scrolling when touching the canvas
-document.body.addEventListener("touchstart", function (e) {
-    if (e.target == canvas) {
-        e.preventDefault();
-    }
-}, false);
-document.body.addEventListener("touchend", function (e) {
-    if (e.target == canvas) {
-        e.preventDefault();
-    }
-}, false);
-document.body.addEventListener("touchmove", function (e) {
-    if (e.target == canvas) {
-        e.preventDefault();
-    }
-}, false);
-
-
 // Mouse events
 canvas.onmousedown = function (e) {
     var mouseX = e.pageX - this.offsetLeft;
