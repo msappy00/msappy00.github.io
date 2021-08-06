@@ -1,25 +1,24 @@
 canvas = document.getElementById("myCanvas");
 context = canvas.getContext("2d");
 
-// Create the image object
 const sun_img = new Image();
-var isDraggable = false;
-var mousePos = { x: canvas.width / 2, y: canvas.height / 2 };
-var lastPos = mousePos;
 
 // Add onload event handler
 sun_img.onload = function () {
     _Go();
 };
 
-// Set the source url of the image
 sun_img.src = "/images/sun.png";
+sun_img.boundingCircleRadius = 75;
+sun_img.isDraggable = false;
 
+var monsterPos = { x: (canvas.width / 2) - 75, y: (canvas.height / 2) - 75 };
+var touchPos = monsterPos;
 function _Go() {
-    setInterval(function () {
+
         _ResetCanvas();
-        _DrawImage();
-    }, 1000 / 30);
+        _DrawImage(monsterPos.x, monsterPos.y);
+
 }
 
 function _ResetCanvas() {
@@ -27,40 +26,50 @@ function _ResetCanvas() {
     context.fillRect(0, 0, canvas.width, canvas.height);
 }
 
-function _DrawImage() {
-    context.drawImage(sun_img, mousePos.x - (sun_img.width / 2), mousePos.y - (sun_img.height / 2));
+function _DrawImage(x, y) {
+    context.drawImage(sun_img, x, y);
+}
+
+function getTouchPos(canvas, evt) {
+    var rect = canvas.getBoundingClientRect();
+    return {
+        x: evt.touches[0].clientX - rect.left,
+        y: evt.touches[0].clientY - rect.top
+    };
 }
 
 // Set up touch events for mobile, etc
 canvas.addEventListener("touchstart", function (e) {
-    mousePos = getTouchPos(canvas, e);
-    var touch = e.touches[0];
+    e.preventDefault();
+    touchPos = getTouchPos(canvas, e);
     var mouseEvent = new MouseEvent("mousedown", {
-        clientX: touch.clientX,
-        clientY: touch.clientY
+       
     });
     canvas.dispatchEvent(mouseEvent);
-}, false);
-
-canvas.addEventListener("touchend", function (e) {
-    var mouseEvent = new MouseEvent("mouseup", {});
-    canvas.dispatchEvent(mouseEvent);
-}, false);
+}, { passive: false });
 
 canvas.addEventListener("touchmove", function (e) {
-    var touch = e.touches[0];
-    var mouseEvent = new MouseEvent("mousemove", {
-        clientX: touch.clientX,
-        clientY: touch.clientY
-    });
-    canvas.dispatchEvent(mouseEvent);
-}, false);
+    e.preventDefault();
+    touchPos = getTouchPos(canvas, e);
+    if (touchingImage(touchPos.x, touchPos.y, monsterPos.x, monsterPos.y, 75)) {
+        monsterPos.x = touchPos.x;
+        monsterPos.y = touchPos.y;
+        _Go();
+        var mouseEvent = new MouseEvent("mousemove", {
 
-// Get the position of a touch relative to the canvas
-function getTouchPos(canvasDom, touchEvent) {
-    var rect = canvasDom.getBoundingClientRect();
-    return {
-        x: touchEvent.touches[0].clientX - rect.left,
-        y: touchEvent.touches[0].clientY - rect.top
-    };
+        });
+        canvas.dispatchEvent(mouseEvent);
+    }
+}, { passive: false });
+
+function circleCollide(x1, y1, r1, x2, y2, r2) {
+    var dx = x1 - x2;
+    var dy = y1 - y2;
+    return ((dx * dx + dy * dy) < (r1 + r2) * (r1 + r2));
+}
+
+function touchingImage(x0, y0, x1, y1, r) {
+    if (Math.sqrt((x1 - x0) * (x1 - x0) + (y1 - y0) * (y1 - y0)) < r) {
+        return true
+    } 
 }
