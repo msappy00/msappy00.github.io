@@ -18,8 +18,7 @@
             }
         </style>
         
-        <audio id="pop" src="alphabet/audio/pop.mp3"></audio>
-        <audio id="buzzer" src="alphabet/audio/buzzer.mp3"></audio>
+        
     </head>
     <body onload="init();">
         <script src="js/move.js"></script>
@@ -34,44 +33,46 @@
         </div><!--/#nav bar-->
 
         <div style="height:50px"></div>
+        <audio id="pop" src="alphabet/audio/pop.mp3"></audio>
+        <audio id="buzzer" src="alphabet/audio/buzzer.mp3"></audio>
         <h3 style="text-align:center">Use the arrow keys to move. Hold down the space bar to move faster.</h3>
         <canvas class="hidden-xs; img-responsive" id="myCanvas" width="800" height="600"></canvas>
         <figure>
             <div class="w3-center" id="letterAudio"></div>
         </figure>
-        
+
         <script>
             // shows the day of the week in the nav bar
             var day = new Date().getDay();
-            switch(day) {
+            switch (day) {
                 case 0:
-                day = "Sunday ";
-                break;
+                    day = "Sunday ";
+                    break;
                 case 1:
-                day = "Monday ";
-                break;
+                    day = "Monday ";
+                    break;
                 case 2:
-                day = "Tuesday ";
-                break;
+                    day = "Tuesday ";
+                    break;
                 case 3:
-                day = "Wednesday ";
-                break;
+                    day = "Wednesday ";
+                    break;
                 case 4:
-                day = "Thursday ";
-                break;
+                    day = "Thursday ";
+                    break;
                 case 5:
-                day = "Friday ";
-                break;
+                    day = "Friday ";
+                    break;
                 case 6:
-                day = "Saturday ";
-                break;
+                    day = "Saturday ";
+                    break;
             }
-        document.getElementById("day").innerHTML = day;
-            </script>
+            document.getElementById("day").innerHTML = day;
+        </script>
         <footer id='foot01' style="text-indent:20px">
             <script>
                 document.getElementById("foot01").innerHTML = "<p>&copy; " + new Date().getFullYear() + " Teacher Matthew</p>";
-                </script>
+            </script>
             <a href="privacy.html">Privacy Policy</a>
         </footer>
     </body>
