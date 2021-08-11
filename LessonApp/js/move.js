@@ -6,36 +6,27 @@ var w, h;
 var x, y;
 var currentScore = 0;
 
+$("#StartButton").click(function () {
+    $("#SplashScreen").hide();
+    $("#myCanvas").show();
+    init();
+});
+
 function init() {
 
     canvas = document.getElementById('myCanvas');
     context = canvas.getContext("2d");
 
     if (orientation == 0) {
-        canvasWidth = window.innerWidth;
+        canvasWidth = Math.min(600,  window.innerWidth);
 
     } else {
-        canvasWidth = window.innerHeight;
+        canvasWidth = Math.min(600, window.innerHeight);
     }
     canvas.width = canvasWidth;
     canvas.height = canvasWidth;
 
-    var letterArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     var game = new GF();
-    
-
-    // shuffles up the letters
-    function shuffleLetterArray(letterArray) {
-        for (var i = letterArray.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            var temp = letterArray[i];
-            letterArray[i] = letterArray[j];
-            letterArray[j] = temp;
-        }
-        return letterArray;
-    }
-
-    shuffleLetterArray(letterArray);
     game.start();
 };
 
@@ -50,8 +41,8 @@ var GF = function () {
 
     // game states
     var gameStates = {
-        gameRunning: 0,
-        gameOver: 1
+        gameRunning: 1,
+        gameOver: 0
     }
 
     var currentGameState = gameStates.gameRunning;
@@ -66,15 +57,12 @@ var GF = function () {
                 letterArray[j] = temp;
             }
             targetLetter = letterArray[Math.floor((Math.random() * 7))];
-            document.getElementById("letterAudio").innerHTML = '<audio controls autoplay><source src="alphabet/audio/' + targetLetter + '.mp3" type="audio/mp3" /></audio>';
+            document.getElementById("letterAudio").src = 'alphabet/audio/' + targetLetter + '.mp3';
+            letterAudio.play();
             return letterArray;
         }
     }
-
     shuffleLetterArray(letterArray);
-
-    // vars for handling inputs
-    var inputStates = {};
 
     // Canvas, context etc.
     canvas = document.querySelector("#myCanvas");
@@ -146,7 +134,7 @@ var GF = function () {
             this.y = y;
             this.boundingCircleRadius = 30;
             context.beginPath();
-            context.fillStyle = "white";
+            context.fillStyle = 'white';
             context.arc(this.x, this.y, this.boundingCircleRadius, 0, 2 * Math.PI);
             context.fill();
             context.stroke();
@@ -162,8 +150,8 @@ var GF = function () {
         targetArray[7] = new target(canvasWidth / 2 - 150, canvasWidth / 2);
 
         context.font = "50px Arial";
-        context.fillStyle = "black";
-        context.textAlign = "center";
+        context.fillStyle = 'black';
+        context.textAlign = 'center';
         context.fillText(letterArray[0], canvasWidth / 2 - (150 * Math.sin(3 * Math.PI / 4)), canvasWidth / 2 + (150 * Math.cos(3 * Math.PI / 4) + 17.5));
         context.fillText(letterArray[1], canvasWidth / 2, canvasWidth / 2 - 132.5);
         context.fillText(letterArray[2], canvasWidth / 2 + (150 * Math.sin(Math.PI / 4)), canvasWidth / 2 - (150 * Math.cos(Math.PI / 4) - 17.5));
@@ -186,25 +174,25 @@ var GF = function () {
         }
 
         switch (currentGameState) {
-            case gameStates.gameRunning:
 
+            case gameStates.gameRunning:
                 // Check for collisions
                 for (var i = 0; i < targetArray.length; i++) {
                     var target = targetArray[i];
 
-                    if (circleCollide(monster.x + 50, monster.y + 50, monster.boundingCircleRadius, target.x, target.y, target.boundingCircleRadius)) {
+                    if (circleCollide(monster.x + 40, monster.y + 40, monster.boundingCircleRadius, target.x, target.y, target.boundingCircleRadius)) {
                         if (letterArray[i] === targetLetter) {
-                            currentColor = "green";
+                            currentColor = 'green';
                             pop.play();
                             currentScore += 1;
                         } else {
-                            currentColor = "red";
-                            setTimeout(function () { currentColor = "green"; }, 1000);
+                            currentColor = 'red';
+                            setTimeout(function () { currentColor = 'green'; }, 1000);
                             buzzer.play();
                             currentScore -= 1;
                         }
-                        monster.x = w / 2 - 50;
-                        monster.y = h / 2 - 60;
+                        monster.x = w / 2 - 40;
+                        monster.y = h / 2 - 40;
                         if (currentScore < 10 && currentScore > -3) {
                             shuffleLetterArray(letterArray);
                         }
@@ -225,23 +213,22 @@ var GF = function () {
                 break;
 
             case gameStates.gameOver:
-                context.fillStyle = "black";
-                context.fillText("Score: " + currentScore, 690, 25);
-                context.textAlign = "center";
-                context.fontWeight = "bold";
-                context.fillText("YOU WIN!", w / 2, h / 2);
+                context.fillStyle = 'white';
+                context.fillRect(0, 0, w, h);
+                context.fillStyle = 'black';
+                context.fillText("Score: " + currentScore, canvasWidth * 0.75, 25);
+                context.textAlign = 'center';
+                context.fontWeight = 'bold';
+                context.fillText("GAME OVER", w / 2, h / 2);
 
-                if (inputStates.space) {
-                    start();
-                }
-                break;
+                cancelAnimationFrame(mainLoop);
         }
     }
 
     function displayScore() {
         context.save();
-        context.fillStyle = "white";
-        context.fillText("Score: " + currentScore, canvasWidth - 110, 25);
+        context.fillStyle = 'white';
+        context.fillText("Score: " + currentScore, canvasWidth * 0.75, 25);
         context.restore();
     }
 
@@ -251,14 +238,9 @@ var GF = function () {
         return ((dx * dx + dy * dy) < (r1 + r2) * (r1 + r2));
     }
 
-    
-
     var start = function () {
-
-        // important, we will draw with this object
         context = canvas.getContext('2d');
-        // default police for text
-        context.font = "20px Arial";
+        context.font = '20px Arial';
 
         function getTouchPos(evt) {
             var touchobj = evt.changedTouches[0]
@@ -281,8 +263,9 @@ var GF = function () {
             e.preventDefault();
             touchPos = getTouchPos(e);
             monster.isDraggable = true;
+            currentGameState = gameStates.gameRunning;
             var mouseEvent = new MouseEvent("mousedown", {
-
+                
             });
             canvas.dispatchEvent(mouseEvent);
         }, { passive: false });

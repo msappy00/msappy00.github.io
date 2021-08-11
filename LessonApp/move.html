@@ -134,8 +134,8 @@
         }
 
         @media (orientation: landscape) {
-            #myCanvas {               
-                height: 100%; 
+            #myCanvas {
+                height: 100%;
             }
         }
 
@@ -149,27 +149,36 @@
             height: inherit;
         }
 
+        .center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
         footer {
             margin-top: auto;
         }
-
     </style>
-
+    <script src="js/jquery-3.5.1.min.js"></script>
 </head>
-<body onload="init();">
+<body>
 
     <div class="header w3-bar w3-theme-d5">
         <a href="index.html" class="w3-bar-item"><img src="icons/back_white.png" alt="back" /></a>
         <span class="w3-right w3-bar-item">Move!</span>
     </div>
 
-    <div class="main w3-center"> 
+    <div class="main w3-center">
         <audio id="pop" src="alphabet/audio/pop.mp3"></audio>
         <audio id="buzzer" src="alphabet/audio/buzzer.mp3"></audio>
-        <canvas id="myCanvas"></canvas>
-        <figure>
-            <div class="w3-center" id="letterAudio"></div>
-        </figure>
+        <audio id="letterAudio" src=""></audio>
+        <div class="center" id="SplashScreen">
+            <input id="StartButton" class="w3-button w3-theme-d5" type="button" value="Start" onclick="init"/>
+        </div>
+        <canvas id="myCanvas" style="display: none;"></canvas>
     </div>
 
     <footer class="row footer">
@@ -179,7 +188,7 @@
         </div>
     </footer>
 
-    <script src="/LessonApp/js/move.js?2"></script>
+    <script src="/LessonApp/js/move.js?1"></script>
     <script>
         document.getElementById("foot01").innerHTML = '&copy;' + new Date().getFullYear() + ' Teacher Matthew';
     </script>
