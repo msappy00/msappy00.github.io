@@ -222,6 +222,10 @@ var GF = function () {
                 context.fillText("GAME OVER", w / 2, h / 2);
 
                 cancelAnimationFrame(mainLoop);
+                setTimeout(function () {
+                    $("#myCanvas").hide();
+                    $("#SplashScreen").show();
+                }, 3000);
         }
     }
 
