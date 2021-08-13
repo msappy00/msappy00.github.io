@@ -18,14 +18,14 @@ function init() {
     context = canvas.getContext("2d");
 
     if (orientation == 0) {
-        canvasWidth = Math.min(600,  window.innerWidth);
+        canvasWidth = window.innerWidth;
 
     } else {
-        canvasWidth = Math.min(600, window.innerHeight);
+        canvasWidth = window.innerHeight;
     }
     canvas.width = canvasWidth;
     canvas.height = canvasWidth;
-
+    console.log(canvasWidth);
     var game = new GF();
     game.start();
 };
@@ -246,14 +246,30 @@ var GF = function () {
         context = canvas.getContext('2d');
         context.font = '20px Arial';
 
+        monster = {
+            x: canvasWidth / 2 - 40,
+            y: canvasWidth / 2 - 40,
+            boundingCircleRadius: 40,
+            isDraggable: false
+        }
+
         function getTouchPos(evt) {
             var touchobj = evt.changedTouches[0]
+            var rect = canvas.getBoundingClientRect();
             if (touchobj.target.id = 'myCanvas') {
                 return {
-                    x: touchobj.pageX - canvas.offsetLeft,
-                    y: touchobj.pageY - canvas.offsetTop
+                    x: touchobj.pageX - rect.left,
+                    y: touchobj.pageY - rect.top
                 };
             }
+        }
+
+        function getMousePos(canvas, evt) {
+            var rect = canvas.getBoundingClientRect();
+            return {
+                x: evt.clientX - rect.left,
+                y: evt.clientY - rect.top
+            };
         }
 
         function touchingImage(x0, y0, x1, y1, r) {
@@ -263,17 +279,33 @@ var GF = function () {
         }
 
         // Set up touch events for mobile, etc
+        canvas.addEventListener("mousedown", function (e) {
+            e.preventDefault();
+            mousePos = getMousePos(canvas, e);
+            monster.isDraggable = true;
+            currentGameState = gameStates.gameRunning;
+        }, { passive: false });
+
         canvas.addEventListener("touchstart", function (e) {
             e.preventDefault();
             touchPos = getTouchPos(e);
             monster.isDraggable = true;
             currentGameState = gameStates.gameRunning;
-            var mouseEvent = new MouseEvent("mousedown", {
-                
-            });
-            canvas.dispatchEvent(mouseEvent);
         }, { passive: false });
 
+        canvas.addEventListener("mousemove", function (e) {
+            e.preventDefault();
+            mousePos = getMousePos(canvas, e);
+            let x = monster.x + 40;
+            let y = monster.y + 40;
+            if (touchingImage(mousePos.x, mousePos.y, x, y, monster.boundingCircleRadius)
+                && monster.isDraggable) {
+                monster.x = mousePos.x - 40;
+                monster.y = mousePos.y - 40;
+                context.clearRect(0, 0, canvasWidth, canvasWidth);
+                drawMyMonster(monster.x, monster.y);
+            }
+        }, { passive: false });
 
         canvas.addEventListener("touchmove", function (e) {
             e.preventDefault();
@@ -286,20 +318,20 @@ var GF = function () {
                 monster.y = touchPos.y - 40;
                 context.clearRect(0, 0, canvasWidth, canvasWidth);
                 drawMyMonster(monster.x, monster.y);
-                var mouseEvent = new MouseEvent("mousemove", {
-
-                });
-                canvas.dispatchEvent(mouseEvent);
             }
         }, { passive: false });
+
+        canvas.addEventListener("mouseup", function (e) {
+            e.preventDefault();
+            monster.isDraggable = false;
+        }, { passive: false });
+
+        // start the animation
+        requestAnimationFrame(mainLoop);
 
         canvas.addEventListener("touchend", function (e) {
             e.preventDefault();
             monster.isDraggable = false;
-            var mouseEvent = new MouseEvent("mouseup", {
-
-            });
-            canvas.dispatchEvent(mouseEvent);
         }, { passive: false });
 
         // start the animation
@@ -311,8 +343,3 @@ var GF = function () {
         start: start
     }
 }
-
-screen.orientation.onchange = function () {
-    // logs 'portrait' or 'landscape'
-    console.log(screen.orientation.type.match(/\w+/)[0] + ': ' + canvasWidth);
-};
