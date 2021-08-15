@@ -25,7 +25,6 @@ function init() {
     }
     canvas.width = canvasWidth;
     canvas.height = canvasWidth;
-    console.log(canvasWidth);
     var game = new GF();
     game.start();
 };
