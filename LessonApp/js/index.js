@@ -162,6 +162,11 @@ document.getElementById("ctPlay").addEventListener("click", function () { speakZ
 document.getElementById("exPlay").addEventListener("click", function () { speakEn(document.querySelector('#example').innerText) });
 document.getElementById("cxPlay").addEventListener("click", function () { speakZh(document.querySelector('#translation').innerText) });
 
+document.getElementById("enPlay").addEventListener("touchend", function () { speakEn(document.querySelector('#enWord').innerText) });
+document.getElementById("ctPlay").addEventListener("touchend", function () { speakZh(document.querySelector('#zhWord').innerText) });
+document.getElementById("exPlay").addEventListener("touchend", function () { speakEn(document.querySelector('#example').innerText) });
+document.getElementById("cxPlay").addEventListener("touchend", function () { speakZh(document.querySelector('#translation').innerText) });
+
 function speakEn(text, callback) {
     var u = new SpeechSynthesisUtterance();
     u.text = text;
