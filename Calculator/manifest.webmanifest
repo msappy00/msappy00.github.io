@@ -2,6 +2,7 @@
   "name": "Calculator",
   "short_name": "Calculator",
   "start_url": "index.html",
+  "scope": "/Calculator/",
   "background_color": "#618685",
   "description": "A simple pwa calculator.",
   "display": "standalone",
