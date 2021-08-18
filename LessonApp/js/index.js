@@ -1,4 +1,11 @@
-﻿let db = null;
+﻿// Register service worker
+window.addEventListener("load", () => {
+    if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/LessonApp/js/sw.js");
+    }
+});
+
+let db = null;
 let dateStr = new Date().toISOString().slice(8, 10);
 
 window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB ||
