@@ -165,9 +165,7 @@ try {
 }
 
 document.getElementById("enPlay").addEventListener("click", function () { speakEn(document.querySelector('#enWord').innerText) });
-document.getElementById("ctPlay").addEventListener("click", function () { speakZh(document.querySelector('#zhWord').innerText) });
 document.getElementById("exPlay").addEventListener("click", function () { speakEn(document.querySelector('#example').innerText) });
-document.getElementById("cxPlay").addEventListener("click", function () { speakZh(document.querySelector('#translation').innerText) });
 
 function speakEn(text, callback) {
     var u = new SpeechSynthesisUtterance();
