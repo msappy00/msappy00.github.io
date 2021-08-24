@@ -1,9 +1,9 @@
 ﻿<!doctype html>
-<html lang="en">
+<html lang="zh-tw">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lesson App</title>
+    <title>英文課程</title>
     <!-- Required meta tags -->
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="css/w3.css" />
@@ -14,6 +14,12 @@
     <meta name="theme-color" content="#2196F3" />
     <!-- /ios support -->
     <style>
+        html {
+            text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
         body {
             height: 100%;
             margin: 0;
@@ -195,21 +201,21 @@
                 <button class="w3-button w3-theme-d5" onclick="toggleMenu()"><img src="icons/menu_white.png" alt="menu" /></button>
                 <!-- Navigation links (hidden by default) -->
                 <div id="menu" class="w3-dropdown-content w3-bar-block w3-theme">
-                    <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('home_tab')">Home</a>
-                    <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('alphabet_tab')">Alphabet</a>
-                    <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('vocab_tab')">Vocab</a>
-                    <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('grammar_tab')">Grammar</a>
-                    <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('phonics_tab')">Phonics</a>
-                    <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('games_tab')">Games</a>
+                    <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('home_tab')">主頁</a>
+                    <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('alphabet_tab')">字母</a>
+                    <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('vocab_tab')">詞彙</a>
+                    <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('grammar_tab')">語法</a>
+                    <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('phonics_tab')">拼音</a>
+                    <a href="#" class="w3-bar-item w3-button w3-border" onclick="setTab('games_tab')">遊戲</a>
                 </div>
             </div>
-            <a href="#" class="w3-right w3-bar-item" onclick="setTab('home_tab')" style="text-decoration:none;">Lesson App</a>
+            <a href="#" class="w3-right w3-bar-item" onclick="setTab('home_tab')" style="text-decoration:none;">英文課程</a>
         </div>
 
         <div style="display: grid">
             <div id="home_tab" class="tab-pane" style="display:block">
                 <div style="text-align: center">
-                    <h1>Word Of The Day</h1>
+                    <h1>每日一詞</h1>
                     <div style="text-align: center">
                         <div height="50px"></div>
                         <p>
@@ -225,7 +231,7 @@
             </div><!-- /#home_tab -->
 
             <div id="alphabet_tab" class="tab-pane" style="display:none">
-                <h1 class="w3-center">Alphabet</h1>
+                <h1 class="w3-center">字母</h1>
                 <div class="grid-container">
                     <div class="grid-item"><img src="images/cmat.png" class="responsive" /></div>
                     <div class="grid-item"><img src="images/srip.png" class="responsive" /></div>
@@ -237,7 +243,7 @@
             </div><!-- /#alphabet_tab -->
 
             <div id="vocab_tab" class="tab-pane" style="display:none">
-                <h1 class="w3-center">Vocabulary</h1>
+                <h1 class="w3-center">詞彙</h1>
                 <div class="grid-container">
                     <div class="grid-item"><a href="#"><img src="images/level_01.png" class="responsive" /></a></div>
                     <div class="grid-item"><a href="#"><img src="images/level_02.png" class="responsive" /></a></div>
@@ -249,7 +255,7 @@
             </div><!-- /#vocab_tab -->
 
             <div id="grammar_tab" class="tab-pane" style="display:none">
-                <h1 class="w3-center">Grammar</h1>
+                <h1 class="w3-center">語法</h1>
                 <div class="grid-container">
                     <div class="grid-item"><a href="grammar/L1/L1_index.html"><img src="images/level_01.png" class="responsive" /></a></div>
                     <div class="grid-item"><a href="#"><img src="images/level_02.png" class="responsive" /></a></div>
@@ -261,7 +267,7 @@
             </div><!-- /#grammar_tab -->
 
             <div id="phonics_tab" class="tab-pane" style="display:none">
-                <h1 class="w3-center">Phonics</h1>
+                <h1 class="w3-center">拼音</h1>
                 <div class="grid-container">
                     <div class="grid-item"><a href="#"><img src="images/level_01.png" class="responsive" /></a></div>
                     <div class="grid-item"><a href="#"><img src="images/level_02.png" class="responsive" /></a></div>
@@ -273,7 +279,7 @@
             </div><!-- /#phonics_tab -->
 
             <div id="games_tab" class="tab-pane" style="display:none">
-                <h1 class="w3-center">Games</h1>
+                <h1 class="w3-center">遊戲</h1>
                 <div class="grid-container">
                     <div class="grid-item"><a href="move.html"><img src="images/move.png" class="responsive" /></a></div>
                     <div class="grid-item"><a href="#"><img src="images/game.png" class="responsive" /></a></div>
@@ -288,13 +294,13 @@
                 <footer class="row footer">
                     <div class="w3-bar w3-theme-d5">
                         <span style="font-size: x-small" id='foot01' class="w3-bar-item"></span>
-                        <a href="privacy.html" style="font-size: x-small" class="w3-bar-item w3-right navRight">Privacy Policy</a>
+                        <a href="privacy.html" style="font-size: x-small" class="w3-bar-item w3-right navRight">隱私政策</a>
 
                     </div>
                 </footer>
             </div>
     </div>
     
-    <script src="js/index.js?1"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>

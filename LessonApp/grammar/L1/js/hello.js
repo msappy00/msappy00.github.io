@@ -26,3 +26,10 @@ function showSlides(n) {
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
 }
+
+document.getElementById("submitBtn").addEventListener("click", function () {
+    var x = document.getElementById("txtArea").value;
+    document.getElementById("txtArea").value = x + "\n\nHello.";
+    var submitBtn = document.getElementById("submitBtn");
+    submitBtn.style.display = "none";
+});

@@ -1,152 +1,419 @@
 ﻿<!doctype html>
-<html lang="en">
+<html lang="zh-tw">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lesson App</title>
-    <style>
-        * {
-            box-sizing: border-box
-        }
-
-        /* Slideshow container */
-        .slideshow-container {
-            max-width: 600px;
-            position: relative;
-            margin: auto;
-        }
-
-        /* Hide the images by default */
-        .mySlides {
-            display: none;
-        }
-
-        /* Next & previous buttons */
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            margin-top: -22px;
-            padding: 16px;
-            color: black;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-        }
-
-        /* Position the "next button" to the right */
-        .next {
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
-
-            /* On hover, add a black background color with a little bit see-through */
-            .prev:hover, .next:hover {
-                background-color: rgba(0,0,0,0.8);
+    <title>你好</title>
+    <!-- Required meta tags -->
+    <link rel="stylesheet" href="/LessonApp/css/w3.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- ios support -->
+    <link rel="apple-touch-icon" href="./icons/icon-96.png" />
+    <meta name="apple-mobile-web-app-status-bar" content="#2196F3" />
+    <meta name="theme-color" content="#2196F3" />
+        <style>
+            body {
+                height: 100%;
+                margin: 0;
+                background-color: #d2eafd !important
             }
 
-        /* Caption text */
-        .text {
-            color: black;
-            font-size: 15px;
-            padding: 8px 12px;
-            position: absolute;
-            bottom: 8px;
-            width: 100%;
-            text-align: center;
-        }
-
-        /* Number text (1/3 etc) */
-        .numbertext {
-            color: #f2f2f2;
-            font-size: 12px;
-            padding: 8px 12px;
-            position: absolute;
-            top: 0;
-        }
-
-        /* The dots/bullets/indicators */
-        .dot {
-            cursor: pointer;
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color: #bbb;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.6s ease;
-        }
-
-            .active, .dot:hover {
-                background-color: #717171;
+            .w3-theme-l5 {
+                color: #000 !important;
+                background-color: #f2f9fe !important
             }
 
-        /* Fading animation */
-        .fade {
-            -webkit-animation-name: fade;
-            -webkit-animation-duration: 1.5s;
-            animation-name: fade;
-            animation-duration: 1.5s;
-        }
-
-        @-webkit-keyframes fade {
-            from {
-                opacity: .4
+            .w3-theme-l4 {
+                color: #000 !important;
+                background-color: #d2eafd !important
             }
 
-            to {
-                opacity: 1
-            }
-        }
-
-        @keyframes fade {
-            from {
-                opacity: .4
+            .w3-theme-l3 {
+                color: #000 !important;
+                background-color: #a6d4fa !important
             }
 
-            to {
-                opacity: 1
+            .w3-theme-l2 {
+                color: #000 !important;
+                background-color: #79bff8 !important
             }
-        }
 
-        .responsive {
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
-</head>
+            .w3-theme-l1 {
+                color: #fff !important;
+                background-color: #4daaf6 !important
+            }
+
+            .w3-theme-d1 {
+                color: #fff !important;
+                background-color: #0c87eb !important
+            }
+
+            .w3-theme-d2 {
+                color: #fff !important;
+                background-color: #0b78d1 !important
+            }
+
+            .w3-theme-d3 {
+                color: #fff !important;
+                background-color: #0a69b7 !important
+            }
+
+            .w3-theme-d4 {
+                color: #fff !important;
+                background-color: #085a9d !important
+            }
+
+            .w3-theme-d5 {
+                color: #fff !important;
+                background-color: #074b83 !important
+            }
+
+            .w3-theme-light {
+                color: #000 !important;
+                background-color: #f2f9fe !important
+            }
+
+            .w3-theme-dark {
+                color: #fff !important;
+                background-color: #074b83 !important
+            }
+
+            .w3-theme-action {
+                color: #fff !important;
+                background-color: #074b83 !important
+            }
+
+            .w3-theme {
+                color: #fff !important;
+                background-color: #2196f3 !important
+            }
+
+            .w3-text-theme {
+                color: #2196f3 !important
+            }
+
+            .w3-border-theme {
+                border-color: #2196f3 !important
+            }
+
+
+
+            .navText {
+                padding-right: 20px;
+                padding-left: 20px;
+                padding-top: 10px;
+            }
+
+            .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            @media (hover: hover) and (pointer: fine) {
+
+                .w3-hover-theme:hover {
+                    color: #fff !important;
+                    background-color: #2196f3 !important
+                }
+
+                .w3-hover-text-theme:hover {
+                    color: #2196f3 !important
+                }
+
+                .w3-hover-border-theme:hover {
+                    border-color: #2196f3 !important
+                }
+
+                /* Style the active link (or home/logo) */
+                .active {
+                    background-color: #04AA6D;
+                    color: white;
+                }
+            }
+
+            .box {
+                display: flex;
+                flex-flow: column;
+                height: 100%;
+            }
+
+                .box .row.header {
+                    flex: 0 1 auto;
+                    /* The above is shorthand for:
+                    flex-grow: 0,
+                    flex-shrink: 1,
+                    flex-basis: auto
+                    */
+                }
+
+                .box .row.content {
+                    flex: 1 1 auto;
+                }
+
+                .box .row.footer {
+                    flex: 0 1 40px;
+                }
+
+            .tab-pane .grid-container {
+                display: grid;
+                grid-template-columns: auto auto auto;
+                padding: 10px;
+            }
+
+            @media screen and (max-width: 800px) {
+                .tab-pane .grid-container {
+                    display: grid;
+                    grid-template-columns: auto auto;
+                    padding: 10px;
+                }
+            }
+
+            .tab-pane .grid-item {
+                padding: 20px;
+                font-size: 14px;
+                vertical-align: middle;
+                text-align: center;
+            }
+
+            .responsive {
+                max-width: 100%;
+                height: auto;
+            }
+
+            * {
+                box-sizing: border-box
+            }
+
+            /* Slideshow container */
+            .slideshow-container {
+                max-width: 600px;
+                position: relative;
+                margin: auto;
+            }
+
+            /* Hide the images by default */
+            .mySlides {
+                display: none;
+            }
+
+            /* Next & previous buttons */
+            .prev, .next {
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                width: auto;
+                margin-top: -22px;
+                padding: 16px;
+                color: black;
+                font-weight: bold;
+                font-size: 18px;
+                transition: 0.6s ease;
+                border-radius: 0 3px 3px 0;
+                user-select: none;
+                -ms-user-select: none;
+                -webkit-user-select: none;
+            }
+
+            /* Position the "next button" to the right */
+            .next {
+                right: 0;
+                border-radius: 3px 0 0 3px;
+            }
+
+                /* On hover, add a black background color with a little bit see-through */
+                .prev:hover, .next:hover {
+                    background-color: rgba(0,0,0,0.8);
+                }
+
+            /* Caption text */
+            .text {
+                color: black;
+                font-size: 15px;
+                padding: 8px 12px;
+                position: absolute;
+                bottom: 8px;
+                width: 100%;
+                text-align: center;
+            }
+
+            /* Number text (1/3 etc) */
+            .numbertext {
+                color: #000;
+                font-size: 12px;
+                padding: 8px 12px;
+                position: absolute;
+                top: 0;
+            }
+
+            /* The dots/bullets/indicators */
+            .dot {
+                cursor: pointer;
+                height: 15px;
+                width: 15px;
+                margin: 0 2px;
+                background-color: #bbb;
+                border-radius: 50%;
+                display: inline-block;
+                transition: background-color 0.6s ease;
+            }
+
+                .active, .dot:hover {
+                    background-color: #717171;
+                }
+
+            /* Fading animation */
+            .fade {
+                -webkit-animation-name: fade;
+                -webkit-animation-duration: 1.5s;
+                animation-name: fade;
+                animation-duration: 1.5s;
+            }
+
+            @-webkit-keyframes fade {
+                from {
+                    opacity: .4
+                }
+
+                to {
+                    opacity: 1
+                }
+            }
+
+            @keyframes fade {
+                from {
+                    opacity: .4
+                }
+
+                to {
+                    opacity: 1
+                }
+            }
+
+            /* The popup chat - hidden by default */
+            .form-popup {
+                display: none;
+                position: fixed;
+                bottom: 0;
+                right: 15px;
+                border: 3px solid #f1f1f1;
+                z-index: 9;
+            }
+
+            /* Add styles to the form container */
+            .form-container {
+                max-width: 300px;
+                padding: 10px;
+                background-color: white;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            /* Full-width textarea */
+            .form-container textarea {
+                width: 100%;
+                padding: 15px;
+                margin: 5px 0 22px 0;
+                border: none;
+                background: #f1f1f1;
+                resize: none;
+                min-height: 200px;
+            }
+
+            /* When the textarea gets focus, do something */
+            .form-container textarea:focus {
+                background-color: #ddd;
+                outline: none;
+            }
+
+            /* Set a style for the submit/login button */
+            .btn {
+                display: block;
+                background-color: #04AA6D;
+                color: white;
+                padding: 16px 20px;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+                margin-bottom: 10px;
+                opacity: 0.8;
+            }
+
+            /* Add some hover effects to buttons */
+            .form-container .btn:hover, .open-button:hover {
+                opacity: 1;
+            }
+
+            .img {
+                width: 100%;
+            }
+
+            .circles {
+                text-align: center;
+            }
+        </style>
+    </head>
 <body>
-
-    <!-- Slideshow container -->
-    <div class="slideshow-container">
-
-        <!-- Full-width images with number and caption text -->
-        <div class="mySlides fade responsive">
-            <div class="numbertext">1 / 3</div>
-            <img src="images/hello_01.png" style="width:100%">
-            <div class="text">Hello</div>
+    <div class="box">
+        <!-- Top Navigation Menu -->
+        <div class="header w3-bar w3-theme-d5">
+            <a href="/LessonApp/grammar/L1/L1_index.html" class="w3-bar-item"><img src="/LessonApp/icons/back_white.png" alt="back" /></a>
+            <span class="w3-right w3-bar-item">Hello</span>
         </div>
 
-        <div class="mySlides fade responsive">
-            <div class="numbertext">2 / 3</div>
-            <img src="images/hello_02.png" style="width:100%">
-            <div class="text">你好</div>
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
+
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade responsive">
+                <div class="numbertext">1 / 3</div>
+                <img src="images/hello_01.png">
+                <div class="text">Hello</div>
+            </div>
+
+            <div class="mySlides fade responsive">
+                <div class="numbertext">2 / 3</div>
+                <img src="images/hello_02.png">
+                <div class="text">你好</div>
+            </div>
+
+            <div class="mySlides fade responsive">
+                <div class="numbertext">3 / 3</div>
+                <div class="chat-popup" id="myForm">
+                    <div class="form-container">
+                        <h1>輪到你了！</h1>
+
+                        <textarea placeholder="輸入“hello”..." id="txtArea"></textarea>
+
+                        <button class="btn" id="submitBtn">發送</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+
+        <!-- The dots/circles -->
+        <div class="circles">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
         </div>
 
-        <!-- Next and previous buttons -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
-    <br>
+        <footer class="row footer">
+            <div class="w3-bar w3-theme-d5">
+                <span style="font-size: x-small" id='foot01' class="w3-bar-item"></span>
+                <a href="privacy.html" style="font-size: x-small" class="w3-bar-item w3-right navRight">隱私政策</a>
 
-    <!-- The dots/circles -->
-    <div style="text-align:center">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
+            </div>
+        </footer>
     </div>
-    <script src="js/hello.js?1"></script>
+
+    <script src="js/hello.js"></script>
 </body>
 </html>
