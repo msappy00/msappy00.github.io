@@ -41,7 +41,7 @@ function draw() {
     ctx.fillRect(0, 0, 1000, 1000);
 
     var img1 = new Image();
-    img1.src = 'images/mandala_may.png';
+    img1.src = 'images/mandala_september.png';
     img1.onload = function () {
         ctx.drawImage(img1, 0, 0);
     };
