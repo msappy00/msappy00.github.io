@@ -1,170 +1,100 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
-
 <head>
+    <title>Widget</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="vocabulary, grammar and phonics practice for children's ESL">
-    <link href="css/w3.css" type="text/css" rel="stylesheet" />
-    <title>Teacher Matthew</title>
+    <link rel="stylesheet" href="css/w3.css" />
     <style>
-
         body {
-            background-color: lightyellow;
-        }
-
-        @font-face {
-            font-family: 'ArchitectsDaughter-Regular';
-            src: url('fonts/ArchitectsDaughter-Regular.ttf');
-        }
-
-        .w3-bar,
-        h1,
-        h3,
-        #date {
-            font-family: ArchitectsDaughter-Regular;
+            background-color: lightslategray;
         }
 
         .item1 {
             grid-area: header;
-            height: 100px
+            height: 200px;
         }
 
         .item2 {
-            grid-area: left-filler;
+            grid-area: time;
+            text-align: center;
         }
 
         .item3 {
-            grid-area: main;
+            grid-area: middle;
         }
 
         .item4 {
-            grid-area: right-filler;
-        }
-
-        .item5 {
-            grid-area: footer;
+            grid-area: bottom;
         }
 
         .grid-container {
             display: grid;
-            grid-template: 'header header header'
-                'left-filler main right-filler'
-                'footer footer footer';
-            grid-auto-rows: 1em;
+            grid-template:
+                'header header header'
+                'time middle middle'
+                'time bottom bottom';
         }
 
-        .responsive {
-            max-width: 100%;
-            height: auto;
+        .container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding-top: 23.23%
         }
 
+        iframe {
+            position: absolute;
+            width: 800px;
+            height: 400px;
+            border: none;
+        }
     </style>
 </head>
 
-<body onload="checkSessionStorage()">
-    <script src="js/functions.js"></script>
-
-    <!--#nav bar-->
-    <div class="w3-top">
-        <div class="w3-bar w3-blue">
-            <a href="index.html" class="w3-bar-item w3-button"  onclick="setCss('home', '')"><img src="images/star-yellow.png" alt="yellow star" /></a>
-            <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium"
-                onclick="setCss('home', '')">Home</a>
-            <div class="w3-dropdown-hover">
-                <button class="w3-button w3-hide-small w3-hide-medium">Games</button>
-                <div class="w3-dropdown-content w3-bar-block">
-                    <a href="dice.html" target="_blank" class="w3-bar-item w3-button">Dice</a>
-                    <a href="craps.html" target="_blank" class="w3-bar-item w3-button">Craps</a>
-                    <a href="spotIt.html" target="_blank" class="w3-bar-item w3-button">Spot It!</a>
-                    <a href="BullsAndCows.html" target="_blank" class="w3-bar-item w3-button">Bulls and Cows</a>
-                    <a href="move.html" target="_blank" class="w3-bar-item w3-button">Move!</a>
-                    <a href="matchingGame.html" target="_blank" class="w3-bar-item w3-button">Matching Game</a>
-                    <a href="melon_drop.html" target="_blank" class="w3-bar-item w3-button">Melon Drop</a>
-                    <a href="bat_dodge.html" target="_blank" class="w3-bar-item w3-button">Bat Dodge</a>
-                    <a href="https://scratch.mit.edu/studios/954910/" target="_blank"
-                        class="w3-bar-item w3-button">Scratch Games</a>
-                    <a href="http://www.merriam-webster.com/word-games" target="_blank"
-                        class="w3-bar-item w3-button">Merriam-Webster Word Games</a>
-                </div>
-            </div>
-            <!--
-            <div class="w3-dropdown-hover">
-                <button class="w3-button">Level</button>
-                <div class="w3-dropdown-content w3-bar-block">
-                    <a href="level.html" target="_self" class="w3-bar-item w3-button"
-                        onclick="setLevel('Level 1')">Level 1</a>
-                    <a href="level.html" target="_self" class="w3-bar-item w3-button"
-                        onclick="setLevel('Level 2')">Level 2</a>
-                    <a href="level.html" target="_self" class="w3-bar-item w3-button"
-                        onclick="setLevel('Level 3')">Level 3</a>
-                    <a href="level.html" target="_self" class="w3-bar-item w3-button"
-                        onclick="setLevel('Level 4')">Level 4</a>
-                    <a href="level.html" target="_self" class="w3-bar-item w3-button"
-                        onclick="setLevel('Level 5')">Level 5</a>
-                    <a href="level.html" target="_self" class="w3-bar-item w3-button"
-                        onclick="setLevel('Level 6')">Level 6</a>
-                    <a href="level.html" target="_self" class="w3-bar-item w3-button"
-                        onclick="setLevel('Level 7')">Level 7</a>
-                    <a href="level.html" target="_self" class="w3-bar-item w3-button"
-                        onclick="setLevel('Level 8')">Level 8</a>
-                    <a href="level.html" target="_self" class="w3-bar-item w3-button"
-                        onclick="setLevel('Level 9')">Level 9</a>
-                    <a href="level.html" target="_self" class="w3-bar-item w3-button"
-                        onclick="setLevel('Level 10')">Level 10</a>
-                    <a href="level.html" target="_self" class="w3-bar-item w3-button"
-                        onclick="setLevel('Level 11')">Level 11</a>
-                    <a href="level.html" target="_self" class="w3-bar-item w3-button"
-                        onclick="setLevel('Level 12')">Level 12</a>
-                    <a class="w3-bar-item w3-button" onclick="clearLevel()">Clear</a>
-                </div>
-            </div>
-            -->
-            <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-display-topright" id="day">day</a>
-        </div>
-    </div>
-    <!--/#nav bar-->
-
+<body class="bd" id="bd">
     <div class="grid-container">
         <div class="item1"></div>
-        <div class="item2"></div>
-        <div class="item3">
-            <img src="images/sakura.png" class="responsive"/>
+        <div class="item2">
+            <p style="font-size: 60px">
+                <span id="date"></span><br />
+                <span id="DOW"></span><br />
+                <span id="time"></span>
+            </p>
         </div>
-        <div class="item4"></div>
-        <div class="item5" style="text-indent:20px">
-            <h4 id='foot01'></h4>
-            <h5><a href="privacy.html" style="color:white">Privacy Policy</a></h5>
+        <div class="item3">
+            <iframe src="time.html"></iframe>
+        </div>
+        <div class="item4">
+            <script id="weather" type="text/javascript" src='https://darksky.net/widget/default/22.6203,120.312/ca12/en.js?width=100%&height=400&title=Kaohsiung City, Taiwan&textColor=000000&bgColor=transparent&transparency=true&skyColor=undefined&fontFamily=Default&customFont=&units=ca&htColor=333333&ltColor=C7C7C7&displaySum=yes&displayHeader=yes'></script>
         </div>
     </div>
-    <script>
-        var day = new Date().getDay();
-        switch (day) {
-            case 0:
-                day = "Sunday ";
-                break;
-            case 1:
-                day = "Monday ";
-                break;
-            case 2:
-                day = "Tuesday ";
-                break;
-            case 3:
-                day = "Wednesday ";
-                break;
-            case 4:
-                day = "Thursday ";
-                break;
-            case 5:
-                day = "Friday ";
-                break;
-            case 6:
-                day = "Saturday ";
-                break;
-        }
-        document.getElementById("day").innerHTML = day;
-        document.getElementById("foot01").innerHTML = "<h4 id='date'>&copy; " + new Date().getFullYear() + " Teacher Matthew</h4>";
-    </script>
 </body>
-
 </html>
+<script>
+    var d = new Date();
+    var weekday = new Array(7);
+    weekday[0] = "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";
+    weekday[6] = "Saturday";
+
+    var n = weekday[d.getDay()];
+    setInterval(function () {
+        var dt = new Date();
+        document.getElementById('date').innerHTML = dt.toLocaleDateString();
+        document.getElementById('time').innerHTML = dt.toLocaleTimeString();
+    }, 1000);
+    var dt = new Date();
+    document.getElementById('date').innerHTML = dt.toLocaleDateString();
+    document.getElementById('time').innerHTML = dt.toLocaleTimeString();
+    document.getElementById('DOW').innerHTML = weekday[dt.getDay()];
+    var src = $('#weather').attr('src');
+    setInterval(function () {
+        document.getElementById('weather').src = "";
+        document.getElementById('weather').src = src;
+    }, 900000);
+</script>
