@@ -50,90 +50,16 @@
         .topnav-right {
           float: right;
         }
-
-         /* The Modal (background) */
-        .modal {
-          display: none; /* Hidden by default */
-          position: fixed; /* Stay in place */
-          z-index: 1; /* Sit on top */
-          left: 50px;
-          top: 50px;
-          overflow: auto; /* Enable scroll if needed */
-          background-color: rgb(0,0,0); /* Fallback color */
-          background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-          padding-top: 60px;
-        }
-
-        /* Modal Content/Box */
-        .modal-content {
-          background-color: #fefefe;
-          margin: 5px auto; /* 15% from the top and centered */
-          border: 1px solid #888;
-          width: 80%; /* Could be more or less, depending on screen size */
-        }
-
-        /* The Close Button */
-        .close {
-          /* Position it in the top right corner outside of the modal */
-          position: absolute;
-          right: 25px;
-          top: 0;
-          color: #000;
-          font-size: 35px;
-          font-weight: bold;
-        }
-
-        /* Close button on hover */
-        .close:hover,
-        .close:focus {
-          color: red;
-          cursor: pointer;
-        }
-
-        /* Add Zoom Animation */
-        .animate {
-          -webkit-animation: animatezoom 0.6s;
-          animation: animatezoom 0.6s
-        }
-
-        @-webkit-keyframes animatezoom {
-          from {-webkit-transform: scale(0)}
-          to {-webkit-transform: scale(1)}
-        }
-
-        @keyframes animatezoom {
-          from {transform: scale(0)}
-          to {transform: scale(1)}
-        }
     </style>
-    <meta http-equiv="refresh" content="900">
 </head>
 
 <body class="bd" id="bd">
 
      <div class="topnav w3-black">
          <div class="topnav-right">
-             <span style="padding-right: 10px"><button onclick="document.getElementById('id01').style.display='block'">API KEY</button></span>
+             <span style="padding-right: 10px"><button onclick="load_weather()">API KEY</button></span>
          </div>
      </div>
-
-          <!-- The Modal -->
-    <div id="id01" class="modal">
-      <span onclick="document.getElementById('id01').style.display='none'"
-    class="close" title="Close Modal">&times;</span>
-
-      <!-- Modal Content -->
-     <form action="#">
-
-        <div class="container">
-          <input type="password" placeholder="Enter Weather API Key" id="psw" required>
-          <button onclick="load_weather(form)">Submit</button>
-        </div>
-      </form>
-        <?
-            echo $psw;
-        ?>
-    </div>
 
     <div class="grid-container">
         <div class="item1"></div>
@@ -148,7 +74,17 @@
         <div class="item3">
             <div id="openweathermap-widget-11"></div>
             <script src='https://openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script>
-            <script src="js/weather_api.js"></script>
+            <script>
+                function load_weather() {
+                    let ow_key = prompt("enter weather api key", "key");
+                    window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
+                    window.myWidgetParam.push({id: 11,cityid: '1673820',appid: ow_key,units: 'metric',containerid: 'openweathermap-widget-11',  });
+                    (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";
+                    script.src = "https://openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+                    var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);
+                     })();
+                }
+            </script>
         </div>
     </div>
 </body>
