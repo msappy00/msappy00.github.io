@@ -12,7 +12,7 @@
 
         .item1 {
             grid-area: header;
-            height: 200px;
+            height: 10px;
         }
 
         .item2 {
@@ -21,19 +21,16 @@
         }
 
         .item3 {
-            grid-area: middle;
-        }
-
-        .item4 {
             grid-area: bottom;
         }
 
         .grid-container {
             display: grid;
             grid-template:
-                'header header header'
-                'time middle middle'
-                'time bottom bottom';
+                'header'
+                'time'
+                'bottom';
+            justify-content: center;
         }
 
         .container {
@@ -53,20 +50,21 @@
 </head>
 
 <body class="bd" id="bd">
+    <input type="hidden" value="" id="my_key">
     <div class="grid-container">
         <div class="item1"></div>
         <div class="item2">
             <p style="font-size: 60px">
                 <span id="date"></span><br />
                 <span id="DOW"></span><br />
-                <span id="time"></span>
+                <span id="time"></span><br />
+                <span id="key"></span>
             </p>
         </div>
         <div class="item3">
-            <iframe src="time.html"></iframe>
-        </div>
-        <div class="item4">
-            <script id="weather" type="text/javascript" src='https://darksky.net/widget/default/22.6203,120.312/ca12/en.js?width=100%&height=400&title=Kaohsiung City, Taiwan&textColor=000000&bgColor=transparent&transparency=true&skyColor=undefined&fontFamily=Default&customFont=&units=ca&htColor=333333&ltColor=C7C7C7&displaySum=yes&displayHeader=yes'></script>
+            <div id="openweathermap-widget-11"></div>
+            <script src='http://openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script>
+            <script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = []; window.myWidgetParam.push({id: 11,cityid: '1673820',appid: '',units: 'metric',containerid: 'openweathermap-widget-11',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "http://openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script>
         </div>
     </div>
 </body>
@@ -92,9 +90,5 @@
     document.getElementById('date').innerHTML = dt.toLocaleDateString();
     document.getElementById('time').innerHTML = dt.toLocaleTimeString();
     document.getElementById('DOW').innerHTML = weekday[dt.getDay()];
-    var src = $('#weather').attr('src');
-    setInterval(function () {
-        document.getElementById('weather').src = "";
-        document.getElementById('weather').src = src;
-    }, 900000);
+
 </script>
