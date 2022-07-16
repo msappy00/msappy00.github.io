@@ -125,11 +125,9 @@
       <!-- Modal Content -->
      <form action="#">
 
-         <input type="hidden" value="" id="ow_key"  />
-
         <div class="container">
           <input type="password" placeholder="Enter Weather API Key" id="psw" required>
-          <button onclick="getElementById('ow_key').value = getElementById('psw').value">Submit</button>
+          <button onclick="load_weather(form)">Submit</button>
         </div>
       </form>
         <?
