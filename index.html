@@ -56,12 +56,6 @@
 
 <body class="bd" id="bd">
 
-     <div class="topnav w3-black">
-         <div class="topnav-right">
-             <span style="padding-right: 10px"><button onclick="load_weather()">API KEY</button></span>
-         </div>
-     </div>
-
     <div class="grid-container">
         <div class="item1"></div>
         <div class="item2">
@@ -76,9 +70,10 @@
             <div id="openweathermap-widget-11"></div>
             <script src='https://openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script>
             <script>
-                function load_weather(ow_key) {
+                function load_weather() {
+                    let storedKey = sessionStorage.getItem('ow_key');
                     window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
-                    window.myWidgetParam.push({id: 11,cityid: '1673820',appid: ow_key,units: 'metric',containerid: 'openweathermap-widget-11',  });
+                    window.myWidgetParam.push({id: 11,cityid: '1673820',appid: storedKey,units: 'metric',containerid: 'openweathermap-widget-11',  });
                     (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";
                     script.src = "https://openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
                     var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);
@@ -91,7 +86,7 @@
                         let storedKey = prompt("enter weather api key", "");
                         sessionStorage.setItem('ow_key', storedKey);
                     }
-                    load_weather(storedKey);
+                    load_weather();
                 }
 
                 init();
