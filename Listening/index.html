@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Calculator</title>
+    <title>Listening</title>
     <!-- Required meta tags -->
     <link rel="stylesheet" href="css/w3.css" />
     <link rel="manifest" href="manifest.json">
@@ -15,10 +15,161 @@
     <!-- /ios support -->
 
     <style>
+         /* Customize the label (the container) */
+        .container {
+          display: block;
+          position: relative;
+          padding-left: 35px;
+          margin-bottom: 12px;
+          cursor: pointer;
+          font-size: 22px;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+
+        /* On mouse-over, add a grey background color */
+        .container:hover input ~ .checkmark {
+          background-color: #ccc;
+        }
+
+         /* Style the tab */
+        .tab {
+          overflow: hidden;
+          border: 1px solid #ccc;
+          background-color: #f1f1f1;
+        }
+
+        /* Style the buttons that are used to open the tab content */
+        .tab button {
+          background-color: inherit;
+          float: left;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          padding: 14px 16px;
+          transition: 0.3s;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+          background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+          background-color: #ccc;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+          display: none;
+          padding: 6px 12px;
+          border: 1px solid #ccc;
+          border-top: none;
+        }
+        .tabcontent {
+          animation: fadeEffect 1s; /* Fading effect takes 1 second */
+        }
+
+        /* Go from zero to full opacity */
+        @keyframes fadeEffect {
+          from {opacity: 0;}
+          to {opacity: 1;}
+        }
+
+        .vertical-center {
+          margin: 0;
+          position: relative;
+          top: 20%;
+          -ms-transform: translateY(-20%);
+          transform: translateY(-20%);
+        }
+
+        .btn {
+            font-size: 22px;
+            align: 'center';
+            width: 250px;
+        }
 
     </style>
 </head>
 <body>
 
+     <!-- Tab links -->
+    <div class="tab">
+      <button class="tablinks" onclick="openTab(event, '聆聽')" id="defaultOpen">聆聽</button>
+      <button class="tablinks" onclick="openTab(event, '成績單')">成績單</button>
+      <button class="tablinks" onclick="openTab(event, '幫助')">幫助</button>
+    </div>
+
+    <!-- Tab content -->
+    <div id="聆聽" class="tabcontent" align="center">
+      <h1>聽力練習</h1>
+        <h3>聽錄音，回答問題。</h3>
+
+        <audio controls>
+            <source src="horse.ogg" type="audio/ogg">
+            <source src="horse.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <label class="container">
+          <input type="radio" class="vertical-center" name="radio"> 甲
+          <span class="checkmark"></span>
+        </label>
+
+        <label class="container">
+          <input type="radio" class="vertical-center" name="radio"> 乙
+          <span class="checkmark"></span>
+        </label>
+
+        <label class="container">
+          <input type="radio" class="vertical-center" name="radio"> 丙
+          <span class="checkmark"></span>
+        </label>
+
+        <button class="btn" id="checkBtn" onclick="checkAnswer()">查對</button>
+
+    </div>
+
+    <div id="成績單" class="tabcontent">
+      <h1>成績單</h1>
+    </div>
+
+    <div id="幫助" class="tabcontent">
+      <h1>幫助</h1>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+          // Declare all variables
+          var i, tabcontent, tablinks;
+
+          // Get all elements with class="tabcontent" and hide them
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+
+          // Get all elements with class="tablinks" and remove the class "active"
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+
+          // Show the current tab, and add an "active" class to the button that opened the tab
+          document.getElementById(tabName).style.display = "block";
+          evt.currentTarget.className += " active";
+        }
+
+        function checkAnswer() {
+
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
 </body>
 </html>
