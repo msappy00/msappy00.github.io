@@ -30,7 +30,7 @@
         }
 
         /* On mouse-over, add a grey background color */
-        .container:hover input ~ .checkmark {
+        .container:hover input {
           background-color: #ccc;
         }
 
@@ -101,6 +101,7 @@
     <div class="tab">
       <button class="tablinks" onclick="openTab(event, '聆聽')" id="defaultOpen">聆聽</button>
       <button class="tablinks" onclick="openTab(event, '成績單')">成績單</button>
+        <button class="tablinks" onclick="openTab(event, '詞彙')">詞彙</button>
       <button class="tablinks" onclick="openTab(event, '幫助')">幫助</button>
     </div>
 
@@ -110,32 +111,86 @@
         <h3>聽錄音，回答問題。</h3>
 
         <audio controls>
-            <source src="horse.ogg" type="audio/ogg">
-            <source src="horse.mp3" type="audio/mpeg">
+            <source src="audio/gourmet_questions.ogg" type="audio/ogg">
+            <source src="audio/gourmet_questions.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
 
-        <label class="container">
-          <input type="radio" class="vertical-center" name="radio"> 甲
-          <span class="checkmark"></span>
+        <h3>The man isn't hungry because he _____.</h3>
+        <label class="container" id="A">
+          <input type="radio" class="vertical-center" name="radio1"> is feeling sick
         </label>
 
-        <label class="container">
-          <input type="radio" class="vertical-center" name="radio"> 乙
-          <span class="checkmark"></span>
+        <label class="container" id="B">
+          <input type="radio" class="vertical-center" name="radio1"> already ate something
         </label>
 
-        <label class="container">
-          <input type="radio" class="vertical-center" name="radio"> 丙
-          <span class="checkmark"></span>
+        <label class="container" id="C">
+          <input type="radio" class="vertical-center" name="radio1"> doesn't like her food
         </label>
 
-        <button class="btn" id="checkBtn" onclick="checkAnswer()">查對</button>
+        <button class="btn" id="checkBtn1" onclick="checkAnswer1()">查對</button>
+
+        <h3 id="confirmation1"></h3>
+        <h3 id="feedback1" style="font-weight: bold"> </h3>
+
+        <p></p>
+
+        <h3>The woman feels _______ at the end of the conversation.</h3>
+        <label class="container" id="D">
+          <input type="radio" class="vertical-center" name="radio2"> angry
+        </label>
+
+        <label class="container" id="E">
+          <input type="radio" class="vertical-center" name="radio2"> confused
+        </label>
+
+        <label class="container" id="F">
+          <input type="radio" class="vertical-center" name="radio2"> surprised
+        </label>
+
+        <button class="btn" id="checkBtn2" onclick="checkAnswer2()">查對</button>
+
+        <h3 id="confirmation2"></h3>
+        <h3 id="feedback2" style="font-weight: bold"> </h3>
 
     </div>
 
     <div id="成績單" class="tabcontent">
       <h1>成績單</h1>
+        <p><strong>Woman:</strong> Hi Sweetie. Welcome home. We’re ready to eat.</p>
+        <p><strong>Man:</strong> Well, there’s something I . . .</p>
+        <p><strong>Woman:</strong> Uh, we have salmon and your favorite salad.</p>
+        <p><strong>Man:</strong> Oh, yeah. That sounds [Um] . . . great.</p>
+        <p><strong>Woman:</strong> What’s . . . what’s the deal? I worked really hard. And, look, look. For dessert, I made an apple pie.</p>
+        <p><strong>Man:</strong> Well . . . under most circumstances . . .</p>
+        <p><strong>Woman:</strong> Hon. What’s? You . . . I’ve never made a pie before. It took me like three hours.</p>
+        <p><strong>Man:</strong> Well, to be honest . . .</p>
+        <p><strong>Woman:</strong> What’s wrong? [ Man laughing. ] What? Don’t you like my cooking?</p>
+        <p><strong>Man:</strong> No, no, no, no.</p>
+        <p><strong>Woman:</strong> I worked really hard!</p>
+        <p><strong>Man:</strong> I know, I know, I know, but to be honest, I just had a hamburger, fries, and a chocolate shake.</p>
+        <p><strong>Woman:</strong> Why? WHY?</p>
+        <p><strong>Man:</strong> I’m sorry. I didn’t know.</p>
+        <p><strong>Woman:</strong> I told you this morning I was making something nice. [Oh . . .] Didn’t you listen?</p>
+        <p><strong>Man:</strong> I’m sorry, I forgot. I mean . . . Wait . . .</p>
+        <p><strong>Woman:</strong> Serious.</p>
+        <p><strong>Man:</strong> Yeah, wait. Wait, wait. What are you doing? Why are you putting the food in my shoes?</p>
+        <p><strong>Woman:</strong> So you can enjoy it as you walk to work tomorrow.</p>
+        <p><strong>Man:</strong> Oh, no. I’m sorry!</p>
+    </div>
+
+     <div id="詞彙" class="tabcontent">
+         <h1>詞彙</h1>
+        <ul><li>salmon (noun): kind of fish</li>
+        – The chef at this restaurant prepares the best salmon with a special sauce.
+        What’s the deal? (expression): What’s the story or situation?
+        What’s the deal? Do you want to go out to eat or not? We need to decide now.
+        <li>circumstances (noun): situations, facts, or conditions</li>
+        – We don’t have much money, so I don’t want to eat at an expensive restaurant under these circumstances.
+        <li>Hon (noun): short for HONEY and said to people you love like a husband or wife</li>
+        – Hon. Can we go out to dinner for my birthday? I really don’t want to cook.
+        </ul>
     </div>
 
     <div id="幫助" class="tabcontent">
@@ -164,8 +219,14 @@
           evt.currentTarget.className += " active";
         }
 
-        function checkAnswer() {
+        function checkAnswer1() {
+            document.getElementById("feedback1").textContent = "The man isn't hungry because he already ate something.";
+            document.getElementById("B").style.background = "lightgreen";
+        }
 
+        function checkAnswer2() {
+            document.getElementById("feedback2").textContent = "The woman feels angry at the end of the conversation.";
+            document.getElementById("D").style.background = "lightgreen";
         }
 
         // Get the element with id="defaultOpen" and click on it
