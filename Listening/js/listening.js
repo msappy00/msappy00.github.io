@@ -15,7 +15,7 @@ const listening = {
     choiceD: " Yes, he does.",
     choiceE: " Yes, he doesn't.",
     choiceF: " No, he doesn't.",
-    answer2: "No, he doesn't."
+    answer2: " No, he doesn't."
   };
 
 function setContent() {
