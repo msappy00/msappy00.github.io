@@ -121,6 +121,11 @@
             height: 40px;
         }
 
+        .responsive {
+          max-width: 100%;
+          height: auto;
+        }
+
     </style>
 </head>
 <body onload="setContent()">
@@ -138,9 +143,11 @@
       <h1>聽力練習</h1>
         <h3>聽錄音，回答問題。</h3>
 
+        <img src="images/despicable_house_rules.png" class="responsive">
+        <p></p>
         <audio controls>
-            <source src="audio/gourmet_questions.ogg" type="audio/ogg">
-            <source src="audio/gourmet_questions.mp3" type="audio/mpeg">
+            <source src="audio/despicable_house_rules.ogg" type="audio/ogg">
+            <source src="audio/despicable_house_rules.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
 
@@ -150,11 +157,11 @@
         </label>
 
         <label class="container" id="B">
-          <input type="radio" class="vertical-center" name="radio1"><span id="choiceB"></span> already ate something
+          <input type="radio" class="vertical-center" name="radio1"><span id="choiceB"></span>
         </label>
 
         <label class="container" id="C">
-          <input type="radio" class="vertical-center" name="radio1"><span id="choiceC"></span> doesn't like her food
+          <input type="radio" class="vertical-center" name="radio1"><span id="choiceC"></span>
         </label>
 
         <button class="btn" id="checkBtn1" onclick="checkAnswer1()">查對</button>
@@ -166,15 +173,15 @@
 
         <h3 id="question2"></h3>
         <label class="container" id="D">
-          <input type="radio" class="vertical-center" name="radio2"><span id="choiceD"></span> angry
+          <input type="radio" class="vertical-center" name="radio2"><span id="choiceD"></span>
         </label>
 
         <label class="container" id="E">
-          <input type="radio" class="vertical-center" name="radio2"><span id="choiceE"></span> confused
+          <input type="radio" class="vertical-center" name="radio2"><span id="choiceE"></span>
         </label>
 
         <label class="container" id="F">
-          <input type="radio" class="vertical-center" name="radio2"><span id="choiceF"></span> surprised
+          <input type="radio" class="vertical-center" name="radio2"><span id="choiceF"></span>
         </label>
 
         <button class="btn" id="checkBtn2" onclick="checkAnswer2()">查對</button>
@@ -186,39 +193,48 @@
 
     <div id="文字記錄" class="tabcontent">
       <h1>文字記錄</h1>
-        <p><strong>Woman:</strong> Hi Sweetie. Welcome home. We’re ready to eat.</p>
-        <p><strong>Man:</strong> Well, there’s something I . . .</p>
-        <p><strong>Woman:</strong> Uh, we have salmon and your favorite salad.</p>
-        <p><strong>Man:</strong> Oh, yeah. That sounds [Um] . . . great.</p>
-        <p><strong>Woman:</strong> What’s . . . what’s the deal? I worked really hard. And, look, look. For dessert, I made an apple pie.</p>
-        <p><strong>Man:</strong> Well . . . under most circumstances . . .</p>
-        <p><strong>Woman:</strong> Hon. What’s? You . . . I’ve never made a pie before. It took me like three hours.</p>
-        <p><strong>Man:</strong> Well, to be honest . . .</p>
-        <p><strong>Woman:</strong> What’s wrong? [ Man laughing. ] What? Don’t you like my cooking?</p>
-        <p><strong>Man:</strong> No, no, no, no.</p>
-        <p><strong>Woman:</strong> I worked really hard!</p>
-        <p><strong>Man:</strong> I know, I know, I know, but to be honest, I just had a hamburger, fries, and a chocolate shake.</p>
-        <p><strong>Woman:</strong> Why? WHY?</p>
-        <p><strong>Man:</strong> I’m sorry. I didn’t know.</p>
-        <p><strong>Woman:</strong> I told you this morning I was making something nice. [Oh . . .] Didn’t you listen?</p>
-        <p><strong>Man:</strong> I’m sorry, I forgot. I mean . . . Wait . . .</p>
-        <p><strong>Woman:</strong> Serious.</p>
-        <p><strong>Man:</strong> Yeah, wait. Wait, wait. What are you doing? Why are you putting the food in my shoes?</p>
-        <p><strong>Woman:</strong> So you can enjoy it as you walk to work tomorrow.</p>
-        <p><strong>Man:</strong> Oh, no. I’m sorry!</p>
+        <p></p>
+        <p><strong>Edith:</strong> Somebody broke that.</p>
+
+        <p><strong>Gru:</strong> Okay, okay. Clearly we need to set some rules.<br>
+            Rule number one: You will not touch anything.</p>
+        
+        <p><strong>Margot:</strong> Uh-huh. What about the floor?</p>
+        
+        <p><strong>Gru:</strong> Yes, you may touch the floor.</p>
+        
+        <p><strong>Margot:</strong> What about the air?</p>
+        
+        <p><strong>Gru:</strong> Yes, you may touch the air.</p>
+        
+        <p><strong>Edith:</strong> What about this? [points gun at Gru]</p>
+        
+        <p><strong>Gru:</strong> Ahhh! Where did you get that?</p>
+        
+        <p><strong>Edith:</strong> Found it.</p>
+        
+        <p><strong>Gru:</strong> Okay, rule number two: you will not bother me while I’m working.<br>
+            Rule number three: You will not cry or whine or laugh or giggle<br>
+            or sneeze or burp or fart. So no, no no annoying sounds, alright?</p>
+        
+        <p><strong>Agnes:</strong> Does this count as annoying? [makes sound]</p>
+        
+        <p><strong>Gru:</strong> Very!</p>
     </div>
 
      <div id="詞彙" class="tabcontent">
          <h1>詞彙</h1>
-        <ul><li><strong>salmon</strong> (noun): kind of fish</li>
-        – The chef at this restaurant prepares the best salmon with a special sauce.
-        What’s the deal? (expression): What’s the story or situation?
-        What’s the deal? Do you want to go out to eat or not? We need to decide now.
-        <li><strong>circumstances</strong> (noun): situations, facts, or conditions</li>
-        – We don’t have much money, so I don’t want to eat at an expensive restaurant under these circumstances.
-        <li><strong>Hon</strong> (noun): short for HONEY and said to people you love like a husband or wife</li>
-        – Hon. Can we go out to dinner for my birthday? I really don’t want to cook.
-        </ul>
+        <dl>
+            <dt><strong>rule</strong>: 規則；法則；規章；條例</dt>
+            <dd>You must follow/obey/observe the rules.</dd>
+            <dd>你一定要遵守規則。</dd>
+            <dt><strong>floor</strong>: （房間的）地板，地面</dt>
+            <dd>The floor was partly covered with a dirty old rug.</dd>
+            <dd>部分地板上鋪著骯髒的舊地毯。</dd>
+            <dt><strong>air</strong>: 空氣</dt>
+            <dd>I went outside to get some fresh air.</dd>
+            <dd>我到室外呼吸一下新鮮空氣。</dd>
+        </dl>
     </div>
 
     <div id="學到更多" class="tabcontent" align="center">

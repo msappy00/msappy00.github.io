@@ -6,16 +6,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "The man isn't hungry because he _____.",
-    choiceA: " is feeling sick",
-    choiceB: "",
-    choiceC: "",
-    answer1: "The man isn't hungry because he already ate something.",
-    question2: "The woman feels _______ at the end of the conversation.",
-    choiceD: "",
-    choiceE: "",
-    choiceF: "",
-    answer2: "The woman feels angry at the end of the conversation."
+    question1: "What is rule number one?",
+    choiceA: " You will not bother me while I'm working.",
+    choiceB: " No annoying sounds.",
+    choiceC: " You will not touch anything.",
+    answer1: "You will not touch anything.",
+    question2: "Does Gru like the girls?",
+    choiceD: " Yes, he does.",
+    choiceE: " Yes, he doesn't.",
+    choiceF: " No, he doesn't.",
+    answer2: "No, he doesn't."
   };
 
 function setContent() {
@@ -52,12 +52,12 @@ function openTab(evt, tabName) {
 
 function checkAnswer1() {
     document.getElementById("feedback1").textContent = listening.answer1;
-    document.getElementById("B").style.background = "lightgreen";
+    document.getElementById("C").style.background = "lightgreen";
 }
 
 function checkAnswer2() {
     document.getElementById("feedback2").textContent = listening.answer2;
-    document.getElementById("D").style.background = "lightgreen";
+    document.getElementById("F").style.background = "lightgreen";
 }
 
 // Get the element with id="defaultOpen" and click on it
