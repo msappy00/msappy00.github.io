@@ -6,16 +6,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What does Anna do?",
-    choiceA: " She is an actress.",
-    choiceB: " She is a vicar.",
-    choiceC: " She is in the stock market.",
-    answer1: "Anna is an actress.",
-    question2: "Does Anna make a lot of money?",
-    choiceD: " Yes, she is.",
-    choiceE: " Yes, she does.",
-    choiceF: " No, she doesn't.",
-    answer2: "Yes, she makes a lot of money."
+    question1: "What is the student reading from?",
+    choiceA: " his diary",
+    choiceB: " his textbook",
+    choiceC: " the newspaper",
+    answer1: "The student is reading from his diary.",
+    question2: "What happened to the student during the summer?",
+    choiceD: " His mother died.",
+    choiceE: " He asked for a Christmas present.",
+    choiceF: " His family lost their home.",
+    answer2: "His family lost their home."
   };
 
 function setContent() {
@@ -57,7 +57,7 @@ function checkAnswer1() {
 
 function checkAnswer2() {
     document.getElementById("feedback2").textContent = listening.answer2;
-    document.getElementById("E").style.background = "lightgreen";
+    document.getElementById("F").style.background = "lightgreen";
 }
 
 // Get the element with id="defaultOpen" and click on it
