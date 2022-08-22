@@ -6,16 +6,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What is the student reading from?",
-    choiceA: " his diary",
-    choiceB: " his textbook",
-    choiceC: " the newspaper",
-    answer1: "The student is reading from his diary.",
-    question2: "What happened to the student during the summer?",
-    choiceD: " His mother died.",
-    choiceE: " He asked for a Christmas present.",
-    choiceF: " His family lost their home.",
-    answer2: "His family lost their home."
+    question1: "What do you think the characters are doing?",
+    choiceA: " What they are doing is inconceivable.",
+    choiceB: " They are running away from someone.",
+    choiceC: " They are chasing someone.",
+    answer1: "They are running away from someone.",
+    question2: "What do you think 'inconceivable' means?",
+    choiceD: " not able to do something as it should be done",
+    choiceE: " easy to imagine or think of",
+    choiceF: " impossible to imagine or think of",
+    answer2: "impossible to imagine or think of"
   };
 
 function setContent() {
@@ -52,7 +52,7 @@ function openTab(evt, tabName) {
 
 function checkAnswer1() {
     document.getElementById("feedback1").textContent = listening.answer1;
-    document.getElementById("A").style.background = "lightgreen";
+    document.getElementById("B").style.background = "lightgreen";
 }
 
 function checkAnswer2() {
