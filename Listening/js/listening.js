@@ -6,16 +6,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What do you think the characters are doing?",
-    choiceA: " What they are doing is inconceivable.",
-    choiceB: " They are running away from someone.",
-    choiceC: " They are chasing someone.",
-    answer1: "They are running away from someone.",
-    question2: "What do you think 'inconceivable' means?",
-    choiceD: " not able to do something as it should be done",
-    choiceE: " easy to imagine or think of",
-    choiceF: " impossible to imagine or think of",
-    answer2: "impossible to imagine or think of"
+    question1: "",
+    choiceA: " ",
+    choiceB: " ",
+    choiceC: " ",
+    answer1: "",
+    question2: "",
+    choiceD: " ",
+    choiceE: " ",
+    choiceF: " ",
+    answer2: ""
   };
 
 function setContent() {
@@ -52,12 +52,12 @@ function openTab(evt, tabName) {
 
 function checkAnswer1() {
     document.getElementById("feedback1").textContent = listening.answer1;
-    document.getElementById("B").style.background = "lightgreen";
+    document.getElementById("x").style.background = "lightgreen";
 }
 
 function checkAnswer2() {
     document.getElementById("feedback2").textContent = listening.answer2;
-    document.getElementById("F").style.background = "lightgreen";
+    document.getElementById("x").style.background = "lightgreen";
 }
 
 // Get the element with id="defaultOpen" and click on it
