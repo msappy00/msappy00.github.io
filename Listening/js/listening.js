@@ -6,16 +6,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "",
-    choiceA: " ",
-    choiceB: " ",
-    choiceC: " ",
-    answer1: "",
-    question2: "",
-    choiceD: " ",
-    choiceE: " ",
-    choiceF: " ",
-    answer2: ""
+    question1: "Where does the man want to go?",
+    choiceA: " Fear",
+    choiceB: " Tonight",
+    choiceC: " New York",
+    answer1: "He wants to go to New York.",
+    question2: "Is he afraid to go back to his own country?",
+    choiceD: " No, he isn't.",
+    choiceE: " No, he hasn't.",
+    choiceF: " Yes, he is.",
+    answer2: "No, he isn't."
   };
 
 function setContent() {
@@ -52,12 +52,12 @@ function openTab(evt, tabName) {
 
 function checkAnswer1() {
     document.getElementById("feedback1").textContent = listening.answer1;
-    document.getElementById("x").style.background = "lightgreen";
+    document.getElementById("C").style.background = "lightgreen";
 }
 
 function checkAnswer2() {
     document.getElementById("feedback2").textContent = listening.answer2;
-    document.getElementById("x").style.background = "lightgreen";
+    document.getElementById("D").style.background = "lightgreen";
 }
 
 // Get the element with id="defaultOpen" and click on it
