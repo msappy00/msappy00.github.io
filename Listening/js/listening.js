@@ -11,7 +11,7 @@ const listening = {
     choiceB: " hour",
     choiceC: " people",
     answer1: "With great power comes great responsibility.",
-    question2: "Who is he??",
+    question2: "Who is he?",
     choiceD: " He is Ironman.",
     choiceE: " He is Spiderman.",
     choiceF: " He is Wonder Woman.",
