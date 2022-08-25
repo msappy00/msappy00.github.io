@@ -13,9 +13,9 @@ const listening = {
     answer1: "With great power comes great responsibility.",
     question2: "Who is he?",
     choiceD: " He is Ironman.",
-    choiceE: " He is Spiderman.",
+    choiceE: " He is Spider-man.",
     choiceF: " He is Wonder Woman.",
-    answer2: "He is Spiderman."
+    answer2: "He is Spider-man."
   };
 
 function setContent() {
