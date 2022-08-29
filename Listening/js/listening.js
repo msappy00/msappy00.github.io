@@ -57,7 +57,7 @@ function checkAnswer1() {
 
 function checkAnswer2() {
     document.getElementById("feedback2").textContent = listening.answer2;
-    document.getElementById("E").style.background = "lightgreen";
+    document.getElementById("F").style.background = "lightgreen";
 }
 
 // Get the element with id="defaultOpen" and click on it
