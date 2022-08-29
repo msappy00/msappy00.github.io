@@ -6,16 +6,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "With great ______ comes great responsibility.",
-    choiceA: " power",
-    choiceB: " hour",
-    choiceC: " people",
-    answer1: "With great power comes great responsibility.",
-    question2: "Who is he?",
-    choiceD: " He is Ironman.",
-    choiceE: " He is Spider-man.",
-    choiceF: " He is Wonder Woman.",
-    answer2: "He is Spider-man."
+    question1: "What does the girl want to do?",
+    choiceA: " She wants to come back at night.",
+    choiceB: " She wants to make fun of the boy.",
+    choiceC: " She wants to fight.",
+    answer1: "She wants to come back at night.",
+    question2: "What is the boy's disability?",
+    choiceD: " He is funny.",
+    choiceE: " He is deaf.",
+    choiceF: " He is blind.",
+    answer2: "He is blind."
   };
 
 function setContent() {
