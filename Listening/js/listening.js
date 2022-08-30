@@ -6,16 +6,18 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What does the girl want to do?",
-    choiceA: " She wants to come back at night.",
-    choiceB: " She wants to make fun of the boy.",
-    choiceC: " She wants to fight.",
-    answer1: "She wants to come back at night.",
-    question2: "What is the boy's disability?",
-    choiceD: " He is funny.",
-    choiceE: " He is deaf.",
-    choiceF: " He is blind.",
-    answer2: "He is blind."
+    question1: "The Sun is at the center of our galaxy.",
+    choiceA: " True",
+    choiceB: " False",
+    choiceC: " Maybe",
+    answer1choice: "B",
+    answer1: "False",
+    question2: "There is only one galaxy.",
+    choiceD: " True",
+    choiceE: " False",
+    choiceF: " Maybe",
+    answer2choice: "E"
+    answer2: "False"
   };
 
 function setContent() {
@@ -52,12 +54,12 @@ function openTab(evt, tabName) {
 
 function checkAnswer1() {
     document.getElementById("feedback1").textContent = listening.answer1;
-    document.getElementById("A").style.background = "lightgreen";
+    document.getElementById(listening.answer1choice).style.background = "lightgreen";
 }
 
 function checkAnswer2() {
     document.getElementById("feedback2").textContent = listening.answer2;
-    document.getElementById("F").style.background = "lightgreen";
+    document.getElementById(listening.answer2choice).style.background = "lightgreen";
 }
 
 // Get the element with id="defaultOpen" and click on it
