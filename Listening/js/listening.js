@@ -6,18 +6,18 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "The Sun is at the center of our galaxy.",
-    choiceA: " True",
-    choiceB: " False",
-    choiceC: " Maybe",
-    answer1choice: "B",
-    answer1: "False",
-    question2: "There is only one galaxy.",
-    choiceD: " True",
-    choiceE: " False",
-    choiceF: " Maybe",
+    question1: "What is the man going to be?",
+    choiceA: " a good father",
+    choiceB: " a sugar mama",
+    choiceC: " a homeless guy",
+    answer1choice: "A",
+    answer1: "He is going to be a good father.",
+    question2: "Where does the man work?",
+    choiceD: " He doesn't have a job.",
+    choiceE: " in a tollbooth",
+    choiceF: " in court",
     answer2choice: "E",
-    answer2: "False"
+    answer2: "He works in a tollbooth."
   };
 
 function setContent() {
