@@ -6,18 +6,18 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What is the man going to be?",
-    choiceA: " a good father",
-    choiceB: " a sugar mama",
-    choiceC: " a homeless guy",
+    question1: "Gorbachev was the leader of the _____.",
+    choiceA: " USSR",
+    choiceB: " USA",
+    choiceC: " March, 1985",
     answer1choice: "A",
-    answer1: "He is going to be a good father.",
-    question2: "Where does the man work?",
-    choiceD: " He doesn't have a job.",
-    choiceE: " in a tollbooth",
-    choiceF: " in court",
-    answer2choice: "E",
-    answer2: "He works in a tollbooth."
+    answer1: "Gorbachev was the leader of the USSR.",
+    question2: "When did he die?",
+    choiceD: " He died in 91.",
+    choiceE: " He died in 1985.",
+    choiceF: " He died on Tuesday.",
+    answer2choice: "F",
+    answer2: "He died on Tuesday."
   };
 
 function setContent() {
