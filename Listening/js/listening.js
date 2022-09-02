@@ -6,18 +6,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Gorbachev was the leader of the _____.",
-    choiceA: " USSR",
-    choiceB: " USA",
-    choiceC: " March, 1985",
-    answer1choice: "A",
-    answer1: "Gorbachev was the leader of the USSR.",
-    question2: "When did he die?",
-    choiceD: " He died in 91.",
-    choiceE: " He died in 1985.",
-    choiceF: " He died on Tuesday.",
-    answer2choice: "F",
-    answer2: "He died on Tuesday."
+    question1: "Where does Ellie live?",
+    choiceA: "the UK",
+    choiceB: "America",
+    choiceC: "Australia",
+    answer1: "She lives in Australia.",
+    question2: "What does Ellie do?",
+    choiceD: "She is a cowboy.",
+    choiceE: "She is a cook.",
+    choiceF: "She is a cattle.",
+    answer2: "She is a cook."
   };
 
 function setContent() {
@@ -54,12 +52,10 @@ function openTab(evt, tabName) {
 
 function checkAnswer1() {
     document.getElementById("feedback1").textContent = listening.answer1;
-    document.getElementById(listening.answer1choice).style.background = "lightgreen";
 }
 
 function checkAnswer2() {
     document.getElementById("feedback2").textContent = listening.answer2;
-    document.getElementById(listening.answer2choice).style.background = "lightgreen";
 }
 
 // Get the element with id="defaultOpen" and click on it
