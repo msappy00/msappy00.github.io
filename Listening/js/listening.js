@@ -6,16 +6,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Where does Ellie live?",
-    choiceA: "the UK",
-    choiceB: "America",
-    choiceC: "Australia",
-    answer1: "She lives in Australia.",
-    question2: "What does Ellie do?",
-    choiceD: "She is a cowboy.",
-    choiceE: "She is a cook.",
-    choiceF: "She is a cattle.",
-    answer2: "She is a cook."
+    question1: "Who is the professor speaking to?",
+    choiceA: "Mr. Pity",
+    choiceB: "Mr. Potter",
+    choiceC: "Mr. Bezoar",
+    answer1: "He is speaking to Mr. Potter.",
+    question2: "Pity. Clearly, ______ isn't everything.",
+    choiceD: "wolfbane",
+    choiceE: "fame",
+    choiceF: "frame",
+    answer2: "Pity. Clearly, fame isn't everything."
   };
 
 function setContent() {
