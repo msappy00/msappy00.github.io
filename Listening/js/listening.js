@@ -6,16 +6,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Who is the professor speaking to?",
-    choiceA: "Mr. Pity",
-    choiceB: "Mr. Potter",
-    choiceC: "Mr. Bezoar",
-    answer1: "He is speaking to Mr. Potter.",
-    question2: "Pity. Clearly, ______ isn't everything.",
-    choiceD: "wolfbane",
-    choiceE: "fame",
-    choiceF: "frame",
-    answer2: "Pity. Clearly, fame isn't everything."
+    question1: '"I think I\'d like you to ______."',
+    choiceA: "arrest",
+    choiceB: "leave",
+    choiceC: "jump",
+    answer1: '"I think I\'d like you to leave."',
+    question2: "What kind of movie does it sound like?",
+    choiceD: "an action movie",
+    choiceE: "a romance",
+    choiceF: "a comedy",
+    answer2: "It's an action movie."
   };
 
 function setContent() {
