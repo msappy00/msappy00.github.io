@@ -6,16 +6,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: '"I think I\'d like you to ______."',
-    choiceA: "arrest",
-    choiceB: "leave",
-    choiceC: "jump",
-    answer1: '"I think I\'d like you to leave."',
-    question2: "What kind of movie does it sound like?",
-    choiceD: "an action movie",
-    choiceE: "a romance",
-    choiceF: "a comedy",
-    answer2: "It's an action movie."
+    question1: "What is the man's name?",
+    choiceA: "Bob",
+    choiceB: "Brown",
+    choiceC: "Calorie",
+    answer1: "His name is Bob.",
+    question2: "What does the man want people to do?",
+    choiceD: "buy soda",
+    choiceE: "change the colors",
+    choiceF: "drink water",
+    answer2: "He wants people to buy soda."
   };
 
 function setContent() {
