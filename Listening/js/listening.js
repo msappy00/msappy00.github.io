@@ -6,16 +6,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What is the man's name?",
-    choiceA: "Bob",
-    choiceB: "Brown",
-    choiceC: "Calorie",
-    answer1: "His name is Bob.",
-    question2: "What does the man want people to do?",
-    choiceD: "buy soda",
-    choiceE: "change the colors",
-    choiceF: "drink water",
-    answer2: "He wants people to buy soda."
+    question1: "Who is the UK's new Prime Minister?",
+    choiceA: "Liz Truss",
+    choiceB: "Boris Johnson",
+    choiceC: "Rob Young",
+    answer1: "The UK's new Prime Minister is Liz Truss.",
+    question2: "What is the number?",
+    choiceD: "+44 77 86 20 50 85",
+    choiceE: "+44 20 77 86 85 50",
+    choiceF: "+44 85 50 20 86 77",
+    answer2: "The number is +44 77 86 20 50 85."
   };
 
 function setContent() {
