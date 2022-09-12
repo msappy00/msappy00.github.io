@@ -6,16 +6,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Who is the UK's new Prime Minister?",
-    choiceA: "Liz Truss",
-    choiceB: "Boris Johnson",
-    choiceC: "Rob Young",
-    answer1: "The UK's new Prime Minister is Liz Truss.",
-    question2: "What is the number?",
-    choiceD: "+44 77 86 20 50 85",
-    choiceE: "+44 20 77 86 85 50",
-    choiceF: "+44 85 50 20 86 77",
-    answer2: "The number is +44 77 86 20 50 85."
+    question1: "'I\'m being so ______ right now.'",
+    choiceA: "happy",
+    choiceB: "angry",
+    choiceC: "sincere",
+    answer1: "'I\'m being so sincere right now.'",
+    question2: "'And threw every piece into a ______.'",
+    choiceD: "tire",
+    choiceE: "sire",
+    choiceF: "fire",
+    answer2: "'And threw every piece into a fire.'"
   };
 
 function setContent() {
