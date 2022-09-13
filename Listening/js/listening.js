@@ -6,16 +6,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "'I\'m being so ______ right now.'",
-    choiceA: "happy",
-    choiceB: "angry",
-    choiceC: "sincere",
-    answer1: "'I\'m being so sincere right now.'",
-    question2: "'And threw every piece into a ______.'",
-    choiceD: "tire",
-    choiceE: "sire",
-    choiceF: "fire",
-    answer2: "'And threw every piece into a fire.'"
+    question1: "What time of day is it?",
+    choiceA: "morning",
+    choiceB: "afternoon",
+    choiceC: "evening",
+    answer1: "It's morning.",
+    question2: "Describe the dialogue: ",
+    choiceD: "They are going away.",
+    choiceE: "They don't like each other.",
+    choiceF: "They are greeting each other.",
+    answer2: "They are greeting each other."
   };
 
 function setContent() {
