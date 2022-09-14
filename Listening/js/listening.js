@@ -6,16 +6,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What time of day is it?",
-    choiceA: "morning",
-    choiceB: "afternoon",
-    choiceC: "evening",
-    answer1: "It's morning.",
-    question2: "Describe the dialogue: ",
-    choiceD: "They are going away.",
-    choiceE: "They don't like each other.",
-    choiceF: "They are greeting each other.",
-    answer2: "They are greeting each other."
+    question1: "What does the king want?",
+    choiceA: "to be a human",
+    choiceB: "to be a monkey",
+    choiceC: "to stay in the jungle",
+    answer1: "The king wants to be a human.",
+    question2: "'VIP' means ______.",
+    choiceD: "very important person",
+    choiceE: "a huge fan of the Korean boy band, Big Bang",
+    choiceF: "variation in production",
+    answer2: "VIP means very important person."
   };
 
 function setContent() {
