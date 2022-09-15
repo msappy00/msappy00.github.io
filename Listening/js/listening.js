@@ -6,16 +6,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What does the king want?",
-    choiceA: "to be a human",
-    choiceB: "to be a monkey",
-    choiceC: "to stay in the jungle",
-    answer1: "The king wants to be a human.",
-    question2: "'VIP' means ______.",
-    choiceD: "very important person",
-    choiceE: "a huge fan of the Korean boy band, Big Bang",
-    choiceF: "variation in production",
-    answer2: "VIP means very important person."
+    question1: "Penguins are _____.",
+    choiceA: "birds",
+    choiceB: "fish",
+    choiceC: "humans",
+    answer1: "Penguins are birds.",
+    question2: "How long will they travel?",
+    choiceD: "2 days and 2 nights",
+    choiceE: "20 days and 20 nights",
+    choiceF: "12 days and 12 nights",
+    answer2: "They will travel 20 days and 20 nights."
   };
 
 function setContent() {
