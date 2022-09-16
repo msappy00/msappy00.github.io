@@ -6,16 +6,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Penguins are _____.",
-    choiceA: "birds",
-    choiceB: "fish",
-    choiceC: "humans",
-    answer1: "Penguins are birds.",
-    question2: "How long will they travel?",
-    choiceD: "2 days and 2 nights",
-    choiceE: "20 days and 20 nights",
-    choiceF: "12 days and 12 nights",
-    answer2: "They will travel 20 days and 20 nights."
+    question1: "Where does Moana want to go?",
+    choiceA: "the island",
+    choiceB: "to meet some guy",
+    choiceC: "the line where the sea meets the sky",
+    answer1: "She wants to go to 'the line where the sea meets the sky'.",
+    question2: "Does she like her role?",
+    choiceD: "No, she wants to sail away.",
+    choiceE: "No, she wants a new role.",
+    choiceF: "No, she wants to roll into the sea.",
+    answer2: "No, she wants to sail away."
   };
 
 function setContent() {
