@@ -6,16 +6,17 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Where does Moana want to go?",
-    choiceA: "the island",
-    choiceB: "to meet some guy",
-    choiceC: "the line where the sea meets the sky",
-    answer1: "She wants to go to 'the line where the sea meets the sky'.",
-    question2: "Does she like her role?",
-    choiceD: "No, she wants to sail away.",
-    choiceE: "No, she wants a new role.",
-    choiceF: "No, she wants to roll into the sea.",
-    answer2: "No, she wants to sail away."
+    question1: "What is this message about?",
+    choiceA: "A woman is attacking a ship.",
+    choiceB: "A woman is asking for help.",
+    choiceC: "A woman is ordering food for her father.",
+    answer1: "A woman is asking for help.",
+    question2: "Who can help the woman?",
+    choiceD: "No one can help the woman.",
+    choiceE: "Only Obi-Wan Kenobi can help her.",
+    choiceF: "Anyone one can help her.",
+    answer2: "Only Obi-Wan Kenobi can help her."
+
   };
 
 function setContent() {
