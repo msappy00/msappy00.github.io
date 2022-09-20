@@ -11,11 +11,11 @@ const listening = {
     choiceB: "It's a simple song.",
     choiceC: "It's difficult to understand.",
     answer1: "It's a simple song.",
-    question2: "I hope you don’t ____.",
+    question2: "I hope you don't ____.",
     choiceD: "mind",
     choiceE: "care",
     choiceF: "put down in words",
-    answer2: "I hope you don’t mind."
+    answer2: "I hope you don't mind."
   };
 
 function setContent() {
