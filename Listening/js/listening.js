@@ -6,17 +6,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What is this message about?",
-    choiceA: "A woman is attacking a ship.",
-    choiceB: "A woman is asking for help.",
-    choiceC: "A woman is ordering food for her father.",
-    answer1: "A woman is asking for help.",
-    question2: "Who can help the woman?",
-    choiceD: "No one can help the woman.",
-    choiceE: "Only Obi-Wan Kenobi can help her.",
-    choiceF: "Anyone one can help her.",
-    answer2: "Only Obi-Wan Kenobi can help her."
-
+    question1: "How difficult is the song?",
+    choiceA: "It's done.",
+    choiceB: "It's a simple song.",
+    choiceC: "It's difficult to understand.",
+    answer1: "It's a simple song.",
+    question2: "’I hope you don\’t ____.",
+    choiceD: "mind",
+    choiceE: "care",
+    choiceF: "put down in words",
+    answer2: "’I hope you don\’t mind."
   };
 
 function setContent() {
