@@ -6,16 +6,17 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Where does Moana want to go?",
-    choiceA: "the island",
-    choiceB: "to meet some guy",
-    choiceC: "the line where the sea meets the sky",
-    answer1: "She wants to go to 'the line where the sea meets the sky'.",
-    question2: "Does she like her role?",
-    choiceD: "No, she wants to sail away.",
-    choiceE: "No, she wants a new role.",
-    choiceF: "No, she wants to roll into the sea.",
-    answer2: "No, she wants to sail away."
+    question1: "Where did Richard Parker stop?",
+    choiceA: "along the shore",
+    choiceB: "back at me",
+    choiceC: "the edge of the jungle",
+    answer1: "He stopped at the edge of the jungle.",
+    question2: "Why did the boy cry?",
+    choiceD: "because Richard Parker growled at him",
+    choiceE: "because Richard Parker didn’t look back",
+    choiceF: "because he survived",
+    answer2: "He cried because Richard Parker didn’t look back."
+
   };
 
 function setContent() {
