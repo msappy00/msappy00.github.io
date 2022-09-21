@@ -6,16 +6,17 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "How difficult is the song?",
-    choiceA: "It's done.",
-    choiceB: "It's a simple song.",
-    choiceC: "It's difficult to understand.",
-    answer1: "It's a simple song.",
-    question2: "I hope you don't ____.",
-    choiceD: "mind",
-    choiceE: "care",
-    choiceF: "put down in words",
-    answer2: "I hope you don't mind."
+    question1: "Where did Richard Parker stop?",
+    choiceA: "along the shore",
+    choiceB: "back at me",
+    choiceC: "the edge of the jungle",
+    answer1: "He stopped at the edge of the jungle.",
+    question2: "Why did the boy cry?",
+    choiceD: "because Richard Parker growled at him",
+    choiceE: "because Richard Parker didn’t look back",
+    choiceF: "because he survived",
+    answer2: "He cried because Richard Parker didn’t look back."
+
   };
 
 function setContent() {
