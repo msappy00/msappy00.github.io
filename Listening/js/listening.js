@@ -6,16 +6,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Where did Richard Parker stop?",
-    choiceA: "along the shore",
-    choiceB: "back at me",
-    choiceC: "the edge of the jungle",
-    answer1: "He stopped at the edge of the jungle.",
-    question2: "Why did the boy cry?",
-    choiceD: "because Richard Parker growled at him",
-    choiceE: "because Richard Parker didn’t look back",
-    choiceF: "because he survived",
-    answer2: "He cried because Richard Parker didn’t look back."
+    question1: "Who cooked dinner?",
+    choiceA: "the daughter",
+    choiceB: "Kay",
+    choiceC: "Dad",
+    answer1: "Dad cooked dinner.",
+    question2: "Does the girl like the dinner?",
+    choiceD: "No, she doesn't like it.",
+    choiceE: "Yes, she likes it.",
+    choiceF: "She likes it a lot.",
+    answer2: "No, she doesn’t like it."
 
   };
 
