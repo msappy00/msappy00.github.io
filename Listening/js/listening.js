@@ -6,16 +6,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Who cooked dinner?",
-    choiceA: "the daughter",
-    choiceB: "Kay",
-    choiceC: "Dad",
-    answer1: "Dad cooked dinner.",
-    question2: "Does the girl like the dinner?",
-    choiceD: "No, she doesn't like it.",
-    choiceE: "Yes, she likes it.",
-    choiceF: "She likes it a lot.",
-    answer2: "No, she doesn’t like it."
+    question1: "What does the girl want to do?",
+    choiceA: "She wants to enter a contest.",
+    choiceB: "She wants to throw it all away.",
+    choiceC: "She wants to go to law school.",
+    answer1: "She wants to go to law school.",
+    question2: "Is the girl boring, ugly or serious?",
+    choiceD: "She is boring and ugly.",
+    choiceE: "Yes, she is.",
+    choiceF: "She is none of those things.",
+    answer2: "She is none of those things."
 
   };
 
