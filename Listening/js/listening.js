@@ -6,16 +6,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Who is having a bad morning?",
-    choiceA: "Ms. Lucy",
-    choiceB: "FoFo",
-    choiceC: "Pancakes",
-    answer1: "FoFo is having a bad morning.",
-    question2: "Did FoFo have a big spoon?",
-    choiceD: "Yes, he had a big spoon.",
-    choiceE: "Yes, he had a big fork.",
-    choiceF: "No, he had a small spoon.",
-    answer2: "No, he had a small spoon."
+    question1: "’time ____’",
+    choiceA: "flies",
+    choiceB: "crawls",
+    choiceC: "swims",
+    answer1: "’time flies’",
+    question2: "’Riding shotgun’ means _____.",
+    choiceD: "driving a car",
+    choiceE: "riding next to the driver in a car",
+    choiceF: "riding on top of a shotgun",
+    answer2: "'Riding shotgun' means riding next to the driver in a car."
 
   };
 
