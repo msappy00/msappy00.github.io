@@ -11,11 +11,11 @@ const listening = {
     choiceB: "FoFo",
     choiceC: "Pancakes",
     answer1: "FoFo is having a bad morning.",
-    question2: "Does FoFo have a big spoon?",
-    choiceD: "Yes, he has a big spoon.",
-    choiceE: "Yes, he has a big fork.",
-    choiceF: "No, he has a small fork.",
-    answer2: "No, he has a small fork."
+    question2: "Did FoFo have a big spoon?",
+    choiceD: "Yes, he had a big spoon.",
+    choiceE: "Yes, he had a big fork.",
+    choiceF: "No, he had a small fork.",
+    answer2: "No, he had a small fork."
 
   };
 
