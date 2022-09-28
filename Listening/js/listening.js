@@ -6,16 +6,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "’time ____’",
-    choiceA: "flies",
-    choiceB: "crawls",
-    choiceC: "swims",
-    answer1: "’time flies’",
-    question2: "’Riding shotgun’ means _____.",
-    choiceD: "driving a car",
-    choiceE: "riding next to the driver in a car",
-    choiceF: "riding on top of a shotgun",
-    answer2: "'Riding shotgun' means riding next to the driver in a car."
+    question1: "How do the girls feel about school?",
+    choiceA: "They didn’t like it.",
+    choiceB: "They liked it a lot.",
+    choiceC: "They were excited.",
+    answer1: "They didn’t like it.",
+    question2: "How do they feel about going back to school?",
+    choiceD: "They are excited.",
+    choiceE: "They already knew.",
+    choiceF: "They are surprised they have to go back.",
+    answer2: "They are surprised they have to go back."
 
   };
 
