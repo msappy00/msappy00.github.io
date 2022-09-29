@@ -6,16 +6,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "How do the girls feel about school?",
-    choiceA: "They didn’t like it.",
-    choiceB: "They liked it a lot.",
-    choiceC: "They were excited.",
-    answer1: "They didn’t like it.",
-    question2: "How do they feel about going back to school?",
-    choiceD: "They are excited.",
-    choiceE: "They already knew.",
-    choiceF: "They are surprised they have to go back.",
-    answer2: "They are surprised they have to go back."
+    question1: "Who drinks too much coffee?",
+    choiceA: "the office coffee club",
+    choiceB: "Bob in accounting",
+    choiceC: "Anna",
+    answer1: "Anna drinks too much coffee.",
+    question2: "Who complained about Anna?",
+    choiceD: "a woman",
+    choiceE: "Bob in accounting",
+    choiceF: "false",
+    answer2: "Bob in accounting complained about Anna."
 
   };
 
