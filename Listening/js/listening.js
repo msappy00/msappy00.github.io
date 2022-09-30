@@ -6,16 +6,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Who drinks too much coffee?",
-    choiceA: "the office coffee club",
-    choiceB: "Bob in accounting",
-    choiceC: "Anna",
-    answer1: "Anna drinks too much coffee.",
-    question2: "Who complained about Anna?",
-    choiceD: "a woman",
-    choiceE: "Bob in accounting",
-    choiceF: "false",
-    answer2: "Bob in accounting complained about Anna."
+    question1: "’this trailer/‘s got to go’",
+    choiceA: "He thinks they should take the trailer with them.",
+    choiceB: "He likes the trailer a lot.",
+    choiceC: "He wants to move into a better home.",
+    answer1: "He wants to move into a better home.",
+    question2: "This may be his only shot.",
+    choiceD: "He wants to try hard to succeed.",
+    choiceE: "He wants to grow old where he is living.",
+    choiceF: "He doesn’t think he will do well.",
+    answer2: "He wants to try hard to succeed."
 
   };
 
