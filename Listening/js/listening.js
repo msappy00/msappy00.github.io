@@ -6,16 +6,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "’this trailer/‘s got to go’",
-    choiceA: "He thinks they should take the trailer with them.",
-    choiceB: "He likes the trailer a lot.",
-    choiceC: "He wants to move into a better home.",
-    answer1: "He wants to move into a better home.",
-    question2: "This may be his only shot.",
-    choiceD: "He wants to try hard to succeed.",
-    choiceE: "He wants to grow old where he is living.",
-    choiceF: "He doesn’t think he will do well.",
-    answer2: "He wants to try hard to succeed."
+    question1: "What is the choice being offered?",
+    choiceA: "take a blue pill or take a red pill",
+    choiceB: "go down a rabbit hole or not",
+    choiceC: "go to sleep or stay awake",
+    answer1: "The choice is to take a blue pill or a red pill.",
+    question2: "How can the story be ended?",
+    choiceD: "By going down the rabbit hole.",
+    choiceE: "By taking the blue pill.",
+    choiceF: "By taking the red pill.",
+    answer2: "Taking the blue pill will end the story."
 
   };
 
