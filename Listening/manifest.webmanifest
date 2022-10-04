@@ -1,7 +1,7 @@
 {
   "name": "Listening",
   "short_name": "Listening",
-  "start_url": "index.html",
+  "start_url": "/Listening/",
   "scope": "/Listening/",
   "background_color": "#618685",
   "description": "A listening exercise.",
