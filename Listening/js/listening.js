@@ -6,16 +6,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What is the choice being offered?",
-    choiceA: "take a blue pill or take a red pill",
-    choiceB: "go down a rabbit hole or not",
-    choiceC: "go to sleep or stay awake",
-    answer1: "The choice is to take a blue pill or a red pill.",
-    question2: "How can the story be ended?",
-    choiceD: "By going down the rabbit hole.",
-    choiceE: "By taking the blue pill.",
-    choiceF: "By taking the red pill.",
-    answer2: "Taking the blue pill will end the story."
+    question1: "His girlfriend is now his:",
+    choiceA: "boyfriend",
+    choiceB: "best friend",
+    choiceC: "arch-enemy",
+    answer1: "His girlfriend is now his arch-enemy.",
+    question2: "His arch-enemy is now his:",
+    choiceD: "girlfriend",
+    choiceE: "boyfriend",
+    choiceF: "best friend",
+    answer2: "His arch-enemy is now his best friend."
 
   };
 
