@@ -6,16 +6,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "His girlfriend is now his:",
+    question1: "His girlfriend became his:",
     choiceA: "boyfriend",
     choiceB: "best friend",
     choiceC: "arch-enemy",
-    answer1: "His girlfriend is now his arch-enemy.",
-    question2: "His arch-enemy is now his:",
+    answer1: "His girlfriend became his arch-enemy.",
+    question2: "His arch-enemy became his:",
     choiceD: "girlfriend",
     choiceE: "boyfriend",
     choiceF: "best friend",
-    answer2: "His arch-enemy is now his best friend."
+    answer2: "His arch-enemy became his best friend."
 
   };
 
