@@ -1,8 +1,13 @@
 // check if service worker is supported
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register("listening.js")
-        .then((reg) => console.log('service worker registered', reg))
-        .catch((err) => console.log('service worker not registered', err))
+
+    navigator.serviceWorker.register("/js/listening.js", {scope: '/js/' }).then(function(reg) {
+    console.log('Successfully registered. Scope is ' + reg.scope);
+    }).catch(function(error) {
+        console.log('Registering failed ' + error);
+    });
+} else {
+    console.log('Service worker can not be registered on this device');
 }
 
 const listening = {
