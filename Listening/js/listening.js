@@ -11,16 +11,29 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "His girlfriend became his:",
-    choiceA: "boyfriend",
-    choiceB: "best friend",
-    choiceC: "arch-enemy",
-    answer1: "His girlfriend became his arch-enemy.",
-    question2: "His arch-enemy became his:",
-    choiceD: "girlfriend",
-    choiceE: "boyfriend",
-    choiceF: "best friend",
-    answer2: "His arch-enemy became his best friend."
+    I tried for weeks to get a ticket to the final. [sfx: beep] I gave up. Is it a) In the end or b) Next.
+
+Rob     
+It’s a) In the end.
+
+Catherine       
+Well done. Number two. It started to rain. [sfx: beep] I had an umbrella with me. Is it a) Suddenly or b) Luckily.
+
+Rob           
+It’s b) Luckily.
+
+Catherine           
+Finally, number 3: Which is the correct phrase to introduce your story? Is it a) What happened was … or b) What happened it … ?
+    question1: "I tried for weeks to get a ticket to the final. ________, I gave up.",
+    choiceA: "In the end",
+    choiceB: "Next",
+    choiceC: "Luckily",
+    answer1: "In the end, I gave up.",
+    question2: "It started to rain. _______, I had an umbrella with me. Is it a) Suddenly or b) Luckily.",
+    choiceD: "Suddenly",
+    choiceE: "Luckily",
+    choiceF: "Sadly",
+    answer2: "Luckily, I had an umbrella with me."
 
   };
 
