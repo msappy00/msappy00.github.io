@@ -16,7 +16,7 @@ const listening = {
     choiceB: "Next",
     choiceC: "Luckily",
     answer1: "In the end, I gave up.",
-    question2: "It started to rain. _______, I had an umbrella with me. Is it a) Suddenly or b) Luckily.",
+    question2: "It started to rain. _______, I had an umbrella with me.",
     choiceD: "Suddenly",
     choiceE: "Luckily",
     choiceF: "Sadly",
