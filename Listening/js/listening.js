@@ -32,6 +32,9 @@ function setContent() {
     document.getElementById("choiceD").textContent = listening.choiceD;
     document.getElementById("choiceE").textContent = listening.choiceE;
     document.getElementById("choiceF").textContent = listening.choiceF;
+    
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
 }
 
 function openTab(evt, tabName) {
@@ -62,6 +65,3 @@ function checkAnswer1() {
 function checkAnswer2() {
     document.getElementById("feedback2").textContent = listening.answer2;
 }
-
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
