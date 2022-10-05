@@ -63,6 +63,3 @@ function checkAnswer1() {
 function checkAnswer2() {
     document.getElementById("feedback2").textContent = listening.answer2;
 }
-
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
