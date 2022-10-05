@@ -11,19 +11,6 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    I tried for weeks to get a ticket to the final. [sfx: beep] I gave up. Is it a) In the end or b) Next.
-
-Rob     
-It’s a) In the end.
-
-Catherine       
-Well done. Number two. It started to rain. [sfx: beep] I had an umbrella with me. Is it a) Suddenly or b) Luckily.
-
-Rob           
-It’s b) Luckily.
-
-Catherine           
-Finally, number 3: Which is the correct phrase to introduce your story? Is it a) What happened was … or b) What happened it … ?
     question1: "I tried for weeks to get a ticket to the final. ________, I gave up.",
     choiceA: "In the end",
     choiceB: "Next",
@@ -34,7 +21,6 @@ Finally, number 3: Which is the correct phrase to introduce your story? Is it a)
     choiceE: "Luckily",
     choiceF: "Sadly",
     answer2: "Luckily, I had an umbrella with me."
-
   };
 
 function setContent() {
