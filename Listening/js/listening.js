@@ -34,7 +34,7 @@ function setContent() {
     document.getElementById("choiceF").textContent = listening.choiceF;
     
     // Get the element with id="defaultOpen" and click on it
-    document.getElementById("defaultOpen").click();
+    openTab(event, '聆聽');
 }
 
 function openTab(evt, tabName) {
