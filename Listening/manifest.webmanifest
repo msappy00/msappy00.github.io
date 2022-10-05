@@ -2,7 +2,7 @@
   "name": "Listening",
   "short_name": "Listening",
   "start_url": "/Listening/",
-  "scope": "/Listening/js/",
+  "scope": "/Listening/",
   "background_color": "#618685",
   "description": "A listening exercise.",
   "display": "standalone",
