@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "I tried for weeks to get a ticket to the final. ________, I gave up.",
-    choiceA: "In the end",
-    choiceB: "Next",
-    choiceC: "Luckily",
-    answer1: "In the end, I gave up.",
-    question2: "It started to rain. _______, I had an umbrella with me.",
-    choiceD: "Suddenly",
-    choiceE: "Luckily",
-    choiceF: "Sadly",
-    answer2: "Luckily, I had an umbrella with me."
+    question1: "How many items are in the bag?",
+    choiceA: "five",
+    choiceB: "six",
+    choiceC: "apples",
+    answer1: "There are five items in the bag.",
+    question2: "What is NOT in the bag?",
+    choiceD: "apples",
+    choiceE: "orange juice",
+    choiceF: "tortillas",
+    answer2: "There is no orange juice in the bag."
   };
 
 function setContent() {
