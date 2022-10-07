@@ -11,17 +11,17 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "How many items are in the bag?",
-    choiceA: "five",
-    choiceB: "six",
-    choiceC: "apples",
-    answer1: "There are five items in the bag.",
-    question2: "What is NOT in the bag?",
-    choiceD: "apples",
-    choiceE: "orange juice",
-    choiceF: "tortillas",
-    answer2: "There is no orange juice in the bag."
-  };
+    question1: "When do they map the maze?",
+    choiceA: "in the morning",
+    choiceB: "in the afternoon",
+    choiceC: "in the evening",
+    answer1: "They map the maze in the morning.",
+    question2: "How long have they been looking?",
+    choiceD: "for the moment",
+    choiceE: "for three years",
+    choiceF: "for a way out",
+    answer2: "They have been looking for three years."
+};
 
 function setContent() {
     document.getElementById("question1").textContent = listening.question1;
