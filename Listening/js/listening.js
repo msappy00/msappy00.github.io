@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "I tried for weeks to get a ticket to the final. ________, I gave up.",
-    choiceA: "In the end",
-    choiceB: "Next",
-    choiceC: "Luckily",
-    answer1: "In the end, I gave up.",
-    question2: "It started to rain. _______, I had an umbrella with me.",
-    choiceD: "Suddenly",
-    choiceE: "Luckily",
-    choiceF: "Sadly",
-    answer2: "Luckily, I had an umbrella with me."
+    question1: "'Disagree' means:",
+    choiceA: "to say you are right",
+    choiceB: "to agree",
+    choiceC: "to not agree",
+    answer1: "'Disagree' means 'to not agree'.",
+    question2: "'I travel the world and the _____ seas",
+    choiceD: "setting",
+    choiceE: "eleven",
+    choiceF: "seven",
+    answer2: "'I travel the world and the seven seas'"
   };
 
 function setContent() {
