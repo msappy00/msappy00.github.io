@@ -16,7 +16,7 @@ const listening = {
     choiceB: "to agree",
     choiceC: "to not agree",
     answer1: "'Disagree' means 'to not agree'.",
-    question2: "'I travel the world and the _____ seas",
+    question2: "'I travel the world and the _____ seas'",
     choiceD: "setting",
     choiceE: "eleven",
     choiceF: "seven",
