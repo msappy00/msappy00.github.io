@@ -1,7 +1,7 @@
 // check if service worker is supported
 if ('serviceWorker' in navigator) {
 
-    navigator.serviceWorker.register("/Listening/listening.js").then(function(reg) {
+    navigator.serviceWorker.register("./js/listening.js", {scope: '/' }).then(function(reg) {
     console.log('Successfully registered. Scope is ' + reg.scope);
     }).catch(function(error) {
         console.log('Registering failed ' + error);
@@ -11,17 +11,17 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "When do they map the maze?",
-    choiceA: "in the morning",
-    choiceB: "in the afternoon",
-    choiceC: "in the evening",
-    answer1: "They map the maze in the morning.",
-    question2: "How long have they been looking?",
-    choiceD: "for the moment",
-    choiceE: "for three years",
-    choiceF: "for a way out",
-    answer2: "They have been looking for three years."
-};
+    question1: "'Disagree' means:",
+    choiceA: "to say you are right",
+    choiceB: "to agree",
+    choiceC: "to not agree",
+    answer1: "'Disagree' means 'to not agree'.",
+    question2: "'I travel the world and the _____ seas",
+    choiceD: "setting",
+    choiceE: "eleven",
+    choiceF: "seven",
+    answer2: "'I travel the world and the seven seas'"
+  };
 
 function setContent() {
     document.getElementById("question1").textContent = listening.question1;
