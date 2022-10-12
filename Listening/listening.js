@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "'Disagree' means:",
-    choiceA: "to say you are right",
-    choiceB: "to agree",
-    choiceC: "to not agree",
-    answer1: "'Disagree' means 'to not agree'.",
-    question2: "'I travel the world and the _____ seas'",
-    choiceD: "setting",
-    choiceE: "eleven",
-    choiceF: "seven",
-    answer2: "'I travel the world and the seven seas'"
+    question1: "Where is Dr. Grant?",
+    choiceA: "He's in the vehicle.",
+    choiceB: "He's on the vehicle.",
+    choiceC: "He jumped out.",
+    answer1: "He jumped out.",
+    question2: "Who is Dr. Malcolm talking to in the end?",
+    choiceD: "the vehicle",
+    choiceE: "Dr. Grant",
+    choiceF: "himself",
+    answer2: "He's talking to himself."
   };
 
 function setContent() {
