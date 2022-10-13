@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Where is Dr. Grant?",
-    choiceA: "He's in the vehicle.",
-    choiceB: "He's on the vehicle.",
-    choiceC: "He jumped out.",
-    answer1: "He jumped out.",
-    question2: "Who is Dr. Malcolm talking to in the end?",
-    choiceD: "the vehicle",
-    choiceE: "Dr. Grant",
-    choiceF: "himself",
-    answer2: "He's talking to himself."
+    question1: "How many times did Einstein fail math?",
+    choiceA: "three times",
+    choiceB: "both",
+    choiceC: "never",
+    answer1: "Einstein never failed math.",
+    question2: "How many times did Dimitri fail pre-algebra?",
+    choiceD: "never",
+    choiceE: "both",
+    choiceF: "three times",
+    answer2: "Dimitri failed pre-algebra three times."
   };
 
 function setContent() {
