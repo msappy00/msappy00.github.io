@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "How many times did Einstein fail math?",
-    choiceA: "three times",
-    choiceB: "both",
-    choiceC: "never",
-    answer1: "Einstein never failed math.",
-    question2: "How many times did Dimitri fail pre-algebra?",
-    choiceD: "never",
-    choiceE: "both",
-    choiceF: "three times",
-    answer2: "Dimitri failed pre-algebra three times."
+    question1: "How are they travelling?",
+    choiceA: "by 'floo powder'",
+    choiceB: "by car",
+    choiceC: "by airplane",
+    answer1: "They are travelling by 'floo powder'.",
+    question2: "What did Harry say?",
+    choiceD: "Diagon Alley",
+    choiceE: "Digitally",
+    choiceF: "Diagonally",
+    answer2: "He said, 'Diagonally'."
   };
 
 function setContent() {
