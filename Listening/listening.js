@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "How are they travelling?",
-    choiceA: "by 'floo powder'",
-    choiceB: "by car",
-    choiceC: "by airplane",
-    answer1: "They are travelling by 'floo powder'.",
-    question2: "What did Harry say?",
-    choiceD: "Diagon Alley",
-    choiceE: "Digitally",
-    choiceF: "Diagonally",
-    answer2: "He said, 'Diagonally'."
+    question1: "What did the boy hear in the room?",
+    choiceA: "It was quiet.",
+    choiceB: "A boy was making footprints.",
+    choiceC: "He heard his sister.",
+    answer1: "It was quiet.",
+    question2: "What marks did he leave?",
+    choiceD: "the wind",
+    choiceE: "footprints",
+    choiceF: "hand prints",
+    answer2: "He left footprints on the rug."
   };
 
 function setContent() {
