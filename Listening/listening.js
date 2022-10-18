@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What did the boy hear in the room?",
-    choiceA: "It was quiet.",
-    choiceB: "A boy was making footprints.",
-    choiceC: "He heard his sister.",
-    answer1: "It was quiet.",
-    question2: "What marks did he leave?",
-    choiceD: "the wind",
-    choiceE: "footprints",
-    choiceF: "hand prints",
-    answer2: "He left footprints on the rug."
+    question1: "What is the story about?",
+    choiceA: "a little goat",
+    choiceB: "a little ghoul",
+    choiceC: "a little girl",
+    answer1: "The story is about a little girl.",
+    question2: "Who helped her?",
+    choiceD: "no one",
+    choiceE: "the goat",
+    choiceF: "the village",
+    answer2: "No one helped her."
   };
 
 function setContent() {
