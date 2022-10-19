@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What is the story about?",
-    choiceA: "a little goat",
-    choiceB: "a little ghoul",
-    choiceC: "a little girl",
-    answer1: "The story is about a little girl.",
-    question2: "Who helped her?",
-    choiceD: "no one",
-    choiceE: "the goat",
-    choiceF: "the village",
-    answer2: "No one helped her."
+    question1: "'we lived beneath the waves in our _____ _______'",
+    choiceA: "yellow submarine",
+    choiceB: "town where I was born",
+    choiceC: "green sea",
+    answer1: "'we lived beneath the waves in our yellow submarine'",
+    question2: "Who told them about the land of submarines?",
+    choiceD: "a submarine",
+    choiceE: "the sea of green",
+    choiceF: "a man",
+    answer2: "A man told them."
   };
 
 function setContent() {
