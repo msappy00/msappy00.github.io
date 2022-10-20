@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "'we lived beneath the waves in our _____ _______'",
-    choiceA: "yellow submarine",
-    choiceB: "town where I was born",
-    choiceC: "green sea",
-    answer1: "'we lived beneath the waves in our yellow submarine'",
-    question2: "Who told them about the land of submarines?",
-    choiceD: "a submarine",
-    choiceE: "the sea of green",
-    choiceF: "a man",
-    answer2: "A man told them."
+    question1: "The speaker is talking about ______.",
+    choiceA: "teenagers",
+    choiceB: "babies",
+    choiceC: "old people",
+    answer1: "The speaker is talking about teenagers.",
+    question2: "What can teenagers do?",
+    choiceD: "seek out new experiences",
+    choiceE: "learn quickly",
+    choiceF: "seek out new experiences and learn quickly",
+    answer2: "They can seek out new experiences and learn quickly."
   };
 
 function setContent() {
