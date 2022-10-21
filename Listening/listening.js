@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "The speaker is talking about ______.",
-    choiceA: "teenagers",
-    choiceB: "babies",
-    choiceC: "old people",
-    answer1: "The speaker is talking about teenagers.",
-    question2: "What can teenagers do?",
-    choiceD: "seek out new experiences",
-    choiceE: "learn quickly",
-    choiceF: "seek out new experiences and learn quickly",
-    answer2: "They can seek out new experiences and learn quickly."
+    question1: "Where is the ghost from?",
+    choiceA: "She is a ghost.",
+    choiceB: "She is from the library.",
+    choiceC: "We don't know.",
+    answer1: "We don't know.",
+    question2: "'I know exactly what to do.'",
+    choiceD: "He doesn't know what to do.",
+    choiceE: "He knows what they should do.",
+    choiceF: "He wants to exactly.",
+    answer2: "He knows what they should do."
   };
 
 function setContent() {
