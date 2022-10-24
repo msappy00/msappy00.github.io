@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Where is the ghost from?",
-    choiceA: "She is a ghost.",
-    choiceB: "She is from the library.",
-    choiceC: "We don't know.",
-    answer1: "We don't know.",
-    question2: "'I know exactly what to do.'",
-    choiceD: "He doesn't know what to do.",
-    choiceE: "He knows what they should do.",
-    choiceF: "He wants to exactly.",
-    answer2: "He knows what they should do."
+    question1: "It's all about ...",
+    choiceA: "who you are",
+    choiceB: "your fancy car",
+    choiceC: "who you were",
+    answer1: "It's all about who you were.",
+    question2: "The singer knows about ...",
+    choiceD: "popular",
+    choiceE: "true",
+    choiceF: "smart",
+    answer2: "The singer knows about popular."
   };
 
 function setContent() {
