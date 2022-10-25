@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "It's all about ...",
-    choiceA: "who you are",
-    choiceB: "your fancy car",
-    choiceC: "who you were",
-    answer1: "It's all about who you were.",
-    question2: "The singer knows about ...",
-    choiceD: "popular",
-    choiceE: "true",
-    choiceF: "smart",
-    answer2: "The singer knows about popular."
+    question1: "Bea has to take her poster to school",
+    choiceA: "tonight",
+    choiceB: "tomorrow",
+    choiceC: "today",
+    answer1: "Bea has to take her poster to school tomorrow.",
+    question2: "Bea cut the blue house out of a",
+    choiceD: "school book",
+    choiceE: "library book",
+    choiceF: "magazine",
+    answer2: "Bea cut the blue house out of a library book."
   };
 
 function setContent() {
