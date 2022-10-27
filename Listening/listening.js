@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "'Nervous' is like",
-    choiceA: "'scared'",
-    choiceB: "'happy'",
-    choiceC: "'excited'",
-    answer1: "'Nervous' is like 'scared'.",
-    question2: "Arthur had answers to listen to in his",
-    choiceD: "notebook",
-    choiceE: "podcast",
-    choiceF: "inbox",
-    answer2: "Arthur had answers to listen to in his inbox."
+    question1: "'If you love somebody' ... ",
+    choiceA: "'don't tell them'",
+    choiceB: "'run away'",
+    choiceC: "'better tell them'",
+    answer1: "'If you love somebody, better tell them...'",
+    question2: "'On top of the world' means",
+    choiceD: "'very sad'",
+    choiceE: "'very happy'",
+    choiceF: "'very angry'",
+    answer2: "'On top of the world' means 'very happy'."
   };
 
 function setContent() {
