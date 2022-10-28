@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "'If you love somebody' ... ",
-    choiceA: "'don't tell them'",
-    choiceB: "'run away'",
-    choiceC: "'better tell them'",
-    answer1: "'If you love somebody, better tell them...'",
-    question2: "'On top of the world' means",
-    choiceD: "'very sad'",
-    choiceE: "'very happy'",
-    choiceF: "'very angry'",
-    answer2: "'On top of the world' means 'very happy'."
+    question1: "What does he have to do?",
+    choiceA: "crash the vehicle",
+    choiceB: "have good luck",
+    choiceC: "drive towards the screen",
+    answer1: "He has to drive towards the screen.",
+    question2: "This movie is about",
+    choiceD: "time travel",
+    choiceE: "space travel",
+    choiceF: "vacation travel",
+    answer2: "This movie is about time travel."
   };
 
 function setContent() {
