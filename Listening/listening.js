@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What happened at the library?",
-    choiceA: "there was a fire",
-    choiceB: "an author made a comment",
-    choiceC: "books were removed",
-    answer1: "Books were removed from the library.",
-    question2: "Who is Julie Moore?",
-    choiceD: "a reporter",
-    choiceE: "an author",
-    choiceF: "a kid",
-    answer2: "Julie Moore is a reporter."
+    question1: "How does she describe how she feels?",
+    choiceA: "electric, crazy",
+    choiceB: "electric, wavey",
+    choiceC: "electric, scary",
+    answer1: "She describes it as ‘electric, wavey’.",
+    question2: "’I got that _______ in my pocket’",
+    choiceD: "money",
+    choiceE: "good soul",
+    choiceF: "sunshine",
+    answer2: "’I got that sunshine in my pocket’"
   };
 
 function setContent() {
