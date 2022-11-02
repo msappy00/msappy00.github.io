@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "How does she describe how she feels?",
-    choiceA: "electric, crazy",
-    choiceB: "electric, wavey",
-    choiceC: "electric, scary",
-    answer1: "She describes it as ‘electric, wavey’.",
-    question2: "’I got that _______ in my pocket’",
-    choiceD: "money",
-    choiceE: "good soul",
-    choiceF: "sunshine",
-    answer2: "’I got that sunshine in my pocket’"
+    question1: "'You are not your _______.'",
+    choiceA: "job",
+    choiceB: "jib",
+    choiceC: "jab",
+    answer1: "'You are not your job.'",
+    question2: "'You're not the contents of your ________.'",
+    choiceD: "car",
+    choiceE: "wallet",
+    choiceF: "job",
+    answer2: "'You're not the contents of your wallet.'"
   };
 
 function setContent() {
