@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "'You are not your _______.'",
-    choiceA: "job",
-    choiceB: "jib",
-    choiceC: "jab",
-    answer1: "'You are not your job.'",
-    question2: "'You're not the contents of your ________.'",
-    choiceD: "car",
-    choiceE: "wallet",
-    choiceF: "job",
-    answer2: "'You're not the contents of your wallet.'"
+    question1: "How many eyes do spiders have?",
+    choiceA: "one",
+    choiceB: "eight",
+    choiceC: "two",
+    answer1: "Spiders have eight eyes.",
+    question2: "What are jumping spiders good at?",
+    choiceD: "hunting",
+    choiceE: "watching YouTube videos",
+    choiceF: "playing poker",
+    answer2: "Jumping spiders are good at hunting."
   };
 
 function setContent() {
