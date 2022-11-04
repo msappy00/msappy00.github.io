@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "How many eyes do spiders have?",
-    choiceA: "one",
-    choiceB: "eight",
-    choiceC: "two",
-    answer1: "Spiders have eight eyes.",
-    question2: "What are jumping spiders good at?",
-    choiceD: "hunting",
-    choiceE: "watching YouTube videos",
-    choiceF: "playing poker",
-    answer2: "Jumping spiders are good at hunting."
+    question1: "What does the singer say?",
+    choiceA: "hi",
+    choiceB: "hello",
+    choiceC: "goodbye",
+    answer1: "He says, ‘hello’.",
+    question2: "What does the other person say?",
+    choiceD: "hi",
+    choiceE: "hello",
+    choiceF: "goodbye",
+    answer2: "The other person says, ‘goodbye’."
   };
 
 function setContent() {
