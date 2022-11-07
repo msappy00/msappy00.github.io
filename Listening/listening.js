@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What does the singer say?",
-    choiceA: "hi",
-    choiceB: "hello",
-    choiceC: "goodbye",
-    answer1: "He says, ‘hello’.",
-    question2: "What does the other person say?",
-    choiceD: "hi",
-    choiceE: "hello",
-    choiceF: "goodbye",
-    answer2: "The other person says, ‘goodbye’."
+    question1: "What was the homework on?",
+    choiceA: "the present tense",
+    choiceB: "the subjunctive tense",
+    choiceC: "the subjunctive text",
+    answer1: "The homework was on the subjunctive tense.",
+    question2: "If the present tense of the verb is 'I am', then the subjunctive tense is 'If I ….'",
+    choiceD: "am",
+    choiceE: "was",
+    choiceF: "were",
+    answer2: "The subjunctive tense is 'If I were.'"
   };
 
 function setContent() {
