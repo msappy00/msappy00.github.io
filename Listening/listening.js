@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What is the man asking about?",
-    choiceA: "his friend",
-    choiceB: "his health",
-    choiceC: "his reservation",
-    answer1: "The man is asking about his reservation.",
-    question2: "What is the problem?",
-    choiceD: "They lost his reservation.",
-    choiceE: "There ran out of cars.",
-    choiceF: "He is not vibrant enough.",
-    answer2: "They ran out of cars."
+    question1: "What does she need?",
+    choiceA: "a place to eat",
+    choiceB: "a place to work",
+    choiceC: "a place to sleep",
+    answer1: "She needs a place to sleep.",
+    question2: "What does the man do?",
+    choiceD: "The man helps her.",
+    choiceE: "The man tells her.",
+    choiceF: "The man doesn’t stop walking.",
+    answer2: "The man doesn’t stop walking."
   };
 
 function setContent() {
