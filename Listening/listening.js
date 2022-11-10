@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What does she need?",
-    choiceA: "a place to eat",
-    choiceB: "a place to work",
-    choiceC: "a place to sleep",
-    answer1: "She needs a place to sleep.",
-    question2: "What does the man do?",
-    choiceD: "The man helps her.",
-    choiceE: "The man tells her.",
-    choiceF: "The man doesn’t stop walking.",
-    answer2: "The man doesn’t stop walking."
+    question1: "Where is the fish going?",
+    choiceA: "to play in the park",
+    choiceB: "to his job",
+    choiceC: "to the mooch",
+    answer1: "He is going to his job.",
+    question2: "What do you think a mooch does?",
+    choiceD: "borrows things, but doesn't return them",
+    choiceE: "works hard",
+    choiceF: "steals things and runs away",
+    answer2: "A mooch borrows things, but doesn't return them."
   };
 
 function setContent() {
