@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Where is the fish going?",
-    choiceA: "to play in the park",
-    choiceB: "to his job",
-    choiceC: "to the mooch",
-    answer1: "He is going to his job.",
-    question2: "What do you think a mooch does?",
-    choiceD: "borrows things, but doesn't return them",
-    choiceE: "works hard",
-    choiceF: "steals things and runs away",
-    answer2: "A mooch borrows things, but doesn't return them."
+    question1: "What is awesome?",
+    choiceA: "something",
+    choiceB: "nothing",
+    choiceC: "everything",
+    answer1: "Everything is awesome.",
+    question2: "Everything you ____ is awesome.",
+    choiceD: "see",
+    choiceE: "think",
+    choiceF: "say",
+    answer2: "Yes, that's right."
   };
 
 function setContent() {
