@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What is awesome?",
-    choiceA: "something",
-    choiceB: "nothing",
-    choiceC: "everything",
-    answer1: "Everything is awesome.",
-    question2: "Everything you ____ is awesome.",
-    choiceD: "see",
-    choiceE: "think",
-    choiceF: "say",
-    answer2: "Yes, that's right."
+    question1: "What problem is Arthur having?",
+    choiceA: "He’s having breakfast.",
+    choiceB: "He’s in a fight with his best friend.",
+    choiceC: "He’s in a fight with his brother.",
+    answer1: "He is in a fight with his best friend.",
+    question2: "What day is it?",
+    choiceD: "Friday",
+    choiceE: "Saturday",
+    choiceF: "Sunday",
+    answer2: "It’s Sunday."
   };
 
 function setContent() {
