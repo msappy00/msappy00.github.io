@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What problem is Arthur having?",
-    choiceA: "He’s having breakfast.",
-    choiceB: "He’s in a fight with his best friend.",
-    choiceC: "He’s in a fight with his brother.",
-    answer1: "He is in a fight with his best friend.",
-    question2: "What day is it?",
-    choiceD: "Friday",
-    choiceE: "Saturday",
-    choiceF: "Sunday",
-    answer2: "It’s Sunday."
+    question1: "Love and getting along is ",
+    choiceA: "not as beautiful as imagined",
+    choiceB: "as beautiful as imagined",
+    choiceC: "so easy",
+    answer1: "Love and getting along is not as beautiful as imagined.",
+    question2: "I understand these things, but I really have to ",
+    choiceD: "hear from friends",
+    choiceE: "face them",
+    choiceF: "be indifferent",
+    answer2: "I understand these things, but I really have to face them."
   };
 
 function setContent() {
