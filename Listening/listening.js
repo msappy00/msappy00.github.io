@@ -18,9 +18,9 @@ const listening = {
     answer1: "Vampires like baseball.",
     question2: "Why do vampires like it?",
     choiceD: "They have liked it since then.",
-    choiceE: "Americans like baseball.",
+    choiceE: "It's the American pastime.",
     choiceF: "Vampires can eat baseballs.",
-    answer2: "Americans like baseball."
+    answer2: "It's the American pastime."
   };
 
 function setContent() {
