@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Love and getting along is ",
-    choiceA: "not as beautiful as imagined",
-    choiceB: "as beautiful as imagined",
-    choiceC: "so easy",
-    answer1: "Love and getting along is not as beautiful as imagined.",
-    question2: "I understand these things, but I really have to ",
-    choiceD: "hear from friends",
-    choiceE: "face them",
-    choiceF: "be indifferent",
-    answer2: "I understand these things, but I really have to face them."
+    question1: "Vampires like ",
+    choiceA: "basketball",
+    choiceB: "baseball",
+    choiceC: "football",
+    answer1: "Vampires like baseball.",
+    question2: "Why do vampires like it?",
+    choiceD: "They have liked it since then.",
+    choiceE: "Americans like baseball.",
+    choiceF: "Vampires can eat baseballs.",
+    answer2: "Americans like baseball."
   };
 
 function setContent() {
