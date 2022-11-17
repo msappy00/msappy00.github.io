@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Vampires like ",
-    choiceA: "basketball",
-    choiceB: "baseball",
-    choiceC: "football",
-    answer1: "Vampires like baseball.",
-    question2: "Why do vampires like it?",
-    choiceD: "They have liked it since then.",
-    choiceE: "It's the American pastime.",
-    choiceF: "Vampires can eat baseballs.",
-    answer2: "It's the American pastime."
+    question1: "What doesn't he have?",
+    choiceA: "her taste",
+    choiceB: "her beauty mark",
+    choiceC: "her red face",
+    answer1: "He doesn't have her beauty mark.",
+    question2: "What does he have?",
+    choiceD: "her long hands",
+    choiceE: "her wrong hands",
+    choiceF: "her beauty mark",
+    answer2: "He does have her long hands."
   };
 
 function setContent() {
