@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What doesn't he have?",
-    choiceA: "her taste",
-    choiceB: "her beauty mark",
-    choiceC: "her red face",
-    answer1: "He doesn't have her beauty mark.",
-    question2: "What does he have?",
-    choiceD: "her long hands",
-    choiceE: "her wrong hands",
-    choiceF: "her beauty mark",
-    answer2: "He does have her long hands."
+    question1: "The sandals were sold for ",
+    choiceA: "Steve Jobs",
+    choiceB: "Apple",
+    choiceC: "$218,750",
+    answer1: "The sandals were sold for $218,750.",
+    question2: "Why did Steve Jobs like the sandals?",
+    choiceD: "He liked the design.",
+    choiceE: "They made him feel like a businessman.",
+    choiceF: "He wanted to stand out.",
+    answer2: "He liked the design."
   };
 
 function setContent() {
