@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "The sandals were sold for ",
-    choiceA: "Steve Jobs",
-    choiceB: "Apple",
-    choiceC: "$218,750",
-    answer1: "The sandals were sold for $218,750.",
-    question2: "Why did Steve Jobs like the sandals?",
-    choiceD: "He liked the design.",
-    choiceE: "They made him feel like a businessman.",
-    choiceF: "He wanted to stand out.",
-    answer2: "He liked the design."
+    question1: "What did Arthur ask about?",
+    choiceA: "good friends",
+    choiceB: "mothers and fathers",
+    choiceC: "baby sisters and brothers",
+    answer1: "He asked about baby sisters and brothers.",
+    question2: "The baby getting ’attention’ means ",
+    choiceD: "The mother and father are watching the baby.",
+    choiceE: "The baby is getting money from someone.",
+    choiceF: "The mother and father are punishing the baby.",
+    answer2: "The mother and father are watching the baby."
   };
 
 function setContent() {
