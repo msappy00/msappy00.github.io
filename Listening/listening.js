@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What did Arthur ask about?",
-    choiceA: "good friends",
-    choiceB: "mothers and fathers",
-    choiceC: "baby sisters and brothers",
-    answer1: "He asked about baby sisters and brothers.",
-    question2: "The baby getting ’attention’ means ",
-    choiceD: "The mother and father are watching the baby.",
-    choiceE: "The baby is getting money from someone.",
-    choiceF: "The mother and father are punishing the baby.",
-    answer2: "The mother and father are watching the baby."
+    question1: "How old is he?",
+    choiceA: "He is 23.",
+    choiceB: "He is 24.",
+    choiceC: "He is 13.",
+    answer1: "He is 24.",
+    question2: "'Blind' here means we don't ",
+    choiceD: "notice something easy to see",
+    choiceE: "use our eyes to look",
+    choiceF: "know something difficult",
+    answer2: "'Blind' here means we don't notice something easy."
   };
 
 function setContent() {
