@@ -15,7 +15,7 @@ const listening = {
     choiceA: "He is 23.",
     choiceB: "He is 24.",
     choiceC: "He is 13.",
-    answer1: "He is 24.",
+    answer1: "He is 23.",
     question2: "'Blind' here means we don't ",
     choiceD: "notice something easy to see",
     choiceE: "use our eyes to look",
