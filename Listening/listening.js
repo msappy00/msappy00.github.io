@@ -20,7 +20,7 @@ const listening = {
     choiceD: "notice something easy to see",
     choiceE: "use our eyes to look",
     choiceF: "know something difficult",
-    answer2: "'Blind' here means we don't notice something easy."
+    answer2: "'Blind' here means we don't notice something easy to see."
   };
 
 function setContent() {
