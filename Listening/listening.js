@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "How old is he?",
-    choiceA: "He is 23.",
-    choiceB: "He is 24.",
-    choiceC: "He is 13.",
-    answer1: "He is 23.",
-    question2: "'Blind' here means we don't ",
-    choiceD: "notice something easy to see",
-    choiceE: "use our eyes to look",
-    choiceF: "know something difficult",
-    answer2: "'Blind' here means we don't notice something easy to see."
+    question1: "What holiday is it?",
+    choiceA: "Chinese New Year",
+    choiceB: "Christmas",
+    choiceC: "Halloween",
+    answer1: "It's Christmas.",
+    question2: "What do the men want?",
+    choiceD: "They want to see Santa Claus.",
+    choiceE: "They want to be alone.",
+    choiceF: "They want him to open the door.",
+    answer2: "They want him to open the door."
   };
 
 function setContent() {
