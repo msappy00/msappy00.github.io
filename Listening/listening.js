@@ -12,15 +12,15 @@ if ('serviceWorker' in navigator) {
 
 const listening = {
     question1: "What holiday is it?",
-    choiceA: "Chinese New Year",
-    choiceB: "Christmas",
-    choiceC: "Halloween",
-    answer1: "It's Christmas.",
-    question2: "What do the men want?",
-    choiceD: "They want to see Santa Claus.",
-    choiceE: "They want to be alone.",
-    choiceF: "They want him to open the door.",
-    answer2: "They want him to open the door."
+    choiceA: "Thanksgiving",
+    choiceB: "Halloween",
+    choiceC: "Christmas",
+    answer1: "It's Thanksgiving.",
+    question2: "Who did she invite to dinner?",
+    choiceD: "She invited herself and her friends.",
+    choiceE: "She invited Chuck.",
+    choiceF: "She invited Thanksgiving dinner.",
+    answer2: "She invited herself and her friends."
   };
 
 function setContent() {
