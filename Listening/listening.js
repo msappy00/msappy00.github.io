@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What holiday is it?",
-    choiceA: "Thanksgiving",
-    choiceB: "Halloween",
-    choiceC: "Christmas",
-    answer1: "It's Thanksgiving.",
-    question2: "Who did she invite to dinner?",
-    choiceD: "She invited herself and her friends.",
-    choiceE: "She invited Chuck.",
-    choiceF: "She invited Thanksgiving dinner.",
-    answer2: "She invited herself and her friends."
+    question1: "What does he want?",
+    choiceA: "a kiss and a hug",
+    choiceB: "a kiss and a bug",
+    choiceC: "a jet plane",
+    answer1: "He wants a kiss and a hug.",
+    question2: "How will he travel?",
+    choiceD: "on a jet plane",
+    choiceE: "on a jet plate",
+    choiceF: "on rollerskates",
+    answer2: "He will travel on a jet plane."
   };
 
 function setContent() {
