@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What does he want?",
-    choiceA: "a kiss and a hug",
-    choiceB: "a kiss and a bug",
-    choiceC: "a jet plane",
-    answer1: "He wants a kiss and a hug.",
-    question2: "How will he travel?",
-    choiceD: "on a jet plane",
-    choiceE: "on a jet plate",
-    choiceF: "on rollerskates",
-    answer2: "He will travel on a jet plane."
+    question1: "Why did the teacher talk to Mr. Baxter?",
+    choiceA: "he was watching TV",
+    choiceB: "he was not focusing on class",
+    choiceC: "he was paying attention",
+    answer1: "He was not focusing on class.",
+    question2: "What is their homework about?",
+    choiceD: "Mr. Baxter",
+    choiceE: "heroes",
+    choiceF: "the teacher",
+    answer2: "Their homework is about heroes."
   };
 
 function setContent() {
