@@ -12,15 +12,15 @@ if ('serviceWorker' in navigator) {
 
 const listening = {
     question1: "Good listening is ",
-    choiceA: "one of the most important things we can do.",
-    choiceB: "one of the things we can't do.",
-    choiceC: "the only thing we can do.",
-    answer1: "It is one of the most important things we can do.",
-    question2: "To become a better listener you should NOT ",
-    choiceD: "just wait for your turn to talk.",
-    choiceE: "summarize what you just heard.",
-    choiceF: "ask questions if you missed anything.",
-    answer2: "You should NOT just wait for your turn to talk."
+    choiceA: "a common way to miss what’s being said.",
+    choiceB: "planning your response while the speaker is talking.",
+    choiceC: "one of the most important things we can do.",
+    answer1: "Good listening is one of the most important things we can do.",
+    question2: "Don’t be shy about asking the speaker to ",
+    choiceD: "feel embarrassing.",
+    choiceE: "repeat what you missed.",
+    choiceF: "miss what you repeat.",
+    answer2: "Don’t be shy about asking the speaker to repeat what you missed."
   };
 
 function setContent() {
