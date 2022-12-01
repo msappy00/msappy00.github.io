@@ -144,64 +144,64 @@
 <body onload="setContent()">
 
      <!-- Tab links -->
-    <div class="tab">
-      <button class="tablinks active" onclick="openTab(event, '聆聽')" id="defaultOpen">聆聽</button>
-      <button class="tablinks" onclick="openTab(event, '文字記錄')">文字記錄</button>
-      <button class="tablinks" onclick="openTab(event, '詞彙')">詞彙</button>
-      <button class="tablinks" onclick="openTab(event, '學到更多')">學到更多</button>
-    </div>
+	<div class="tab">
+		<button class="tablinks active" onclick="openTab(event, '聆聽')" id="defaultOpen">聆聽</button>
+		<button class="tablinks" onclick="openTab(event, '文字記錄')">文字記錄</button>
+		<button class="tablinks" onclick="openTab(event, '詞彙')">詞彙</button>
+		<button class="tablinks" onclick="openTab(event, '學到更多')">學到更多</button>
+	</div>
 
-    <!-- Tab content -->
-    <div id="聆聽" class="tabcontent" align="center" style="display: block">
-        <h2>聽錄音，回答問題。</h2>
+	<!-- Tab content -->
+	<div id="聆聽" class="tabcontent" align="center" style="display: block">
+		<h2>聽錄音，回答問題。</h2>
 
-        <img src="images/better_listener_02.png"
-	     alt="two people sitting on chairs"
-	     class="responsive">
+		<img src="images/better_listener_03.PNG"
+		     alt="two people sitting on chairs"
+		     class="responsive">
 
-        <p></p>
+		<p></p>
 
-        <audio controls>
-            <source src="audio/better_listener_02.mp3" type="audio/ogg">
-            <source src="audio/better_listener_02.mp3" type="audio/mpeg">
-             Your browser does not support the audio tag.
-        </audio>
+		<audio controls>
+		    <source src="audio/better_listener_03.mp3" type="audio/ogg">
+		    <source src="audio/better_listener_03.mp3" type="audio/mpeg">
+		     Your browser does not support the audio tag.
+		</audio>
 
-        <!--<iframe width="560" height="315" class="responsive"
-	    src="https://www.youtube.com/embed/SneCkM0bJq0?clip=Ugkxax72E63gKA91rOCglDxiRlripZQk2mHL&amp;clipt=EPykAhjI3AM" 
-	    title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; 
-	    picture-in-picture" allowfullscreen>
-	</iframe>-->
-	    
-        <h3 id="question1"></h3>
-        <select>
-            <option>選一個</option>
-            <option id="choiceA"></option>
-            <option id="choiceB"></option>
-            <option id="choiceC"></option>
-        </select>
-        <p></p>
-        <button class="btn" id="checkBtn1" onclick="checkAnswer1()">查對</button>
-        <h3 id="confirmation1"></h3>
-        <h3 id="feedback1" style="font-weight: bold"> </h3>
+		<!--<iframe width="560" height="315" class="responsive"
+		    src="https://www.youtube.com/embed/SneCkM0bJq0?clip=Ugkxax72E63gKA91rOCglDxiRlripZQk2mHL&amp;clipt=EPykAhjI3AM" 
+		    title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; 
+		    picture-in-picture" allowfullscreen>
+		</iframe>-->
 
-        <h3 id="question2"></h3>
-        <select>
-            <option>選一個</option>
-            <option id="choiceD"></option>
-            <option id="choiceE"></option>
-            <option id="choiceF"></option>
-        </select>
-        <p></p>
-        <button class="btn" id="checkBtn2" onclick="checkAnswer2()">查對</button>
-        <h3 id="confirmation2"></h3>
-        <h3 id="feedback2" style="font-weight: bold"> </h3>
+		<h3 id="question1"></h3>
+		<select>
+		    <option>選一個</option>
+		    <option id="choiceA"></option>
+		    <option id="choiceB"></option>
+		    <option id="choiceC"></option>
+		</select>
+		<p></p>
+		<button class="btn" id="checkBtn1" onclick="checkAnswer1()">查對</button>
+		<h3 id="confirmation1"></h3>
+		<h3 id="feedback1" style="font-weight: bold"> </h3>
 
-        <div style="height: 50px"></div>
-        	<p></p>
-    	</div>
+		<h3 id="question2"></h3>
+		<select>
+		    <option>選一個</option>
+		    <option id="choiceD"></option>
+		    <option id="choiceE"></option>
+		    <option id="choiceF"></option>
+		</select>
+		<p></p>
+		<button class="btn" id="checkBtn2" onclick="checkAnswer2()">查對</button>
+		<h3 id="confirmation2"></h3>
+		<h3 id="feedback2" style="font-weight: bold"> </h3>
+
+		<div style="height: 50px"></div>
+			<p></p>
+	</div>
 	
-    	<div id="文字記錄" class="tabcontent">
+	<div id="文字記錄" class="tabcontent">
 		<h1>文字記錄</h1>
 
 		<p><strong>Narrator</strong>:<br>
@@ -210,11 +210,14 @@
 		develop our <strong>worldview</strong>, and <strong>potentially</strong> even change people's minds.<br>
 		So, what can we do to become better listeners?</p>
 
-		<p>Another great way to show your understanding is by <strong>summarizing</strong> 
-		what you just heard and asking if you’ve missed anything. 
-		<strong>Summaries</strong> like this show the <strong>speaker</strong> that you're truly trying to understand them
-		rather than just waiting for your turn to talk.
-
+		<p>Speaking of which, while a good conversation <strong>requires back and forth</strong>,
+		planning out your <strong>response</strong> while the speaker is talking
+		is a common way to miss what’s being said.
+		So try to <strong>stay present</strong> and if you lose focus,
+		don't be shy about asking the speaker to repeat what you missed.
+		This might feel <strong>embarrassing</strong>,
+		but asking for <strong>clarification</strong> actually shows that you’re <strong>committed
+		to understanding</strong>.
 		</p>
 
 		<div style="height: 50px"></div>
@@ -223,36 +226,29 @@
 	<div id="詞彙" class="tabcontent">
 		<h1>詞彙</h1>
 		<dl>
-	    	<dt><strong>behavioral scientists</strong>: 行為科學家</dt>
-		<dt><strong>worldview</strong>: 世界觀</dt>
-		<dt><strong>potentially</strong>: 潛在地；可能地</dt>
-		<dt><strong>summarize</strong>: 總結，概述，概括</dt>
-			<dd>I'll just summarize the main points of the argument in a few words.</dd>
-			<dd>我會用幾句話把爭論的要點概括一下。</dd>
-		<dt><strong>summary</strong>: 總結，概要，摘要</dt>
-			<dd>At the end of the news, they often give you a summary of the main stories.</dd>
-			<dd>在新聞結束的時候，他們常常會總結一下主要的新聞內容。</dd>
-		<dt><strong>speaker</strong>: 說話者</dt>
+			<dt><strong>requires back and forth</strong>: 需要來回</dt>
+			<dt><strong>response</strong>: 回答；回應，反應</dt>
+			<dt><strong>stay present</strong>: 留在當下</dt>
+			<dt><strong>embarrassing</strong>: 使人感到窘迫的，令人尷尬的，使人難堪的</dt>
+			<dt><strong>clarification</strong>: 澄清</dt>
+			<dt><strong>committed to understanding</strong>: 致力於理解</dt>
 		</dl>
 	</div>
 
-
-
-    <div id="學到更多" class="tabcontent" align="center">
-      <h1>找安娜老師：</h1>
-        <ul class="nav">
-            <li><a href="https://www.facebook.com/annabell.lin.1">
-                <img class="social_icon" src="icons/facebook.png"></a></li>
-            <li><a href="https://linevoom.line.me/user/_dZW2OM_BxR7gC0PF4DFib6JzsAd4Xw0v42ybyaQ">
-                <img class="social_icon" src="icons/LINE_Brand_icon.png"></a></li>
-        </ul>
-        <p></p>
-        <h2 align="center">幫助資助這個教育資源：</h2>
-        <div style="height: 30px"></div>
-        <a href="https://paypal.me/teachermatthew544">
-            <img class="social_icon" src="icons/paypal.png"></a>
-
-    </div>
+	<div id="學到更多" class="tabcontent" align="center">
+		<h1>找安娜老師：</h1>
+		<ul class="nav">
+		    <li><a href="https://www.facebook.com/annabell.lin.1">
+			<img class="social_icon" src="icons/facebook.png"></a></li>
+		    <li><a href="https://linevoom.line.me/user/_dZW2OM_BxR7gC0PF4DFib6JzsAd4Xw0v42ybyaQ">
+			<img class="social_icon" src="icons/LINE_Brand_icon.png"></a></li>
+		</ul>
+		<p></p>
+		<h2 align="center">幫助資助這個教育資源：</h2>
+		<div style="height: 30px"></div>
+		<a href="https://paypal.me/teachermatthew544">
+		    <img class="social_icon" src="icons/paypal.png"></a>
+	</div>
 
 </body>
 </html>
