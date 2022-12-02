@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Good listening is ",
-    choiceA: "a common way to miss what’s being said.",
-    choiceB: "planning your response while the speaker is talking.",
-    choiceC: "one of the most important things we can do.",
-    answer1: "Good listening is one of the most important things we can do.",
-    question2: "Don’t be shy about asking the speaker to ",
-    choiceD: "feel embarrassing.",
-    choiceE: "repeat what you missed.",
-    choiceF: "miss what you repeat.",
-    answer2: "Don’t be shy about asking the speaker to repeat what you missed."
+    question1: "What is tip four?",
+    choiceA: "Don’t be afraid of the speaker.",
+    choiceB: "Don’t be silence.",
+    choiceC: "Don’t be afraid of silence.",
+    answer1: "Don’t be afraid of silence.",
+    question2: "Taking a beat to think can ",
+    choiceD: "afraid the silence.",
+    choiceE: "formulate your response.",
+    choiceF: "help the speaker.",
+    answer2: "Taking a beat to think can help the speaker."
   };
 
 function setContent() {
