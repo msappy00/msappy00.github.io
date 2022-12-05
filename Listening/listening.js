@@ -18,7 +18,7 @@ const listening = {
     answer1: "He is at the playground.",
     question2: "How do you think he feels?",
     choiceD: "He sounds bored.",
-    choiceE: "He looks bored",
+    choiceE: "He looks bored.",
     choiceF: "He feels boring.",
     answer2: "He sounds bored."
   };
