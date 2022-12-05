@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What is tip four?",
-    choiceA: "Don’t be afraid of the speaker.",
-    choiceB: "Don’t be silence.",
-    choiceC: "Don’t be afraid of silence.",
-    answer1: "Don’t be afraid of silence.",
-    question2: "Taking a beat to think can ",
-    choiceD: "afraid the silence.",
-    choiceE: "formulate your response.",
-    choiceF: "help the speaker.",
-    answer2: "Taking a beat to think can help the speaker."
+    question1: "Where is Arthur?",
+    choiceA: "He is with Buster.",
+    choiceB: "He is at the playground.",
+    choiceC: "His name is Arthur.",
+    answer1: "He is at the playground.",
+    question2: "How do you think he feels?",
+    choiceD: "He sounds bored.",
+    choiceE: "He looks bored",
+    choiceF: "He feels boring.",
+    answer2: "He sounds bored."
   };
 
 function setContent() {
