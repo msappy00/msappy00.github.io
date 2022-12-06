@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Where is Arthur?",
-    choiceA: "He is with Buster.",
-    choiceB: "He is at the playground.",
-    choiceC: "His name is Arthur.",
-    answer1: "He is at the playground.",
-    question2: "How do you think he feels?",
-    choiceD: "He sounds bored.",
-    choiceE: "He looks bored.",
-    choiceF: "He feels boring.",
-    answer2: "He sounds bored."
+    question1: "You may find yourself living in a beautiful ",
+    choiceA: "house",
+    choiceB: "wife",
+    choiceC: "automobile",
+    answer1: "You may find yourself living in a beautiful house.",
+    question2: "What may you ask yourself?",
+    choiceD: "What did I get here?",
+    choiceE: "How did I get there?",
+    choiceF: "How did I get here?",
+    answer2: "How did I get here?"
   };
 
 function setContent() {
