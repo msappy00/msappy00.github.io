@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "You may find yourself living in a beautiful ",
-    choiceA: "house",
-    choiceB: "wife",
-    choiceC: "automobile",
-    answer1: "You may find yourself living in a beautiful house.",
-    question2: "What may you ask yourself?",
-    choiceD: "What did I get here?",
-    choiceE: "How did I get there?",
-    choiceF: "How did I get here?",
-    answer2: "How did I get here?"
+    question1: "Who is Arthur?",
+    choiceA: "King of the Britons",
+    choiceB: "Queen of the Britons",
+    choiceC: "Emperor of the Britons",
+    answer1: "He is King of the Britons.",
+    question2: "What does God give Arthur?",
+    choiceD: "a nest",
+    choiceE: "a crest",
+    choiceF: "a quest",
+    answer2: "God gives Arthur a quest."
   };
 
 function setContent() {
