@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Who is Arthur?",
-    choiceA: "King of the Britons",
-    choiceB: "Queen of the Britons",
-    choiceC: "Emperor of the Britons",
-    answer1: "He is King of the Britons.",
-    question2: "What does God give Arthur?",
-    choiceD: "a nest",
-    choiceE: "a crest",
-    choiceF: "a quest",
-    answer2: "God gives Arthur a quest."
+    question1: "What is 'AI' short for?",
+    choiceA:  "Art Index",
+    choiceB:  "Aeronautical Information",
+    choiceC:  "Artificial Intelligence",
+    answer1:  "'AI' short for 'Artificial Intelligence'.",
+    question2:  "Artificial Intelligence is probably going to ",
+    choiceD:  "have a hard time agreeing",
+    choiceE:  "separate sense from nonsense",
+    choiceF:  "your life and the world",
+    answer2:  "AI is probably going to change your life and the world."
   };
 
 function setContent() {
