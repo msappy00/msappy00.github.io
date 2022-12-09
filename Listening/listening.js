@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What is 'AI' short for?",
-    choiceA:  "Art Index",
-    choiceB:  "Aeronautical Information",
-    choiceC:  "Artificial Intelligence",
-    answer1:  "'AI' short for 'Artificial Intelligence'.",
-    question2:  "Artificial Intelligence is probably going to ",
-    choiceD:  "have a hard time agreeing",
-    choiceE:  "separate sense from nonsense",
-    choiceF:  "your life and the world",
-    answer2:  "AI is probably going to change your life and the world."
+    question1: "What does she want?",
+    choiceA:  "love",
+    choiceB:  "money",
+    choiceC:  "artificial intelligence",
+    answer1:  "She wants your love.",
+    question2:  "'caught in a ___ romance'",
+    choiceD:  "bad",
+    choiceE:  "sad",
+    choiceF:  "mad",
+    answer2:  "'caught in a bad romance'"
   };
 
 function setContent() {
