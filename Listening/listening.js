@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What does she want?",
-    choiceA:  "love",
-    choiceB:  "money",
-    choiceC:  "artificial intelligence",
-    answer1:  "She wants your love.",
-    question2:  "'caught in a ___ romance'",
-    choiceD:  "bad",
-    choiceE:  "sad",
-    choiceF:  "mad",
-    answer2:  "'caught in a bad romance'"
+    question1: "How does Arthur feel about the contest?",
+    choiceA:  "He sounds excited.",
+    choiceB:  "He sounds bored.",
+    choiceC:  "He sounds angry.",
+    answer1:  "He sounds excited.",
+    question2:  "How many box tops does he need to send?",
+    choiceD:  "twelve",
+    choiceE:  "two",
+    choiceF:  "twenty",
+    answer2:  "He needs to send twenty box tops."
   };
 
 function setContent() {
