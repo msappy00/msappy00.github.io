@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "How does Arthur feel about the contest?",
-    choiceA:  "He sounds excited.",
-    choiceB:  "He sounds bored.",
-    choiceC:  "He sounds angry.",
-    answer1:  "He sounds excited.",
-    question2:  "How many box tops does he need to send?",
-    choiceD:  "twelve",
-    choiceE:  "two",
-    choiceF:  "twenty",
-    answer2:  "He needs to send twenty box tops."
+    question1: "It’s the first day of ",
+    choiceA: "high school",
+    choiceB: "college",
+    choiceC: "a new ballgame",
+    answer1: "It’s the first day of college.",
+    question2:  "What is the crowd chanting at them?",
+    choiceD: "nerds",
+    choiceE: "Ogre",
+    choiceF: "加油",
+    answer2: "They are chanting ‘nerds’ at them."
   };
 
 function setContent() {
