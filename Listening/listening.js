@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "It’s the first day of ",
-    choiceA: "high school",
-    choiceB: "college",
-    choiceC: "a new ballgame",
-    answer1: "It’s the first day of college.",
-    question2:  "What is the crowd chanting at them?",
-    choiceD: "nerds",
-    choiceE: "Ogre",
-    choiceF: "加油",
-    answer2: "They are chanting ‘nerds’ at them."
+    question1: "'What if' questions can help you ",
+    choiceA: "learn about yourself",
+    choiceB: "think about interesting ideas",
+    choiceC: "practice being creative",
+    answer1: "'What if' questions can help you do all of these.",
+    question2: "What happens if you learn something you want to learn?",
+    choiceD: "Your brain punishes you.",
+    choiceE: "Your brain rewards you.",
+    choiceF: "Your brain explodes.",
+    answer2: "Your brain rewards you."
   };
 
 function setContent() {
