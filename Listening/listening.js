@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "'What if' questions can help you ",
-    choiceA: "learn about yourself",
-    choiceB: "think about interesting ideas",
-    choiceC: "practice being creative",
-    answer1: "'What if' questions can help you do all of these.",
-    question2: "What happens if you learn something you want to learn?",
-    choiceD: "Your brain punishes you.",
-    choiceE: "Your brain rewards you.",
-    choiceF: "Your brain explodes.",
-    answer2: "Your brain rewards you."
+    question1: "Curious people ask ",
+    choiceA: "answers",
+    choiceB: "questions",
+    choiceC: "nothing",
+    answer1: "Curious people ask questions.",
+    question2: "Curious people want to ",
+    choiceD: "ask answers",
+    choiceE: "learn more",
+    choiceF: "feel bored",
+    answer2: "Curious people want to learn more."
   };
 
 function setContent() {
