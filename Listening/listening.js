@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Curious people ask ",
-    choiceA: "answers",
-    choiceB: "questions",
-    choiceC: "nothing",
-    answer1: "Curious people ask questions.",
-    question2: "Curious people want to ",
-    choiceD: "ask answers",
-    choiceE: "learn more",
-    choiceF: "feel bored",
-    answer2: "Curious people want to learn more."
+    question1: "The two models are the medical model and ",
+    choiceA: "the fashion model",
+    choiceB: "the model car",
+    choiceC: "the social model",
+    answer1: "The two models are the medical model and the social model.",
+    question2: "The main idea is that autistic people ",
+    choiceD: "need to be fixed.",
+    choiceE: "need accommodations.",
+    choiceF: "are the problem.",
+    answer2: "The main idea is that autistic people need accommodations."
   };
 
 function setContent() {
