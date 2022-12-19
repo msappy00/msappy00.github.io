@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "The two models are the medical model and ",
-    choiceA: "the fashion model",
-    choiceB: "the model car",
-    choiceC: "the social model",
-    answer1: "The two models are the medical model and the social model.",
-    question2: "The main idea is that autistic people ",
-    choiceD: "need to be fixed.",
-    choiceE: "need accommodations.",
-    choiceF: "are the problem.",
-    answer2: "The main idea is that autistic people need accommodations."
+    question1: "How many people did he ask?",
+    choiceA: "five",
+    choiceB: "four",
+    choiceC: "134",
+    answer1: "He asked four people.",
+    question2:  "What number was he thinking of?",
+    choiceD: "forty",
+    choiceE: "two",
+    choiceF: "134",
+    answer2: "The correct answer is 134."
   };
 
 function setContent() {
