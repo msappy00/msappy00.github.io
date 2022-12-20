@@ -16,7 +16,7 @@ const listening = {
     choiceB: "Sophia Ortiz",
     choiceC: "Media Wise",
     answer1: "Her name is Sophia Ortiz.",
-    question2:  "Where can you see these Keanu videos?",
+    question2: "Where can you see these Keanu videos?",
     choiceD: "TikTube",
     choiceE: "TikTok",
     choiceF: "FaceTok",
