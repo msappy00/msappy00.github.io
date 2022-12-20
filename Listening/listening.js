@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "How many people did he ask?",
-    choiceA: "five",
-    choiceB: "four",
-    choiceC: "134",
-    answer1: "He asked four people.",
-    question2:  "What number was he thinking of?",
-    choiceD: "forty",
-    choiceE: "two",
-    choiceF: "134",
-    answer2: "The correct answer is 134."
+    question1: "What is her name?",
+    choiceA: "Keanu Reeves",
+    choiceB: "Sophia Ortiz",
+    choiceC: "Media Wise",
+    answer1: "Her name is Sophia Ortiz.",
+    question2:  "Where can you see these Keanu videos?",
+    choiceD: "TikTube",
+    choiceE: "TikTok",
+    choiceF: "FaceTok",
+    answer2: "You can see these videos on TikTok."
   };
 
 function setContent() {
