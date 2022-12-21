@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What is her name?",
-    choiceA: "Keanu Reeves",
-    choiceB: "Sophia Ortiz",
-    choiceC: "Media Wise",
-    answer1: "Her name is Sophia Ortiz.",
-    question2: "Where can you see these Keanu videos?",
-    choiceD: "TikTube",
-    choiceE: "TikTok",
-    choiceF: "FaceTok",
-    answer2: "You can see these videos on TikTok."
+    question1: "'Got nothin' in my _______.'",
+    choiceA: "brain",
+    choiceB: "rain",
+    choiceC: "train",
+    answer1: "'Got nothin' in my brain.'",
+    question2: "'I go on too many ________.'",
+    choiceD: "dates",
+    choiceE: "gates",
+    choiceF: "freights",
+    answer2: "'I go on too many dates.'"
   };
 
 function setContent() {
