@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "'Got nothin' in my _______.'",
-    choiceA: "brain",
-    choiceB: "rain",
-    choiceC: "train",
-    answer1: "'Got nothin' in my brain.'",
-    question2: "'I go on too many ________.'",
-    choiceD: "dates",
-    choiceE: "gates",
-    choiceF: "freights",
-    answer2: "'I go on too many dates.'"
+    question1: "How much money could the banks raise?",
+    choiceA: "millions of pounds",
+    choiceB: "hundreds of pounds",
+    choiceC: "billions of pounds",
+    answer1: "The banks could raise billions of pounds.",
+    question2:  "What will the tax NOT do?",
+    choiceD: "save lives in the poorest countries",
+    choiceE: "fund cuts to crucial public services",
+    choiceF: "fund action against climate change",
+    answer2: "The tax will not fund cuts to crucial public services."
   };
 
 function setContent() {
