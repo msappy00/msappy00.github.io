@@ -19,7 +19,7 @@ const listening = {
     question2: "What is your most embarrassing moment?",
     choiceD: "Let me tell you.",
     choiceE: "I'd rather not say.",
-    choiceF: "It's to embarrassing to share.",
+    choiceF: "It's too embarrassing to share.",
     answer2: "Ha, ha."
   };
 
