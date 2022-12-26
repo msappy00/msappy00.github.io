@@ -11,16 +11,17 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "How did the people feel?",
-    choiceA: "They felt embarrassing.",
-    choiceB: "They felt embarrassed.",
-    choiceC: "They felt super loud.",
-    answer1: "They felt embarrassed.",
-    question2: "What is your most embarrassing moment?",
-    choiceD: "Let me tell you.",
-    choiceE: "I'd rather not say.",
-    choiceF: "It's too embarrassing to share.",
-    answer2: "Ha, ha."
+    question1: "Will Covid-19 go away soon?",
+    choiceA: "It is certain.",
+    choiceB: "Yes, definitely.",
+    choiceC: "Don’t count on it.",
+    answer1: "不要指望它。",
+    question2:  "Will the current vaccinations make Covid-19 go away?",
+    choiceD: "You may rely on it.",
+    choiceE: "My reply is no.",
+    choiceF: "As I see it, yes.",
+    answer2: "我的回答是否定的。"
+
   };
 
 function setContent() {
