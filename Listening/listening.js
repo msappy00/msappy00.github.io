@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Will Covid-19 go away soon?",
-    choiceA: "It is certain.",
-    choiceB: "Yes, definitely.",
-    choiceC: "Don’t count on it.",
-    answer1: "不要指望它。",
-    question2:  "Will the current vaccinations make Covid-19 go away?",
-    choiceD: "You may rely on it.",
-    choiceE: "My reply is no.",
-    choiceF: "As I see it, yes.",
-    answer2: "我的回答是否定的。"
+    question1: "Somewhere between 6% and 20% of Americans still believe the landing was ",
+    choiceA: "real",
+    choiceB: "faked",
+    choiceC: "real",
+    answer1: "Somewhere between 6% and 20% of Americans still believe the landing was faked.",
+    question2: "Is this legit?",
+    choiceD: "Yes, the moon landing was fake.",
+    choiceE: "No, this is not a legit story.",
+    choiceF: "Maybe. There is no evidence.",
+    answer2: "No, this is not a legit story."
 
   };
 
