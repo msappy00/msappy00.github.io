@@ -11,17 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Somewhere between 6% and 20% of Americans still believe the landing was ",
-    choiceA: "real",
-    choiceB: "faked",
-    choiceC: "real",
-    answer1: "Somewhere between 6% and 20% of Americans still believe the landing was faked.",
-    question2: "Is this legit?",
-    choiceD: "Yes, the moon landing was fake.",
-    choiceE: "No, this is not a legit story.",
-    choiceF: "Maybe. There is no evidence.",
-    answer2: "No, this is not a legit story."
-
+    question1: "‘Middle’, ‘little’ and ‘riddle’",
+    choiceA: "are fillers (have no meaning)",
+    choiceB: "are synonyms (have the same meaning)",
+    choiceC: "are rhyming words (sound similar)",
+    answer1: "‘Middle’, ‘little’ and ‘riddle’ are rhyming words (sound similar).",
+    question2: "‘Ditto’ here means ",
+    choiceD: "say it quickly",
+    choiceE: "say it louder",
+    choiceF: "say the same thing",
+answer2: "’Ditto’ here means ‘say the same thing’."
   };
 
 function setContent() {
