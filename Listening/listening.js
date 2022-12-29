@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "‘Middle’, ‘little’ and ‘riddle’",
-    choiceA: "are fillers (have no meaning)",
-    choiceB: "are synonyms (have the same meaning)",
-    choiceC: "are rhyming words (sound similar)",
-    answer1: "‘Middle’, ‘little’ and ‘riddle’ are rhyming words (sound similar).",
-    question2: "‘Ditto’ here means ",
-    choiceD: "say it quickly",
-    choiceE: "say it louder",
-    choiceF: "say the same thing",
-answer2: "’Ditto’ here means ‘say the same thing’."
+    question1: "Translate ‘swear word’",
+    choiceA: "祈神賜福；祝福",
+    choiceB: "恭維話；讚揚話；奉承話",
+    choiceC: "髒話，冒犯之詞",
+    answer1: "髒話，冒犯之詞",
+    question2:  "If your friend uses a swear word it might be ",
+    choiceD: "offend",
+    choiceE: "offensive",
+    choiceF: "offended",
+    answer2: "It might be offensive."
   };
 
 function setContent() {
