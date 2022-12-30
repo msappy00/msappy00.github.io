@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Translate ‘swear word’",
-    choiceA: "祈神賜福；祝福",
-    choiceB: "恭維話；讚揚話；奉承話",
-    choiceC: "髒話，冒犯之詞",
-    answer1: "髒話，冒犯之詞",
-    question2:  "If your friend uses a swear word it might be ",
-    choiceD: "offend",
-    choiceE: "offensive",
-    choiceF: "offended",
-    answer2: "It might be offensive."
+    question1: "Pelé won _____ World Cup titles.",
+    choiceA: "one",
+    choiceB: "two",
+    choiceC: "three",
+    answer1: "Pelé won three World Cup titles.",
+    question2:  "When his father was injured, Pelé became ______.",
+    choiceD: "an icon",
+    choiceE: "a reporter",
+    choiceF: "a shoe shine",
+    answer2: "When his father was injured, Pelé became a shoe shine."
   };
 
 function setContent() {
