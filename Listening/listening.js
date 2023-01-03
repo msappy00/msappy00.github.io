@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Pelé won _____ World Cup titles.",
-    choiceA: "one",
-    choiceB: "two",
-    choiceC: "three",
-    answer1: "Pelé won three World Cup titles.",
-    question2:  "When his father was injured, Pelé became ______.",
-    choiceD: "an icon",
-    choiceE: "a reporter",
-    choiceF: "a shoe shine",
-    answer2: "When his father was injured, Pelé became a shoe shine."
+    question1: "Dutch people rarely say ",
+    choiceA: "thank you",
+    choiceB: "goodbye",
+    choiceC: "sorry",
+    answer1: "Dutch people rarely say sorry.",
+    question2: "Dutch communication is ",
+    choiceD: "direct",
+    choiceE: "indirect",
+    choiceF: "a wreck",
+    answer2: "Dutch communication is direct."
   };
 
 function setContent() {
