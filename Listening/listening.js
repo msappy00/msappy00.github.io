@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Dutch people rarely say ",
-    choiceA: "thank you",
-    choiceB: "goodbye",
-    choiceC: "sorry",
-    answer1: "Dutch people rarely say sorry.",
-    question2: "Dutch communication is ",
-    choiceD: "direct",
-    choiceE: "indirect",
-    choiceF: "a wreck",
-    answer2: "Dutch communication is direct."
+    question1: "You'll say that we've got nothing ",
+    choiceA: " in common",
+    choiceB: "come on",
+    choiceC: "between us",
+    answer1: "You'll say we have nothing in common.",
+    question2: "You'll say the world has come ________ us.",
+    choiceD: "around",
+    choiceE: "between",
+    choiceF: "to",
+    answer2: "You'll say the world has come between us."
   };
 
 function setContent() {
