@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "You'll say that we've got nothing ",
-    choiceA: " in common",
-    choiceB: "come on",
-    choiceC: "between us",
-    answer1: "You'll say we have nothing in common.",
-    question2: "You'll say the world has come ________ us.",
-    choiceD: "around",
-    choiceE: "between",
-    choiceF: "to",
-    answer2: "You'll say the world has come between us."
+    question1: "’Based’ is most commonly used in a ______ sense.",
+    choiceA: "positive",
+    choiceB: "negative",
+    choiceC: "neutral",
+    answer1: "’Based’ is most commonly used in a positive sense.",
+    question2: "A word like ‘based’ has _______ that depend on who uses it.",
+    choiceD: "meaning",
+    choiceE: "meanings",
+    choiceF: "mean things",
+    answer2: "A word like ‘based’ has meanings that depend on who uses it."
   };
 
 function setContent() {
