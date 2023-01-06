@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "’Based’ is most commonly used in a ______ sense.",
-    choiceA: "positive",
-    choiceB: "negative",
-    choiceC: "neutral",
-    answer1: "’Based’ is most commonly used in a positive sense.",
-    question2: "A word like ‘based’ has _______ that depend on who uses it.",
-    choiceD: "meaning",
-    choiceE: "meanings",
-    choiceF: "mean things",
-    answer2: "A word like ‘based’ has meanings that depend on who uses it."
+    question1: "Aussies (Australians) have abbreviations for ’",
+    choiceA: "nothing",
+    choiceB: "everything",
+    choiceC: "some words and phrases",
+    answer1: "Aussies have abbreviations for everything.",
+    question2: "Where are Josh and Rhys from?",
+    choiceD: "They are Aussies (from Australia).",
+    choiceE: "They are Brits (from the UK).",
+    choiceF: "They are Seppos (from the USA).",
+    answer2: "They are Aussies."
   };
 
 function setContent() {
