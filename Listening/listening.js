@@ -11,7 +11,7 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Aussies (Australians) have abbreviations for ’",
+    question1: "Aussies (Australians) have abbreviations for ",
     choiceA: "nothing",
     choiceB: "everything",
     choiceC: "some words and phrases",
