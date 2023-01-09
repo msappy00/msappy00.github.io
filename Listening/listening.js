@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Aussies (Australians) have abbreviations for ",
-    choiceA: "nothing",
-    choiceB: "everything",
-    choiceC: "some words and phrases",
-    answer1: "Aussies have abbreviations for everything.",
-    question2: "Where are Josh and Rhys from?",
-    choiceD: "They are Aussies (from Australia).",
-    choiceE: "They are Brits (from the UK).",
-    choiceF: "They are Seppos (from the USA).",
-    answer2: "They are Aussies."
+    question1: "An abbreviation is ",
+    choiceA: "a short form of a word or phrase",
+    choiceB: "a long form of a word or phrase",
+    choiceC: "a word or phrase that no one uses",
+    answer1: "An abbreviation is a short form of a word or phrase.",
+    question2: "'ITV', is the abbreviation for ",
+    choiceD: "Independent Television",
+    choiceE: "Internet Television",
+    choiceF: "iPhone Timevalue",
+    answer2: "'ITV', is the abbreviation for 'Independent Television'."
   };
 
 function setContent() {
