@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "An abbreviation is ",
-    choiceA: "a short form of a word or phrase",
-    choiceB: "a long form of a word or phrase",
-    choiceC: "a word or phrase that no one uses",
-    answer1: "An abbreviation is a short form of a word or phrase.",
-    question2: "'ITV', is the abbreviation for ",
-    choiceD: "Independent Television",
-    choiceE: "Internet Television",
-    choiceF: "iPhone Timevalue",
-    answer2: "'ITV', is the abbreviation for 'Independent Television'."
+    question1: "What is greenwashing?",
+    choiceA: "companies misleading consumers about their environmental credentials",
+    choiceB: "companies advertising and selling eco-friendly products",
+    choiceC: "consumers misleading companies about buying sustainable products",
+    answer1: "Greenwashing is companies misleading consumers about their environmental credentials.",
+    question2: "What is the definition for ‘eco-friendly’?",
+    choiceD: "Regulators don’t have an agreed definition.",
+    choiceE: "’Eco-friendly’ means ‘friendly to the eco’.",
+    choiceF: "Companies may use it on packaging or in advertising.",
+    answer2: "Regulators don’t have an agreed definition."
   };
 
 function setContent() {
