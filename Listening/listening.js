@@ -16,11 +16,11 @@ const listening = {
     choiceB: "alcohol",
     choiceC: "sweeteners",
     answer1: "Soft drinks are any beverages that contain no alcohol.",
-    question2: "Soda is made ",
+    question2: "Sodas are made ",
     choiceD: "without carbonated water",
     choiceE: "without water",
     choiceF: "with carbonated water",
-    answer2: "Soda is made with carbonated water."
+    answer2: "Sodas are made with carbonated water."
   };
 
 function setContent() {
