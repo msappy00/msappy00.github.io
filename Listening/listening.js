@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What is greenwashing?",
-    choiceA: "companies misleading consumers about their environmental credentials",
-    choiceB: "companies advertising and selling eco-friendly products",
-    choiceC: "consumers misleading companies about buying sustainable products",
-    answer1: "Greenwashing is companies misleading consumers about their environmental credentials.",
-    question2: "What is the definition for ‘eco-friendly’?",
-    choiceD: "Regulators don’t have an agreed definition.",
-    choiceE: "’Eco-friendly’ means ‘friendly to the eco’.",
-    choiceF: "Companies may use it on packaging or in advertising.",
-    answer2: "Regulators don’t have an agreed definition."
+    question1: "Soft drinks are any beverages that contain no ",
+    choiceA: "water",
+    choiceB: "alcohol",
+    choiceC: "sweeteners",
+    answer1: "Soft drinks are any beverages that contain no alcohol.",
+    question2: "Soda is made ",
+    choiceD: "without carbonated water",
+    choiceE: "without water",
+    choiceF: "with carbonated water",
+    answer2: "Soda is made with carbonated water."
   };
 
 function setContent() {
