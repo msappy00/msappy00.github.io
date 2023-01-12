@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Soft drinks are any beverages that contain no ",
-    choiceA: "water",
-    choiceB: "alcohol",
-    choiceC: "sweeteners",
-    answer1: "Soft drinks are any beverages that contain no alcohol.",
-    question2: "Sodas are made ",
-    choiceD: "without carbonated water",
-    choiceE: "without water",
-    choiceF: "with carbonated water",
-    answer2: "Sodas are made with carbonated water."
+    question1: "Who told him to listen closely?",
+    choiceA: "his father",
+    choiceB: "his mother",
+    choiceC: "his grandma",
+    answer1: "His mother told him to listen closely.",
+    question2: "Why should he listen closely?",
+    choiceD: "It will help him.",
+    choiceE: "It will help his mother.",
+    choiceF: "It will help his grandma.",
+    answer2: "It will help him."
   };
 
 function setContent() {
