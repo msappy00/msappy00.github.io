@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Who told him to listen closely?",
-    choiceA: "his father",
-    choiceB: "his mother",
-    choiceC: "his grandma",
-    answer1: "His mother told him to listen closely.",
-    question2: "Why should he listen closely?",
-    choiceD: "It will help him.",
-    choiceE: "It will help his mother.",
-    choiceF: "It will help his grandma.",
-    answer2: "It will help him."
+    question1: "What does he show us?",
+    choiceA: "a CD player",
+    choiceB: "a cassette recorder",
+    choiceC: "a cassette player",
+    answer1: "He shows us a cassette player.",
+    question2: "Where can you grow ideas?",
+    choiceD: "in a cassette player",
+    choiceE: "in the garden or your mind",
+    choiceF: "you cannot grow ideas",
+    answer2: "You can grow ideas in the garden of your mind."
   };
 
 function setContent() {
