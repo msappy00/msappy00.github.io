@@ -18,7 +18,7 @@ const listening = {
     answer1: "He shows us a cassette player.",
     question2: "Where can you grow ideas?",
     choiceD: "in a cassette player",
-    choiceE: "in the garden or your mind",
+    choiceE: "in the garden of your mind",
     choiceF: "you cannot grow ideas",
     answer2: "You can grow ideas in the garden of your mind."
   };
