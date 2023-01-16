@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What does he show us?",
-    choiceA: "a CD player",
-    choiceB: "a cassette recorder",
-    choiceC: "a cassette player",
-    answer1: "He shows us a cassette player.",
-    question2: "Where can you grow ideas?",
-    choiceD: "in a cassette player",
-    choiceE: "in the garden of your mind",
-    choiceF: "you cannot grow ideas",
-    answer2: "You can grow ideas in the garden of your mind."
+    question1: "I bought a loaf of ",
+    choiceA: "bread",
+    choiceB: "jam",
+    choiceC: "potatoes",
+    answer1: "I bought a loaf of bread.",
+    question2: "I bought six kilos of ",
+    choiceD: "flour",
+    choiceE: "milk",
+    choiceF: "oil",
+    answer2: "I bought six kilos of flour."
   };
 
 function setContent() {
