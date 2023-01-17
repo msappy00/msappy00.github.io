@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "I bought a loaf of ",
-    choiceA: "bread",
-    choiceB: "jam",
-    choiceC: "potatoes",
-    answer1: "I bought a loaf of bread.",
-    question2: "I bought six kilos of ",
-    choiceD: "flour",
-    choiceE: "milk",
-    choiceF: "oil",
-    answer2: "I bought six kilos of flour."
+    question1: "Where are they?",
+    choiceA: "at a shoe store",
+    choiceB: "in a restaurant",
+    choiceC: "up and down the street",
+    answer1: "They are in a restaurant.",
+    question2: "Why is his dad beating around the bush?",
+    choiceD: "He doesn’t like the restaurant.",
+    choiceE: "He isn’t hungry.",
+    choiceF: "He doesn’t have any money with him.",
+    answer2: "He doesn’t have any money with him."
   };
 
 function setContent() {
