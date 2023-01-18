@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Where are they?",
-    choiceA: "at a shoe store",
-    choiceB: "in a restaurant",
-    choiceC: "up and down the street",
-    answer1: "They are in a restaurant.",
-    question2: "Why is his dad beating around the bush?",
-    choiceD: "He doesn’t like the restaurant.",
-    choiceE: "He isn’t hungry.",
-    choiceF: "He doesn’t have any money with him.",
-    answer2: "He doesn’t have any money with him."
+    question1: "What is a 'chauffeur mom'?",
+    choiceA: "a mother who spends a lot of time driving her children to and from places ",
+    choiceB: "a mother or father who is not very strict with their children and often spoils them ",
+    choiceC: "the activity of watching your children while they play on their own ",
+    answer1: "A 'chauffeur mom' is a mother who spends a lot of time driving her children to and from places.",
+    question2: "What is a 'jellyfish parent'?",
+    choiceD: "the activity of watching your children while they play on their own ",
+    choiceE: "a mother or father who is not very strict with their children and often spoils them ",
+    choiceF: "a mother who spends a lot of time driving her children to and from places ",
+    answer2: "A 'jellyfish parent' is a mother or father who is not very strict with their children and often spoils them."
   };
 
 function setContent() {
