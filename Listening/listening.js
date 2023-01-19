@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What is a 'chauffeur mom'?",
-    choiceA: "a mother who spends a lot of time driving her children to and from places ",
-    choiceB: "a mother or father who is not very strict with their children and often spoils them ",
-    choiceC: "the activity of watching your children while they play on their own ",
-    answer1: "A 'chauffeur mom' is a mother who spends a lot of time driving her children to and from places.",
-    question2: "What is a 'jellyfish parent'?",
-    choiceD: "the activity of watching your children while they play on their own ",
-    choiceE: "a mother or father who is not very strict with their children and often spoils them ",
-    choiceF: "a mother who spends a lot of time driving her children to and from places ",
-    answer2: "A 'jellyfish parent' is a mother or father who is not very strict with their children and often spoils them."
+    question1: "Which of these words does Tom NOT say in this expression: How are you doing?",
+    choiceA: "How",
+    choiceB: "are",
+    choiceC: "you",
+    answer1: "Tom does not say ‘are’.",
+    question2: "Where is Tom from?",
+    choiceD: "the UK",
+    choiceE: "Australia",
+    choiceF: "the USA",
+    answer2: "Tom is from the UK."
   };
 
 function setContent() {
