@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Which of these words does Tom NOT say in this expression: How are you doing?",
-    choiceA: "How",
-    choiceB: "are",
-    choiceC: "you",
-    answer1: "Tom does not say ‘are’.",
-    question2: "Where is Tom from?",
-    choiceD: "the UK",
-    choiceE: "Australia",
-    choiceF: "the USA",
-    answer2: "Tom is from the UK."
+    question1: "How was the traveller travelling?",
+    choiceA: "by foot",
+    choiceB: "on foot",
+    choiceC: "football",
+    answer1: "The traveller was travelling on foot.",
+    question2: "Which road did the traveller take?",
+    choiceD: "both roads",
+    choiceE: "the road less travelled by",
+    choiceF: "the yellow brick road",
+    answer2: "The traveller took the road less travelled by."
   };
 
 function setContent() {
