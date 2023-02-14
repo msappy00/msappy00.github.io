@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "How was the traveller travelling?",
-    choiceA: "by foot",
-    choiceB: "on foot",
-    choiceC: "football",
-    answer1: "The traveller was travelling on foot.",
-    question2: "Which road did the traveller take?",
-    choiceD: "both roads",
-    choiceE: "the road less travelled by",
-    choiceF: "the yellow brick road",
-    answer2: "The traveller took the road less travelled by."
+    question1: "Building knowledge, thinking differently and connecting the dots are three factors of ",
+    choiceA: "interest",
+    choiceB: "crucial",
+    choiceC: "innovation",
+    answer1: "Building knowledge, thinking differently and connecting the dots are three factors of innovation.",
+    question2: "All it takes is a little intention and a little ",
+    choiceD: "bravery",
+    choiceE: "window",
+    choiceF: "person",
+    answer2: "All it takes is a little intention and a little bravery."
   };
 
 function setContent() {
