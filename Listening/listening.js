@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Building knowledge, thinking differently and connecting the dots are three factors of ",
-    choiceA: "interest",
-    choiceB: "crucial",
-    choiceC: "innovation",
-    answer1: "Building knowledge, thinking differently and connecting the dots are three factors of innovation.",
-    question2: "All it takes is a little intention and a little ",
-    choiceD: "bravery",
-    choiceE: "window",
-    choiceF: "person",
-    answer2: "All it takes is a little intention and a little bravery."
+    question1: "Where do they live?",
+    choiceA: "Taiwan",
+    choiceB: "the UK",
+    choiceC: "Portugal",
+    answer1: "They live in Portugal.",
+    question2: "How big is their new house?",
+    choiceD: "It’s a small house.",
+    choiceE: "It’s a large house.",
+    choiceF: "It’s a mid-sized house.",
+    answer2: "It’s a small house."
   };
 
 function setContent() {
