@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Where do they live?",
-    choiceA: "Taiwan",
-    choiceB: "the UK",
-    choiceC: "Portugal",
-    answer1: "They live in Portugal.",
-    question2: "How big is their new house?",
-    choiceD: "It’s a small house.",
-    choiceE: "It’s a large house.",
-    choiceF: "It’s a mid-sized house.",
-    answer2: "It’s a small house."
+    question1: "Which does Forrest remember?",
+    choiceA: "What he got for his first Christmas.",
+    choiceB: "When he went on his first outdoor picnic.",
+    choiceC: "The first time he heard Jenny’s voice.",
+    answer1: "He remembers the first time he heard Jenny’s voice.",
+    question2: "Jenny and Forrest were always together, like",
+    choiceD: "fine and dandy",
+    choiceE: "Jenny's voice",
+    choiceF: "peas and carrots",
+    answer2: "They were always together, like peas and carrots."
   };
 
 function setContent() {
