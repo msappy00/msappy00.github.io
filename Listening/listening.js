@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Which does Forrest remember?",
-    choiceA: "What he got for his first Christmas.",
-    choiceB: "When he went on his first outdoor picnic.",
-    choiceC: "The first time he heard Jenny’s voice.",
-    answer1: "He remembers the first time he heard Jenny’s voice.",
-    question2: "Jenny and Forrest were always together, like",
-    choiceD: "fine and dandy",
-    choiceE: "Jenny's voice",
-    choiceF: "peas and carrots",
-    answer2: "They were always together, like peas and carrots."
+    question1: "Wear some ____ in your hair.",
+    choiceA: "flowers",
+    choiceB: "rainbows",
+    choiceC: "ice cream",
+    answer1: "Wear some flowers in your hair.",
+    question2: "You’re gonna to meet some ____ people there",
+    choiceD: "homeless",
+    choiceE: "gentle",
+    choiceF: "tiny",
+    answer2: "You’re gonna to meet some gentle people there."
   };
 
 function setContent() {
