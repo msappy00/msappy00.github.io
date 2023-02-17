@@ -16,7 +16,7 @@ const listening = {
     choiceB: "rainbows",
     choiceC: "ice cream",
     answer1: "Wear some flowers in your hair.",
-    question2: "You’re gonna to meet some ____ people there",
+    question2: "You’re gonna to meet some ____ people there.",
     choiceD: "homeless",
     choiceE: "gentle",
     choiceF: "tiny",
