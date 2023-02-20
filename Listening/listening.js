@@ -15,7 +15,7 @@ const listening = {
     choiceA: "every spring",
     choiceB: "every summer",
     choiceC: "every winter",
-    answer1: "The camps are held every winter.",
+    answer1: "The camps are held every summer.",
     question2: "What do teenagers do at the camps?",
     choiceD: "plan outdoor activities",
     choiceE: "learn, make new friends and gain experience",
