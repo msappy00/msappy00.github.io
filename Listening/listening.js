@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Wear some ____ in your hair.",
-    choiceA: "flowers",
-    choiceB: "rainbows",
-    choiceC: "ice cream",
-    answer1: "Wear some flowers in your hair.",
-    question2: "You’re gonna to meet some ____ people there.",
-    choiceD: "homeless",
-    choiceE: "gentle",
-    choiceF: "tiny",
-    answer2: "You’re gonna to meet some gentle people there."
+    question1: "When are the camps held?",
+    choiceA: "every spring",
+    choiceB: "every summer",
+    choiceC: "every winter",
+    answer1: "The camps are held every winter.",
+    question2: "What do teenagers do at the camps?",
+    choiceD: "plan outdoor activities",
+    choiceE: "learn, make new friends and gain experience",
+    choiceF: "arrange visits to historical sites",
+    answer2: "They learn, make new friends and gain experience."
   };
 
 function setContent() {
