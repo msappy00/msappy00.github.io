@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "When are the camps held?",
-    choiceA: "every spring",
-    choiceB: "every summer",
-    choiceC: "every winter",
-    answer1: "The camps are held every summer.",
-    question2: "What do teenagers do at the camps?",
-    choiceD: "plan outdoor activities",
-    choiceE: "learn, make new friends and gain experience",
-    choiceF: "arrange visits to historical sites",
-    answer2: "They learn, make new friends and gain experience."
+    question1: "How long is the European holiday?",
+    choiceA: "a month",
+    choiceB: "all-included",
+    choiceC: "a weekend",
+    answer1: "The European holiday is for one month.",
+    question2: "What activities are available on the countryside holiday?",
+    choiceD: "hiking and camping",
+    choiceE: "museum trips",
+    choiceF: "shopping and sightseeing",
+    answer2: "Hiking and camping are available on the countryside holiday."
   };
 
 function setContent() {
