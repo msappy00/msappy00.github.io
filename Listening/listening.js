@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "How long is the European holiday?",
-    choiceA: "a month",
-    choiceB: "all-included",
-    choiceC: "a weekend",
-    answer1: "The European holiday is for one month.",
-    question2: "What activities are available on the countryside holiday?",
-    choiceD: "hiking and camping",
-    choiceE: "museum trips",
-    choiceF: "shopping and sightseeing",
-    answer2: "Hiking and camping are available on the countryside holiday."
+    question1: "What does Joey recommend Tony see in New York?",
+    choiceA: "the Great Wall and the Forbidden City",
+    choiceB: "the Pyramids of Giza and the Nile River",
+    choiceC: "the Statue of Liberty and the Empire State Building",
+    answer1: "He recommends Tony see the Statue of Liberty and the Empire State Building.",
+    question2: "What kind of dessert does Tony want to eat in New York?",
+    choiceD: "cheesecake",
+    choiceE: "ice cream",
+    choiceF: "beer",
+    answer2: "Tony wants to eat cheesecake."
   };
 
 function setContent() {
