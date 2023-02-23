@@ -11,12 +11,12 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What is the problem?"
+    question1: "What is the problem?",
     choiceA: "They are drunk.",
     choiceB: "They are on the wrong side of the road.",
     choiceC: "They don’t know where they are going.",
     answer1: "They are on the wrong side of the road.",
-    question2: "Describe the other drivers."
+    question2: "Describe the other drivers.",
     choiceD: "They are trying to help.",
     choiceE: "They are drunk.",
     choiceF: "They are morons.",
