@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What does Joey recommend Tony see in New York?",
-    choiceA: "the Great Wall and the Forbidden City",
-    choiceB: "the Pyramids of Giza and the Nile River",
-    choiceC: "the Statue of Liberty and the Empire State Building",
-    answer1: "He recommends Tony see the Statue of Liberty and the Empire State Building.",
-    question2: "What kind of dessert does Tony want to eat in New York?",
-    choiceD: "cheesecake",
-    choiceE: "ice cream",
-    choiceF: "beer",
-    answer2: "Tony wants to eat cheesecake."
+    question1: "What is the problem?"
+    choiceA: "They are drunk.",
+    choiceB: "They are on the wrong side of the road.",
+    choiceC: "They don’t know where they are going.",
+    answer1: "They are on the wrong side of the road.",
+    question2: "Describe the other drivers."
+    choiceD: "They are trying to help.",
+    choiceE: "They are drunk.",
+    choiceF: "They are morons.",
+    answer2: "They are trying to help."
   };
 
 function setContent() {
