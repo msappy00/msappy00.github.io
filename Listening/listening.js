@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What is the problem?",
-    choiceA: "They are drunk.",
-    choiceB: "They are on the wrong side of the road.",
-    choiceC: "They don’t know where they are going.",
-    answer1: "They are on the wrong side of the road.",
-    question2: "Describe the other drivers.",
-    choiceD: "They are trying to help.",
-    choiceE: "They are drunk.",
-    choiceF: "They are morons.",
-    answer2: "They are trying to help."
+    question1: "I wanted to order pancakes, but they have stopped serving breakfast.",
+    choiceA: "It’s a bump in the road.",
+    choiceB: "That train has left the station.",
+    choiceC: "That rocked my boat.",
+    answer1: "That train has left the station.",
+    question2: "Our team lost the game this weekend.",
+    choiceD: "It’s a bump in the road.",
+    choiceE: "That rocked our boat.",
+    choiceF: "That train has left the station.",
+    answer2: "It’s a bump in the road."
   };
 
 function setContent() {
