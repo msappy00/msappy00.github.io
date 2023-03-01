@@ -15,12 +15,12 @@ const listening = {
     choiceA: "small",
     choiceB: "medium",
     choiceC: "big",
-    answer1: "Explain your choice to Teacher Anna.",
-    question2: "What size reaction should a person have?",
-    choiceD: "small",
-    choiceE: "medium",
-    choiceF: "big",
-    answer2: "Give Teacher Anna an example of an expected reaction."
+    answer1: "Maybe you’re right.",
+    question2: "What are you most likely to do?",
+    choiceD: "Begin studying as soon as possible.",
+    choiceE: "Begin studying a week before the exam.",
+    choiceF: "Begin studying on the night of March 16th.",
+    answer2: "Wow."
   };
 
 function setContent() {
