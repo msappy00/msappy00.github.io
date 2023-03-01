@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "I wanted to order pancakes, but they have stopped serving breakfast.",
-    choiceA: "It’s a bump in the road.",
-    choiceB: "That train has left the station.",
-    choiceC: "That rocked my boat.",
-    answer1: "That train has left the station.",
-    question2: "Our team lost the game this weekend.",
-    choiceD: "It’s a bump in the road.",
-    choiceE: "That rocked our boat.",
-    choiceF: "That train has left the station.",
-    answer2: "It’s a bump in the road."
+    question1: "What size problem is this?",
+    choiceA: "small",
+    choiceB: "medium",
+    choiceC: "big",
+    answer1: "Explain your choice to Teacher Anna.",
+    question2: "What size reaction should a person have?",
+    choiceD: "small",
+    choiceE: "medium",
+    choiceF: "big",
+    answer2: "Give Teacher Anna an example of an expected reaction."
   };
 
 function setContent() {
