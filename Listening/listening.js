@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What size problem is this?",
-    choiceA: "small",
-    choiceB: "medium",
-    choiceC: "big",
-    answer1: "Maybe you’re right.",
-    question2: "What are you most likely to do?",
-    choiceD: "Begin studying as soon as possible.",
-    choiceE: "Begin studying a week before the exam.",
-    choiceF: "Begin studying on the night of March 16th.",
-    answer2: "Wow."
+    question1: "What kind of reaction is this?",
+    choiceA: "calm, for a three-year old",
+    choiceB: "a normal reaction for any sport",
+    choiceC: "an overreaction",
+    answer1: "Most people would consider this an overreaction.",
+    question2: "How would you react?",
+    choiceD: "I'd take a deep breath and drink some water.",
+    choiceE: "I'd quit tennis forever.",
+    choiceF: "I'd smile because those rackets were asking for it.",
+    answer2: "How you react shows what kind of person you are."
   };
 
 function setContent() {
