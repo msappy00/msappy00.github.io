@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What kind of reaction is this?",
-    choiceA: "calm, for a three-year old",
-    choiceB: "a normal reaction for any sport",
-    choiceC: "an overreaction",
-    answer1: "Most people would consider this an overreaction.",
-    question2: "How would you react?",
-    choiceD: "I'd take a deep breath and drink some water.",
-    choiceE: "I'd quit tennis forever.",
-    choiceF: "I'd smile because those rackets were asking for it.",
-    answer2: "How you react shows what kind of person you are."
+    question1: "What can adults do to fix this problem?",
+    choiceA: "Find out more about obesity.",
+    choiceB: "Come up with at least three ideas.",
+    choiceC: "Pick your best idea.",
+    answer1: "Share your idea with Teacher Anna.",
+    question2: "What can children and teenagers do?",
+    choiceD: "Find out why obesity is a problem.",
+    choiceE: "Come up with at least three ideas.",
+    choiceF: "Pick your best idea.",
+    answer2: "Share your idea with Teacher Anna."
   };
 
 function setContent() {
