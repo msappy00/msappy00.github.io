@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What might the problem be?",
-    choiceA: "Pedestrians think everything should stop for them.",
-    choiceB: "Cities plan for cars, not for pedestrians.",
-    choiceC: "Drivers think they own the road.",
-    answer1: "Everyone should agree on what the problem is.",
-    question2: "What can be done to fix the problem?",
-    choiceD: "Design roads that are better for cars.",
-    choiceE: "Design intersections that are safer for pedestrians.",
-    choiceF: "Cars and pedestrians should not be in the same places.",
-    answer2: "There are other possible solutions."
+    question1: "How do you feel?",
+    choiceA: "sad",
+    choiceB: "angry",
+    choiceC: "indifferent",
+    answer1: "Yes, let that feeling flow through you.",
+    question2: "What can you do?",
+    choiceD: "Cry/ Cry a lot.",
+    choiceE: "Scold your classmate.",
+    choiceF: "Imagine the cupcakes don’t taste very good.",
+    answer2: "Choose first, then do it."
   };
 
 function setContent() {
