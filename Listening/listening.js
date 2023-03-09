@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "How do you feel?",
-    choiceA: "sad",
-    choiceB: "angry",
-    choiceC: "indifferent",
-    answer1: "Yes, let that feeling flow through you.",
-    question2: "What can you do?",
-    choiceD: "Cry/ Cry a lot.",
-    choiceE: "Scold your classmate.",
-    choiceF: "Imagine the cupcakes don’t taste very good.",
-    answer2: "Choose first, then do it."
+    question1: "Who started the fight?",
+    choiceA: "A friend of yours.",
+    choiceB: "An innocent person.",
+    choiceC: "The principal.",
+    answer1: "A friend of yours started the fight.",
+    question2: "What will happen to the innocent person?",
+    choiceD: "They will be suspended from school.",
+    choiceE: "You will talk to the person who started the fight.",
+    choiceF: "You will solve the problem for them.",
+    answer2: "This depends on what you choose to do."
   };
 
 function setContent() {
