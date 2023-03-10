@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Who started the fight?",
-    choiceA: "A friend of yours.",
-    choiceB: "An innocent person.",
-    choiceC: "The principal.",
-    answer1: "A friend of yours started the fight.",
-    question2: "What will happen to the innocent person?",
-    choiceD: "They will be suspended from school.",
-    choiceE: "You will talk to the person who started the fight.",
-    choiceF: "You will solve the problem for them.",
-    answer2: "This depends on what you choose to do."
+    question1: "Issue one: peer-pressure",
+    choiceA: "Do what your friends tell you to do.",
+    choiceB: "Drink it to fit in.",
+    choiceC: "Follow your heart.",
+    answer1: "It's up to you.",
+    question2: "Issue two: underage drinking",
+    choiceD: "Just say no.",
+    choiceE: "Try it, adults do it.",
+    choiceF: "Don't poison your body.",
+    answer2: "Drinking is bad, period."
   };
 
 function setContent() {
