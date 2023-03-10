@@ -11,10 +11,10 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Issue one: peer-pressure",
+    question1: "Issue one: peer pressure",
     choiceA: "Do what your friends tell you to do.",
     choiceB: "Drink it to fit in.",
-    choiceC: "Follow your heart.",
+    choiceC: "Do what you think is best.",
     answer1: "It's up to you.",
     question2: "Issue two: underage drinking",
     choiceD: "Just say no.",
