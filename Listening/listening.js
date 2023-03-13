@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Issue one: peer pressure",
-    choiceA: "Do what your friends tell you to do.",
-    choiceB: "Drink it to fit in.",
-    choiceC: "Do what you think is best.",
-    answer1: "It's up to you.",
-    question2: "Issue two: underage drinking",
-    choiceD: "Just say no.",
-    choiceE: "Try it, adults do it.",
-    choiceF: "Don't poison your body.",
-    answer2: "Drinking is bad, period."
+    question1: "Would you rather stay up late or get up early?",
+    choiceA: "stay up late",
+    choiceB: "get up early",
+    choiceC: "I have no preference.",
+    answer1: "Please explain.",
+    question2: "Someone thinks your choice is bad. What can you say?",
+    choiceD: "Change your answer to make them happy.",
+    choiceE: "Explain your choice to them.",
+    choiceF: "Ask them why they feel their choice is better.",
+    answer2: "Your reaction is up to you."
   };
 
 function setContent() {
