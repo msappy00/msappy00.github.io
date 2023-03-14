@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Would you rather stay up late or get up early?",
-    choiceA: "stay up late",
-    choiceB: "get up early",
-    choiceC: "I have no preference.",
-    answer1: "Please explain.",
-    question2: "Someone thinks your choice is bad. What can you say?",
-    choiceD: "Change your answer to make them happy.",
-    choiceE: "Explain your choice to them.",
-    choiceF: "Ask them why they feel their choice is better.",
-    answer2: "Your reaction is up to you."
+    question1: "Who do you trust the most?",
+    choiceA: "I trust ___.",
+    choiceB: "The person I trust the most is ___.",
+    choiceC: "I trust ___ more than anyone else.",
+    answer1: "These are three ways to answer.",
+    question2: "Why do you trust them?",
+    choiceD: "They have never let me down.",
+    choiceE: "I have been close to that person for many years.",
+    choiceF: "They trust me as much as I trust them.",
+    answer2: "These are example answers."
   };
 
 function setContent() {
