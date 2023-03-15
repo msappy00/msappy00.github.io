@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Who do you trust the most?",
-    choiceA: "I trust ___.",
-    choiceB: "The person I trust the most is ___.",
-    choiceC: "I trust ___ more than anyone else.",
-    answer1: "These are three ways to answer.",
-    question2: "Why do you trust them?",
-    choiceD: "They have never let me down.",
-    choiceE: "I have been close to that person for many years.",
-    choiceF: "They trust me as much as I trust them.",
-    answer2: "These are example answers."
+    question1: "Don’t make friends with …",
+    choiceA: "cheese",
+    choiceB: "weirdos",
+    choiceC: "your big brother",
+    answer1: "Don’t make friends with weirdos.",
+    question1: "The best way to survive is to …",
+    choiceD: "be homeschooled",
+    choiceE: "be yourself",
+    choiceF: "touch the cheese",
+    answer2: "The best way to survive is to be yourself."
   };
 
 function setContent() {
