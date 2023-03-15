@@ -16,7 +16,7 @@ const listening = {
     choiceB: "weirdos",
     choiceC: "your big brother",
     answer1: "Don’t make friends with weirdos.",
-    question1: "The best way to survive is to …",
+    question2: "The best way to survive is to …",
     choiceD: "be homeschooled",
     choiceE: "be yourself",
     choiceF: "touch the cheese",
