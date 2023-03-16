@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Don’t make friends with …",
-    choiceA: "cheese",
-    choiceB: "weirdos",
-    choiceC: "your big brother",
-    answer1: "Don’t make friends with weirdos.",
-    question2: "The best way to survive is to …",
-    choiceD: "be homeschooled",
-    choiceE: "be yourself",
-    choiceF: "touch the cheese",
-    answer2: "The best way to survive is to be yourself."
+    question1: "express your _____",
+    choiceA: "habits",
+    choiceB: "skills",
+    choiceC: "feelings",
+    answer1: "express your feelings",
+    question1: "writing in a daily ____",
+    choiceD: "habit",
+    choiceE: "emotion",
+    choiceF: "journal",
+    answer2: "writing in a daily journal"
   };
 
 function setContent() {
