@@ -16,7 +16,7 @@ const listening = {
     choiceB: "skills",
     choiceC: "feelings",
     answer1: "express your feelings",
-    question1: "writing in a daily ____",
+    question2: "writing in a daily ____",
     choiceD: "habit",
     choiceE: "emotion",
     choiceF: "journal",
