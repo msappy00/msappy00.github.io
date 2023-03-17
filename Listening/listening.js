@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "express your _____",
-    choiceA: "habits",
-    choiceB: "skills",
-    choiceC: "feelings",
-    answer1: "express your feelings",
-    question2: "writing in a daily ____",
-    choiceD: "habit",
-    choiceE: "emotion",
-    choiceF: "journal",
-    answer2: "writing in a daily journal"
+    question1: "You had a ___ day.",
+    choiceA: "glad",
+    choiceB: "sad",
+    choiceC: "bad",
+    answer1: "You had a bad day.",
+    question2: "Turn in ______.",
+    choiceD: "back",
+    choiceE: "around",
+    choiceF: "down",
+    answer2: "Turn it around."
   };
 
 function setContent() {
