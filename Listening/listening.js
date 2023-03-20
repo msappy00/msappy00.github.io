@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "You had a ___ day.",
-    choiceA: "glad",
-    choiceB: "sad",
-    choiceC: "bad",
-    answer1: "You had a bad day.",
-    question2: "Turn in ______.",
-    choiceD: "back",
-    choiceE: "around",
-    choiceF: "down",
-    answer2: "Turn it around."
+    question1: "How tall was the dodo?",
+    choiceA: "about one metre tall",
+    choiceB: "between ten and seventeen metres",
+    choiceC: "eight centimetres tall",
+    answer1: "The dodo was about one metre tall.",
+    question2: "How much did it weigh?",
+    choiceD: "between ten and seventeen kilos",
+    choiceE: "one kilo",
+    choiceF: "seventy kilos",
+    answer2: "It weighed between ten and seventeen kilos."
   };
 
 function setContent() {
