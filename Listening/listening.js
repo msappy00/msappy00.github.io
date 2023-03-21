@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "How tall was the dodo?",
-    choiceA: "about one metre tall",
-    choiceB: "between ten and seventeen metres",
-    choiceC: "eight centimetres tall",
-    answer1: "The dodo was about one metre tall.",
-    question2: "How much did it weigh?",
-    choiceD: "between ten and seventeen kilos",
-    choiceE: "one kilo",
-    choiceF: "seventy kilos",
-    answer2: "It weighed between ten and seventeen kilos."
+    question1: "What kind of pet is Pal?",
+    choiceA: "dodo",
+    choiceB: "frog",
+    choiceC: "dog",
+    answer1: "Pal is a dog.",
+    question2: "Who did Arthur ask if he could get a dog?",
+    choiceD: "podcast people",
+    choiceE: "his pal",
+    choiceF: "mom and dad",
+    answer2: "He asked his mom and dad."
   };
 
 function setContent() {
