@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What kind of pet is Pal?",
-    choiceA: "dodo",
-    choiceB: "frog",
-    choiceC: "dog",
-    answer1: "Pal is a dog.",
-    question2: "Who did Arthur ask if he could get a dog?",
-    choiceD: "podcast people",
-    choiceE: "his pal",
-    choiceF: "mom and dad",
-    answer2: "He asked his mom and dad."
+    question1: "How much does one dumpling cost?",
+    choiceA: "two copper pieces",
+    choiceB: "The dumplings are free.",
+    choiceC: "one copper piece",
+    answer1: "One dumpling costs one copper piece.",
+    question2: "Why did the young woman pay for a dumpling?",
+    choiceD: "She isn’t very hungry.",
+    choiceE: "She thinks the dumplings are not appetizing.",
+    choiceF: "She thinks it is fair to the old woman.",
+    answer2: "She thinks it is fair to the old woman."
   };
 
 function setContent() {
