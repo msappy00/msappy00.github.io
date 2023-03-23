@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "How much does one dumpling cost?",
-    choiceA: "two copper pieces",
-    choiceB: "The dumplings are free.",
-    choiceC: "one copper piece",
-    answer1: "One dumpling costs one copper piece.",
-    question2: "Why did the young woman pay for a dumpling?",
-    choiceD: "She isn’t very hungry.",
-    choiceE: "She thinks the dumplings are not appetizing.",
-    choiceF: "She thinks it is fair to the old woman.",
-    answer2: "She thinks it is fair to the old woman."
+    question1: "Who do they expect to solve this problem?",
+    choiceA: "no one",
+    choiceB: "someone else",
+    choiceC: "themselves",
+    answer1: "They expect someone else to solve this problem.",
+    question2: "What should you do if you are stuck?",
+    choiceD: "Wait for someone to solve the problem.",
+    choiceE: "Think of a way to get unstuck.",
+    choiceF: "Give up; it’s too difficult.",
+    answer2: "Share your answer with Teacher Anna."
   };
 
 function setContent() {
