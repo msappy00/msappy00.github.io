@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Who do they expect to solve this problem?",
-    choiceA: "no one",
-    choiceB: "someone else",
-    choiceC: "themselves",
-    answer1: "They expect someone else to solve this problem.",
-    question2: "What should you do if you are stuck?",
-    choiceD: "Wait for someone to solve the problem.",
-    choiceE: "Think of a way to get unstuck.",
-    choiceF: "Give up; it’s too difficult.",
-    answer2: "Share your answer with Teacher Anna."
+    question1: "What does Sheldon complain about?",
+    choiceA: "Amy is not taking the problem seriously.",
+    choiceB: "Amy is not paying enough attention.",
+    choiceC: "Amy is thinking about something else.",
+    answer1: "Those are all correct ways to say it.",
+    question2: "What does Amy give Sheldon?",
+    choiceD: "her PS4",
+    choiceE: "some butter",
+    choiceF: "her undivided attention",
+    answer2: "She gives Sheldon her undivided attention."
   };
 
 function setContent() {
