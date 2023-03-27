@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What does Sheldon complain about?",
-    choiceA: "Amy is not taking the problem seriously.",
-    choiceB: "Amy is not paying enough attention.",
-    choiceC: "Amy is thinking about something else.",
-    answer1: "Those are all correct ways to say it.",
-    question2: "What does Amy give Sheldon?",
-    choiceD: "her PS4",
-    choiceE: "some butter",
-    choiceF: "her undivided attention",
-    answer2: "She gives Sheldon her undivided attention."
+    question1: "Does Mr. Beast think money buys happiness?",
+    choiceA: "No way.",
+    choiceB: "Always.",
+    choiceC: "No, but to a point, yes.",
+    answer1: "No, but to a point, yes.",
+    question2: "What is your goal in life?",
+    choiceD: "money?",
+    choiceE: "happiness?",
+    choiceF: "contentment?",
+    answer2: "Share your answer with Teacher Anna."
   };
 
 function setContent() {
