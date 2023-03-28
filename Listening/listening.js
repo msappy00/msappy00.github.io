@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Does Mr. Beast think money buys happiness?",
-    choiceA: "No way.",
-    choiceB: "Always.",
-    choiceC: "No, but to a point, yes.",
-    answer1: "No, but to a point, yes.",
-    question2: "What is your goal in life?",
-    choiceD: "money?",
-    choiceE: "happiness?",
-    choiceF: "contentment?",
-    answer2: "Share your answer with Teacher Anna."
+    question1: "What is the problem?",
+    choiceA: "Ally liked her giraffe.",
+    choiceB: "Ally’s giraffe was given away.",
+    choiceC: "Ally took her brother’s giraffe.",
+    answer1: "Ally’s giraffe was given away.",
+    question2: "How did Ally’s parents fix the problem?",
+    choiceD: "They scolded her for breaking the giraffe.",
+    choiceE: "They explained it was a mistake.",
+    choiceF: "They made her apologize to her brother.",
+    answer2: "They explained it was a mistake."
   };
 
 function setContent() {
