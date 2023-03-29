@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What is the problem?",
-    choiceA: "Ally liked her giraffe.",
-    choiceB: "Ally’s giraffe was given away.",
-    choiceC: "Ally took her brother’s giraffe.",
-    answer1: "Ally’s giraffe was given away.",
-    question2: "How did Ally’s parents fix the problem?",
-    choiceD: "They scolded her for breaking the giraffe.",
-    choiceE: "They explained it was a mistake.",
-    choiceF: "They made her apologize to her brother.",
-    answer2: "They explained it was a mistake."
+    question1: "What does Lilly do?",
+    choiceA: "fisherman",
+    choiceB: "seaweed farmer",
+    choiceC: "lawyer",
+    answer1: "She will be a lawyer.",
+    question2: "Who would she let down?",
+    choiceD: "her friends",
+    choiceE: "her parents",
+    choiceF: "herself",
+    answer2: "She would let her parents down."
   };
 
 function setContent() {
