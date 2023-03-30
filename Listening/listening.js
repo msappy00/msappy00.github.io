@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What does Lilly do?",
-    choiceA: "fisherman",
-    choiceB: "seaweed farmer",
-    choiceC: "lawyer",
-    answer1: "She will be a lawyer.",
-    question2: "Who would she let down?",
-    choiceD: "her friends",
-    choiceE: "her parents",
-    choiceF: "herself",
-    answer2: "She would let her parents down."
+    question1: "Who told Jane these five words?",
+    choiceA: "lawyers",
+    choiceB: "her sisters",
+    choiceC: "her mother",
+    answer1: "Jane’s mother told her.",
+    question2: "What were the five words?",
+    choiceD: "It’s how smart you are.",
+    choiceE: "Learn how to do something.",
+    choiceF: "I can wax a bikini line.",
+    answer2: "Learn how to do something."
   };
 
 function setContent() {
