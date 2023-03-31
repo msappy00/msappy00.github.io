@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Who told Jane these five words?",
-    choiceA: "lawyers",
-    choiceB: "her sisters",
-    choiceC: "her mother",
-    answer1: "Jane’s mother told her.",
-    question2: "What were the five words?",
-    choiceD: "It’s how smart you are.",
-    choiceE: "Learn how to do something.",
-    choiceF: "I can wax a bikini line.",
-    answer2: "Learn how to do something."
+    question1: "What do some people have a problem with?",
+    choiceA: "up and down",
+    choiceB: "front and back",
+    choiceC: "left and right",
+    answer1: "Some people have a problem with left and right.",
+    question2: "Do other languages have the same problem?",
+    choiceD: "I think they must.",
+    choiceE: "Probably not. English is a confusing language.",
+    choiceF: "Languages and directions are not related.",
+    answer2: "Your opinion might be correct."
   };
 
 function setContent() {
