@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What do some people have a problem with?",
-    choiceA: "up and down",
-    choiceB: "front and back",
-    choiceC: "left and right",
-    answer1: "Some people have a problem with left and right.",
-    question2: "Do other languages have the same problem?",
-    choiceD: "I think they must.",
-    choiceE: "Probably not. English is a confusing language.",
-    choiceF: "Languages and directions are not related.",
-    answer2: "Your opinion might be correct."
+    question1: "What does Arthur want to do?",
+    choiceA: "slam a door",
+    choiceB: "wait for morning",
+    choiceC: "go to sleep",
+    answer1: "Arthur wants to go to sleep.",
+    question2: "What is the problem?",
+    choiceD: "DW is angry.",
+    choiceE: "DW is sad.",
+    choiceF: "DW is asleep.",
+    answer2: "DW is angry."
   };
 
 function setContent() {
