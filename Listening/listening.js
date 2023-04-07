@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What does Arthur want to do?",
-    choiceA: "slam a door",
-    choiceB: "wait for morning",
-    choiceC: "go to sleep",
-    answer1: "Arthur wants to go to sleep.",
-    question2: "What is the problem?",
-    choiceD: "DW is angry.",
-    choiceE: "DW is sad.",
-    choiceF: "DW is asleep.",
-    answer2: "DW is angry."
+    question1: "Good things come to those who ….",
+    choiceA: "wait",
+    choiceB: "want",
+    choiceC: "what",
+    answer1: "Good things come to those who wait.",
+    question2: "____ ____ can bring some very sweet rewards.",
+    choiceD: "today’s story",
+    choiceE: "hard work",
+    choiceF: "another saying",
+    answer2: "Hard work can bring some very sweet rewards."
   };
 
 function setContent() {
