@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Good things come to those who ….",
-    choiceA: "wait",
-    choiceB: "want",
-    choiceC: "what",
-    answer1: "Good things come to those who wait.",
-    question2: "____ ____ can bring some very sweet rewards.",
-    choiceD: "today’s story",
-    choiceE: "hard work",
-    choiceF: "another saying",
-    answer2: "Hard work can bring some very sweet rewards."
+    question1: "What were mom and dad supposed to do?",
+    choiceA: "go camping",
+    choiceB: "control the house",
+    choiceC: "sing a song",
+    answer1: "They were supposed to go camping.",
+    question2: "How did DW feel?",
+    choiceD: "She really just couldn’t wait.",
+    choiceE: "She thought it was funny.",
+    choiceF: "She thought mom and dad were being mean.",
+    answer2: "She thought mom and dad were being mean."
   };
 
 function setContent() {
