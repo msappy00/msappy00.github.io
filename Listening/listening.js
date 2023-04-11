@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What were mom and dad supposed to do?",
-    choiceA: "go camping",
-    choiceB: "control the house",
-    choiceC: "sing a song",
-    answer1: "They were supposed to go camping.",
-    question2: "How did DW feel?",
-    choiceD: "She really just couldn’t wait.",
-    choiceE: "She thought it was funny.",
-    choiceF: "She thought mom and dad were being mean.",
-    answer2: "She thought mom and dad were being mean."
+    question1: "What’s the longest you’ve gone without a shower?",
+    choiceA: "one day",
+    choiceB: "many days",
+    choiceC: "many years",
+    answer1: "I hope you said one day.",
+    question2: "How does this idea sound?",
+    choiceD: "It sounds legit.",
+    choiceE: "It sounds suspicious.",
+    choiceF: "It sounds great.",
+    answer2: "It sounds suspicious."
   };
 
 function setContent() {
