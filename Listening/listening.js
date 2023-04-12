@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What’s the longest you’ve gone without a shower?",
-    choiceA: "one day",
-    choiceB: "many days",
-    choiceC: "many years",
-    answer1: "I hope you said one day.",
-    question2: "How does this idea sound?",
-    choiceD: "It sounds legit.",
-    choiceE: "It sounds suspicious.",
-    choiceF: "It sounds great.",
-    answer2: "It sounds suspicious."
+    question1: "There are loads of ____ for underwear.",
+    choiceA: "people",
+    choiceB: "money",
+    choiceC: "synonyms",
+    answer1: "There are loads of synonyms for underwear.",
+    question2: "Are there synonyms for ‘bra’?",
+    choiceD: "Yes, loads of them.",
+    choiceE: "No, ‘bra’ is your only choice.",
+    choiceF: "Maybe, if you count ‘brassiere’.",
+    answer2: "No, ‘bra’ is your only choice."
   };
 
 function setContent() {
