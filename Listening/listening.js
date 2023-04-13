@@ -12,9 +12,9 @@ if ('serviceWorker' in navigator) {
 
 const listening = {
     question1: "'Sing me' means ...",
-    choiceA: "'sing the word, “me”'.",
-    choiceB: "'I will sing a song for you'.",
-    choiceC: "'sing a song for me'",
+    choiceA: "'Sing the word, me'",
+    choiceB: "'I will sing a song for you'",
+    choiceC: "'Sing a song for me'",
     answer1: "'Sing me' means 'sing a song for me'.",
     question2: "'Translate for me' means ...",
     choiceD: "翻譯「為我」",
