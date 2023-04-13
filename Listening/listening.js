@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "There are loads of ____ for underwear.",
-    choiceA: "people",
-    choiceB: "money",
-    choiceC: "synonyms",
-    answer1: "There are loads of synonyms for underwear.",
-    question2: "Are there synonyms for ‘bra’?",
-    choiceD: "Yes, loads of them.",
-    choiceE: "No, ‘bra’ is your only choice.",
-    choiceF: "Maybe, if you count ‘brassiere’.",
-    answer2: "No, ‘bra’ is your only choice."
+    question1: "'Sing me' means ...",
+    choiceA: "'sing the word, “me”'.",
+    choiceB: "'I will sing a song for you'.",
+    choiceC: "'sing a song for me'",
+    answer1: "'Sing me' means 'sing a song for me'.",
+    question2: "'Translate for me' means ...",
+    choiceD: "翻譯「為我」",
+    choiceE: "幫我翻譯",
+    choiceF: "聽並重複",
+    answer2: "幫我翻譯"
   };
 
 function setContent() {
