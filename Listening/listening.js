@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "'Sing me' means ...",
-    choiceA: "'Sing the word, me'",
-    choiceB: "'I will sing a song for you'",
-    choiceC: "'Sing a song for me'",
-    answer1: "'Sing me' means 'sing a song for me'.",
-    question2: "'Translate for me' means ...",
-    choiceD: "翻譯「為我」",
-    choiceE: "幫我翻譯",
-    choiceF: "聽並重複",
-    answer2: "幫我翻譯"
+    question1: "Which movie has the best weekend opener for an animated film?",
+    choiceA: "The ‘Super Mario Brothers Movie’",
+    choiceB: "’Frozen 2’",
+    choiceC: "’Sonic the Hedgehog 2’",
+    answer1: "The ‘Super Mario Brothers Movie’",
+    question2: "Why is the music known as K-Pop in a crisis?",
+    choiceD: "BTS is on a break.",
+    choiceE: "South Korea is on a break.",
+    choiceF: "The military is on a break.",
+    answer2: "BTS is on a break."
   };
 
 function setContent() {
