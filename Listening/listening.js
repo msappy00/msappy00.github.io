@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Which movie has the best weekend opener for an animated film?",
-    choiceA: "The ‘Super Mario Brothers Movie’",
-    choiceB: "’Frozen 2’",
-    choiceC: "’Sonic the Hedgehog 2’",
-    answer1: "The ‘Super Mario Brothers Movie’",
-    question2: "Why is the music known as K-Pop in a crisis?",
-    choiceD: "BTS is on a break.",
-    choiceE: "South Korea is on a break.",
-    choiceF: "The military is on a break.",
-    answer2: "BTS is on a break."
+    question1: "What is a beaver?",
+    choiceA: "工作勤懇的人",
+    choiceB: "海狸，河狸",
+    choiceC: "一種植物",
+    answer1: "海狸，河狸",
+    question2: "What do you think ‘a fibber’ is?",
+    choiceD: "一個騙人",
+    choiceE: "誠實的人",
+    choiceF: "海狸，河狸",
+    answer2: "一個騙人"
   };
 
 function setContent() {
