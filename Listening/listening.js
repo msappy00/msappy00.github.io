@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What is a beaver?",
-    choiceA: "工作勤懇的人",
-    choiceB: "海狸，河狸",
-    choiceC: "一種植物",
-    answer1: "海狸，河狸",
-    question2: "What do you think ‘a fibber’ is?",
-    choiceD: "一個騙人",
-    choiceE: "誠實的人",
-    choiceF: "海狸，河狸",
-    answer2: "一個騙人"
+    question1: "What does an audiologist specialize in?",
+    choiceA: "seeing",
+    choiceB: "teaching",
+    choiceC: "hearing",
+    answer1: "An audiologist specializes in hearing.",
+    question2: "What is wrong with Mr. Ratburn?",
+    choiceD: "He isn't seeing as well as he once did.",
+    choiceE: "He isn't hearing as well as he once did.",
+    choiceF: "His brain is broken.",
+    answer2: "He isn't hearing as well as he once did."
   };
 
 function setContent() {
