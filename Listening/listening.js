@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What does an audiologist specialize in?",
-    choiceA: "seeing",
-    choiceB: "teaching",
-    choiceC: "hearing",
-    answer1: "An audiologist specializes in hearing.",
-    question2: "What is wrong with Mr. Ratburn?",
-    choiceD: "He isn't seeing as well as he once did.",
-    choiceE: "He isn't hearing as well as he once did.",
-    choiceF: "His brain is broken.",
-    answer2: "He isn't hearing as well as he once did."
+    question1: "What is the problem?",
+    choiceA: "big problem",
+    choiceB: "child labor",
+    choiceC: "dangerous conditions",
+    answer1: "Child labor is the problem.",
+    question2: "What can be done to end the problem?",
+    choiceD: "Everyone can help.",
+    choiceE: "No one can help.",
+    choiceF: "Nothing can be done.",
+    answer2: "Everyone can help end child labor."
   };
 
 function setContent() {
