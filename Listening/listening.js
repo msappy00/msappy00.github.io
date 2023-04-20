@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What is the problem?",
-    choiceA: "big problem",
-    choiceB: "child labor",
-    choiceC: "dangerous conditions",
-    answer1: "Child labor is the problem.",
-    question2: "What can be done to end the problem?",
-    choiceD: "Everyone can help.",
-    choiceE: "No one can help.",
-    choiceF: "Nothing can be done.",
-    answer2: "Everyone can help end child labor."
+    question1: "Who died in the house?",
+    choiceA: "some guy",
+    choiceB: "the girl",
+    choiceC: "the boy",
+    answer1: "Some guy died in the house.",
+    question2: "How does the boy feel?",
+    choiceD: "He is scared.",
+    choiceE: "He is curious.",
+    choiceF: "He is excited.",
+    answer2: "He is curious."
   };
 
 function setContent() {
