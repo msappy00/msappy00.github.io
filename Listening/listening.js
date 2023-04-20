@@ -13,14 +13,14 @@ if ('serviceWorker' in navigator) {
 const listening = {
     question1: "Who died in the house?",
     choiceA: "some guy",
-    choiceB: "the girl",
-    choiceC: "the boy",
+    choiceB: "Mary",
+    choiceC: "John",
     answer1: "Some guy died in the house.",
-    question2: "How does the boy feel?",
+    question2: "How does John feel?",
     choiceD: "He is scared.",
     choiceE: "He is curious.",
     choiceF: "He is excited.",
-    answer2: "He is curious."
+    answer2: "John is curious."
   };
 
 function setContent() {
