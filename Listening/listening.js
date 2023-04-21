@@ -11,17 +11,17 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Who died in the house?",
-    choiceA: "some guy",
-    choiceB: "Mary",
-    choiceC: "John",
-    answer1: "Some guy died in the house.",
-    question2: "How does John feel?",
-    choiceD: "He is scared.",
-    choiceE: "He is curious.",
-    choiceF: "He is excited.",
-    answer2: "John is curious."
-  };
+    question1: "What are the children doing?",
+    choiceA: "They are making sandwiches.",
+    choiceB: "They are wetting their pants.",
+    choiceC: "They are having a picnic.",
+    answer1: "They are having a picnic.",
+    question2: "What is the problem?",
+    choiceD: "The sandwiches smell bad.",
+    choiceE: "The blanket is wet.",
+    choiceF: "The creek is gross.",
+    answer2: "The creek is gross."
+}
 
 function setContent() {
     document.getElementById("question1").textContent = listening.question1;
