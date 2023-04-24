@@ -36,12 +36,13 @@ function setContent() {
 
 function openTab(evt, tabName) {
     const tabcontent = [...document.getElementsByClassName("tabcontent")];
-    tabcontent.forEach(tab => {
-    tab.style.display = "none";
+        tabcontent.forEach(tab => {
+        tab.style.display = "none";
     });
     const tablinks = [...document.getElementsByClassName("tablinks")];
     tablinks.forEach(tab => {
-    tab.classList.remove("active");
+        tab.classList.remove("active");
+    });
 }
 
 function checkAnswer1() {
