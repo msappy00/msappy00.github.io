@@ -1,9 +1,18 @@
 // check if service worker is supported
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register("listening.js", { scope: '/Listening/' }).then(reg => console.log('Successfully registered. Scope is ${reg.scope}')).catch(error => console.log('Registering failed ${error}'));
-} else {
-    console.log('Service worker cannot be registered on this device');
-}
+const registerServiceWorker = async () => {
+  if ('serviceWorker' in navigator) {
+    try {
+      const reg = await navigator.serviceWorker.register("listening.js", { scope: '/Listening/' });
+      console.log(`Successfully registered. Scope is ${reg.scope}`);
+    } catch (error) {
+      console.error(`Registration failed: ${error}`);
+    }
+  } else {
+    console.warn('Service worker cannot be registered on this device');
+  }
+};
+
+registerServiceWorker();
 
 const listening = {
     question1: "Why do we wear shoes?",
@@ -34,7 +43,7 @@ function setContent(event) {
 
 function openTab(evt, tabName) {
     const tabcontent = [...document.getElementsByClassName("tabcontent")];
-        tabcontent.forEach(tab => {
+    tabcontent.forEach(tab => {
         tab.style.display = "none";
     });
     const tablinks = [...document.getElementsByClassName("tablinks")];
