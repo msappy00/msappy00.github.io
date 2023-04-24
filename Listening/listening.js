@@ -1,7 +1,7 @@
 // check if service worker is supported
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register("listening.js", { scope: '/Listening/' })
-    .then(reg => console.log(Successfully registered. Scope is ${reg.scope}))
+    .then(reg => console.log(Successfully registered. Scope is ${reg.scope}'))
     .catch(error => console.log(Registering failed ${error}));
 } else {
     console.log('Service worker cannot be registered on this device');
@@ -20,7 +20,7 @@ const listening = {
     answer2: "Sneakers, sandals, and boots are all types of shoes."
 }
 
-function setContent() {
+function setContent(event) {
     document.getElementById("question1").textContent = listening.question1;
     document.getElementById("choiceA").textContent = listening.choiceA;
     document.getElementById("choiceB").textContent = listening.choiceB;
