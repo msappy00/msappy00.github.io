@@ -11,16 +11,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "What are the children doing?",
-    choiceA: "They are making sandwiches.",
-    choiceB: "They are wetting their pants.",
-    choiceC: "They are having a picnic.",
-    answer1: "They are having a picnic.",
-    question2: "What is the problem?",
-    choiceD: "The sandwiches smell bad.",
-    choiceE: "The blanket is wet.",
-    choiceF: "The creek is gross.",
-    answer2: "The creek is gross."
+    question1: "Why do we wear shoes?",
+    choiceA: "to make our feet cold",
+    choiceB: "to make our feet look pretty",
+    choiceC: "to protect our feet and make them feel comfortable",
+    answer1: "We wear shoes to protect our feet and make them feel comfortable when we walk or run.",
+    question2: "What are the different types of shoes?",
+    choiceD: "rubber bands, shoe laces, and shoehorns",
+    choiceE: "sneakers, sandals, and boots",
+    choiceF: "running shoes, soccer balls, and baseball caps",
+    answer2: "Sneakers, sandals, and boots are all types of shoes."
 }
 
 function setContent() {
