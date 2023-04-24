@@ -1,18 +1,13 @@
 // check if service worker is supported
-const registerServiceWorker = async () => {
-  if ('serviceWorker' in navigator) {
-    try {
-      const reg = await navigator.serviceWorker.register("listening.js", { scope: '/Listening/' });
-      console.log(`Successfully registered. Scope is ${reg.scope}`);
-    } catch (error) {
-      console.error(`Registration failed: ${error}`);
-    }
-  } else {
-    console.warn('Service worker cannot be registered on this device');
-  }
-};
-
-registerServiceWorker();
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register("listening.js", {scope: '/Listening/' }).then(function(reg) {
+    console.log('Successfully registered. Scope is ' + reg.scope);
+    }).catch(function(error) {
+        console.log('Registering failed ' + error);
+    });
+} else {
+    console.log('Service worker can not be registered on this device');
+}
 
 const listening = {
     question1: "Why do we wear shoes?",
@@ -27,7 +22,7 @@ const listening = {
     answer2: "Sneakers, sandals, and boots are all types of shoes."
 }
 
-function setContent(event) {
+function setContent() {
     document.getElementById("question1").textContent = listening.question1;
     document.getElementById("choiceA").textContent = listening.choiceA;
     document.getElementById("choiceB").textContent = listening.choiceB;
@@ -42,14 +37,24 @@ function setContent(event) {
 }
 
 function openTab(evt, tabName) {
-    const tabcontent = [...document.getElementsByClassName("tabcontent")];
-    tabcontent.forEach(tab => {
-        tab.style.display = "none";
-    });
-    const tablinks = [...document.getElementsByClassName("tablinks")];
-    tablinks.forEach(tab => {
-        tab.classList.remove("active");
-    });
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
 }
 
 function checkAnswer1() {
