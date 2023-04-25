@@ -1,13 +1,18 @@
 // check if service worker is supported
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register("listening.js", {scope: '/Listening/' }).then(function(reg) {
-    console.log('Successfully registered. Scope is ' + reg.scope);
-    }).catch(function(error) {
-        console.log('Registering failed ' + error);
-    });
-} else {
+async function registerServiceWorker() {
+  if ('serviceWorker' in navigator) {
+    try {
+      const reg = await navigator.serviceWorker.register('listening.js', { scope: '/Listening/' });
+      console.log(`Successfully registered. Scope is ${reg.scope}`);
+    } catch (error) {
+      console.log(`Registering failed ${error}`);
+    }
+  } else {
     console.log('Service worker can not be registered on this device');
+  }
 }
+
+registerServiceWorker();
 
 const listening = {
     question1: "What does the phrase ‘how about’ usually mean?",
