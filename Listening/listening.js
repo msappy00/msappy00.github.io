@@ -10,16 +10,16 @@ if ('serviceWorker' in navigator) {
 }
 
 const listening = {
-    question1: "Why do we wear shoes?",
-    choiceA: "to make our feet cold",
-    choiceB: "to make our feet look pretty",
-    choiceC: "to protect our feet and make them feel comfortable",
-    answer1: "We wear shoes to protect our feet and make them feel comfortable when we walk or run.",
-    question2: "What are the different types of shoes?",
-    choiceD: "rubber bands, shoe laces, and shoehorns",
-    choiceE: "sneakers, sandals, and boots",
-    choiceF: "running shoes, soccer balls, and baseball caps",
-    answer2: "Sneakers, sandals, and boots are all types of shoes."
+    question1: "What does the phrase ‘how about’ usually mean?",
+    choiceA: "It is a way to say hello to someone.",
+    choiceB: "It is a way to ask for directions.",
+    choiceC: " It is a way to make a suggestion.",
+    answer1: " It is a way to make a suggestion.",
+    question2: "When might you use the phrase ‘how about’?",
+    choiceD: "When you want to say goodbye to someone.",
+    choiceE: "When you want to suggest an activity or idea.",
+    choiceF: "When you want to ask for someone's phone number.",
+    answer2: "When you want to suggest an activity or idea."
 }
 
 function setContent() {
