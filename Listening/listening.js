@@ -1,8 +1,11 @@
 // check if service worker is supported
+const serviceWorkerFilename = 'listening.js';
+const serviceWorkerScope = '/Listening/';
+
 async function registerServiceWorker() {
-  if ('serviceWorker' in navigator) {
+  if (navigator.serviceWorker !== undefined) {
     try {
-      const reg = await navigator.serviceWorker.register('listening.js', { scope: '/Listening/' });
+      const reg = await navigator.serviceWorker.register(serviceWorkerFilename, { scope: serviceWorkerScope });
       console.log(`Successfully registered. Scope is ${reg.scope}`);
     } catch (error) {
       console.log(`Registering failed ${error}`);
