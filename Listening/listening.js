@@ -18,16 +18,16 @@ async function registerServiceWorker() {
 registerServiceWorker();
 
 const listening = {
-    question1: "What does the phrase ‘how about’ usually mean?",
-    choiceA: "It is a way to say hello to someone.",
-    choiceB: "It is a way to ask for directions.",
-    choiceC: " It is a way to make a suggestion.",
-    answer1: " It is a way to make a suggestion.",
-    question2: "When might you use the phrase ‘how about’?",
-    choiceD: "When you want to say goodbye to someone.",
-    choiceE: "When you want to suggest an activity or idea.",
-    choiceF: "When you want to ask for someone's phone number.",
-    answer2: "When you want to suggest an activity or idea."
+    question1: "What is one reason people might donate blood?",
+    choiceA: "to get paid",
+    choiceB: "to lose weight",
+    choiceC: "to help others",
+    answer1: "People might donate blood to help others.",
+    question2: "How does donating blood help those in need?",
+    choiceD: "It helps them lose weight.",
+    choiceE: "It helps them feel better.",
+    choiceF: "It makes them feel sick.",
+    answer2: "It helps them feel better."
 }
 
 function setContent() {
