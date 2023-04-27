@@ -18,16 +18,16 @@ async function registerServiceWorker() {
 registerServiceWorker();
 
 const listening = {
-    question1: "What is one reason people might donate blood?",
-    choiceA: "to get paid",
-    choiceB: "to lose weight",
-    choiceC: "to help others",
-    answer1: "People might donate blood to help others.",
-    question2: "How does donating blood help those in need?",
-    choiceD: "It helps them lose weight.",
-    choiceE: "It helps them feel better.",
-    choiceF: "It makes them feel sick.",
-    answer2: "It helps them feel better."
+    question1: "Which of the following sentences uses 'much' to describe a large amount?",
+    choiceA: "I don't have much homework tonight.",
+    choiceB: "She doesn't drink much coffee in the morning.",
+    choiceC: "We didn't get much snow this winter.",
+    answer1: "We didn't get much snow this winter.",
+    question2: "In which of the following questions is 'much' used to ask about an amount?",
+    choiceD: "What time does the movie start?",
+    choiceE: "How much does the shirt cost?",
+    choiceF: "Who is playing in the concert tonight?",
+    answer2: "How much does the shirt cost?"
 }
 
 function setContent() {
