@@ -18,16 +18,16 @@ async function registerServiceWorker() {
 registerServiceWorker();
 
 const listening = {
-    question1: "Which of the following sentences uses 'much' to describe a large amount?",
-    choiceA: "I don't have much homework tonight.",
-    choiceB: "She doesn't drink much coffee in the morning.",
-    choiceC: "We didn't get much snow this winter.",
-    answer1: "We didn't get much snow this winter.",
-    question2: "In which of the following questions is 'much' used to ask about an amount?",
-    choiceD: "What time does the movie start?",
-    choiceE: "How much does the shirt cost?",
-    choiceF: "Who is playing in the concert tonight?",
-    answer2: "How much does the shirt cost?"
+    question1: "What does the phrase 'have to' mean?",
+    choiceA: "optional or voluntary",
+    choiceB: "necessary or required",
+    choiceC: "fun or exciting",
+    answer1: "Something is necessary or required.",
+    question2: "Which of the following sentences uses 'have to' correctly?",
+    choiceD: "I don't have to go to work today.",
+    choiceE: "I want to have to eat my vegetables.",
+    choiceF: "She doesn’t has to do her homework.",
+    answer2: "I don't have to go to work today."
 }
 
 function setContent() {
