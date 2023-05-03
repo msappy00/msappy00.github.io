@@ -1,1 +1,2 @@
-This is the home of two web apps: a calculator and an ESL listening app.
+This is a home for web apps currently: 
+* a calculator
