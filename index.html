@@ -1,131 +1,18 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <title>Widget</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/w3.css" />
-    <style>
-        body {
-            background-color: lightslategray;
-        }
+<!DOCTYPE html>
+<html lang="en-US">
+<body>
 
-        .item1 {
-            grid-area: header;
-            height: 5px;
-        }
+<div id="google_translate_element"></div>
 
-        .item2 {
-            grid-area: time;
-            text-align: center;
-        }
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
 
-        .item3 {
-            grid-area: bottom;
-        }
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-        .grid-container {
-            display: grid;
-            grid-template:
-                'header'
-                'time'
-                'bottom';
-            justify-content: center;
-        }
+<p>This example displays a vertical translate button.</p>
 
-        .container {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            padding-top: 23.23%
-        }
-
-        /* Add a black background color to the top navigation */
-        .topnav {
-            background-color: #333;
-            overflow: hidden;
-        }
-
-        /* Right-aligned section inside the top navigation */
-        .topnav-right {
-          float: right;
-        }
-    </style>
-    <meta http-equiv="refresh" content="900" >
-</head>
-
-<body class="bd" id="bd">
-
-    <div class="grid-container">
-        <div class="item1"></div>
-        <div class="item2">
-            <p style="font-size: 3vw">
-                <span id="date"></span><br />
-                <span id="DOW"></span><br />
-                <span id="time"></span><br />
-                <span id="key"></span>
-            </p>
-        </div>
-        <div class="item3">
-            <!--<div id="openweathermap-widget-11" style="max-width:100%;height:auto;" class="w3-hide-small w3-hide-medium"></div>
-            <div id="openweathermap-widget-12" class="w3-hide-large"></div>
-            <script src='https://openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script>
-            <script>
-                function load_weather() {
-                    let storedKey = sessionStorage.getItem('ow_key');
-                    window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
-                    window.myWidgetParam.push({id: 11,cityid: '1673820',appid: storedKey,units: 'metric',containerid: 'openweathermap-widget-11',  });
-                    (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
-                    var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);
-                    })();
-                }
-
-                function load_mweather(){
-                    let storedKey = sessionStorage.getItem('ow_key');
-                    window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
-                    window.myWidgetParam.push({id: 12,cityid: '1673820',appid: storedKey,units: 'metric',containerid: 'openweathermap-widget-12',  });
-                    (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";
-                    script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
-                    var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);
-                    })();
-                }
-
-                function init() {
-                    let storedKey = sessionStorage.getItem('ow_key');
-                    if (!storedKey) {
-                        let storedKey = prompt('enter api key', '');
-                        sessionStorage.setItem('ow_key', storedKey);
-                    }
-                    load_weather();
-                    load_mweather();
-                }
-
-                init();
-            </script>-->
-        </div>
-    </div>
 </body>
 </html>
-<script>
-    var d = new Date();
-    var weekday = new Array(7);
-    weekday[0] = "Sunday";
-    weekday[1] = "Monday";
-    weekday[2] = "Tuesday";
-    weekday[3] = "Wednesday";
-    weekday[4] = "Thursday";
-    weekday[5] = "Friday";
-    weekday[6] = "Saturday";
-
-    var n = weekday[d.getDay()];
-    setInterval(function () {
-        var dt = new Date();
-        document.getElementById('date').innerHTML = dt.toLocaleDateString();
-        document.getElementById('time').innerHTML = dt.toLocaleTimeString();
-    }, 1000);
-    var dt = new Date();
-    document.getElementById('date').innerHTML = dt.toLocaleDateString();
-    document.getElementById('time').innerHTML = dt.toLocaleTimeString();
-    document.getElementById('DOW').innerHTML = weekday[dt.getDay()];
-
-</script>
