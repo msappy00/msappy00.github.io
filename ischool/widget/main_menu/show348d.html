@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh-tw">
+
+
+<!-- Mirrored from www.sgash.cyc.edu.tw/ischool/widget/main_menu/show.php?cid=791 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 00:53:32 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>完全免試入學</title>
+</head>
+<style>
+	body {
+		padding: 10px;
+		margin: 0px;
+		font-size: 1.0em;
+	}
+
+	#div_news_table_1_topbanner_center {
+		padding: 10px 0;
+	}
+
+	#div_news_table_1_topbanner_center h2:before {
+		content: '';
+		background: url(img/map.html) no-repeat;
+		width: 20px;
+		height: 16px;
+		display: inline-block;
+	}
+</style>
+<script type="text/javascript" src="../../public/jquery/latest/js/jquery.js"></script>
+<script type="text/javascript">
+	var g_show_map = !!parseInt("1");
+	$(document).ready(function() {
+		$(".a_map").hide();
+
+		if (!g_show_map) {
+			$(".sites-subpages-map").hide();
+		}
+
+		$("#class_password_input #password_submit").click(function() {
+			var class_id = $(this).attr('data-cid');
+			var unique_id = $(this).attr('data-uid');
+			var password = $('#class_password_input #password_input').val();
+
+			var param = {};
+			param.uid = unique_id;
+			param.cid = class_id;
+			param.pwd = password;
+
+			$.ajax({
+				url: '../../widget/main_menu/password_input.php',
+				type: 'post',
+				dataType: 'text',
+				data: param,
+				timeout: 20000,
+				error: function() {
+					alert("驗證失敗！");
+				},
+				success: function(data) {
+					if (data == 200) {
+						window.location.reload();
+					} else {
+						alert("驗證失敗！");
+					}
+				}
+			});
+		});
+	});
+</script>
+
+<body>
+	<div id="page_main" class="WID_0_21_13a8643f5da76485cbcde822697caf2eb34db748"><div id="sites_page_content"><div id="div_news_table_main" style="position:absolute;float:left;height:auto"><div class="sites-subpages-map"><div id="div_news_table_1_topbanner"><div id="div_news_table_1_topbanner_center"><h2 style="font-size:1.0em;padding:0px;margin:0px"><a class='a_map tab-ctl-x' href='show16a7.html?cid=787'>招生專區</a> / <a class='a_map tab-ctl-x' href='show5673.html?cid=790'>112學年入學管道</a> / <span class='l_map'>完全免試入學</span></h2></div></div></div><div id="page_main_content" class="contentArea" style="width:100%;height:auto;float:left"><p font-size:="" new="" style="color: rgb(0, 0, 0); font-family: Arial, " times=""><a href="../../resources/WID_0_21_13a8643f5da76485cbcde822697caf2eb34db748/CLS_0_21_95d2faa236eede5225f879a0f041b932393b4382/9d62241454e1740f3e6eebe5019c446c.html" target="_blank"><span style="color:#0000ff;"><span style="font-size:22px;"><strong><span style="font-family:微軟正黑體;">112學年度嘉義區高級中等學校完全免試入學簡章</span></strong></span></span></a></p><p style="color: rgb(69, 69, 69);"><span style="font-size:18px;">1.學生應先向就讀國中報名</span></p><p style="color: rgb(69, 69, 69);"><span style="font-size:18px;">2.國中向主辦學校集體報名112 年5 月9 日（星期二）至 112 年5 月10 日（星期三）每日上午9 時至12       時、</span><span style="font-size: 18px;">下午1 時至4 時止。</span></p><p style="color: rgb(69, 69, 69);"><span style="font-size:18px;">3.112 年5 月18 日（星期四）上午11 時公布錄取名單</span></p><p style="color: rgb(69, 69, 69);"><span style="font-size:18px;">4.報到112 年6 月15 日（星期四）上午9 時至11 時</span></p></div></div></div></div></body>
+
+
+<!-- Mirrored from www.sgash.cyc.edu.tw/ischool/widget/main_menu/show.php?cid=791 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 00:53:32 GMT -->
+</html>

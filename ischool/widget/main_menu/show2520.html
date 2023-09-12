@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh-tw">
+
+
+<!-- Mirrored from www.sgash.cyc.edu.tw/ischool/widget/main_menu/show.php?id=1127&map=0 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 00:47:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>資通安全事件通報及應變程序</title>
+</head>
+<style>
+	body {
+		padding: 10px;
+		margin: 0px;
+		font-size: 1.0em;
+	}
+
+	#div_news_table_1_topbanner_center {
+		padding: 10px 0;
+	}
+
+	#div_news_table_1_topbanner_center h2:before {
+		content: '';
+		background: url(img/map.html) no-repeat;
+		width: 20px;
+		height: 16px;
+		display: inline-block;
+	}
+</style>
+<script type="text/javascript" src="../../public/jquery/latest/js/jquery.js"></script>
+<script type="text/javascript">
+	var g_show_map = !!parseInt("0");
+	$(document).ready(function() {
+		$(".a_map").hide();
+
+		if (!g_show_map) {
+			$(".sites-subpages-map").hide();
+		}
+
+		$("#class_password_input #password_submit").click(function() {
+			var class_id = $(this).attr('data-cid');
+			var unique_id = $(this).attr('data-uid');
+			var password = $('#class_password_input #password_input').val();
+
+			var param = {};
+			param.uid = unique_id;
+			param.cid = class_id;
+			param.pwd = password;
+
+			$.ajax({
+				url: '../../widget/main_menu/password_input.php',
+				type: 'post',
+				dataType: 'text',
+				data: param,
+				timeout: 20000,
+				error: function() {
+					alert("驗證失敗！");
+				},
+				success: function(data) {
+					if (data == 200) {
+						window.location.reload();
+					} else {
+						alert("驗證失敗！");
+					}
+				}
+			});
+		});
+	});
+</script>
+
+<body>
+	<div id="page_main" class="WID_7_1_21b655ba6f580f9dcb2476dee72aa7aab9960692"><div id="sites_page_content"><div id="div_news_table_main" style="position:absolute;float:left;height:auto"><div class="sites-subpages-map"><div id="div_news_table_1_topbanner"><div id="div_news_table_1_topbanner_center"><h2 style="font-size:1.0em;padding:0px;margin:0px"><a class='a_map tab-ctl-x' href='showdb51.html?cid=176'>資通安全專區</a> / <span class='l_map'>資通安全事件通報及應變程序</span></h2></div></div></div><div id="page_main_content" class="contentArea" style="width:100%;height:auto;float:left"><p style="text-align: center;"><img alt="通報流程圖" src="../../resources/WID_7_1_21b655ba6f580f9dcb2476dee72aa7aab9960692/CLS_7_1_4954f38ee5f3f8af7bf8d86b845a2355fdf7aa3c/49482384eeedbe58523d22d91e9ea2aa.html" style="width: 550px; height: 703px;" /></p><p> </p><p><span style="font-size:24px;"><strong><span style="font-family:微軟正黑體;">通報及應變作業流程</span></strong></span></p><p><span style="font-size:24px;"><strong><span style="font-family:微軟正黑體;"><img alt="通報及應變作業流程" src="../../resources/WID_7_1_21b655ba6f580f9dcb2476dee72aa7aab9960692/CLS_7_1_4954f38ee5f3f8af7bf8d86b845a2355fdf7aa3c/06a4fbfb334d850009ab31446b420882.html" style="width: 1000px; height: 603px;" /></span></strong></span></p><p><span style="font-family: 標楷體;">                           </span><span style="font-size: 14px;"><span style="font-family:標楷體;"><a href="../../public/resource_view/openfidf58d.pdf?id=1913" target="_blank">各級學校通報及應變流程</a> 來源：<a href="https://cert.tanet.edu.tw/prog/index.php" target="_blank">臺灣學術網路危機處理中心</a></span></span></p><p> </p><p><span style="font-size:24px;"><span style="font-family:微軟正黑體;"><strong>資通安全事件等級</strong></span></span></p><p class="MsoNormal"><span style="font-size:18px;"><span style="font-family:標楷體">本作業程序依據「資通安全事件通報及應變辦法」將資通安全事件分為四級，由重至輕分別為「<span lang="EN-US">4</span>級」、「<span lang="EN-US">3</span>級」、「<span lang="EN-US">2</span>級」及「<span lang="EN-US">1</span>級」，另新增資安預警事件類別。</span></span><span style="font-family:標楷體"><span lang="EN-US"><o:p></o:p></span></span></p><p class="MsoNormal"><span style="font-size:18px;"><span style="font-family:標楷體"><span lang="EN-US">一、 4 </span>級事件</span></span><span style="font-family:標楷體"><span lang="EN-US"><o:p></o:p></span></span></p><p class="MsoNormal"><span style="font-size:18px;"><span style="font-family:標楷體">   符合下列任一情形者，屬<span lang="EN-US"> 4 </span>級事件：</span></span><span style="font-family:標楷體"><span lang="EN-US"><o:p></o:p></span></span></p><p class="MsoNormal"><span style="font-size:18px;"><span style="font-family:標楷體">   1. 一般公務機密、敏感資訊或涉及關鍵基礎設施維運之核心業務資</span></span><span style="font-family: 標楷體; font-size: 18px;">訊遭嚴重洩漏，或國家機密遭洩漏。</span></p><p class="MsoNormal"><span style="font-size:18px;"><span style="font-family:標楷體">   2. 一般公務機密、敏感資訊、涉及關鍵基礎設施維運之核心業務資</span></span><span style="font-family: 標楷體; font-size: 18px;">訊或核心資通系統遭嚴重竄改，或國家機密遭竄改。</span></p><p class="MsoNormal"><span style="font-size:18px;"><span style="font-family:標楷體">   3. 涉及關鍵基礎設施維運之核心業務或核心資通系統之運作受影響</span></span><span style="font-family: 標楷體; font-size: 18px;">或停頓，無法於可容忍中斷時間內回復正常運作。</span></p><p class="MsoNormal"><span style="font-size:18px;"><span style="font-family:標楷體"><span lang="EN-US">二、 3 </span>級事件</span></span><span style="font-family:標楷體"><span lang="EN-US"><o:p></o:p></span></span></p><p class="MsoNormal"><span style="font-size:18px;"><span style="font-family:標楷體">   符合下列任一情形者，屬<span lang="EN-US"> 3 </span>級事件：</span></span><span style="font-family:標楷體"><span lang="EN-US"><o:p></o:p></span></span></p><p class="MsoNormal"><span style="font-size:18px;"><span style="font-family:標楷體">   1. 未涉及關鍵基礎設施維運之核心業務資訊遭嚴重洩漏，或一般公</span></span><span style="font-family: 標楷體; font-size: 18px;">務機密、敏感資訊或涉及關鍵基礎設施維運之核心業務資訊遭輕</span><span style="font-family: 標楷體; font-size: 18px;">微洩漏。</span></p><p class="MsoNormal"><span style="font-size:18px;"><span style="font-family:標楷體">   2. 未涉及關鍵基礎設施維運之核心業務資訊或核心資通系統遭嚴重</span></span><span style="font-family: 標楷體; font-size: 18px;">竄改，或一般公務機密、敏感資訊、涉及關鍵基礎設施維運之核</span><span style="font-family: 標楷體; font-size: 18px;">心業務資訊或核心資通系統遭輕微竄改。</span></p><p class="MsoNormal"><span style="font-size:18px;"><span style="font-family:標楷體">   3. 未涉及關鍵基礎設施維運之核心業務或核心資通系統之運作受影</span></span><span style="font-family: 標楷體; font-size: 18px;">響或停頓，無法於可容忍中斷時間內回復正常運作，或涉及關鍵</span><span style="font-family: 標楷體; font-size: 18px;">基礎設施維運之核心業務或核心資通系統之運作受影響</span></p><p class="MsoNormal"><span style="font-family: 標楷體; font-size: 18px;">      或停頓，</span><span style="font-family: 標楷體; font-size: 18px;">於可容忍中斷時間內回復正常運作。</span></p><p class="MsoNormal"><span style="font-size:18px;"><span style="font-family:標楷體">三、 <span lang="EN-US">2 </span>級事件</span></span><span style="font-family:標楷體"><span lang="EN-US"><o:p></o:p></span></span></p><p class="MsoNormal"><span style="font-size:18px;"><span style="font-family:標楷體">   符合下列任一情形者，屬<span lang="EN-US"> 2 </span>級事件：</span></span><span style="font-family:標楷體"><span lang="EN-US"><o:p></o:p></span></span></p><p class="MsoNormal"><span style="font-size:18px;"><span style="font-family:標楷體">   1. 非核心業務資訊遭嚴重洩漏，或未涉及關鍵基礎設施維運之核心</span></span><span style="font-family: 標楷體; font-size: 18px;">業務資訊遭輕微洩漏。</span></p><p class="MsoNormal"><span style="font-size:18px;"><span style="font-family:標楷體">   2. 非核心業務資訊或非核心資通系統遭嚴重竄改，或未涉及關鍵基</span></span><span style="font-family: 標楷體; font-size: 18px;">礎設施維運之核心業務資訊或核心資通系統遭輕微竄改。</span></p><p class="MsoNormal"><span style="font-size:18px;"><span style="font-family:標楷體">   3. 非核心業務之運作受影響或停頓，無法於可容忍中斷時間內回復</span></span><span style="font-family: 標楷體; font-size: 18px;">正常運作，或未涉及關鍵基礎設施維運之核心業務或核心資通系</span><span style="font-family: 標楷體; font-size: 18px;">統之運作受影響或停頓，於可容忍中斷時間內回復正常</span></p><p class="MsoNormal"><span style="font-family: 標楷體; font-size: 18px;">      運作。</span></p><p class="MsoNormal"><span style="font-size:18px;"><span style="font-family:標楷體"><span lang="EN-US">四、 1 </span>級事件</span></span><span style="font-family:標楷體"><span lang="EN-US"><o:p></o:p></span></span></p><p class="MsoNormal"><span style="font-size:18px;"><span style="font-family:標楷體">   符合下列任一情形者，屬<span lang="EN-US"> 1 </span>級事件：</span></span><span style="font-family:標楷體"><span lang="EN-US"><o:p></o:p></span></span></p><p class="MsoNormal"><span style="font-size:18px;"><span style="font-family:標楷體">   1. 非核心業務資訊遭輕微洩漏。</span></span><span style="font-family:標楷體"><span lang="EN-US"><o:p></o:p></span></span></p><p class="MsoNormal"><span style="font-size:18px;"><span style="font-family:標楷體">   2. 非核心業務資訊或非核心資通系統遭輕微竄改。</span></span><span style="font-family:標楷體"><span lang="EN-US"><o:p></o:p></span></span></p><p class="MsoNormal"><span style="font-size:18px;"><span style="font-family:標楷體">   3. 非核心業務之運作受影響或停頓，於可容忍中斷時間內回復正常</span></span><span style="font-family: 標楷體; font-size: 18px;">運作，造成機關日常作業影響。</span></p><p class="MsoNormal"><span style="font-size:18px;"><span style="font-family:標楷體">五、資安預警事件</span></span><span style="font-family:標楷體"><span lang="EN-US"><o:p></o:p></span></span></p><p class="MsoNormal"><span style="font-size:18px;"><span style="font-family:標楷體">   凡屬有待受害單位進行確認之資安事件皆屬於資安預警事件，說明如</span></span><span style="font-family: 標楷體; font-size: 18px;">下：</span></p><p class="MsoNormal"><span style="font-size:18px;"><span style="font-family:標楷體">   1. 未確定事件或待確認事件單：來自北區教育學術資訊安全監控中</span></span><span style="font-family: 標楷體; font-size: 18px;">心（</span><span lang="EN-US" style="font-family: 標楷體; font-size: 18px;">N-ASOC</span><span style="font-family: 標楷體; font-size: 18px;">）、南區教育學術資訊安全監控中心（</span><span lang="EN-US" style="font-family: 標楷體; font-size: 18px;">S-ASOC</span><span style="font-family: 標楷體; font-size: 18px;">）、縣市</span><span style="font-family: 標楷體; font-size: 18px;">網資訊安全維運中心（</span><span lang="EN-US" style="font-family: 標楷體; font-size: 18px;">MINI-SOC</span><span style="font-family: 標楷體; font-size: 18px;">）使用之新型技術所</span></p><p class="MsoNormal"><span style="font-family: 標楷體; font-size: 18px;">      產生之事件</span><span style="font-family: 標楷體; font-size: 18px;">單，但正確性有待確認者。</span></p><p class="MsoNormal"><span style="font-size:18px;"><span style="font-family:標楷體">   2. 其他單位所告知教育部所屬單位所發生未確定之資安事件。</span></span></p><p class="MsoNormal"> </p><p class="MsoNormal"><a href="https://info.cert.tanet.edu.tw/prog/index.php" target="_blank"><strong><span style="font-family:微軟正黑體;"><span style="font-size:24px;"><span style="background-color:#ffff00;">教育機構資安通報平台</span></span></span></strong></a>  </p><p class="MsoNormal"><a href="https://info.cert.tanet.edu.tw/prog/index.php" target="_blank"><span style="font-size:18px;">https://info.cert.tanet.edu.tw/prog/index.php</span></a></p><p class="MsoNormal"> </p><p class="MsoNormal"> </p><p class="MsoNormal"><span style="font-family:標楷體"><span lang="EN-US"><o:p></o:p></span></span></p></div></div></div></div></body>
+
+
+<!-- Mirrored from www.sgash.cyc.edu.tw/ischool/widget/main_menu/show.php?id=1127&map=0 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 00:47:47 GMT -->
+</html>

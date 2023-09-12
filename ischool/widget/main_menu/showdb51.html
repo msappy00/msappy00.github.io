@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh-tw">
+
+
+<!-- Mirrored from www.sgash.cyc.edu.tw/ischool/widget/main_menu/show.php?cid=176 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 00:53:16 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>資通安全專區</title>
+</head>
+<style>
+	body {
+		padding: 10px;
+		margin: 0px;
+		font-size: 1.0em;
+	}
+
+	#div_news_table_1_topbanner_center {
+		padding: 10px 0;
+	}
+
+	#div_news_table_1_topbanner_center h2:before {
+		content: '';
+		background: url(img/map.html) no-repeat;
+		width: 20px;
+		height: 16px;
+		display: inline-block;
+	}
+</style>
+<script type="text/javascript" src="../../public/jquery/latest/js/jquery.js"></script>
+<script type="text/javascript">
+	var g_show_map = !!parseInt("1");
+	$(document).ready(function() {
+		$(".a_map").hide();
+
+		if (!g_show_map) {
+			$(".sites-subpages-map").hide();
+		}
+
+		$("#class_password_input #password_submit").click(function() {
+			var class_id = $(this).attr('data-cid');
+			var unique_id = $(this).attr('data-uid');
+			var password = $('#class_password_input #password_input').val();
+
+			var param = {};
+			param.uid = unique_id;
+			param.cid = class_id;
+			param.pwd = password;
+
+			$.ajax({
+				url: '../../widget/main_menu/password_input.php',
+				type: 'post',
+				dataType: 'text',
+				data: param,
+				timeout: 20000,
+				error: function() {
+					alert("驗證失敗！");
+				},
+				success: function(data) {
+					if (data == 200) {
+						window.location.reload();
+					} else {
+						alert("驗證失敗！");
+					}
+				}
+			});
+		});
+	});
+</script>
+
+<body>
+	<div id="page_main" class="WID_7_1_21b655ba6f580f9dcb2476dee72aa7aab9960692"><div id="sites_page_content"><div id="div_news_table_main" style="position:absolute;float:left;height:auto"><div class="sites-subpages-map"><div id="div_news_table_1_topbanner"><div id="div_news_table_1_topbanner_center"><h2 style="font-size:1.0em;padding:0px;margin:0px"><span class='l_map'>資通安全專區</span></h2></div></div></div><div class="sites-subpages"style="float:left;width:100%;height:auto;"><div class="sites-subpages-content" style="float:left"><ul><li id="C-178"><a class="tab-ctl-x" href="show115e.html?cid=178" target="" title="資通安全維護計畫"><span>資通安全維護計畫</span></a></li><li id="C-181"><a class="tab-ctl-x" dir="ltr" href="showfd7a.html?cid=181" cid="181" ctype="default" linktype="content" title="資通安全政策" style="cursor:pointer"><span>資通安全政策</span></a></li><li id="C-820"><a class="tab-ctl-x" href="showa3fe.html?cid=820" target="" title="資安相關規章"><span>資安相關規章</span></a></li><li id="C-1127"><a class="tab-ctl-x" href="show2520.html?id=1127&amp;map=0" target="_blank" title="資通安全事件通報及應變程序(另開啟新視窗)"><span>資通安全事件通報及應變程序</span></a></li><li id="C-821"><a class="tab-ctl-x" href="show135b.html?cid=821" target="" title="表單下載"><span>表單下載</span></a></li><li id="C-822"><a class="tab-ctl-x" dir="ltr" href="show3a1c.html?cid=822" cid="822" ctype="default" linktype="content" title="線上研習專區" style="cursor:pointer"><span>線上研習專區</span></a></li><li id="C-823"><a class="tab-ctl-x" dir="ltr" href="showfbfe.html?cid=823" cid="823" ctype="folder" linktype="" title="資安相關網站" style="cursor:pointer"><span>資安相關網站</span></a></li><li id="C-829"><a class="tab-ctl-x" href="show5b94.html?cid=829" target="" title="資安宣導文件"><span>資安宣導文件</span></a></li></ul></div></div></div></div></div></body>
+
+
+<!-- Mirrored from www.sgash.cyc.edu.tw/ischool/widget/main_menu/show.php?cid=176 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 00:53:18 GMT -->
+</html>

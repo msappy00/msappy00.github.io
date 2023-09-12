@@ -1,0 +1,323 @@
+@charset "utf-8";
+
+body{
+padding:0px;
+margin:0px;
+}
+
+#resource_show_main{
+position:relative;
+}
+
+.block_usermenu {
+background: #666;
+color: #ffffff;
+height:30px;
+overflow: auto;
+padding-top: 10px;
+padding-left: 10px;
+text-align: left;
+}
+
+.bk12 {
+color: #ffffff;
+font-size: 0.875em;
+text-decoration: none;	
+}
+
+.block_usermenu a{
+color: #ffffff;
+}
+.navDiv {
+clear: both;
+text-align: center;
+font-family: "Courier New", Courier, monospace;
+font-size: 1.0em;
+padding: 20px 5px;
+}
+.navDiv span{
+padding: 3px 5px;
+margin: 1px;
+}
+.navDiv span.disable {
+border: 1px solid #eee;
+color: #999;
+background-color:#FFFFFF;
+}
+.navDiv a{
+text-decoration: none;
+cursor:pointer;
+color: #265827;
+padding: 3px 5px;
+margin: 1px;
+border: 1px solid #ccc;
+background-color:#FFFFFF;	
+-webkit-box-shadow: 1px 1px 5px 0px rgba(166,166,166,1);
+-moz-box-shadow: 1px 1px 5px 0px rgba(166,166,166,1);
+box-shadow: 1px 1px 5px 0px rgba(166,166,166,1);
+}
+.navDiv span.select{
+color:#FFFFFF;
+background-color:#7B7B7B;
+border: 1px solid #7B7B7B;
+}
+.navDiv a:hover{
+background-color:#FCDF7C;
+border: 1px solid #FCDF7C;
+}
+/*--------------------------------------------------------------------*/
+
+#div_table_1{
+position:relative;	
+overflow-y:auto;
+}
+/*--------------------------------------------------------------------*/
+
+.lockDiv, .lock_icon:before, .list_folder:before, .list_folder_lock:before, .optionDiv, .fileDiv, .folderDiv, .parentDiv{
+background: transparent url(resource_integration.html) no-repeat top left;
+}
+/*--------------------------------------------------------------------*/
+
+/* List */
+#atb {
+background-color: #FFFFFF;
+border: 1px solid #7B7B7B;
+table-layout:fixed;
+overflow: hidden;
+}
+#atb thead tr {
+height: 25px;
+background-color: #7B7B7B;
+/*background-color:#47bbfb;*/
+color: #FFFFFF;
+padding: 3px;
+}
+#atb td{
+overflow: hidden;
+}
+#atb tr th{
+white-space: nowrap;
+overflow: hidden;	
+}
+#atb tr th#title {
+cursor: pointer;
+font-size: 0.875em;
+color: #FFFFFF;
+font-family: 微軟正黑體, 新細明體, Arial;
+}
+#atb tr.tcontent {
+font-size: 0.75em;
+color: #000000;
+height: 30px;
+}
+#atb .tcontent a:hover{
+color:#FF0000;
+}
+#atb tr th#title:hover {
+color: #FFF155;
+}
+#atb tr.even {
+background-color: #E1E3E4;
+}
+#atb tr.odd {
+background-color: #F4F5F5;
+}
+.list_folder, .list_folder_lock {
+position: relative;
+padding-left: 20px;
+display: block;
+text-overflow: ellipsis;
+overflow: hidden;
+width:100%;
+}
+.list_folder:before {
+content: close-quote;
+width: 20px;
+height: 16px;
+background-position: -111px -240px;
+position: absolute;
+top: 0px;
+left: 0px;
+display: inline-block;
+margin-right: 10px;
+}
+.list_folder_lock:before {
+content: close-quote;
+width: 20px;
+height: 16px;
+background-position: -131px -240px;
+position: absolute;
+top: 0px;
+left: 0px;
+display: inline-block;
+margin-right: 10px;
+}
+.lock_icon {
+position: relative;
+padding-left: 20px;
+}
+.lock_icon:before {
+content: close-quote;
+width: 20px;
+height: 16px;
+background-position: -111px -255px;
+position: absolute;
+top: 0px;
+left: 0px;
+display: inline-block;
+margin-right: 10px;
+}
+/*--------------------------------------------------------------------*/
+
+/* Thumb */
+#thumb-atb-content .albumDiv {
+float: left;
+width: 100px;
+height: 150px;
+text-align: center;
+/*margin-right: 0px;
+margin-bottom: 5px;
+*/
+padding:5px;
+}
+#thumb-atb-content .picDiv {
+padding: 5px;
+height: 80px;
+width: 80px;
+margin-right: auto;
+margin-left: auto;
+margin-bottom: 5px;
+position: relative;
+}
+#thumb-atb-content .shadow {
+-webkit-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+-moz-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+}
+#thumb-atb-content .parentDiv {
+height: 80px;
+width: 80px;
+background-position: 0 -160px;
+cursor: pointer;
+}
+#thumb-atb-content .lockDiv {
+height: 32px;
+width: 32px;
+top: 55px;
+position: absolute;
+background-position: -80px -240px;
+}
+#thumb-atb-content .folderDiv {
+height: 80px;
+width: 80px;
+background-position: 0 0;
+cursor: pointer;
+}
+#thumb-atb-content .albums_content #albumtitle {
+font-size: 0.75em;
+color: #000000;
+overflow: hidden;
+text-overflow: ellipsis;
+width: 100px;
+height: 30px;
+display: block;
+}
+#thumb-atb-content .albums_content .smalltext {
+font-family: Arial;
+font-size: 0.75em;
+color: #999999;
+vertical-align: middle;
+line-height: 20px;
+}
+#thumb-atb-content .fileDiv{
+height:80px;
+width:80px;
+left:0px;
+top:0px;
+cursor:pointer;
+position:absolute;
+background-position:-80px 0;
+}
+#thumb-atb-content .fileDiv#doc, #thumb-atb-content .fileDiv#docx{
+background-position:-160px 0;
+}
+#thumb-atb-content .fileDiv#ppt, #thumb-atb-content .fileDiv#pptx{
+background-position:-320px 0;
+}
+#thumb-atb-content .fileDiv#jpg, #thumb-atb-content .fileDiv#jpeg{
+background-position:-480px -80px;
+}	
+#thumb-atb-content .fileDiv#png{
+background-position:-320px -80px;
+}
+#thumb-atb-content .fileDiv#gif{
+background-position:-400px -80px;
+}
+#thumb-atb-content .fileDiv#avi{
+background-position:-80px -80px;
+}	
+#thumb-atb-content .fileDiv#wmv{
+background-position:-640px 0;
+}	
+#thumb-atb-content .fileDiv#flv{
+background-position:0 -80px;
+}	
+#thumb-atb-content .fileDiv#mp3{
+background-position:-480px 0;
+}
+#thumb-atb-content .fileDiv#zip, #thumb-atb-content .fileDiv#rar{
+background-position:-400px 0;
+}
+#thumb-atb-content .fileDiv#xls, #thumb-atb-content .fileDiv#xlsx{
+background-position:-240px 0;
+}
+#thumb-atb-content .fileDiv#mp4{
+background-position:-160px -80px;
+}
+#thumb-atb-content .fileDiv#mpg, #thumb-atb-content .fileDiv#mpeg{
+background-position:-560px 0;
+}	
+#thumb-atb-content .fileDiv#pdf{
+background-position:-240px -80px;
+}
+/*--------------------------------------------------------------------*/
+
+.optionDiv {
+width: 19px;
+height: 22px;
+background-position: 0 -240px;
+cursor: pointer;
+position: absolute;
+right: 10px;
+top: 0px;
+display: none;
+}
+/*--------------------------------------------------------------------*/
+
+#search {
+height: 30px;
+position: relative;
+right: 5px;
+top: 0px;
+width: 100%;
+text-align: right;
+font-size: 1.1em;
+}
+
+#search .input {
+font-size: 0.9em;
+width: 100px;
+margin: 1px;
+}
+
+.tab-ctl-x:focus {
+transition: all .2s ease-in-out;
+-webkit-transition: all .1s ease-in-out;
+-moz-transition: all .1s ease-in-out;
+-ms-transition: all .1s ease-in-out;
+-o-transition: all .1s ease-in-out;
+outline-style: dashed;
+outline-color: #ff0000;
+outline-width: 2px;
+outline-offset: 1px;
+}

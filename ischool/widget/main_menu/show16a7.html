@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh-tw">
+
+
+<!-- Mirrored from www.sgash.cyc.edu.tw/ischool/widget/main_menu/show.php?cid=787 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 00:49:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>招生專區</title>
+</head>
+<style>
+	body {
+		padding: 10px;
+		margin: 0px;
+		font-size: 1.0em;
+	}
+
+	#div_news_table_1_topbanner_center {
+		padding: 10px 0;
+	}
+
+	#div_news_table_1_topbanner_center h2:before {
+		content: '';
+		background: url(img/map.html) no-repeat;
+		width: 20px;
+		height: 16px;
+		display: inline-block;
+	}
+</style>
+<script type="text/javascript" src="../../public/jquery/latest/js/jquery.js"></script>
+<script type="text/javascript">
+	var g_show_map = !!parseInt("1");
+	$(document).ready(function() {
+		$(".a_map").hide();
+
+		if (!g_show_map) {
+			$(".sites-subpages-map").hide();
+		}
+
+		$("#class_password_input #password_submit").click(function() {
+			var class_id = $(this).attr('data-cid');
+			var unique_id = $(this).attr('data-uid');
+			var password = $('#class_password_input #password_input').val();
+
+			var param = {};
+			param.uid = unique_id;
+			param.cid = class_id;
+			param.pwd = password;
+
+			$.ajax({
+				url: '../../widget/main_menu/password_input.php',
+				type: 'post',
+				dataType: 'text',
+				data: param,
+				timeout: 20000,
+				error: function() {
+					alert("驗證失敗！");
+				},
+				success: function(data) {
+					if (data == 200) {
+						window.location.reload();
+					} else {
+						alert("驗證失敗！");
+					}
+				}
+			});
+		});
+	});
+</script>
+
+<body>
+	<div id="page_main" class="WID_0_21_13a8643f5da76485cbcde822697caf2eb34db748"><div id="sites_page_content"><div id="div_news_table_main" style="position:absolute;float:left;height:auto"><div class="sites-subpages-map"><div id="div_news_table_1_topbanner"><div id="div_news_table_1_topbanner_center"><h2 style="font-size:1.0em;padding:0px;margin:0px"><span class='l_map'>招生專區</span></h2></div></div></div><div class="sites-subpages"style="float:left;width:100%;height:auto;"><div class="sites-subpages-content" style="float:left"><ul><li id="C-790"><a class="tab-ctl-x" dir="ltr" href="show5673.html?cid=790" cid="790" ctype="folder" linktype="" title="112學年入學管道" style="cursor:pointer"><span>112學年入學管道</span></a></li><li id="C-567"><a class="tab-ctl-x" href="../../publish_page/3/index7bd9.html?cid=746" target="_blank" title="招生資訊(另開啟新視窗)"><span>招生資訊</span></a></li><li id="C-1120"><a class="tab-ctl-x" dir="ltr" href="showe2ba.html?cid=1120" cid="1120" ctype="default" linktype="content" title="STEAM雙語實驗班" style="cursor:pointer"><span>STEAM雙語實驗班</span></a></li><li id="C-1121"><a class="tab-ctl-x" dir="ltr" href="show7cdf.html?cid=1121" cid="1121" ctype="default" linktype="content" title="數位音樂科技特色班" style="cursor:pointer"><span>數位音樂科技特色班</span></a></li><li id="C-1145"><a class="tab-ctl-x" dir="ltr" href="show5edc.html?cid=1145" cid="1145" ctype="default" linktype="content" title="特殊班入班方式" style="cursor:pointer"><span>特殊班入班方式</span></a></li><li id="C-1138"><a class="tab-ctl-x" href="show33b7.html?id=1138&amp;map=0" target="_blank" title="112學年校車路線(另開啟新視窗)"><span>112學年校車路線</span></a></li></ul></div></div></div></div></div></body>
+
+
+<!-- Mirrored from www.sgash.cyc.edu.tw/ischool/widget/main_menu/show.php?cid=787 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 00:49:45 GMT -->
+</html>

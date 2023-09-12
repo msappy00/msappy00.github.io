@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh-tw">
+
+
+<!-- Mirrored from www.sgash.cyc.edu.tw/ischool/widget/main_menu/show.php?cid=822 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 00:53:28 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>線上研習專區</title>
+</head>
+<style>
+	body {
+		padding: 10px;
+		margin: 0px;
+		font-size: 1.0em;
+	}
+
+	#div_news_table_1_topbanner_center {
+		padding: 10px 0;
+	}
+
+	#div_news_table_1_topbanner_center h2:before {
+		content: '';
+		background: url(img/map.html) no-repeat;
+		width: 20px;
+		height: 16px;
+		display: inline-block;
+	}
+</style>
+<script type="text/javascript" src="../../public/jquery/latest/js/jquery.js"></script>
+<script type="text/javascript">
+	var g_show_map = !!parseInt("1");
+	$(document).ready(function() {
+		$(".a_map").hide();
+
+		if (!g_show_map) {
+			$(".sites-subpages-map").hide();
+		}
+
+		$("#class_password_input #password_submit").click(function() {
+			var class_id = $(this).attr('data-cid');
+			var unique_id = $(this).attr('data-uid');
+			var password = $('#class_password_input #password_input').val();
+
+			var param = {};
+			param.uid = unique_id;
+			param.cid = class_id;
+			param.pwd = password;
+
+			$.ajax({
+				url: '../../widget/main_menu/password_input.php',
+				type: 'post',
+				dataType: 'text',
+				data: param,
+				timeout: 20000,
+				error: function() {
+					alert("驗證失敗！");
+				},
+				success: function(data) {
+					if (data == 200) {
+						window.location.reload();
+					} else {
+						alert("驗證失敗！");
+					}
+				}
+			});
+		});
+	});
+</script>
+
+<body>
+	<div id="page_main" class="WID_7_1_21b655ba6f580f9dcb2476dee72aa7aab9960692"><div id="sites_page_content"><div id="div_news_table_main" style="position:absolute;float:left;height:auto"><div class="sites-subpages-map"><div id="div_news_table_1_topbanner"><div id="div_news_table_1_topbanner_center"><h2 style="font-size:1.0em;padding:0px;margin:0px"><a class='a_map tab-ctl-x' href='showdb51.html?cid=176'>資通安全專區</a> / <span class='l_map'>線上研習專區</span></h2></div></div></div><div id="page_main_content" class="contentArea" style="width:100%;height:auto;float:left"><p style="color: rgb(0, 0, 0); font-family: Arial, "?啁敦??", "Times New Roman"; font-size: medium; text-align: center;"><span style="font-size: xx-large;">線上研習專區</span></p><p style="color: rgb(0, 0, 0); font-family: Arial, "?啁敦??", "Times New Roman"; font-size: medium; text-align: center;"> </p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: Arial, "?啁敦??", "Times New Roman"; font-size: medium;"><span style="font-family: Verdana;"><span style="font-size: large;">依據本校「資通安全維護計畫」，校內所屬教職員工每年須接受規定時數內的線上或實體資安研習課程：</span></span><span lang="EN-US"><o:p></o:p></span></p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: Arial, "?啁敦??", "Times New Roman"; font-size: medium;"><span style="font-family: Verdana;"><span style="font-size: large;"><span lang="EN-US">1.</span>資安兼任或資訊人員每人每年至少接受<span lang="EN-US">12</span>小時<span lang="EN-US">(</span>含<span lang="EN-US">)</span>以上之資安專業課程訓練。</span></span><span lang="EN-US"><o:p></o:p></span></p><p style="color: rgb(0, 0, 0); font-family: Arial, "?啁敦??", "Times New Roman"; font-size: medium;"> </p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: Arial, "?啁敦??", "Times New Roman"; font-size: medium;"><span style="font-family: Verdana;"><span style="font-size: large;"><span lang="EN-US">2.</span>本校之一般使用者與主管，每人每年接受<span lang="EN-US">3</span>小時<span lang="EN-US">(</span>含<span lang="EN-US">)</span>以上之一般資通安全教育訓練。</span></span></p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: Arial, "?啁敦??", "Times New Roman"; font-size: medium;"><span style="font-family: Verdana;"><span style="font-size: large;">在此提供下列資<span lang="EN-US">(</span>通<span lang="EN-US">)</span>訊安全線上課程連結，教職員工可自行利用時間線上研習，完成每年至少<span lang="EN-US">3</span>小時的資通安全教育訓練。</span></span><span lang="EN-US"><o:p></o:p></span></p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: Arial, "?啁敦??", "Times New Roman"; font-size: medium;"> </p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: Arial, "?啁敦??", "Times New Roman"; font-size: medium;"> </p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: Arial, "?啁敦??", "Times New Roman"; font-size: medium;"><span lang="EN-US"><o:p></o:p></span></p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: Arial, "?啁敦??", "Times New Roman"; font-size: medium;"><span lang="EN-US"><o:p></o:p></span></p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: Arial, "?啁敦??", "Times New Roman"; font-size: medium;"><span style="font-family: Calibri, sans-serif; font-size: 12pt;">*</span><span style="font-family: Verdana;"><a href="https://sites.google.com/email.nchu.edu.tw/iscbonlinecourse/說明" style="text-decoration-line: none; color: rgb(160, 50, 100);" target="_blank"><span lang="EN-US">109</span>資通安全管理法 數位教育訓練</a></span><span lang="EN-US"><o:p></o:p></span></p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: Arial, "?啁敦??", "Times New Roman"; font-size: medium;"><span style="font-family: Calibri, sans-serif; font-size: 12pt;">*</span><span style="font-family: Verdana;"><a href="https://isafe.moe.edu.tw/" style="text-decoration-line: none; color: rgb(160, 50, 100);" target="_blank">教育部全民資安素養網站</a></span><span lang="EN-US"><o:p></o:p></span></p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: Arial, "?啁敦??", "Times New Roman"; font-size: medium;"><span style="font-family: Calibri, sans-serif; font-size: 12pt;">*</span><span style="font-family: Verdana;"><a href="https://www.youtube.com/user/icstwebmaster/playlists" style="text-decoration-line: none; color: rgb(160, 50, 100);" target="_blank">行政院國家資通安全會報技術服務中心<span lang="EN-US">-</span>資訊系列競賽動畫</a></span><span lang="EN-US"><o:p></o:p></span></p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: Arial, "?啁敦??", "Times New Roman"; font-size: medium;"><span style="font-family: Calibri, sans-serif; font-size: 12pt;">*</span><span style="font-family: Verdana;"><a href="https://ups.moe.edu.tw/mooc/index.php" style="text-decoration-line: none; color: rgb(160, 50, 100);" target="_blank">教師<span lang="EN-US">e</span>學院</a></span><span lang="EN-US"><o:p></o:p></span></p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: Arial, "?啁敦??", "Times New Roman"; font-size: medium;"><span style="font-family: Calibri, sans-serif; font-size: 12pt;">*</span><span style="font-family: Verdana;"><a href="https://elearning.taipei/mpage/home/view_category_course/電腦基礎" style="text-decoration-line: none; color: rgb(160, 50, 100);" target="_blank">臺北<span lang="EN-US">e</span>大電腦基礎</a></span><span lang="EN-US"><o:p></o:p></span></p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: Arial, "?啁敦??", "Times New Roman"; font-size: medium;"><span style="font-family: Calibri, sans-serif; font-size: 12pt;">*</span><span style="font-family: Verdana;"><a href="https://elearn.hrd.gov.tw/mooc/index.php" style="text-decoration-line: none; color: rgb(160, 50, 100);" target="_blank"><span lang="EN-US">e</span>等公務園學習平臺</a></span><span lang="EN-US"><o:p></o:p></span></p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: Arial, "?啁敦??", "Times New Roman"; font-size: medium;"><span style="font-family: Calibri, sans-serif; font-size: 12pt;">*</span><span style="font-family: Verdana;"><a href="https://video.cloud.edu.tw/video/" style="text-decoration-line: none; color: rgb(160, 50, 100);" target="_blank">教育雲教育媒體影音</a></span><span lang="EN-US"><o:p></o:p></span></p><p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: Arial, "?啁敦??", "Times New Roman"; font-size: medium;"><span style="font-family: Calibri, sans-serif; font-size: 12pt;">*</span><a href="https://knowledge.colife.org.tw/index.aspx" style="text-decoration-line: none; color: rgb(160, 50, 100);" target="_blank">知識大講堂</a></p></div></div></div></div></body>
+
+
+<!-- Mirrored from www.sgash.cyc.edu.tw/ischool/widget/main_menu/show.php?cid=822 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 00:53:28 GMT -->
+</html>

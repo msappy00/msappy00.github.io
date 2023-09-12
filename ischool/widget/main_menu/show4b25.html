@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh-tw">
+
+
+<!-- Mirrored from www.sgash.cyc.edu.tw/ischool/widget/main_menu/show.php?id=1146&map=0 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 00:44:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>教育部數位學習推動計畫</title>
+</head>
+<style>
+	body {
+		padding: 10px;
+		margin: 0px;
+		font-size: 1.0em;
+	}
+
+	#div_news_table_1_topbanner_center {
+		padding: 10px 0;
+	}
+
+	#div_news_table_1_topbanner_center h2:before {
+		content: '';
+		background: url(img/map.html) no-repeat;
+		width: 20px;
+		height: 16px;
+		display: inline-block;
+	}
+</style>
+<script type="text/javascript" src="../../public/jquery/latest/js/jquery.js"></script>
+<script type="text/javascript">
+	var g_show_map = !!parseInt("0");
+	$(document).ready(function() {
+		$(".a_map").hide();
+
+		if (!g_show_map) {
+			$(".sites-subpages-map").hide();
+		}
+
+		$("#class_password_input #password_submit").click(function() {
+			var class_id = $(this).attr('data-cid');
+			var unique_id = $(this).attr('data-uid');
+			var password = $('#class_password_input #password_input').val();
+
+			var param = {};
+			param.uid = unique_id;
+			param.cid = class_id;
+			param.pwd = password;
+
+			$.ajax({
+				url: '../../widget/main_menu/password_input.php',
+				type: 'post',
+				dataType: 'text',
+				data: param,
+				timeout: 20000,
+				error: function() {
+					alert("驗證失敗！");
+				},
+				success: function(data) {
+					if (data == 200) {
+						window.location.reload();
+					} else {
+						alert("驗證失敗！");
+					}
+				}
+			});
+		});
+	});
+</script>
+
+<body>
+	<div id="page_main" class="WID_0_1_1c44e169a809585116217051096db75b59528353"><div id="sites_page_content"><div id="div_news_table_main" style="position:absolute;float:left;height:auto"><div class="sites-subpages-map"><div id="div_news_table_1_topbanner"><div id="div_news_table_1_topbanner_center"><h2 style="font-size:1.0em;padding:0px;margin:0px"><a class='a_map tab-ctl-x' href='show00ad.html?cid=803'>教育宣導</a> / <span class='l_map'>教育部數位學習推動計畫</span></h2></div></div></div><div id="page_main_content" class="contentArea" style="width:100%;height:auto;float:left"><p><a href="https://pads.moe.edu.tw/pads_front/index.php" style="font-size: 18px;" target="_blank">推動中小學數位學習精進方案入口網 </a>        <span style="font-size: 18px;"><a href="https://www.sdc.org.tw/" target="_blank">教育部校園數位內容與教學軟體</a></span></p><p> </p><p> </p><p class="LC20lb MBeuO DKV0Md" style="font-weight: 400; margin: 18px 0px 3px; padding: 5px 0px 0px; line-height: 1.3; display: inline-block; font-size: 16px;"> </p><p class="LC20lb MBeuO DKV0Md" style="font-weight: 400; margin: 18px 0px 3px; padding: 5px 0px 0px; line-height: 1.3; display: inline-block; font-size: 16px;"> </p><ul><li class="LC20lb MBeuO DKV0Md" style="margin: 18px 0px 3px; padding: 5px 0px 0px; font-size: 20px; line-height: 1.3; display: inline-block;">​</li></ul></div></div></div></div></body>
+
+
+<!-- Mirrored from www.sgash.cyc.edu.tw/ischool/widget/main_menu/show.php?id=1146&map=0 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 00:44:35 GMT -->
+</html>

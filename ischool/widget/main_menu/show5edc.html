@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh-tw">
+
+
+<!-- Mirrored from www.sgash.cyc.edu.tw/ischool/widget/main_menu/show.php?cid=1145 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 00:53:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>特殊班入班方式</title>
+</head>
+<style>
+	body {
+		padding: 10px;
+		margin: 0px;
+		font-size: 1.0em;
+	}
+
+	#div_news_table_1_topbanner_center {
+		padding: 10px 0;
+	}
+
+	#div_news_table_1_topbanner_center h2:before {
+		content: '';
+		background: url(img/map.html) no-repeat;
+		width: 20px;
+		height: 16px;
+		display: inline-block;
+	}
+</style>
+<script type="text/javascript" src="../../public/jquery/latest/js/jquery.js"></script>
+<script type="text/javascript">
+	var g_show_map = !!parseInt("1");
+	$(document).ready(function() {
+		$(".a_map").hide();
+
+		if (!g_show_map) {
+			$(".sites-subpages-map").hide();
+		}
+
+		$("#class_password_input #password_submit").click(function() {
+			var class_id = $(this).attr('data-cid');
+			var unique_id = $(this).attr('data-uid');
+			var password = $('#class_password_input #password_input').val();
+
+			var param = {};
+			param.uid = unique_id;
+			param.cid = class_id;
+			param.pwd = password;
+
+			$.ajax({
+				url: '../../widget/main_menu/password_input.php',
+				type: 'post',
+				dataType: 'text',
+				data: param,
+				timeout: 20000,
+				error: function() {
+					alert("驗證失敗！");
+				},
+				success: function(data) {
+					if (data == 200) {
+						window.location.reload();
+					} else {
+						alert("驗證失敗！");
+					}
+				}
+			});
+		});
+	});
+</script>
+
+<body>
+	<div id="page_main" class="WID_0_21_13a8643f5da76485cbcde822697caf2eb34db748"><div id="sites_page_content"><div id="div_news_table_main" style="position:absolute;float:left;height:auto"><div class="sites-subpages-map"><div id="div_news_table_1_topbanner"><div id="div_news_table_1_topbanner_center"><h2 style="font-size:1.0em;padding:0px;margin:0px"><a class='a_map tab-ctl-x' href='show16a7.html?cid=787'>招生專區</a> / <span class='l_map'>特殊班入班方式</span></h2></div></div></div><div id="page_main_content" class="contentArea" style="width:100%;height:auto;float:left"><div><span style="font-size: 26px;"><span style="background-color:#afeeee;">STEAM雙語實驗班</span></span></div><ul><li><span style="font-size:16px;"><a href="../../resources/WID_10_2_338272f4e7965c2fee74e8185b503f51af470fb4/NEWS_10_2_b684d8c96d12be654ce9e6103407a794b1255d2a/attached/STEAM%e9%9b%99%e8%aa%9e%e5%af%a6%e9%a9%97%e7%8f%ad%e7%94%84%e5%af%a9%e8%a6%81%e9%bb%9e.html" target="_blank">甄審要點</a></span></li></ul><div><ul><li><span style="font-size:16px;">甄審門檻：</span></li></ul><div style="margin-left: 80px;"><span style="font-size:16px;">一、本校 112 學年度入學，對英語或資訊科技領域、生活科技領域感興趣之新生，且具下列條件任一項者：</span></div><div style="margin-left: 120px;"><span style="font-size:16px;"> (一)國中教育會考英語科成績達 B 等級。</span></div><div style="margin-left: 120px;"><span style="font-size:16px;"> (二)國中階段曾參加主管教育行政機關舉行之國際性、全國性或縣市級英文或資訊 科技、自然科學學科能力競賽獲獎者(佳作或入選)。</span></div><div style="margin-left: 80px;"><span style="font-size:16px;">二、符合條件者，於入學報到時領取申請表報名，經家長簽結同意後參加甄審。</span></div></div><ul><li><span style="font-size: 16px;">資格審查：</span></li></ul><div><div style="margin-left: 80px;"><span style="font-size:16px;">一、符合下列任二甄審條件且檢附相關證明者，優先錄取：</span></div><div style="margin-left: 120px;"><span style="font-size:16px;">(一) 國中階段曾參加主管教育行政機關舉行之國際性、全國性或縣市級英文或資訊科技、自然科學</span></div><div style="margin-left: 120px;"><span style="font-size:16px;">       學科能力競賽獲前三名以</span><span style="font-size: 16px;">上者(團體或個人)。</span></div><div style="margin-left: 120px;"><span style="font-size:16px;">(二) 國中教育會考英語科成績達 A 等級者。</span></div><div style="margin-left: 120px;"><span style="font-size:16px;">(三) 全民英檢達中級以上或同等程度之其它英語檢定。</span></div><div style="margin-left: 80px;"><span style="font-size:16px;"> 二、非符合優先錄取之新生報名人數少於或等於剩餘名額，則全數錄取；倘若非符合優 先錄取之新生報名</span></div><div style="margin-left: 80px;"><span style="font-size:16px;">        人數超過剩餘名額，則</span><span style="font-size: 16px;">依據當年度嘉義區「免試入學超額比序積分對照表」進行超額比序：</span></div><div style="margin-left: 120px;"><span style="font-size:16px;">(一) 國中會考總積分。</span></div><div style="margin-left: 120px;"><span style="font-size:16px;">(二) 國中會考英文科三等級四標示積分。</span></div><div style="margin-left: 120px;"><span style="font-size:16px;">(三) 若依照上述兩項比序仍超過剩餘名額，則由本校實驗教育推行委員會決議是否增額錄取，並公告錄取名單。</span></div></div><div> </div><div><span style="font-size:26px;"><span style="background-color:#afeeee;">數位音樂科技特色班</span></span></div><ul><li><span style="font-size:16px;"><a href="../../resources/WID_10_2_338272f4e7965c2fee74e8185b503f51af470fb4/NEWS_10_2_b684d8c96d12be654ce9e6103407a794b1255d2a/attached/%e6%95%b8%e4%bd%8d%e9%9f%b3%e6%a8%82%e7%a7%91%e6%8a%80%e7%89%b9%e8%89%b2%e7%8f%ad%e7%94%84%e9%81%b8%e8%a6%81%e9%bb%9e.html" target="_blank">甄選要點</a></span></li></ul><div><ul><li><span style="font-size:16px;">甄選條件：112 學年度入學新生具下列條件者，可於完全免試及免試入學新生報到時領取申請表報名，並經家長簽結同意後參加校甄選。</span></li></ul><div style="margin-left: 80px;"><span style="font-size:16px;">一、 以各管道入學本校之 112 學年度高一新生。</span></div><div style="margin-left: 80px;"><span style="font-size:16px;">二、 對音樂科技有興趣並具備相關樂器演奏基礎之學生。</span></div><ul><li><span style="font-size:16px;">甄選項目：</span></li></ul></div><div><div style="margin-left: 80px;"><span style="font-size:16px;">一、視譜演奏 20%</span></div><div style="margin-left: 120px;"><span style="font-size:16px;">(一)自選樂器現場視譜演奏 4 小節旋律，自選</span><span style="font-size: 16px;">樂器為爵士鼓者，照譜唱出旋律。</span></div><div style="margin-left: 120px;"><span style="font-size:16px;">(二)除鋼琴、爵士鼓外其他樂器由考生自備。</span></div><div style="margin-left: 80px;"><span style="font-size:16px;">二、樂器獨奏 80%</span></div><div style="margin-left: 120px;"><span style="font-size:16px;">(一)自選曲一首，自選樂器獨奏 2-3 分鐘。</span></div><div style="margin-left: 120px;"><span style="font-size:16px;">(二)除鋼琴、爵士鼓外其他樂器由考生自備。</span></div><div style="margin-left: 120px;"> </div></div><p style="text-align: center;"><img alt="流程" src="../../resources/WID_0_21_13a8643f5da76485cbcde822697caf2eb34db748/CLS_0_21_6bf4e6b8ac5c4faef4dfebe7fecf8dcfbf13dcce/14b75b06b539f0e0de50f04bf695110f.html" style="width: 800px; height: 450px;" /></p><p style="text-align: center;"> </p><p style="text-align: center;"><img alt="介紹" src="../../resources/WID_0_21_13a8643f5da76485cbcde822697caf2eb34db748/CLS_0_21_6bf4e6b8ac5c4faef4dfebe7fecf8dcfbf13dcce/7f1f33be33e4432ff640b3ca7492a342.html" style="width: 800px; height: 1132px;" /></p></div></div></div></div></body>
+
+
+<!-- Mirrored from www.sgash.cyc.edu.tw/ischool/widget/main_menu/show.php?cid=1145 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Sep 2023 00:53:24 GMT -->
+</html>
