@@ -1,28 +1,28 @@
 // Questions that will be asked
 const Questions = [{
-	q: "What is the capital of India?",
-	a: [{ text: "Gandhinagar", isCorrect: false },
-	{ text: "Surat", isCorrect: false },
-	{ text: "Delhi", isCorrect: true },
-	{ text: "Mumbai", isCorrect: false }
+	q: "Which of the following is NOT a type of animal?",
+	a: [{ text: "Dog", isCorrect: false },
+	{ text: "Cat", isCorrect: false },
+	{ text: "Tree", isCorrect: true },
+	{ text: "Bird", isCorrect: false }
 	]
 
 },
 {
-	q: "What is the capital of Thailand?",
-	a: [{ text: "Lampang", isCorrect: false, isSelected: false },
-	{ text: "Phuket", isCorrect: false },
-	{ text: "Ayutthaya", isCorrect: false },
-	{ text: "Bangkok", isCorrect: true }
+	q: "What is the past tense of the verb \"to go\"?",
+	a: [{ text: "Went", isCorrect: true, isSelected: false },
+	{ text: "Wented", isCorrect: false },
+	{ text: "Goed", isCorrect: false },
+	{ text: "Go", isCorrect: false }
 	]
 
 },
 {
-	q: "What is the capital of Gujarat?",
-	a: [{ text: "Surat", isCorrect: false },
-	{ text: "Vadodara", isCorrect: false },
-	{ text: "Gandhinagar", isCorrect: true },
-	{ text: "Rajkot", isCorrect: false }
+	q: "What is the opposite of the word \"hot\"?",
+	a: [{ text: "Cold", isCorrect: true },
+	{ text: "Warm", isCorrect: false },
+	{ text: "Hotter", isCorrect: false },
+	{ text: "Freezing", isCorrect: false }
 	]
 
 }
