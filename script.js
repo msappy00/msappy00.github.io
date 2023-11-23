@@ -82,7 +82,7 @@ function showAnswer(feedback) {
 	const opt = document.getElementById("opt")
 
 	question.textContent = feedback;
-	opt.innerHTML = ""
+	opt.innerHTML = Questions[currQuestion].a[selectedAns].text
 }
 
 function checkAns() {
