@@ -1,63 +1,87 @@
-body {
-    font-family: sans-serif;
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
 }
 
-.quiz-container {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+/* Hide the images by default */
+.mySlides {
+  display: none;
 }
 
-.slides {
-    display: none;
-    width: 80%;
-    border: 1px solid #ccc;
-    padding: 20px;
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
 }
 
-.slides h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
 }
 
-.slides p {
-    font-size: 16px;
-    margin-bottom: 20px;
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
 }
 
-.answer-choices {
-    display: flex;
-    flex-direction: column;
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
 }
 
-.answer-choice {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    cursor: pointer;
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
 }
 
-.navigation {
-    display: flex;
-    margin-top: 20px;
-    justify-content: space-between;
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
 }
 
-.prev-btn, .next-btn {
-    padding: 10px 20px;
-    border: 1px solid #ccc;
-    cursor: pointer;
+.active, .dot:hover {
+  background-color: #717171;
 }
 
-.feedback {
-    margin-top: 20px;
-    text-align: center;
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
 }
 
-.feedback-text {
-    font-size: 16px;
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
 }
