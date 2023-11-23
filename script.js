@@ -80,6 +80,7 @@ function nextQuestion() {
 function showAnswer() {
 	const question = document.getElementById("ques")
 	question.textContent = Questions[currQuestion].q;
+
 }
 
 function checkAns() {
@@ -88,8 +89,8 @@ function checkAns() {
 	if (Questions[currQuestion].a[selectedAns].isCorrect) {
 		score++;
 		console.log("Correct")
-		nextQuestion();
+		showAnswer();
 	} else {
-		nextQuestion();
+		showAnswer();
 	}
 }
