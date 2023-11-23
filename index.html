@@ -1,24 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
-
+<title>HTML Slideshow Quiz</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-	<div class="panel">
-		<h1>Quiz</h1>
-		<div class="question" id="ques"></div>
-		<div class="options" id="opt"></div>
-		<button onclick="checkAns()" id="btn">SUBMIT</button>
-		<div id="score"></div>
-		<script src="script.js"></script>
-	</div>
+    <div class="container">
+        <h1>HTML Slideshow Quiz</h1>
+        <div class="quiz-container">
+            <div class="slide">
+                <h2>What is the correct HTML tag for a heading?</h2>
+                <ul>
+                    <li><input type="radio" name="question1" id="answer1"> <label for="answer1">h1</label></li>
+                    <li><input type="radio" name="question1" id="answer2"> <label for="answer2">h2</label></li>
+                    <li><input type="radio" name="question1" id="answer3"> <label for="answer3">h3</label></li>
+                    <li><input type="radio" name="question1" id="answer4"> <label for="answer4">p</label></li>
+                </ul>
+                <button class="next-btn">Next</button>
+            </div>
 
+            <div class="slide">
+                <h2>What is the correct HTML tag for a paragraph?</h2>
+                <ul>
+                    <li><input type="radio" name="question2" id="answer5"> <label for="answer5">h1</label></li>
+                    <li><input type="radio" name="question2" id="answer6"> <label for="answer6">h2</label></li>
+                    <li><input type="radio" name="question2" id="answer7"> <label for="answer7">h3</label></li>
+                    <li><input type="radio" name="question2" id="answer8"> <label for="answer8">p</label></li>
+                </ul>
+                <button class="prev-btn">Previous</button>
+                <button class="next-btn">Next</button>
+            </div>
+
+            <div class="slide">
+                <h2>What is the correct HTML tag for an image?</h2>
+                <ul>
+                    <li><input type="radio" name="question3" id="answer9"> <label for="answer9">img</label></li>
+                    <li><input type="radio" name="question3" id="answer10"> <label for="answer10">src</label></li>
+                    <li><input type="radio" name="question3" id="answer11"> <label for="answer11">alt</label></li>
+                    <li><input type="radio" name="question3" id="answer12"> <label for="answer12">href</label></li>
+                </ul>
+                <button class="prev-btn">Previous</button>
+                <button class="submit-btn">Submit</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
