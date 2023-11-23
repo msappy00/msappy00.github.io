@@ -34,7 +34,7 @@ let currQuestion = 0
 let score = 0
 
 function loadQues() {
-	document.getElementById('submit_btn').style.visibility="block";
+	document.getElementById('submit_btn').style.display="block";
 	document.getElementById('next_btn').style.display="none";
 	const question = document.getElementById("ques")
 	const opt = document.getElementById("opt")
@@ -68,6 +68,8 @@ function loadScore() {
 
 
 function nextQuestion() {
+	document.getElementById('submit_btn').style.display="block";
+	document.getElementById('next_btn').style.display="none";
 	if (currQuestion < Questions.length - 1) {
 		currQuestion++;
 		loadQues();
@@ -81,6 +83,8 @@ function nextQuestion() {
 }
 
 function showAnswer(feedback) {
+	document.getElementById('submit_btn').style.display="none";
+	document.getElementById('next_btn').style.display="block";
 	const question = document.getElementById("ques")
 	const opt = document.getElementById("opt")
 
