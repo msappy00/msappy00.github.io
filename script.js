@@ -79,8 +79,10 @@ function nextQuestion() {
 
 function showAnswer() {
 	const question = document.getElementById("ques")
-	question.textContent = "Correct?";
+	const opt = document.getElementById("opt")
 
+	question.textContent = "Correct?";
+	opt.innerHTML = ""
 }
 
 function checkAns() {
