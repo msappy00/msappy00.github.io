@@ -1,28 +1,90 @@
-let slideIndex = 1;
-showSlides(slideIndex);
+// Questions that will be asked
 
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
+const Questions = [
+	{
+	  question: "What country is considered to be the birthplace of coffee?",
+	  answers: [
+		{ text: "Ethiopia", isCorrect: true },
+		{ text: "Brazil", isCorrect: false },
+		{ text: "Colombia", isCorrect: false },
+		{ text: "Italy", isCorrect: false },
+	  ],
+	},
+	{
+	  question: "Which type of coffee bean is considered to be the most expensive?",
+	  answers: [
+		{ text: "Kopi Luwak", isCorrect: true },
+		{ text: "Arabica", isCorrect: false },
+		{ text: "Robusta", isCorrect: false },
+		{ text: "Liberica", isCorrect: false },
+	  ],
+	},
+	{
+	  question: "What is the most popular way to make coffee in the United States?",
+	  answers: [
+		{ text: "Drip coffee", isCorrect: true },
+		{ text: "Espresso", isCorrect: false },
+		{ text: "French press", isCorrect: false },
+		{ text: "Pour-over", isCorrect: false },
+	  ],
+	},
+  ];
+
+let currQuestion = 0
+let score = 0
+
+function loadQues() {
+	const question = document.getElementById("ques")
+	const opt = document.getElementById("opt")
+
+	question.textContent = Questions[currQuestion].q;
+	opt.innerHTML = ""
+
+	for (let i = 0; i < Questions[currQuestion].a.length; i++) {
+		const choicesdiv = document.createElement("div");
+		const choice = document.createElement("input");
+		const choiceLabel = document.createElement("label");
+
+		choice.type = "radio";
+		choice.name = "answer";
+		choice.value = i;
+
+		choiceLabel.textContent = Questions[currQuestion].a[i].text;
+
+		choicesdiv.appendChild(choice);
+		choicesdiv.appendChild(choiceLabel);
+		opt.appendChild(choicesdiv);
+	}
 }
 
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
+loadQues();
+
+function loadScore() {
+	const totalScore = document.getElementById("score")
+	totalScore.textContent = `You scored ${score} out of ${Questions.length}`
 }
 
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-} 
+
+function nextQuestion() {
+	if (currQuestion < Questions.length - 1) {
+		currQuestion++;
+		loadQues();
+	} else {
+		document.getElementById("opt").remove()
+		document.getElementById("ques").remove()
+		document.getElementById("btn").remove()
+		loadScore();
+	}
+}
+
+function checkAns() {
+	const selectedAns = parseInt(document.querySelector('input[name="answer"]:checked').value);
+
+	if (Questions[currQuestion].a[selectedAns].isCorrect) {
+		score++;
+		console.log("Correct")
+		nextQuestion();
+	} else {
+		nextQuestion();
+	}
+}
