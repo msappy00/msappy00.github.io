@@ -79,7 +79,7 @@ function nextQuestion() {
 
 function showAnswer() {
 	const question = document.getElementById("ques")
-	question.textContent = Questions[currQuestion].q;
+	question.textContent = "Correct?";
 
 }
 
