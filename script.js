@@ -2,8 +2,8 @@
 
 const Questions = [
 	{
-	  question: "What country is considered to be the birthplace of coffee?",
-	  answers: [
+	  q: "What country is considered to be the birthplace of coffee?",
+	  a: [
 		{ text: "Ethiopia", isCorrect: true },
 		{ text: "Brazil", isCorrect: false },
 		{ text: "Colombia", isCorrect: false },
@@ -11,8 +11,8 @@ const Questions = [
 	  ],
 	},
 	{
-	  question: "Which type of coffee bean is considered to be the most expensive?",
-	  answers: [
+	  q: "Which type of coffee bean is considered to be the most expensive?",
+	  a: [
 		{ text: "Kopi Luwak", isCorrect: true },
 		{ text: "Arabica", isCorrect: false },
 		{ text: "Robusta", isCorrect: false },
@@ -20,8 +20,8 @@ const Questions = [
 	  ],
 	},
 	{
-	  question: "What is the most popular way to make coffee in the United States?",
-	  answers: [
+	  q: "What is the most popular way to make coffee in the United States?",
+	  a: [
 		{ text: "Drip coffee", isCorrect: true },
 		{ text: "Espresso", isCorrect: false },
 		{ text: "French press", isCorrect: false },
