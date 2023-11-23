@@ -34,6 +34,8 @@ let currQuestion = 0
 let score = 0
 
 function loadQues() {
+	document.getElementById('submit_btn').style.visibility="block";
+	document.getElementById('next_btn').style.display="none";
 	const question = document.getElementById("ques")
 	const opt = document.getElementById("opt")
 
@@ -72,7 +74,8 @@ function nextQuestion() {
 	} else {
 		document.getElementById("opt").remove()
 		document.getElementById("ques").remove()
-		document.getElementById("btn").remove()
+		document.getElementById("submit_btn").remove()
+		document.getElementById("next_btn").remove()
 		loadScore();
 	}
 }
@@ -90,7 +93,7 @@ function checkAns() {
 
 	if (Questions[currQuestion].a[selectedAns].isCorrect) {
 		score++;
-		showAnswer("Correct");
+		showAnswer("Correct!");
 	} else {
 		showAnswer("Oops.");
 	}
