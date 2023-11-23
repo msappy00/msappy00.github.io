@@ -77,11 +77,11 @@ function nextQuestion() {
 	}
 }
 
-function showAnswer() {
+function showAnswer(feedback) {
 	const question = document.getElementById("ques")
 	const opt = document.getElementById("opt")
 
-	question.textContent = "Correct?";
+	question.textContent = feedback;
 	opt.innerHTML = ""
 }
 
@@ -90,9 +90,8 @@ function checkAns() {
 
 	if (Questions[currQuestion].a[selectedAns].isCorrect) {
 		score++;
-		console.log("Correct")
-		showAnswer();
+		showAnswer("Correct");
 	} else {
-		showAnswer();
+		showAnswer("Oops.");
 	}
 }
