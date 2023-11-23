@@ -77,6 +77,11 @@ function nextQuestion() {
 	}
 }
 
+function showAnswer() {
+	const question = document.getElementById("ques")
+	question.textContent = Questions[currQuestion].q;
+}
+
 function checkAns() {
 	const selectedAns = parseInt(document.querySelector('input[name="answer"]:checked').value);
 
