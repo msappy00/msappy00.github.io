@@ -10,14 +10,13 @@
 </head>
 
 <body>
-	<div class="panel">
+	<div class="grid-container">
 		<h1>Quiz</h1>
-		<div class="question" id="ques"></div>
-		<div class="options" id="opt"></div>
-        <div style="height: 50px;"></div>
-		<button onclick="checkAns()" id="submit_btn">SUBMIT</button>
-        <button onclick="nextQuestion()" id="next_btn">NEXT</button>
-		<div id="score"></div>
+		<div class="grid-item question" id="ques"></div>
+		<div class="grid-item options" id="opt"></div>
+		<button class="grid-item center" onclick="checkAns()" id="submit_btn">SUBMIT</button>
+        <button class="grid-item center" onclick="nextQuestion()" id="next_btn">NEXT</button>
+		<div class="grid-item" id="score"></div>
 		<script src="script.js"></script>
 	</div>
 
