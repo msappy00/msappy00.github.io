@@ -25,14 +25,16 @@ body {
 	margin-bottom: 20px;
 	position: fixed;
 	top: 40%;
-	left: 40%;
+	left: 5%;
 }
 
 button {
 	margin-right: 75px;
-	margin-top: 8%;
+	margin-bottom: 4%;
 	font-size: 40px;
 	padding: 10px 20px;
+	position: absolute;
+	bottom: 0;
 	background-color: #4f98c2;
 	color: white;
 	border: none;
