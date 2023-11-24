@@ -5,11 +5,13 @@ body {
 .grid-container {
 	display: grid;
 	grid-template-columns: auto;
-	align-items: center;
-	justify-content: center;
 	color: navy;
-	padding: 10px;
   }
+
+.quiz {
+	text-align: center;
+	font-size: 3em;
+}
 
 .question {
 	text-align: center;
@@ -21,10 +23,7 @@ body {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	grid-gap: 1em;
-	margin-top: 1em;
-	margin-bottom: 1em;
-	position: fixed;
-	top: 40%;
+	margin: 1em;
 	left: 5%;
 }
 
@@ -50,6 +49,7 @@ button {
 }
 
 #score {
-	font-size: 60px;
+	text-align: center;
+	font-size: 4em;
 	color: darkslategray;
 }
