@@ -96,6 +96,15 @@ const Questions = [
 let currQuestion = 0
 let score = 0
 
+function randomizeStrings(strings) {
+	for (let i = strings.length - 1; i > 0; i--) {
+	  const j = Math.floor(Math.random() * (i + 1));
+	  [strings[i], strings[j]] = [strings[j], strings[i]];
+	}
+  
+	return strings;
+  }
+
 function loadQues() {
 	document.getElementById('submit_btn').style.display="block";
 	document.getElementById('next_btn').style.display="none";
@@ -104,6 +113,8 @@ function loadQues() {
 
 	question.textContent = Questions[currQuestion].q;
 	opt.innerHTML = ""
+
+	Questions[currQuestion].a = randomizeStrings(Questions[currQuestion].a);
 
 	for (let i = 0; i < Questions[currQuestion].a.length; i++) {
 		const choicesdiv = document.createElement("div");
