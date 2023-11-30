@@ -114,7 +114,7 @@ function loadQues() {
 	question.textContent = Questions[currQuestion].q;
 	opt.innerHTML = ""
 
-	Questions[currQuestion].a = randomizeStrings(Questions[currQuestion].a);
+	//Questions[currQuestion].a = randomizeStrings(Questions[currQuestion].a);
 
 	for (let i = 0; i < Questions[currQuestion].a.length; i++) {
 		const choicesdiv = document.createElement("div");
