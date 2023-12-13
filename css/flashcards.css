@@ -23,6 +23,10 @@ body {
   margin-bottom: 20px;
 }
 
+audio {
+  margin-bottom: 20px;
+}
+
 #button-container {
   display: flex;
   justify-content: space-between;
