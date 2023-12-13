@@ -1,0 +1,47 @@
+CSS
+
+body {
+  background-color: #F7D4EC;
+  margin: 0;
+  padding: 20px;
+}
+
+#flashcard-container {
+  background: #FCBA12;
+  font-family: sans-serif;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+#flashcard-question {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+#known-button {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+#unknown-button {
+  background-color: #FF5722;
+  color: #fff;
+}
