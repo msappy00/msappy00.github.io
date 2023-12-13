@@ -9,8 +9,8 @@ function showNextCard() {
     document.getElementById('flashcard-container').innerHTML = 'No cards left!';
     return;
   }
+  document.getElementById('aud-mp3').src = currentCard.aud;
   document.getElementById('flashcard-question').textContent = currentCard.question;
-  document.getElementById('aud-mp3').src = currentCard.audio;
   document.getElementById('flashcard-answer').textContent = "";
   document.getElementById('answer-button').addEventListener('click', () => {
   document.getElementById('flashcard-answer').textContent = currentCard.answer;
@@ -36,9 +36,10 @@ function markUnknown() {
 }
 
 // Load initial cards (replace with your data source)
-flashcards.push({ question: 'Repeat:', audio: 'audio/horse.mp3', answer: 'horse' });
-flashcards.push({ question: 'What is the capital of France?', audio: 'audio/blank.mp3', answer: 'Paris' });
-flashcards.push({ question: 'The tallest mountain in the world is...', audio: 'audio/blank.mp3', answer: 'Mount Everest' });
+flashcards.push({ question: 'Repeat:', aud: 'audio/horse.mp3', answer: 'horse' });
+flashcards.push({ question: 'What is the capital of France?', aud: 'audio/blank.mp3', answer: 'Paris' });
+flashcards.push({ question: 'Repeat:', aud: 'audio/horse.mp3', answer: 'horse' });
+flashcards.push({ question: 'The tallest mountain in the world is...', aud: 'audio/blank.mp3', answer: 'Mount Everest' });
 
 // Show the first card
 showNextCard();
