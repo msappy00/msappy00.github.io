@@ -23,6 +23,12 @@ body {
   margin-bottom: 20px;
 }
 
+#flashcard-answer {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
 #button-container {
   display: flex;
   justify-content: space-between;
@@ -37,12 +43,12 @@ button {
   font-size: 2em;
 }
 
-#known-button {
+#good-button {
   background-color: #4CAF50;
   color: #fff;
 }
 
-#unknown-button {
+#try-again-button {
   background-color: #FF5722;
   color: #fff;
 }

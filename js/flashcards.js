@@ -14,41 +14,52 @@ function showNextCard() {
   document.getElementById('answer-button').addEventListener('click', () => {
     document.getElementById('flashcard-answer').textContent = currentCard.answer;
     document.getElementById('answer-button').disabled = true;
-    document.getElementById('known-button').disabled = false;
-    document.getElementById('unknown-button').disabled = false;
+    document.getElementById('good-button').disabled = false;
+    document.getElementById('try-again-button').disabled = false;
   });
 }
 
-// Handle "known" button click
-function markKnown() {
+// Handle "good" button click
+function markGood() {
   var currentCard = flashcards.shift(); // Remove the card from the queue
   document.getElementById('answer-button').disabled = false;
   showNextCard();
 }
 
-// Handle "unknown" button click
-function markUnknown() {
+// Handle "try-again" button click
+function markTryAgain() {
   document.getElementById('answer-button').disabled = false;
   var currentCard = flashcards.shift(); // Remove first card
   flashcards.push(currentCard); // Add it back to the end
   showNextCard();
 }
 
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+  }
+  return array;
+}
+
 // Load initial cards (replace with your data source)
-flashcards.push({ question: 'What is the capital of France?', answer: 'Paris' });
-flashcards.push({ question: 'The tallest mountain in the world is...', answer: 'Mount Everest' });
-flashcards.push({ question: '3', answer: 'Th' });
-flashcards.push({ question: '4', answer: 'Fo' });
-flashcards.push({ question: '5', answer: 'Fi' });
-flashcards.push({ question: '6', answer: 'Si' });
-flashcards.push({ question: '7', answer: 'Se' });
-flashcards.push({ question: '8', answer: 'Ei' });
-flashcards.push({ question: '9', answer: 'Ni' });
-flashcards.push({ question: '10', answer: 'Te' });
+flashcards.push({ question: '(動物)有親緣關係的(文中接 to N. 指「和………………有親緣關係」)；相關的', answer: 'related' });
+flashcards.push({ question: '一般、通常；典型地', answer: 'typically' });
+flashcards.push({ question: '全球地；在全球各地', answer: 'globally' });
+flashcards.push({ question: '可靠的、值得信賴的、確鑿的', answer: 'reliable' });
+flashcards.push({ question: '向前、朝前', answer: 'forward' });
+flashcards.push({ question: '天真的；無辜的；清白的', answer: 'innocent' });
+flashcards.push({ question: '措詞、詞語；術語、專門名稱', answer: 'term' });
+flashcards.push({ question: '洲；大陸', answer: 'continent' });
+flashcards.push({ question: '狩獵者、獵人', answer: 'hunter' });
+flashcards.push({ question: '肉眼可見的；明顯的', answer: 'visible' });
+
+// Shuffle the cards
+shuffle(flashcards);
 
 // Show the first card
 showNextCard();
 
 // Bind button click events
-document.getElementById('known-button').addEventListener('click', markKnown);
-document.getElementById('unknown-button').addEventListener('click', markUnknown);
+document.getElementById('good-button').addEventListener('click', markGood);
+document.getElementById('try-again-button').addEventListener('click', markTryAgain);
