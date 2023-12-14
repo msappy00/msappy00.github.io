@@ -1,28 +1,27 @@
 // Define your queue data structure
-const flashcards = [];
+var flashcards = [];
 
 // Function to show the next card
 function showNextCard() {
-  const currentCard = flashcards.shift(); // Remove and return first card
+  var currentCard = flashcards[0]; // return first card
   if (!currentCard) {
     // Handle no cards remaining
     document.getElementById('flashcard-container').innerHTML = 'No cards left!';
     return;
   }
-  document.getElementById('aud-mp3').src = currentCard.aud;
   document.getElementById('flashcard-question').textContent = currentCard.question;
   document.getElementById('flashcard-answer').textContent = "";
   document.getElementById('answer-button').addEventListener('click', () => {
-  document.getElementById('flashcard-answer').textContent = currentCard.answer;
-  document.getElementById('answer-button').disabled = true;
-  document.getElementById('known-button').disabled = false;
-  document.getElementById('unknown-button').disabled = false;
+    document.getElementById('flashcard-answer').textContent = currentCard.answer;
+    document.getElementById('answer-button').disabled = true;
+    document.getElementById('known-button').disabled = false;
+    document.getElementById('unknown-button').disabled = false;
   });
 }
 
 // Handle "known" button click
 function markKnown() {
-  // Remove the card from the queue
+  var currentCard = flashcards.shift(); // Remove the card from the queue
   document.getElementById('answer-button').disabled = false;
   showNextCard();
 }
@@ -30,16 +29,22 @@ function markKnown() {
 // Handle "unknown" button click
 function markUnknown() {
   document.getElementById('answer-button').disabled = false;
-  const currentCard = flashcards.shift(); // Remove first card
+  var currentCard = flashcards.shift(); // Remove first card
   flashcards.push(currentCard); // Add it back to the end
   showNextCard();
 }
 
 // Load initial cards (replace with your data source)
-flashcards.push({ question: 'Repeat:', aud: 'audio/horse.mp3', answer: 'horse' });
-flashcards.push({ question: 'What is the capital of France?', aud: 'audio/blank.mp3', answer: 'Paris' });
-flashcards.push({ question: 'Repeat:', aud: 'audio/horse.mp3', answer: 'horse' });
-flashcards.push({ question: 'The tallest mountain in the world is...', aud: 'audio/blank.mp3', answer: 'Mount Everest' });
+flashcards.push({ question: 'What is the capital of France?', answer: 'Paris' });
+flashcards.push({ question: 'The tallest mountain in the world is...', answer: 'Mount Everest' });
+flashcards.push({ question: '3', answer: 'Th' });
+flashcards.push({ question: '4', answer: 'Fo' });
+flashcards.push({ question: '5', answer: 'Fi' });
+flashcards.push({ question: '6', answer: 'Si' });
+flashcards.push({ question: '7', answer: 'Se' });
+flashcards.push({ question: '8', answer: 'Ei' });
+flashcards.push({ question: '9', answer: 'Ni' });
+flashcards.push({ question: '10', answer: 'Te' });
 
 // Show the first card
 showNextCard();
