@@ -10,8 +10,9 @@ function showNextCard() {
     return;
   }
   document.getElementById('flashcard-question').textContent = currentCard.question;
-  document.getElementById('flashcard-answer').textContent = "";
-  document.getElementById('answer-button').addEventListener('click', () => {
+  document.getElementById('flashcard-audio').setAttribute('src', 'audio/' + currentCard.answer + '.mp3');
+    document.getElementById('flashcard-answer').textContent = "";
+    document.getElementById('answer-button').addEventListener('click', () => {
     document.getElementById('flashcard-answer').textContent = currentCard.answer;
     document.getElementById('answer-button').disabled = true;
     document.getElementById('good-button').disabled = false;
@@ -43,6 +44,16 @@ function shuffle(array) {
 }
 
 // Load initial cards (replace with your data source)
+flashcards.push({ question: 'Listen and repeat:', answer: 'related' });
+flashcards.push({ question: 'Listen and repeat:', answer: 'typically' });
+flashcards.push({ question: 'Listen and repeat:', answer: 'globally' });
+flashcards.push({ question: 'Listen and repeat:', answer: 'reliable' });
+flashcards.push({ question: 'Listen and repeat:', answer: 'forward' });
+flashcards.push({ question: 'Listen and repeat:', answer: 'innocent' });
+flashcards.push({ question: 'Listen and repeat:', answer: 'term' });
+flashcards.push({ question: 'Listen and repeat:', answer: 'continent' });
+flashcards.push({ question: 'Listen and repeat:', answer: 'hunter' });
+flashcards.push({ question: 'Listen and repeat:', answer: 'visible' });
 flashcards.push({ question: '(動物)有親緣關係的(文中接 to N. 指「和………………有親緣關係」)；相關的', answer: 'related' });
 flashcards.push({ question: '一般、通常；典型地', answer: 'typically' });
 flashcards.push({ question: '全球地；在全球各地', answer: 'globally' });

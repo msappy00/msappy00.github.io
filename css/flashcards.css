@@ -23,6 +23,10 @@ body {
   margin-bottom: 20px;
 }
 
+audio {
+  margin-bottom: 20px;
+}
+
 #flashcard-answer {
   font-size: 2em;
   font-weight: bold;
