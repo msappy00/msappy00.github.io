@@ -1,6 +1,6 @@
-CSS
 
 body {
+  background-color: #F7D4EC;
   margin: 0;
   padding: 20px;
 }
@@ -23,7 +23,6 @@ body {
 }
 
 #flashcard-audio {
-
   margin-bottom: 20px;
 }
 
