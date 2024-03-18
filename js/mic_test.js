@@ -1,4 +1,5 @@
 let mic;
+var fft;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -9,17 +10,23 @@ function setup() {
   // start the Audio Input.
   // By default, it does not .connect() (to the computer speakers)
   mic.start();
+
+  fft = new p5.FFT();
 }
 
 function draw() {
   background(0);
+  stroke(255);
 
   // Get the overall volume (between 0 and 1.0)
   let vol = mic.getLevel();
-  fill(127);
-  stroke(0);
+  var wave = fft.waveform();
 
-  // Draw an ellipse with height based on volume
-  let h = map(vol, 0, 1, height, 0);
-  ellipse(width / 2, h - 25, 50, 50);
+  for (var i = 0; i < width; i++) {
+    var index = floor(map(i, 0, width, 0, wave.length))
+
+    var x = i;
+    var y = wave[index] * 300 + height / 2;
+    point(x, y);
+  }
 }
