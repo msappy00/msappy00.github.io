@@ -4,7 +4,7 @@ var fft;
 function setup() {
   let cnv = createCanvas(windowWidth, windowHeight);
 
-  var promise = document.querySelector('video').play();
+  var promise = document.querySelector('audio').play();
 
   if (promise !== undefined) {
     promise.then(_ => {
