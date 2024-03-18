@@ -154,7 +154,7 @@ global.TONE_SILENCE_VERSION_LOGGING = true;
 
 
 
-// var audiocontext = new window.AudioContext();
+var audiocontext = new window.AudioContext();
 
 Tone_core_Tone__WEBPACK_IMPORTED_MODULE_1___default.a.setContext(audiocontext);
 
