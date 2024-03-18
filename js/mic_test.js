@@ -3,20 +3,11 @@ var fft;
 
 function setup() {
   let cnv = createCanvas(windowWidth, windowHeight);
-
-  var promise = document.querySelector('audio').play();
-
-  if (promise !== undefined) {
-    promise.then(_ => {
-      // Create an Audio input
-      mic = new p5.AudioIn();
-      // start the Audio Input.
-      mic.start();
-    }).catch(error => {
-      // Autoplay was prevented.
-      // Show a "Play" button so that user can start playback.
-    });
-  }
+  
+  // Create an Audio input
+  mic = new p5.AudioIn();
+  // start the Audio Input.
+  mic.start();
 
   fft = new p5.FFT();
 }
