@@ -1,7 +1,7 @@
 let mic;
 
 function setup() {
-  createCanvas(710, 200);
+  createCanvas(windowWidth, windowHeight);
 
   // Create an Audio input
   mic = new p5.AudioIn();
