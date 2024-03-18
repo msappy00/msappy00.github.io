@@ -1,11 +1,13 @@
 let mic;
 var fft;
 
+function preload() {
+  song = loadSound("audio/timer.mp3")
+}
+
 function setup() {
   let cnv = createCanvas(windowWidth, windowHeight);
-  cnv.mousePressed(userStartAudio);
-  // mimics the autoplay policy
-  // getAudioContext().suspend();
+  // cnv.mousePressed(userStartAudio);
   
   // Create an Audio input
   mic = new p5.AudioIn();
@@ -18,19 +20,33 @@ function setup() {
 function draw() {
   background(0);
   stroke(255);
+  strokeWeight(10);
+  noFill();
+  let cx = width/2;
+  let cy = height/2;
+  let cmin = Math.min(cx, cy)
+
+  // Get the overall volume (between 0 and 1.0)
+  let vol = mic.getLevel()*(cmin); 
+  var wave = fft.waveform();
 
   textAlign(CENTER);
 
   if (getAudioContext().state !== 'running') {
     text('click to start audio', width/2, height/2);
   } else {
-    text('audio is enabled', width/2, height/2);
+    text('', width/2, height/2);
   }
-
-  // Get the overall volume (between 0 and 1.0)
-  let vol = mic.getLevel(); 
-  text(vol, width/2, height/2);
+  ellipse(cx, cy, vol, vol);
 }
+
+/* function mouseClicked() {
+  if (song.isPlaying()) {
+    song.pause()
+  } else {
+    song.play()
+  }
+} */
 
 function touchStarted() {
   if (getAudioContext().state !== 'running') {
