@@ -3,12 +3,13 @@ var fft;
 
 function setup() {
   let cnv = createCanvas(windowWidth, windowHeight);
+  cnv.mousePressed(userStartAudio);
   // mimics the autoplay policy
-  getAudioContext().suspend();
+  // getAudioContext().suspend();
   
   // Create an Audio input
   mic = new p5.AudioIn();
-  // start the Audio Input.
+  mic.getSources(gotSources);
   mic.start();
 
   fft = new p5.FFT();
@@ -27,20 +28,26 @@ function draw() {
   }
 
   // Get the overall volume (between 0 and 1.0)
-  let vol = mic.getLevel();
-  var wave = fft.waveform();
-
-  for (var i = 0; i < width; i++) {
-    var index = floor(map(i, 0, width, 0, wave.length))
-
-    var x = i;
-    var y = wave[index] * 300 + height / 2;
-    point(x, y);
-  }
+  let vol = mic.getLevel(); 
+  text(vol, width/2, height/2);
 }
 
 function touchStarted() {
   if (getAudioContext().state !== 'running') {
     getAudioContext().resume();
+  }
+}
+
+function gotSources(deviceList) {
+  let id = 0;
+  print("Audio In Devices\n------------------");
+  for (let d of deviceList) {
+    print('[' + id + '] ' + d.label);
+    id++;
+  }
+  if (deviceList.length > 0) {
+    audioIn.setSource(audioSource);
+    let currentSource = deviceList[audioIn.currentSource];
+    print('set source to: ' + currentSource.label);
   }
 }
