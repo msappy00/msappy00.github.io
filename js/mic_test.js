@@ -3,6 +3,8 @@ var fft;
 
 function setup() {
   let cnv = createCanvas(windowWidth, windowHeight);
+  // mimics the autoplay policy
+  getAudioContext().suspend();
   
   // Create an Audio input
   mic = new p5.AudioIn();
