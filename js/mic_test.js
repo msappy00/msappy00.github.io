@@ -3,7 +3,7 @@ var fft;
 
 function setup() {
   let cnv = createCanvas(windowWidth, windowHeight);
-  cnv.mousePressed(userStartAudio);
+
   var promise = document.querySelector('video').play();
 
   if (promise !== undefined) {
