@@ -16,6 +16,20 @@ function draw() {
   background(0);
   stroke(255);
 
+  textAlign(CENTER);
+
+  if (getAudioContext().state !== 'running') {
+    text('click to start audio', width/2, height/2);
+  } else {
+    text('audio is enabled', width/2, height/2);
+  }
+ 
+  function touchStarted() {
+    if (getAudioContext().state !== 'running') {
+      getAudioContext().resume();
+    }
+  }
+
   // Get the overall volume (between 0 and 1.0)
   let vol = mic.getLevel();
   var wave = fft.waveform();
