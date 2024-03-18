@@ -2,14 +2,11 @@ let mic;
 var fft;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-
+  let cnv = createCanvas(windowWidth, windowHeight);
+  cnv.mousePressed(userStartAudio);
   // Create an Audio input
   mic = new p5.AudioIn();
-
   // start the Audio Input.
-  // By default, it does not .connect() (to the computer speakers)
-  mic.start();
 
   fft = new p5.FFT();
 }
