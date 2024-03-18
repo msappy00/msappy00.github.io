@@ -151,10 +151,16 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
  var Tone_core_Context__WEBPACK_IMPORTED_MODULE_2___default = __webpack_require__.n(Tone_core_Context__WEBPACK_IMPORTED_MODULE_2__);
 global.TONE_SILENCE_VERSION_LOGGING = true;
 
+var promise = document.querySelector('video').play();
 
-
-
-var audiocontext = new window.AudioContext();
+  if (promise !== undefined) {
+    promise.then(_ => {
+      var audiocontext = new window.AudioContext();
+    }).catch(error => {
+      // Autoplay was prevented.
+      // Show a "Play" button so that user can start playback.
+    });
+  }
 
 Tone_core_Tone__WEBPACK_IMPORTED_MODULE_1___default.a.setContext(audiocontext);
 
