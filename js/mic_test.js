@@ -23,12 +23,6 @@ function draw() {
   } else {
     text('audio is enabled', width/2, height/2);
   }
- 
-  function touchStarted() {
-    if (getAudioContext().state !== 'running') {
-      getAudioContext().resume();
-    }
-  }
 
   // Get the overall volume (between 0 and 1.0)
   let vol = mic.getLevel();
@@ -40,5 +34,11 @@ function draw() {
     var x = i;
     var y = wave[index] * 300 + height / 2;
     point(x, y);
+  }
+}
+
+function touchStarted() {
+  if (getAudioContext().state !== 'running') {
+    getAudioContext().resume();
   }
 }
