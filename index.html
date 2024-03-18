@@ -7,12 +7,25 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/style.css">
 
+	<script>
+		// Helper function
+		let domReady = (cb) => {
+		document.readyState === 'interactive' || document.readyState === 'complete'
+			? cb()
+			: document.addEventListener('DOMContentLoaded', cb);
+		};
+
+		domReady(() => {
+		// Display body when DOM is loaded
+		document.body.style.visibility = 'visible';
+		});
+	</script>
 	<script src="js/p5.js"></script>
 	<script src="js/p5.sound.js"></script>
 	<script src="js/mic_test.js"></script>
 </head>
 
-<body>
+<body style = "visibility: hidden;">
 	
 
 </body>
