@@ -1,4 +1,5 @@
 var song;
+var button;
 var img;
 var fft;
 var particles = [];
@@ -9,10 +10,16 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  let canvas = createCanvas(windowWidth, windowHeight);
+  canvas.parent('sketch');
   angleMode(DEGREES);
   imageMode(CENTER);
   rectMode(CENTER);
+  textAlign(LEFT);
+  button = createButton(">");
+  button.size(80,80);
+  button.position((width/2)-40, (height/2)-40);
+  button.mouseClicked(togglePlaying);
   fft = new p5.FFT(0.3);
 
   img.filter(BLUR, 12);
@@ -75,22 +82,14 @@ function draw() {
 
 }
 
-function mouseClicked() {
+function togglePlaying() {
   if (song.isPlaying()) {
     song.pause();
+    button.html(">");
     noLoop();
   } else {
     song.play();
-    loop();
-  }
-}
-
-function touchStarted() {
-  if (song.isPlaying()) {
-    song.pause();
-    noLoop();
-  } else {
-    song.play();
+    button.html("||");
     loop();
   }
 }

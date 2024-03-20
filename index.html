@@ -23,11 +23,32 @@
 	<script src="js/p5.js"></script>
 	<script src="js/p5.sound.js"></script>
 	<script src="js/song.js"></script>
+	<style>
+		body {
+			margin: 0;
+		}
+			
+		#container {
+			min-height: 100vh; /* mobile viewport bug fix */
+			min-height: -webkit-fill-available;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+		}
+			
+		#sketch {
+			position: relative;
+		}
+	</style> 
 </head>
 
 <body style = "visibility: hidden;">
-	
+	<div id="container">
+        <div id="sketch">
 
+        </div>
+    </div>
 </body>
 
 </html>
