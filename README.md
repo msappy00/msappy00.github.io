@@ -1,4 +1,4 @@
-This is a home for web apps currently: 
+This is currently a home for: 
 * a calculator
 * a javascript quiz
   
